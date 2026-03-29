@@ -286,7 +286,7 @@
             <h1>Claude Code Reference Dashboard</h1>
         </div>
         <div class="global-controls">
-            <span class="release-tag">As of release: v2.1.85</span>
+            <span class="release-tag">As of release: v2.1.86</span>
             <a href="changelog.html" class="header-link">Changelog</a>
             <button class="theme-toggle" id="themeBtn" onclick="toggleTheme()">&#9728;&#65039;</button>
             <input type="text" id="dashboardSearch" placeholder="Search... (Ctrl+K)">
@@ -328,7 +328,7 @@
                 <h3>General Controls</h3>
                 <table>
                     <tr class="search-item"><td><code>Ctrl C</code> / <code>D</code></td><td class="desc">Cancel input / Exit session</td></tr>
-                    <tr class="search-item"><td><code class="new">Ctrl L</code></td><td class="desc">Clear screen + full redraw</td></tr>
+                    <tr class="search-item"><td><code>Ctrl L</code></td><td class="desc">Clear screen + full redraw</td></tr>
                     <tr class="search-item"><td><code>Ctrl O</code></td><td class="desc">Toggle verbose output</td></tr>
                     <tr class="search-item"><td><code>Ctrl R</code></td><td class="desc">Reverse search history</td></tr>
                     <tr class="search-item"><td><code>Ctrl G</code></td><td class="desc">Open prompt in external editor</td></tr>
@@ -343,9 +343,9 @@
             <div class="search-group">
                 <h3>Mode & Input</h3>
                 <table>
-                    <tr class="search-item"><td><code class="new">Tab</code></td><td class="desc">Cycle permission modes</td></tr>
-                    <tr class="search-item"><td><code class="new">\ P</code></td><td class="desc">Switch model</td></tr>
-                    <tr class="search-item"><td><code class="new">\ T</code></td><td class="desc">Toggle thinking on/off</td></tr>
+                    <tr class="search-item"><td><code>Tab</code></td><td class="desc">Cycle permission modes</td></tr>
+                    <tr class="search-item"><td><code>\ P</code></td><td class="desc">Switch model</td></tr>
+                    <tr class="search-item"><td><code>\ T</code></td><td class="desc">Toggle thinking on/off</td></tr>
                     <tr class="search-item"><td><code>\ Enter</code></td><td class="desc">Newline (quick)</td></tr>
                     <tr class="search-item"><td><code>Ctrl J</code></td><td class="desc">Newline (control seq)</td></tr>
                 </table>
@@ -385,10 +385,10 @@
                 <table>
                     <tr class="search-item"><td><code>/config</code></td><td class="desc">Open settings interface</td></tr>
                     <tr class="search-item"><td><code>/model [model]</code></td><td class="desc">Switch model manually</td></tr>
-                    <tr class="search-item"><td><code class="new">/effort [level]</code></td><td class="desc">Set effort (low/med/high/auto)</td></tr>
+                    <tr class="search-item"><td><code>/effort [level]</code></td><td class="desc">Set effort (low/med/high/auto)</td></tr>
                     <tr class="search-item"><td><code class="unverified">/fast [on/off]</code></td><td class="desc">Toggle Fast mode</td></tr>
                     <tr class="search-item"><td><code>/permissions</code></td><td class="desc">View/update tool permissions</td></tr>
-                    <tr class="search-item"><td><code class="new">/color [color]</code></td><td class="desc">Set prompt-bar color</td></tr>
+                    <tr class="search-item"><td><code>/color [color]</code></td><td class="desc">Set prompt-bar color</td></tr>
                     <tr class="search-item"><td><code>/keybindings</code></td><td class="desc">Customize keyboard shortcuts</td></tr>
                     <tr class="search-item"><td><code>/terminal-setup</code></td><td class="desc">Configure terminal integration</td></tr>
                     <tr class="search-item"><td><code>/theme</code></td><td class="desc">Change color theme</td></tr>
@@ -411,7 +411,7 @@
                     <tr class="search-item"><td><code>/agents</code></td><td class="desc">Manage sub-agents</td></tr>
                     <tr class="search-item"><td><code>/chrome</code></td><td class="desc">Chrome browser integration</td></tr>
                     <tr class="search-item"><td><code>/add-dir &lt;path&gt;</code></td><td class="desc">Add working directory to context</td></tr>
-                    <tr class="search-item"><td><code class="new">/reload-plugins</code></td><td class="desc">Hot-reload local plugins</td></tr>
+                    <tr class="search-item"><td><code>/reload-plugins</code></td><td class="desc">Hot-reload local plugins</td></tr>
                 </table>
             </div>
 
@@ -421,7 +421,7 @@
                     <tr class="search-item"><td><code>/btw &lt;query&gt;</code></td><td class="desc">Side question (does not alter context)</td></tr>
                     <tr class="search-item"><td><code class="unverified">/plan [desc]</code></td><td class="desc">Switch to Plan Mode directly</td></tr>
                     <tr class="search-item"><td><code>/loop [interval]</code></td><td class="desc">Schedule recurring background task</td></tr>
-                    <tr class="search-item"><td><code class="new">/schedule</code></td><td class="desc">Cloud scheduled tasks</td></tr>
+                    <tr class="search-item"><td><code>/schedule</code></td><td class="desc">Cloud scheduled tasks</td></tr>
                     <tr class="search-item"><td><code>/voice</code></td><td class="desc">Push-to-talk voice prompting</td></tr>
                     <tr class="search-item"><td><code>/doctor</code></td><td class="desc">Diagnose installation/env issues</td></tr>
                     <tr class="search-item"><td><code>/pr-comments [PR]</code></td><td class="desc">Fetch GitHub PR comments</td></tr>
@@ -450,8 +450,8 @@
             <div class="search-group">
                 <h3>Headless & CI Flags</h3>
                 <table>
-                    <tr class="search-item"><td><code class="new">--bare</code></td><td class="desc">Minimal headless (no hooks/LSP)</td></tr>
-                    <tr class="search-item"><td><code class="new">--channels</code></td><td class="desc">Permission relay / MCP push msg</td></tr>
+                    <tr class="search-item"><td><code>--bare</code></td><td class="desc">Minimal headless (no hooks/LSP)</td></tr>
+                    <tr class="search-item"><td><code>--channels</code></td><td class="desc">Permission relay / MCP push msg</td></tr>
                     <tr class="search-item"><td><code>--output-format json</code></td><td class="desc">Structured JSON output</td></tr>
                     <tr class="search-item"><td><code>--json-schema</code></td><td class="desc">Strict JSON schema validation</td></tr>
                     <tr class="search-item"><td><code>--dangerously-skip-permissions</code></td><td class="desc">Skip all approval prompts</td></tr>
@@ -492,7 +492,7 @@
                 <table>
                     <tr class="search-item"><td><code>modelOverrides</code></td><td class="desc">Map model picker to custom IDs</td></tr>
                     <tr class="search-item"><td><code>autoMemoryDirectory</code></td><td class="desc">Custom auto-loaded memory dir</td></tr>
-                    <tr class="search-item"><td><code class="new">worktree.sparsePaths</code></td><td class="desc">Sparse checkout dirs for agents</td></tr>
+                    <tr class="search-item"><td><code>worktree.sparsePaths</code></td><td class="desc">Sparse checkout dirs for agents</td></tr>
                 </table>
             </div>
 
@@ -507,6 +507,7 @@
                     <tr class="search-item"><td><code>IS_DEMO</code></td><td class="desc">Demo mode (hides email/org)</td></tr>
                     <tr class="search-item"><td><code>CLAUDECODE</code></td><td class="desc">Detects if running inside CC shell</td></tr>
                     <tr class="search-item"><td><code>CLAUDE_CODE_SUBPROCESS_ENV_SCRUB</code></td><td class="desc">Strip credentials from subprocesses</td></tr>
+                    <tr class="search-item"><td><code class="new">CLAUDE_CODE_MCP_SERVER_NAME</code> / <code class="new">CLAUDE_CODE_MCP_SERVER_URL</code></td><td class="desc">Inject server identity into MCP headerHelper scripts</td></tr>
                 </table>
             </div>
         </div>
@@ -529,7 +530,7 @@
                 <h3>Skill YAML Frontmatter</h3>
                 <table>
                     <tr class="search-item"><td><code>description</code></td><td class="desc">Auto-invocation trigger string</td></tr>
-                    <tr class="search-item"><td><code class="new">effort</code></td><td class="desc">Override effort level specifically for skill</td></tr>
+                    <tr class="search-item"><td><code>effort</code></td><td class="desc">Override effort level specifically for skill</td></tr>
                     <tr class="search-item"><td><code>allowed-tools</code></td><td class="desc">Skip permission prompts for skill</td></tr>
                     <tr class="search-item"><td><code>context: fork</code></td><td class="desc">Run skill logic in an isolated subagent</td></tr>
                     <tr class="search-item"><td><code>$ARGUMENTS</code></td><td class="desc">User input placeholder replacement</td></tr>
@@ -547,7 +548,7 @@
                     <tr class="search-item"><td><code>memory: user|project</code></td><td class="desc">Persistent memory storage scope</td></tr>
                     <tr class="search-item"><td><code>background: true</code></td><td class="desc">Run entirely as background task</td></tr>
                     <tr class="search-item"><td><code>initialPrompt</code></td><td class="desc">Auto-submit first turn on spawn</td></tr>
-                    <tr class="search-item"><td><code class="new">SendMessage</code></td><td class="desc">Auto-resumes stopped agents</td></tr>
+                    <tr class="search-item"><td><code>SendMessage</code></td><td class="desc">Auto-resumes stopped agents</td></tr>
                 </table>
             </div>
         </div>
@@ -584,7 +585,7 @@
                     <tr class="search-item"><td><code>claude mcp list/add/remove</code></td><td class="desc">Standard MCP server management</td></tr>
                     <tr class="search-item"><td><code>claude mcp serve</code></td><td class="desc">Run Claude Code as an MCP server</td></tr>
                     <tr class="search-item"><td><code>--transport http/stdio/sse</code></td><td class="desc">Protocol connection methods</td></tr>
-                    <tr class="search-item"><td><code class="new">Elicitation</code></td><td class="desc">Servers can request input mid-task</td></tr>
+                    <tr class="search-item"><td><code>Elicitation</code></td><td class="desc">Servers can request input mid-task</td></tr>
                 </table>
             </div>
 
@@ -598,7 +599,7 @@
         </div>
 
         <footer class="global-footer">
-            Template v1.1 | March 2026<br>
+            Template v1.2 | March 2026<br>
             <a href="https://dommango.github.io" target="_blank" rel="noopener noreferrer">Context//Collapse</a>
         </footer>
 
