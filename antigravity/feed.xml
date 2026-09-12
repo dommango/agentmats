@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Antigravity CLI Placemat — changes</title>
+  <link href="https://dommango.github.io/agent-placemats/antigravity/"/>
+  <link rel="self" href="https://dommango.github.io/agent-placemats/antigravity/feed.xml"/>
+  <id>https://dommango.github.io/agent-placemats/antigravity/</id>
+  <updated>2026-09-12T09:00:00Z</updated>
+  <entry>
+    <title>Antigravity CLI v1.2.2 — 8 placemat changes</title>
+    <id>https://dommango.github.io/agent-placemats/antigravity/changelog.html#rel-1-2-2</id>
+    <link href="https://dommango.github.io/agent-placemats/antigravity/changelog.html#rel-1-2-2"/>
+    <updated>2026-09-12T09:00:00Z</updated>
+    <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;card-keys&lt;/code&gt; — initial reference: TUI keybindings, prompt glyphs, activity rails and status symbols&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;card-slash-core&lt;/code&gt; — initial reference: session management, context compaction, history export and model switching&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;card-slash-tools&lt;/code&gt; — initial reference: planning mode, goal orchestration, browser automation and schedule cron timers&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;card-cli&lt;/code&gt; — initial reference: print mode, NDJSON streams, JSON schemas, effort flags and subcommands&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;card-settings&lt;/code&gt; — initial reference: settings.json keys for model defaults, reasoning effort, permissions and sandbox&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;card-env&lt;/code&gt; — initial reference: API keys, project overrides, directory configs, sandbox flags and proxy support&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;card-skills&lt;/code&gt; — initial reference: AGENTS.md / GEMINI.md hierarchical discovery, progressive disclosure and SKILL.md&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;card-hooks&lt;/code&gt; — initial reference: lifecycle event hooks, plugin cross-imports and MCP server management&lt;/li&gt;&lt;/ul&gt;</content>
+  </entry>
+</feed>
