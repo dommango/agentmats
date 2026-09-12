@@ -62,6 +62,12 @@ Conventions, content rules and the update pipeline are in
 [AGENTS.md](AGENTS.md). Zero dependencies — Node is used only for the generator
 and the test suite.
 
+Each agent directory also carries `sources.json` (where its version and docs
+come from, and the traps in getting them) and `PIPELINE.md` (the procedure a
+daily sync follows). The Hermes placemat covers that agent's CLI/TUI coding
+surface only; its scope is enforced by tests against the allow/denylist in
+`hermes/sources.json`, not by eye.
+
 ## Licence
 
 [MIT](LICENSE)
