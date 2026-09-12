@@ -196,6 +196,17 @@ for (const agent of targets) {
     assert.strictEqual((html.match(/<div class="search-group">/g) || []).length, 0, 'old div.search-group still present');
   });
 
+  // A group whose rows all got removed still renders — summary, heading and a
+  // JS-filled count reading 0. A sync run only touches rows the release mentions,
+  // so it will never notice, and nothing else in the suite looks at group contents.
+  test(`${agent}: no search-group is empty`, () => {
+    const empty = Array.from(
+      html.matchAll(/<details class="search-group"[^>]*data-group="([^"]+)">([\s\S]*?)<\/details>/g))
+      .filter((m) => !m[2].includes('<tr class="search-item"'))
+      .map((m) => m[1]);
+    assert.deepStrictEqual(empty, [], `empty groups render with a count of 0: ${empty.join(', ')}`);
+  });
+
   test(`${agent}: index.html section nav has one chip per content card, in card order`, () => {
     const cardIds = Array.from(html.matchAll(/<div class="card" id="(card-[a-z-]+)">/g), (m) => m[1]);
     const nav = html.match(/<nav class="section-nav"[\s\S]*?<\/nav>/);
