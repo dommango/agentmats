@@ -1158,10 +1158,9 @@ code.unverified {
                     <div class="legend-item"><span class="legend-swatch swatch-unverified"></span> Unverified</div>
                     <div class="legend-item"><button type="button" class="notes-all" id="notesAll" aria-pressed="false">Show all notes</button></div>
                 </div>
-                <p class="scope-note">Scope: Hermes Agent is a general autonomous agent. This placemat covers its
-                <strong>CLI and TUI coding surface only</strong> — its messaging, voice and desktop surfaces are
-                deliberately left out. See the
-                <a href="https://hermes-agent.nousresearch.com/docs/" target="_blank" rel="noopener noreferrer">full documentation</a> for those.</p>
+                <p class="scope-note">Scope: Hermes Agent is a general autonomous agent, and this placemat covers only its
+                <strong>CLI and TUI coding surface</strong>. Everything outside that surface is deliberately left out —
+                the <a href="https://hermes-agent.nousresearch.com/docs/" target="_blank" rel="noopener noreferrer">full documentation</a> covers it.</p>
             </div>
         </div>
 
@@ -1511,7 +1510,6 @@ code.unverified {
                 <table>
                     <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
                     <tr class="search-item" id="i-env-file"><td><a class="row-link" href="#i-env-file" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>~/.hermes/.env</code></td><td class="desc"><span class="summary">Where provider API keys and tokens belong</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Secrets are required here rather than in <code>config.yaml</code>; logs auto-redact them.</li></ul></td></tr>
-                    <tr class="search-item" id="i-hermes-secrets"><td><a class="row-link" href="#i-hermes-secrets" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code class="unverified">hermes secrets</code></td><td class="desc"><span class="summary">Pull API keys from an external secret source at startup</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Documented as currently supporting Bitwarden Secrets Manager; confirm the provider list before relying on it.</li></ul></td></tr>
                 </table>
             </details>
 

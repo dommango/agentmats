@@ -259,6 +259,58 @@ for (const agent of targets) {
     assert.strictEqual(head[1], tag[1], 'print-head release differs from the header release tag');
   });
 
+  // Scope guard (D3). Hermes is a general autonomous agent and the placemat covers
+  // only its CLI/TUI coding surface, so the denylist in its sources.json is enforced
+  // here rather than by eye.
+  //
+  // Two deliberate narrowings, both learned from false positives:
+  //   - rows only, never the whole file — template class names like `dashboard-grid`
+  //     and the scope note itself would otherwise trip it
+  //   - <code> chips only, whole words — the denylist holds COMMAND names, and prose
+  //     legitimately contains those letters ("sends the contents back", "API keys and
+  //     secrets", the "subscription link" on the allowlisted `hermes portal`)
+  test(`${agent}: no scope-denylisted command appears in any row`, () => {
+    const manifest = path.join(ROOT, agent, 'sources.json');
+    if (!fs.existsSync(manifest)) return;                       // agent has no scope limit
+    const deny = JSON.parse(fs.readFileSync(manifest, 'utf8')).scope_denylist;
+    if (!Array.isArray(deny) || !deny.length) return;
+    const rows = html.match(/<tr class="search-item"[\s\S]*?<\/tr>/g) || [];
+    assert.ok(rows.length > 0, 'no rows found');
+    const chips = rows.flatMap((r) => Array.from(r.matchAll(/<code[^>]*>([\s\S]*?)<\/code>/g), (m) => m[1]));
+    assert.ok(chips.length > 0, 'no code chips found');
+    const offenders = new Set();
+    deny.forEach((term) => {
+      const re = new RegExp(`(^|[^a-z0-9-])${term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}([^a-z0-9-]|$)`, 'i');
+      chips.forEach((c) => { if (re.test(c)) offenders.add(term); });
+    });
+    assert.deepStrictEqual([...offenders], [],
+      `out-of-scope commands found in row chips: ${[...offenders].join(', ')}`);
+  });
+
+  // The positive counterpart to the denylist guard: every `<agent> <command>` row
+  // subject must be on scope_allowlist. Only the row's FIRST chip counts — that is
+  // what the row is about. Later chips legitimately name out-of-scope or deprecated
+  // things in passing (`hermes login` appears in the allowlisted `hermes auth` row
+  // as its deprecated alias). This is what catches a row drifting onto the page
+  // without anyone updating the manifest.
+  test(`${agent}: every command row subject is on the scope allowlist`, () => {
+    const manifest = path.join(ROOT, agent, 'sources.json');
+    if (!fs.existsSync(manifest)) return;
+    const allow = JSON.parse(fs.readFileSync(manifest, 'utf8')).scope_allowlist;
+    if (!Array.isArray(allow) || !allow.length) return;
+    const binary = agent === 'kimi-code' ? 'kimi' : agent;
+    const rows = html.match(/<tr class="search-item"[\s\S]*?<\/tr>/g) || [];
+    const stray = [];
+    rows.forEach((r) => {
+      const first = (r.match(/<code[^>]*>([\s\S]*?)<\/code>/) || [])[1];
+      if (!first) return;
+      const m = first.match(new RegExp(`^${binary} ([a-z][a-z-]*)`));
+      if (m && !allow.includes(m[1])) stray.push(m[1]);
+    });
+    assert.deepStrictEqual([...new Set(stray)], [],
+      `row subjects missing from scope_allowlist: ${[...new Set(stray)].join(', ')}`);
+  });
+
   test(`${agent}: index.html carries an unofficial-use disclaimer`, () => {
     assert.ok(/Unofficial community reference/.test(html), 'footer disclaimer missing');
     assert.ok(/not affiliated with or endorsed by/.test(html), 'non-affiliation wording missing');

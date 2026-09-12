@@ -37,9 +37,20 @@ Machine-readable sources live in `sources.json`; this file is the procedure.
   This placemat covers the CLI/TUI coding surface only. Add nothing that is not on
   `scope_allowlist`, and never anything on `scope_denylist`. If sync PRs start
   ballooning, tighten the allowlist rather than growing the page.
-- **The scope note beside the legend must stay generic.** Do not list excluded feature
-  names in `index.html` — the denylist grep that guards the scope would start matching
-  the note itself. Record specifics in `changelog.html` instead.
+- **The scope guard is a test, not a grep.** `tests/placemat.test.js` reads
+  `scope_denylist` from this directory's `sources.json` and fails if any denylisted
+  command appears in a row's `<code>` chips. It deliberately looks at row chips only:
+  a whole-file grep trips on template class names like `dashboard-grid`, and a
+  prose match trips on ordinary English ("sends the contents back", "API keys and
+  secrets", the "subscription link" on the allowlisted `hermes portal`). Add a
+  command to the allowlist or leave it out — do not weaken the test.
+- **The scope note beside the legend must stay generic.** Do not name excluded
+  features in `index.html`; record specifics in `changelog.html` instead.
+- **An unverified row that is also on the denylist is a manifest bug, not a sync
+  decision.** Step 5 says to promote a confirmed unverified item, which would drag an
+  out-of-scope command onto the page. If you hit this, stop and fix the manifest:
+  either allowlist the command or delete the row. `hermes secrets` was resolved this
+  way — deleted, because integrating an external secret manager is not coding surface.
 - **Dual versioning.** The tag is a date (`vYYYY.M.D`, sometimes with a `.N` same-day
   patch) and the semver lives in the release title: `Hermes Agent v0.21.2 (v2026.9.11)`.
   Display both, and use the **semver** for the changelog id. The tag date and the

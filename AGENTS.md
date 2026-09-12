@@ -192,6 +192,12 @@ Branch `claude/<agent>-update-v<version>`, commit
 version, the run exits silently — no commits, no PR, no output.** A routine
 that opens empty PRs trains everyone to ignore the queue.
 
+The cost of that rule is that a correct no-op and a routine that never ran look
+identical from the outside: both produce nothing. Do not "fix" this by making
+the routine chatty. The signal belongs in the scheduler's own run record — if a
+sync looks overdue, check that the routine ran at all before assuming the poll
+was wrong.
+
 ## Branch and commit conventions
 
 - Feature branches only; never commit directly to `main`
