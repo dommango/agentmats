@@ -1,0 +1,2126 @@
+<!DOCTYPE html>
+<html lang="en" data-agent="hermes">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hermes Agent Placemat (Unofficial)</title>
+    <meta name="description" content="Unofficial single-page reference for the Nous Research Hermes Agent CLI and TUI coding surface — slash commands, flags, config.yaml keys, skills, context files, MCP and automation. Auto-updated from the official docs.">
+    <meta property="og:title" content="Hermes Agent Placemat (Unofficial)">
+    <meta property="og:description" content="Unofficial single-page reference for the Hermes Agent CLI/TUI coding surface — commands, flags, configuration, skills, MCP and automation.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://dommango.github.io/agent-placemats/hermes/">
+    <meta property="og:image" content="https://dommango.github.io/agent-placemats/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://dommango.github.io/agent-placemats/hermes/">
+    <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+PHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iNiIgZmlsbD0iI2I4ODYwYiIvPjx0ZXh0IHg9IjE2IiB5PSIyMyIgZm9udC1mYW1pbHk9Im1vbm9zcGFjZSIgZm9udC1zaXplPSIxNiIgZm9udC13ZWlnaHQ9IjcwMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzFlMWUxZSI+Jmd0O188L3RleHQ+PC9zdmc+Cg==">
+    <link rel="alternate" type="application/atom+xml" title="Hermes Agent Placemat changes" href="feed.xml">
+    <style>
+/* ============================================================
+   Claude Code Placemat — refined
+   ----------------------------------------------------------
+   Same dashboard shape, tighter typography, tuned color tiers,
+   sharper hierarchy. Press Start 2P shows up only as a small
+   wordmark accent — body stays Geist.
+   ============================================================ */
+
+/* Fonts loaded via system stack + local install — no external CDN dependency */
+
+/* ---------- TOKENS ---------- */
+:root {
+    /* surfaces */
+    --bg-page: #0a0a0a;
+    --bg-card: #141414;
+    --bg-card-2: #1a1a1a;        /* nested surface, modal */
+    --bg-code: #1f1f1f;
+    --header-bg: rgba(10, 10, 10, 0.88);
+
+    /* lines */
+    --border:        #262626;
+    --border-strong: #3a3a3a;
+    --border-soft:   #1f1f1f;
+
+    /* text tiers */
+    --fg-main:  #ededed;
+    --fg-muted: #9a9a9a;
+    --fg-dim:   #6e6e6e;
+
+    /* brand */
+    --accent-1: #d97757;
+    --accent-1-2: #e8a586;
+    --accent-2:  #879d86;
+    --accent-2-2: #a9bba8;
+
+    /* state tints */
+    --new-bg:         rgba(135, 157, 134, 0.14);
+    --new-border:     rgba(135, 157, 134, 0.55);
+    --new-bar:        #879d86;
+    --unverified-bg:  rgba(245, 158, 11, 0.12);
+    --unverified-border: rgba(245, 158, 11, 0.45);
+    --unverified-bar: #f59e0b;
+
+    /* interaction */
+    --row-hover:    rgba(255, 255, 255, 0.025);
+    --success-flash: rgba(217, 119, 87, 0.32);
+
+    /* type */
+    --font-sans: "Geist", "Inter", system-ui, -apple-system, sans-serif;
+    --font-mono: "Geist Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    --font-pixel: "Press Start 2P", ui-monospace, monospace;
+
+    /* radii */
+    --r-xs: 3px;
+    --r-sm: 4px;
+    --r-md: 6px;
+
+    /* motion */
+    --dur: 0.18s;
+    --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+:root[data-theme="light"] {
+    --bg-page: #f5f4ef;
+    --bg-card: #ffffff;
+    --bg-card-2: #fbfaf6;
+    --bg-code: #f1efe9;
+    --header-bg: rgba(245, 244, 239, 0.9);
+
+    --border:        #e3e0d6;
+    --border-strong: #c8c4b6;
+    --border-soft:   #ece9e0;
+
+    --fg-main:  #1a1a1a;
+    --fg-muted: #5a5a55;
+    --fg-dim:   #8a8a82;
+
+    --accent-1: #c2410c;
+    --accent-1-2: #9c3309;
+    --accent-2:  #0f766e;
+    --accent-2-2: #115e59;
+
+    --new-bg:         rgba(15, 118, 110, 0.08);
+    --new-border:     rgba(15, 118, 110, 0.35);
+    --new-bar:        #0f766e;
+    --unverified-bg:  rgba(180, 116, 0, 0.10);
+    --unverified-border: rgba(180, 116, 0, 0.4);
+    --unverified-bar: #b47400;
+
+    --row-hover:    rgba(0, 0, 0, 0.025);
+    --success-flash: rgba(194, 65, 12, 0.22);
+}
+
+/* ---------- BASE ---------- */
+* { box-sizing: border-box; }
+html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg-page);
+    color: var(--fg-main);
+    font-family: var(--font-sans);
+    font-size: 13.5px;
+    line-height: 1.4;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition: background-color var(--dur) var(--ease), color var(--dur) var(--ease);
+}
+body {
+    /* --header-h / --nav-h are measured at runtime so the two fixed bars always clear each other */
+    padding: calc(var(--header-h, 52px) + var(--nav-h, 32px) + 12px) 18px 24px;
+}
+
+/* ---------- HEADER ---------- */
+.global-header {
+    position: fixed;
+    top: 0; left: 0; width: 100%;
+    background: var(--header-bg);
+    backdrop-filter: saturate(120%) blur(10px);
+    -webkit-backdrop-filter: saturate(120%) blur(10px);
+    border-bottom: 1px solid var(--border);
+    z-index: 1000;
+    padding: 0 18px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
+}
+
+.minion-icon {
+    width: 24px;
+    height: 24px;
+    image-rendering: pixelated;
+    flex-shrink: 0;
+}
+
+.header-title h1 {
+    margin: 0;
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: -0.015em;
+    color: var(--fg-main);
+    white-space: nowrap;
+}
+.header-title h1 .wm-pixel {
+    font-family: var(--font-pixel);
+    font-size: 9px;
+    letter-spacing: 0;
+    color: var(--accent-1);
+    transform: translateY(-1px);
+}
+
+.header-tagline {
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    color: var(--fg-dim);
+    border-left: 1px solid var(--border-strong);
+    padding-left: 12px;
+    white-space: nowrap;
+}
+@media (max-width: 1000px) { .header-tagline { display: none; } }
+
+.global-controls {
+    display: flex; gap: 8px;
+    align-items: center;
+}
+
+.release-tag {
+    display: inline-flex; align-items: center;
+    gap: 6px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--fg-muted);
+    background: var(--bg-code);
+    border: 1px solid var(--border);
+    padding: 4px 9px;
+    border-radius: 999px;
+    white-space: nowrap;
+}
+.release-tag::before {
+    content: "";
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--accent-1);
+    box-shadow: 0 0 0 2px rgba(217,119,87,0.18);
+}
+
+.header-link {
+    display: inline-flex; align-items: center; gap: 4px;
+    color: var(--fg-muted);
+    text-decoration: none;
+    font-size: 11.5px;
+    padding: 5px 10px;
+    border: 1px solid var(--border);
+    border-radius: var(--r-sm);
+    transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+.header-link:hover { color: var(--fg-main); border-color: var(--accent-2); }
+
+.theme-toggle {
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--fg-main);
+    padding: 4px 9px;
+    border-radius: var(--r-sm);
+    cursor: pointer;
+    font-size: 12px;
+    transition: border-color var(--dur) var(--ease);
+}
+.theme-toggle:hover { border-color: var(--accent-1); }
+
+.search-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+#dashboardSearch {
+    width: 220px;
+    padding: 6px 38px 6px 12px;
+    border-radius: var(--r-sm);
+    border: 1px solid var(--border);
+    background: var(--bg-code);
+    color: var(--fg-main);
+    font-family: var(--font-sans);
+    font-size: 12px;
+    transition: border-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+}
+#dashboardSearch::placeholder { color: var(--fg-dim); }
+#dashboardSearch:focus {
+    outline: none;
+    border-color: var(--accent-2);
+    box-shadow: 0 0 0 3px rgba(135,157,134,0.12);
+}
+.search-wrap .kbd {
+    position: absolute;
+    right: 8px;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--fg-dim);
+    background: var(--bg-card);
+    border: 1px solid var(--border-strong);
+    border-radius: var(--r-xs);
+    padding: 1px 5px;
+    pointer-events: none;
+}
+.search-count {
+    position: absolute;
+    right: 8px;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--accent-2-2);
+    background: var(--bg-card);
+    border: 1px solid var(--accent-2);
+    border-radius: var(--r-xs);
+    padding: 1px 5px;
+    pointer-events: none;
+    display: none;
+}
+.search-wrap.has-term .kbd { display: none; }
+.search-wrap.has-term .search-count { display: inline-block; }
+
+.skip-link {
+    position: absolute;
+    left: -999px;
+    top: 8px;
+    z-index: 1001;
+    background: var(--accent-1);
+    color: #0a0a0a;
+    padding: 6px 10px;
+    border-radius: var(--r-sm);
+    font-weight: 700;
+    text-decoration: none;
+}
+.skip-link:focus { left: 8px; }
+
+/* ---------- SECTION NAV ---------- */
+.section-nav {
+    position: fixed;
+    top: var(--header-h, 52px); left: 0; width: 100%;
+    z-index: 999;
+    background: var(--header-bg);
+    backdrop-filter: saturate(120%) blur(10px);
+    -webkit-backdrop-filter: saturate(120%) blur(10px);
+    border-bottom: 1px solid var(--border);
+}
+.section-nav-inner {
+    max-width: 1900px;
+    margin: 0 auto;
+    padding: 6px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+.section-chips {
+    display: flex;
+    gap: 6px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    min-width: 0;
+}
+.section-chips::-webkit-scrollbar { display: none; }
+.section-chips a {
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--fg-muted);
+    text-decoration: none;
+    padding: 4px 9px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+.section-chips a .chip-count { color: var(--fg-dim); font-size: 10px; }
+.section-chips a:hover { color: var(--fg-main); border-color: var(--border-strong); }
+.section-chips a.is-active { color: var(--accent-1); border-color: var(--accent-1); }
+.section-chips a.is-active .chip-count { color: var(--accent-1-2); }
+.section-tools { display: flex; gap: 6px; flex-shrink: 0; }
+.section-tools button {
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--fg-muted);
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    padding: 4px 9px;
+    border-radius: var(--r-sm);
+    cursor: pointer;
+    transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+.section-tools button:hover { color: var(--fg-main); border-color: var(--accent-2); }
+.section-tools button[aria-pressed="true"] { color: var(--accent-2-2); border-color: var(--accent-2); }
+.card-count {
+    margin-left: auto;
+    font-family: var(--font-mono);
+    font-weight: 400;
+    font-size: 10px;
+    color: var(--fg-dim);
+    letter-spacing: 0;
+}
+
+/* compact density */
+body.density-compact { font-size: 12.5px; }
+body.density-compact td { padding: 2px 5px 2px; }
+body.density-compact td:first-child { width: 38%; }
+body.density-compact .desc { font-size: 11px; line-height: 1.3; }
+body.density-compact code { font-size: 10.5px; }
+body.density-compact .card { padding: 10px 12px 8px; }
+body.density-compact .dashboard-grid {
+    gap: 10px;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+}
+
+/* ---------- DASHBOARD GRID ---------- */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(360px, 100%), 1fr));
+    gap: 14px;
+    max-width: 1900px;
+    margin: 0 auto;
+    align-items: start;
+}
+/* grid items default to min-width:auto, which lets a wide row push the page sideways */
+.dashboard-grid > * { min-width: 0; }
+
+/* ---------- CARDS ---------- */
+.card {
+    position: relative;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--r-md);
+    padding: 14px 16px 12px 22px;
+    transition: border-color var(--dur) var(--ease);
+}
+.card:hover { border-color: var(--border-strong); }
+.card { scroll-margin-top: calc(var(--header-h, 52px) + var(--nav-h, 32px) + 8px); }
+.card.full-width { grid-column: 1 / -1; }
+.card.legend-strip { padding: 8px 16px; }
+.legend-strip-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.card h2 {
+    margin: 0 0 12px 0;
+    padding: 0 0 8px 0;
+    border-bottom: 1px solid var(--border);
+    color: var(--fg-main);
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.card h2::before {
+    content: "";
+    width: 8px; height: 8px;
+    background: var(--accent-1);
+    border-radius: 1.5px;
+    flex-shrink: 0;
+}
+
+/* ---------- GROUPS ---------- */
+.search-group { margin-bottom: 12px; }
+.search-group:last-child { margin-bottom: 0; }
+
+.search-group h3 {
+    color: var(--accent-2);
+    font-family: var(--font-mono);
+    font-size: 10px;
+    margin: 0 0 6px 0;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+.search-group h3::before {
+    content: "▸";
+    color: var(--accent-1);
+    font-size: 9px;
+    transform: translateY(-1px);
+}
+.search-group + .search-group h3 {
+    margin-top: 4px;
+    padding-top: 8px;
+    border-top: 1px dashed var(--border);
+}
+
+/* collapsible groups */
+details.search-group > summary {
+    list-style: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0 0 6px 0;
+}
+details.search-group > summary::-webkit-details-marker { display: none; }
+details.search-group > summary h3 { margin: 0; }
+details.search-group > summary h3::before { transition: transform var(--dur) var(--ease); }
+details.search-group[open] > summary h3::before { transform: rotate(90deg); }
+details.search-group:not([open]) > summary { margin-bottom: 0; }
+details.search-group:not([open]) > summary h3 { color: var(--fg-muted); }
+details.search-group > summary:hover h3 { color: var(--accent-2-2); }
+details.search-group > summary:focus-visible { outline: 2px solid var(--accent-2); outline-offset: 2px; border-radius: var(--r-xs); }
+details.search-group + details.search-group > summary h3 {
+    margin-top: 4px;
+    padding-top: 8px;
+    border-top: 1px dashed var(--border);
+}
+.group-count {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--fg-dim);
+}
+
+/* ---------- TABLES ---------- */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+    table-layout: fixed;
+}
+td {
+    padding: 4px 6px 3px;
+    border-bottom: 1px dotted var(--border);
+    vertical-align: middle;
+}
+td:first-child {
+    width: 44%;
+    padding-left: 0;
+}
+tr:last-child td { border-bottom: none; }
+tr { transition: background-color var(--dur) var(--ease); }
+tr:hover { background-color: var(--row-hover); }
+
+.desc {
+    color: var(--fg-muted);
+    font-size: 11.5px;
+    line-height: 1.35;
+}
+
+/* permalinks + roving focus */
+.search-item { scroll-margin-top: calc(var(--header-h, 52px) + var(--nav-h, 32px) + 8px); }
+.search-item td:first-child { position: relative; }
+.row-link {
+    position: absolute;
+    left: -14px;
+    top: 5px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--fg-dim);
+    text-decoration: none;
+    opacity: 0;
+    transition: opacity var(--dur) var(--ease), color var(--dur) var(--ease);
+}
+.search-item:hover .row-link,
+.search-item:focus-within .row-link,
+.row-link:focus-visible { opacity: 1; }
+.row-link:hover { color: var(--accent-1); }
+.row-link.copied { color: var(--accent-2-2); }
+.search-item:target { background: var(--new-bg); box-shadow: inset 2px 0 0 0 var(--accent-2); }
+.search-item:focus { outline: none; background: var(--row-hover); box-shadow: inset 2px 0 0 0 var(--accent-1); }
+
+mark.hit {
+    background: rgba(217, 119, 87, 0.28);
+    color: inherit;
+    border-radius: 2px;
+    padding: 0 1px;
+}
+:root[data-theme="light"] mark.hit { background: rgba(194, 65, 12, 0.22); }
+
+/* ---------- CODE CHIPS ---------- */
+code {
+    font-family: var(--font-mono);
+    background: var(--bg-code);
+    color: var(--fg-main);
+    padding: 1px 5px 2px;
+    border-radius: var(--r-xs);
+    font-size: 11px;
+    line-height: 1.2;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: border-color var(--dur) var(--ease), background-color var(--dur) var(--ease);
+    word-break: break-word;
+    display: inline-block;
+    max-width: 100%;
+}
+code:hover { border-color: var(--accent-1); }
+code:focus-visible {
+    outline: none;
+    border-color: var(--accent-2);
+    box-shadow: 0 0 0 2px rgba(135,157,134,0.25);
+}
+code.copied {
+    animation: copyFlash 0.3s ease-out;
+    border-color: var(--accent-1);
+}
+@keyframes copyFlash {
+    0%   { background: var(--success-flash); }
+    100% { background: var(--bg-code); }
+}
+
+/* state variants — left-bar marker for legibility */
+code.new {
+    background: var(--new-bg);
+    border-color: var(--new-border);
+    box-shadow: inset 2px 0 0 0 var(--new-bar);
+    padding-left: 7px;
+}
+code.unverified {
+    background: var(--unverified-bg);
+    border-color: var(--unverified-border);
+    box-shadow: inset 2px 0 0 0 var(--unverified-bar);
+    padding-left: 7px;
+}
+
+/* inline code inside .desc — quieter */
+.desc code {
+    font-size: 10.5px;
+    padding: 0 4px 1px;
+}
+
+/* ---------- TWO-TIER ENTRIES ---------- */
+.desc .summary { display: inline; }
+.notes-btn {
+    display: inline-block;
+    vertical-align: 1px;
+    margin-left: 4px;
+    background: none;
+    border: 1px solid var(--border-strong);
+    color: var(--accent-2-2);
+    font-family: var(--font-mono);
+    font-size: 9.5px;
+    padding: 0 5px;
+    border-radius: 999px;
+    cursor: pointer;
+    line-height: 1.5;
+}
+.notes-btn:hover,
+.notes-btn[aria-expanded="true"] {
+    border-color: var(--accent-2);
+    color: var(--fg-main);
+    background: var(--new-bg);
+}
+.notes {
+    list-style: none;
+    margin: 5px 0 2px;
+    padding: 0 0 0 10px;
+    border-left: 1px solid var(--border-strong);
+}
+.notes li {
+    position: relative;
+    padding: 2px 0 2px 10px;
+    font-size: 11px;
+    line-height: 1.35;
+    color: var(--fg-muted);
+}
+.notes li::before {
+    content: "▸";
+    position: absolute;
+    left: 0;
+    top: 2px;
+    color: var(--accent-2);
+    font-size: 9px;
+}
+.notes-all {
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--fg-muted);
+    font-family: var(--font-mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 3px 8px;
+    border-radius: var(--r-sm);
+    cursor: pointer;
+    transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+.notes-all:hover,
+.notes-all[aria-pressed="true"] { color: var(--accent-2-2); border-color: var(--accent-2); }
+
+/* ---------- LEGEND + BUILDER (full-width strip) ---------- */
+.legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 18px;
+    align-items: center;
+    font-size: 11px;
+    color: var(--fg-muted);
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+.legend-item { display: flex; align-items: center; gap: 6px; }
+.legend-swatch {
+    display: inline-block;
+    width: 26px; height: 12px;
+    border-radius: var(--r-xs);
+}
+.swatch-new       { background: var(--new-bg); border: 1px solid var(--new-border); box-shadow: inset 2px 0 0 0 var(--new-bar); }
+.swatch-unverified{ background: var(--unverified-bg); border: 1px solid var(--unverified-border); box-shadow: inset 2px 0 0 0 var(--unverified-bar); }
+.swatch-default   { background: var(--bg-code); border: 1px solid var(--border); }
+
+.compact-builder {
+    display: flex; gap: 8px;
+    align-items: center; flex-wrap: wrap;
+    font-size: 12px;
+    min-width: 0;
+}
+.compact-builder .builder-label {
+    font-family: var(--font-mono);
+    color: var(--accent-2);
+    font-weight: 600;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+.compact-builder input,
+.compact-builder select {
+    padding: 5px 8px;
+    border-radius: var(--r-sm);
+    border: 1px solid var(--border);
+    background: var(--bg-code);
+    color: var(--fg-main);
+    font-family: var(--font-sans);
+    font-size: 12px;
+    transition: border-color var(--dur) var(--ease);
+}
+.compact-builder input:focus,
+.compact-builder select:focus {
+    outline: none;
+    border-color: var(--accent-2);
+}
+.compact-builder input[type="text"] { flex: 2 1 180px; min-width: 0; }
+.compact-builder label {
+    display: inline-flex; align-items: center; gap: 4px;
+    color: var(--fg-muted);
+    font-size: 11.5px;
+}
+#generatedCmd {
+    flex: 1 1 180px;
+    min-width: 0;
+    padding: 5px 10px;
+    background: var(--bg-code);
+    color: var(--accent-1);
+    border: 1px dashed var(--border-strong);
+    border-radius: var(--r-sm);
+    text-align: center;
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+}
+#generatedCmd:hover { border-color: var(--accent-1); border-style: solid; }
+
+/* ---------- SR-ONLY / NO-RESULTS ---------- */
+.sr-only {
+    position: absolute;
+    width: 1px; height: 1px;
+    padding: 0; margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+.no-results {
+    display: none;
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 40px 12px;
+    color: var(--fg-muted);
+    font-family: var(--font-mono);
+    font-size: 12.5px;
+}
+.no-results.is-visible { display: block; }
+
+/* ---------- FOOTER ---------- */
+.global-footer {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 18px 12px 6px;
+    margin-top: 6px;
+    color: var(--fg-dim);
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.05em;
+    border-top: 1px solid var(--border);
+}
+.global-footer a {
+    color: var(--accent-2);
+    text-decoration: none;
+    font-weight: 600;
+}
+.global-footer a:hover { color: var(--accent-2-2); text-decoration: underline; }
+
+/* ---------- WHAT'S NEW MODAL ---------- */
+.whats-new-overlay {
+    position: fixed; inset: 0;
+    background: rgba(0,0,0,0.55);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1001;
+    animation: modalFadeIn 0.22s var(--ease);
+}
+.whats-new-overlay.hidden { display: none; }
+.whats-new-modal {
+    background: var(--bg-card-2);
+    border: 1px solid var(--border-strong);
+    border-radius: var(--r-md);
+    max-width: 580px;
+    width: 92%;
+    max-height: 70vh;
+    overflow-y: auto;
+    padding: 22px 24px 20px;
+    box-shadow:
+        0 12px 40px rgba(0,0,0,0.45),
+        0 0 0 1px rgba(217,119,87,0.06);
+}
+.whats-new-header {
+    display: flex; align-items: baseline; justify-content: space-between;
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+    gap: 16px;
+}
+.whats-new-header h2 {
+    margin: 0;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--accent-1);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    display: flex; align-items: center; gap: 8px;
+}
+.whats-new-header h2::before {
+    content: "";
+    width: 8px; height: 8px;
+    background: var(--accent-1);
+    border-radius: 1.5px;
+}
+.whats-new-header .version-date {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--fg-muted);
+    font-weight: 400;
+}
+.whats-new-close {
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--fg-muted);
+    width: 26px; height: 26px;
+    border-radius: var(--r-sm);
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 1;
+    display: flex; align-items: center; justify-content: center;
+    transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+    margin-left: auto;
+}
+.whats-new-close:hover { color: var(--fg-main); border-color: var(--accent-1); }
+.whats-new-list { list-style: none; padding: 0; margin: 0; }
+.whats-new-list li {
+    padding: 8px 0;
+    border-bottom: 1px dotted var(--border);
+    font-size: 12.5px;
+    color: var(--fg-main);
+    line-height: 1.45;
+}
+.whats-new-list li:last-child { border-bottom: none; }
+.whats-new-list .tag {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 9.5px;
+    font-weight: 700;
+    padding: 2px 6px;
+    border-radius: var(--r-xs);
+    margin-right: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    min-width: 32px;
+    text-align: center;
+    vertical-align: 1px;
+}
+.whats-new-list .tag-add    { background: rgba(135,157,134,0.16); color: var(--accent-2-2);  border: 1px solid var(--accent-2); }
+.whats-new-list .tag-change { background: rgba(245,158,11,0.10);  color: #fbbf24;        border: 1px solid #f59e0b; }
+.whats-new-list .tag-remove { background: rgba(239,68,68,0.10);   color: #f87171;        border: 1px solid #ef4444; }
+.whats-new-list .tag-fix    { background: rgba(96,165,250,0.10);  color: #60a5fa;        border: 1px solid #3b82f6; }
+
+@keyframes modalFadeIn {
+    from { opacity: 0; transform: translateY(-6px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 900px) {
+    .global-header { padding: 0 14px; }
+    #dashboardSearch { width: 160px; }
+    .release-tag { display: none; }
+}
+@media (max-width: 700px) {
+    body { padding: calc(var(--header-h, 96px) + var(--nav-h, 32px) + 12px) 12px 24px; }
+    .section-tools { display: none; }
+    .global-header {
+        height: auto;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 10px 14px;
+        gap: 8px;
+    }
+    .global-controls { width: 100%; justify-content: space-between; flex-wrap: wrap; }
+    .dashboard-grid { grid-template-columns: 1fr; }
+    .whats-new-modal { width: 95%; max-height: 80vh; }
+}
+
+/* ---------- SINCE YOUR LAST VISIT ---------- */
+.since-strip { padding: 8px 16px; border-color: var(--accent-2); background: var(--new-bg); }
+.since-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    font-size: 12.5px;
+}
+.since-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--accent-2);
+    box-shadow: 0 0 0 3px var(--new-bg);
+    flex-shrink: 0;
+}
+.since-text { flex: 1 1 220px; min-width: 0; }
+.since-text b { color: var(--fg-main); }
+.since-text code { cursor: default; }
+.since-actions { margin-left: auto; display: flex; gap: 6px; }
+.since-actions button,
+.since-drawer-foot button {
+    background: var(--accent-2);
+    color: #0a0a0a;
+    border: 1px solid var(--accent-2);
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 4px 10px;
+    border-radius: var(--r-sm);
+    cursor: pointer;
+}
+.since-actions button.quiet {
+    background: none;
+    color: var(--fg-muted);
+    border-color: var(--border-strong);
+}
+.since-actions button.quiet:hover { color: var(--fg-main); border-color: var(--accent-2); }
+
+.since-drawer {
+    position: fixed;
+    top: var(--header-h, 52px); right: 0; bottom: 0;
+    width: min(440px, 100vw);
+    background: var(--bg-card-2);
+    border-left: 1px solid var(--border-strong);
+    z-index: 1002;
+    display: flex;
+    flex-direction: column;
+    box-shadow: -12px 0 40px rgba(0, 0, 0, 0.35);
+    animation: drawerIn 0.2s var(--ease);
+}
+.since-drawer[hidden] { display: none; }
+@keyframes drawerIn {
+    from { transform: translateX(24px); opacity: 0; }
+    to   { transform: none; opacity: 1; }
+}
+.since-drawer-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 16px 10px;
+    border-bottom: 1px solid var(--border);
+}
+.since-drawer-head h2 {
+    margin: 0;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--accent-1);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+.since-drawer-body { overflow-y: auto; padding: 8px 16px; flex: 1; }
+.since-release { margin: 10px 0 14px; }
+.since-release h3 {
+    margin: 0 0 6px;
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    color: var(--accent-2);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    display: flex;
+    gap: 8px;
+    align-items: baseline;
+}
+.since-release h3 span { color: var(--fg-dim); font-weight: 400; text-transform: none; letter-spacing: 0; }
+.since-release ul { list-style: none; margin: 0; padding: 0; }
+.since-release li {
+    display: grid;
+    grid-template-columns: 36px minmax(0, 1fr);
+    gap: 8px;
+    padding: 6px 0;
+    border-bottom: 1px dotted var(--border);
+    font-size: 12px;
+    line-height: 1.4;
+    color: var(--fg-main);
+    cursor: pointer;
+}
+.since-release li:hover { background: var(--row-hover); }
+.since-release li.unlinked { color: var(--fg-muted); cursor: default; }
+.since-release li .tag {
+    font-family: var(--font-mono);
+    font-size: 9.5px;
+    font-weight: 700;
+    padding: 2px 0;
+    border-radius: var(--r-xs);
+    text-align: center;
+    align-self: start;
+    text-transform: uppercase;
+}
+.since-release li .tag-add    { background: rgba(135, 157, 134, 0.16); color: var(--accent-2-2); border: 1px solid var(--accent-2); }
+.since-release li .tag-change { background: rgba(245, 158, 11, 0.10);  color: #fbbf24;       border: 1px solid #f59e0b; }
+.since-release li .tag-remove { background: rgba(239, 68, 68, 0.10);   color: #f87171;       border: 1px solid #ef4444; }
+.since-release li .tag-fix    { background: rgba(96, 165, 250, 0.10);  color: #60a5fa;       border: 1px solid #3b82f6; }
+.since-drawer-foot {
+    padding: 10px 16px;
+    border-top: 1px solid var(--border);
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    color: var(--fg-dim);
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+.since-drawer-foot a { color: var(--accent-2); text-decoration: none; }
+.since-drawer-foot a:hover { text-decoration: underline; }
+.search-item.flash { animation: rowFlash 1.6s ease-out; }
+@keyframes rowFlash {
+    0%, 40% { background: var(--success-flash); }
+    100%    { background: transparent; }
+}
+
+
+/* ---------- PRINT ---------- */
+.print-head { display: none; }
+.print-btn { cursor: pointer; background: none; font-family: var(--font-sans); }
+
+@page { size: A4 landscape; margin: 7mm 8mm; }
+
+@media print {
+    .global-header, .section-nav, .legend-strip, .since-strip, .since-drawer,
+    .no-results, .notes, .notes-btn, .row-link, .skip-link { display: none !important; }
+
+    html, body { padding: 0; background: #fff; color: #111; font-size: 8pt; line-height: 1.25; }
+
+    .print-head {
+        display: flex;
+        column-span: all;
+        justify-content: space-between;
+        gap: 6mm;
+        font-family: var(--font-mono);
+        font-size: 7pt;
+        color: #333;
+        border-bottom: 1.5px solid #111;
+        padding-bottom: 1mm;
+        margin-bottom: 3mm;
+    }
+    .print-head-title { font-family: var(--font-sans); font-weight: 700; font-size: 9pt; color: #111; }
+    .print-head-title b { font-family: var(--font-pixel); font-size: 6pt; color: #c2410c; font-weight: 400; margin-left: 4px; }
+
+    .dashboard-grid { display: block; column-count: 4; column-gap: 5mm; column-fill: auto; max-width: none; }
+
+    .card {
+        display: block;
+        margin: 0 0 3mm;
+        padding: 0;
+        border: none;
+        border-radius: 0;
+        background: none;
+        break-inside: auto;
+    }
+    .card h2 {
+        font-size: 8.5pt;
+        color: #111;
+        border-bottom: 1.5px solid #111;
+        padding-bottom: 1.5px;
+        margin: 0 0 2mm;
+        break-after: avoid;
+    }
+    .card h2::before { background: #c2410c; }
+    .card-count { display: none; }
+
+    .search-group { margin-bottom: 2mm; break-inside: auto; }
+    details.search-group > summary { margin-bottom: 1mm; }
+    details.search-group:not([open]) > table { display: table; }   /* folded groups still print */
+    .search-group h3 { font-size: 6.5pt; color: #0f766e; margin: 0 0 1mm; break-after: avoid; }
+    .search-group h3::before { color: #c2410c; }
+    details.search-group + details.search-group > summary h3 { border-top: 1px dashed #bbb; padding-top: 1mm; margin-top: 1mm; }
+    .group-count { color: #666; }
+
+    table { font-size: 7.5pt; }
+    tr { break-inside: avoid; }
+    td { padding: 0.6mm 1mm 0.4mm 0; border-bottom: 0.4pt dotted #999; vertical-align: top; }
+    td:first-child { width: 40%; }
+    .desc { font-size: 7pt; color: #333; line-height: 1.25; }
+
+    code {
+        font-size: 6.8pt;
+        background: #f1efe9;
+        color: #111;
+        border: 0.4pt solid #ddd;
+        padding: 0 2px;
+        cursor: default;
+    }
+    .desc code { font-size: 6.5pt; }
+    code.new { background: #dfe8de; border-color: #0f766e; box-shadow: inset 2px 0 0 0 #0f766e; }
+    code.new::after { content: " ■"; color: #0f766e; font-size: 5pt; }
+    code.unverified { background: #f7edd6; border-color: #b47400; box-shadow: inset 2px 0 0 0 #b47400; }
+    code.unverified::after { content: " □"; color: #b47400; font-size: 5pt; }
+    mark.hit { background: none; }
+
+    .global-footer { border: none; padding: 2mm 0 0; font-size: 6pt; color: #666; text-align: left; }
+    .global-footer a { color: #666; }
+    .global-footer br { display: none; }
+
+    * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+    </style>
+    <style>
+        :root { --accent-1: #b8860b; --accent-1-2: #d4a52a; --accent-2: #8b7355; --accent-2-2: #a89078; }
+        :root[data-theme="light"] { --accent-1: #8a6508; --accent-1-2: #6d5006; --accent-2: #6b5842; --accent-2-2: #54452f; }
+        /* Scope note (D3) — Hermes is a general agent; this placemat is the coding surface only. */
+        .scope-note { flex: 1 1 320px; margin: 0; font-size: 11px; line-height: 1.45; color: var(--fg-muted); }
+        .scope-note strong { color: var(--fg-main); }
+    </style>
+    <script>
+        (function() {
+            var stored = localStorage.getItem('placemat-theme');
+            var theme = (stored === 'light' || stored === 'dark')
+                ? stored
+                : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            document.documentElement.dataset.theme = theme;
+        })();
+    </script>
+</head>
+<body>
+
+    <a class="skip-link" href="#card-keys">Skip to content</a>
+
+    <header class="global-header">
+        <div class="header-title">
+            <!-- neutral 8-bit terminal-prompt mark (no vendor logos — D5) -->
+            <svg class="minion-icon" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Terminal prompt">
+                <rect x="2" y="3" width="2" height="2" fill="var(--accent-1)"/>
+                <rect x="4" y="5" width="2" height="2" fill="var(--accent-1)"/>
+                <rect x="6" y="7" width="2" height="2" fill="var(--accent-1)"/>
+                <rect x="4" y="9" width="2" height="2" fill="var(--accent-1)"/>
+                <rect x="2" y="11" width="2" height="2" fill="var(--accent-1)"/>
+                <rect x="9" y="11" width="5" height="2" fill="var(--accent-2)"/>
+            </svg>
+            <h1>Hermes Agent <span class="wm-pixel">PLACEMAT</span></h1>
+            <span class="header-tagline">Unofficial · auto-updated reference</span>
+        </div>
+        <div class="global-controls">
+            <span class="release-tag">As of release: v0.21.2 (2026.9.11)</span>
+            <a href="changelog.html" class="header-link">Changelog →</a>
+            <a href="feed.xml" class="header-link" title="Subscribe to placemat changes (RSS)">RSS</a>
+            <button type="button" class="header-link print-btn" id="printBtn" title="Print or save as PDF (Ctrl P)">⎙ Print</button>
+            <button type="button" class="theme-toggle" id="themeBtn" onclick="toggleTheme()" title="Toggle theme" aria-label="Toggle light and dark theme">&#9728;&#65039;</button>
+            <div class="search-wrap">
+                <input type="text" id="dashboardSearch" placeholder="Search the placemat…" aria-label="Search the placemat">
+                <span class="kbd" id="searchKbd">⌘K</span>
+                <span class="search-count" id="searchCount" aria-live="polite"></span>
+            </div>
+        </div>
+    </header>
+
+    <nav class="section-nav" aria-label="Sections">
+        <div class="section-nav-inner">
+            <div class="section-chips">
+                <a href="#card-keys" data-target="card-keys">TUI &amp; Symbols<span class="chip-count"></span></a>
+                <a href="#card-slash-core" data-target="card-slash-core">Slash (Core)<span class="chip-count"></span></a>
+                <a href="#card-slash-tools" data-target="card-slash-tools">Slash (Tools)<span class="chip-count"></span></a>
+                <a href="#card-cli" data-target="card-cli">CLI<span class="chip-count"></span></a>
+                <a href="#card-settings" data-target="card-settings">Settings<span class="chip-count"></span></a>
+                <a href="#card-env" data-target="card-env">Env Vars<span class="chip-count"></span></a>
+                <a href="#card-skills" data-target="card-skills">Skills &amp; Context<span class="chip-count"></span></a>
+                <a href="#card-hooks" data-target="card-hooks">Automation &amp; MCP<span class="chip-count"></span></a>
+            </div>
+            <div class="section-tools">
+                <button type="button" id="collapseAll">Collapse all</button>
+                <button type="button" id="expandAll">Expand all</button>
+                <button type="button" id="densityBtn" aria-pressed="false">Compact</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="dashboard-grid">
+
+        <div class="print-head" aria-hidden="true">
+            <span class="print-head-title">Hermes Agent <b>PLACEMAT</b></span>
+            <span>As of release v0.21.2 (2026.9.11)</span>
+            <span>■ = new &nbsp; □ = unverified</span>
+            <span>dommango.github.io/agent-placemats/hermes</span>
+        </div>
+
+        <div class="card full-width search-exclude since-strip" id="sinceStrip" hidden>
+            <div class="since-row">
+                <span class="since-dot" aria-hidden="true"></span>
+                <span class="since-text" id="sinceText"></span>
+                <span class="since-actions">
+                    <button type="button" id="sinceShow">Show changes</button>
+                    <button type="button" id="sinceRead" class="quiet">Mark as read</button>
+                </span>
+            </div>
+        </div>
+
+        <!-- Legend -->
+        <div class="card full-width search-exclude legend-strip">
+            <div class="legend-strip-row">
+                <div class="legend">
+                    <div class="legend-item"><span class="legend-swatch swatch-default"></span> Verified</div>
+                    <div class="legend-item"><span class="legend-swatch swatch-new"></span> <span id="legendNew">New since your last visit</span></div>
+                    <div class="legend-item"><span class="legend-swatch swatch-unverified"></span> Unverified</div>
+                    <div class="legend-item"><button type="button" class="notes-all" id="notesAll" aria-pressed="false">Show all notes</button></div>
+                </div>
+                <p class="scope-note">Scope: Hermes Agent is a general autonomous agent. This placemat covers its
+                <strong>CLI and TUI coding surface only</strong> — its messaging, voice and desktop surfaces are
+                deliberately left out. See the
+                <a href="https://hermes-agent.nousresearch.com/docs/" target="_blank" rel="noopener noreferrer">full documentation</a> for those.</p>
+            </div>
+        </div>
+
+        <div class="card" id="card-keys">
+            <h2>TUI &amp; Symbols <span class="card-count"></span></h2>
+
+            <details class="search-group" open data-group="Keybindings">
+                <summary><h3>Keybindings</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-ctrl-p"><td><a class="row-link" href="#i-ctrl-p" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>Ctrl+P</code></td><td class="desc"><span class="summary">Open the fuzzy command palette</span> <button type="button" class="notes-btn" aria-expanded="false">+2</button><ul class="notes" hidden><li>Type to filter commands and skills, ↑/↓ to move, Enter inserts into the composer — it never auto-runs.</li><li>Also reachable as <code>/palette</code>.</li></ul></td></tr>
+                    <tr class="search-item" id="i-ctrl-t"><td><a class="row-link" href="#i-ctrl-t" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>Ctrl+T</code></td><td class="desc"><span class="summary">Expand the live-subagent dock into the full <code>/agents</code> roster</span> <button type="button" class="notes-btn" aria-expanded="false">+2</button><ul class="notes" hidden><li>On a selected worker: <code>Enter</code> or <code>t</code> for its transcript, <code>d</code> for details, <code>e</code> to steer, <code>x</code> to stop.</li><li>The dock fits its row count to terminal height and preserves your composer draft.</li></ul></td></tr>
+                    <tr class="search-item" id="i-ctrl-x"><td><a class="row-link" href="#i-ctrl-x" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>Ctrl+X</code></td><td class="desc"><span class="summary">Open the live session switcher</span> <button type="button" class="notes-btn" aria-expanded="false">+2</button><ul class="notes" hidden><li>With a queued message highlighted it deletes that message instead; <code>Esc</code> cancels without deleting.</li><li>Inside the switcher: <code>Ctrl+D</code> closes the selected session, <code>Ctrl+N</code> starts a blank one, <code>Ctrl+R</code> refreshes the list.</li></ul></td></tr>
+                    <tr class="search-item" id="i-ctrl-g"><td><a class="row-link" href="#i-ctrl-g" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>Ctrl+G</code> / <code>Ctrl+X Ctrl+E</code></td><td class="desc"><span class="summary">Open the input buffer in <code>$EDITOR</code> for long prompts</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Save and exit sends the contents back as the prompt.</li></ul></td></tr>
+                    <tr class="search-item" id="i-ctrl-v"><td><a class="row-link" href="#i-ctrl-v" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>Ctrl+V</code></td><td class="desc"><span class="summary">Paste text, falling back to clipboard image attach</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Tries normal text paste, then OSC52 / native clipboard reads, then image attach when the payload resolves to an image.</li></ul></td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="Transcript symbols">
+                <summary><h3>Transcript symbols</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-sym-prompt"><td><a class="row-link" href="#i-sym-prompt" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>❯</code></td><td class="desc"><span class="summary">Input prompt — where you type</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Themeable: a skin can set its own prompt symbol, and <code>┊</code> (the tool-activity rail) follows <code>tool_prefix</code>.</li></ul></td></tr>
+                    <tr class="search-item" id="i-sym-tool"><td><a class="row-link" href="#i-sym-tool" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>●</code></td><td class="desc"><span class="summary">A tool call; the bullet precedes the tool name and arguments</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li><code>✓</code> / <code>✗</code> are appended when the tool result succeeds or fails.</li></ul></td></tr>
+                    <tr class="search-item" id="i-sym-chevron"><td><a class="row-link" href="#i-sym-chevron" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>▸</code> / <code>▾</code></td><td class="desc"><span class="summary">Collapsed or expanded section chevron</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Used for thinking, tools, subagents and banner sections; click to toggle.</li></ul></td></tr>
+                    <tr class="search-item" id="i-sym-cursor"><td><a class="row-link" href="#i-sym-cursor" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>▍</code></td><td class="desc">Streaming cursor — blinks while the model is still emitting text</td></tr>
+                    <tr class="search-item" id="i-sym-tree"><td><a class="row-link" href="#i-sym-tree" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>│</code> / <code>├─</code> / <code>└─</code></td><td class="desc"><span class="summary">Tree rails connecting a parent to its children</span> <button type="button" class="notes-btn" aria-expanded="false">+2</button><ul class="notes" hidden><li><code>└─</code> marks the last child.</li><li>Inline markers: <code>◈</code> a display-only timeline event, <code>◇</code> an injected reference block, <code>↳</code> the sticky prompt echoing the message being worked on.</li></ul></td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="Status bar">
+                <summary><h3>Status bar</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-sym-timer"><td><a class="row-link" href="#i-sym-timer" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>⏱</code> / <code>⏲</code></td><td class="desc"><span class="summary">Per-prompt elapsed time while the turn runs</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Shows turn time over session time, e.g. <code>⏱ 12s/3m 45s</code>; <code>⏲</code> is the same timer frozen after the turn.</li></ul></td></tr>
+                    <tr class="search-item" id="i-sym-counters"><td><a class="row-link" href="#i-sym-counters" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>cmp N</code> / <code>▶ N</code> / <code>⛓ N</code> / <code>N bg</code></td><td class="desc"><span class="summary">Session counters</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li><code>cmp N</code> auto-compressions so far, <code>▶ N</code> running <code>/bg</code> tasks, <code>⛓ N</code> active subagents, <code>N bg</code> tracked background terminals.</li></ul></td></tr>
+                    <tr class="search-item" id="i-sym-yolo"><td><a class="row-link" href="#i-sym-yolo" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>⚠ YOLO</code></td><td class="desc">YOLO mode is on — dangerous commands auto-approve</td></tr>
+                    <tr class="search-item" id="i-sym-focus"><td><a class="row-link" href="#i-sym-focus" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>◉ focus</code></td><td class="desc"><span class="summary">Focus view is on (reduced output)</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Pinned so it never drops off a narrow terminal.</li></ul></td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="Overlays &amp; prompts">
+                <summary><h3>Overlays &amp; prompts</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-sym-approval"><td><a class="row-link" href="#i-sym-approval" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>⚠ approval required</code></td><td class="desc"><span class="summary">A tool needs your explicit yes</span> <button type="button" class="notes-btn" aria-expanded="false">+2</button><ul class="notes" hidden><li>Rendered as a bordered panel with the command preview.</li><li><code>🔐</code> is a masked sudo prompt and <code>🔑</code> a masked credential prompt.</li></ul></td></tr>
+                    <tr class="search-item" id="i-sym-agentstate"><td><a class="row-link" href="#i-sym-agentstate" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>○</code> / <code>■</code> / <code>⌛</code></td><td class="desc"><span class="summary">Subagent states in the <code>/agents</code> overlay</span> <button type="button" class="notes-btn" aria-expanded="false">+2</button><ul class="notes" hidden><li><code>●</code> running, <code>○</code> queued, <code>✓</code> completed, <code>■</code> interrupted, <code>✗</code> failed, <code>⌛</code> timed out, <code>⚠</code> errored.</li><li><code>⚡N</code> rolls up N active agents; <code>▁▂▃▄▅▆▇█</code> is an activity sparkline.</li></ul></td></tr>
+                    <tr class="search-item" id="i-sym-draft"><td><a class="row-link" href="#i-sym-draft" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>✎ draft</code></td><td class="desc"><span class="summary">That session&rsquo;s composer holds an unsent draft</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Session switcher states: <code>✓</code> idle, <code>…</code> starting, <code>?</code> waiting for input, <code>▶</code> working.</li></ul></td></tr>
+                </table>
+            </details>
+        </div>
+
+        <div class="card" id="card-slash-core">
+            <h2>Slash Commands (Core) <span class="card-count"></span></h2>
+
+            <details class="search-group" open data-group="Session">
+                <summary><h3>Session</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-new"><td><a class="row-link" href="#i-new" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/new</code> / <code>/reset</code></td><td class="desc"><span class="summary">Start a new session with a fresh id and history</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>An optional name sets the initial title; append <code>now</code>, <code>--yes</code> or <code>-y</code> to skip the confirmation modal.</li></ul></td></tr>
+                    <tr class="search-item" id="i-clear"><td><a class="row-link" href="#i-clear" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/clear</code></td><td class="desc">Clear the screen and start a new session</td></tr>
+                    <tr class="search-item" id="i-resume"><td><a class="row-link" href="#i-resume" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/resume</code></td><td class="desc">Resume a previously-named session</td></tr>
+                    <tr class="search-item" id="i-sessions"><td><a class="row-link" href="#i-sessions" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/sessions</code> / <code>/switch</code></td><td class="desc"><span class="summary">Browse and resume previous sessions</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>In the TUI this opens the live session switcher; <code>/sessions new</code> starts another live session.</li></ul></td></tr>
+                    <tr class="search-item" id="i-branch"><td><a class="row-link" href="#i-branch" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/branch</code> / <code>/fork</code></td><td class="desc">Branch the current session to explore a different path</td></tr>
+                    <tr class="search-item" id="i-history"><td><a class="row-link" href="#i-history" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/history</code> / <code>/save</code></td><td class="desc">Show conversation history, or save the conversation</td></tr>
+                    <tr class="search-item" id="i-title"><td><a class="row-link" href="#i-title" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/title</code></td><td class="desc">Set a title for the current session</td></tr>
+                    <tr class="search-item" id="i-undo"><td><a class="row-link" href="#i-undo" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/undo</code> / <code>/retry</code></td><td class="desc">Remove the last exchange, or resend the last message</td></tr>
+                    <tr class="search-item" id="i-prompt"><td><a class="row-link" href="#i-prompt" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/prompt</code> / <code>/compose</code></td><td class="desc">Compose the next prompt in <code>$EDITOR</code> as markdown</td></tr>
+                    <tr class="search-item" id="i-quit"><td><a class="row-link" href="#i-quit" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/quit</code> / <code>/exit</code></td><td class="desc">Exit the CLI</td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="Context &amp; history">
+                <summary><h3>Context &amp; history</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-compress"><td><a class="row-link" href="#i-compress" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/compress</code></td><td class="desc"><span class="summary">Manually compress context — flush memories and summarise</span> <button type="button" class="notes-btn" aria-expanded="false">+2</button><ul class="notes" hidden><li><code>/compress here [N]</code> keeps the most recent N exchanges verbatim (default 2) so you pick the boundary.</li><li>A focus topic narrows what a full summary preserves.</li></ul></td></tr>
+                    <tr class="search-item" id="i-context"><td><a class="row-link" href="#i-context" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/context</code> / <code>/ctx</code></td><td class="desc"><span class="summary">Visual context-window breakdown</span> <button type="button" class="notes-btn" aria-expanded="false">+3</button><ul class="notes" hidden><li>A glyph grid where each cell is about 1% of the model window, plus a per-category table.</li><li><code>/context all</code> adds per-skill and per-toolset cost listings.</li><li>Read-only and computed locally — no LLM call, no prompt-cache impact.</li></ul></td></tr>
+                    <tr class="search-item" id="i-status"><td><a class="row-link" href="#i-status" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/status</code></td><td class="desc"><span class="summary">Session info plus a locally-computed session recap</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Model, provider, profile, session id, working directory, title, timestamps, token totals and agent state.</li></ul></td></tr>
+                    <tr class="search-item" id="i-usage"><td><a class="row-link" href="#i-usage" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/usage</code></td><td class="desc"><span class="summary">Token usage, cost breakdown and session duration</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Adds an Account limits section when the active provider exposes quota live.</li></ul></td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="Coding workflow">
+                <summary><h3>Coding workflow</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-diff"><td><a class="row-link" href="#i-diff" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/diff</code></td><td class="desc"><span class="summary">Show git changes in the working directory</span> <button type="button" class="notes-btn" aria-expanded="false">+3</button><ul class="notes" hidden><li>Default is unstaged changes plus untracked files; <code>staged</code>, <code>all</code> and <code>session</code> widen the scope.</li><li><code>session</code> is the cumulative diff of everything Hermes changed here and needs checkpoints enabled.</li><li><code>--stat</code> prints just the changed-file summary; path arguments restrict it.</li></ul></td></tr>
+                    <tr class="search-item" id="i-rollback"><td><a class="row-link" href="#i-rollback" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/rollback</code></td><td class="desc">List or restore filesystem checkpoints</td></tr>
+                    <tr class="search-item" id="i-snapshot"><td><a class="row-link" href="#i-snapshot" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/snapshot</code> / <code>/snap</code></td><td class="desc"><span class="summary">Create or restore snapshots of Hermes config and state</span> <button type="button" class="notes-btn" aria-expanded="false">+2</button><ul class="notes" hidden><li><code>create [label]</code>, <code>restore &lt;id&gt;</code>, <code>prune [N]</code>, or list with no arguments.</li><li>Database restores use SQLite&rsquo;s backup API; if another process still holds the database, the restore refuses rather than risk corruption.</li></ul></td></tr>
+                    <tr class="search-item" id="i-worktree"><td><a class="row-link" href="#i-worktree" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/worktree</code></td><td class="desc"><span class="summary">Inspect or create isolated git worktrees mid-session</span> <button type="button" class="notes-btn" aria-expanded="false">+3</button><ul class="notes" hidden><li>CLI only. <code>/worktree new [name]</code> creates one under <code>.worktrees/</code> from the freshly-fetched remote tip and retargets the session&rsquo;s terminal and file tools into it.</li><li>Named trees use <code>hermes/&lt;name&gt;</code>; unnamed ones get a random <code>hermes-&lt;id&gt;</code>.</li><li>On exit the tree is kept only if it has unpushed commits — the same lifecycle as <code>hermes -w</code>.</li></ul></td></tr>
+                    <tr class="search-item" id="i-plan"><td><a class="row-link" href="#i-plan" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/plan</code></td><td class="desc"><span class="summary">Write a markdown implementation plan to <code>.hermes/plans/</code></span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Planning only, no execution; an empty argument infers the task from the conversation.</li></ul></td></tr>
+                    <tr class="search-item" id="i-init"><td><a class="row-link" href="#i-init" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/init</code></td><td class="desc"><span class="summary">Generate or update <code>AGENTS.md</code> from a repo scan</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Merge-updates an existing file rather than overwriting it; optional notes steer the emphasis.</li></ul></td></tr>
+                    <tr class="search-item" id="i-review"><td><a class="row-link" href="#i-review" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/review</code></td><td class="desc"><span class="summary">Spawn an independent full-privilege reviewer subagent</span> <button type="button" class="notes-btn" aria-expanded="false">+2</button><ul class="notes" hidden><li>It investigates in the background and its review re-enters the session as a background-subagent completion.</li><li>Pin a dedicated model with <code>auxiliary.review</code> in <code>config.yaml</code>.</li></ul></td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="Run control">
+                <summary><h3>Run control</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-queue"><td><a class="row-link" href="#i-queue" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/queue</code> / <code>/q</code></td><td class="desc">Queue a prompt for the next turn without interrupting</td></tr>
+                    <tr class="search-item" id="i-steer"><td><a class="row-link" href="#i-steer" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/steer</code></td><td class="desc"><span class="summary">Inject a mid-run note delivered after the next tool call</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Appended to the last tool result once the current tool completes — no interrupt, no new user turn.</li></ul></td></tr>
+                    <tr class="search-item" id="i-stop"><td><a class="row-link" href="#i-stop" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/stop</code></td><td class="desc">Kill all running background processes</td></tr>
+                    <tr class="search-item" id="i-bg"><td><a class="row-link" href="#i-bg" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/bg</code></td><td class="desc"><span class="summary">Run a prompt in a separate background session</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Your current session stays free; results appear as a panel when the task finishes.</li></ul></td></tr>
+                    <tr class="search-item" id="i-btw"><td><a class="row-link" href="#i-btw" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/btw</code></td><td class="desc"><span class="summary">Ask a quick side question about the current conversation</span> <button type="button" class="notes-btn" aria-expanded="false">+2</button><ul class="notes" hidden><li>A one-shot auxiliary call against a read-only transcript snapshot — history and prompt cache untouched.</li><li>For independent work with a fresh context use <code>/bg</code> instead.</li></ul></td></tr>
+                    <tr class="search-item" id="i-agents"><td><a class="row-link" href="#i-agents" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/agents</code> / <code>/tasks</code></td><td class="desc">Show active agents and running tasks</td></tr>
+                    <tr class="search-item" id="i-moa"><td><a class="row-link" href="#i-moa" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/moa</code></td><td class="desc"><span class="summary">Run one prompt through the default Mixture of Agents preset</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>One-shot — your session model is restored afterwards.</li></ul></td></tr>
+                    <tr class="search-item" id="i-busy"><td><a class="row-link" href="#i-busy" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/busy</code></td><td class="desc"><span class="summary">Control what happens when you message mid-turn</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Choices are <code>queue</code>, <code>steer</code> and <code>interrupt</code>.</li></ul></td></tr>
+                </table>
+            </details>
+        </div>
+
+        <div class="card" id="card-slash-tools">
+            <h2>Slash Commands (Tools) <span class="card-count"></span></h2>
+
+            <details class="search-group" open data-group="Model &amp; reasoning">
+                <summary><h3>Model &amp; reasoning</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-model"><td><a class="row-link" href="#i-model" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/model</code></td><td class="desc"><span class="summary">Show or change the current model</span> <button type="button" class="notes-btn" aria-expanded="false">+4</button><ul class="notes" hidden><li>Accepts <code>provider:model</code>, <code>custom:model</code>, and user-defined aliases.</li><li>Flags: <code>--global</code> persists, <code>--session</code> forces session-only, <code>--once</code> applies to the next turn, <code>--refresh</code> re-fetches the model list.</li><li>Only switches between already-configured providers — run <code>hermes model</code> to add one.</li><li>Switching mid-conversation resets the prompt cache, so the next turn re-reads at full input price.</li></ul></td></tr>
+                    <tr class="search-item" id="i-reasoning"><td><a class="row-link" href="#i-reasoning" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/reasoning</code></td><td class="desc"><span class="summary">Manage reasoning effort and display</span> <button type="button" class="notes-btn" aria-expanded="false">+2</button><ul class="notes" hidden><li>Levels: <code>none</code>, <code>minimal</code>, <code>low</code>, <code>medium</code>, <code>high</code>, <code>xhigh</code>, <code>max</code>, <code>ultra</code>.</li><li><code>show</code>/<code>hide</code> toggle display, <code>full</code> and <code>clamp</code> adjust it, <code>--global</code> persists the effort.</li></ul></td></tr>
+                    <tr class="search-item" id="i-fast"><td><a class="row-link" href="#i-fast" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/fast</code></td><td class="desc"><span class="summary">Toggle provider priority processing</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li><code>fast</code> every request, <code>auto</code> only the first <code>agent.fast_auto_seconds</code> of a turn, <code>cold</code> that window on the first turn only.</li></ul></td></tr>
+                    <tr class="search-item" id="i-codex-runtime"><td><a class="row-link" href="#i-codex-runtime" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/codex-runtime</code></td><td class="desc"><span class="summary">Toggle the optional Codex app-server runtime for OpenAI models</span> <button type="button" class="notes-btn" aria-expanded="false">+2</button><ul class="notes" hidden><li><code>codex_app_server</code> hands turns to a <code>codex app-server</code> subprocess for native shell, apply_patch and migrated Codex plugins.</li><li>Takes effect on the next session.</li></ul></td></tr>
+                    <tr class="search-item" id="i-personality"><td><a class="row-link" href="#i-personality" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/personality</code></td><td class="desc">Set a predefined personality; <code>none</code> clears the overlay</td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="Tools &amp; skills">
+                <summary><h3>Tools &amp; skills</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-tools"><td><a class="row-link" href="#i-tools" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/tools</code></td><td class="desc"><span class="summary">List, disable or enable tools for this session</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Disabling a tool removes it from the agent&rsquo;s toolset and triggers a session reset.</li></ul></td></tr>
+                    <tr class="search-item" id="i-toolsets"><td><a class="row-link" href="#i-toolsets" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/toolsets</code></td><td class="desc">List available toolsets</td></tr>
+                    <tr class="search-item" id="i-skills"><td><a class="row-link" href="#i-skills" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/skills</code></td><td class="desc"><span class="summary">Search, install, inspect and manage skills</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Also the review surface for the write-approval gate: <code>pending</code>, <code>diff</code>, <code>approve</code>, <code>reject</code>, <code>approval on|off</code>.</li></ul></td></tr>
+                    <tr class="search-item" id="i-bundles"><td><a class="row-link" href="#i-bundles" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/bundles</code></td><td class="desc">List skill bundles — <code>/&lt;name&gt;</code> aliases that preload several skills</td></tr>
+                    <tr class="search-item" id="i-learn"><td><a class="row-link" href="#i-learn" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/learn</code></td><td class="desc"><span class="summary">Distil a reusable skill from a directory, URL, workflow or notes</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>The agent gathers the sources itself and authors a <code>SKILL.md</code>.</li></ul></td></tr>
+                    <tr class="search-item" id="i-memory"><td><a class="row-link" href="#i-memory" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/memory</code></td><td class="desc">Review pending memory writes and toggle the write gate</td></tr>
+                    <tr class="search-item" id="i-refine"><td><a class="row-link" href="#i-refine" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/refine</code></td><td class="desc"><span class="summary">Run the background memory and skill self-improvement review now</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Runs in a background fork against a conversation snapshot; the live session and prompt cache are untouched.</li></ul></td></tr>
+                    <tr class="search-item" id="i-reload-skills"><td><a class="row-link" href="#i-reload-skills" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/reload-skills</code></td><td class="desc">Re-scan the skills directory for installed or removed skills</td></tr>
+                    <tr class="search-item" id="i-reload-mcp"><td><a class="row-link" href="#i-reload-mcp" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/reload-mcp</code></td><td class="desc">Reload MCP servers from <code>config.yaml</code> and re-probe tools</td></tr>
+                    <tr class="search-item" id="i-reload"><td><a class="row-link" href="#i-reload" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/reload</code></td><td class="desc"><span class="summary">Reload <code>.env</code> into the running session</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Picks up new API keys without restarting.</li></ul></td></tr>
+                    <tr class="search-item" id="i-plugins"><td><a class="row-link" href="#i-plugins" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/plugins</code></td><td class="desc">List installed plugins and their status</td></tr>
+                    <tr class="search-item" id="i-browser"><td><a class="row-link" href="#i-browser" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/browser</code></td><td class="desc"><span class="summary">Attach browser tools to a running Chromium-family browser over CDP</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li><code>connect</code> defaults to <code>http://127.0.0.1:9222</code>; <code>disconnect</code> detaches; <code>status</code> shows the connection.</li></ul></td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="Display &amp; safety">
+                <summary><h3>Display &amp; safety</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-yolo"><td><a class="row-link" href="#i-yolo" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/yolo</code></td><td class="desc">Toggle YOLO mode — skip all dangerous-command approval prompts</td></tr>
+                    <tr class="search-item" id="i-approvals"><td><a class="row-link" href="#i-approvals" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/approvals</code></td><td class="desc"><span class="summary">Show or set the persistent approval mode</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Modes are <code>manual</code>, <code>smart</code> and <code>off</code>.</li></ul></td></tr>
+                    <tr class="search-item" id="i-focus"><td><a class="row-link" href="#i-focus" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/focus</code></td><td class="desc"><span class="summary">Reduced-output view showing only your prompt and the final response</span> <button type="button" class="notes-btn" aria-expanded="false">+2</button><ul class="notes" hidden><li>Composes with <code>/verbose</code>: it snaps progress to off and restores your mode afterwards.</li><li>Nothing is sent differently to the model — detail is hidden, never discarded.</li></ul></td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="Profile &amp; account">
+                <summary><h3>Profile &amp; account</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-profile"><td><a class="row-link" href="#i-profile" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/profile</code></td><td class="desc">Show the active profile name and home directory</td></tr>
+                    <tr class="search-item" id="i-export"><td><a class="row-link" href="#i-export" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/export</code></td><td class="desc"><span class="summary">Pack a profile into a shareable archive</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>CLI only. Skills, memory, persona, crons, plugins and settings; credentials are stripped.</li></ul></td></tr>
+                    <tr class="search-item" id="i-import"><td><a class="row-link" href="#i-import" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/import</code></td><td class="desc"><span class="summary">Install a profile archive as a new profile</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>CLI only. Refuses to overwrite an existing profile and cannot import as <code>default</code>.</li></ul></td></tr>
+                    <tr class="search-item" id="i-login"><td><a class="row-link" href="#i-login" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/login</code></td><td class="desc"><span class="summary">Sign in with a Nous account</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Runs off-turn: the link and code arrive in the session and settle when you approve in the browser.</li></ul></td></tr>
+                    <tr class="search-item" id="i-help"><td><a class="row-link" href="#i-help" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/help</code></td><td class="desc"><span class="summary">Show available commands, grouped by category</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li><code>/help skills</code> lists skill commands; <code>/help &lt;text&gt;</code> filters by substring.</li></ul></td></tr>
+                    <tr class="search-item" id="i-version"><td><a class="row-link" href="#i-version" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/version</code></td><td class="desc">Show version, build and environment info</td></tr>
+                    <tr class="search-item" id="i-update"><td><a class="row-link" href="#i-update" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/update</code></td><td class="desc">Update Hermes Agent to the latest version</td></tr>
+                    <tr class="search-item" id="i-debug"><td><a class="row-link" href="#i-debug" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/debug</code></td><td class="desc">Upload a debug report and get shareable links</td></tr>
+                </table>
+            </details>
+        </div>
+
+        <div class="card" id="card-cli">
+            <h2>CLI &amp; Subcommands <span class="card-count"></span></h2>
+
+            <details class="search-group" open data-group="Global options">
+                <summary><h3>Global options</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-version-v"><td><a class="row-link" href="#i-version-v" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>--version, -V</code></td><td class="desc">Show version and exit</td></tr>
+                    <tr class="search-item" id="i-profile-name-p"><td><a class="row-link" href="#i-profile-name-p" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>--profile &lt;name&gt;, -p</code></td><td class="desc"><span class="summary">Select the profile for this invocation</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Overrides the sticky default set by <code>hermes profile use</code>.</li></ul></td></tr>
+                    <tr class="search-item" id="i-resume-session-r"><td><a class="row-link" href="#i-resume-session-r" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>--resume &lt;session&gt;, -r</code></td><td class="desc"><span class="summary">Resume a session by id or title</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>The keyword <code>latest</code> resumes the most recent, workspace-scoped like <code>-c</code>.</li></ul></td></tr>
+                    <tr class="search-item" id="i-continue-name-c"><td><a class="row-link" href="#i-continue-name-c" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>--continue [name], -c</code></td><td class="desc">Resume the most recent session, or the most recent matching a title</td></tr>
+                    <tr class="search-item" id="i-in-dir"><td><a class="row-link" href="#i-in-dir" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>--in &lt;dir&gt;</code></td><td class="desc"><span class="summary">Change into a directory before starting or resuming</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Scopes <code>--resume latest</code> and <code>-c</code> to that workspace and keeps the session there.</li></ul></td></tr>
+                    <tr class="search-item" id="i-worktree-w"><td><a class="row-link" href="#i-worktree-w" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>--worktree, -w</code></td><td class="desc">Start in an isolated git worktree for parallel-agent work</td></tr>
+                    <tr class="search-item" id="i-yolo-2"><td><a class="row-link" href="#i-yolo-2" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>--yolo</code></td><td class="desc">Bypass dangerous-command approval prompts</td></tr>
+                    <tr class="search-item" id="i-ignore-user-config"><td><a class="row-link" href="#i-ignore-user-config" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>--ignore-user-config</code></td><td class="desc"><span class="summary">Ignore <code>~/.hermes/config.yaml</code> and use built-in defaults</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Credentials in <code>.env</code> are still loaded.</li></ul></td></tr>
+                    <tr class="search-item" id="i-tui"><td><a class="row-link" href="#i-tui" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>--tui</code> / <code>--cli</code></td><td class="desc"><span class="summary">Launch the TUI, or force the classic REPL</span> <button type="button" class="notes-btn" aria-expanded="false">+2</button><ul class="notes" hidden><li><code>--tui</code> equals <code>HERMES_TUI=1</code> and always wins over <code>display.interface</code>.</li><li><code>--cli</code> overrides <code>display.interface: tui</code> for one invocation.</li></ul></td></tr>
+                    <tr class="search-item" id="i-pass-session-id"><td><a class="row-link" href="#i-pass-session-id" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>--pass-session-id</code></td><td class="desc">Include the session id in the agent&rsquo;s system prompt</td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="Chat &amp; models">
+                <summary><h3>Chat &amp; models</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-hermes-chat"><td><a class="row-link" href="#i-hermes-chat" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes chat</code></td><td class="desc">Interactive or one-shot chat with the agent</td></tr>
+                    <tr class="search-item" id="i-hermes-z-prompt"><td><a class="row-link" href="#i-hermes-z-prompt" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes -z &lt;prompt&gt;</code></td><td class="desc">Scripted one-shot run</td></tr>
+                    <tr class="search-item" id="i-hermes-model"><td><a class="row-link" href="#i-hermes-model" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes model</code></td><td class="desc">Interactively choose the default provider and model</td></tr>
+                    <tr class="search-item" id="i-hermes-moa"><td><a class="row-link" href="#i-hermes-moa" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes moa</code></td><td class="desc">Configure named Mixture of Agents presets</td></tr>
+                    <tr class="search-item" id="i-hermes-fallback"><td><a class="row-link" href="#i-hermes-fallback" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes fallback</code></td><td class="desc">Manage fallback providers tried when the primary model errors</td></tr>
+                    <tr class="search-item" id="i-hermes-lsp"><td><a class="row-link" href="#i-hermes-lsp" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes lsp</code></td><td class="desc">Manage LSP integration for semantic diagnostics on writes</td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="Sessions &amp; projects">
+                <summary><h3>Sessions &amp; projects</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-hermes-sessions"><td><a class="row-link" href="#i-hermes-sessions" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes sessions</code></td><td class="desc">Browse, export, prune, rename and delete sessions</td></tr>
+                    <tr class="search-item" id="i-hermes-project"><td><a class="row-link" href="#i-hermes-project" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes project</code></td><td class="desc"><span class="summary">Manage named multi-folder workspaces</span> <button type="button" class="notes-btn" aria-expanded="false">+2</button><ul class="notes" hidden><li>Anchors session grouping and, bound to a kanban board, gives tasks a deterministic worktree and branch convention.</li><li>State is per-profile.</li></ul></td></tr>
+                    <tr class="search-item" id="i-hermes-checkpoints"><td><a class="row-link" href="#i-hermes-checkpoints" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes checkpoints</code></td><td class="desc"><span class="summary">Inspect, prune or clear the shadow store behind <code>/rollback</code></span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Run with no arguments for a status overview.</li></ul></td></tr>
+                    <tr class="search-item" id="i-hermes-profile"><td><a class="row-link" href="#i-hermes-profile" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes profile</code></td><td class="desc">Manage profiles — multiple isolated Hermes instances</td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="Config &amp; auth">
+                <summary><h3>Config &amp; auth</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-hermes-config"><td><a class="row-link" href="#i-hermes-config" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes config</code></td><td class="desc"><span class="summary">Show, edit, migrate and query configuration</span> <button type="button" class="notes-btn" aria-expanded="false">+2</button><ul class="notes" hidden><li>Subcommands: <code>edit</code>, <code>get</code>, <code>set</code>, <code>unset</code>, <code>check</code>, <code>migrate</code>.</li><li><code>set</code> routes automatically — API keys land in <code>.env</code>, everything else in <code>config.yaml</code>.</li></ul></td></tr>
+                    <tr class="search-item" id="i-hermes-setup"><td><a class="row-link" href="#i-hermes-setup" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes setup</code></td><td class="desc">Interactive setup wizard for all or part of the configuration</td></tr>
+                    <tr class="search-item" id="i-hermes-auth"><td><a class="row-link" href="#i-hermes-auth" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes auth</code></td><td class="desc"><span class="summary">Add, list, remove, reset and check credentials</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Handles OAuth flows for Codex, Nous and Anthropic. <code>hermes login</code> / <code>logout</code> are deprecated aliases.</li></ul></td></tr>
+                    <tr class="search-item" id="i-hermes-migrate"><td><a class="row-link" href="#i-hermes-migrate" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes migrate</code></td><td class="desc">Rewrite <code>config.yaml</code> to replace retired models or deprecated settings</td></tr>
+                    <tr class="search-item" id="i-hermes-status"><td><a class="row-link" href="#i-hermes-status" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes status</code></td><td class="desc">Show agent and auth status</td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="Extensibility">
+                <summary><h3>Extensibility</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-hermes-skills"><td><a class="row-link" href="#i-hermes-skills" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes skills</code></td><td class="desc">Browse, install, publish, audit and configure skills</td></tr>
+                    <tr class="search-item" id="i-hermes-bundles"><td><a class="row-link" href="#i-hermes-bundles" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes bundles</code></td><td class="desc">Group several skills under one <code>/&lt;name&gt;</code> slash command</td></tr>
+                    <tr class="search-item" id="i-hermes-plugins"><td><a class="row-link" href="#i-hermes-plugins" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes plugins</code></td><td class="desc">Install, enable, disable and remove plugins</td></tr>
+                    <tr class="search-item" id="i-hermes-mcp"><td><a class="row-link" href="#i-hermes-mcp" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes mcp</code></td><td class="desc">Manage MCP server configurations, and run Hermes as an MCP server</td></tr>
+                    <tr class="search-item" id="i-hermes-acp"><td><a class="row-link" href="#i-hermes-acp" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes acp</code></td><td class="desc">Run Hermes as an ACP server for editor integration</td></tr>
+                    <tr class="search-item" id="i-hermes-tools"><td><a class="row-link" href="#i-hermes-tools" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes tools</code></td><td class="desc">Configure enabled tools per platform</td></tr>
+                    <tr class="search-item" id="i-hermes-hooks"><td><a class="row-link" href="#i-hermes-hooks" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes hooks</code></td><td class="desc">Inspect, approve or remove shell-script hooks declared in <code>config.yaml</code></td></tr>
+                    <tr class="search-item" id="i-hermes-import-agent"><td><a class="row-link" href="#i-hermes-import-agent" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes import-agent</code></td><td class="desc">Import a Claude Code or Codex CLI setup</td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="Automation">
+                <summary><h3>Automation</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-hermes-cron"><td><a class="row-link" href="#i-hermes-cron" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes cron</code></td><td class="desc">Inspect and tick the cron scheduler</td></tr>
+                    <tr class="search-item" id="i-hermes-kanban"><td><a class="row-link" href="#i-hermes-kanban" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes kanban</code></td><td class="desc">Multi-profile collaboration board — tasks, links, dispatcher</td></tr>
+                    <tr class="search-item" id="i-hermes-gateway"><td><a class="row-link" href="#i-hermes-gateway" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes gateway</code></td><td class="desc"><span class="summary">Run or manage the messaging gateway service</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Out of scope for this placemat beyond the entry point — see the official docs for platform setup.</li></ul></td></tr>
+                    <tr class="search-item" id="i-hermes-portal"><td><a class="row-link" href="#i-hermes-portal" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes portal</code></td><td class="desc">Nous Portal status, subscription link and Tool Gateway routing</td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="Diagnostics &amp; maintenance">
+                <summary><h3>Diagnostics &amp; maintenance</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-hermes-doctor"><td><a class="row-link" href="#i-hermes-doctor" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes doctor</code></td><td class="desc">Diagnose config and dependency issues</td></tr>
+                    <tr class="search-item" id="i-hermes-dump"><td><a class="row-link" href="#i-hermes-dump" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes dump</code> / <code>hermes debug</code></td><td class="desc">Copy-pasteable setup summary for support</td></tr>
+                    <tr class="search-item" id="i-hermes-prompt-size"><td><a class="row-link" href="#i-hermes-prompt-size" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes prompt-size</code></td><td class="desc"><span class="summary">Byte breakdown of the system prompt and tool schemas</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Covers the skills index, memory and profile, and runs offline.</li></ul></td></tr>
+                    <tr class="search-item" id="i-hermes-logs"><td><a class="row-link" href="#i-hermes-logs" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes logs</code></td><td class="desc">View, tail and filter agent, gateway and error logs</td></tr>
+                    <tr class="search-item" id="i-hermes-security-audit"><td><a class="row-link" href="#i-hermes-security-audit" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes security audit</code></td><td class="desc"><span class="summary">On-demand supply-chain audit for the venv, plugins and pinned MCP servers</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Backed by OSV.dev.</li></ul></td></tr>
+                    <tr class="search-item" id="i-hermes-backup"><td><a class="row-link" href="#i-hermes-backup" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes backup</code> / <code>hermes import</code></td><td class="desc">Back up the Hermes home directory to a zip</td></tr>
+                    <tr class="search-item" id="i-hermes-completion"><td><a class="row-link" href="#i-hermes-completion" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes completion</code></td><td class="desc">Print shell completion scripts (bash, zsh, fish)</td></tr>
+                    <tr class="search-item" id="i-hermes-update"><td><a class="row-link" href="#i-hermes-update" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes update</code></td><td class="desc"><span class="summary">Pull the latest code and reinstall dependencies</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li><code>--check</code> previews without installing; <code>--backup</code> snapshots <code>HERMES_HOME</code> first.</li></ul></td></tr>
+                </table>
+            </details>
+        </div>
+
+        <div class="card" id="card-settings">
+            <h2>Settings (config.yaml) <span class="card-count"></span></h2>
+
+            <details class="search-group" open data-group="Files &amp; precedence">
+                <summary><h3>Files &amp; precedence</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-hermes-config-yaml"><td><a class="row-link" href="#i-hermes-config-yaml" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>~/.hermes/config.yaml</code></td><td class="desc">Primary config for every non-secret setting</td></tr>
+                    <tr class="search-item" id="i-hermes-env"><td><a class="row-link" href="#i-hermes-env" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>~/.hermes/.env</code> / <code>~/.hermes/auth.json</code></td><td class="desc"><span class="summary">API keys and secrets; required for credentials</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li><code>auth.json</code> holds OAuth provider credentials.</li></ul></td></tr>
+                    <tr class="search-item" id="i-hermes-config-set"><td><a class="row-link" href="#i-hermes-config-set" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes config set</code></td><td class="desc"><span class="summary">Route a value to the right file automatically</span> <button type="button" class="notes-btn" aria-expanded="false">+2</button><ul class="notes" hidden><li>Precedence, highest first: CLI arguments, <code>config.yaml</code>, <code>.env</code>, built-in defaults.</li><li>Secrets go in <code>.env</code>; everything else in <code>config.yaml</code>, which wins for non-secret settings.</li></ul></td></tr>
+                    <tr class="search-item" id="i-env-substitution"><td><a class="row-link" href="#i-env-substitution" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>${VAR}</code></td><td class="desc">Environment-variable substitution inside <code>config.yaml</code></td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="Terminal backends">
+                <summary><h3>Terminal backends</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-terminal-backend"><td><a class="row-link" href="#i-terminal-backend" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>terminal.backend</code></td><td class="desc"><span class="summary">Where the agent&rsquo;s shell commands run</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Seven backends: <code>local</code>, <code>docker</code>, <code>ssh</code>, <code>modal</code>, <code>daytona</code>, <code>vercel_sandbox</code>, <code>singularity</code>.</li></ul></td></tr>
+                    <tr class="search-item" id="i-terminal-timeout"><td><a class="row-link" href="#i-terminal-timeout" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>terminal.timeout</code></td><td class="desc">Per-command timeout in seconds</td></tr>
+                    <tr class="search-item" id="i-terminal-temp-dir"><td><a class="row-link" href="#i-terminal-temp-dir" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>terminal.temp_dir</code></td><td class="desc"><span class="summary">Session temp root for background logs, code sandboxes and spilled results</span> <button type="button" class="notes-btn" aria-expanded="false">+2</button><ul class="notes" hidden><li>Empty honours <code>TMPDIR</code>, else uses <code>~/.hermes/cache/terminal</code> rather than a RAM-backed <code>/tmp</code>.</li><li>The managed directory auto-prunes artifacts older than 72 hours; user-set paths are never pruned.</li></ul></td></tr>
+                    <tr class="search-item" id="i-terminal-env-passthrough"><td><a class="row-link" href="#i-terminal-env-passthrough" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>terminal.env_passthrough</code></td><td class="desc">Env var names forwarded into sandboxed execution</td></tr>
+                    <tr class="search-item" id="i-terminal-home-mode"><td><a class="row-link" href="#i-terminal-home-mode" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>terminal.home_mode</code></td><td class="desc">Subprocess HOME policy: <code>auto</code>, <code>real</code> or <code>profile</code></td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="Agent behaviour">
+                <summary><h3>Agent behaviour</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-model-default"><td><a class="row-link" href="#i-model-default" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>model.default</code> / <code>model.provider</code></td><td class="desc">Default model and provider</td></tr>
+                    <tr class="search-item" id="i-model-persist-switch-by-default"><td><a class="row-link" href="#i-model-persist-switch-by-default" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>model.persist_switch_by_default</code></td><td class="desc">Whether a plain <code>/model &lt;name&gt;</code> persists to config</td></tr>
+                    <tr class="search-item" id="i-auxiliary-review"><td><a class="row-link" href="#i-auxiliary-review" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>auxiliary.review</code></td><td class="desc">Dedicated model for the <code>/review</code> reviewer subagent</td></tr>
+                    <tr class="search-item" id="i-goals-max-turns"><td><a class="row-link" href="#i-goals-max-turns" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>goals.max_turns</code></td><td class="desc">Turn budget for a standing <code>/goal</code>; defaults to 20</td></tr>
+                    <tr class="search-item" id="i-agent-fast-auto-seconds"><td><a class="row-link" href="#i-agent-fast-auto-seconds" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>agent.fast_auto_seconds</code></td><td class="desc">Window used by <code>/fast auto</code>; defaults to 60 s</td></tr>
+                    <tr class="search-item" id="i-worktree-sync"><td><a class="row-link" href="#i-worktree-sync" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>worktree_sync</code></td><td class="desc">How <code>/worktree new</code> and <code>hermes -w</code> branch from the remote tip</td></tr>
+                    <tr class="search-item" id="i-display-interface"><td><a class="row-link" href="#i-display-interface" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>display.interface</code></td><td class="desc"><span class="summary">Classic CLI or TUI by default</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li><code>--tui</code> and <code>--cli</code> both override it for one invocation.</li></ul></td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="Context &amp; memory">
+                <summary><h3>Context &amp; memory</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-compression"><td><a class="row-link" href="#i-compression" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>compression</code></td><td class="desc">Context compression thresholds and behaviour</td></tr>
+                    <tr class="search-item" id="i-context-2"><td><a class="row-link" href="#i-context-2" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>context</code></td><td class="desc">Context engine, pressure warnings and file truncation limits</td></tr>
+                    <tr class="search-item" id="i-database"><td><a class="row-link" href="#i-database" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>database</code></td><td class="desc">Database settings for sessions and state</td></tr>
+                    <tr class="search-item" id="i-updates"><td><a class="row-link" href="#i-updates" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>updates</code></td><td class="desc">Update behaviour</td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="Limits &amp; safety">
+                <summary><h3>Limits &amp; safety</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-run-budgets"><td><a class="row-link" href="#i-run-budgets" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>iteration budget</code> / <code>wall-clock run budget</code></td><td class="desc"><span class="summary">Caps on how long a single run may go</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Iteration budget caps agent steps; the wall-clock budget caps elapsed time.</li></ul></td></tr>
+                    <tr class="search-item" id="i-verify-on-stop"><td><a class="row-link" href="#i-verify-on-stop" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>verify-on-stop</code></td><td class="desc"><span class="summary">Coding verification before a turn is allowed to end</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Tool-loop guardrails separately guard against repeated unproductive tool loops.</li></ul></td></tr>
+                </table>
+            </details>
+        </div>
+
+        <div class="card" id="card-env">
+            <h2>Environment Variables <span class="card-count"></span></h2>
+
+            <details class="search-group" open data-group="Locations &amp; interface">
+                <summary><h3>Locations &amp; interface</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-hermes-home"><td><a class="row-link" href="#i-hermes-home" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>HERMES_HOME</code></td><td class="desc"><span class="summary">Hermes home directory; defaults to <code>~/.hermes</code></span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Holds <code>config.yaml</code>, <code>.env</code>, <code>auth.json</code>, <code>SOUL.md</code>, <code>memories/</code>, <code>skills/</code>, <code>cron/</code>, <code>sessions/</code> and <code>logs/</code>.</li></ul></td></tr>
+                    <tr class="search-item" id="i-hermes-tui"><td><a class="row-link" href="#i-hermes-tui" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>HERMES_TUI</code></td><td class="desc">Launch the TUI; equivalent to <code>--tui</code></td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="Providers &amp; tools">
+                <summary><h3>Providers &amp; tools</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-env-file"><td><a class="row-link" href="#i-env-file" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>~/.hermes/.env</code></td><td class="desc"><span class="summary">Where provider API keys and tokens belong</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Secrets are required here rather than in <code>config.yaml</code>; logs auto-redact them.</li></ul></td></tr>
+                    <tr class="search-item" id="i-hermes-secrets"><td><a class="row-link" href="#i-hermes-secrets" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code class="unverified">hermes secrets</code></td><td class="desc"><span class="summary">Pull API keys from an external secret source at startup</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Documented as currently supporting Bitwarden Secrets Manager; confirm the provider list before relying on it.</li></ul></td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="Backends">
+                <summary><h3>Backends</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-backend-vars"><td><a class="row-link" href="#i-backend-vars" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>terminal backend variables</code></td><td class="desc"><span class="summary">Credentials and endpoints for Docker, SSH, Modal, Daytona and Singularity</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Grouped in the environment-variables reference under Terminal Backend, SSH Backend and Container Resources.</li></ul></td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="Diagnostics">
+                <summary><h3>Diagnostics</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-env-logs"><td><a class="row-link" href="#i-env-logs" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes logs</code></td><td class="desc"><span class="summary">Log files live under <code>~/.hermes/logs/</code></span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li><code>errors.log</code> and <code>gateway.log</code>, with secrets auto-redacted and rotation applied.</li></ul></td></tr>
+                </table>
+            </details>
+        </div>
+
+        <div class="card" id="card-skills">
+            <h2>Skills, Context &amp; Subagents <span class="card-count"></span></h2>
+
+            <details class="search-group" open data-group="Context files">
+                <summary><h3>Context files</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-hermes-md"><td><a class="row-link" href="#i-hermes-md" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>.hermes.md</code> / <code>HERMES.md</code></td><td class="desc"><span class="summary">Project instructions, highest priority</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Walks up to the git root.</li></ul></td></tr>
+                    <tr class="search-item" id="i-agents-md"><td><a class="row-link" href="#i-agents-md" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>AGENTS.md</code></td><td class="desc"><span class="summary">Project instructions, conventions and architecture</span> <button type="button" class="notes-btn" aria-expanded="false">+3</button><ul class="notes" hidden><li>Inside a git repo Hermes loads a merged chain from the git root down to your working directory, so deeper files take precedence.</li><li>Each file gets a provenance header and identical copies along the chain are deduplicated.</li><li>Outside a repo only the working directory is checked, so a stray file in <code>/tmp</code> or <code>$HOME</code> cannot leak in.</li></ul></td></tr>
+                    <tr class="search-item" id="i-agents-override-md"><td><a class="row-link" href="#i-agents-override-md" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>AGENTS.override.md</code></td><td class="desc"><span class="summary">Personal per-directory override, usually gitignored</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Loaded <em>instead of</em> a neighbouring <code>AGENTS.md</code>.</li></ul></td></tr>
+                    <tr class="search-item" id="i-claude-md"><td><a class="row-link" href="#i-claude-md" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>CLAUDE.md</code></td><td class="desc">Claude Code context files are detected too</td></tr>
+                    <tr class="search-item" id="i-cursorrules"><td><a class="row-link" href="#i-cursorrules" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>.cursorrules</code> / <code>.cursor/rules/*.mdc</code></td><td class="desc">Cursor IDE coding conventions, from the working directory only</td></tr>
+                    <tr class="search-item" id="i-soul-md"><td><a class="row-link" href="#i-soul-md" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>SOUL.md</code></td><td class="desc"><span class="summary">Global personality and tone for this Hermes instance</span> <button type="button" class="notes-btn" aria-expanded="false">+2</button><ul class="notes" hidden><li>Loaded only from <code>HERMES_HOME</code>, always, as agent identity slot #1 — independent of the project chain.</li><li>Seeded automatically if it does not exist.</li></ul></td></tr>
+                    <tr class="search-item" id="i-ctx-precedence"><td><a class="row-link" href="#i-ctx-precedence" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>first match wins</code></td><td class="desc"><span class="summary">Only one project context type loads per session</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Order: <code>.hermes.md</code> → <code>AGENTS.override.md</code> → <code>AGENTS.md</code> → <code>CLAUDE.md</code> → <code>.cursorrules</code>.</li></ul></td></tr>
+                    <tr class="search-item" id="i-ctx-progressive"><td><a class="row-link" href="#i-ctx-progressive" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>progressive discovery</code></td><td class="desc">Subdirectory context files are injected as the agent navigates into them</td></tr>
+                    <tr class="search-item" id="i-ignore-rules"><td><a class="row-link" href="#i-ignore-rules" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>--ignore-rules</code></td><td class="desc">Skip auto-injection of context files, memory and preloaded skills</td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="Memory">
+                <summary><h3>Memory</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-hermes-memories"><td><a class="row-link" href="#i-hermes-memories" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>~/.hermes/memories/</code></td><td class="desc"><span class="summary">Persistent memory store</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Holds <code>MEMORY.md</code> and <code>USER.md</code>.</li></ul></td></tr>
+                    <tr class="search-item" id="i-memory-write-approval"><td><a class="row-link" href="#i-memory-write-approval" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>memory.write_approval</code></td><td class="desc"><span class="summary">Stage memory writes for review before they land</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Review them with <code>/memory pending</code>, <code>approve</code> and <code>reject</code>.</li></ul></td></tr>
+                    <tr class="search-item" id="i-hermes-memory"><td><a class="row-link" href="#i-hermes-memory" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes memory</code></td><td class="desc">Configure the external memory provider</td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="Skills">
+                <summary><h3>Skills</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-hermes-skills-2"><td><a class="row-link" href="#i-hermes-skills-2" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>~/.hermes/skills/</code></td><td class="desc">Agent-created skills, managed by the skill tool</td></tr>
+                    <tr class="search-item" id="i-skill-md"><td><a class="row-link" href="#i-skill-md" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>SKILL.md</code></td><td class="desc"><span class="summary">The file a skill is authored in</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Hermes follows the agentskills.io standard, so skills are portable between tools.</li></ul></td></tr>
+                    <tr class="search-item" id="i-skills-write-approval"><td><a class="row-link" href="#i-skills-write-approval" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>skills.write_approval</code></td><td class="desc"><span class="summary">Gate agent skill writes behind review</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Review with <code>/skills pending</code>, <code>/skills diff &lt;id&gt;</code>, <code>approve</code> and <code>reject</code>.</li></ul></td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="Subagents &amp; delegation">
+                <summary><h3>Subagents &amp; delegation</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+
+                </table>
+            </details>
+        </div>
+
+        <div class="card" id="card-hooks">
+            <h2>Automation &amp; MCP <span class="card-count"></span></h2>
+
+            <details class="search-group" open data-group="Scheduled &amp; recurring">
+                <summary><h3>Scheduled &amp; recurring</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-cron"><td><a class="row-link" href="#i-cron" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/cron</code></td><td class="desc"><span class="summary">Manage scheduled tasks from chat</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>List, add, edit, pause, resume, run and remove.</li></ul></td></tr>
+                    <tr class="search-item" id="i-heartbeat"><td><a class="row-link" href="#i-heartbeat" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/heartbeat</code> / <code>/hb</code></td><td class="desc"><span class="summary">A recurring prompt that re-enters this session when idle</span> <button type="button" class="notes-btn" aria-expanded="false">+3</button><ul class="notes" hidden><li>Minimum interval 60 s, and missed ticks coalesce.</li><li>Session-scoped and in-process — use <code>hermes cron</code> for durable isolated schedules.</li><li>Subcommands: <code>status</code>, <code>pause</code>, <code>resume</code>, <code>clear</code>.</li></ul></td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="Goals &amp; loops">
+                <summary><h3>Goals &amp; loops</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-goal"><td><a class="row-link" href="#i-goal" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/goal</code></td><td class="desc"><span class="summary">A standing goal Hermes works toward across turns</span> <button type="button" class="notes-btn" aria-expanded="false">+3</button><ul class="notes" hidden><li>After each turn an auxiliary judge decides DONE or CONTINUE; if not done, Hermes auto-continues.</li><li>Budget defaults to 20 turns (<code>goals.max_turns</code>); any real user message preempts the loop and state survives <code>/resume</code>.</li><li>Subcommands: <code>status</code>, <code>pause</code>, <code>resume</code>, <code>clear</code>.</li></ul></td></tr>
+                    <tr class="search-item" id="i-subgoal"><td><a class="row-link" href="#i-subgoal" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/subgoal</code></td><td class="desc"><span class="summary">Append a criterion to the active goal mid-loop</span> <button type="button" class="notes-btn" aria-expanded="false">+2</button><ul class="notes" hidden><li>The judge factors every subgoal in, so the goal is not done until the original and all subgoals are met.</li><li>Requires an active <code>/goal</code>.</li></ul></td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="Suggested &amp; templated automation">
+                <summary><h3>Suggested &amp; templated automation</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-suggestions"><td><a class="row-link" href="#i-suggestions" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/suggestions</code> / <code>/suggest</code></td><td class="desc"><span class="summary">Review suggested automations</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li><code>accept &lt;id&gt;</code> creates the proposed automation, <code>dismiss &lt;id&gt;</code> rejects one, <code>catalog</code> adds curated starters, <code>clear</code> clears resolved records.</li></ul></td></tr>
+                    <tr class="search-item" id="i-blueprint"><td><a class="row-link" href="#i-blueprint" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/blueprint</code> / <code>/bp</code></td><td class="desc"><span class="summary">Set up an automation from a template</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Bare lists the catalog, a name starts a guided slot-filling flow, and <code>name slot=value</code> creates the job directly.</li></ul></td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="Kanban &amp; projects">
+                <summary><h3>Kanban &amp; projects</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-kanban"><td><a class="row-link" href="#i-kanban" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/kanban</code></td><td class="desc"><span class="summary">Drive the multi-profile collaboration board from chat</span> <button type="button" class="notes-btn" aria-expanded="false">+2</button><ul class="notes" hidden><li>The full <code>hermes kanban</code> surface: <code>list</code>, <code>show</code>, <code>create</code>, <code>comment</code>, <code>unblock</code>, <code>dispatch</code>.</li><li>Multi-board support via <code>/kanban boards</code> and <code>--board &lt;slug&gt;</code>.</li></ul></td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="MCP &amp; providers">
+                <summary><h3>MCP &amp; providers</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-cred-pool-strategies"><td><a class="row-link" href="#i-cred-pool-strategies" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>credential pool strategies</code></td><td class="desc">How multiple credentials for one provider are rotated</td></tr>
+                </table>
+            </details>
+        </div>
+
+        <div class="no-results search-exclude" id="noResults">No matches — clear search to see everything.</div>
+
+        <footer class="global-footer">
+            Template v1.0 · Content synced 2026-09-11<br>
+            <span class="disclaimer">Unofficial community reference — not affiliated with or endorsed by Nous Research.
+            Condensed from the official docs; always confirm against
+            <a href="https://hermes-agent.nousresearch.com/docs/" target="_blank" rel="noopener noreferrer">hermes-agent.nousresearch.com/docs</a>.</span><br>
+            <a href="../" class="header-link">← All agent placemats</a> ·
+            <a href="https://dommango.github.io" target="_blank" rel="noopener noreferrer">Context//Collapse</a>
+        </footer>
+
+    </main>
+
+    <aside class="since-drawer" id="sinceDrawer" hidden aria-label="Changes since your last visit">
+        <div class="since-drawer-head">
+            <h2 id="sinceDrawerTitle">Since your last visit</h2>
+            <button type="button" class="whats-new-close" id="sinceClose" aria-label="Close">&times;</button>
+        </div>
+        <div class="since-drawer-body" id="sinceBody"></div>
+        <div class="since-drawer-foot">
+            <button type="button" id="sinceReadAll">Mark all as read</button>
+            <a href="feed.xml">RSS</a> · <a href="changes.json">changes.json</a> · <a href="changelog.html">Full changelog</a>
+        </div>
+    </aside>
+
+    <script>
+// Shared placemat behaviour. Storage keys are derived per agent from
+// <html data-agent="…">; theme/density are deliberately shared origin-wide (D6).
+const AGENT = document.documentElement.dataset.agent || 'agent';
+const LS_SEEN = 'pm-' + AGENT + '-seen-version';
+const LS_COLLAPSED = 'pm-' + AGENT + '-collapsed';
+
+// --- THEME TOGGLE LOGIC ---
+function setThemeIcon(theme) {
+    const btn = document.getElementById('themeBtn');
+    if (btn) btn.innerHTML = theme === 'dark' ? '&#9728;&#65039;' : '&#127769;';
+}
+function toggleTheme() {
+    const root = document.documentElement;
+    const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
+    root.dataset.theme = next;
+    localStorage.setItem('placemat-theme', next);
+    setThemeIcon(next);
+}
+setThemeIcon(document.documentElement.dataset.theme);
+
+// --- CLICK TO COPY LOGIC (mouse + keyboard) ---
+function makeCopyable(el, getText) {
+    el.title = "Click to copy";
+    el.tabIndex = -1;
+    el.setAttribute('role', 'button');
+    el.addEventListener('click', () => copyText(el, getText()));
+    el.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            copyText(el, getText());
+        }
+    });
+}
+
+document.querySelectorAll('code').forEach(el => {
+    makeCopyable(el, () => el.innerText);
+});
+
+async function copyText(element, text) {
+    try {
+        await navigator.clipboard.writeText(text);
+        element.classList.add('copied');
+        setTimeout(() => element.classList.remove('copied'), 300);
+    } catch (err) { console.error('Failed to copy: ', err); }
+}
+
+// --- HIERARCHICAL SEARCH LOGIC ---
+const searchInput = document.getElementById('dashboardSearch');
+
+// --- COLLAPSIBLE GROUPS (counts computed at load; folded state remembered) ---
+const groupEls = Array.from(document.querySelectorAll('details.search-group'));
+const COLLAPSED_KEY = LS_COLLAPSED;
+let collapsedGroups = new Set();
+try { collapsedGroups = new Set(JSON.parse(localStorage.getItem(COLLAPSED_KEY) || '[]')); } catch (err) {}
+
+function saveCollapsed() {
+    try { localStorage.setItem(COLLAPSED_KEY, JSON.stringify(Array.from(collapsedGroups))); } catch (err) {}
+}
+
+groupEls.forEach((group) => {
+    group.querySelector('.group-count').textContent = group.querySelectorAll('.search-item').length;
+    group.open = !collapsedGroups.has(group.dataset.group);
+    group.addEventListener('toggle', () => {
+        if (searchInput.value.trim()) return; // search-driven opens are temporary
+        group.open ? collapsedGroups.delete(group.dataset.group) : collapsedGroups.add(group.dataset.group);
+        saveCollapsed();
+    });
+});
+
+function applyGroupState(term) {
+    groupEls.forEach((group) => { group.open = term ? true : !collapsedGroups.has(group.dataset.group); });
+}
+
+// --- FIXED BAR HEIGHTS: measured so the header and nav always clear each other ---
+(function trackBarHeights() {
+    const header = document.querySelector('.global-header');
+    const nav = document.querySelector('.section-nav');
+    const sync = () => {
+        document.documentElement.style.setProperty('--header-h', Math.round(header.offsetHeight) + 'px');
+        document.documentElement.style.setProperty('--nav-h', Math.round(nav.offsetHeight) + 'px');
+    };
+    sync();
+    if (typeof ResizeObserver === 'function') {
+        const observer = new ResizeObserver(sync);
+        observer.observe(header);
+        observer.observe(nav);
+    }
+    window.addEventListener('resize', sync);
+})();
+
+// --- SECTION NAV: counts, active chip, collapse/expand all ---
+const navChips = Array.from(document.querySelectorAll('.section-chips a'));
+navChips.forEach((chip) => {
+    const card = document.getElementById(chip.dataset.target);
+    if (!card) return;
+    const count = card.querySelectorAll('.search-item').length;
+    chip.querySelector('.chip-count').textContent = count;
+    card.querySelector('.card-count').textContent = count;
+});
+const cardObserver = new IntersectionObserver((entries) => {
+    const visible = entries
+        .filter((entry) => entry.isIntersecting)
+        .sort((a, b) => (a.boundingClientRect.top - b.boundingClientRect.top)
+            || (a.boundingClientRect.left - b.boundingClientRect.left));
+    if (!visible.length) return;
+    navChips.forEach((chip) => chip.classList.toggle('is-active', chip.dataset.target === visible[0].target.id));
+}, { rootMargin: '-100px 0px -60% 0px', threshold: 0 });
+navChips.forEach((chip) => {
+    const card = document.getElementById(chip.dataset.target);
+    if (card) cardObserver.observe(card);
+});
+
+function setAllGroups(open) {
+    collapsedGroups = new Set(open ? [] : groupEls.map((group) => group.dataset.group));
+    saveCollapsed();
+    groupEls.forEach((group) => { group.open = open; });
+}
+document.getElementById('printBtn').addEventListener('click', () => window.print());
+document.getElementById('collapseAll').addEventListener('click', () => setAllGroups(false));
+document.getElementById('expandAll').addEventListener('click', () => setAllGroups(true));
+
+// --- DENSITY TOGGLE ---
+(function initDensity() {
+    const DENSITY_KEY = 'placemat-density';
+    const btn = document.getElementById('densityBtn');
+    const apply = (compact) => {
+        document.body.classList.toggle('density-compact', compact);
+        btn.setAttribute('aria-pressed', String(compact));
+    };
+    let compact = false;
+    try { compact = localStorage.getItem(DENSITY_KEY) === 'compact'; } catch (err) {}
+    apply(compact);
+    btn.addEventListener('click', () => {
+        compact = !compact;
+        apply(compact);
+        try { localStorage.setItem(DENSITY_KEY, compact ? 'compact' : 'comfortable'); } catch (err) {}
+    });
+})();
+
+searchInput.addEventListener('input', (e) => {
+    performSearch(e.target.value);
+    applyGroupState(e.target.value.trim());
+    revealNoteHits(e.target.value);
+});
+
+const searchKbd = document.getElementById('searchKbd');
+if (searchKbd && !/mac/i.test(navigator.platform || navigator.userAgentData?.platform || '')) {
+    searchKbd.textContent = 'Ctrl K';
+}
+
+window.addEventListener('keydown', (e) => {
+    if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+        e.preventDefault(); searchInput.focus();
+    }
+});
+
+// --- TWO-TIER ENTRIES: notes disclosure ---
+const noteButtons = Array.from(document.querySelectorAll('.notes-btn'));
+const setNotes = (btn, open) => {
+    btn.setAttribute('aria-expanded', String(open));
+    btn.nextElementSibling.hidden = !open;
+};
+noteButtons.forEach((btn) => btn.addEventListener('click', () => setNotes(btn, btn.getAttribute('aria-expanded') !== 'true')));
+const notesAllBtn = document.getElementById('notesAll');
+notesAllBtn.addEventListener('click', () => {
+    const open = notesAllBtn.getAttribute('aria-pressed') !== 'true';
+    notesAllBtn.setAttribute('aria-pressed', String(open));
+    notesAllBtn.textContent = open ? 'Hide all notes' : 'Show all notes';
+    noteButtons.forEach((btn) => setNotes(btn, open));
+});
+function revealNoteHits(term) {
+    const needle = term.toLowerCase().trim();
+    if (!needle) return;
+    noteButtons.forEach((btn) => {
+        const row = btn.closest('.search-item');
+        const outside = (row.querySelector('td').textContent + ' ' + row.querySelector('.summary').textContent).toLowerCase().includes(needle);
+        const inside = btn.nextElementSibling.textContent.toLowerCase().includes(needle);
+        if (inside && !outside) setNotes(btn, true);
+    });
+}
+
+// --- SEARCH: normalised match, highlight, count, URL state ---
+const normaliseSearch = (s) => s.toLowerCase().replace(/[\s+_\-\/.:~]/g, '');
+const searchRows = Array.from(document.querySelectorAll('.search-item'));
+searchRows.forEach((row) => {
+    const heading = row.closest('.search-group').querySelector('h3');
+    row.dataset.norm = normaliseSearch((heading ? heading.textContent + ' ' : '') + row.textContent);
+});
+const searchWrap = document.querySelector('.search-wrap');
+const searchCount = document.getElementById('searchCount');
+
+function markHits(cell, term) {
+    cell.querySelectorAll('mark.hit').forEach((mark) => mark.replaceWith(mark.textContent));
+    cell.normalize();
+    if (!term || term.length < 2) return;
+    // Tolerate the separators the normaliser strips: "ctrl+r" matches "Ctrl R".
+    const chars = term.split('')
+        .filter((ch) => !/[\s+_\-\/.:~]/.test(ch))
+        .map((ch) => ch.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
+    if (!chars.length) return;
+    const re = new RegExp(chars.join('[\\s+_\\-\\/.:~]*'), 'i');
+    const walker = document.createTreeWalker(cell, NodeFilter.SHOW_TEXT);
+    const nodes = [];
+    while (walker.nextNode()) nodes.push(walker.currentNode);
+    nodes.forEach((node) => {
+        if (node.parentElement.closest('a.row-link')) return;
+        const found = node.data.match(re);
+        if (!found || !found[0]) return;
+        const mark = document.createElement('mark');
+        mark.className = 'hit';
+        const after = node.splitText(found.index);
+        after.data = after.data.slice(found[0].length);
+        mark.textContent = found[0];
+        node.parentNode.insertBefore(mark, after);
+    });
+}
+
+function performSearch(raw) {
+    const term = raw.trim();
+    const needle = normaliseSearch(term);
+    let total = 0;
+    document.querySelectorAll('.dashboard-grid .card:not(.search-exclude)').forEach((card) => {
+        let cardHasMatch = false;
+        card.querySelectorAll('.search-group').forEach((group) => {
+            let groupHasMatch = false;
+            group.querySelectorAll('.search-item').forEach((row) => {
+                const hit = !needle || row.dataset.norm.includes(needle);
+                row.style.display = hit ? 'table-row' : 'none';
+                row.querySelectorAll('td').forEach((cell) => markHits(cell, hit ? term : ''));
+                if (hit) { groupHasMatch = true; total++; }
+            });
+            group.style.display = groupHasMatch ? 'block' : 'none';
+            if (groupHasMatch) cardHasMatch = true;
+        });
+        card.style.display = cardHasMatch ? 'block' : 'none';
+    });
+    document.getElementById('noResults').classList.toggle('is-visible', total === 0);
+    searchWrap.classList.toggle('has-term', !!needle);
+    searchCount.textContent = total + (total === 1 ? ' match' : ' matches');
+    const url = new URL(location.href);
+    if (needle) url.searchParams.set('q', term); else url.searchParams.delete('q');
+    history.replaceState(null, '', url);
+    rebindRoving();
+}
+
+const initialQuery = new URLSearchParams(location.search).get('q');
+if (initialQuery) { searchInput.value = initialQuery; performSearch(initialQuery); applyGroupState(initialQuery.trim()); revealNoteHits(initialQuery); }
+
+window.addEventListener('keydown', (e) => {
+    const inField = /^(INPUT|SELECT|TEXTAREA)$/.test(document.activeElement.tagName);
+    if (e.key === '/' && !inField) { e.preventDefault(); searchInput.focus(); searchInput.select(); }
+    if (e.key === 'Escape' && document.activeElement === searchInput) {
+        searchInput.value = '';
+        searchInput.dispatchEvent(new Event('input'));
+        searchInput.blur();
+    }
+});
+
+// --- PERMALINKS ---
+document.querySelectorAll('.row-link').forEach((link) => {
+    link.addEventListener('click', async (e) => {
+        e.preventDefault();
+        const href = link.getAttribute('href');
+        try {
+            await navigator.clipboard.writeText(location.origin + location.pathname + href);
+        } catch (err) { console.error('Failed to copy link:', err); }
+        history.replaceState(null, '', href);
+        link.classList.add('copied');
+        link.textContent = '✓';
+        setTimeout(() => { link.classList.remove('copied'); link.textContent = '#'; }, 900);
+    });
+});
+if (location.hash) {
+    const target = document.getElementById(location.hash.slice(1));
+    if (target) target.scrollIntoView({ block: 'center' });
+}
+
+// --- ROVING FOCUS: the grid is one tab stop ---
+function visibleRows() {
+    return searchRows.filter((row) => row.style.display !== 'none' && row.closest('.card').style.display !== 'none');
+}
+function rebindRoving() {
+    const rows = visibleRows();
+    searchRows.forEach((row) => { row.tabIndex = -1; });
+    if (rows[0]) rows[0].tabIndex = 0;
+}
+rebindRoving();
+document.querySelector('.dashboard-grid').addEventListener('keydown', (e) => {
+    const row = e.target.closest('.search-item');
+    if (!row || e.target !== row) return;
+    const rows = visibleRows();
+    const index = rows.indexOf(row);
+    const move = (next) => {
+        if (!next) return;
+        e.preventDefault();
+        row.tabIndex = -1;
+        next.tabIndex = 0;
+        next.focus();
+    };
+    if (e.key === 'ArrowDown') move(rows[index + 1]);
+    if (e.key === 'ArrowUp') move(rows[index - 1]);
+    if (e.key === 'Enter') {
+        e.preventDefault();
+        const chip = row.querySelector('code');
+        if (chip) copyText(chip, chip.innerText);
+    }
+    if (e.key === 'l') {
+        const link = row.querySelector('.row-link');
+        if (link) link.click();
+    }
+});
+searchInput.addEventListener('keydown', (e) => {
+    if (e.key !== 'ArrowDown') return;
+    const rows = visibleRows();
+    if (rows[0]) { e.preventDefault(); rows[0].focus(); }
+});
+
+// --- SINCE YOUR LAST VISIT ---
+const versionNumber = (v) => v.replace(/^v/, '').split('.').map(Number).reduce((a, b) => a * 1000 + b, 0);
+(async function initSince() {
+    const SEEN_KEY = LS_SEEN;
+    const current = (document.querySelector('.release-tag').textContent.match(/v[\d.]+/) || [])[0];
+    if (!current) return;
+    let data;
+    try {
+        const res = await fetch('changes.json');
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        data = await res.json();
+    } catch (err) {
+        console.warn('changes.json unavailable:', err.message);
+        return;
+    }
+
+    const tagClass = { ADD: 'tag-add', CHG: 'tag-change', DEL: 'tag-remove', FIX: 'tag-fix' };
+    const rows = Array.from(document.querySelectorAll('.search-item'));
+    const byCode = new Map();
+    rows.forEach((row) => row.querySelectorAll('td:first-child code').forEach((chip) => {
+        const key = chip.innerText.trim();
+        if (!byCode.has(key)) byCode.set(key, row);
+    }));
+    const findRow = (entry) => {
+        if (entry.row) return document.getElementById(entry.row);
+        const item = entry.item;
+        if (!item) return null;
+        if (byCode.has(item)) return byCode.get(item);
+        for (const [key, row] of byCode) if (key.startsWith(item + ' ') || key.startsWith(item + '=')) return row;
+        for (const [key, row] of byCode) if (key.includes(item)) return row;
+        return null;
+    };
+
+    const strip = document.getElementById('sinceStrip');
+    const text = document.getElementById('sinceText');
+    const drawer = document.getElementById('sinceDrawer');
+    const body = document.getElementById('sinceBody');
+    const title = document.getElementById('sinceDrawerTitle');
+    const legend = document.getElementById('legendNew');
+
+    function render() {
+        let seen = null;
+        try { seen = localStorage.getItem(SEEN_KEY); } catch (err) {}
+        rows.forEach((row) => row.querySelectorAll('td:first-child code.new').forEach((chip) => chip.classList.remove('new')));
+
+        let releases;
+        if (!seen) releases = data.releases.slice(0, 3);
+        else if (versionNumber(seen) < versionNumber(current)) {
+            releases = data.releases.filter((rel) => versionNumber(rel.version) > versionNumber(seen)
+                && versionNumber(rel.version) <= versionNumber(current));
+        } else releases = [];
+
+        const changes = releases.reduce((sum, rel) => sum + rel.entries.length, 0);
+        legend.textContent = seen ? 'New since your last visit (' + seen + ')' : 'New in the last 3 releases';
+        if (!changes) { strip.hidden = true; drawer.hidden = true; return; }
+
+        const linked = new Set();
+        releases.forEach((rel) => rel.entries.forEach((entry) => {
+            const row = findRow(entry);
+            if (row) { row.querySelector('td:first-child code').classList.add('new'); linked.add(row); }
+        }));
+        text.innerHTML = seen
+            ? '<b>' + releases.length + (releases.length === 1 ? ' release' : ' releases') + ' · ' + changes
+                + (changes === 1 ? ' change' : ' changes') + '</b> since your last visit <code>' + seen
+                + '</code> → <code>' + current + '</code>; ' + linked.size + ' entries highlighted below'
+            : '<b>Welcome.</b> ' + changes + ' changes across the last ' + releases.length
+                + ' releases are highlighted; next time you will see only what changed since today';
+        strip.hidden = false;
+        title.textContent = seen ? 'Since ' + seen : 'Recent changes';
+        body.innerHTML = releases.map((rel) =>
+            '<section class="since-release"><h3>CC ' + rel.label + ' <span>' + rel.date + '</span></h3><ul>'
+            + rel.entries.map((entry) => {
+                const row = findRow(entry);
+                return '<li' + (row ? ' data-row="' + row.id + '"' : ' class="unlinked"') + '><span class="tag '
+                    + (tagClass[entry.tag] || 'tag-add') + '">' + entry.tag + '</span><span>' + entry.html + '</span></li>';
+            }).join('') + '</ul></section>').join('');
+    }
+    render();
+
+    const markRead = () => {
+        try { localStorage.setItem(SEEN_KEY, current); } catch (err) {}
+        render();
+    };
+    document.getElementById('sinceShow').addEventListener('click', () => {
+        drawer.hidden = false;
+        document.getElementById('sinceClose').focus();
+    });
+    document.getElementById('sinceClose').addEventListener('click', () => { drawer.hidden = true; });
+    document.getElementById('sinceRead').addEventListener('click', markRead);
+    document.getElementById('sinceReadAll').addEventListener('click', markRead);
+    body.addEventListener('click', (e) => {
+        const item = e.target.closest('li[data-row]');
+        if (!item) return;
+        const row = document.getElementById(item.dataset.row);
+        if (!row) return;
+        row.scrollIntoView({ block: 'center', behavior: 'smooth' });
+        row.classList.remove('flash');
+        void row.offsetWidth;
+        row.classList.add('flash');
+    });
+    window.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !drawer.hidden) drawer.hidden = true; });
+})();
+    </script>
+</body>
+</html>

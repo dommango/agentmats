@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en" data-agent="hermes">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hermes Agent Placemat (Unofficial)</title>
+    <meta name="description" content="Unofficial single-page reference for the Nous Research Hermes Agent CLI and TUI coding surface — slash commands, flags, config.yaml keys, skills, context files, MCP and automation. Auto-updated from the official docs.">
+    <meta property="og:title" content="Hermes Agent Placemat (Unofficial)">
+    <meta property="og:description" content="Unofficial single-page reference for the Hermes Agent CLI/TUI coding surface — commands, flags, configuration, skills, MCP and automation.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://dommango.github.io/agent-placemats/hermes/">
+    <meta property="og:image" content="https://dommango.github.io/agent-placemats/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://dommango.github.io/agent-placemats/hermes/">
+    <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+PHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iNiIgZmlsbD0iI2I4ODYwYiIvPjx0ZXh0IHg9IjE2IiB5PSIyMyIgZm9udC1mYW1pbHk9Im1vbm9zcGFjZSIgZm9udC1zaXplPSIxNiIgZm9udC13ZWlnaHQ9IjcwMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzFlMWUxZSI+Jmd0O188L3RleHQ+PC9zdmc+Cg==">
+    <link rel="alternate" type="application/atom+xml" title="Hermes Agent Placemat changes" href="feed.xml">
+    <link rel="stylesheet" href="../shared/placemat.css">
+    <style>
+        :root { --accent-1: #b8860b; --accent-1-2: #d4a52a; --accent-2: #8b7355; --accent-2-2: #a89078; }
+        :root[data-theme="light"] { --accent-1: #8a6508; --accent-1-2: #6d5006; --accent-2: #6b5842; --accent-2-2: #54452f; }
+        /* Scope note (D3) — Hermes is a general agent; this placemat is the coding surface only. */
+        .scope-note { flex: 1 1 320px; margin: 0; font-size: 11px; line-height: 1.45; color: var(--fg-muted); }
+        .scope-note strong { color: var(--fg-main); }
+    </style>
+    <script>
+        (function() {
+            var stored = localStorage.getItem('placemat-theme');
+            var theme = (stored === 'light' || stored === 'dark')
+                ? stored
+                : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            document.documentElement.dataset.theme = theme;
+        })();
+    </script>
+</head>
+<body>
+
+    <a class="skip-link" href="#card-keys">Skip to content</a>
+
+    <header class="global-header">
+        <div class="header-title">
+            <!-- neutral 8-bit terminal-prompt mark (no vendor logos — D5) -->
+            <svg class="minion-icon" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Terminal prompt">
+                <rect x="2" y="3" width="2" height="2" fill="var(--accent-1)"/>
+                <rect x="4" y="5" width="2" height="2" fill="var(--accent-1)"/>
+                <rect x="6" y="7" width="2" height="2" fill="var(--accent-1)"/>
+                <rect x="4" y="9" width="2" height="2" fill="var(--accent-1)"/>
+                <rect x="2" y="11" width="2" height="2" fill="var(--accent-1)"/>
+                <rect x="9" y="11" width="5" height="2" fill="var(--accent-2)"/>
+            </svg>
+            <h1>Hermes Agent <span class="wm-pixel">PLACEMAT</span></h1>
+            <span class="header-tagline">Unofficial · auto-updated reference</span>
+        </div>
+        <div class="global-controls">
+            <span class="release-tag">As of release: v0.21.2 (2026.9.11)</span>
+            <a href="changelog.html" class="header-link">Changelog →</a>
+            <a href="feed.xml" class="header-link" title="Subscribe to placemat changes (RSS)">RSS</a>
+            <button type="button" class="header-link print-btn" id="printBtn" title="Print or save as PDF (Ctrl P)">⎙ Print</button>
+            <button type="button" class="theme-toggle" id="themeBtn" onclick="toggleTheme()" title="Toggle theme" aria-label="Toggle light and dark theme">&#9728;&#65039;</button>
+            <div class="search-wrap">
+                <input type="text" id="dashboardSearch" placeholder="Search the placemat…" aria-label="Search the placemat">
+                <span class="kbd" id="searchKbd">⌘K</span>
+                <span class="search-count" id="searchCount" aria-live="polite"></span>
+            </div>
+        </div>
+    </header>
+
+    <nav class="section-nav" aria-label="Sections">
+        <div class="section-nav-inner">
+            <div class="section-chips">
+                <a href="#card-keys" data-target="card-keys">TUI &amp; Symbols<span class="chip-count"></span></a>
+                <a href="#card-slash-core" data-target="card-slash-core">Slash (Core)<span class="chip-count"></span></a>
+                <a href="#card-slash-tools" data-target="card-slash-tools">Slash (Tools)<span class="chip-count"></span></a>
+                <a href="#card-cli" data-target="card-cli">CLI<span class="chip-count"></span></a>
+                <a href="#card-settings" data-target="card-settings">Settings<span class="chip-count"></span></a>
+                <a href="#card-env" data-target="card-env">Env Vars<span class="chip-count"></span></a>
+                <a href="#card-skills" data-target="card-skills">Skills &amp; Context<span class="chip-count"></span></a>
+                <a href="#card-hooks" data-target="card-hooks">Automation &amp; MCP<span class="chip-count"></span></a>
+            </div>
+            <div class="section-tools">
+                <button type="button" id="collapseAll">Collapse all</button>
+                <button type="button" id="expandAll">Expand all</button>
+                <button type="button" id="densityBtn" aria-pressed="false">Compact</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="dashboard-grid">
+
+        <div class="print-head" aria-hidden="true">
+            <span class="print-head-title">Hermes Agent <b>PLACEMAT</b></span>
+            <span>As of release v0.21.2 (2026.9.11)</span>
+            <span>■ = new &nbsp; □ = unverified</span>
+            <span>dommango.github.io/agent-placemats/hermes</span>
+        </div>
+
+        <div class="card full-width search-exclude since-strip" id="sinceStrip" hidden>
+            <div class="since-row">
+                <span class="since-dot" aria-hidden="true"></span>
+                <span class="since-text" id="sinceText"></span>
+                <span class="since-actions">
+                    <button type="button" id="sinceShow">Show changes</button>
+                    <button type="button" id="sinceRead" class="quiet">Mark as read</button>
+                </span>
+            </div>
+        </div>
+
+        <!-- Legend -->
+        <div class="card full-width search-exclude legend-strip">
+            <div class="legend-strip-row">
+                <div class="legend">
+                    <div class="legend-item"><span class="legend-swatch swatch-default"></span> Verified</div>
+                    <div class="legend-item"><span class="legend-swatch swatch-new"></span> <span id="legendNew">New since your last visit</span></div>
+                    <div class="legend-item"><span class="legend-swatch swatch-unverified"></span> Unverified</div>
+                    <div class="legend-item"><button type="button" class="notes-all" id="notesAll" aria-pressed="false">Show all notes</button></div>
+                </div>
+                <p class="scope-note">Scope: Hermes Agent is a general autonomous agent. This placemat covers its
+                <strong>CLI and TUI coding surface only</strong> — its messaging, voice and desktop surfaces are
+                deliberately left out. See the
+                <a href="https://hermes-agent.nousresearch.com/docs/" target="_blank" rel="noopener noreferrer">full documentation</a> for those.</p>
+            </div>
+        </div>
+
+        <div class="card" id="card-keys">
+            <h2>TUI &amp; Symbols <span class="card-count"></span></h2>
+
+            <details class="search-group" open data-group="Keybindings">
+                <summary><h3>Keybindings</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-ctrl-p"><td><a class="row-link" href="#i-ctrl-p" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>Ctrl+P</code></td><td class="desc"><span class="summary">Open the fuzzy command palette</span> <button type="button" class="notes-btn" aria-expanded="false">+2</button><ul class="notes" hidden><li>Type to filter commands and skills, ↑/↓ to move, Enter inserts into the composer — it never auto-runs.</li><li>Also reachable as <code>/palette</code>.</li></ul></td></tr>
+                    <tr class="search-item" id="i-ctrl-t"><td><a class="row-link" href="#i-ctrl-t" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>Ctrl+T</code></td><td class="desc"><span class="summary">Expand the live-subagent dock into the full <code>/agents</code> roster</span> <button type="button" class="notes-btn" aria-expanded="false">+2</button><ul class="notes" hidden><li>On a selected worker: <code>Enter</code> or <code>t</code> for its transcript, <code>d</code> for details, <code>e</code> to steer, <code>x</code> to stop.</li><li>The dock fits its row count to terminal height and preserves your composer draft.</li></ul></td></tr>
+                    <tr class="search-item" id="i-ctrl-x"><td><a class="row-link" href="#i-ctrl-x" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>Ctrl+X</code></td><td class="desc"><span class="summary">Open the live session switcher</span> <button type="button" class="notes-btn" aria-expanded="false">+2</button><ul class="notes" hidden><li>With a queued message highlighted it deletes that message instead; <code>Esc</code> cancels without deleting.</li><li>Inside the switcher: <code>Ctrl+D</code> closes the selected session, <code>Ctrl+N</code> starts a blank one, <code>Ctrl+R</code> refreshes the list.</li></ul></td></tr>
+                    <tr class="search-item" id="i-ctrl-g"><td><a class="row-link" href="#i-ctrl-g" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>Ctrl+G</code> / <code>Ctrl+X Ctrl+E</code></td><td class="desc"><span class="summary">Open the input buffer in <code>$EDITOR</code> for long prompts</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Save and exit sends the contents back as the prompt.</li></ul></td></tr>
+                    <tr class="search-item" id="i-ctrl-v"><td><a class="row-link" href="#i-ctrl-v" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>Ctrl+V</code></td><td class="desc"><span class="summary">Paste text, falling back to clipboard image attach</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Tries normal text paste, then OSC52 / native clipboard reads, then image attach when the payload resolves to an image.</li></ul></td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="Transcript symbols">
+                <summary><h3>Transcript symbols</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-sym-prompt"><td><a class="row-link" href="#i-sym-prompt" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>❯</code></td><td class="desc"><span class="summary">Input prompt — where you type</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Themeable: a skin can set its own prompt symbol, and <code>┊</code> (the tool-activity rail) follows <code>tool_prefix</code>.</li></ul></td></tr>
+                    <tr class="search-item" id="i-sym-tool"><td><a class="row-link" href="#i-sym-tool" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>●</code></td><td class="desc"><span class="summary">A tool call; the bullet precedes the tool name and arguments</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li><code>✓</code> / <code>✗</code> are appended when the tool result succeeds or fails.</li></ul></td></tr>
+                    <tr class="search-item" id="i-sym-chevron"><td><a class="row-link" href="#i-sym-chevron" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>▸</code> / <code>▾</code></td><td class="desc"><span class="summary">Collapsed or expanded section chevron</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Used for thinking, tools, subagents and banner sections; click to toggle.</li></ul></td></tr>
+                    <tr class="search-item" id="i-sym-cursor"><td><a class="row-link" href="#i-sym-cursor" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>▍</code></td><td class="desc">Streaming cursor — blinks while the model is still emitting text</td></tr>
+                    <tr class="search-item" id="i-sym-tree"><td><a class="row-link" href="#i-sym-tree" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>│</code> / <code>├─</code> / <code>└─</code></td><td class="desc"><span class="summary">Tree rails connecting a parent to its children</span> <button type="button" class="notes-btn" aria-expanded="false">+2</button><ul class="notes" hidden><li><code>└─</code> marks the last child.</li><li>Inline markers: <code>◈</code> a display-only timeline event, <code>◇</code> an injected reference block, <code>↳</code> the sticky prompt echoing the message being worked on.</li></ul></td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="Status bar">
+                <summary><h3>Status bar</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-sym-timer"><td><a class="row-link" href="#i-sym-timer" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>⏱</code> / <code>⏲</code></td><td class="desc"><span class="summary">Per-prompt elapsed time while the turn runs</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Shows turn time over session time, e.g. <code>⏱ 12s/3m 45s</code>; <code>⏲</code> is the same timer frozen after the turn.</li></ul></td></tr>
+                    <tr class="search-item" id="i-sym-counters"><td><a class="row-link" href="#i-sym-counters" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>cmp N</code> / <code>▶ N</code> / <code>⛓ N</code> / <code>N bg</code></td><td class="desc"><span class="summary">Session counters</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li><code>cmp N</code> auto-compressions so far, <code>▶ N</code> running <code>/bg</code> tasks, <code>⛓ N</code> active subagents, <code>N bg</code> tracked background terminals.</li></ul></td></tr>
+                    <tr class="search-item" id="i-sym-yolo"><td><a class="row-link" href="#i-sym-yolo" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>⚠ YOLO</code></td><td class="desc">YOLO mode is on — dangerous commands auto-approve</td></tr>
+                    <tr class="search-item" id="i-sym-focus"><td><a class="row-link" href="#i-sym-focus" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>◉ focus</code></td><td class="desc"><span class="summary">Focus view is on (reduced output)</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Pinned so it never drops off a narrow terminal.</li></ul></td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="Overlays &amp; prompts">
+                <summary><h3>Overlays &amp; prompts</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-sym-approval"><td><a class="row-link" href="#i-sym-approval" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>⚠ approval required</code></td><td class="desc"><span class="summary">A tool needs your explicit yes</span> <button type="button" class="notes-btn" aria-expanded="false">+2</button><ul class="notes" hidden><li>Rendered as a bordered panel with the command preview.</li><li><code>🔐</code> is a masked sudo prompt and <code>🔑</code> a masked credential prompt.</li></ul></td></tr>
+                    <tr class="search-item" id="i-sym-agentstate"><td><a class="row-link" href="#i-sym-agentstate" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>○</code> / <code>■</code> / <code>⌛</code></td><td class="desc"><span class="summary">Subagent states in the <code>/agents</code> overlay</span> <button type="button" class="notes-btn" aria-expanded="false">+2</button><ul class="notes" hidden><li><code>●</code> running, <code>○</code> queued, <code>✓</code> completed, <code>■</code> interrupted, <code>✗</code> failed, <code>⌛</code> timed out, <code>⚠</code> errored.</li><li><code>⚡N</code> rolls up N active agents; <code>▁▂▃▄▅▆▇█</code> is an activity sparkline.</li></ul></td></tr>
+                    <tr class="search-item" id="i-sym-draft"><td><a class="row-link" href="#i-sym-draft" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>✎ draft</code></td><td class="desc"><span class="summary">That session&rsquo;s composer holds an unsent draft</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Session switcher states: <code>✓</code> idle, <code>…</code> starting, <code>?</code> waiting for input, <code>▶</code> working.</li></ul></td></tr>
+                </table>
+            </details>
+        </div>
+
+        <div class="card" id="card-slash-core">
+            <h2>Slash Commands (Core) <span class="card-count"></span></h2>
+
+            <details class="search-group" open data-group="Session">
+                <summary><h3>Session</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-new"><td><a class="row-link" href="#i-new" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/new</code> / <code>/reset</code></td><td class="desc"><span class="summary">Start a new session with a fresh id and history</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>An optional name sets the initial title; append <code>now</code>, <code>--yes</code> or <code>-y</code> to skip the confirmation modal.</li></ul></td></tr>
+                    <tr class="search-item" id="i-clear"><td><a class="row-link" href="#i-clear" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/clear</code></td><td class="desc">Clear the screen and start a new session</td></tr>
+                    <tr class="search-item" id="i-resume"><td><a class="row-link" href="#i-resume" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/resume</code></td><td class="desc">Resume a previously-named session</td></tr>
+                    <tr class="search-item" id="i-sessions"><td><a class="row-link" href="#i-sessions" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/sessions</code> / <code>/switch</code></td><td class="desc"><span class="summary">Browse and resume previous sessions</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>In the TUI this opens the live session switcher; <code>/sessions new</code> starts another live session.</li></ul></td></tr>
+                    <tr class="search-item" id="i-branch"><td><a class="row-link" href="#i-branch" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/branch</code> / <code>/fork</code></td><td class="desc">Branch the current session to explore a different path</td></tr>
+                    <tr class="search-item" id="i-history"><td><a class="row-link" href="#i-history" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/history</code> / <code>/save</code></td><td class="desc">Show conversation history, or save the conversation</td></tr>
+                    <tr class="search-item" id="i-title"><td><a class="row-link" href="#i-title" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/title</code></td><td class="desc">Set a title for the current session</td></tr>
+                    <tr class="search-item" id="i-undo"><td><a class="row-link" href="#i-undo" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/undo</code> / <code>/retry</code></td><td class="desc">Remove the last exchange, or resend the last message</td></tr>
+                    <tr class="search-item" id="i-prompt"><td><a class="row-link" href="#i-prompt" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/prompt</code> / <code>/compose</code></td><td class="desc">Compose the next prompt in <code>$EDITOR</code> as markdown</td></tr>
+                    <tr class="search-item" id="i-quit"><td><a class="row-link" href="#i-quit" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/quit</code> / <code>/exit</code></td><td class="desc">Exit the CLI</td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="Context &amp; history">
+                <summary><h3>Context &amp; history</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-compress"><td><a class="row-link" href="#i-compress" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/compress</code></td><td class="desc"><span class="summary">Manually compress context — flush memories and summarise</span> <button type="button" class="notes-btn" aria-expanded="false">+2</button><ul class="notes" hidden><li><code>/compress here [N]</code> keeps the most recent N exchanges verbatim (default 2) so you pick the boundary.</li><li>A focus topic narrows what a full summary preserves.</li></ul></td></tr>
+                    <tr class="search-item" id="i-context"><td><a class="row-link" href="#i-context" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/context</code> / <code>/ctx</code></td><td class="desc"><span class="summary">Visual context-window breakdown</span> <button type="button" class="notes-btn" aria-expanded="false">+3</button><ul class="notes" hidden><li>A glyph grid where each cell is about 1% of the model window, plus a per-category table.</li><li><code>/context all</code> adds per-skill and per-toolset cost listings.</li><li>Read-only and computed locally — no LLM call, no prompt-cache impact.</li></ul></td></tr>
+                    <tr class="search-item" id="i-status"><td><a class="row-link" href="#i-status" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/status</code></td><td class="desc"><span class="summary">Session info plus a locally-computed session recap</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Model, provider, profile, session id, working directory, title, timestamps, token totals and agent state.</li></ul></td></tr>
+                    <tr class="search-item" id="i-usage"><td><a class="row-link" href="#i-usage" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/usage</code></td><td class="desc"><span class="summary">Token usage, cost breakdown and session duration</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Adds an Account limits section when the active provider exposes quota live.</li></ul></td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="Coding workflow">
+                <summary><h3>Coding workflow</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-diff"><td><a class="row-link" href="#i-diff" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/diff</code></td><td class="desc"><span class="summary">Show git changes in the working directory</span> <button type="button" class="notes-btn" aria-expanded="false">+3</button><ul class="notes" hidden><li>Default is unstaged changes plus untracked files; <code>staged</code>, <code>all</code> and <code>session</code> widen the scope.</li><li><code>session</code> is the cumulative diff of everything Hermes changed here and needs checkpoints enabled.</li><li><code>--stat</code> prints just the changed-file summary; path arguments restrict it.</li></ul></td></tr>
+                    <tr class="search-item" id="i-rollback"><td><a class="row-link" href="#i-rollback" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/rollback</code></td><td class="desc">List or restore filesystem checkpoints</td></tr>
+                    <tr class="search-item" id="i-snapshot"><td><a class="row-link" href="#i-snapshot" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/snapshot</code> / <code>/snap</code></td><td class="desc"><span class="summary">Create or restore snapshots of Hermes config and state</span> <button type="button" class="notes-btn" aria-expanded="false">+2</button><ul class="notes" hidden><li><code>create [label]</code>, <code>restore &lt;id&gt;</code>, <code>prune [N]</code>, or list with no arguments.</li><li>Database restores use SQLite&rsquo;s backup API; if another process still holds the database, the restore refuses rather than risk corruption.</li></ul></td></tr>
+                    <tr class="search-item" id="i-worktree"><td><a class="row-link" href="#i-worktree" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/worktree</code></td><td class="desc"><span class="summary">Inspect or create isolated git worktrees mid-session</span> <button type="button" class="notes-btn" aria-expanded="false">+3</button><ul class="notes" hidden><li>CLI only. <code>/worktree new [name]</code> creates one under <code>.worktrees/</code> from the freshly-fetched remote tip and retargets the session&rsquo;s terminal and file tools into it.</li><li>Named trees use <code>hermes/&lt;name&gt;</code>; unnamed ones get a random <code>hermes-&lt;id&gt;</code>.</li><li>On exit the tree is kept only if it has unpushed commits — the same lifecycle as <code>hermes -w</code>.</li></ul></td></tr>
+                    <tr class="search-item" id="i-plan"><td><a class="row-link" href="#i-plan" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/plan</code></td><td class="desc"><span class="summary">Write a markdown implementation plan to <code>.hermes/plans/</code></span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Planning only, no execution; an empty argument infers the task from the conversation.</li></ul></td></tr>
+                    <tr class="search-item" id="i-init"><td><a class="row-link" href="#i-init" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/init</code></td><td class="desc"><span class="summary">Generate or update <code>AGENTS.md</code> from a repo scan</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Merge-updates an existing file rather than overwriting it; optional notes steer the emphasis.</li></ul></td></tr>
+                    <tr class="search-item" id="i-review"><td><a class="row-link" href="#i-review" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/review</code></td><td class="desc"><span class="summary">Spawn an independent full-privilege reviewer subagent</span> <button type="button" class="notes-btn" aria-expanded="false">+2</button><ul class="notes" hidden><li>It investigates in the background and its review re-enters the session as a background-subagent completion.</li><li>Pin a dedicated model with <code>auxiliary.review</code> in <code>config.yaml</code>.</li></ul></td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="Run control">
+                <summary><h3>Run control</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-queue"><td><a class="row-link" href="#i-queue" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/queue</code> / <code>/q</code></td><td class="desc">Queue a prompt for the next turn without interrupting</td></tr>
+                    <tr class="search-item" id="i-steer"><td><a class="row-link" href="#i-steer" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/steer</code></td><td class="desc"><span class="summary">Inject a mid-run note delivered after the next tool call</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Appended to the last tool result once the current tool completes — no interrupt, no new user turn.</li></ul></td></tr>
+                    <tr class="search-item" id="i-stop"><td><a class="row-link" href="#i-stop" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/stop</code></td><td class="desc">Kill all running background processes</td></tr>
+                    <tr class="search-item" id="i-bg"><td><a class="row-link" href="#i-bg" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/bg</code></td><td class="desc"><span class="summary">Run a prompt in a separate background session</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Your current session stays free; results appear as a panel when the task finishes.</li></ul></td></tr>
+                    <tr class="search-item" id="i-btw"><td><a class="row-link" href="#i-btw" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/btw</code></td><td class="desc"><span class="summary">Ask a quick side question about the current conversation</span> <button type="button" class="notes-btn" aria-expanded="false">+2</button><ul class="notes" hidden><li>A one-shot auxiliary call against a read-only transcript snapshot — history and prompt cache untouched.</li><li>For independent work with a fresh context use <code>/bg</code> instead.</li></ul></td></tr>
+                    <tr class="search-item" id="i-agents"><td><a class="row-link" href="#i-agents" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/agents</code> / <code>/tasks</code></td><td class="desc">Show active agents and running tasks</td></tr>
+                    <tr class="search-item" id="i-moa"><td><a class="row-link" href="#i-moa" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/moa</code></td><td class="desc"><span class="summary">Run one prompt through the default Mixture of Agents preset</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>One-shot — your session model is restored afterwards.</li></ul></td></tr>
+                    <tr class="search-item" id="i-busy"><td><a class="row-link" href="#i-busy" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/busy</code></td><td class="desc"><span class="summary">Control what happens when you message mid-turn</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Choices are <code>queue</code>, <code>steer</code> and <code>interrupt</code>.</li></ul></td></tr>
+                </table>
+            </details>
+        </div>
+
+        <div class="card" id="card-slash-tools">
+            <h2>Slash Commands (Tools) <span class="card-count"></span></h2>
+
+            <details class="search-group" open data-group="Model &amp; reasoning">
+                <summary><h3>Model &amp; reasoning</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-model"><td><a class="row-link" href="#i-model" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/model</code></td><td class="desc"><span class="summary">Show or change the current model</span> <button type="button" class="notes-btn" aria-expanded="false">+4</button><ul class="notes" hidden><li>Accepts <code>provider:model</code>, <code>custom:model</code>, and user-defined aliases.</li><li>Flags: <code>--global</code> persists, <code>--session</code> forces session-only, <code>--once</code> applies to the next turn, <code>--refresh</code> re-fetches the model list.</li><li>Only switches between already-configured providers — run <code>hermes model</code> to add one.</li><li>Switching mid-conversation resets the prompt cache, so the next turn re-reads at full input price.</li></ul></td></tr>
+                    <tr class="search-item" id="i-reasoning"><td><a class="row-link" href="#i-reasoning" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/reasoning</code></td><td class="desc"><span class="summary">Manage reasoning effort and display</span> <button type="button" class="notes-btn" aria-expanded="false">+2</button><ul class="notes" hidden><li>Levels: <code>none</code>, <code>minimal</code>, <code>low</code>, <code>medium</code>, <code>high</code>, <code>xhigh</code>, <code>max</code>, <code>ultra</code>.</li><li><code>show</code>/<code>hide</code> toggle display, <code>full</code> and <code>clamp</code> adjust it, <code>--global</code> persists the effort.</li></ul></td></tr>
+                    <tr class="search-item" id="i-fast"><td><a class="row-link" href="#i-fast" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/fast</code></td><td class="desc"><span class="summary">Toggle provider priority processing</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li><code>fast</code> every request, <code>auto</code> only the first <code>agent.fast_auto_seconds</code> of a turn, <code>cold</code> that window on the first turn only.</li></ul></td></tr>
+                    <tr class="search-item" id="i-codex-runtime"><td><a class="row-link" href="#i-codex-runtime" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/codex-runtime</code></td><td class="desc"><span class="summary">Toggle the optional Codex app-server runtime for OpenAI models</span> <button type="button" class="notes-btn" aria-expanded="false">+2</button><ul class="notes" hidden><li><code>codex_app_server</code> hands turns to a <code>codex app-server</code> subprocess for native shell, apply_patch and migrated Codex plugins.</li><li>Takes effect on the next session.</li></ul></td></tr>
+                    <tr class="search-item" id="i-personality"><td><a class="row-link" href="#i-personality" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/personality</code></td><td class="desc">Set a predefined personality; <code>none</code> clears the overlay</td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="Tools &amp; skills">
+                <summary><h3>Tools &amp; skills</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-tools"><td><a class="row-link" href="#i-tools" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/tools</code></td><td class="desc"><span class="summary">List, disable or enable tools for this session</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Disabling a tool removes it from the agent&rsquo;s toolset and triggers a session reset.</li></ul></td></tr>
+                    <tr class="search-item" id="i-toolsets"><td><a class="row-link" href="#i-toolsets" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/toolsets</code></td><td class="desc">List available toolsets</td></tr>
+                    <tr class="search-item" id="i-skills"><td><a class="row-link" href="#i-skills" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/skills</code></td><td class="desc"><span class="summary">Search, install, inspect and manage skills</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Also the review surface for the write-approval gate: <code>pending</code>, <code>diff</code>, <code>approve</code>, <code>reject</code>, <code>approval on|off</code>.</li></ul></td></tr>
+                    <tr class="search-item" id="i-bundles"><td><a class="row-link" href="#i-bundles" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/bundles</code></td><td class="desc">List skill bundles — <code>/&lt;name&gt;</code> aliases that preload several skills</td></tr>
+                    <tr class="search-item" id="i-learn"><td><a class="row-link" href="#i-learn" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/learn</code></td><td class="desc"><span class="summary">Distil a reusable skill from a directory, URL, workflow or notes</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>The agent gathers the sources itself and authors a <code>SKILL.md</code>.</li></ul></td></tr>
+                    <tr class="search-item" id="i-memory"><td><a class="row-link" href="#i-memory" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/memory</code></td><td class="desc">Review pending memory writes and toggle the write gate</td></tr>
+                    <tr class="search-item" id="i-refine"><td><a class="row-link" href="#i-refine" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/refine</code></td><td class="desc"><span class="summary">Run the background memory and skill self-improvement review now</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Runs in a background fork against a conversation snapshot; the live session and prompt cache are untouched.</li></ul></td></tr>
+                    <tr class="search-item" id="i-reload-skills"><td><a class="row-link" href="#i-reload-skills" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/reload-skills</code></td><td class="desc">Re-scan the skills directory for installed or removed skills</td></tr>
+                    <tr class="search-item" id="i-reload-mcp"><td><a class="row-link" href="#i-reload-mcp" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/reload-mcp</code></td><td class="desc">Reload MCP servers from <code>config.yaml</code> and re-probe tools</td></tr>
+                    <tr class="search-item" id="i-reload"><td><a class="row-link" href="#i-reload" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/reload</code></td><td class="desc"><span class="summary">Reload <code>.env</code> into the running session</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Picks up new API keys without restarting.</li></ul></td></tr>
+                    <tr class="search-item" id="i-plugins"><td><a class="row-link" href="#i-plugins" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/plugins</code></td><td class="desc">List installed plugins and their status</td></tr>
+                    <tr class="search-item" id="i-browser"><td><a class="row-link" href="#i-browser" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/browser</code></td><td class="desc"><span class="summary">Attach browser tools to a running Chromium-family browser over CDP</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li><code>connect</code> defaults to <code>http://127.0.0.1:9222</code>; <code>disconnect</code> detaches; <code>status</code> shows the connection.</li></ul></td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="Display &amp; safety">
+                <summary><h3>Display &amp; safety</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-yolo"><td><a class="row-link" href="#i-yolo" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/yolo</code></td><td class="desc">Toggle YOLO mode — skip all dangerous-command approval prompts</td></tr>
+                    <tr class="search-item" id="i-approvals"><td><a class="row-link" href="#i-approvals" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/approvals</code></td><td class="desc"><span class="summary">Show or set the persistent approval mode</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Modes are <code>manual</code>, <code>smart</code> and <code>off</code>.</li></ul></td></tr>
+                    <tr class="search-item" id="i-focus"><td><a class="row-link" href="#i-focus" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/focus</code></td><td class="desc"><span class="summary">Reduced-output view showing only your prompt and the final response</span> <button type="button" class="notes-btn" aria-expanded="false">+2</button><ul class="notes" hidden><li>Composes with <code>/verbose</code>: it snaps progress to off and restores your mode afterwards.</li><li>Nothing is sent differently to the model — detail is hidden, never discarded.</li></ul></td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="Profile &amp; account">
+                <summary><h3>Profile &amp; account</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-profile"><td><a class="row-link" href="#i-profile" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/profile</code></td><td class="desc">Show the active profile name and home directory</td></tr>
+                    <tr class="search-item" id="i-export"><td><a class="row-link" href="#i-export" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/export</code></td><td class="desc"><span class="summary">Pack a profile into a shareable archive</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>CLI only. Skills, memory, persona, crons, plugins and settings; credentials are stripped.</li></ul></td></tr>
+                    <tr class="search-item" id="i-import"><td><a class="row-link" href="#i-import" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/import</code></td><td class="desc"><span class="summary">Install a profile archive as a new profile</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>CLI only. Refuses to overwrite an existing profile and cannot import as <code>default</code>.</li></ul></td></tr>
+                    <tr class="search-item" id="i-login"><td><a class="row-link" href="#i-login" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/login</code></td><td class="desc"><span class="summary">Sign in with a Nous account</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Runs off-turn: the link and code arrive in the session and settle when you approve in the browser.</li></ul></td></tr>
+                    <tr class="search-item" id="i-help"><td><a class="row-link" href="#i-help" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/help</code></td><td class="desc"><span class="summary">Show available commands, grouped by category</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li><code>/help skills</code> lists skill commands; <code>/help &lt;text&gt;</code> filters by substring.</li></ul></td></tr>
+                    <tr class="search-item" id="i-version"><td><a class="row-link" href="#i-version" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/version</code></td><td class="desc">Show version, build and environment info</td></tr>
+                    <tr class="search-item" id="i-update"><td><a class="row-link" href="#i-update" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/update</code></td><td class="desc">Update Hermes Agent to the latest version</td></tr>
+                    <tr class="search-item" id="i-debug"><td><a class="row-link" href="#i-debug" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/debug</code></td><td class="desc">Upload a debug report and get shareable links</td></tr>
+                </table>
+            </details>
+        </div>
+
+        <div class="card" id="card-cli">
+            <h2>CLI &amp; Subcommands <span class="card-count"></span></h2>
+
+            <details class="search-group" open data-group="Global options">
+                <summary><h3>Global options</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-version-v"><td><a class="row-link" href="#i-version-v" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>--version, -V</code></td><td class="desc">Show version and exit</td></tr>
+                    <tr class="search-item" id="i-profile-name-p"><td><a class="row-link" href="#i-profile-name-p" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>--profile &lt;name&gt;, -p</code></td><td class="desc"><span class="summary">Select the profile for this invocation</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Overrides the sticky default set by <code>hermes profile use</code>.</li></ul></td></tr>
+                    <tr class="search-item" id="i-resume-session-r"><td><a class="row-link" href="#i-resume-session-r" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>--resume &lt;session&gt;, -r</code></td><td class="desc"><span class="summary">Resume a session by id or title</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>The keyword <code>latest</code> resumes the most recent, workspace-scoped like <code>-c</code>.</li></ul></td></tr>
+                    <tr class="search-item" id="i-continue-name-c"><td><a class="row-link" href="#i-continue-name-c" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>--continue [name], -c</code></td><td class="desc">Resume the most recent session, or the most recent matching a title</td></tr>
+                    <tr class="search-item" id="i-in-dir"><td><a class="row-link" href="#i-in-dir" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>--in &lt;dir&gt;</code></td><td class="desc"><span class="summary">Change into a directory before starting or resuming</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Scopes <code>--resume latest</code> and <code>-c</code> to that workspace and keeps the session there.</li></ul></td></tr>
+                    <tr class="search-item" id="i-worktree-w"><td><a class="row-link" href="#i-worktree-w" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>--worktree, -w</code></td><td class="desc">Start in an isolated git worktree for parallel-agent work</td></tr>
+                    <tr class="search-item" id="i-yolo-2"><td><a class="row-link" href="#i-yolo-2" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>--yolo</code></td><td class="desc">Bypass dangerous-command approval prompts</td></tr>
+                    <tr class="search-item" id="i-ignore-user-config"><td><a class="row-link" href="#i-ignore-user-config" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>--ignore-user-config</code></td><td class="desc"><span class="summary">Ignore <code>~/.hermes/config.yaml</code> and use built-in defaults</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Credentials in <code>.env</code> are still loaded.</li></ul></td></tr>
+                    <tr class="search-item" id="i-tui"><td><a class="row-link" href="#i-tui" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>--tui</code> / <code>--cli</code></td><td class="desc"><span class="summary">Launch the TUI, or force the classic REPL</span> <button type="button" class="notes-btn" aria-expanded="false">+2</button><ul class="notes" hidden><li><code>--tui</code> equals <code>HERMES_TUI=1</code> and always wins over <code>display.interface</code>.</li><li><code>--cli</code> overrides <code>display.interface: tui</code> for one invocation.</li></ul></td></tr>
+                    <tr class="search-item" id="i-pass-session-id"><td><a class="row-link" href="#i-pass-session-id" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>--pass-session-id</code></td><td class="desc">Include the session id in the agent&rsquo;s system prompt</td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="Chat &amp; models">
+                <summary><h3>Chat &amp; models</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-hermes-chat"><td><a class="row-link" href="#i-hermes-chat" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes chat</code></td><td class="desc">Interactive or one-shot chat with the agent</td></tr>
+                    <tr class="search-item" id="i-hermes-z-prompt"><td><a class="row-link" href="#i-hermes-z-prompt" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes -z &lt;prompt&gt;</code></td><td class="desc">Scripted one-shot run</td></tr>
+                    <tr class="search-item" id="i-hermes-model"><td><a class="row-link" href="#i-hermes-model" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes model</code></td><td class="desc">Interactively choose the default provider and model</td></tr>
+                    <tr class="search-item" id="i-hermes-moa"><td><a class="row-link" href="#i-hermes-moa" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes moa</code></td><td class="desc">Configure named Mixture of Agents presets</td></tr>
+                    <tr class="search-item" id="i-hermes-fallback"><td><a class="row-link" href="#i-hermes-fallback" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes fallback</code></td><td class="desc">Manage fallback providers tried when the primary model errors</td></tr>
+                    <tr class="search-item" id="i-hermes-lsp"><td><a class="row-link" href="#i-hermes-lsp" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes lsp</code></td><td class="desc">Manage LSP integration for semantic diagnostics on writes</td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="Sessions &amp; projects">
+                <summary><h3>Sessions &amp; projects</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-hermes-sessions"><td><a class="row-link" href="#i-hermes-sessions" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes sessions</code></td><td class="desc">Browse, export, prune, rename and delete sessions</td></tr>
+                    <tr class="search-item" id="i-hermes-project"><td><a class="row-link" href="#i-hermes-project" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes project</code></td><td class="desc"><span class="summary">Manage named multi-folder workspaces</span> <button type="button" class="notes-btn" aria-expanded="false">+2</button><ul class="notes" hidden><li>Anchors session grouping and, bound to a kanban board, gives tasks a deterministic worktree and branch convention.</li><li>State is per-profile.</li></ul></td></tr>
+                    <tr class="search-item" id="i-hermes-checkpoints"><td><a class="row-link" href="#i-hermes-checkpoints" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes checkpoints</code></td><td class="desc"><span class="summary">Inspect, prune or clear the shadow store behind <code>/rollback</code></span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Run with no arguments for a status overview.</li></ul></td></tr>
+                    <tr class="search-item" id="i-hermes-profile"><td><a class="row-link" href="#i-hermes-profile" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes profile</code></td><td class="desc">Manage profiles — multiple isolated Hermes instances</td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="Config &amp; auth">
+                <summary><h3>Config &amp; auth</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-hermes-config"><td><a class="row-link" href="#i-hermes-config" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes config</code></td><td class="desc"><span class="summary">Show, edit, migrate and query configuration</span> <button type="button" class="notes-btn" aria-expanded="false">+2</button><ul class="notes" hidden><li>Subcommands: <code>edit</code>, <code>get</code>, <code>set</code>, <code>unset</code>, <code>check</code>, <code>migrate</code>.</li><li><code>set</code> routes automatically — API keys land in <code>.env</code>, everything else in <code>config.yaml</code>.</li></ul></td></tr>
+                    <tr class="search-item" id="i-hermes-setup"><td><a class="row-link" href="#i-hermes-setup" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes setup</code></td><td class="desc">Interactive setup wizard for all or part of the configuration</td></tr>
+                    <tr class="search-item" id="i-hermes-auth"><td><a class="row-link" href="#i-hermes-auth" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes auth</code></td><td class="desc"><span class="summary">Add, list, remove, reset and check credentials</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Handles OAuth flows for Codex, Nous and Anthropic. <code>hermes login</code> / <code>logout</code> are deprecated aliases.</li></ul></td></tr>
+                    <tr class="search-item" id="i-hermes-migrate"><td><a class="row-link" href="#i-hermes-migrate" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes migrate</code></td><td class="desc">Rewrite <code>config.yaml</code> to replace retired models or deprecated settings</td></tr>
+                    <tr class="search-item" id="i-hermes-status"><td><a class="row-link" href="#i-hermes-status" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes status</code></td><td class="desc">Show agent and auth status</td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="Extensibility">
+                <summary><h3>Extensibility</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-hermes-skills"><td><a class="row-link" href="#i-hermes-skills" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes skills</code></td><td class="desc">Browse, install, publish, audit and configure skills</td></tr>
+                    <tr class="search-item" id="i-hermes-bundles"><td><a class="row-link" href="#i-hermes-bundles" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes bundles</code></td><td class="desc">Group several skills under one <code>/&lt;name&gt;</code> slash command</td></tr>
+                    <tr class="search-item" id="i-hermes-plugins"><td><a class="row-link" href="#i-hermes-plugins" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes plugins</code></td><td class="desc">Install, enable, disable and remove plugins</td></tr>
+                    <tr class="search-item" id="i-hermes-mcp"><td><a class="row-link" href="#i-hermes-mcp" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes mcp</code></td><td class="desc">Manage MCP server configurations, and run Hermes as an MCP server</td></tr>
+                    <tr class="search-item" id="i-hermes-acp"><td><a class="row-link" href="#i-hermes-acp" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes acp</code></td><td class="desc">Run Hermes as an ACP server for editor integration</td></tr>
+                    <tr class="search-item" id="i-hermes-tools"><td><a class="row-link" href="#i-hermes-tools" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes tools</code></td><td class="desc">Configure enabled tools per platform</td></tr>
+                    <tr class="search-item" id="i-hermes-hooks"><td><a class="row-link" href="#i-hermes-hooks" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes hooks</code></td><td class="desc">Inspect, approve or remove shell-script hooks declared in <code>config.yaml</code></td></tr>
+                    <tr class="search-item" id="i-hermes-import-agent"><td><a class="row-link" href="#i-hermes-import-agent" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes import-agent</code></td><td class="desc">Import a Claude Code or Codex CLI setup</td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="Automation">
+                <summary><h3>Automation</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-hermes-cron"><td><a class="row-link" href="#i-hermes-cron" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes cron</code></td><td class="desc">Inspect and tick the cron scheduler</td></tr>
+                    <tr class="search-item" id="i-hermes-kanban"><td><a class="row-link" href="#i-hermes-kanban" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes kanban</code></td><td class="desc">Multi-profile collaboration board — tasks, links, dispatcher</td></tr>
+                    <tr class="search-item" id="i-hermes-gateway"><td><a class="row-link" href="#i-hermes-gateway" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes gateway</code></td><td class="desc"><span class="summary">Run or manage the messaging gateway service</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Out of scope for this placemat beyond the entry point — see the official docs for platform setup.</li></ul></td></tr>
+                    <tr class="search-item" id="i-hermes-portal"><td><a class="row-link" href="#i-hermes-portal" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes portal</code></td><td class="desc">Nous Portal status, subscription link and Tool Gateway routing</td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="Diagnostics &amp; maintenance">
+                <summary><h3>Diagnostics &amp; maintenance</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-hermes-doctor"><td><a class="row-link" href="#i-hermes-doctor" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes doctor</code></td><td class="desc">Diagnose config and dependency issues</td></tr>
+                    <tr class="search-item" id="i-hermes-dump"><td><a class="row-link" href="#i-hermes-dump" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes dump</code> / <code>hermes debug</code></td><td class="desc">Copy-pasteable setup summary for support</td></tr>
+                    <tr class="search-item" id="i-hermes-prompt-size"><td><a class="row-link" href="#i-hermes-prompt-size" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes prompt-size</code></td><td class="desc"><span class="summary">Byte breakdown of the system prompt and tool schemas</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Covers the skills index, memory and profile, and runs offline.</li></ul></td></tr>
+                    <tr class="search-item" id="i-hermes-logs"><td><a class="row-link" href="#i-hermes-logs" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes logs</code></td><td class="desc">View, tail and filter agent, gateway and error logs</td></tr>
+                    <tr class="search-item" id="i-hermes-security-audit"><td><a class="row-link" href="#i-hermes-security-audit" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes security audit</code></td><td class="desc"><span class="summary">On-demand supply-chain audit for the venv, plugins and pinned MCP servers</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Backed by OSV.dev.</li></ul></td></tr>
+                    <tr class="search-item" id="i-hermes-backup"><td><a class="row-link" href="#i-hermes-backup" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes backup</code> / <code>hermes import</code></td><td class="desc">Back up the Hermes home directory to a zip</td></tr>
+                    <tr class="search-item" id="i-hermes-completion"><td><a class="row-link" href="#i-hermes-completion" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes completion</code></td><td class="desc">Print shell completion scripts (bash, zsh, fish)</td></tr>
+                    <tr class="search-item" id="i-hermes-update"><td><a class="row-link" href="#i-hermes-update" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes update</code></td><td class="desc"><span class="summary">Pull the latest code and reinstall dependencies</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li><code>--check</code> previews without installing; <code>--backup</code> snapshots <code>HERMES_HOME</code> first.</li></ul></td></tr>
+                </table>
+            </details>
+        </div>
+
+        <div class="card" id="card-settings">
+            <h2>Settings (config.yaml) <span class="card-count"></span></h2>
+
+            <details class="search-group" open data-group="Files &amp; precedence">
+                <summary><h3>Files &amp; precedence</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-hermes-config-yaml"><td><a class="row-link" href="#i-hermes-config-yaml" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>~/.hermes/config.yaml</code></td><td class="desc">Primary config for every non-secret setting</td></tr>
+                    <tr class="search-item" id="i-hermes-env"><td><a class="row-link" href="#i-hermes-env" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>~/.hermes/.env</code> / <code>~/.hermes/auth.json</code></td><td class="desc"><span class="summary">API keys and secrets; required for credentials</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li><code>auth.json</code> holds OAuth provider credentials.</li></ul></td></tr>
+                    <tr class="search-item" id="i-hermes-config-set"><td><a class="row-link" href="#i-hermes-config-set" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes config set</code></td><td class="desc"><span class="summary">Route a value to the right file automatically</span> <button type="button" class="notes-btn" aria-expanded="false">+2</button><ul class="notes" hidden><li>Precedence, highest first: CLI arguments, <code>config.yaml</code>, <code>.env</code>, built-in defaults.</li><li>Secrets go in <code>.env</code>; everything else in <code>config.yaml</code>, which wins for non-secret settings.</li></ul></td></tr>
+                    <tr class="search-item" id="i-env-substitution"><td><a class="row-link" href="#i-env-substitution" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>${VAR}</code></td><td class="desc">Environment-variable substitution inside <code>config.yaml</code></td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="Terminal backends">
+                <summary><h3>Terminal backends</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-terminal-backend"><td><a class="row-link" href="#i-terminal-backend" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>terminal.backend</code></td><td class="desc"><span class="summary">Where the agent&rsquo;s shell commands run</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Seven backends: <code>local</code>, <code>docker</code>, <code>ssh</code>, <code>modal</code>, <code>daytona</code>, <code>vercel_sandbox</code>, <code>singularity</code>.</li></ul></td></tr>
+                    <tr class="search-item" id="i-terminal-timeout"><td><a class="row-link" href="#i-terminal-timeout" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>terminal.timeout</code></td><td class="desc">Per-command timeout in seconds</td></tr>
+                    <tr class="search-item" id="i-terminal-temp-dir"><td><a class="row-link" href="#i-terminal-temp-dir" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>terminal.temp_dir</code></td><td class="desc"><span class="summary">Session temp root for background logs, code sandboxes and spilled results</span> <button type="button" class="notes-btn" aria-expanded="false">+2</button><ul class="notes" hidden><li>Empty honours <code>TMPDIR</code>, else uses <code>~/.hermes/cache/terminal</code> rather than a RAM-backed <code>/tmp</code>.</li><li>The managed directory auto-prunes artifacts older than 72 hours; user-set paths are never pruned.</li></ul></td></tr>
+                    <tr class="search-item" id="i-terminal-env-passthrough"><td><a class="row-link" href="#i-terminal-env-passthrough" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>terminal.env_passthrough</code></td><td class="desc">Env var names forwarded into sandboxed execution</td></tr>
+                    <tr class="search-item" id="i-terminal-home-mode"><td><a class="row-link" href="#i-terminal-home-mode" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>terminal.home_mode</code></td><td class="desc">Subprocess HOME policy: <code>auto</code>, <code>real</code> or <code>profile</code></td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="Agent behaviour">
+                <summary><h3>Agent behaviour</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-model-default"><td><a class="row-link" href="#i-model-default" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>model.default</code> / <code>model.provider</code></td><td class="desc">Default model and provider</td></tr>
+                    <tr class="search-item" id="i-model-persist-switch-by-default"><td><a class="row-link" href="#i-model-persist-switch-by-default" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>model.persist_switch_by_default</code></td><td class="desc">Whether a plain <code>/model &lt;name&gt;</code> persists to config</td></tr>
+                    <tr class="search-item" id="i-auxiliary-review"><td><a class="row-link" href="#i-auxiliary-review" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>auxiliary.review</code></td><td class="desc">Dedicated model for the <code>/review</code> reviewer subagent</td></tr>
+                    <tr class="search-item" id="i-goals-max-turns"><td><a class="row-link" href="#i-goals-max-turns" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>goals.max_turns</code></td><td class="desc">Turn budget for a standing <code>/goal</code>; defaults to 20</td></tr>
+                    <tr class="search-item" id="i-agent-fast-auto-seconds"><td><a class="row-link" href="#i-agent-fast-auto-seconds" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>agent.fast_auto_seconds</code></td><td class="desc">Window used by <code>/fast auto</code>; defaults to 60 s</td></tr>
+                    <tr class="search-item" id="i-worktree-sync"><td><a class="row-link" href="#i-worktree-sync" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>worktree_sync</code></td><td class="desc">How <code>/worktree new</code> and <code>hermes -w</code> branch from the remote tip</td></tr>
+                    <tr class="search-item" id="i-display-interface"><td><a class="row-link" href="#i-display-interface" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>display.interface</code></td><td class="desc"><span class="summary">Classic CLI or TUI by default</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li><code>--tui</code> and <code>--cli</code> both override it for one invocation.</li></ul></td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="Context &amp; memory">
+                <summary><h3>Context &amp; memory</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-compression"><td><a class="row-link" href="#i-compression" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>compression</code></td><td class="desc">Context compression thresholds and behaviour</td></tr>
+                    <tr class="search-item" id="i-context-2"><td><a class="row-link" href="#i-context-2" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>context</code></td><td class="desc">Context engine, pressure warnings and file truncation limits</td></tr>
+                    <tr class="search-item" id="i-database"><td><a class="row-link" href="#i-database" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>database</code></td><td class="desc">Database settings for sessions and state</td></tr>
+                    <tr class="search-item" id="i-updates"><td><a class="row-link" href="#i-updates" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>updates</code></td><td class="desc">Update behaviour</td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="Limits &amp; safety">
+                <summary><h3>Limits &amp; safety</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-run-budgets"><td><a class="row-link" href="#i-run-budgets" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>iteration budget</code> / <code>wall-clock run budget</code></td><td class="desc"><span class="summary">Caps on how long a single run may go</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Iteration budget caps agent steps; the wall-clock budget caps elapsed time.</li></ul></td></tr>
+                    <tr class="search-item" id="i-verify-on-stop"><td><a class="row-link" href="#i-verify-on-stop" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>verify-on-stop</code></td><td class="desc"><span class="summary">Coding verification before a turn is allowed to end</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Tool-loop guardrails separately guard against repeated unproductive tool loops.</li></ul></td></tr>
+                </table>
+            </details>
+        </div>
+
+        <div class="card" id="card-env">
+            <h2>Environment Variables <span class="card-count"></span></h2>
+
+            <details class="search-group" open data-group="Locations &amp; interface">
+                <summary><h3>Locations &amp; interface</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-hermes-home"><td><a class="row-link" href="#i-hermes-home" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>HERMES_HOME</code></td><td class="desc"><span class="summary">Hermes home directory; defaults to <code>~/.hermes</code></span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Holds <code>config.yaml</code>, <code>.env</code>, <code>auth.json</code>, <code>SOUL.md</code>, <code>memories/</code>, <code>skills/</code>, <code>cron/</code>, <code>sessions/</code> and <code>logs/</code>.</li></ul></td></tr>
+                    <tr class="search-item" id="i-hermes-tui"><td><a class="row-link" href="#i-hermes-tui" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>HERMES_TUI</code></td><td class="desc">Launch the TUI; equivalent to <code>--tui</code></td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="Providers &amp; tools">
+                <summary><h3>Providers &amp; tools</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-env-file"><td><a class="row-link" href="#i-env-file" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>~/.hermes/.env</code></td><td class="desc"><span class="summary">Where provider API keys and tokens belong</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Secrets are required here rather than in <code>config.yaml</code>; logs auto-redact them.</li></ul></td></tr>
+                    <tr class="search-item" id="i-hermes-secrets"><td><a class="row-link" href="#i-hermes-secrets" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code class="unverified">hermes secrets</code></td><td class="desc"><span class="summary">Pull API keys from an external secret source at startup</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Documented as currently supporting Bitwarden Secrets Manager; confirm the provider list before relying on it.</li></ul></td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="Backends">
+                <summary><h3>Backends</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-backend-vars"><td><a class="row-link" href="#i-backend-vars" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>terminal backend variables</code></td><td class="desc"><span class="summary">Credentials and endpoints for Docker, SSH, Modal, Daytona and Singularity</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Grouped in the environment-variables reference under Terminal Backend, SSH Backend and Container Resources.</li></ul></td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="Diagnostics">
+                <summary><h3>Diagnostics</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-env-logs"><td><a class="row-link" href="#i-env-logs" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes logs</code></td><td class="desc"><span class="summary">Log files live under <code>~/.hermes/logs/</code></span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li><code>errors.log</code> and <code>gateway.log</code>, with secrets auto-redacted and rotation applied.</li></ul></td></tr>
+                </table>
+            </details>
+        </div>
+
+        <div class="card" id="card-skills">
+            <h2>Skills, Context &amp; Subagents <span class="card-count"></span></h2>
+
+            <details class="search-group" open data-group="Context files">
+                <summary><h3>Context files</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-hermes-md"><td><a class="row-link" href="#i-hermes-md" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>.hermes.md</code> / <code>HERMES.md</code></td><td class="desc"><span class="summary">Project instructions, highest priority</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Walks up to the git root.</li></ul></td></tr>
+                    <tr class="search-item" id="i-agents-md"><td><a class="row-link" href="#i-agents-md" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>AGENTS.md</code></td><td class="desc"><span class="summary">Project instructions, conventions and architecture</span> <button type="button" class="notes-btn" aria-expanded="false">+3</button><ul class="notes" hidden><li>Inside a git repo Hermes loads a merged chain from the git root down to your working directory, so deeper files take precedence.</li><li>Each file gets a provenance header and identical copies along the chain are deduplicated.</li><li>Outside a repo only the working directory is checked, so a stray file in <code>/tmp</code> or <code>$HOME</code> cannot leak in.</li></ul></td></tr>
+                    <tr class="search-item" id="i-agents-override-md"><td><a class="row-link" href="#i-agents-override-md" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>AGENTS.override.md</code></td><td class="desc"><span class="summary">Personal per-directory override, usually gitignored</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Loaded <em>instead of</em> a neighbouring <code>AGENTS.md</code>.</li></ul></td></tr>
+                    <tr class="search-item" id="i-claude-md"><td><a class="row-link" href="#i-claude-md" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>CLAUDE.md</code></td><td class="desc">Claude Code context files are detected too</td></tr>
+                    <tr class="search-item" id="i-cursorrules"><td><a class="row-link" href="#i-cursorrules" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>.cursorrules</code> / <code>.cursor/rules/*.mdc</code></td><td class="desc">Cursor IDE coding conventions, from the working directory only</td></tr>
+                    <tr class="search-item" id="i-soul-md"><td><a class="row-link" href="#i-soul-md" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>SOUL.md</code></td><td class="desc"><span class="summary">Global personality and tone for this Hermes instance</span> <button type="button" class="notes-btn" aria-expanded="false">+2</button><ul class="notes" hidden><li>Loaded only from <code>HERMES_HOME</code>, always, as agent identity slot #1 — independent of the project chain.</li><li>Seeded automatically if it does not exist.</li></ul></td></tr>
+                    <tr class="search-item" id="i-ctx-precedence"><td><a class="row-link" href="#i-ctx-precedence" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>first match wins</code></td><td class="desc"><span class="summary">Only one project context type loads per session</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Order: <code>.hermes.md</code> → <code>AGENTS.override.md</code> → <code>AGENTS.md</code> → <code>CLAUDE.md</code> → <code>.cursorrules</code>.</li></ul></td></tr>
+                    <tr class="search-item" id="i-ctx-progressive"><td><a class="row-link" href="#i-ctx-progressive" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>progressive discovery</code></td><td class="desc">Subdirectory context files are injected as the agent navigates into them</td></tr>
+                    <tr class="search-item" id="i-ignore-rules"><td><a class="row-link" href="#i-ignore-rules" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>--ignore-rules</code></td><td class="desc">Skip auto-injection of context files, memory and preloaded skills</td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="Memory">
+                <summary><h3>Memory</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-hermes-memories"><td><a class="row-link" href="#i-hermes-memories" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>~/.hermes/memories/</code></td><td class="desc"><span class="summary">Persistent memory store</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Holds <code>MEMORY.md</code> and <code>USER.md</code>.</li></ul></td></tr>
+                    <tr class="search-item" id="i-memory-write-approval"><td><a class="row-link" href="#i-memory-write-approval" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>memory.write_approval</code></td><td class="desc"><span class="summary">Stage memory writes for review before they land</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Review them with <code>/memory pending</code>, <code>approve</code> and <code>reject</code>.</li></ul></td></tr>
+                    <tr class="search-item" id="i-hermes-memory"><td><a class="row-link" href="#i-hermes-memory" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes memory</code></td><td class="desc">Configure the external memory provider</td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="Skills">
+                <summary><h3>Skills</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-hermes-skills-2"><td><a class="row-link" href="#i-hermes-skills-2" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>~/.hermes/skills/</code></td><td class="desc">Agent-created skills, managed by the skill tool</td></tr>
+                    <tr class="search-item" id="i-skill-md"><td><a class="row-link" href="#i-skill-md" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>SKILL.md</code></td><td class="desc"><span class="summary">The file a skill is authored in</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Hermes follows the agentskills.io standard, so skills are portable between tools.</li></ul></td></tr>
+                    <tr class="search-item" id="i-skills-write-approval"><td><a class="row-link" href="#i-skills-write-approval" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>skills.write_approval</code></td><td class="desc"><span class="summary">Gate agent skill writes behind review</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Review with <code>/skills pending</code>, <code>/skills diff &lt;id&gt;</code>, <code>approve</code> and <code>reject</code>.</li></ul></td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="Subagents &amp; delegation">
+                <summary><h3>Subagents &amp; delegation</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+
+                </table>
+            </details>
+        </div>
+
+        <div class="card" id="card-hooks">
+            <h2>Automation &amp; MCP <span class="card-count"></span></h2>
+
+            <details class="search-group" open data-group="Scheduled &amp; recurring">
+                <summary><h3>Scheduled &amp; recurring</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-cron"><td><a class="row-link" href="#i-cron" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/cron</code></td><td class="desc"><span class="summary">Manage scheduled tasks from chat</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>List, add, edit, pause, resume, run and remove.</li></ul></td></tr>
+                    <tr class="search-item" id="i-heartbeat"><td><a class="row-link" href="#i-heartbeat" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/heartbeat</code> / <code>/hb</code></td><td class="desc"><span class="summary">A recurring prompt that re-enters this session when idle</span> <button type="button" class="notes-btn" aria-expanded="false">+3</button><ul class="notes" hidden><li>Minimum interval 60 s, and missed ticks coalesce.</li><li>Session-scoped and in-process — use <code>hermes cron</code> for durable isolated schedules.</li><li>Subcommands: <code>status</code>, <code>pause</code>, <code>resume</code>, <code>clear</code>.</li></ul></td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="Goals &amp; loops">
+                <summary><h3>Goals &amp; loops</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-goal"><td><a class="row-link" href="#i-goal" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/goal</code></td><td class="desc"><span class="summary">A standing goal Hermes works toward across turns</span> <button type="button" class="notes-btn" aria-expanded="false">+3</button><ul class="notes" hidden><li>After each turn an auxiliary judge decides DONE or CONTINUE; if not done, Hermes auto-continues.</li><li>Budget defaults to 20 turns (<code>goals.max_turns</code>); any real user message preempts the loop and state survives <code>/resume</code>.</li><li>Subcommands: <code>status</code>, <code>pause</code>, <code>resume</code>, <code>clear</code>.</li></ul></td></tr>
+                    <tr class="search-item" id="i-subgoal"><td><a class="row-link" href="#i-subgoal" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/subgoal</code></td><td class="desc"><span class="summary">Append a criterion to the active goal mid-loop</span> <button type="button" class="notes-btn" aria-expanded="false">+2</button><ul class="notes" hidden><li>The judge factors every subgoal in, so the goal is not done until the original and all subgoals are met.</li><li>Requires an active <code>/goal</code>.</li></ul></td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="Suggested &amp; templated automation">
+                <summary><h3>Suggested &amp; templated automation</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-suggestions"><td><a class="row-link" href="#i-suggestions" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/suggestions</code> / <code>/suggest</code></td><td class="desc"><span class="summary">Review suggested automations</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li><code>accept &lt;id&gt;</code> creates the proposed automation, <code>dismiss &lt;id&gt;</code> rejects one, <code>catalog</code> adds curated starters, <code>clear</code> clears resolved records.</li></ul></td></tr>
+                    <tr class="search-item" id="i-blueprint"><td><a class="row-link" href="#i-blueprint" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/blueprint</code> / <code>/bp</code></td><td class="desc"><span class="summary">Set up an automation from a template</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Bare lists the catalog, a name starts a guided slot-filling flow, and <code>name slot=value</code> creates the job directly.</li></ul></td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="Kanban &amp; projects">
+                <summary><h3>Kanban &amp; projects</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-kanban"><td><a class="row-link" href="#i-kanban" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/kanban</code></td><td class="desc"><span class="summary">Drive the multi-profile collaboration board from chat</span> <button type="button" class="notes-btn" aria-expanded="false">+2</button><ul class="notes" hidden><li>The full <code>hermes kanban</code> surface: <code>list</code>, <code>show</code>, <code>create</code>, <code>comment</code>, <code>unblock</code>, <code>dispatch</code>.</li><li>Multi-board support via <code>/kanban boards</code> and <code>--board &lt;slug&gt;</code>.</li></ul></td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="MCP &amp; providers">
+                <summary><h3>MCP &amp; providers</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-cred-pool-strategies"><td><a class="row-link" href="#i-cred-pool-strategies" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>credential pool strategies</code></td><td class="desc">How multiple credentials for one provider are rotated</td></tr>
+                </table>
+            </details>
+        </div>
+
+        <div class="no-results search-exclude" id="noResults">No matches — clear search to see everything.</div>
+
+        <footer class="global-footer">
+            Template v1.0 · Content synced 2026-09-11<br>
+            <span class="disclaimer">Unofficial community reference — not affiliated with or endorsed by Nous Research.
+            Condensed from the official docs; always confirm against
+            <a href="https://hermes-agent.nousresearch.com/docs/" target="_blank" rel="noopener noreferrer">hermes-agent.nousresearch.com/docs</a>.</span><br>
+            <a href="../" class="header-link">← All agent placemats</a> ·
+            <a href="https://dommango.github.io" target="_blank" rel="noopener noreferrer">Context//Collapse</a>
+        </footer>
+
+    </main>
+
+    <aside class="since-drawer" id="sinceDrawer" hidden aria-label="Changes since your last visit">
+        <div class="since-drawer-head">
+            <h2 id="sinceDrawerTitle">Since your last visit</h2>
+            <button type="button" class="whats-new-close" id="sinceClose" aria-label="Close">&times;</button>
+        </div>
+        <div class="since-drawer-body" id="sinceBody"></div>
+        <div class="since-drawer-foot">
+            <button type="button" id="sinceReadAll">Mark all as read</button>
+            <a href="feed.xml">RSS</a> · <a href="changes.json">changes.json</a> · <a href="changelog.html">Full changelog</a>
+        </div>
+    </aside>
+
+    <script src="../shared/placemat.js" defer></script>
+</body>
+</html>

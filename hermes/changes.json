@@ -1,0 +1,54 @@
+{
+ "generated": "2026-09-11",
+ "latest": "v0.21.2",
+ "releases": [
+  {
+   "version": "v0.21.2",
+   "label": "Hermes Agent v0.21.2 (2026.9.11)",
+   "date": "2026-09-11",
+   "id": "rel-0-21-2",
+   "entries": [
+    {
+     "tag": "ADD",
+     "item": "card-keys",
+     "html": "<code>card-keys</code> — initial reference: TUI keybindings plus the transcript, status-bar and overlay symbol glossary (17 rows)"
+    },
+    {
+     "tag": "ADD",
+     "item": "card-slash-core",
+     "html": "<code>card-slash-core</code> — initial reference: session, context, coding-workflow and run-control commands (29 rows)"
+    },
+    {
+     "tag": "ADD",
+     "item": "card-slash-tools",
+     "html": "<code>card-slash-tools</code> — initial reference: model and reasoning control, tools, skills and profile commands (28 rows)"
+    },
+    {
+     "tag": "ADD",
+     "item": "card-cli",
+     "html": "<code>card-cli</code> — initial reference: global options and every in-scope subcommand (45 rows)"
+    },
+    {
+     "tag": "ADD",
+     "item": "card-settings",
+     "html": "<code>card-settings</code> — initial reference: <code>config.yaml</code> precedence, the seven terminal backends, agent behaviour and limits (22 rows)"
+    },
+    {
+     "tag": "ADD",
+     "item": "card-env",
+     "html": "<code>card-env</code> — initial reference: <code>HERMES_HOME</code>, secrets handling and backend variables (6 rows)"
+    },
+    {
+     "tag": "ADD",
+     "item": "card-skills",
+     "html": "<code>card-skills</code> — initial reference: the context-file precedence chain, memory, skills and subagent delegation (15 rows)"
+    },
+    {
+     "tag": "ADD",
+     "item": "card-hooks",
+     "html": "<code>card-hooks</code> — initial reference: cron, heartbeats, goals, suggestions, blueprints, kanban and MCP (8 rows)"
+    }
+   ]
+  }
+ ]
+}
