@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agent Placemats</title>
+    <meta name="description" content="Unofficial single-page references for CLI coding agents — Claude Code, Codex CLI, Kimi Code and Hermes Agent — with what changed since your last visit and a cross-agent Rosetta table.">
+    <meta property="og:title" content="Agent Placemats">
+    <meta property="og:description" content="Unofficial single-page references for CLI coding agents, with what changed since your last visit and a cross-agent Rosetta table.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://dommango.github.io/agent-placemats/">
+    <meta property="og:image" content="https://dommango.github.io/agent-placemats/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://dommango.github.io/agent-placemats/">
+    <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+PHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iNiIgZmlsbD0iIzg3OWQ4NiIvPjx0ZXh0IHg9IjE2IiB5PSIyMyIgZm9udC1mYW1pbHk9Im1vbm9zcGFjZSIgZm9udC1zaXplPSIxNiIgZm9udC13ZWlnaHQ9IjcwMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzFlMWUxZSI+Jmd0O188L3RleHQ+PC9zdmc+Cg==">
+    <link rel="stylesheet" href="shared/placemat.css">
+    <script>
+        (function() {
+            var stored = localStorage.getItem('placemat-theme');
+            var theme = (stored === 'light' || stored === 'dark')
+                ? stored
+                : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            document.documentElement.dataset.theme = theme;
+        })();
+    </script>
+    <style>
+        /* Hub-only layout. Tokens, chrome and table styling come from shared/placemat.css. */
+        .hub-main { max-width: 1180px; margin: 0 auto; padding: 20px 16px 40px; }
+
+        .hub-intro { margin: 0 0 22px; max-width: 70ch; color: var(--fg-muted); font-size: 13px; line-height: 1.55; }
+        .hub-intro strong { color: var(--fg-main); }
+
+        .pm-grid {
+            display: grid; gap: 14px; margin-bottom: 26px;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+        }
+
+        .pm-card { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+        .pm-card h2 { margin: 0; font-size: 14px; letter-spacing: 0.06em; text-transform: uppercase; }
+        .pm-vendor { color: var(--fg-dim); font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; }
+        .pm-version { color: var(--fg-muted); font-size: 12px; font-variant-numeric: tabular-nums; }
+
+        .pm-fresh:not(:empty) {
+            align-self: flex-start; font-size: 11px; padding: 2px 8px; border-radius: 999px;
+            background: var(--new-bg); border: 1px solid var(--new-border); color: var(--fg-main);
+        }
+
+        .pm-install { margin-top: auto; }
+        .pm-install code { display: block; font-size: 11px; word-break: break-all; }
+
+        .pm-links { display: flex; flex-wrap: wrap; gap: 10px; font-size: 12px; }
+        .pm-links a { color: var(--accent-2-2); }
+
+        .rosetta-wrap { overflow-x: auto; }
+        .rosetta-wrap table { min-width: 720px; }
+        .rosetta-wrap th { text-align: left; font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--fg-dim); padding: 4px 6px 6px; }
+        .rosetta-wrap td { vertical-align: top; }
+        .rosetta-wrap td:first-child { color: var(--fg-muted); }
+        .rosetta-note { display: block; color: var(--fg-dim); font-size: 10px; margin-top: 2px; }
+
+        .hub-disclaimer { max-width: 78ch; margin: 0 auto; font-size: 11px; line-height: 1.6; color: var(--fg-muted); }
+    </style>
+</head>
+<body>
+
+    <a class="skip-link" href="#placemats">Skip to content</a>
+
+    <header class="global-header">
+        <div class="header-title">
+            <!-- neutral 8-bit terminal-prompt mark (no vendor logos — D5) -->
+            <svg class="minion-icon" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Terminal prompt">
+                <rect x="2" y="3" width="2" height="2" fill="var(--accent-1)"/>
+                <rect x="4" y="5" width="2" height="2" fill="var(--accent-1)"/>
+                <rect x="6" y="7" width="2" height="2" fill="var(--accent-1)"/>
+                <rect x="4" y="9" width="2" height="2" fill="var(--accent-1)"/>
+                <rect x="2" y="11" width="2" height="2" fill="var(--accent-1)"/>
+                <rect x="9" y="11" width="5" height="2" fill="var(--accent-2)"/>
+            </svg>
+            <h1>Agent <span class="wm-pixel">PLACEMATS</span></h1>
+            <span class="header-tagline">One page per CLI coding agent</span>
+        </div>
+        <div class="global-controls">
+            <a href="https://github.com/dommango/agent-placemats" class="header-link" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <button type="button" class="theme-toggle" id="themeBtn" title="Toggle theme" aria-label="Toggle light and dark theme">&#9728;&#65039;</button>
+        </div>
+    </header>
+
+    <main class="hub-main">
+
+        <p class="hub-intro">
+            Every command, flag, shortcut and config key you actually reach for, on <strong>one printable page per agent</strong>,
+            kept current by a daily sync. The same eight cards, in the same order, on every placemat — so what you learn
+            on one transfers to the next. Each card below shows what changed since <em>you</em> last opened that placemat.
+        </p>
+
+        <div class="pm-grid" id="placemats">
+
+            <div class="card pm-card" id="pm-claude-code">
+                <span class="pm-vendor">Anthropic</span>
+                <h2>Claude Code</h2>
+                <span class="pm-version">—</span>
+                <span class="pm-fresh"></span>
+                <div class="pm-links">
+                    <a href="https://dommango.github.io/claude-code-placemat/">Placemat →</a>
+                    <a href="https://dommango.github.io/claude-code-placemat/changelog.html">Changelog</a>
+                    <a href="https://dommango.github.io/claude-code-placemat/feed.xml">RSS</a>
+                    <a href="https://code.claude.com/docs" target="_blank" rel="noopener noreferrer">Docs</a>
+                </div>
+                <div class="pm-install"><code>npm install -g @anthropic-ai/claude-code</code></div>
+            </div>
+
+            <div class="card pm-card" id="pm-codex">
+                <span class="pm-vendor">OpenAI</span>
+                <h2>Codex CLI</h2>
+                <span class="pm-version">—</span>
+                <span class="pm-fresh"></span>
+                <div class="pm-links">
+                    <a href="codex/">Placemat →</a>
+                    <a href="codex/changelog.html">Changelog</a>
+                    <a href="codex/feed.xml">RSS</a>
+                    <a href="https://developers.openai.com/codex" target="_blank" rel="noopener noreferrer">Docs</a>
+                </div>
+                <div class="pm-install"><code>npm install -g @openai/codex</code></div>
+            </div>
+
+            <div class="card pm-card" id="pm-kimi-code">
+                <span class="pm-vendor">Moonshot AI</span>
+                <h2>Kimi Code</h2>
+                <span class="pm-version">—</span>
+                <span class="pm-fresh"></span>
+                <div class="pm-links">
+                    <a href="kimi-code/">Placemat →</a>
+                    <a href="kimi-code/changelog.html">Changelog</a>
+                    <a href="kimi-code/feed.xml">RSS</a>
+                    <a href="https://moonshotai.github.io/kimi-code/" target="_blank" rel="noopener noreferrer">Docs</a>
+                </div>
+                <div class="pm-install"><code>npm install -g @moonshot-ai/kimi-code</code></div>
+            </div>
+
+            <div class="card pm-card" id="pm-hermes">
+                <span class="pm-vendor">Nous Research</span>
+                <h2>Hermes Agent</h2>
+                <span class="pm-version">—</span>
+                <span class="pm-fresh"></span>
+                <div class="pm-links">
+                    <a href="hermes/">Placemat →</a>
+                    <a href="hermes/changelog.html">Changelog</a>
+                    <a href="hermes/feed.xml">RSS</a>
+                    <a href="https://hermes-agent.nousresearch.com/docs/" target="_blank" rel="noopener noreferrer">Docs</a>
+                </div>
+                <div class="pm-install"><code>curl -fsSL https://raw.githubusercontent.com/NousResearch/hermes-agent/main/scripts/install.sh | bash</code></div>
+            </div>
+
+        </div>
+
+        <details class="search-group" open data-group="Rosetta">
+            <summary><h3>Rosetta — the same job in each agent</h3><span class="group-count"></span></summary>
+            <div class="rosetta-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope="col">Concept</th>
+                            <th scope="col">Claude Code</th>
+                            <th scope="col">Codex CLI</th>
+                            <th scope="col">Kimi Code</th>
+                            <th scope="col">Hermes Agent</th>
+                        </tr>
+                    </thead>
+                    <tr><td>Launch TUI</td><td><code>claude</code></td><td><code>codex</code></td><td><code>kimi</code></td><td><code>hermes</code></td></tr>
+                    <tr><td>Context file</td><td><code>CLAUDE.md</code></td><td><code>AGENTS.md</code><span class="rosetta-note">global + walk</span></td><td><code>AGENTS.md</code><span class="rosetta-note">four locations</span></td><td><code>.hermes.md</code><span class="rosetta-note">then AGENTS.md, CLAUDE.md</span></td></tr>
+                    <tr><td>Generate context file</td><td><code>/init</code></td><td><code>/init</code></td><td><code>/init</code></td><td><code>/init</code></td></tr>
+                    <tr><td>Continue last session</td><td><code>claude --continue</code></td><td><code>codex resume</code></td><td><code>kimi -c</code></td><td><code>hermes -c</code></td></tr>
+                    <tr><td>One-shot / non-interactive</td><td><code>claude -p</code></td><td><code>codex exec</code></td><td><code>kimi -p</code></td><td><code>hermes -z</code></td></tr>
+                    <tr><td>Full-auto mode</td><td><code>--dangerously-skip-permissions</code></td><td><code>--dangerously-bypass-approvals-and-sandbox</code></td><td><code>--auto</code><span class="rosetta-note">--yolo still asks on risk</span></td><td><code>--yolo</code></td></tr>
+                    <tr><td>Config file</td><td><code>~/.claude/settings.json</code></td><td><code>~/.codex/config.toml</code></td><td><code>~/.kimi-code/config.toml</code></td><td><code>~/.hermes/config.yaml</code></td></tr>
+                    <tr><td>MCP servers</td><td><code>claude mcp</code></td><td><code>codex mcp</code></td><td><code>mcp.json</code></td><td><code>hermes mcp</code></td></tr>
+                    <tr><td>Skills</td><td><code>/skills</code></td><td><code>/skills</code></td><td><code>/skill:&lt;name&gt;</code></td><td><code>hermes skills</code><span class="rosetta-note">agentskills.io</span></td></tr>
+                    <tr><td>Hooks</td><td><code>settings.json</code></td><td><code>hooks.json</code></td><td><code>[[hooks]]</code></td><td><code>hermes hooks</code></td></tr>
+                    <tr><td>Subagents</td><td><code>.claude/agents/</code></td><td><code>/agent</code></td><td><code>.kimi-code/agents/</code></td><td><code>/agents</code></td></tr>
+                    <tr><td>Compact context</td><td><code>/compact</code></td><td><code>/compact</code></td><td><code>/compact</code></td><td><code>/compress</code></td></tr>
+                    <tr><td>Plan mode</td><td><code>Shift+Tab</code></td><td><code>/plan</code></td><td><code>Shift-Tab</code><span class="rosetta-note">or --plan</span></td><td><code>/plan</code><span class="rosetta-note">writes a plan file</span></td></tr>
+                    <tr><td>Switch model</td><td><code>/model</code></td><td><code>/model</code></td><td><code>/model</code></td><td><code>/model</code></td></tr>
+                    <tr><td>Isolated git worktree</td><td>—</td><td><code>--worktree</code></td><td>—</td><td><code>-w</code><span class="rosetta-note">or /worktree new</span></td></tr>
+                    <tr><td>Migrate from another agent</td><td>—</td><td><code>/import</code></td><td><code>/import-from-cc-codex</code></td><td><code>hermes import-agent</code></td></tr>
+                    <tr><td>Health check</td><td><code>/doctor</code></td><td><code>codex doctor</code></td><td><code>kimi doctor</code></td><td><code>hermes doctor</code></td></tr>
+                    <tr><td>Update the CLI</td><td>native installer</td><td><code>codex update</code></td><td><code>kimi upgrade</code></td><td><code>hermes update</code></td></tr>
+                </table>
+            </div>
+        </details>
+
+    </main>
+
+    <footer class="global-footer">
+        <p class="hub-disclaimer">
+            Unofficial community references — <strong>not affiliated with, endorsed by, or produced by</strong>
+            Anthropic, OpenAI, Moonshot AI or Nous Research. No vendor logos or wordmarks are used. Every entry is
+            condensed in our own words from each vendor's official documentation and links back to it — always confirm
+            against the official docs before relying on anything here.
+        </p>
+        <p class="hub-disclaimer">
+            <a href="https://github.com/dommango/agent-placemats" target="_blank" rel="noopener noreferrer">Source on GitHub</a> ·
+            <a href="https://dommango.github.io" target="_blank" rel="noopener noreferrer">Context//Collapse</a>
+        </p>
+    </footer>
+
+    <script>
+        // --- THEME TOGGLE (matches the placemats; the key is shared origin-wide, D6) ---
+        function setThemeIcon(theme) {
+            const btn = document.getElementById('themeBtn');
+            if (btn) btn.innerHTML = theme === 'dark' ? '&#9728;&#65039;' : '&#127769;';
+        }
+        setThemeIcon(document.documentElement.dataset.theme);
+        document.getElementById('themeBtn').addEventListener('click', () => {
+            const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+            document.documentElement.dataset.theme = next;
+            setThemeIcon(next);
+            try { localStorage.setItem('placemat-theme', next); } catch (err) {}
+        });
+
+        // --- CLICK TO COPY ---
+        document.querySelectorAll('code').forEach((el) => {
+            el.title = 'Click to copy';
+            el.tabIndex = 0;
+            el.setAttribute('role', 'button');
+            const copy = async () => {
+                try {
+                    await navigator.clipboard.writeText(el.innerText);
+                    el.classList.add('copied');
+                    setTimeout(() => el.classList.remove('copied'), 300);
+                } catch (err) { /* clipboard unavailable (insecure origin, denied permission) */ }
+            };
+            el.addEventListener('click', copy);
+            el.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); copy(); }
+            });
+        });
+
+        // --- WHAT CHANGED SINCE YOUR LAST VISIT ---
+        const PLACEMATS = [
+            { key: 'claude-code',
+              changes: 'https://dommango.github.io/claude-code-placemat/changes.json',
+              seenKey: 'placemat-seen-version' },
+            { key: 'codex',     changes: 'codex/changes.json',     seenKey: 'pm-codex-seen-version' },
+            { key: 'kimi-code', changes: 'kimi-code/changes.json', seenKey: 'pm-kimi-code-seen-version' },
+            { key: 'hermes',    changes: 'hermes/changes.json',    seenKey: 'pm-hermes-seen-version' },
+        ];
+
+        const cmp = (a, b) => {   // numeric-aware version compare, mirrors shared/placemat.js
+            const na = String(a).replace(/^v/, '').split('.').map(Number);
+            const nb = String(b).replace(/^v/, '').split('.').map(Number);
+            for (let i = 0; i < Math.max(na.length, nb.length); i++) {
+                const d = (na[i] || 0) - (nb[i] || 0);
+                if (d) return d;
+            }
+            return 0;
+        };
+
+        async function hydrate(p) {
+            const card = document.getElementById('pm-' + p.key);
+            if (!card) return;
+            try {
+                const res = await fetch(p.changes, { cache: 'no-store' });
+                if (!res.ok) throw new Error('HTTP ' + res.status);
+                const data = await res.json();
+                card.querySelector('.pm-version').textContent = 'As of ' + data.latest + ' · ' + data.generated;
+                let seen = null;
+                try { seen = localStorage.getItem(p.seenKey); } catch (err) {}
+                if (seen) {
+                    const fresh = data.releases
+                        .filter((r) => cmp(r.version, seen) > 0)
+                        .reduce((n, r) => n + r.entries.length, 0);
+                    if (fresh > 0) {
+                        card.querySelector('.pm-fresh').textContent =
+                            fresh + ' new since your last visit';
+                    }
+                }
+            } catch (err) {
+                // Offline, or cross-origin in local preview — leave the em-dash placeholders.
+            }
+        }
+
+        // The hub NEVER writes a seen-marker (D7): only a placemat marks itself seen,
+        // so "N new since your last visit" stays true until you actually go and look.
+        PLACEMATS.forEach(hydrate);
+    </script>
+
+</body>
+</html>
