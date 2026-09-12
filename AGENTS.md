@@ -2,7 +2,8 @@
 
 Unofficial single-page placemat references for CLI coding agents, one per
 directory: `codex/` (OpenAI Codex CLI), `kimi-code/` (Moonshot Kimi Code),
-`hermes/` (Nous Research Hermes Agent). The hub page at the repo root links
+`hermes/` (Nous Research Hermes Agent), `antigravity/` (Google DeepMind Antigravity CLI).
+The hub page at the repo root links
 them plus the external Claude Code placemat (which lives in its own repo,
 `dommango/claude-code-placemat`, on the same `dommango.github.io` origin).
 
@@ -25,6 +26,7 @@ codex/
   versions/v1.0.html
 kimi-code/                — same shape as codex/
 hermes/                   — same shape as codex/
+antigravity/              — same shape as codex/
 scripts/build-changes.js  — generator (per-agent arg, or --all)
 tests/placemat.test.js    — structural suite (per-agent arg, or all built agents)
 .github/workflows/ci.yml

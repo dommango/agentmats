@@ -13,6 +13,7 @@ page per agent, kept current by a daily sync.
 | [Codex CLI](https://dommango.github.io/agent-placemats/codex/) | Codex CLI | OpenAI | [developers.openai.com/codex](https://developers.openai.com/codex) |
 | [Kimi Code](https://dommango.github.io/agent-placemats/kimi-code/) | Kimi Code | Moonshot AI | [moonshotai.github.io/kimi-code](https://moonshotai.github.io/kimi-code/) |
 | [Hermes Agent](https://dommango.github.io/agent-placemats/hermes/) | Hermes Agent | Nous Research | [hermes-agent.nousresearch.com](https://hermes-agent.nousresearch.com/docs/) |
+| [Antigravity CLI](https://dommango.github.io/agent-placemats/antigravity/) | Antigravity CLI | Google DeepMind | [antigravity.google/docs](https://antigravity.google/docs) |
 | [Claude Code](https://dommango.github.io/claude-code-placemat/) | Claude Code | Anthropic | [code.claude.com/docs](https://code.claude.com/docs) |
 
 The Claude Code placemat lives in its own repo,
@@ -34,7 +35,7 @@ and is linked from the hub rather than duplicated here.
 ## Unofficial
 
 These are community references. They are **not affiliated with, endorsed by, or
-produced by** OpenAI, Moonshot AI, Nous Research or Anthropic. No vendor logos
+produced by** OpenAI, Moonshot AI, Nous Research, Google DeepMind or Anthropic. No vendor logos
 or wordmarks are used. Every entry is condensed in our own words from the
 official documentation and links back to it — always confirm against the
 official docs before relying on anything here. Spotted something wrong? Open an

@@ -24,7 +24,7 @@ const CANONICAL_CARDS = [
   'card-settings', 'card-env', 'card-skills', 'card-hooks',
 ];
 
-const AGENTS = ['codex', 'kimi-code', 'hermes'];
+const AGENTS = ['codex', 'kimi-code', 'hermes', 'antigravity'];
 const arg = process.argv[2];
 const targets = arg ? [arg] : AGENTS.filter((a) => {
   if (fs.existsSync(path.join(ROOT, a, 'index.html'))) return true;
