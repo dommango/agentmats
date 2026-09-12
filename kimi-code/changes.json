@@ -1,0 +1,74 @@
+{
+ "generated": "2026-09-09",
+ "latest": "v0.42.0",
+ "releases": [
+  {
+   "version": "v0.42.0",
+   "label": "Kimi Code v0.42.0",
+   "date": "2026-09-09",
+   "id": "rel-0-42-0",
+   "entries": [
+    {
+     "tag": "ADD",
+     "item": "card-keys",
+     "html": "<code>card-keys</code> — initial reference: the seven keyboard-shortcut contexts, from general input to the approval panel (19 rows)"
+    },
+    {
+     "tag": "ADD",
+     "item": "card-slash-core",
+     "html": "<code>card-slash-core</code> — initial reference: account, session, mode and status commands with their aliases (33 rows)"
+    },
+    {
+     "tag": "ADD",
+     "item": "card-slash-tools",
+     "html": "<code>card-slash-tools</code> — initial reference: swarm and goal control, extensibility, and the built-in skill commands (16 rows)"
+    },
+    {
+     "tag": "ADD",
+     "item": "card-cli",
+     "html": "<code>card-cli</code> — initial reference: all 14 top-level flags and all 12 subcommands (25 rows)"
+    },
+    {
+     "tag": "ADD",
+     "item": "card-settings",
+     "html": "<code>card-settings</code> — initial reference: <code>config.toml</code>, <code>tui.toml</code> and <code>.kimi-code/local.toml</code> (37 rows)"
+    },
+    {
+     "tag": "ADD",
+     "item": "card-env",
+     "html": "<code>card-env</code> — initial reference: core paths, model overrides, runtime switches and diagnostics (22 rows)"
+    },
+    {
+     "tag": "ADD",
+     "item": "card-skills",
+     "html": "<code>card-skills</code> — initial reference: skill and agent directories, the four <code>AGENTS.md</code> locations, plugins (18 rows)"
+    },
+    {
+     "tag": "ADD",
+     "item": "card-hooks",
+     "html": "<code>card-hooks</code> — initial reference: 18 hook events, hook exit codes, <code>mcp.json</code> and MCP permissions (20 rows)"
+    },
+    {
+     "tag": "DEL",
+     "item": "KIMI_CODE_EXPERIMENTAL_REMOTE_CONTROL",
+     "html": "<code>KIMI_CODE_EXPERIMENTAL_REMOTE_CONTROL</code> and <code>KIMI_CODE_EXPERIMENTAL_SECONDARY_MODEL</code> — Remote Control and the subagent model pool are always on in 0.42.0, so both flags were removed"
+    },
+    {
+     "tag": "CHG",
+     "item": "[database]",
+     "html": "<code>[database]</code> replaces the experimental minidb flags; the read model and search worker are now controlled by <code>KIMI_CODE_PERSISTENCE_MINIDB_READMODEL</code> and <code>KIMI_CODE_SEARCH_WORKER</code>"
+    },
+    {
+     "tag": "ADD",
+     "item": "[read]",
+     "html": "<code>[read]</code> — configurable character limits and resumable long-line file reads, replacing repeated output truncation"
+    },
+    {
+     "tag": "CHG",
+     "item": "Ctrl-O",
+     "html": "<code>Ctrl-O</code> — finished tool calls collapse to a header plus one outcome row; hidden output is counted and revealed here"
+    }
+   ]
+  }
+ ]
+}

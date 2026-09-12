@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en" data-agent="kimi-code">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kimi Code Placemat — Changelog</title>
+    <meta name="description" content="Detailed changelog for the unofficial Kimi Code Placemat — template and content changes across releases.">
+    <meta property="og:title" content="Kimi Code Placemat — Changelog">
+    <meta property="og:description" content="Template and content changes across releases of the unofficial Kimi Code Placemat.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://dommango.github.io/agent-placemats/kimi-code/changelog.html">
+    <meta property="og:image" content="https://dommango.github.io/agent-placemats/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://dommango.github.io/agent-placemats/kimi-code/changelog.html">
+    <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+PHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iNiIgZmlsbD0iIzRjNmVmNSIvPjx0ZXh0IHg9IjE2IiB5PSIyMyIgZm9udC1mYW1pbHk9Im1vbm9zcGFjZSIgZm9udC1zaXplPSIxNiIgZm9udC13ZWlnaHQ9IjcwMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzFlMWUxZSI+Jmd0O188L3RleHQ+PC9zdmc+Cg==">
+    <link rel="stylesheet" href="../shared/placemat.css">
+    <style>
+        :root { --accent-1: #4c6ef5; --accent-1-2: #748ffc; --accent-2: #845ef7; --accent-2-2: #b197fc; }
+        :root[data-theme="light"] { --accent-1: #3b5bdb; --accent-1-2: #364fc7; --accent-2: #6741d9; --accent-2-2: #5f3dc4; }
+    </style>
+    <script>
+        (function() {
+            var stored = localStorage.getItem('placemat-theme');
+            var theme = (stored === 'light' || stored === 'dark')
+                ? stored
+                : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            document.documentElement.dataset.theme = theme;
+        })();
+    </script>
+    <style>
+        /* Page-specific rules only — shared tokens, body, header chrome, footer,
+           and code chip styling come from placemat.css. */
+        .header-nav { display: flex; gap: 12px; align-items: center; }
+
+        .container { max-width: 900px; margin: 0 auto; }
+
+        .version-block {
+            background-color: var(--bg-card); border-radius: 6px;
+            padding: 16px 20px; border: 1px solid var(--border);
+            margin-bottom: 15px;
+        }
+
+        .version-block h2 {
+            margin: 0 0 12px 0; padding-bottom: 8px;
+            border-bottom: 1px solid var(--border);
+            color: var(--accent-1); font-size: 1rem; font-weight: 700;
+            display: flex; align-items: center; gap: 10px;
+        }
+
+        .version-date {
+            font-size: 0.75rem; color: var(--fg-muted); font-weight: 400;
+        }
+
+        .change-section h3 {
+            color: var(--accent-2); font-size: 0.75rem;
+            margin: 12px 0 6px 0; text-transform: uppercase;
+            letter-spacing: 0.05em; font-weight: 700;
+        }
+
+        .change-list {
+            list-style: none; padding: 0; margin: 0;
+        }
+
+        .change-list li {
+            padding: 4px 0; border-bottom: 1px solid var(--border);
+            font-size: 0.8rem;
+            display: grid; grid-template-columns: 46px minmax(0, 1fr); gap: 4px 8px;
+            align-items: start;
+        }
+        .change-list li > .tag { margin-top: 2px; }
+        .change-list li:last-child { border-bottom: none; }
+        .change-list li:hover { background-color: var(--row-hover); }
+
+        .tag {
+            display: inline-block; padding: 1px 5px; border-radius: 3px;
+            font-size: 0.65em; font-weight: 700; flex-shrink: 0;
+            min-width: 45px; text-align: center; margin-top: 2px;
+        }
+        .tag-add { background: rgba(135, 157, 134, 0.15); color: var(--accent-2); border: 1px solid var(--accent-2); }
+        .tag-fix { background: rgba(217, 119, 87, 0.15); color: var(--accent-1); border: 1px solid var(--accent-1); }
+        .tag-change { background: rgba(245, 158, 11, 0.1); color: #fbbf24; border: 1px solid #f59e0b; }
+        .tag-remove { background: rgba(239, 68, 68, 0.1); color: #f87171; border: 1px solid #ef4444; }
+
+        .change-list code { font-size: 0.85em; }
+
+        .month-group {
+            margin-bottom: 10px;
+        }
+        .month-group summary {
+            cursor: pointer;
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--accent-2);
+            padding: 7px 12px;
+            border-radius: 4px;
+            border: 1px solid var(--border);
+            background: rgba(135, 157, 134, 0.04);
+            list-style: none;
+            user-select: none;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .month-group summary:hover {
+            background: rgba(135, 157, 134, 0.1);
+            border-color: var(--accent-2);
+        }
+        .month-group summary::-webkit-details-marker { display: none; }
+        .month-group summary::before {
+            content: '▸';
+            font-size: 0.75em;
+            transition: transform 0.15s;
+            display: inline-block;
+        }
+        .month-group[open] > summary::before {
+            transform: rotate(90deg);
+        }
+        .month-count {
+            font-size: 0.7rem;
+            color: var(--fg-muted);
+            font-weight: 400;
+            margin-left: auto;
+        }
+        .month-content {
+            padding-top: 4px;
+        }
+
+        @media (max-width: 768px) {
+            .global-header { flex-direction: column; align-items: flex-start; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="global-header">
+        <div class="header-title">
+            <!-- neutral 8-bit terminal-prompt mark (no vendor logos — D5) -->
+            <svg class="minion-icon" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Terminal prompt">
+                <rect x="2" y="3" width="2" height="2" fill="var(--accent-1)"/>
+                <rect x="4" y="5" width="2" height="2" fill="var(--accent-1)"/>
+                <rect x="6" y="7" width="2" height="2" fill="var(--accent-1)"/>
+                <rect x="4" y="9" width="2" height="2" fill="var(--accent-1)"/>
+                <rect x="2" y="11" width="2" height="2" fill="var(--accent-1)"/>
+                <rect x="9" y="11" width="5" height="2" fill="var(--accent-2)"/>
+            </svg>
+            <h1>Kimi Code <span class="wm-pixel">PLACEMAT</span></h1>
+            <span class="header-tagline">Changelog</span>
+        </div>
+        <div class="header-nav">
+            <a href="index.html" class="header-link">← Placemat</a>
+            <a href="feed.xml" class="header-link" title="Subscribe to placemat changes (RSS)">RSS</a>
+            <button type="button" class="theme-toggle" id="themeBtn" onclick="toggleTheme()" title="Toggle theme" aria-label="Toggle light and dark theme">&#9728;&#65039;</button>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <!-- Template v1.0 -->
+        <div class="version-block">
+            <h2>Template v1.0 <span class="version-date">2026-09-12 — As of Kimi Code v0.42.0</span></h2>
+
+            <div class="change-section">
+                <h3>Content / Kimi Code Releases</h3>
+                <!-- September 2026 -->
+                <details class="month-group" open>
+                    <summary>September 2026 <span class="version-date">v0.42.0</span> <span class="month-count">1 release</span></summary>
+                    <div class="month-content">
+
+                        <div class="change-section">
+                            <h3 id="rel-0-42-0">Kimi Code v0.42.0 <span class="version-date">2026-09-09</span></h3>
+                            <ul class="change-list">
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>card-keys</code> — initial reference: the seven keyboard-shortcut contexts, from general input to the approval panel (19 rows)</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>card-slash-core</code> — initial reference: account, session, mode and status commands with their aliases (33 rows)</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>card-slash-tools</code> — initial reference: swarm and goal control, extensibility, and the built-in skill commands (16 rows)</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>card-cli</code> — initial reference: all 14 top-level flags and all 12 subcommands (25 rows)</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>card-settings</code> — initial reference: <code>config.toml</code>, <code>tui.toml</code> and <code>.kimi-code/local.toml</code> (37 rows)</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>card-env</code> — initial reference: core paths, model overrides, runtime switches and diagnostics (22 rows)</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>card-skills</code> — initial reference: skill and agent directories, the four <code>AGENTS.md</code> locations, plugins (18 rows)</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>card-hooks</code> — initial reference: 18 hook events, hook exit codes, <code>mcp.json</code> and MCP permissions (20 rows)</span></li>
+                                <li><span class="tag tag-remove">DEL</span><span class="entry"><code>KIMI_CODE_EXPERIMENTAL_REMOTE_CONTROL</code> and <code>KIMI_CODE_EXPERIMENTAL_SECONDARY_MODEL</code> — Remote Control and the subagent model pool are always on in 0.42.0, so both flags were removed</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>[database]</code> replaces the experimental minidb flags; the read model and search worker are now controlled by <code>KIMI_CODE_PERSISTENCE_MINIDB_READMODEL</code> and <code>KIMI_CODE_SEARCH_WORKER</code></span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>[read]</code> — configurable character limits and resumable long-line file reads, replacing repeated output truncation</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>Ctrl-O</code> — finished tool calls collapse to a header plus one outcome row; hidden output is counted and revealed here</span></li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </details>
+            </div>
+
+            <div class="change-section">
+                <h3>Template / Structure</h3>
+                <ul class="change-list">
+                    <li><span class="tag tag-add">ADD</span><span class="entry">v1.0 — template derived from <code>claude-code-placemat</code> v1.2</span></li>
+                    <li><span class="tag tag-change">CHG</span><span class="entry">Per-agent <code>localStorage</code> keys (<code>pm-kimi-code-seen-version</code>, <code>pm-kimi-code-collapsed</code>); theme and density stay shared across every placemat on this origin</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <footer class="global-footer">
+            Template v1.0 · Content synced 2026-09-09<br>
+            <span class="disclaimer">Unofficial community reference — not affiliated with or endorsed by Moonshot AI.
+            Condensed from the official docs; always confirm against
+            <a href="https://moonshotai.github.io/kimi-code/" target="_blank" rel="noopener noreferrer">moonshotai.github.io/kimi-code</a>.</span><br>
+            <a href="../" class="header-link">← All agent placemats</a> ·
+            <a href="https://dommango.github.io" target="_blank" rel="noopener noreferrer">Context//Collapse</a>
+        </footer>
+
+    </div>
+
+    <script>
+        // --- THEME TOGGLE LOGIC (persisted, matches index.html) ---
+        function setThemeIcon(theme) {
+            const btn = document.getElementById('themeBtn');
+            if (btn) btn.innerHTML = theme === 'dark' ? '&#9728;&#65039;' : '&#127769;';
+        }
+        function toggleTheme() {
+            const root = document.documentElement;
+            const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
+            root.dataset.theme = next;
+            localStorage.setItem('placemat-theme', next);
+            setThemeIcon(next);
+        }
+        setThemeIcon(document.documentElement.dataset.theme);
+
+        // --- CLICK TO COPY LOGIC (mouse + keyboard), matches index.html ---
+        async function copyText(element, text) {
+            try {
+                await navigator.clipboard.writeText(text);
+                element.classList.add('copied');
+                setTimeout(() => element.classList.remove('copied'), 300);
+            } catch (err) { console.error('Failed to copy: ', err); }
+        }
+
+        document.querySelectorAll('code').forEach(el => {
+            el.title = "Click to copy";
+            el.tabIndex = 0;
+            el.setAttribute('role', 'button');
+            el.addEventListener('click', () => copyText(el, el.innerText));
+            el.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    copyText(el, el.innerText);
+                }
+            });
+        });
+    </script>
+</body>
+</html>

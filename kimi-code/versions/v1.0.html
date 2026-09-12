@@ -1,0 +1,2131 @@
+<!DOCTYPE html>
+<html lang="en" data-agent="kimi-code">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kimi Code Placemat (Unofficial)</title>
+    <meta name="description" content="Unofficial single-page reference for Moonshot Kimi Code — slash commands, keyboard shortcuts, CLI flags, config.toml keys, hooks, MCP, skills and agents. Auto-updated from the official docs.">
+    <meta property="og:title" content="Kimi Code Placemat (Unofficial)">
+    <meta property="og:description" content="Unofficial single-page reference for Moonshot Kimi Code — commands, shortcuts, flags, configuration, hooks, MCP, skills and agents.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://dommango.github.io/agent-placemats/kimi-code/">
+    <meta property="og:image" content="https://dommango.github.io/agent-placemats/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://dommango.github.io/agent-placemats/kimi-code/">
+    <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+PHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iNiIgZmlsbD0iIzRjNmVmNSIvPjx0ZXh0IHg9IjE2IiB5PSIyMyIgZm9udC1mYW1pbHk9Im1vbm9zcGFjZSIgZm9udC1zaXplPSIxNiIgZm9udC13ZWlnaHQ9IjcwMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzFlMWUxZSI+Jmd0O188L3RleHQ+PC9zdmc+Cg==">
+    <link rel="alternate" type="application/atom+xml" title="Kimi Code Placemat changes" href="feed.xml">
+    <style>
+/* ============================================================
+   Claude Code Placemat — refined
+   ----------------------------------------------------------
+   Same dashboard shape, tighter typography, tuned color tiers,
+   sharper hierarchy. Press Start 2P shows up only as a small
+   wordmark accent — body stays Geist.
+   ============================================================ */
+
+/* Fonts loaded via system stack + local install — no external CDN dependency */
+
+/* ---------- TOKENS ---------- */
+:root {
+    /* surfaces */
+    --bg-page: #0a0a0a;
+    --bg-card: #141414;
+    --bg-card-2: #1a1a1a;        /* nested surface, modal */
+    --bg-code: #1f1f1f;
+    --header-bg: rgba(10, 10, 10, 0.88);
+
+    /* lines */
+    --border:        #262626;
+    --border-strong: #3a3a3a;
+    --border-soft:   #1f1f1f;
+
+    /* text tiers */
+    --fg-main:  #ededed;
+    --fg-muted: #9a9a9a;
+    --fg-dim:   #6e6e6e;
+
+    /* brand */
+    --accent-1: #d97757;
+    --accent-1-2: #e8a586;
+    --accent-2:  #879d86;
+    --accent-2-2: #a9bba8;
+
+    /* state tints */
+    --new-bg:         rgba(135, 157, 134, 0.14);
+    --new-border:     rgba(135, 157, 134, 0.55);
+    --new-bar:        #879d86;
+    --unverified-bg:  rgba(245, 158, 11, 0.12);
+    --unverified-border: rgba(245, 158, 11, 0.45);
+    --unverified-bar: #f59e0b;
+
+    /* interaction */
+    --row-hover:    rgba(255, 255, 255, 0.025);
+    --success-flash: rgba(217, 119, 87, 0.32);
+
+    /* type */
+    --font-sans: "Geist", "Inter", system-ui, -apple-system, sans-serif;
+    --font-mono: "Geist Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    --font-pixel: "Press Start 2P", ui-monospace, monospace;
+
+    /* radii */
+    --r-xs: 3px;
+    --r-sm: 4px;
+    --r-md: 6px;
+
+    /* motion */
+    --dur: 0.18s;
+    --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+:root[data-theme="light"] {
+    --bg-page: #f5f4ef;
+    --bg-card: #ffffff;
+    --bg-card-2: #fbfaf6;
+    --bg-code: #f1efe9;
+    --header-bg: rgba(245, 244, 239, 0.9);
+
+    --border:        #e3e0d6;
+    --border-strong: #c8c4b6;
+    --border-soft:   #ece9e0;
+
+    --fg-main:  #1a1a1a;
+    --fg-muted: #5a5a55;
+    --fg-dim:   #8a8a82;
+
+    --accent-1: #c2410c;
+    --accent-1-2: #9c3309;
+    --accent-2:  #0f766e;
+    --accent-2-2: #115e59;
+
+    --new-bg:         rgba(15, 118, 110, 0.08);
+    --new-border:     rgba(15, 118, 110, 0.35);
+    --new-bar:        #0f766e;
+    --unverified-bg:  rgba(180, 116, 0, 0.10);
+    --unverified-border: rgba(180, 116, 0, 0.4);
+    --unverified-bar: #b47400;
+
+    --row-hover:    rgba(0, 0, 0, 0.025);
+    --success-flash: rgba(194, 65, 12, 0.22);
+}
+
+/* ---------- BASE ---------- */
+* { box-sizing: border-box; }
+html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg-page);
+    color: var(--fg-main);
+    font-family: var(--font-sans);
+    font-size: 13.5px;
+    line-height: 1.4;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition: background-color var(--dur) var(--ease), color var(--dur) var(--ease);
+}
+body {
+    /* --header-h / --nav-h are measured at runtime so the two fixed bars always clear each other */
+    padding: calc(var(--header-h, 52px) + var(--nav-h, 32px) + 12px) 18px 24px;
+}
+
+/* ---------- HEADER ---------- */
+.global-header {
+    position: fixed;
+    top: 0; left: 0; width: 100%;
+    background: var(--header-bg);
+    backdrop-filter: saturate(120%) blur(10px);
+    -webkit-backdrop-filter: saturate(120%) blur(10px);
+    border-bottom: 1px solid var(--border);
+    z-index: 1000;
+    padding: 0 18px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
+}
+
+.minion-icon {
+    width: 24px;
+    height: 24px;
+    image-rendering: pixelated;
+    flex-shrink: 0;
+}
+
+.header-title h1 {
+    margin: 0;
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: -0.015em;
+    color: var(--fg-main);
+    white-space: nowrap;
+}
+.header-title h1 .wm-pixel {
+    font-family: var(--font-pixel);
+    font-size: 9px;
+    letter-spacing: 0;
+    color: var(--accent-1);
+    transform: translateY(-1px);
+}
+
+.header-tagline {
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    color: var(--fg-dim);
+    border-left: 1px solid var(--border-strong);
+    padding-left: 12px;
+    white-space: nowrap;
+}
+@media (max-width: 1000px) { .header-tagline { display: none; } }
+
+.global-controls {
+    display: flex; gap: 8px;
+    align-items: center;
+}
+
+.release-tag {
+    display: inline-flex; align-items: center;
+    gap: 6px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--fg-muted);
+    background: var(--bg-code);
+    border: 1px solid var(--border);
+    padding: 4px 9px;
+    border-radius: 999px;
+    white-space: nowrap;
+}
+.release-tag::before {
+    content: "";
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--accent-1);
+    box-shadow: 0 0 0 2px rgba(217,119,87,0.18);
+}
+
+.header-link {
+    display: inline-flex; align-items: center; gap: 4px;
+    color: var(--fg-muted);
+    text-decoration: none;
+    font-size: 11.5px;
+    padding: 5px 10px;
+    border: 1px solid var(--border);
+    border-radius: var(--r-sm);
+    transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+.header-link:hover { color: var(--fg-main); border-color: var(--accent-2); }
+
+.theme-toggle {
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--fg-main);
+    padding: 4px 9px;
+    border-radius: var(--r-sm);
+    cursor: pointer;
+    font-size: 12px;
+    transition: border-color var(--dur) var(--ease);
+}
+.theme-toggle:hover { border-color: var(--accent-1); }
+
+.search-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+#dashboardSearch {
+    width: 220px;
+    padding: 6px 38px 6px 12px;
+    border-radius: var(--r-sm);
+    border: 1px solid var(--border);
+    background: var(--bg-code);
+    color: var(--fg-main);
+    font-family: var(--font-sans);
+    font-size: 12px;
+    transition: border-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+}
+#dashboardSearch::placeholder { color: var(--fg-dim); }
+#dashboardSearch:focus {
+    outline: none;
+    border-color: var(--accent-2);
+    box-shadow: 0 0 0 3px rgba(135,157,134,0.12);
+}
+.search-wrap .kbd {
+    position: absolute;
+    right: 8px;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--fg-dim);
+    background: var(--bg-card);
+    border: 1px solid var(--border-strong);
+    border-radius: var(--r-xs);
+    padding: 1px 5px;
+    pointer-events: none;
+}
+.search-count {
+    position: absolute;
+    right: 8px;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--accent-2-2);
+    background: var(--bg-card);
+    border: 1px solid var(--accent-2);
+    border-radius: var(--r-xs);
+    padding: 1px 5px;
+    pointer-events: none;
+    display: none;
+}
+.search-wrap.has-term .kbd { display: none; }
+.search-wrap.has-term .search-count { display: inline-block; }
+
+.skip-link {
+    position: absolute;
+    left: -999px;
+    top: 8px;
+    z-index: 1001;
+    background: var(--accent-1);
+    color: #0a0a0a;
+    padding: 6px 10px;
+    border-radius: var(--r-sm);
+    font-weight: 700;
+    text-decoration: none;
+}
+.skip-link:focus { left: 8px; }
+
+/* ---------- SECTION NAV ---------- */
+.section-nav {
+    position: fixed;
+    top: var(--header-h, 52px); left: 0; width: 100%;
+    z-index: 999;
+    background: var(--header-bg);
+    backdrop-filter: saturate(120%) blur(10px);
+    -webkit-backdrop-filter: saturate(120%) blur(10px);
+    border-bottom: 1px solid var(--border);
+}
+.section-nav-inner {
+    max-width: 1900px;
+    margin: 0 auto;
+    padding: 6px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+.section-chips {
+    display: flex;
+    gap: 6px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    min-width: 0;
+}
+.section-chips::-webkit-scrollbar { display: none; }
+.section-chips a {
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--fg-muted);
+    text-decoration: none;
+    padding: 4px 9px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+.section-chips a .chip-count { color: var(--fg-dim); font-size: 10px; }
+.section-chips a:hover { color: var(--fg-main); border-color: var(--border-strong); }
+.section-chips a.is-active { color: var(--accent-1); border-color: var(--accent-1); }
+.section-chips a.is-active .chip-count { color: var(--accent-1-2); }
+.section-tools { display: flex; gap: 6px; flex-shrink: 0; }
+.section-tools button {
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--fg-muted);
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    padding: 4px 9px;
+    border-radius: var(--r-sm);
+    cursor: pointer;
+    transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+.section-tools button:hover { color: var(--fg-main); border-color: var(--accent-2); }
+.section-tools button[aria-pressed="true"] { color: var(--accent-2-2); border-color: var(--accent-2); }
+.card-count {
+    margin-left: auto;
+    font-family: var(--font-mono);
+    font-weight: 400;
+    font-size: 10px;
+    color: var(--fg-dim);
+    letter-spacing: 0;
+}
+
+/* compact density */
+body.density-compact { font-size: 12.5px; }
+body.density-compact td { padding: 2px 5px 2px; }
+body.density-compact td:first-child { width: 38%; }
+body.density-compact .desc { font-size: 11px; line-height: 1.3; }
+body.density-compact code { font-size: 10.5px; }
+body.density-compact .card { padding: 10px 12px 8px; }
+body.density-compact .dashboard-grid {
+    gap: 10px;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+}
+
+/* ---------- DASHBOARD GRID ---------- */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(360px, 100%), 1fr));
+    gap: 14px;
+    max-width: 1900px;
+    margin: 0 auto;
+    align-items: start;
+}
+/* grid items default to min-width:auto, which lets a wide row push the page sideways */
+.dashboard-grid > * { min-width: 0; }
+
+/* ---------- CARDS ---------- */
+.card {
+    position: relative;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--r-md);
+    padding: 14px 16px 12px 22px;
+    transition: border-color var(--dur) var(--ease);
+}
+.card:hover { border-color: var(--border-strong); }
+.card { scroll-margin-top: calc(var(--header-h, 52px) + var(--nav-h, 32px) + 8px); }
+.card.full-width { grid-column: 1 / -1; }
+.card.legend-strip { padding: 8px 16px; }
+.legend-strip-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.card h2 {
+    margin: 0 0 12px 0;
+    padding: 0 0 8px 0;
+    border-bottom: 1px solid var(--border);
+    color: var(--fg-main);
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.card h2::before {
+    content: "";
+    width: 8px; height: 8px;
+    background: var(--accent-1);
+    border-radius: 1.5px;
+    flex-shrink: 0;
+}
+
+/* ---------- GROUPS ---------- */
+.search-group { margin-bottom: 12px; }
+.search-group:last-child { margin-bottom: 0; }
+
+.search-group h3 {
+    color: var(--accent-2);
+    font-family: var(--font-mono);
+    font-size: 10px;
+    margin: 0 0 6px 0;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+.search-group h3::before {
+    content: "▸";
+    color: var(--accent-1);
+    font-size: 9px;
+    transform: translateY(-1px);
+}
+.search-group + .search-group h3 {
+    margin-top: 4px;
+    padding-top: 8px;
+    border-top: 1px dashed var(--border);
+}
+
+/* collapsible groups */
+details.search-group > summary {
+    list-style: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0 0 6px 0;
+}
+details.search-group > summary::-webkit-details-marker { display: none; }
+details.search-group > summary h3 { margin: 0; }
+details.search-group > summary h3::before { transition: transform var(--dur) var(--ease); }
+details.search-group[open] > summary h3::before { transform: rotate(90deg); }
+details.search-group:not([open]) > summary { margin-bottom: 0; }
+details.search-group:not([open]) > summary h3 { color: var(--fg-muted); }
+details.search-group > summary:hover h3 { color: var(--accent-2-2); }
+details.search-group > summary:focus-visible { outline: 2px solid var(--accent-2); outline-offset: 2px; border-radius: var(--r-xs); }
+details.search-group + details.search-group > summary h3 {
+    margin-top: 4px;
+    padding-top: 8px;
+    border-top: 1px dashed var(--border);
+}
+.group-count {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--fg-dim);
+}
+
+/* ---------- TABLES ---------- */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+    table-layout: fixed;
+}
+td {
+    padding: 4px 6px 3px;
+    border-bottom: 1px dotted var(--border);
+    vertical-align: middle;
+}
+td:first-child {
+    width: 44%;
+    padding-left: 0;
+}
+tr:last-child td { border-bottom: none; }
+tr { transition: background-color var(--dur) var(--ease); }
+tr:hover { background-color: var(--row-hover); }
+
+.desc {
+    color: var(--fg-muted);
+    font-size: 11.5px;
+    line-height: 1.35;
+}
+
+/* permalinks + roving focus */
+.search-item { scroll-margin-top: calc(var(--header-h, 52px) + var(--nav-h, 32px) + 8px); }
+.search-item td:first-child { position: relative; }
+.row-link {
+    position: absolute;
+    left: -14px;
+    top: 5px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--fg-dim);
+    text-decoration: none;
+    opacity: 0;
+    transition: opacity var(--dur) var(--ease), color var(--dur) var(--ease);
+}
+.search-item:hover .row-link,
+.search-item:focus-within .row-link,
+.row-link:focus-visible { opacity: 1; }
+.row-link:hover { color: var(--accent-1); }
+.row-link.copied { color: var(--accent-2-2); }
+.search-item:target { background: var(--new-bg); box-shadow: inset 2px 0 0 0 var(--accent-2); }
+.search-item:focus { outline: none; background: var(--row-hover); box-shadow: inset 2px 0 0 0 var(--accent-1); }
+
+mark.hit {
+    background: rgba(217, 119, 87, 0.28);
+    color: inherit;
+    border-radius: 2px;
+    padding: 0 1px;
+}
+:root[data-theme="light"] mark.hit { background: rgba(194, 65, 12, 0.22); }
+
+/* ---------- CODE CHIPS ---------- */
+code {
+    font-family: var(--font-mono);
+    background: var(--bg-code);
+    color: var(--fg-main);
+    padding: 1px 5px 2px;
+    border-radius: var(--r-xs);
+    font-size: 11px;
+    line-height: 1.2;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: border-color var(--dur) var(--ease), background-color var(--dur) var(--ease);
+    word-break: break-word;
+    display: inline-block;
+    max-width: 100%;
+}
+code:hover { border-color: var(--accent-1); }
+code:focus-visible {
+    outline: none;
+    border-color: var(--accent-2);
+    box-shadow: 0 0 0 2px rgba(135,157,134,0.25);
+}
+code.copied {
+    animation: copyFlash 0.3s ease-out;
+    border-color: var(--accent-1);
+}
+@keyframes copyFlash {
+    0%   { background: var(--success-flash); }
+    100% { background: var(--bg-code); }
+}
+
+/* state variants — left-bar marker for legibility */
+code.new {
+    background: var(--new-bg);
+    border-color: var(--new-border);
+    box-shadow: inset 2px 0 0 0 var(--new-bar);
+    padding-left: 7px;
+}
+code.unverified {
+    background: var(--unverified-bg);
+    border-color: var(--unverified-border);
+    box-shadow: inset 2px 0 0 0 var(--unverified-bar);
+    padding-left: 7px;
+}
+
+/* inline code inside .desc — quieter */
+.desc code {
+    font-size: 10.5px;
+    padding: 0 4px 1px;
+}
+
+/* ---------- TWO-TIER ENTRIES ---------- */
+.desc .summary { display: inline; }
+.notes-btn {
+    display: inline-block;
+    vertical-align: 1px;
+    margin-left: 4px;
+    background: none;
+    border: 1px solid var(--border-strong);
+    color: var(--accent-2-2);
+    font-family: var(--font-mono);
+    font-size: 9.5px;
+    padding: 0 5px;
+    border-radius: 999px;
+    cursor: pointer;
+    line-height: 1.5;
+}
+.notes-btn:hover,
+.notes-btn[aria-expanded="true"] {
+    border-color: var(--accent-2);
+    color: var(--fg-main);
+    background: var(--new-bg);
+}
+.notes {
+    list-style: none;
+    margin: 5px 0 2px;
+    padding: 0 0 0 10px;
+    border-left: 1px solid var(--border-strong);
+}
+.notes li {
+    position: relative;
+    padding: 2px 0 2px 10px;
+    font-size: 11px;
+    line-height: 1.35;
+    color: var(--fg-muted);
+}
+.notes li::before {
+    content: "▸";
+    position: absolute;
+    left: 0;
+    top: 2px;
+    color: var(--accent-2);
+    font-size: 9px;
+}
+.notes-all {
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--fg-muted);
+    font-family: var(--font-mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 3px 8px;
+    border-radius: var(--r-sm);
+    cursor: pointer;
+    transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+.notes-all:hover,
+.notes-all[aria-pressed="true"] { color: var(--accent-2-2); border-color: var(--accent-2); }
+
+/* ---------- LEGEND + BUILDER (full-width strip) ---------- */
+.legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 18px;
+    align-items: center;
+    font-size: 11px;
+    color: var(--fg-muted);
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+.legend-item { display: flex; align-items: center; gap: 6px; }
+.legend-swatch {
+    display: inline-block;
+    width: 26px; height: 12px;
+    border-radius: var(--r-xs);
+}
+.swatch-new       { background: var(--new-bg); border: 1px solid var(--new-border); box-shadow: inset 2px 0 0 0 var(--new-bar); }
+.swatch-unverified{ background: var(--unverified-bg); border: 1px solid var(--unverified-border); box-shadow: inset 2px 0 0 0 var(--unverified-bar); }
+.swatch-default   { background: var(--bg-code); border: 1px solid var(--border); }
+
+.compact-builder {
+    display: flex; gap: 8px;
+    align-items: center; flex-wrap: wrap;
+    font-size: 12px;
+    min-width: 0;
+}
+.compact-builder .builder-label {
+    font-family: var(--font-mono);
+    color: var(--accent-2);
+    font-weight: 600;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+.compact-builder input,
+.compact-builder select {
+    padding: 5px 8px;
+    border-radius: var(--r-sm);
+    border: 1px solid var(--border);
+    background: var(--bg-code);
+    color: var(--fg-main);
+    font-family: var(--font-sans);
+    font-size: 12px;
+    transition: border-color var(--dur) var(--ease);
+}
+.compact-builder input:focus,
+.compact-builder select:focus {
+    outline: none;
+    border-color: var(--accent-2);
+}
+.compact-builder input[type="text"] { flex: 2 1 180px; min-width: 0; }
+.compact-builder label {
+    display: inline-flex; align-items: center; gap: 4px;
+    color: var(--fg-muted);
+    font-size: 11.5px;
+}
+#generatedCmd {
+    flex: 1 1 180px;
+    min-width: 0;
+    padding: 5px 10px;
+    background: var(--bg-code);
+    color: var(--accent-1);
+    border: 1px dashed var(--border-strong);
+    border-radius: var(--r-sm);
+    text-align: center;
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+}
+#generatedCmd:hover { border-color: var(--accent-1); border-style: solid; }
+
+/* ---------- SR-ONLY / NO-RESULTS ---------- */
+.sr-only {
+    position: absolute;
+    width: 1px; height: 1px;
+    padding: 0; margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+.no-results {
+    display: none;
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 40px 12px;
+    color: var(--fg-muted);
+    font-family: var(--font-mono);
+    font-size: 12.5px;
+}
+.no-results.is-visible { display: block; }
+
+/* ---------- FOOTER ---------- */
+.global-footer {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 18px 12px 6px;
+    margin-top: 6px;
+    color: var(--fg-dim);
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.05em;
+    border-top: 1px solid var(--border);
+}
+.global-footer a {
+    color: var(--accent-2);
+    text-decoration: none;
+    font-weight: 600;
+}
+.global-footer a:hover { color: var(--accent-2-2); text-decoration: underline; }
+
+/* ---------- WHAT'S NEW MODAL ---------- */
+.whats-new-overlay {
+    position: fixed; inset: 0;
+    background: rgba(0,0,0,0.55);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1001;
+    animation: modalFadeIn 0.22s var(--ease);
+}
+.whats-new-overlay.hidden { display: none; }
+.whats-new-modal {
+    background: var(--bg-card-2);
+    border: 1px solid var(--border-strong);
+    border-radius: var(--r-md);
+    max-width: 580px;
+    width: 92%;
+    max-height: 70vh;
+    overflow-y: auto;
+    padding: 22px 24px 20px;
+    box-shadow:
+        0 12px 40px rgba(0,0,0,0.45),
+        0 0 0 1px rgba(217,119,87,0.06);
+}
+.whats-new-header {
+    display: flex; align-items: baseline; justify-content: space-between;
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+    gap: 16px;
+}
+.whats-new-header h2 {
+    margin: 0;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--accent-1);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    display: flex; align-items: center; gap: 8px;
+}
+.whats-new-header h2::before {
+    content: "";
+    width: 8px; height: 8px;
+    background: var(--accent-1);
+    border-radius: 1.5px;
+}
+.whats-new-header .version-date {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--fg-muted);
+    font-weight: 400;
+}
+.whats-new-close {
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--fg-muted);
+    width: 26px; height: 26px;
+    border-radius: var(--r-sm);
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 1;
+    display: flex; align-items: center; justify-content: center;
+    transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+    margin-left: auto;
+}
+.whats-new-close:hover { color: var(--fg-main); border-color: var(--accent-1); }
+.whats-new-list { list-style: none; padding: 0; margin: 0; }
+.whats-new-list li {
+    padding: 8px 0;
+    border-bottom: 1px dotted var(--border);
+    font-size: 12.5px;
+    color: var(--fg-main);
+    line-height: 1.45;
+}
+.whats-new-list li:last-child { border-bottom: none; }
+.whats-new-list .tag {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 9.5px;
+    font-weight: 700;
+    padding: 2px 6px;
+    border-radius: var(--r-xs);
+    margin-right: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    min-width: 32px;
+    text-align: center;
+    vertical-align: 1px;
+}
+.whats-new-list .tag-add    { background: rgba(135,157,134,0.16); color: var(--accent-2-2);  border: 1px solid var(--accent-2); }
+.whats-new-list .tag-change { background: rgba(245,158,11,0.10);  color: #fbbf24;        border: 1px solid #f59e0b; }
+.whats-new-list .tag-remove { background: rgba(239,68,68,0.10);   color: #f87171;        border: 1px solid #ef4444; }
+.whats-new-list .tag-fix    { background: rgba(96,165,250,0.10);  color: #60a5fa;        border: 1px solid #3b82f6; }
+
+@keyframes modalFadeIn {
+    from { opacity: 0; transform: translateY(-6px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 900px) {
+    .global-header { padding: 0 14px; }
+    #dashboardSearch { width: 160px; }
+    .release-tag { display: none; }
+}
+@media (max-width: 700px) {
+    body { padding: calc(var(--header-h, 96px) + var(--nav-h, 32px) + 12px) 12px 24px; }
+    .section-tools { display: none; }
+    .global-header {
+        height: auto;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 10px 14px;
+        gap: 8px;
+    }
+    .global-controls { width: 100%; justify-content: space-between; flex-wrap: wrap; }
+    .dashboard-grid { grid-template-columns: 1fr; }
+    .whats-new-modal { width: 95%; max-height: 80vh; }
+}
+
+/* ---------- SINCE YOUR LAST VISIT ---------- */
+.since-strip { padding: 8px 16px; border-color: var(--accent-2); background: var(--new-bg); }
+.since-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    font-size: 12.5px;
+}
+.since-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--accent-2);
+    box-shadow: 0 0 0 3px var(--new-bg);
+    flex-shrink: 0;
+}
+.since-text { flex: 1 1 220px; min-width: 0; }
+.since-text b { color: var(--fg-main); }
+.since-text code { cursor: default; }
+.since-actions { margin-left: auto; display: flex; gap: 6px; }
+.since-actions button,
+.since-drawer-foot button {
+    background: var(--accent-2);
+    color: #0a0a0a;
+    border: 1px solid var(--accent-2);
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 4px 10px;
+    border-radius: var(--r-sm);
+    cursor: pointer;
+}
+.since-actions button.quiet {
+    background: none;
+    color: var(--fg-muted);
+    border-color: var(--border-strong);
+}
+.since-actions button.quiet:hover { color: var(--fg-main); border-color: var(--accent-2); }
+
+.since-drawer {
+    position: fixed;
+    top: var(--header-h, 52px); right: 0; bottom: 0;
+    width: min(440px, 100vw);
+    background: var(--bg-card-2);
+    border-left: 1px solid var(--border-strong);
+    z-index: 1002;
+    display: flex;
+    flex-direction: column;
+    box-shadow: -12px 0 40px rgba(0, 0, 0, 0.35);
+    animation: drawerIn 0.2s var(--ease);
+}
+.since-drawer[hidden] { display: none; }
+@keyframes drawerIn {
+    from { transform: translateX(24px); opacity: 0; }
+    to   { transform: none; opacity: 1; }
+}
+.since-drawer-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 16px 10px;
+    border-bottom: 1px solid var(--border);
+}
+.since-drawer-head h2 {
+    margin: 0;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--accent-1);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+.since-drawer-body { overflow-y: auto; padding: 8px 16px; flex: 1; }
+.since-release { margin: 10px 0 14px; }
+.since-release h3 {
+    margin: 0 0 6px;
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    color: var(--accent-2);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    display: flex;
+    gap: 8px;
+    align-items: baseline;
+}
+.since-release h3 span { color: var(--fg-dim); font-weight: 400; text-transform: none; letter-spacing: 0; }
+.since-release ul { list-style: none; margin: 0; padding: 0; }
+.since-release li {
+    display: grid;
+    grid-template-columns: 36px minmax(0, 1fr);
+    gap: 8px;
+    padding: 6px 0;
+    border-bottom: 1px dotted var(--border);
+    font-size: 12px;
+    line-height: 1.4;
+    color: var(--fg-main);
+    cursor: pointer;
+}
+.since-release li:hover { background: var(--row-hover); }
+.since-release li.unlinked { color: var(--fg-muted); cursor: default; }
+.since-release li .tag {
+    font-family: var(--font-mono);
+    font-size: 9.5px;
+    font-weight: 700;
+    padding: 2px 0;
+    border-radius: var(--r-xs);
+    text-align: center;
+    align-self: start;
+    text-transform: uppercase;
+}
+.since-release li .tag-add    { background: rgba(135, 157, 134, 0.16); color: var(--accent-2-2); border: 1px solid var(--accent-2); }
+.since-release li .tag-change { background: rgba(245, 158, 11, 0.10);  color: #fbbf24;       border: 1px solid #f59e0b; }
+.since-release li .tag-remove { background: rgba(239, 68, 68, 0.10);   color: #f87171;       border: 1px solid #ef4444; }
+.since-release li .tag-fix    { background: rgba(96, 165, 250, 0.10);  color: #60a5fa;       border: 1px solid #3b82f6; }
+.since-drawer-foot {
+    padding: 10px 16px;
+    border-top: 1px solid var(--border);
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    color: var(--fg-dim);
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+.since-drawer-foot a { color: var(--accent-2); text-decoration: none; }
+.since-drawer-foot a:hover { text-decoration: underline; }
+.search-item.flash { animation: rowFlash 1.6s ease-out; }
+@keyframes rowFlash {
+    0%, 40% { background: var(--success-flash); }
+    100%    { background: transparent; }
+}
+
+
+/* ---------- PRINT ---------- */
+.print-head { display: none; }
+.print-btn { cursor: pointer; background: none; font-family: var(--font-sans); }
+
+@page { size: A4 landscape; margin: 7mm 8mm; }
+
+@media print {
+    .global-header, .section-nav, .legend-strip, .since-strip, .since-drawer,
+    .no-results, .notes, .notes-btn, .row-link, .skip-link { display: none !important; }
+
+    html, body { padding: 0; background: #fff; color: #111; font-size: 8pt; line-height: 1.25; }
+
+    .print-head {
+        display: flex;
+        column-span: all;
+        justify-content: space-between;
+        gap: 6mm;
+        font-family: var(--font-mono);
+        font-size: 7pt;
+        color: #333;
+        border-bottom: 1.5px solid #111;
+        padding-bottom: 1mm;
+        margin-bottom: 3mm;
+    }
+    .print-head-title { font-family: var(--font-sans); font-weight: 700; font-size: 9pt; color: #111; }
+    .print-head-title b { font-family: var(--font-pixel); font-size: 6pt; color: #c2410c; font-weight: 400; margin-left: 4px; }
+
+    .dashboard-grid { display: block; column-count: 4; column-gap: 5mm; column-fill: auto; max-width: none; }
+
+    .card {
+        display: block;
+        margin: 0 0 3mm;
+        padding: 0;
+        border: none;
+        border-radius: 0;
+        background: none;
+        break-inside: auto;
+    }
+    .card h2 {
+        font-size: 8.5pt;
+        color: #111;
+        border-bottom: 1.5px solid #111;
+        padding-bottom: 1.5px;
+        margin: 0 0 2mm;
+        break-after: avoid;
+    }
+    .card h2::before { background: #c2410c; }
+    .card-count { display: none; }
+
+    .search-group { margin-bottom: 2mm; break-inside: auto; }
+    details.search-group > summary { margin-bottom: 1mm; }
+    details.search-group:not([open]) > table { display: table; }   /* folded groups still print */
+    .search-group h3 { font-size: 6.5pt; color: #0f766e; margin: 0 0 1mm; break-after: avoid; }
+    .search-group h3::before { color: #c2410c; }
+    details.search-group + details.search-group > summary h3 { border-top: 1px dashed #bbb; padding-top: 1mm; margin-top: 1mm; }
+    .group-count { color: #666; }
+
+    table { font-size: 7.5pt; }
+    tr { break-inside: avoid; }
+    td { padding: 0.6mm 1mm 0.4mm 0; border-bottom: 0.4pt dotted #999; vertical-align: top; }
+    td:first-child { width: 40%; }
+    .desc { font-size: 7pt; color: #333; line-height: 1.25; }
+
+    code {
+        font-size: 6.8pt;
+        background: #f1efe9;
+        color: #111;
+        border: 0.4pt solid #ddd;
+        padding: 0 2px;
+        cursor: default;
+    }
+    .desc code { font-size: 6.5pt; }
+    code.new { background: #dfe8de; border-color: #0f766e; box-shadow: inset 2px 0 0 0 #0f766e; }
+    code.new::after { content: " ■"; color: #0f766e; font-size: 5pt; }
+    code.unverified { background: #f7edd6; border-color: #b47400; box-shadow: inset 2px 0 0 0 #b47400; }
+    code.unverified::after { content: " □"; color: #b47400; font-size: 5pt; }
+    mark.hit { background: none; }
+
+    .global-footer { border: none; padding: 2mm 0 0; font-size: 6pt; color: #666; text-align: left; }
+    .global-footer a { color: #666; }
+    .global-footer br { display: none; }
+
+    * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+    </style>
+    <style>
+        :root { --accent-1: #4c6ef5; --accent-1-2: #748ffc; --accent-2: #845ef7; --accent-2-2: #b197fc; }
+        :root[data-theme="light"] { --accent-1: #3b5bdb; --accent-1-2: #364fc7; --accent-2: #6741d9; --accent-2-2: #5f3dc4; }
+    </style>
+    <script>
+        (function() {
+            var stored = localStorage.getItem('placemat-theme');
+            var theme = (stored === 'light' || stored === 'dark')
+                ? stored
+                : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            document.documentElement.dataset.theme = theme;
+        })();
+    </script>
+</head>
+<body>
+
+    <a class="skip-link" href="#card-keys">Skip to content</a>
+
+    <header class="global-header">
+        <div class="header-title">
+            <!-- neutral 8-bit terminal-prompt mark (no vendor logos — D5) -->
+            <svg class="minion-icon" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Terminal prompt">
+                <rect x="2" y="3" width="2" height="2" fill="var(--accent-1)"/>
+                <rect x="4" y="5" width="2" height="2" fill="var(--accent-1)"/>
+                <rect x="6" y="7" width="2" height="2" fill="var(--accent-1)"/>
+                <rect x="4" y="9" width="2" height="2" fill="var(--accent-1)"/>
+                <rect x="2" y="11" width="2" height="2" fill="var(--accent-1)"/>
+                <rect x="9" y="11" width="5" height="2" fill="var(--accent-2)"/>
+            </svg>
+            <h1>Kimi Code <span class="wm-pixel">PLACEMAT</span></h1>
+            <span class="header-tagline">Unofficial · auto-updated reference</span>
+        </div>
+        <div class="global-controls">
+            <span class="release-tag">As of release: v0.42.0</span>
+            <a href="changelog.html" class="header-link">Changelog →</a>
+            <a href="feed.xml" class="header-link" title="Subscribe to placemat changes (RSS)">RSS</a>
+            <button type="button" class="header-link print-btn" id="printBtn" title="Print or save as PDF (Ctrl P)">⎙ Print</button>
+            <button type="button" class="theme-toggle" id="themeBtn" onclick="toggleTheme()" title="Toggle theme" aria-label="Toggle light and dark theme">&#9728;&#65039;</button>
+            <div class="search-wrap">
+                <input type="text" id="dashboardSearch" placeholder="Search the placemat…" aria-label="Search the placemat">
+                <span class="kbd" id="searchKbd">⌘K</span>
+                <span class="search-count" id="searchCount" aria-live="polite"></span>
+            </div>
+        </div>
+    </header>
+
+    <nav class="section-nav" aria-label="Sections">
+        <div class="section-nav-inner">
+            <div class="section-chips">
+                <a href="#card-keys" data-target="card-keys">Keyboard &amp; TUI<span class="chip-count"></span></a>
+                <a href="#card-slash-core" data-target="card-slash-core">Slash (Core)<span class="chip-count"></span></a>
+                <a href="#card-slash-tools" data-target="card-slash-tools">Slash (Tools)<span class="chip-count"></span></a>
+                <a href="#card-cli" data-target="card-cli">CLI<span class="chip-count"></span></a>
+                <a href="#card-settings" data-target="card-settings">Settings<span class="chip-count"></span></a>
+                <a href="#card-env" data-target="card-env">Env Vars<span class="chip-count"></span></a>
+                <a href="#card-skills" data-target="card-skills">Skills &amp; Agents<span class="chip-count"></span></a>
+                <a href="#card-hooks" data-target="card-hooks">Hooks &amp; MCP<span class="chip-count"></span></a>
+            </div>
+            <div class="section-tools">
+                <button type="button" id="collapseAll">Collapse all</button>
+                <button type="button" id="expandAll">Expand all</button>
+                <button type="button" id="densityBtn" aria-pressed="false">Compact</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="dashboard-grid">
+
+        <div class="print-head" aria-hidden="true">
+            <span class="print-head-title">Kimi Code <b>PLACEMAT</b></span>
+            <span>As of release v0.42.0</span>
+            <span>■ = new &nbsp; □ = unverified</span>
+            <span>dommango.github.io/agent-placemats/kimi-code</span>
+        </div>
+
+        <div class="card full-width search-exclude since-strip" id="sinceStrip" hidden>
+            <div class="since-row">
+                <span class="since-dot" aria-hidden="true"></span>
+                <span class="since-text" id="sinceText"></span>
+                <span class="since-actions">
+                    <button type="button" id="sinceShow">Show changes</button>
+                    <button type="button" id="sinceRead" class="quiet">Mark as read</button>
+                </span>
+            </div>
+        </div>
+
+        <!-- Legend -->
+        <div class="card full-width search-exclude legend-strip">
+            <div class="legend-strip-row">
+                <div class="legend">
+                    <div class="legend-item"><span class="legend-swatch swatch-default"></span> Verified</div>
+                    <div class="legend-item"><span class="legend-swatch swatch-new"></span> <span id="legendNew">New since your last visit</span></div>
+                    <div class="legend-item"><span class="legend-swatch swatch-unverified"></span> Unverified</div>
+                    <div class="legend-item"><button type="button" class="notes-all" id="notesAll" aria-pressed="false">Show all notes</button></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" id="card-keys">
+            <h2>Keyboard &amp; TUI <span class="card-count"></span></h2>
+
+            <details class="search-group" open data-group="General input">
+                <summary><h3>General input</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-enter"><td><a class="row-link" href="#i-enter" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>Enter</code></td><td class="desc">Submit the current input</td></tr>
+                    <tr class="search-item" id="i-shift-enter"><td><a class="row-link" href="#i-shift-enter" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>Shift-Enter</code> / <code>Ctrl-J</code></td><td class="desc">Insert a newline in the input</td></tr>
+                    <tr class="search-item" id="i-up"><td><a class="row-link" href="#i-up" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>Up</code> / <code>Down</code></td><td class="desc">Browse input history</td></tr>
+                    <tr class="search-item" id="i-esc"><td><a class="row-link" href="#i-esc" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>Esc</code></td><td class="desc">Close a popup, cancel completion, or interrupt streaming and compaction</td></tr>
+                    <tr class="search-item" id="i-ctrl-c"><td><a class="row-link" href="#i-ctrl-c" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>Ctrl-C</code></td><td class="desc"><span class="summary">Interrupt streaming output, or clear the input box</span> <button type="button" class="notes-btn" aria-expanded="false">+2</button><ul class="notes" hidden><li>During streaming it cancels immediately, with no second confirmation.</li><li>With an empty input box it exits, but only on a second press — any other key clears the confirmation.</li></ul></td></tr>
+                    <tr class="search-item" id="i-ctrl-d"><td><a class="row-link" href="#i-ctrl-d" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>Ctrl-D</code></td><td class="desc"><span class="summary">Exit when the input box is empty</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Double-press confirmation, like <code>Ctrl-C</code> on an empty box.</li></ul></td></tr>
+                    <tr class="search-item" id="i-ctrl-t"><td><a class="row-link" href="#i-ctrl-t" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>Ctrl-T</code></td><td class="desc">Expand or collapse the todo list when it is truncated</td></tr>
+                    <tr class="search-item" id="i-ctrl-p"><td><a class="row-link" href="#i-ctrl-p" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>Ctrl-P</code> / <code>Ctrl-N</code></td><td class="desc">Page through the experimental Updates panel</td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="Mode switching">
+                <summary><h3>Mode switching</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-shift-tab"><td><a class="row-link" href="#i-shift-tab" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>Shift-Tab</code></td><td class="desc"><span class="summary">Toggle Plan mode</span> <button type="button" class="notes-btn" aria-expanded="false">+3</button><ul class="notes" hidden><li>In Plan mode the agent prefers read-only tools and may write the plan file.</li><li><code>Bash</code> still follows the current permission mode — Plan mode adds no separate approval.</li><li>Toggling alone does not create an empty plan file.</li></ul></td></tr>
+                    <tr class="search-item" id="i-bang-shell-mode"><td><a class="row-link" href="#i-bang-shell-mode" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>!</code></td><td class="desc"><span class="summary">Enter shell mode from an empty input box</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>While a command runs, <code>Ctrl-B</code> moves it to a background task.</li></ul></td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="Input &amp; editing">
+                <summary><h3>Input &amp; editing</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-ctrl-g"><td><a class="row-link" href="#i-ctrl-g" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>Ctrl-G</code></td><td class="desc"><span class="summary">Edit the current input in an external editor</span> <button type="button" class="notes-btn" aria-expanded="false">+2</button><ul class="notes" hidden><li>Editor priority: the <code>/editor</code> setting, then <code>$VISUAL</code>, then <code>$EDITOR</code>.</li><li>Saving replaces the input box; exiting without saving leaves it unchanged.</li></ul></td></tr>
+                    <tr class="search-item" id="i-ctrl-v"><td><a class="row-link" href="#i-ctrl-v" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>Ctrl-V</code></td><td class="desc"><span class="summary">Paste an image or video from the clipboard (Unix, macOS)</span> <button type="button" class="notes-btn" aria-expanded="false">+2</button><ul class="notes" hidden><li>On Windows use <code>Alt-V</code>.</li><li>A placeholder appears in the box; the media is sent when you submit.</li></ul></td></tr>
+                    <tr class="search-item" id="i-ctrl"><td><a class="row-link" href="#i-ctrl" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>Ctrl--</code></td><td class="desc">Undo</td></tr>
+                    <tr class="search-item" id="i-esc-esc"><td><a class="row-link" href="#i-esc-esc" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>Esc Esc</code></td><td class="desc">Open the undo selector (double-press while idle)</td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="During streaming">
+                <summary><h3>During streaming</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-ctrl-s"><td><a class="row-link" href="#i-ctrl-s" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>Ctrl-S</code></td><td class="desc"><span class="summary">Steer: inject the current input into the running turn</span> <button type="button" class="notes-btn" aria-expanded="false">+2</button><ul class="notes" hidden><li>The model sees your message at the next interruptible point, without waiting for the turn to finish.</li><li>Also promotes a queued external skill command into the running turn.</li></ul></td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="Tool output">
+                <summary><h3>Tool output</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-ctrl-o"><td><a class="row-link" href="#i-ctrl-o" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>Ctrl-O</code></td><td class="desc"><span class="summary">Expand or collapse tool output, shell output and compaction summaries</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Since 0.42.0 finished tool calls collapse to a header plus one outcome row; hidden output is counted and revealed here.</li></ul></td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="Approval panel">
+                <summary><h3>Approval panel</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-1"><td><a class="row-link" href="#i-1" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>1</code> / <code>9</code></td><td class="desc">Select the option at that index directly</td></tr>
+                    <tr class="search-item" id="i-ctrl-e"><td><a class="row-link" href="#i-ctrl-e" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>Ctrl-E</code></td><td class="desc">Expand or collapse a diff or file preview in the panel</td></tr>
+                    <tr class="search-item" id="i-esc-reject"><td><a class="row-link" href="#i-esc-reject" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>Esc</code> / <code>Ctrl-C</code> / <code>Ctrl-D</code></td><td class="desc"><span class="summary">Reject the current request</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Options needing feedback switch to an input state: type, then <code>Enter</code> to submit or <code>Esc</code> to go back.</li></ul></td></tr>
+                </table>
+            </details>
+        </div>
+
+        <div class="card" id="card-slash-core">
+            <h2>Slash Commands (Core) <span class="card-count"></span></h2>
+
+            <details class="search-group" open data-group="Account &amp; configuration">
+                <summary><h3>Account &amp; configuration</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-login"><td><a class="row-link" href="#i-login" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/login</code></td><td class="desc"><span class="summary">Pick an account or platform and sign in</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Kimi Code uses the OAuth device-code flow; Kimi Platform uses API-key login.</li></ul></td></tr>
+                    <tr class="search-item" id="i-logout"><td><a class="row-link" href="#i-logout" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/logout</code></td><td class="desc">Clear credentials for the selected account</td></tr>
+                    <tr class="search-item" id="i-provider"><td><a class="row-link" href="#i-provider" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/provider</code></td><td class="desc">Open the interactive provider manager</td></tr>
+                    <tr class="search-item" id="i-model"><td><a class="row-link" href="#i-model" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/model</code></td><td class="desc">Switch the model used in this session</td></tr>
+                    <tr class="search-item" id="i-secondary-model"><td><a class="row-link" href="#i-secondary-model" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/secondary-model</code> / <code>/subagent-model</code></td><td class="desc"><span class="summary">Pick the default model for subagents</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Writes <code>[secondary_model] default_model</code>; the subagent model pool is always on as of 0.42.0.</li></ul></td></tr>
+                    <tr class="search-item" id="i-settings"><td><a class="row-link" href="#i-settings" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/settings</code> / <code>/config</code></td><td class="desc">Open the settings panel in the TUI</td></tr>
+                    <tr class="search-item" id="i-permission"><td><a class="row-link" href="#i-permission" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/permission</code></td><td class="desc">Select a permission mode</td></tr>
+                    <tr class="search-item" id="i-editor"><td><a class="row-link" href="#i-editor" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/editor</code></td><td class="desc">Configure the external editor launched by <code>Ctrl-G</code></td></tr>
+                    <tr class="search-item" id="i-theme"><td><a class="row-link" href="#i-theme" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/theme</code></td><td class="desc">Switch the terminal colour theme</td></tr>
+                    <tr class="search-item" id="i-experiments"><td><a class="row-link" href="#i-experiments" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/experiments</code> / <code>/experimental</code></td><td class="desc">Open the experimental feature panel</td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="Session management">
+                <summary><h3>Session management</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-new"><td><a class="row-link" href="#i-new" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/new</code> / <code>/clear</code></td><td class="desc">Start a fresh session, discarding the current context</td></tr>
+                    <tr class="search-item" id="i-sessions"><td><a class="row-link" href="#i-sessions" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/sessions</code> / <code>/resume</code></td><td class="desc">Browse and switch to a historical session</td></tr>
+                    <tr class="search-item" id="i-fork"><td><a class="row-link" href="#i-fork" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/fork</code></td><td class="desc"><span class="summary">Fork a new session from this one, keeping full history</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>You stay in the current session.</li></ul></td></tr>
+                    <tr class="search-item" id="i-title"><td><a class="row-link" href="#i-title" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/title</code> / <code>/rename</code></td><td class="desc">Show or set the session title (max 200 characters)</td></tr>
+                    <tr class="search-item" id="i-compact"><td><a class="row-link" href="#i-compact" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/compact</code></td><td class="desc"><span class="summary">Compact the conversation context to free tokens</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>An optional instruction hints to the model what to preserve.</li></ul></td></tr>
+                    <tr class="search-item" id="i-undo"><td><a class="row-link" href="#i-undo" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/undo</code></td><td class="desc"><span class="summary">Undo recent prompts from the active context</span> <button type="button" class="notes-btn" aria-expanded="false">+2</button><ul class="notes" hidden><li>Without a count it opens a selector; prompts before the last compaction cannot be undone.</li><li>Also rolls back the todo list and plan-mode state — code changes are not reverted.</li></ul></td></tr>
+                    <tr class="search-item" id="i-reload"><td><a class="row-link" href="#i-reload" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/reload</code> / <code>/reload-tui</code></td><td class="desc"><span class="summary">Reload the session and apply the latest <code>config.toml</code> and <code>tui.toml</code></span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li><code>/reload-tui</code> reloads only the UI preferences, without rebuilding the session.</li></ul></td></tr>
+                    <tr class="search-item" id="i-tasks"><td><a class="row-link" href="#i-tasks" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/tasks</code> / <code>/task</code></td><td class="desc">Browse the background task list</td></tr>
+                    <tr class="search-item" id="i-add-dir"><td><a class="row-link" href="#i-add-dir" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/add-dir</code></td><td class="desc"><span class="summary">Add an extra workspace directory to this session</span> <button type="button" class="notes-btn" aria-expanded="false">+2</button><ul class="notes" hidden><li>Run it with no path, or with <code>list</code>, to list configured directories.</li><li>You can choose to remember the directory for the project in <code>.kimi-code/local.toml</code>.</li></ul></td></tr>
+                    <tr class="search-item" id="i-exit"><td><a class="row-link" href="#i-exit" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/exit</code> / <code>/quit</code> / <code>/q</code></td><td class="desc">Exit the CLI</td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="Modes &amp; run control">
+                <summary><h3>Modes &amp; run control</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-yolo"><td><a class="row-link" href="#i-yolo" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/yolo</code> / <code>/yes</code></td><td class="desc"><span class="summary">Preselect Ask When Needed in the permission list</span> <button type="button" class="notes-btn" aria-expanded="false">+2</button><ul class="notes" hidden><li>Routine edits and commands run automatically; risky actions, questions and plans still ask.</li><li>Plan-mode exit approval is not bypassed, and <code>Bash</code> in Plan mode still follows the allow rules.</li></ul></td></tr>
+                    <tr class="search-item" id="i-auto"><td><a class="row-link" href="#i-auto" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/auto</code></td><td class="desc"><span class="summary">Preselect Never Ask in the permission list</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Kimi never interrupts you; everything runs and is decided automatically.</li></ul></td></tr>
+                    <tr class="search-item" id="i-plan"><td><a class="row-link" href="#i-plan" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/plan</code></td><td class="desc"><span class="summary">Toggle Plan mode, or force it with <code>on</code> / <code>off</code></span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li><code>/plan clear</code> clears the current plan.</li></ul></td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="Export &amp; sharing">
+                <summary><h3>Export &amp; sharing</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-export-md"><td><a class="row-link" href="#i-export-md" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/export-md</code> / <code>/export</code></td><td class="desc">Export the session as a Markdown file</td></tr>
+                    <tr class="search-item" id="i-export-debug-zip"><td><a class="row-link" href="#i-export-debug-zip" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/export-debug-zip</code></td><td class="desc">Export the session as a debug ZIP archive</td></tr>
+                    <tr class="search-item" id="i-copy"><td><a class="row-link" href="#i-copy" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/copy</code></td><td class="desc">Copy the last assistant message to the clipboard</td></tr>
+                    <tr class="search-item" id="i-web"><td><a class="row-link" href="#i-web" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/web</code></td><td class="desc"><span class="summary">Open the current session in the web UI</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Connect to a running server, or start a new foreground server after the TUI exits.</li></ul></td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="Information &amp; status">
+                <summary><h3>Information &amp; status</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-help"><td><a class="row-link" href="#i-help" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/help</code> / <code>/h</code> / <code>/?</code></td><td class="desc"><span class="summary">Show keyboard shortcuts and all available commands</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>In the panel: ↑/↓ scroll a line, <code>PageUp</code>/<code>PageDown</code> scroll 10, and <code>Esc</code>, <code>Enter</code>, <code>q</code> or <code>Q</code> closes it.</li></ul></td></tr>
+                    <tr class="search-item" id="i-status"><td><a class="row-link" href="#i-status" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/status</code></td><td class="desc">Show version, model, working directory and permission mode</td></tr>
+                    <tr class="search-item" id="i-usage"><td><a class="row-link" href="#i-usage" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/usage</code></td><td class="desc">Show token usage, context consumption and quota</td></tr>
+                    <tr class="search-item" id="i-version"><td><a class="row-link" href="#i-version" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/version</code></td><td class="desc">Display the CLI version number</td></tr>
+                    <tr class="search-item" id="i-btw"><td><a class="row-link" href="#i-btw" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/btw</code></td><td class="desc"><span class="summary">Open a side conversation in a forked sub-agent</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Does not affect the current main-agent turn; 0.42.0 gave the side agent read-only tools.</li></ul></td></tr>
+                    <tr class="search-item" id="i-feedback"><td><a class="row-link" href="#i-feedback" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/feedback</code> / <code>/bug</code></td><td class="desc">Submit feedback with optional diagnostic logs and codebase context</td></tr>
+                </table>
+            </details>
+        </div>
+
+        <div class="card" id="card-slash-tools">
+            <h2>Slash Commands (Tools) <span class="card-count"></span></h2>
+
+            <details class="search-group" open data-group="Swarm &amp; goals">
+                <summary><h3>Swarm &amp; goals</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-swarm-on"><td><a class="row-link" href="#i-swarm-on" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/swarm on</code> / <code>/swarm off</code></td><td class="desc">Turn swarm mode on or off without sending a prompt</td></tr>
+                    <tr class="search-item" id="i-swarm-task"><td><a class="row-link" href="#i-swarm-task" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/swarm &lt;task&gt;</code></td><td class="desc"><span class="summary">Turn swarm mode on and send the task as a prompt</span> <button type="button" class="notes-btn" aria-expanded="false">+2</button><ul class="notes" hidden><li>Swarm mode turns off automatically when the turn completes normally.</li><li>In <code>manual</code> permission mode Kimi asks whether to switch to Ask When Needed or Never Ask first.</li></ul></td></tr>
+                    <tr class="search-item" id="i-goal"><td><a class="row-link" href="#i-goal" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/goal</code></td><td class="desc"><span class="summary">Start or manage an autonomous goal</span> <button type="button" class="notes-btn" aria-expanded="false">+2</button><ul class="notes" hidden><li>A persistent objective Kimi works toward across automatically continuing turns.</li><li><code>/goal</code> or <code>/goal status</code> shows status, elapsed time, turn count and token count.</li></ul></td></tr>
+                    <tr class="search-item" id="i-goal-pause"><td><a class="row-link" href="#i-goal-pause" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/goal pause</code> / <code>/goal resume</code> / <code>/goal cancel</code> / <code>/goal replace</code></td><td class="desc">Pause, resume, cancel or replace the saved goal</td></tr>
+                    <tr class="search-item" id="i-goal-next"><td><a class="row-link" href="#i-goal-next" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/goal next</code></td><td class="desc"><span class="summary">Queue an upcoming goal for this session</span> <button type="button" class="notes-btn" aria-expanded="false">+3</button><ul class="notes" hidden><li>The agent does not see queued goals until the current goal completes.</li><li><code>/goal next manage</code> opens the reorder manager (Space selects, ↑/↓ move, E edits, D deletes).</li><li>Put <code>--</code> after <code>/goal</code> when the objective itself starts with a subcommand word.</li></ul></td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="Extensibility">
+                <summary><h3>Extensibility</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-mcp"><td><a class="row-link" href="#i-mcp" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/mcp</code></td><td class="desc">List MCP servers and their connection status</td></tr>
+                    <tr class="search-item" id="i-plugins"><td><a class="row-link" href="#i-plugins" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/plugins</code></td><td class="desc">Open the interactive plugin manager</td></tr>
+                    <tr class="search-item" id="i-init"><td><a class="row-link" href="#i-init" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/init</code></td><td class="desc">Analyse the codebase and generate <code>AGENTS.md</code></td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="Built-in skill commands">
+                <summary><h3>Built-in skill commands</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-mcp-config"><td><a class="row-link" href="#i-mcp-config" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/mcp-config</code></td><td class="desc">Configure MCP servers and handle MCP OAuth login</td></tr>
+                    <tr class="search-item" id="i-custom-theme"><td><a class="row-link" href="#i-custom-theme" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/custom-theme</code></td><td class="desc">Create or edit a custom TUI colour theme</td></tr>
+                    <tr class="search-item" id="i-update-config"><td><a class="row-link" href="#i-update-config" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/update-config</code></td><td class="desc">Inspect or edit <code>config.toml</code> and <code>tui.toml</code></td></tr>
+                    <tr class="search-item" id="i-check-kimi-code-docs"><td><a class="row-link" href="#i-check-kimi-code-docs" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/check-kimi-code-docs</code></td><td class="desc">Answer Kimi Code product questions against the official docs</td></tr>
+                    <tr class="search-item" id="i-import-from-cc-codex"><td><a class="row-link" href="#i-import-from-cc-codex" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/import-from-cc-codex</code></td><td class="desc">Import Claude Code and Codex instructions, skills and MCP settings</td></tr>
+                    <tr class="search-item" id="i-sub-skill"><td><a class="row-link" href="#i-sub-skill" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/sub-skill</code></td><td class="desc"><span class="summary">Reorganise the local skill inventory into hierarchical bundles</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li><code>/sub-skill.review</code> is a read-only proposal; <code>/sub-skill.consolidate</code> applies it.</li></ul></td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="Skill commands">
+                <summary><h3>Skill commands</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-skill-name"><td><a class="row-link" href="#i-skill-name" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/skill:&lt;name&gt;</code></td><td class="desc"><span class="summary">Invoke an activated external skill</span> <button type="button" class="notes-btn" aria-expanded="false">+3</button><ul class="notes" hidden><li>Trailing text is concatenated to the skill prompt.</li><li>The shorthand <code>/&lt;name&gt;</code> also works when no system command owns that name.</li><li><code>flow</code>-type skills use the same namespace — there is no separate <code>/flow:</code>.</li></ul></td></tr>
+                    <tr class="search-item" id="i-parent-sub-skill"><td><a class="row-link" href="#i-parent-sub-skill" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/&lt;parent&gt;.&lt;sub-skill&gt;</code></td><td class="desc">Invoke an external sub-skill by its dotted name</td></tr>
+                </table>
+            </details>
+        </div>
+
+        <div class="card" id="card-cli">
+            <h2>CLI &amp; Subcommands <span class="card-count"></span></h2>
+
+            <details class="search-group" open data-group="Flags">
+                <summary><h3>Flags</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-v-version"><td><a class="row-link" href="#i-v-version" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>-V, --version</code> / <code>-h, --help</code></td><td class="desc">Print the version number</td></tr>
+                    <tr class="search-item" id="i-s-session-id"><td><a class="row-link" href="#i-s-session-id" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>-S, --session [id]</code></td><td class="desc">Resume a session; with no id, pick interactively</td></tr>
+                    <tr class="search-item" id="i-c-continue"><td><a class="row-link" href="#i-c-continue" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>-c, --continue</code></td><td class="desc">Continue the previous session for this working directory</td></tr>
+                    <tr class="search-item" id="i-m-model-model"><td><a class="row-link" href="#i-m-model-model" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>-m, --model &lt;model&gt;</code></td><td class="desc"><span class="summary">Model alias for this invocation</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Defaults to <code>default_model</code> in <code>config.toml</code>.</li></ul></td></tr>
+                    <tr class="search-item" id="i-p-prompt-prompt"><td><a class="row-link" href="#i-p-prompt-prompt" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>-p, --prompt &lt;prompt&gt;</code></td><td class="desc"><span class="summary">Run one prompt non-interactively and print the response</span> <button type="button" class="notes-btn" aria-expanded="false">+2</button><ul class="notes" hidden><li>In goal mode it exits <code>0</code> when the goal completes, <code>3</code> when it blocks and <code>6</code> when it pauses.</li><li>Only the create forms of <code>/goal</code> start goal mode here; the other subcommands are TUI-only.</li></ul></td></tr>
+                    <tr class="search-item" id="i-output-format-format"><td><a class="row-link" href="#i-output-format-format" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>--output-format &lt;format&gt;</code></td><td class="desc">Output format for prompt mode: <code>text</code> or <code>stream-json</code></td></tr>
+                    <tr class="search-item" id="i-y-yolo"><td><a class="row-link" href="#i-y-yolo" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>-y, --yolo</code></td><td class="desc"><span class="summary">Start in Ask When Needed mode</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Routine edits and commands run automatically; risky actions, questions and plans still ask.</li></ul></td></tr>
+                    <tr class="search-item" id="i-auto-2"><td><a class="row-link" href="#i-auto-2" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>--auto</code></td><td class="desc">Start in Never Ask mode — nothing interrupts you</td></tr>
+                    <tr class="search-item" id="i-plan-2"><td><a class="row-link" href="#i-plan-2" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>--plan</code></td><td class="desc">Start in Plan mode</td></tr>
+                    <tr class="search-item" id="i-skills-dir-dir"><td><a class="row-link" href="#i-skills-dir-dir" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>--skills-dir &lt;dir&gt;</code></td><td class="desc">Load skills from this directory instead of auto-discovery; repeatable</td></tr>
+                    <tr class="search-item" id="i-agent-name"><td><a class="row-link" href="#i-agent-name" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>--agent &lt;name&gt;</code></td><td class="desc"><span class="summary">Agent profile for the new session</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Cannot be combined with <code>--session</code> or <code>--continue</code>.</li></ul></td></tr>
+                    <tr class="search-item" id="i-agent-file-path"><td><a class="row-link" href="#i-agent-file-path" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>--agent-file &lt;path&gt;</code></td><td class="desc"><span class="summary">Load an agent definition from a Markdown file for this launch</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Treated as explicit launch intent: it may override a same-name built-in agent and outranks every directory scope.</li></ul></td></tr>
+                    <tr class="search-item" id="i-add-dir-dir"><td><a class="row-link" href="#i-add-dir-dir" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>--add-dir &lt;dir&gt;</code></td><td class="desc">Add an extra workspace directory for this session; repeatable</td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="Subcommands">
+                <summary><h3>Subcommands</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-kimi-export"><td><a class="row-link" href="#i-kimi-export" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>kimi export</code></td><td class="desc">Export a session as a ZIP archive</td></tr>
+                    <tr class="search-item" id="i-kimi-fork"><td><a class="row-link" href="#i-kimi-fork" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>kimi fork</code></td><td class="desc">Fork a session into a new session</td></tr>
+                    <tr class="search-item" id="i-kimi-session"><td><a class="row-link" href="#i-kimi-session" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>kimi session</code></td><td class="desc">Manage sessions non-interactively</td></tr>
+                    <tr class="search-item" id="i-kimi-provider"><td><a class="row-link" href="#i-kimi-provider" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>kimi provider</code></td><td class="desc">Manage LLM providers non-interactively</td></tr>
+                    <tr class="search-item" id="i-kimi-login"><td><a class="row-link" href="#i-kimi-login" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>kimi login</code></td><td class="desc">Authenticate via the device-code flow</td></tr>
+                    <tr class="search-item" id="i-kimi-doctor"><td><a class="row-link" href="#i-kimi-doctor" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>kimi doctor</code></td><td class="desc">Validate the configuration files</td></tr>
+                    <tr class="search-item" id="i-kimi-web"><td><a class="row-link" href="#i-kimi-web" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>kimi web</code></td><td class="desc"><span class="summary">Run the local Kimi server and open the web UI</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Bind beyond loopback only with <code>KIMI_CODE_PASSWORD</code> set — the token alone is the default credential.</li></ul></td></tr>
+                    <tr class="search-item" id="i-kimi-server"><td><a class="row-link" href="#i-kimi-server" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>kimi server</code></td><td class="desc">Deprecated — use <code>kimi web</code> instead</td></tr>
+                    <tr class="search-item" id="i-kimi-acp"><td><a class="row-link" href="#i-kimi-acp" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>kimi acp</code></td><td class="desc">Run Kimi Code as an Agent Client Protocol server over stdio</td></tr>
+                    <tr class="search-item" id="i-kimi-vis"><td><a class="row-link" href="#i-kimi-vis" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>kimi vis</code></td><td class="desc">Launch the session visualiser in your browser</td></tr>
+                    <tr class="search-item" id="i-kimi-migrate"><td><a class="row-link" href="#i-kimi-migrate" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>kimi migrate</code></td><td class="desc">Migrate data from a legacy <code>kimi-cli</code> installation</td></tr>
+                    <tr class="search-item" id="i-kimi-upgrade"><td><a class="row-link" href="#i-kimi-upgrade" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>kimi upgrade</code> / <code>kimi update</code></td><td class="desc">Upgrade Kimi Code to the latest version</td></tr>
+                </table>
+            </details>
+        </div>
+
+        <div class="card" id="card-settings">
+            <h2>Settings (config.toml) <span class="card-count"></span></h2>
+
+            <details class="search-group" open data-group="Files">
+                <summary><h3>Files</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-kimi-code-config-toml"><td><a class="row-link" href="#i-kimi-code-config-toml" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>~/.kimi-code/config.toml</code></td><td class="desc"><span class="summary">Main config, created on first run</span> <button type="button" class="notes-btn" aria-expanded="false">+2</button><ul class="notes" hidden><li>Relocate the whole data root with <code>KIMI_CODE_HOME</code>; the file name is always <code>config.toml</code>.</li><li>Field names are snake_case; a key containing a dot must be quoted, e.g. <code>[models."gpt-4.1"]</code>.</li></ul></td></tr>
+                    <tr class="search-item" id="i-kimi-code-tui-toml"><td><a class="row-link" href="#i-kimi-code-tui-toml" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>~/.kimi-code/tui.toml</code></td><td class="desc"><span class="summary">Terminal-UI and client preferences, alongside <code>config.toml</code></span> <button type="button" class="notes-btn" aria-expanded="false">+2</button><ul class="notes" hidden><li><code>/config</code>, <code>/theme</code> and <code>/editor</code> write it for you.</li><li>A malformed file falls back to defaults with a notice rather than failing to start.</li></ul></td></tr>
+                    <tr class="search-item" id="i-kimi-code-local-toml"><td><a class="row-link" href="#i-kimi-code-local-toml" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>.kimi-code/local.toml</code></td><td class="desc"><span class="summary">Project-local settings that should not be shared</span> <button type="button" class="notes-btn" aria-expanded="false">+2</button><ul class="notes" hidden><li>Written when <code>/add-dir</code> remembers a directory for the project.</li><li>Holds absolute paths, so add it to <code>.gitignore</code>.</li></ul></td></tr>
+                    <tr class="search-item" id="i-kimi-code-home-system-md"><td><a class="row-link" href="#i-kimi-code-home-system-md" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>$KIMI_CODE_HOME/SYSTEM.md</code></td><td class="desc"><span class="summary">Permanently replaces the main agent&rsquo;s system prompt</span> <button type="button" class="notes-btn" aria-expanded="false">+2</button><ul class="notes" hidden><li>Only the prompt — description, tool set and delegation allowlist stay from the built-in defaults.</li><li>Applies in every launch mode; a project agent file with <code>override: true</code> and <code>--agent-file</code> both rank ahead of it.</li></ul></td></tr>
+                    <tr class="search-item" id="i-kimi-doctor-2"><td><a class="row-link" href="#i-kimi-doctor-2" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>kimi doctor</code></td><td class="desc">Validate the configuration files</td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="Top-level">
+                <summary><h3>Top-level</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-default-model"><td><a class="row-link" href="#i-default-model" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>default_model</code></td><td class="desc">Default model alias; must be defined in <code>models</code></td></tr>
+                    <tr class="search-item" id="i-default-permission-mode"><td><a class="row-link" href="#i-default-permission-mode" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>default_permission_mode</code></td><td class="desc">Permission mode for new sessions: <code>manual</code>, <code>yolo</code> or <code>auto</code></td></tr>
+                    <tr class="search-item" id="i-default-plan-mode"><td><a class="row-link" href="#i-default-plan-mode" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>default_plan_mode</code></td><td class="desc">Whether new sessions start in Plan mode</td></tr>
+                    <tr class="search-item" id="i-merge-all-available-skills"><td><a class="row-link" href="#i-merge-all-available-skills" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>merge_all_available_skills</code></td><td class="desc">Merge skills from all available directories</td></tr>
+                    <tr class="search-item" id="i-extra-skill-dirs"><td><a class="row-link" href="#i-extra-skill-dirs" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>extra_skill_dirs</code> / <code>extra_agent_dirs</code></td><td class="desc">Extra skill search directories layered on the defaults</td></tr>
+                    <tr class="search-item" id="i-builtin-product-skills"><td><a class="row-link" href="#i-builtin-product-skills" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>builtin_product_skills</code></td><td class="desc">Offer the built-in skills documenting Kimi Code to the model</td></tr>
+                    <tr class="search-item" id="i-telemetry"><td><a class="row-link" href="#i-telemetry" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>telemetry</code></td><td class="desc">Anonymous telemetry; disabled only when explicitly set to <code>false</code></td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="Models &amp; providers">
+                <summary><h3>Models &amp; providers</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-providers-id"><td><a class="row-link" href="#i-providers-id" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>[providers."&lt;id&gt;"]</code></td><td class="desc">API provider entry: <code>type</code>, <code>base_url</code>, <code>api_key</code></td></tr>
+                    <tr class="search-item" id="i-models-alias"><td><a class="row-link" href="#i-models-alias" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>[models."&lt;alias&gt;"]</code></td><td class="desc"><span class="summary">Model alias entry</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Fields include <code>provider</code>, <code>model</code>, <code>max_context_size</code>, <code>capabilities</code>, <code>display_name</code>, <code>support_efforts</code>, <code>default_effort</code>.</li></ul></td></tr>
+                    <tr class="search-item" id="i-secondary-model-2"><td><a class="row-link" href="#i-secondary-model-2" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>[secondary_model]</code></td><td class="desc"><span class="summary">Subagent model pool</span> <button type="button" class="notes-btn" aria-expanded="false">+2</button><ul class="notes" hidden><li>Always on as of 0.42.0 — the experimental flag and its opt-out env var were removed.</li><li>Pool entries can each carry a different thinking effort.</li></ul></td></tr>
+                    <tr class="search-item" id="i-thinking"><td><a class="row-link" href="#i-thinking" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>[thinking]</code></td><td class="desc">Thinking-mode defaults: <code>enabled</code>, <code>effort</code>, <code>keep</code></td></tr>
+                    <tr class="search-item" id="i-token-counting"><td><a class="row-link" href="#i-token-counting" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>[token_counting]</code></td><td class="desc">How context tokens are reported externally</td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="Runtime">
+                <summary><h3>Runtime</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-loop-control"><td><a class="row-link" href="#i-loop-control" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>[loop_control]</code></td><td class="desc"><span class="summary">Agent loop limits</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Includes <code>max_attempts_per_step</code>, <code>max_steps_per_turn</code> and <code>reserved_context_size</code>.</li></ul></td></tr>
+                    <tr class="search-item" id="i-background"><td><a class="row-link" href="#i-background" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>[background]</code></td><td class="desc"><span class="summary">Background task runtime</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li><code>max_running_tasks</code> caps concurrency; <code>keep_alive_on_exit</code> decides whether tasks survive session close.</li></ul></td></tr>
+                    <tr class="search-item" id="i-subagent"><td><a class="row-link" href="#i-subagent" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>[subagent]</code> / <code>[swarm]</code></td><td class="desc">Subagent and AgentSwarm limits such as <code>timeout_ms</code></td></tr>
+                    <tr class="search-item" id="i-tools"><td><a class="row-link" href="#i-tools" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>[tools]</code></td><td class="desc">Global tool switch</td></tr>
+                    <tr class="search-item" id="i-read"><td><a class="row-link" href="#i-read" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>[read]</code></td><td class="desc"><span class="summary">Character limits and resumable long-line file reads</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Added in 0.42.0 so long lines no longer produce repeated output truncation.</li></ul></td></tr>
+                    <tr class="search-item" id="i-image"><td><a class="row-link" href="#i-image" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>[image]</code></td><td class="desc">Image compression parameters such as <code>max_edge_px</code></td></tr>
+                    <tr class="search-item" id="i-database"><td><a class="row-link" href="#i-database" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>[database]</code></td><td class="desc"><span class="summary">Session-index read model and global search worker</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Replaced the experimental minidb flags in 0.42.0; both default to on.</li></ul></td></tr>
+                    <tr class="search-item" id="i-services"><td><a class="row-link" href="#i-services" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>[services]</code></td><td class="desc"><span class="summary">Built-in external services</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li><code>[services.moonshot_search]</code> and <code>[services.moonshot_fetch]</code> each take a <code>base_url</code> and <code>api_key</code>.</li></ul></td></tr>
+                    <tr class="search-item" id="i-identity"><td><a class="row-link" href="#i-identity" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>[identity]</code></td><td class="desc">Custom agent identity — the name it calls itself and its client slug</td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="Permissions &amp; hooks">
+                <summary><h3>Permissions &amp; hooks</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-permission-rules"><td><a class="row-link" href="#i-permission-rules" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>[[permission.rules]]</code></td><td class="desc"><span class="summary">Initial permission rules, each a <code>decision</code> plus a <code>pattern</code></span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Example: <code>decision = "deny"</code> with <code>pattern = "Bash(rm -rf*)"</code>.</li></ul></td></tr>
+                    <tr class="search-item" id="i-hooks"><td><a class="row-link" href="#i-hooks" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>[[hooks]]</code></td><td class="desc">Lifecycle hooks, declared as an array of tables</td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="tui.toml">
+                <summary><h3>tui.toml</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-theme-2"><td><a class="row-link" href="#i-theme-2" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>theme</code></td><td class="desc">Colour theme: <code>auto</code>, <code>dark</code>, <code>light</code> or a custom theme name</td></tr>
+                    <tr class="search-item" id="i-render-latex"><td><a class="row-link" href="#i-render-latex" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>render_latex</code> / <code>disable_paste_burst</code></td><td class="desc"><span class="summary">Render LaTeX in messages as Unicode text; <code>false</code> keeps the raw source</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li><code>disable_paste_burst</code> turns off the fallback that keeps rapid multi-line pastes from submitting line by line.</li></ul></td></tr>
+                    <tr class="search-item" id="i-cache-expiry-hint"><td><a class="row-link" href="#i-cache-expiry-hint" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>cache_expiry_hint</code> / <code>disable_feedback_survey</code></td><td class="desc"><span class="summary">Warn that the context cache may have expired on resume or after a long idle</span> <button type="button" class="notes-btn" aria-expanded="false">+2</button><ul class="notes" hidden><li>v2 engine only; offers to compact or start a new session.</li><li><code>disable_feedback_survey</code> hides the occasional session rating prompt.</li></ul></td></tr>
+                    <tr class="search-item" id="i-editor-command"><td><a class="row-link" href="#i-editor-command" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>[editor].command</code></td><td class="desc">External editor command; empty falls back to <code>$VISUAL</code> / <code>$EDITOR</code></td></tr>
+                    <tr class="search-item" id="i-notifications-enabled"><td><a class="row-link" href="#i-notifications-enabled" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>[notifications].enabled</code></td><td class="desc"><span class="summary">Send desktop notifications</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li><code>notification_condition</code> is <code>unfocused</code> or <code>always</code>.</li></ul></td></tr>
+                    <tr class="search-item" id="i-upgrade-auto-install"><td><a class="row-link" href="#i-upgrade-auto-install" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>[upgrade].auto_install</code></td><td class="desc">Install new versions automatically</td></tr>
+                    <tr class="search-item" id="i-status-line-items"><td><a class="row-link" href="#i-status-line-items" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>[status_line].items</code></td><td class="desc"><span class="summary">Footer slots and order: <code>mode</code>, <code>goal</code>, <code>model</code>, <code>tasks</code>, <code>cwd</code>, <code>git</code>, <code>tips</code></span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Unknown ids are skipped with a warning.</li></ul></td></tr>
+                    <tr class="search-item" id="i-status-line-command"><td><a class="row-link" href="#i-status-line-command" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>[status_line].command</code></td><td class="desc"><span class="summary">Custom status-line command; its first stdout line replaces the footer</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>A JSON snapshot arrives on stdin; capped at 300 ms, throttled to once a second, failures fall back to the built-in layout.</li></ul></td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="Project-local">
+                <summary><h3>Project-local</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-workspace-additional-dir"><td><a class="row-link" href="#i-workspace-additional-dir" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>[workspace].additional_dir</code></td><td class="desc">Extra absolute workspace directories for every session of this project</td></tr>
+                </table>
+            </details>
+        </div>
+
+        <div class="card" id="card-env">
+            <h2>Environment Variables <span class="card-count"></span></h2>
+
+            <details class="search-group" open data-group="Core paths">
+                <summary><h3>Core paths</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-kimi-code-home"><td><a class="row-link" href="#i-kimi-code-home" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>KIMI_CODE_HOME</code></td><td class="desc"><span class="summary">Data root; defaults to <code>~/.kimi-code</code></span> <button type="button" class="notes-btn" aria-expanded="false">+3</button><ul class="notes" hidden><li>Config, sessions, logs, OAuth credentials, Kimi-specific skills and the global <code>AGENTS.md</code> all move with it.</li><li>Generic <code>~/.agents/</code> resources stay under the real OS home so they can be shared across tools.</li><li>Instances sharing one root share config and credential files.</li></ul></td></tr>
+                    <tr class="search-item" id="i-kimi-disable-telemetry"><td><a class="row-link" href="#i-kimi-disable-telemetry" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>KIMI_DISABLE_TELEMETRY</code></td><td class="desc">Turn off anonymous telemetry reporting</td></tr>
+                    <tr class="search-item" id="i-kimi-code-custom-headers"><td><a class="row-link" href="#i-kimi-code-custom-headers" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>KIMI_CODE_CUSTOM_HEADERS</code></td><td class="desc"><span class="summary">Attach newline-separated <code>Name: Value</code> headers to every model request</span> <button type="button" class="notes-btn" aria-expanded="false">+2</button><ul class="notes" hidden><li>Kimi identity headers and a provider&rsquo;s <code>custom_headers</code> override same-named entries here.</li><li>Never use it for authentication or reserved headers — a case variant merges with the real header and can break requests.</li></ul></td></tr>
+                    <tr class="search-item" id="i-kimi-code-password"><td><a class="row-link" href="#i-kimi-code-password" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>KIMI_CODE_PASSWORD</code></td><td class="desc"><span class="summary">Parallel auth credential for <code>kimi web</code></span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Recommended when binding beyond loopback; when unset, only the token is valid.</li></ul></td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="Models">
+                <summary><h3>Models</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-kimi-model-name"><td><a class="row-link" href="#i-kimi-model-name" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>KIMI_MODEL_NAME</code></td><td class="desc"><span class="summary">Synthesise a temporary in-memory provider and model, without touching <code>config.toml</code></span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>The change does not persist after restart.</li></ul></td></tr>
+                    <tr class="search-item" id="i-kimi-model-thinking-effort"><td><a class="row-link" href="#i-kimi-model-thinking-effort" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>KIMI_MODEL_THINKING_EFFORT</code></td><td class="desc"><span class="summary">Force a thinking effort, bypassing the model&rsquo;s declared <code>support_efforts</code></span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li><code>kimi</code> provider only.</li></ul></td></tr>
+                    <tr class="search-item" id="i-kimi-model-temperature"><td><a class="row-link" href="#i-kimi-model-temperature" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>KIMI_MODEL_TEMPERATURE</code> / <code>KIMI_MODEL_TOP_P</code> / <code>KIMI_MODEL_MAX_COMPLETION_TOKENS</code></td><td class="desc"><span class="summary">Sampling controls applied to every request</span> <button type="button" class="notes-btn" aria-expanded="false">+2</button><ul class="notes" hidden><li>Global and <code>kimi</code>-provider only, independent of <code>KIMI_MODEL_NAME</code>.</li><li><code>KIMI_MODEL_MAX_COMPLETION_TOKENS</code> hard-caps completion tokens per step; <code>0</code> disables clamping.</li></ul></td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="Runtime switches">
+                <summary><h3>Runtime switches</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-kimi-code-background-keep-alive-on-exit"><td><a class="row-link" href="#i-kimi-code-background-keep-alive-on-exit" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>KIMI_CODE_BACKGROUND_KEEP_ALIVE_ON_EXIT</code></td><td class="desc">Keep background tasks when the session closes</td></tr>
+                    <tr class="search-item" id="i-kimi-code-background-max-running-tasks"><td><a class="row-link" href="#i-kimi-code-background-max-running-tasks" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>KIMI_CODE_BACKGROUND_MAX_RUNNING_TASKS</code></td><td class="desc">Cap concurrently running background tasks</td></tr>
+                    <tr class="search-item" id="i-kimi-code-agent-swarm-max-concurrency"><td><a class="row-link" href="#i-kimi-code-agent-swarm-max-concurrency" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>KIMI_CODE_AGENT_SWARM_MAX_CONCURRENCY</code></td><td class="desc">Cap AgentSwarm subagents during the initial ramp</td></tr>
+                    <tr class="search-item" id="i-kimi-subagent-timeout-ms"><td><a class="row-link" href="#i-kimi-subagent-timeout-ms" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>KIMI_SUBAGENT_TIMEOUT_MS</code> / <code>KIMI_CODE_SWARM_TIMEOUT_MS</code></td><td class="desc">Wall-clock ceiling for one <code>Agent</code> subagent</td></tr>
+                    <tr class="search-item" id="i-kimi-loop-max-steps-per-turn"><td><a class="row-link" href="#i-kimi-loop-max-steps-per-turn" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>KIMI_LOOP_MAX_STEPS_PER_TURN</code> / <code>KIMI_LOOP_MAX_ATTEMPTS_PER_STEP</code></td><td class="desc">Max agent steps per turn; <code>0</code> is unlimited</td></tr>
+                    <tr class="search-item" id="i-kimi-mcp-startup-timeout-ms"><td><a class="row-link" href="#i-kimi-mcp-startup-timeout-ms" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>KIMI_MCP_STARTUP_TIMEOUT_MS</code> / <code>KIMI_MCP_TOOL_TIMEOUT_MS</code></td><td class="desc"><span class="summary">Default MCP connection timeout</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Overrides the config file, but <code>mcp.json</code> <code>startupTimeoutMs</code> / <code>toolTimeoutMs</code> still win.</li></ul></td></tr>
+                    <tr class="search-item" id="i-kimi-code-plugin-marketplace-url"><td><a class="row-link" href="#i-kimi-code-plugin-marketplace-url" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>KIMI_CODE_PLUGIN_MARKETPLACE_URL</code></td><td class="desc"><span class="summary">Override the marketplace JSON loaded by <code>/plugins</code></span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Also accepts <code>http://</code>, <code>file://</code> and local paths.</li></ul></td></tr>
+                    <tr class="search-item" id="i-kimi-code-no-auto-update"><td><a class="row-link" href="#i-kimi-code-no-auto-update" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>KIMI_CODE_NO_AUTO_UPDATE</code></td><td class="desc"><span class="summary">Disable the update preflight entirely</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>The legacy alias <code>KIMI_CLI_NO_AUTO_UPDATE</code> is still honoured.</li></ul></td></tr>
+                    <tr class="search-item" id="i-kimi-disable-cron"><td><a class="row-link" href="#i-kimi-disable-cron" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>KIMI_DISABLE_CRON</code></td><td class="desc"><span class="summary">Disable the scheduled-task tool</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li><code>CronCreate</code> rejects new schedules and existing tasks stop firing.</li></ul></td></tr>
+                    <tr class="search-item" id="i-kimi-code-infinite-retry"><td><a class="row-link" href="#i-kimi-code-infinite-retry" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>KIMI_CODE_INFINITE_RETRY</code></td><td class="desc"><span class="summary">Retry failed LLM requests indefinitely</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Exponential backoff capped at 32 s, honouring <code>Retry-After</code>; aborting still cancels immediately.</li></ul></td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="Experimental (churns between releases)">
+                <summary><h3>Experimental (churns between releases)</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-kimi-code-experimental-flag"><td><a class="row-link" href="#i-kimi-code-experimental-flag" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>KIMI_CODE_EXPERIMENTAL_FLAG</code></td><td class="desc"><span class="summary">Enable every registered experimental feature for this process</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Experimental flags are short-lived: 0.42.0 removed <code>KIMI_CODE_EXPERIMENTAL_REMOTE_CONTROL</code> and <code>KIMI_CODE_EXPERIMENTAL_SECONDARY_MODEL</code> once those features became always-on.</li></ul></td></tr>
+                    <tr class="search-item" id="i-kimi-code-experimental-subagent-fork"><td><a class="row-link" href="#i-kimi-code-experimental-subagent-fork" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>KIMI_CODE_EXPERIMENTAL_SUBAGENT_FORK</code></td><td class="desc">Start a subagent from a snapshot of the caller&rsquo;s history</td></tr>
+                    <tr class="search-item" id="i-kimi-code-tui-full-screen"><td><a class="row-link" href="#i-kimi-code-tui-full-screen" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>KIMI_CODE_TUI_FULL_SCREEN</code></td><td class="desc"><span class="summary">Experimental fullscreen UI</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Scrollable transcript, mouse selection, clickable links and <code>Ctrl-Shift-F</code> search.</li></ul></td></tr>
+                    <tr class="search-item" id="i-kimi-code-search-worker"><td><a class="row-link" href="#i-kimi-code-search-worker" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>KIMI_CODE_SEARCH_WORKER</code> / <code>KIMI_CODE_PERSISTENCE_MINIDB_READMODEL</code></td><td class="desc"><span class="summary">Run the global search index in a dedicated worker thread</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Replaced the experimental minidb flags in 0.42.0; both default to on and map to <code>[database]</code>.</li></ul></td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="Diagnostics">
+                <summary><h3>Diagnostics</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-kimi-log-level"><td><a class="row-link" href="#i-kimi-log-level" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>KIMI_LOG_LEVEL</code></td><td class="desc"><span class="summary">Log level: <code>off</code>, <code>error</code>, <code>warn</code>, <code>info</code>, <code>debug</code></span> <button type="button" class="notes-btn" aria-expanded="false">+2</button><ul class="notes" hidden><li>Read once at process startup, like every other log variable.</li><li>Rotation is controlled by <code>KIMI_LOG_GLOBAL_MAX_BYTES</code>, <code>KIMI_LOG_GLOBAL_FILES</code>, <code>KIMI_LOG_SESSION_MAX_BYTES</code> and <code>KIMI_LOG_SESSION_FILES</code>.</li></ul></td></tr>
+                </table>
+            </details>
+        </div>
+
+        <div class="card" id="card-skills">
+            <h2>Skills, Agents &amp; AGENTS.md <span class="card-count"></span></h2>
+
+            <details class="search-group" open data-group="Skills">
+                <summary><h3>Skills</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-skill-md"><td><a class="row-link" href="#i-skill-md" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>SKILL.md</code></td><td class="desc"><span class="summary">The main file of a directory-form skill</span> <button type="button" class="notes-btn" aria-expanded="false">+3</button><ul class="notes" hidden><li>Directory form is recommended: <code>&lt;name&gt;/SKILL.md</code> plus scripts and reference material alongside it.</li><li>When both <code>&lt;name&gt;/SKILL.md</code> and a same-named <code>&lt;name&gt;.md</code> exist, the subdirectory wins.</li><li>Frontmatter <code>name</code> and <code>description</code> are both required in directory form — omitting either fails to parse.</li></ul></td></tr>
+                    <tr class="search-item" id="i-kimi-code-home-skills"><td><a class="row-link" href="#i-kimi-code-home-skills" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>$KIMI_CODE_HOME/skills/</code></td><td class="desc">Kimi-specific user skills; moves with the data root</td></tr>
+                    <tr class="search-item" id="i-agents-skills"><td><a class="row-link" href="#i-agents-skills" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>~/.agents/skills/</code></td><td class="desc"><span class="summary">Generic user skills, shared across tools</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Stays under the real OS home even when <code>KIMI_CODE_HOME</code> is relocated.</li></ul></td></tr>
+                    <tr class="search-item" id="i-kimi-code-skills"><td><a class="row-link" href="#i-kimi-code-skills" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>.kimi-code/skills/</code> / <code>.agents/skills/</code></td><td class="desc">Project skills</td></tr>
+                    <tr class="search-item" id="i-skills-dir"><td><a class="row-link" href="#i-skills-dir" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>--skills-dir</code></td><td class="desc">Load skills from an explicit directory instead of auto-discovery</td></tr>
+                    <tr class="search-item" id="i-extra-skill-dirs-2"><td><a class="row-link" href="#i-extra-skill-dirs-2" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>extra_skill_dirs</code></td><td class="desc"><span class="summary">Extra skill search directories layered on the defaults</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li><code>merge_all_available_skills</code> controls whether all discovered directories are merged.</li></ul></td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="Agents">
+                <summary><h3>Agents</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-kimi-code-home-agents"><td><a class="row-link" href="#i-kimi-code-home-agents" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>$KIMI_CODE_HOME/agents/</code> / <code>~/.agents/agents/</code></td><td class="desc">Kimi-specific user agents</td></tr>
+                    <tr class="search-item" id="i-kimi-code-agents"><td><a class="row-link" href="#i-kimi-code-agents" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>.kimi-code/agents/</code> / <code>.agents/agents/</code></td><td class="desc">Project agents</td></tr>
+                    <tr class="search-item" id="i-override-true"><td><a class="row-link" href="#i-override-true" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>override: true</code></td><td class="desc"><span class="summary">Lets an agent file replace a same-name built-in agent</span> <button type="button" class="notes-btn" aria-expanded="false">+3</button><ul class="notes" hidden><li>Security-relevant: a project file named <code>agent.md</code> with this flag replaces the default main agent&rsquo;s entire system prompt, and <code>coder.md</code> replaces the default sub-agent type.</li><li>Unlike <code>AGENTS.md</code>, which is injected as reference data, an override file <em>is</em> the system prompt — and a file with no <code>tools</code> list keeps every tool.</li><li>Treat <code>.kimi-code/agents/</code> in an unfamiliar repository with the same caution as a script.</li></ul></td></tr>
+                    <tr class="search-item" id="i-base-prompt"><td><a class="row-link" href="#i-base-prompt" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>${base_prompt}</code></td><td class="desc"><span class="summary">Embeds the effective default system prompt inside an agent file</span> <button type="button" class="notes-btn" aria-expanded="false">+2</button><ul class="notes" hidden><li>Lets a file wrap the default behaviour instead of replacing it.</li><li><code>${plugin_sections}</code> places plugin-contributed instructions; <code>${agents_md}</code> inserts the workspace instruction files.</li></ul></td></tr>
+                    <tr class="search-item" id="i-agent"><td><a class="row-link" href="#i-agent" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>--agent</code> / <code>--agent-file</code></td><td class="desc">Select an agent profile for a new session</td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="AGENTS.md">
+                <summary><h3>AGENTS.md</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-init-2"><td><a class="row-link" href="#i-init-2" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/init</code></td><td class="desc">Analyse the codebase and generate <code>AGENTS.md</code></td></tr>
+                    <tr class="search-item" id="i-agents-md"><td><a class="row-link" href="#i-agents-md" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>AGENTS.md</code></td><td class="desc">Project instructions at the project root</td></tr>
+                    <tr class="search-item" id="i-kimi-code-agents-md"><td><a class="row-link" href="#i-kimi-code-agents-md" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>.kimi-code/AGENTS.md</code></td><td class="desc">Project-level Kimi-specific instructions</td></tr>
+                    <tr class="search-item" id="i-kimi-code-home-agents-md"><td><a class="row-link" href="#i-kimi-code-home-agents-md" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>$KIMI_CODE_HOME/AGENTS.md</code></td><td class="desc">Global Kimi-specific instructions; moves with the data root</td></tr>
+                    <tr class="search-item" id="i-agents-agents-md"><td><a class="row-link" href="#i-agents-agents-md" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>~/.agents/AGENTS.md</code></td><td class="desc">Generic cross-tool instructions in the real OS home</td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="Plugins">
+                <summary><h3>Plugins</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-plugins-2"><td><a class="row-link" href="#i-plugins-2" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/plugins</code></td><td class="desc"><span class="summary">Plugin manager with Installed, Official, Curated and Custom tabs</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li><code>Space</code> enables or disables, <code>D</code> removes, <code>M</code> manages MCP servers, <code>R</code> reloads manifests, <code>I</code> shows details.</li></ul></td></tr>
+                    <tr class="search-item" id="i-kimi-code-plugin-marketplace-url-2"><td><a class="row-link" href="#i-kimi-code-plugin-marketplace-url-2" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>KIMI_CODE_PLUGIN_MARKETPLACE_URL</code></td><td class="desc">Point <code>/plugins</code> at a different marketplace JSON</td></tr>
+                </table>
+            </details>
+        </div>
+
+        <div class="card" id="card-hooks">
+            <h2>Hooks &amp; MCP <span class="card-count"></span></h2>
+
+            <details class="search-group" open data-group="Hook configuration">
+                <summary><h3>Hook configuration</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-hooks-2"><td><a class="row-link" href="#i-hooks-2" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>[[hooks]]</code></td><td class="desc"><span class="summary">One hook entry in <code>config.toml</code></span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li><code>event</code> and <code>command</code> are required; <code>matcher</code> is an optional regex over the event target; <code>timeout</code> is 1-600 seconds, default 30.</li></ul></td></tr>
+                    <tr class="search-item" id="i-matcher"><td><a class="row-link" href="#i-matcher" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>matcher</code></td><td class="desc"><span class="summary">Regex filtering which event targets fire the hook</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Omitted means every target matches.</li></ul></td></tr>
+                    <tr class="search-item" id="i-hook-exit-codes"><td><a class="row-link" href="#i-hook-exit-codes" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>exit 0</code> / <code>exit 2</code></td><td class="desc"><span class="summary">Hook exit codes: <code>0</code> allows, <code>2</code> blocks</span> <button type="button" class="notes-btn" aria-expanded="false">+2</button><ul class="notes" hidden><li>On <code>0</code> execution continues and stdout may be appended to context.</li><li>On <code>2</code> the operation stops and stderr is used as the reason.</li></ul></td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="Hook events">
+                <summary><h3>Hook events</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-userpromptsubmit"><td><a class="row-link" href="#i-userpromptsubmit" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>UserPromptSubmit</code> / <code>UserPromptQueued</code></td><td class="desc">Fires when you send a message; can block the model call this turn</td></tr>
+                    <tr class="search-item" id="i-pretooluse"><td><a class="row-link" href="#i-pretooluse" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>PreToolUse</code></td><td class="desc">Fires before a tool call, ahead of permission checks; blocking stops the tool</td></tr>
+                    <tr class="search-item" id="i-posttooluse"><td><a class="row-link" href="#i-posttooluse" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>PostToolUse</code> / <code>PostToolUseFailure</code></td><td class="desc">Fires after a tool succeeds</td></tr>
+                    <tr class="search-item" id="i-permissionrequest"><td><a class="row-link" href="#i-permissionrequest" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>PermissionRequest</code> / <code>PermissionResult</code></td><td class="desc">Fires just before waiting for approval</td></tr>
+                    <tr class="search-item" id="i-sessionstart"><td><a class="row-link" href="#i-sessionstart" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>SessionStart</code> / <code>SessionEnd</code></td><td class="desc"><span class="summary">Fires after a session starts or resumes</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>The payload carries <code>source</code>, <code>model</code> and <code>profile</code>; <code>SessionEnd</code> distinguishes <code>exit</code> from <code>archive</code>.</li></ul></td></tr>
+                    <tr class="search-item" id="i-sessionheartbeat"><td><a class="row-link" href="#i-sessionheartbeat" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>SessionHeartbeat</code></td><td class="desc"><span class="summary">Fires every 60 seconds while the session is alive</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>The timer only runs when this event is configured.</li></ul></td></tr>
+                    <tr class="search-item" id="i-turnstarted"><td><a class="row-link" href="#i-turnstarted" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>TurnStarted</code></td><td class="desc">Fires when a new turn begins, with its origin kind</td></tr>
+                    <tr class="search-item" id="i-stop"><td><a class="row-link" href="#i-stop" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>Stop</code> / <code>StopFailure</code></td><td class="desc">Fires when the model is about to end the turn; blocking lets it continue</td></tr>
+                    <tr class="search-item" id="i-interrupt"><td><a class="row-link" href="#i-interrupt" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>Interrupt</code></td><td class="desc"><span class="summary">Fires when you interrupt the turn, in place of <code>Stop</code></span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Not fired for timeouts or programmatic aborts.</li></ul></td></tr>
+                    <tr class="search-item" id="i-subagentstart"><td><a class="row-link" href="#i-subagentstart" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>SubagentStart</code> / <code>SubagentStop</code></td><td class="desc">Fires around sub-agent runs</td></tr>
+                    <tr class="search-item" id="i-taskstarted"><td><a class="row-link" href="#i-taskstarted" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>TaskStarted</code></td><td class="desc">Fires when a background task starts</td></tr>
+                    <tr class="search-item" id="i-precompact"><td><a class="row-link" href="#i-precompact" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>PreCompact</code></td><td class="desc">Fires before context compaction; return values are ignored entirely</td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="MCP">
+                <summary><h3>MCP</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-mcp-json"><td><a class="row-link" href="#i-mcp-json" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>mcp.json</code></td><td class="desc"><span class="summary">MCP server configuration, at user and project level</span> <button type="button" class="notes-btn" aria-expanded="false">+2</button><ul class="notes" hidden><li>User level <code>$KIMI_CODE_HOME/mcp.json</code>; project level <code>.kimi-code/mcp.json</code>, which wins on a name clash.</li><li>Transports: stdio (<code>command</code> + <code>args</code>), HTTP (<code>url</code>), and legacy <code>transport: "sse"</code>.</li></ul></td></tr>
+                    <tr class="search-item" id="i-mcp-server-tool"><td><a class="row-link" href="#i-mcp-server-tool" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>mcp__&lt;server&gt;__&lt;tool&gt;</code></td><td class="desc"><span class="summary">How MCP tools are named for permission rules</span> <button type="button" class="notes-btn" aria-expanded="false">+3</button><ul class="notes" hidden><li>Rules support <code>*</code> and <code>**</code> wildcards; tool parameters are not part of the match.</li><li>Unmatched calls raise an approval request; "Approve for this session" allows the same kind for the rest of the session.</li><li>In Ask When Needed mode MCP calls are auto-approved — only use it when you trust every connected server.</li></ul></td></tr>
+                    <tr class="search-item" id="i-mcp-startup-timeout-ms"><td><a class="row-link" href="#i-mcp-startup-timeout-ms" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>[mcp] startup_timeout_ms</code> / <code>[mcp] tool_timeout_ms</code></td><td class="desc"><span class="summary">Global MCP connection timeout, default 30000 ms</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>A per-server <code>startupTimeoutMs</code> / <code>toolTimeoutMs</code> in <code>mcp.json</code> wins over both the config and the env vars.</li></ul></td></tr>
+                    <tr class="search-item" id="i-kimi-acp-2"><td><a class="row-link" href="#i-kimi-acp-2" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>kimi acp</code></td><td class="desc">Run Kimi Code as an Agent Client Protocol server over stdio</td></tr>
+                    <tr class="search-item" id="i-kimi-web-2"><td><a class="row-link" href="#i-kimi-web-2" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>kimi web</code></td><td class="desc"><span class="summary">Run the local server and web UI</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li><code>kimi server</code> is deprecated in its favour.</li></ul></td></tr>
+                </table>
+            </details>
+        </div>
+
+        <div class="no-results search-exclude" id="noResults">No matches — clear search to see everything.</div>
+
+        <footer class="global-footer">
+            Template v1.0 · Content synced 2026-09-09<br>
+            <span class="disclaimer">Unofficial community reference — not affiliated with or endorsed by Moonshot AI.
+            Condensed from the official docs; always confirm against
+            <a href="https://moonshotai.github.io/kimi-code/" target="_blank" rel="noopener noreferrer">moonshotai.github.io/kimi-code</a>.</span><br>
+            <a href="../" class="header-link">← All agent placemats</a> ·
+            <a href="https://dommango.github.io" target="_blank" rel="noopener noreferrer">Context//Collapse</a>
+        </footer>
+
+    </main>
+
+    <aside class="since-drawer" id="sinceDrawer" hidden aria-label="Changes since your last visit">
+        <div class="since-drawer-head">
+            <h2 id="sinceDrawerTitle">Since your last visit</h2>
+            <button type="button" class="whats-new-close" id="sinceClose" aria-label="Close">&times;</button>
+        </div>
+        <div class="since-drawer-body" id="sinceBody"></div>
+        <div class="since-drawer-foot">
+            <button type="button" id="sinceReadAll">Mark all as read</button>
+            <a href="feed.xml">RSS</a> · <a href="changes.json">changes.json</a> · <a href="changelog.html">Full changelog</a>
+        </div>
+    </aside>
+
+    <script>
+// Shared placemat behaviour. Storage keys are derived per agent from
+// <html data-agent="…">; theme/density are deliberately shared origin-wide (D6).
+const AGENT = document.documentElement.dataset.agent || 'agent';
+const LS_SEEN = 'pm-' + AGENT + '-seen-version';
+const LS_COLLAPSED = 'pm-' + AGENT + '-collapsed';
+
+// --- THEME TOGGLE LOGIC ---
+function setThemeIcon(theme) {
+    const btn = document.getElementById('themeBtn');
+    if (btn) btn.innerHTML = theme === 'dark' ? '&#9728;&#65039;' : '&#127769;';
+}
+function toggleTheme() {
+    const root = document.documentElement;
+    const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
+    root.dataset.theme = next;
+    localStorage.setItem('placemat-theme', next);
+    setThemeIcon(next);
+}
+setThemeIcon(document.documentElement.dataset.theme);
+
+// --- CLICK TO COPY LOGIC (mouse + keyboard) ---
+function makeCopyable(el, getText) {
+    el.title = "Click to copy";
+    el.tabIndex = -1;
+    el.setAttribute('role', 'button');
+    el.addEventListener('click', () => copyText(el, getText()));
+    el.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            copyText(el, getText());
+        }
+    });
+}
+
+document.querySelectorAll('code').forEach(el => {
+    makeCopyable(el, () => el.innerText);
+});
+
+async function copyText(element, text) {
+    try {
+        await navigator.clipboard.writeText(text);
+        element.classList.add('copied');
+        setTimeout(() => element.classList.remove('copied'), 300);
+    } catch (err) { console.error('Failed to copy: ', err); }
+}
+
+// --- HIERARCHICAL SEARCH LOGIC ---
+const searchInput = document.getElementById('dashboardSearch');
+
+// --- COLLAPSIBLE GROUPS (counts computed at load; folded state remembered) ---
+const groupEls = Array.from(document.querySelectorAll('details.search-group'));
+const COLLAPSED_KEY = LS_COLLAPSED;
+let collapsedGroups = new Set();
+try { collapsedGroups = new Set(JSON.parse(localStorage.getItem(COLLAPSED_KEY) || '[]')); } catch (err) {}
+
+function saveCollapsed() {
+    try { localStorage.setItem(COLLAPSED_KEY, JSON.stringify(Array.from(collapsedGroups))); } catch (err) {}
+}
+
+groupEls.forEach((group) => {
+    group.querySelector('.group-count').textContent = group.querySelectorAll('.search-item').length;
+    group.open = !collapsedGroups.has(group.dataset.group);
+    group.addEventListener('toggle', () => {
+        if (searchInput.value.trim()) return; // search-driven opens are temporary
+        group.open ? collapsedGroups.delete(group.dataset.group) : collapsedGroups.add(group.dataset.group);
+        saveCollapsed();
+    });
+});
+
+function applyGroupState(term) {
+    groupEls.forEach((group) => { group.open = term ? true : !collapsedGroups.has(group.dataset.group); });
+}
+
+// --- FIXED BAR HEIGHTS: measured so the header and nav always clear each other ---
+(function trackBarHeights() {
+    const header = document.querySelector('.global-header');
+    const nav = document.querySelector('.section-nav');
+    const sync = () => {
+        document.documentElement.style.setProperty('--header-h', Math.round(header.offsetHeight) + 'px');
+        document.documentElement.style.setProperty('--nav-h', Math.round(nav.offsetHeight) + 'px');
+    };
+    sync();
+    if (typeof ResizeObserver === 'function') {
+        const observer = new ResizeObserver(sync);
+        observer.observe(header);
+        observer.observe(nav);
+    }
+    window.addEventListener('resize', sync);
+})();
+
+// --- SECTION NAV: counts, active chip, collapse/expand all ---
+const navChips = Array.from(document.querySelectorAll('.section-chips a'));
+navChips.forEach((chip) => {
+    const card = document.getElementById(chip.dataset.target);
+    if (!card) return;
+    const count = card.querySelectorAll('.search-item').length;
+    chip.querySelector('.chip-count').textContent = count;
+    card.querySelector('.card-count').textContent = count;
+});
+const cardObserver = new IntersectionObserver((entries) => {
+    const visible = entries
+        .filter((entry) => entry.isIntersecting)
+        .sort((a, b) => (a.boundingClientRect.top - b.boundingClientRect.top)
+            || (a.boundingClientRect.left - b.boundingClientRect.left));
+    if (!visible.length) return;
+    navChips.forEach((chip) => chip.classList.toggle('is-active', chip.dataset.target === visible[0].target.id));
+}, { rootMargin: '-100px 0px -60% 0px', threshold: 0 });
+navChips.forEach((chip) => {
+    const card = document.getElementById(chip.dataset.target);
+    if (card) cardObserver.observe(card);
+});
+
+function setAllGroups(open) {
+    collapsedGroups = new Set(open ? [] : groupEls.map((group) => group.dataset.group));
+    saveCollapsed();
+    groupEls.forEach((group) => { group.open = open; });
+}
+document.getElementById('printBtn').addEventListener('click', () => window.print());
+document.getElementById('collapseAll').addEventListener('click', () => setAllGroups(false));
+document.getElementById('expandAll').addEventListener('click', () => setAllGroups(true));
+
+// --- DENSITY TOGGLE ---
+(function initDensity() {
+    const DENSITY_KEY = 'placemat-density';
+    const btn = document.getElementById('densityBtn');
+    const apply = (compact) => {
+        document.body.classList.toggle('density-compact', compact);
+        btn.setAttribute('aria-pressed', String(compact));
+    };
+    let compact = false;
+    try { compact = localStorage.getItem(DENSITY_KEY) === 'compact'; } catch (err) {}
+    apply(compact);
+    btn.addEventListener('click', () => {
+        compact = !compact;
+        apply(compact);
+        try { localStorage.setItem(DENSITY_KEY, compact ? 'compact' : 'comfortable'); } catch (err) {}
+    });
+})();
+
+searchInput.addEventListener('input', (e) => {
+    performSearch(e.target.value);
+    applyGroupState(e.target.value.trim());
+    revealNoteHits(e.target.value);
+});
+
+const searchKbd = document.getElementById('searchKbd');
+if (searchKbd && !/mac/i.test(navigator.platform || navigator.userAgentData?.platform || '')) {
+    searchKbd.textContent = 'Ctrl K';
+}
+
+window.addEventListener('keydown', (e) => {
+    if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+        e.preventDefault(); searchInput.focus();
+    }
+});
+
+// --- TWO-TIER ENTRIES: notes disclosure ---
+const noteButtons = Array.from(document.querySelectorAll('.notes-btn'));
+const setNotes = (btn, open) => {
+    btn.setAttribute('aria-expanded', String(open));
+    btn.nextElementSibling.hidden = !open;
+};
+noteButtons.forEach((btn) => btn.addEventListener('click', () => setNotes(btn, btn.getAttribute('aria-expanded') !== 'true')));
+const notesAllBtn = document.getElementById('notesAll');
+notesAllBtn.addEventListener('click', () => {
+    const open = notesAllBtn.getAttribute('aria-pressed') !== 'true';
+    notesAllBtn.setAttribute('aria-pressed', String(open));
+    notesAllBtn.textContent = open ? 'Hide all notes' : 'Show all notes';
+    noteButtons.forEach((btn) => setNotes(btn, open));
+});
+function revealNoteHits(term) {
+    const needle = term.toLowerCase().trim();
+    if (!needle) return;
+    noteButtons.forEach((btn) => {
+        const row = btn.closest('.search-item');
+        const outside = (row.querySelector('td').textContent + ' ' + row.querySelector('.summary').textContent).toLowerCase().includes(needle);
+        const inside = btn.nextElementSibling.textContent.toLowerCase().includes(needle);
+        if (inside && !outside) setNotes(btn, true);
+    });
+}
+
+// --- SEARCH: normalised match, highlight, count, URL state ---
+const normaliseSearch = (s) => s.toLowerCase().replace(/[\s+_\-\/.:~]/g, '');
+const searchRows = Array.from(document.querySelectorAll('.search-item'));
+searchRows.forEach((row) => {
+    const heading = row.closest('.search-group').querySelector('h3');
+    row.dataset.norm = normaliseSearch((heading ? heading.textContent + ' ' : '') + row.textContent);
+});
+const searchWrap = document.querySelector('.search-wrap');
+const searchCount = document.getElementById('searchCount');
+
+function markHits(cell, term) {
+    cell.querySelectorAll('mark.hit').forEach((mark) => mark.replaceWith(mark.textContent));
+    cell.normalize();
+    if (!term || term.length < 2) return;
+    // Tolerate the separators the normaliser strips: "ctrl+r" matches "Ctrl R".
+    const chars = term.split('')
+        .filter((ch) => !/[\s+_\-\/.:~]/.test(ch))
+        .map((ch) => ch.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
+    if (!chars.length) return;
+    const re = new RegExp(chars.join('[\\s+_\\-\\/.:~]*'), 'i');
+    const walker = document.createTreeWalker(cell, NodeFilter.SHOW_TEXT);
+    const nodes = [];
+    while (walker.nextNode()) nodes.push(walker.currentNode);
+    nodes.forEach((node) => {
+        if (node.parentElement.closest('a.row-link')) return;
+        const found = node.data.match(re);
+        if (!found || !found[0]) return;
+        const mark = document.createElement('mark');
+        mark.className = 'hit';
+        const after = node.splitText(found.index);
+        after.data = after.data.slice(found[0].length);
+        mark.textContent = found[0];
+        node.parentNode.insertBefore(mark, after);
+    });
+}
+
+function performSearch(raw) {
+    const term = raw.trim();
+    const needle = normaliseSearch(term);
+    let total = 0;
+    document.querySelectorAll('.dashboard-grid .card:not(.search-exclude)').forEach((card) => {
+        let cardHasMatch = false;
+        card.querySelectorAll('.search-group').forEach((group) => {
+            let groupHasMatch = false;
+            group.querySelectorAll('.search-item').forEach((row) => {
+                const hit = !needle || row.dataset.norm.includes(needle);
+                row.style.display = hit ? 'table-row' : 'none';
+                row.querySelectorAll('td').forEach((cell) => markHits(cell, hit ? term : ''));
+                if (hit) { groupHasMatch = true; total++; }
+            });
+            group.style.display = groupHasMatch ? 'block' : 'none';
+            if (groupHasMatch) cardHasMatch = true;
+        });
+        card.style.display = cardHasMatch ? 'block' : 'none';
+    });
+    document.getElementById('noResults').classList.toggle('is-visible', total === 0);
+    searchWrap.classList.toggle('has-term', !!needle);
+    searchCount.textContent = total + (total === 1 ? ' match' : ' matches');
+    const url = new URL(location.href);
+    if (needle) url.searchParams.set('q', term); else url.searchParams.delete('q');
+    history.replaceState(null, '', url);
+    rebindRoving();
+}
+
+const initialQuery = new URLSearchParams(location.search).get('q');
+if (initialQuery) { searchInput.value = initialQuery; performSearch(initialQuery); applyGroupState(initialQuery.trim()); revealNoteHits(initialQuery); }
+
+window.addEventListener('keydown', (e) => {
+    const inField = /^(INPUT|SELECT|TEXTAREA)$/.test(document.activeElement.tagName);
+    if (e.key === '/' && !inField) { e.preventDefault(); searchInput.focus(); searchInput.select(); }
+    if (e.key === 'Escape' && document.activeElement === searchInput) {
+        searchInput.value = '';
+        searchInput.dispatchEvent(new Event('input'));
+        searchInput.blur();
+    }
+});
+
+// --- PERMALINKS ---
+document.querySelectorAll('.row-link').forEach((link) => {
+    link.addEventListener('click', async (e) => {
+        e.preventDefault();
+        const href = link.getAttribute('href');
+        try {
+            await navigator.clipboard.writeText(location.origin + location.pathname + href);
+        } catch (err) { console.error('Failed to copy link:', err); }
+        history.replaceState(null, '', href);
+        link.classList.add('copied');
+        link.textContent = '✓';
+        setTimeout(() => { link.classList.remove('copied'); link.textContent = '#'; }, 900);
+    });
+});
+if (location.hash) {
+    const target = document.getElementById(location.hash.slice(1));
+    if (target) target.scrollIntoView({ block: 'center' });
+}
+
+// --- ROVING FOCUS: the grid is one tab stop ---
+function visibleRows() {
+    return searchRows.filter((row) => row.style.display !== 'none' && row.closest('.card').style.display !== 'none');
+}
+function rebindRoving() {
+    const rows = visibleRows();
+    searchRows.forEach((row) => { row.tabIndex = -1; });
+    if (rows[0]) rows[0].tabIndex = 0;
+}
+rebindRoving();
+document.querySelector('.dashboard-grid').addEventListener('keydown', (e) => {
+    const row = e.target.closest('.search-item');
+    if (!row || e.target !== row) return;
+    const rows = visibleRows();
+    const index = rows.indexOf(row);
+    const move = (next) => {
+        if (!next) return;
+        e.preventDefault();
+        row.tabIndex = -1;
+        next.tabIndex = 0;
+        next.focus();
+    };
+    if (e.key === 'ArrowDown') move(rows[index + 1]);
+    if (e.key === 'ArrowUp') move(rows[index - 1]);
+    if (e.key === 'Enter') {
+        e.preventDefault();
+        const chip = row.querySelector('code');
+        if (chip) copyText(chip, chip.innerText);
+    }
+    if (e.key === 'l') {
+        const link = row.querySelector('.row-link');
+        if (link) link.click();
+    }
+});
+searchInput.addEventListener('keydown', (e) => {
+    if (e.key !== 'ArrowDown') return;
+    const rows = visibleRows();
+    if (rows[0]) { e.preventDefault(); rows[0].focus(); }
+});
+
+// --- SINCE YOUR LAST VISIT ---
+const versionNumber = (v) => v.replace(/^v/, '').split('.').map(Number).reduce((a, b) => a * 1000 + b, 0);
+(async function initSince() {
+    const SEEN_KEY = LS_SEEN;
+    const current = (document.querySelector('.release-tag').textContent.match(/v[\d.]+/) || [])[0];
+    if (!current) return;
+    let data;
+    try {
+        const res = await fetch('changes.json');
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        data = await res.json();
+    } catch (err) {
+        console.warn('changes.json unavailable:', err.message);
+        return;
+    }
+
+    const tagClass = { ADD: 'tag-add', CHG: 'tag-change', DEL: 'tag-remove', FIX: 'tag-fix' };
+    const rows = Array.from(document.querySelectorAll('.search-item'));
+    const byCode = new Map();
+    rows.forEach((row) => row.querySelectorAll('td:first-child code').forEach((chip) => {
+        const key = chip.innerText.trim();
+        if (!byCode.has(key)) byCode.set(key, row);
+    }));
+    const findRow = (entry) => {
+        if (entry.row) return document.getElementById(entry.row);
+        const item = entry.item;
+        if (!item) return null;
+        if (byCode.has(item)) return byCode.get(item);
+        for (const [key, row] of byCode) if (key.startsWith(item + ' ') || key.startsWith(item + '=')) return row;
+        for (const [key, row] of byCode) if (key.includes(item)) return row;
+        return null;
+    };
+
+    const strip = document.getElementById('sinceStrip');
+    const text = document.getElementById('sinceText');
+    const drawer = document.getElementById('sinceDrawer');
+    const body = document.getElementById('sinceBody');
+    const title = document.getElementById('sinceDrawerTitle');
+    const legend = document.getElementById('legendNew');
+
+    function render() {
+        let seen = null;
+        try { seen = localStorage.getItem(SEEN_KEY); } catch (err) {}
+        rows.forEach((row) => row.querySelectorAll('td:first-child code.new').forEach((chip) => chip.classList.remove('new')));
+
+        let releases;
+        if (!seen) releases = data.releases.slice(0, 3);
+        else if (versionNumber(seen) < versionNumber(current)) {
+            releases = data.releases.filter((rel) => versionNumber(rel.version) > versionNumber(seen)
+                && versionNumber(rel.version) <= versionNumber(current));
+        } else releases = [];
+
+        const changes = releases.reduce((sum, rel) => sum + rel.entries.length, 0);
+        legend.textContent = seen ? 'New since your last visit (' + seen + ')' : 'New in the last 3 releases';
+        if (!changes) { strip.hidden = true; drawer.hidden = true; return; }
+
+        const linked = new Set();
+        releases.forEach((rel) => rel.entries.forEach((entry) => {
+            const row = findRow(entry);
+            if (row) { row.querySelector('td:first-child code').classList.add('new'); linked.add(row); }
+        }));
+        text.innerHTML = seen
+            ? '<b>' + releases.length + (releases.length === 1 ? ' release' : ' releases') + ' · ' + changes
+                + (changes === 1 ? ' change' : ' changes') + '</b> since your last visit <code>' + seen
+                + '</code> → <code>' + current + '</code>; ' + linked.size + ' entries highlighted below'
+            : '<b>Welcome.</b> ' + changes + ' changes across the last ' + releases.length
+                + ' releases are highlighted; next time you will see only what changed since today';
+        strip.hidden = false;
+        title.textContent = seen ? 'Since ' + seen : 'Recent changes';
+        body.innerHTML = releases.map((rel) =>
+            '<section class="since-release"><h3>CC ' + rel.label + ' <span>' + rel.date + '</span></h3><ul>'
+            + rel.entries.map((entry) => {
+                const row = findRow(entry);
+                return '<li' + (row ? ' data-row="' + row.id + '"' : ' class="unlinked"') + '><span class="tag '
+                    + (tagClass[entry.tag] || 'tag-add') + '">' + entry.tag + '</span><span>' + entry.html + '</span></li>';
+            }).join('') + '</ul></section>').join('');
+    }
+    render();
+
+    const markRead = () => {
+        try { localStorage.setItem(SEEN_KEY, current); } catch (err) {}
+        render();
+    };
+    document.getElementById('sinceShow').addEventListener('click', () => {
+        drawer.hidden = false;
+        document.getElementById('sinceClose').focus();
+    });
+    document.getElementById('sinceClose').addEventListener('click', () => { drawer.hidden = true; });
+    document.getElementById('sinceRead').addEventListener('click', markRead);
+    document.getElementById('sinceReadAll').addEventListener('click', markRead);
+    body.addEventListener('click', (e) => {
+        const item = e.target.closest('li[data-row]');
+        if (!item) return;
+        const row = document.getElementById(item.dataset.row);
+        if (!row) return;
+        row.scrollIntoView({ block: 'center', behavior: 'smooth' });
+        row.classList.remove('flash');
+        void row.offsetWidth;
+        row.classList.add('flash');
+    });
+    window.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !drawer.hidden) drawer.hidden = true; });
+})();
+    </script>
+</body>
+</html>
