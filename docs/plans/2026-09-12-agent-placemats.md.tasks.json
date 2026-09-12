@@ -5,13 +5,13 @@
   {
    "id": 0,
    "subject": "Task 0: Preflight & repo bootstrap",
-   "status": "pending",
+   "status": "completed",
    "description": "**Goal:** The agent-placemats GitHub repo exists, is cloned to ~/projects/agent-placemats, has Pages + repo hygiene configured, and carries this plan.\n\n**Files:**\n- Create: ~/projects/agent-placemats/ (clone), docs/plans/ copies of plan + tasks.json, LICENSE (MIT from CC placemat), .gitignore\n\n**Acceptance Criteria:**\n- gh repo view dommango/agent-placemats succeeds; public, described\n- delete_branch_on_merge true\n- Plan, tasks.json, LICENSE, .gitignore committed to main; project code APM registered; Pages enabled from main root\n\n**Verify:** gh api repos/dommango/agent-placemats --jq '.delete_branch_on_merge' -> true; ls ~/projects/agent-placemats/docs/plans/ shows both files.\n\n**Steps:** gh repo create --public --clone; PATCH delete_branch_on_merge; copy LICENSE/plan/tasks; project-code.sh set agent-placemats APM; commit+push main; enable Pages (source branch main path /).\n\n```json:metadata\n{\"files\": [\"LICENSE\", \".gitignore\", \"docs/plans/2026-09-12-agent-placemats.md\"], \"verifyCommand\": \"gh api repos/dommango/agent-placemats --jq '.delete_branch_on_merge'\", \"acceptanceCriteria\": [\"repo exists public\", \"delete_branch_on_merge true\", \"plan committed\", \"Pages enabled\"]}\n```"
   },
   {
    "id": 1,
    "subject": "Task 1: Import the v1.2 template",
-   "status": "pending",
+   "status": "completed",
    "blockedBy": [
     0
    ],
@@ -20,7 +20,7 @@
   {
    "id": 2,
    "subject": "Task 2: Parameterize the template",
-   "status": "pending",
+   "status": "completed",
    "blockedBy": [
     1
    ],
@@ -29,7 +29,7 @@
   {
    "id": 3,
    "subject": "Task 3: Generalize scripts/build-changes.js",
-   "status": "pending",
+   "status": "completed",
    "blockedBy": [
     2
    ],
@@ -38,7 +38,7 @@
   {
    "id": 4,
    "subject": "Task 4: Generalize the test suite",
-   "status": "pending",
+   "status": "completed",
    "blockedBy": [
     3
    ],
@@ -47,7 +47,7 @@
   {
    "id": 5,
    "subject": "Task 5: CI workflow",
-   "status": "pending",
+   "status": "in_progress",
    "blockedBy": [
     4
    ],
@@ -153,5 +153,5 @@
    "description": "**Goal:** Live site complete, discoverable, cross-linked.\n\n**Files:**\n- Create: og-image.png (1200x630 hub screenshot via chrome-devtools-axi; defer with a note if tool unavailable)\n- Modify: README.md; separate PR to dommango/claude-code-placemat adding footer link 'More agent placemats →' (following THAT repo's rules: changelog Template/Structure entry, build-changes, tests)\n- Create: project memory in ~/.claude/projects/-home-dom-projects-agent-placemats/memory/ (+ MEMORY.md line): what the repo is, plan/D-decisions location, routine names\n\n**Acceptance Criteria:**\n- Hub + three placemat URLs return 200; feeds resolve\n- og-image committed (or deferral noted); CC placemat PR merged; memory written\n\n**Verify:** for u in \"\" codex/ kimi-code/ hermes/; do curl -so /dev/null -w \"%{http_code} \" https://dommango.github.io/agent-placemats/$u; done -> 200 200 200 200.\n\n```json:metadata\n{\"files\": [\"og-image.png\", \"README.md\"], \"verifyCommand\": \"curl -so /dev/null -w '%{http_code}' https://dommango.github.io/agent-placemats/\", \"acceptanceCriteria\": [\"all URLs 200\", \"cross-link PR merged\", \"memory written\"]}\n```"
   }
  ],
- "lastUpdated": "2026-09-12T18:05:00Z"
+ "lastUpdated": "2026-09-12T18:10:20.611228+00:00"
 }
