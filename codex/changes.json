@@ -7,7 +7,48 @@
    "label": "Codex CLI v0.154.0",
    "date": "2026-09-09",
    "id": "rel-0-154-0",
-   "entries": []
+   "entries": [
+    {
+     "tag": "ADD",
+     "item": "card-keys",
+     "html": "<code>card-keys</code> — initial reference: composer shortcuts, working-turn keys, <code>/keymap</code> and TUI appearance (19 rows)"
+    },
+    {
+     "tag": "ADD",
+     "item": "card-slash-core",
+     "html": "<code>card-slash-core</code> — initial reference: model, permissions, session lifecycle, context and background terminals (26 rows)"
+    },
+    {
+     "tag": "ADD",
+     "item": "card-slash-tools",
+     "html": "<code>card-slash-tools</code> — initial reference: extensibility commands, Windows sandbox helpers, account and diagnostics (17 rows)"
+    },
+    {
+     "tag": "ADD",
+     "item": "card-cli",
+     "html": "<code>card-cli</code> — initial reference: global flags plus every documented subcommand (47 rows)"
+    },
+    {
+     "tag": "ADD",
+     "item": "card-settings",
+     "html": "<code>card-settings</code> — initial reference: 63 curated <code>config.toml</code> keys across model, approvals, sandbox, MCP, providers, TUI and features"
+    },
+    {
+     "tag": "ADD",
+     "item": "card-env",
+     "html": "<code>card-env</code> — initial reference: the complete stable public environment-variable set, including <code>CODEX_HOME</code> (12 rows)"
+    },
+    {
+     "tag": "ADD",
+     "item": "card-skills",
+     "html": "<code>card-skills</code> — initial reference: skill scopes, plugins and marketplaces, <code>AGENTS.md</code> merge order, subagents (19 rows)"
+    },
+    {
+     "tag": "ADD",
+     "item": "card-hooks",
+     "html": "<code>card-hooks</code> — initial reference: 12 lifecycle events, hook trust, MCP client config, sandbox modes and execpolicy (17 rows)"
+    }
+   ]
   }
  ]
 }

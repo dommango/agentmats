@@ -6,10 +6,10 @@
   <id>https://dommango.github.io/agent-placemats/codex/</id>
   <updated>2026-09-09T09:00:00Z</updated>
   <entry>
-    <title>Codex CLI v0.154.0 — 0 placemat changes</title>
+    <title>Codex CLI v0.154.0 — 8 placemat changes</title>
     <id>https://dommango.github.io/agent-placemats/codex/changelog.html#rel-0-154-0</id>
     <link href="https://dommango.github.io/agent-placemats/codex/changelog.html#rel-0-154-0"/>
     <updated>2026-09-09T09:00:00Z</updated>
-    <content type="html">&lt;ul&gt;&lt;/ul&gt;</content>
+    <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;card-keys&lt;/code&gt; — initial reference: composer shortcuts, working-turn keys, &lt;code&gt;/keymap&lt;/code&gt; and TUI appearance (19 rows)&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;card-slash-core&lt;/code&gt; — initial reference: model, permissions, session lifecycle, context and background terminals (26 rows)&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;card-slash-tools&lt;/code&gt; — initial reference: extensibility commands, Windows sandbox helpers, account and diagnostics (17 rows)&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;card-cli&lt;/code&gt; — initial reference: global flags plus every documented subcommand (47 rows)&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;card-settings&lt;/code&gt; — initial reference: 63 curated &lt;code&gt;config.toml&lt;/code&gt; keys across model, approvals, sandbox, MCP, providers, TUI and features&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;card-env&lt;/code&gt; — initial reference: the complete stable public environment-variable set, including &lt;code&gt;CODEX_HOME&lt;/code&gt; (12 rows)&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;card-skills&lt;/code&gt; — initial reference: skill scopes, plugins and marketplaces, &lt;code&gt;AGENTS.md&lt;/code&gt; merge order, subagents (19 rows)&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;card-hooks&lt;/code&gt; — initial reference: 12 lifecycle events, hook trust, MCP client config, sandbox modes and execpolicy (17 rows)&lt;/li&gt;&lt;/ul&gt;</content>
   </entry>
 </feed>

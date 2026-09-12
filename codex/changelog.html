@@ -168,11 +168,30 @@
 
                         <div class="change-section">
                             <h3 id="rel-0-154-0">Codex CLI v0.154.0 <span class="version-date">2026-09-09</span></h3>
-                            <ul class="change-list"></ul>
+                            <ul class="change-list">
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>card-keys</code> — initial reference: composer shortcuts, working-turn keys, <code>/keymap</code> and TUI appearance (19 rows)</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>card-slash-core</code> — initial reference: model, permissions, session lifecycle, context and background terminals (26 rows)</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>card-slash-tools</code> — initial reference: extensibility commands, Windows sandbox helpers, account and diagnostics (17 rows)</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>card-cli</code> — initial reference: global flags plus every documented subcommand (47 rows)</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>card-settings</code> — initial reference: 63 curated <code>config.toml</code> keys across model, approvals, sandbox, MCP, providers, TUI and features</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>card-env</code> — initial reference: the complete stable public environment-variable set, including <code>CODEX_HOME</code> (12 rows)</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>card-skills</code> — initial reference: skill scopes, plugins and marketplaces, <code>AGENTS.md</code> merge order, subagents (19 rows)</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>card-hooks</code> — initial reference: 12 lifecycle events, hook trust, MCP client config, sandbox modes and execpolicy (17 rows)</span></li>
+                            </ul>
                         </div>
 
                     </div>
                 </details>
+            </div>
+
+            <div class="change-section">
+                <h3>Template / Structure</h3>
+                <ul class="change-list">
+                    <li><span class="tag tag-add">ADD</span><span class="entry">v1.0 — template derived from <code>claude-code-placemat</code> v1.2</span></li>
+                    <li><span class="tag tag-change">CHG</span><span class="entry">Stylesheet and page script moved to <code>shared/</code>; each placemat sets its own accent via a small <code>:root</code> override and declares itself with <code>&lt;html data-agent&gt;</code></span></li>
+                    <li><span class="tag tag-change">CHG</span><span class="entry">Per-agent <code>localStorage</code> keys (<code>pm-codex-seen-version</code>, <code>pm-codex-collapsed</code>); theme and density stay shared across every placemat on this origin</span></li>
+                    <li><span class="tag tag-remove">DEL</span><span class="entry">Command builder — it generated <code>claude</code> invocations and did not carry over</span></li>
+                </ul>
             </div>
         </div>
 
