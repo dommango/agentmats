@@ -1,0 +1,35 @@
+{
+  "name": "Kimi Code",
+  "vendor": "Moonshot AI",
+  "version_poll": {
+    "url": "https://moonshotai.github.io/kimi-code/en/release-notes/changelog.md",
+    "filter": "top '## X.Y.Z (YYYY-MM-DD)' heading",
+    "transform": "version = heading version; sections Features/Polish/Bug Fixes are the release notes"
+  },
+  "cross_check": "https://api.github.com/repos/MoonshotAI/kimi-code/releases (strip tag prefix '@moonshot-ai/kimi-code@'); https://registry.npmjs.org/@moonshot-ai/kimi-code",
+  "release_notes": "Use the curated docs changelog blocks; EXCLUDE entries prefixed 'web:' (web UI, not the CLI). Deep technical detail: https://raw.githubusercontent.com/MoonshotAI/kimi-code/main/apps/kimi-code/CHANGELOG.md",
+  "docs": {
+    "index": "https://moonshotai.github.io/kimi-code/llms.txt",
+    "cli_reference": "https://moonshotai.github.io/kimi-code/en/reference/kimi-command.md",
+    "slash_commands": "https://moonshotai.github.io/kimi-code/en/reference/slash-commands.md",
+    "keyboard": "https://moonshotai.github.io/kimi-code/en/reference/keyboard.md",
+    "tools": "https://moonshotai.github.io/kimi-code/en/reference/tools.md",
+    "config": "https://moonshotai.github.io/kimi-code/en/configuration/config-files.md",
+    "env": "https://moonshotai.github.io/kimi-code/en/configuration/env-vars.md",
+    "overrides": "https://moonshotai.github.io/kimi-code/en/configuration/overrides.md",
+    "data_locations": "https://moonshotai.github.io/kimi-code/en/configuration/data-locations.md",
+    "providers": "https://moonshotai.github.io/kimi-code/en/configuration/providers.md",
+    "mcp": "https://moonshotai.github.io/kimi-code/en/customization/mcp.md",
+    "skills": "https://moonshotai.github.io/kimi-code/en/customization/skills.md",
+    "hooks": "https://moonshotai.github.io/kimi-code/en/customization/hooks.md",
+    "agents": "https://moonshotai.github.io/kimi-code/en/customization/agents.md",
+    "plugins": "https://moonshotai.github.io/kimi-code/en/customization/plugins.md"
+  },
+  "local_binary": "~/.kimi-code/bin/kimi --help (the binary is `kimi`, not `kimi-code`) — useful ground truth, but check its version against the release being synced",
+  "gotchas": [
+    "Docs are bilingual — only use /en/ pages; llms.txt interleaves /zh/ entries",
+    "Binary is `kimi`, package/repo are kimi-code; ignore stale 'kimi-cli' content elsewhere",
+    "KIMI_CODE_EXPERIMENTAL_* env flags churn within ~2 releases — expect DEL entries when a feature becomes always-on",
+    "Any docs page is fetchable as raw markdown by appending .md"
+  ]
+}

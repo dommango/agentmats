@@ -1,0 +1,37 @@
+{
+  "name": "Codex CLI",
+  "vendor": "OpenAI",
+  "version_poll": {
+    "url": "https://api.github.com/repos/openai/codex/releases?per_page=30",
+    "filter": "tag_name starts with 'rust-v' AND prerelease == false AND draft == false",
+    "transform": "version = tag_name without 'rust-v' prefix"
+  },
+  "cross_check": "https://registry.npmjs.org/@openai/codex (dist-tags.latest)",
+  "release_notes": "Use the release body ABOVE the '## Changelog' heading only; below it is auto-generated PR spam.",
+  "docs": {
+    "index": "https://learn.chatgpt.com/docs/llms.txt",
+    "cli_reference": "https://learn.chatgpt.com/docs/developer-commands?surface=cli",
+    "config_reference": "https://learn.chatgpt.com/docs/config-file/config-reference",
+    "config_basic": "https://learn.chatgpt.com/docs/config-file/config-basic",
+    "config_advanced": "https://learn.chatgpt.com/docs/config-file/config-advanced",
+    "env": "https://learn.chatgpt.com/docs/config-file/environment-variables",
+    "hooks": "https://learn.chatgpt.com/docs/hooks",
+    "skills": "https://learn.chatgpt.com/docs/build-skills",
+    "plugins": "https://learn.chatgpt.com/docs/plugins",
+    "mcp": "https://learn.chatgpt.com/docs/extend/mcp",
+    "agents_md": "https://learn.chatgpt.com/docs/agent-configuration/agents-md",
+    "subagents": "https://learn.chatgpt.com/docs/agent-configuration/subagents",
+    "cli_customization": "https://learn.chatgpt.com/docs/cli-customization",
+    "changelog_page": "https://learn.chatgpt.com/docs/changelog"
+  },
+  "gotchas": [
+    "developers.openai.com/codex/* 308-redirects to learn.chatgpt.com — follow redirects, expect URL churn",
+    "Append .md for raw markdown; the global-flags table is a client-rendered <ConfigTable> stub in .md — use `codex --help` instead",
+    "The whole config reference is one <ConfigTable options={[...]}> JS array, not a markdown table — parse the key/type/description entries",
+    "Pin ?surface=cli — wrong surface silently serves desktop-app content",
+    "/docs/changelog.md 404s; the release bodies on GitHub are the changelog source",
+    "Patch bursts: batch multiple stable releases into one ranged changelog heading",
+    "Docs pages can describe commands that do not exist in the shipped CLI (0.154.0 documents `codex app`, which is not a subcommand) — confirm against `codex --help` before adding a row",
+    "Some real commands are hidden from top-level --help (`codex execpolicy`) — the docs are the source for those"
+  ]
+}

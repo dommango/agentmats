@@ -1,0 +1,36 @@
+{
+  "name": "Hermes Agent",
+  "vendor": "Nous Research",
+  "version_poll": {
+    "url": "https://api.github.com/repos/NousResearch/hermes-agent/releases",
+    "filter": "newest non-draft, non-prerelease release",
+    "transform": "date tag vYYYY.M.D(.N) from tag_name; semver app version from the release title, e.g. 'Hermes Agent v0.21.2 (v2026.9.11)'; display 'vX.Y.Z (YYYY.M.D)'; use the semver for the changelog id"
+  },
+  "cross_check": "release title vs tag; NEVER use PyPI hermes-agent (lags badly)",
+  "release_notes": "Narrative essays covering hundreds of commits — summarize, extracting ONLY items touching the scope_allowlist surface; ignore everything else.",
+  "docs": {
+    "index": "https://hermes-agent.nousresearch.com/docs/llms.txt",
+    "cli_commands": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+    "cli_guide": "https://hermes-agent.nousresearch.com/docs/user-guide/cli",
+    "slash_commands": "https://hermes-agent.nousresearch.com/docs/reference/slash-commands",
+    "profile_commands": "https://hermes-agent.nousresearch.com/docs/reference/profile-commands",
+    "tui": "https://hermes-agent.nousresearch.com/docs/user-guide/tui",
+    "cli_symbols": "https://hermes-agent.nousresearch.com/docs/reference/cli-symbols",
+    "config": "https://hermes-agent.nousresearch.com/docs/user-guide/configuration",
+    "env": "https://hermes-agent.nousresearch.com/docs/reference/environment-variables",
+    "mcp": "https://hermes-agent.nousresearch.com/docs/reference/mcp-config-reference",
+    "skills_catalog": "https://hermes-agent.nousresearch.com/docs/reference/skills-catalog",
+    "context_files": "https://hermes-agent.nousresearch.com/docs/user-guide/features/context-files",
+    "raw_mirror": "https://raw.githubusercontent.com/NousResearch/hermes-agent/main/website/docs/<path>.md"
+  },
+  "scope_allowlist": ["chat", "model", "moa", "fallback", "gateway", "lsp", "setup", "config", "auth", "profile", "skills", "bundles", "plugins", "mcp", "memory", "tools", "sessions", "cron", "kanban", "project", "hooks", "doctor", "dump", "prompt-size", "debug", "update", "logs", "backup", "checkpoints", "import", "import-agent", "acp", "security", "completion", "migrate", "status"],
+  "scope_denylist": ["whatsapp", "whatsapp-cloud", "slack", "send", "peer", "webhook", "pairing", "voice", "wake", "pets", "hatch", "dashboard", "desktop", "computer-use", "curator", "journey", "learning", "memory-graph", "proxy", "egress", "secrets", "claw", "serve", "insights", "handoff", "topup", "subscription"],
+  "gotchas": [
+    "General-purpose agent — placemat covers the CLI/TUI coding surface ONLY (scope_allowlist); never add anything on the scope_denylist",
+    "The docs site 404s on .md — ALWAYS fetch markdown from raw_mirror instead",
+    "Dual versioning: date tag + semver title; tag date can differ from publish date; same-day .N patch tags",
+    "llms-full.txt is ~3.7 MB — never ingest whole; use /docs/llms.txt to detect page churn",
+    "Docs pages rename frequently — re-derive paths from llms.txt when a fetch 404s",
+    "The scope note beside the legend must stay generic: naming excluded features in index.html would defeat the denylist grep that guards the scope"
+  ]
+}

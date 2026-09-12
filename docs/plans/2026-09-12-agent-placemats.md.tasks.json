@@ -101,7 +101,7 @@
   {
    "id": 11,
    "subject": "Task 11: Hub page",
-   "status": "in_progress",
+   "status": "completed",
    "blockedBy": [
     10
    ],
@@ -110,7 +110,7 @@
   {
    "id": 12,
    "subject": "Task 12: Rosetta card (cross-agent equivalents)",
-   "status": "pending",
+   "status": "completed",
    "blockedBy": [
     11
    ],
@@ -119,7 +119,7 @@
   {
    "id": 13,
    "subject": "Task 13: Pipeline manifests (sources.json + PIPELINE.md x3)",
-   "status": "pending",
+   "status": "in_progress",
    "blockedBy": [
     12
    ],
@@ -153,5 +153,5 @@
    "description": "**Goal:** Live site complete, discoverable, cross-linked.\n\n**Files:**\n- Create: og-image.png (1200x630 hub screenshot via chrome-devtools-axi; defer with a note if tool unavailable)\n- Modify: README.md; separate PR to dommango/claude-code-placemat adding footer link 'More agent placemats →' (following THAT repo's rules: changelog Template/Structure entry, build-changes, tests)\n- Create: project memory in ~/.claude/projects/-home-dom-projects-agent-placemats/memory/ (+ MEMORY.md line): what the repo is, plan/D-decisions location, routine names\n\n**Acceptance Criteria:**\n- Hub + three placemat URLs return 200; feeds resolve\n- og-image committed (or deferral noted); CC placemat PR merged; memory written\n\n**Verify:** for u in \"\" codex/ kimi-code/ hermes/; do curl -so /dev/null -w \"%{http_code} \" https://dommango.github.io/agent-placemats/$u; done -> 200 200 200 200.\n\n```json:metadata\n{\"files\": [\"og-image.png\", \"README.md\"], \"verifyCommand\": \"curl -so /dev/null -w '%{http_code}' https://dommango.github.io/agent-placemats/\", \"acceptanceCriteria\": [\"all URLs 200\", \"cross-link PR merged\", \"memory written\"]}\n```"
   }
  ],
- "lastUpdated": "2026-09-12T18:27:57.321699+00:00"
+ "lastUpdated": "2026-09-12T18:30:33.592296+00:00"
 }
