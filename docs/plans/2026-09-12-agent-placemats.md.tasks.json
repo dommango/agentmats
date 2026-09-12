@@ -47,7 +47,7 @@
   {
    "id": 5,
    "subject": "Task 5: CI workflow",
-   "status": "in_progress",
+   "status": "completed",
    "blockedBy": [
     4
    ],
@@ -56,7 +56,7 @@
   {
    "id": 6,
    "subject": "Task 6: Repo docs (AGENTS.md / CLAUDE.md / README)",
-   "status": "pending",
+   "status": "in_progress",
    "blockedBy": [
     5
    ],
@@ -153,5 +153,5 @@
    "description": "**Goal:** Live site complete, discoverable, cross-linked.\n\n**Files:**\n- Create: og-image.png (1200x630 hub screenshot via chrome-devtools-axi; defer with a note if tool unavailable)\n- Modify: README.md; separate PR to dommango/claude-code-placemat adding footer link 'More agent placemats →' (following THAT repo's rules: changelog Template/Structure entry, build-changes, tests)\n- Create: project memory in ~/.claude/projects/-home-dom-projects-agent-placemats/memory/ (+ MEMORY.md line): what the repo is, plan/D-decisions location, routine names\n\n**Acceptance Criteria:**\n- Hub + three placemat URLs return 200; feeds resolve\n- og-image committed (or deferral noted); CC placemat PR merged; memory written\n\n**Verify:** for u in \"\" codex/ kimi-code/ hermes/; do curl -so /dev/null -w \"%{http_code} \" https://dommango.github.io/agent-placemats/$u; done -> 200 200 200 200.\n\n```json:metadata\n{\"files\": [\"og-image.png\", \"README.md\"], \"verifyCommand\": \"curl -so /dev/null -w '%{http_code}' https://dommango.github.io/agent-placemats/\", \"acceptanceCriteria\": [\"all URLs 200\", \"cross-link PR merged\", \"memory written\"]}\n```"
   }
  ],
- "lastUpdated": "2026-09-12T18:10:20.611228+00:00"
+ "lastUpdated": "2026-09-12T18:11:18.722767+00:00"
 }
