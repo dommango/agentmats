@@ -1,0 +1,157 @@
+{
+ "planPath": "docs/plans/2026-09-12-agent-placemats.md",
+ "note": "Canonical copy of the plan + task state. Run sessions from ~/projects/agent-placemats.",
+ "tasks": [
+  {
+   "id": 0,
+   "subject": "Task 0: Preflight & repo bootstrap",
+   "status": "pending",
+   "description": "**Goal:** The agent-placemats GitHub repo exists, is cloned to ~/projects/agent-placemats, has Pages + repo hygiene configured, and carries this plan.\n\n**Files:**\n- Create: ~/projects/agent-placemats/ (clone), docs/plans/ copies of plan + tasks.json, LICENSE (MIT from CC placemat), .gitignore\n\n**Acceptance Criteria:**\n- gh repo view dommango/agent-placemats succeeds; public, described\n- delete_branch_on_merge true\n- Plan, tasks.json, LICENSE, .gitignore committed to main; project code APM registered; Pages enabled from main root\n\n**Verify:** gh api repos/dommango/agent-placemats --jq '.delete_branch_on_merge' -> true; ls ~/projects/agent-placemats/docs/plans/ shows both files.\n\n**Steps:** gh repo create --public --clone; PATCH delete_branch_on_merge; copy LICENSE/plan/tasks; project-code.sh set agent-placemats APM; commit+push main; enable Pages (source branch main path /).\n\n```json:metadata\n{\"files\": [\"LICENSE\", \".gitignore\", \"docs/plans/2026-09-12-agent-placemats.md\"], \"verifyCommand\": \"gh api repos/dommango/agent-placemats --jq '.delete_branch_on_merge'\", \"acceptanceCriteria\": [\"repo exists public\", \"delete_branch_on_merge true\", \"plan committed\", \"Pages enabled\"]}\n```"
+  },
+  {
+   "id": 1,
+   "subject": "Task 1: Import the v1.2 template",
+   "status": "pending",
+   "blockedBy": [
+    0
+   ],
+   "description": "**Goal:** Template files from the CC placemat v1.2 land in the new repo's layout, unmodified (import-only commit on branch feat/scaffold).\n\n**Files:**\n- Create: shared/placemat.css, codex/index.html, codex/changelog.html, scripts/build-changes.js, tests/placemat.test.js, .github/workflows/ci.yml — all copies from the v1.2 source (claude-code-placemat main if feat/placemat-v1.2 merged, else ~/projects/claude-code-placemat/.worktrees/audit/)\n\n**Acceptance Criteria:**\n- All files byte-identical to template source\n- Committed on feat/scaffold as an import-only commit\n\n**Verify:** diff each copied file against its source -> empty.\n\n```json:metadata\n{\"files\": [\"shared/placemat.css\", \"codex/index.html\", \"codex/changelog.html\", \"scripts/build-changes.js\", \"tests/placemat.test.js\", \".github/workflows/ci.yml\"], \"verifyCommand\": \"diff $SRC/placemat.css shared/placemat.css\", \"acceptanceCriteria\": [\"byte-identical copies\", \"import-only commit\"]}\n```"
+  },
+  {
+   "id": 2,
+   "subject": "Task 2: Parameterize the template",
+   "status": "pending",
+   "blockedBy": [
+    1
+   ],
+   "description": "**Goal:** codex/index.html becomes an agent-neutral template instance: shared CSS/JS paths, accent slots, per-agent localStorage keys, disclaimer, command-builder removed. CC table rows stay (replaced in Task 7).\n\n**Files:**\n- Modify: shared/placemat.css, codex/index.html, codex/changelog.html\n- Create: shared/placemat.js\n\n**Acceptance Criteria:**\n- --coral/--teal renamed --accent-1/--accent-2 (values unchanged); codex override :root{--accent-1:#10a37f;--accent-2:#6e7681}\n- html data-agent=\"codex\"; title 'Codex CLI Placemat (Unofficial)'; release tag 'As of release: v0.154.0'; matching .print-head; footer sync 2026-09-09; OpenAI disclaimer in footer; og/canonical metas updated\n- Big script extracted to shared/placemat.js (defer src); theme-init stays inline; storage keys derived from data-agent (pm-<agent>-seen-version, pm-<agent>-collapsed); placemat-theme/placemat-density stay literal\n- Command-builder card + JS removed\n- changelog.html: shared CSS + accent override, one placeholder section <h3 id=\"rel-0-154-0\">Codex CLI v0.154.0 <span class=\"version-date\">2026-09-09</span></h3> with empty change-list\n- Page renders + functions in real browser (search, theme, fold, notes, copy)\n\n**Verify:** node --check shared/placemat.js; grep -c 'coral' shared/placemat.css -> 0; chrome-devtools-axi open http://localhost:8000/codex/ -> renders, no console errors.\n\n```json:metadata\n{\"files\": [\"shared/placemat.css\", \"shared/placemat.js\", \"codex/index.html\", \"codex/changelog.html\"], \"verifyCommand\": \"node --check shared/placemat.js && grep -c coral shared/placemat.css\", \"acceptanceCriteria\": [\"accent slots renamed\", \"JS extracted with per-agent keys\", \"builder removed\", \"browser-verified\"]}\n```"
+  },
+  {
+   "id": 3,
+   "subject": "Task 3: Generalize scripts/build-changes.js",
+   "status": "pending",
+   "blockedBy": [
+    2
+   ],
+   "description": "**Goal:** Generator takes an agent dir argument and derives that agent's changes.json + feed.xml. Full replacement code is in the plan doc (Task 3 Step 1) — use it verbatim.\n\n**Files:**\n- Modify: scripts/build-changes.js\n\n**Acceptance Criteria:**\n- node scripts/build-changes.js codex writes codex/changes.json + codex/feed.xml; --check exits 1 on stale; --all iterates AGENTS map {codex, kimi-code, hermes}\n- Version extraction handles 'Codex CLI v0.154.0', ranged 'v0.153.0–v0.154.0' (last), and 'Hermes Agent v0.21.2 (2026.9.11)' (semver token)\n\n**Verify:** node scripts/build-changes.js codex && node scripts/build-changes.js codex --check -> 'up to date'.\n\n```json:metadata\n{\"files\": [\"scripts/build-changes.js\"], \"verifyCommand\": \"node scripts/build-changes.js codex --check\", \"acceptanceCriteria\": [\"per-agent arg\", \"--all mode\", \"version label edge cases handled\"]}\n```"
+  },
+  {
+   "id": 4,
+   "subject": "Task 4: Generalize the test suite",
+   "status": "pending",
+   "blockedBy": [
+    3
+   ],
+   "description": "**Goal:** tests/placemat.test.js runs against any agent dir (arg) or all built agents (no arg), with CC-specific assertions dropped/generalized.\n\n**Files:**\n- Modify: tests/placemat.test.js\n\n**Acceptance Criteria:**\n- Paths from agent-dir arg; CSS at shared/placemat.css; no-arg loops ['codex','kimi-code','hermes'] skipping unbuilt dirs with a warning\n- Script test adapted: exactly 1 inline script (theme-init) + 1 src=../shared/placemat.js; validity checks cover inline block AND shared/placemat.js\n- Dropped: 'Config card is split', both command-builder tests\n- Generalized: eight canonical card ids in order (card-keys, card-slash-core, card-slash-tools, card-cli, card-settings, card-env, card-skills, card-hooks); changelog ids rel-…; per-agent release-tag/footer/print-head parity\n- Suite green against codex/ in its Task-2 state\n\n**Verify:** node tests/placemat.test.js codex -> all pass; node tests/placemat.test.js -> runs codex, warns kimi-code/hermes missing.\n\n```json:metadata\n{\"files\": [\"tests/placemat.test.js\"], \"verifyCommand\": \"node tests/placemat.test.js codex\", \"acceptanceCriteria\": [\"per-agent arg + all mode\", \"script-extraction adaptation\", \"CC-specific tests dropped\", \"green on codex\"]}\n```"
+  },
+  {
+   "id": 5,
+   "subject": "Task 5: CI workflow",
+   "status": "pending",
+   "blockedBy": [
+    4
+   ],
+   "description": "**Goal:** One workflow validates HTML/CSS and runs tests + staleness for every agent on PRs and main pushes. Full YAML in plan doc Task 5 Step 1 — use verbatim.\n\n**Files:**\n- Modify: .github/workflows/ci.yml\n\n**Acceptance Criteria:**\n- Passes on the feat/scaffold PR; versions/ excluded from validation; runs node tests/placemat.test.js and node scripts/build-changes.js --all --check\n- feat/scaffold squash-merged to main after green\n\n**Verify:** gh pr checks -> both jobs green.\n\n```json:metadata\n{\"files\": [\".github/workflows/ci.yml\"], \"verifyCommand\": \"gh pr checks\", \"acceptanceCriteria\": [\"CI green on scaffold PR\", \"merged to main\"]}\n```"
+  },
+  {
+   "id": 6,
+   "subject": "Task 6: Repo docs (AGENTS.md / CLAUDE.md / README)",
+   "status": "pending",
+   "blockedBy": [
+    5
+   ],
+   "description": "**Goal:** The new repo carries agent guidance (structure, canonical card ids, content rules inherited from CC placemat, localStorage scheme, commands, pipeline overview, do-nots) so future sessions and sync routines work without the plan. Outline in plan doc Task 6.\n\n**Files:**\n- Create: AGENTS.md, CLAUDE.md (exactly '@AGENTS.md'), README.md\n\n**Acceptance Criteria:**\n- AGENTS.md covers all sections listed in the plan outline, with CC content rules copied nearly verbatim (cc-v ids -> rel- ids, per-agent official docs links, pm-<agent> storage keys)\n- README: what/live URL/four placemats incl external CC/disclaimer/local preview\n\n**Verify:** node tests/placemat.test.js codex still green; head -40 AGENTS.md sensible.\n\n```json:metadata\n{\"files\": [\"AGENTS.md\", \"CLAUDE.md\", \"README.md\"], \"verifyCommand\": \"node tests/placemat.test.js codex\", \"acceptanceCriteria\": [\"AGENTS.md complete per outline\", \"README complete\", \"PR merged\"]}\n```"
+  },
+  {
+   "id": 7,
+   "subject": "Task 7: Codex placemat content",
+   "status": "pending",
+   "blockedBy": [
+    6
+   ],
+   "description": "**Goal:** codex/index.html carries real Codex CLI v0.154.0 content in all eight cards, replacing every CC row. Use the Codex fact sheet in the plan doc (sources, URLs, traps).\n\n**Files:**\n- Modify: codex/index.html\n\n**Acceptance Criteria:**\n- card-keys 'Keyboard & TUI' ~12-18 rows (interactive shortcuts, /keymap, tui.keymap.*, Ctrl+G, themes, completions)\n- card-slash-core + card-slash-tools from the 50-row slash table (~25 each; extensibility commands like /mcp /plugins /hooks /skills /memories /import /worktree in tools)\n- card-cli global flags + 27 subcommands (~35 rows, grouped details)\n- card-settings curated ~40 of ~180 config keys in groups (Core/MCP/Providers/TUI/Hooks/Features/Managed); depth in notes\n- card-env ~10 rows incl CODEX_HOME; card-skills skills+deprecated-prompts note+plugins+AGENTS.md merge order+subagents (~15); card-hooks hooks+MCP client+MCP server (0.154.0 entry-point removal)+sandbox/execpolicy (~15)\n- Total 150-220 rows; all verified against cited pages or codex --help; unverified class where not confirmable; row format per AGENTS.md\n\n**Verify:** node tests/placemat.test.js codex green; browser search finds approval_policy, /permissions, codex exec.\n\n```json:metadata\n{\"files\": [\"codex/index.html\"], \"verifyCommand\": \"node tests/placemat.test.js codex\", \"acceptanceCriteria\": [\"eight cards populated per map\", \"no CC rows remain\", \"150-220 verified rows\", \"browser search spot-checks pass\"]}\n```"
+  },
+  {
+   "id": 8,
+   "subject": "Task 8: Codex changelog seed, generated files, snapshot",
+   "status": "pending",
+   "blockedBy": [
+    7
+   ],
+   "description": "**Goal:** Codex placemat is a complete deployable unit.\n\n**Files:**\n- Modify: codex/changelog.html; Create: codex/changes.json, codex/feed.xml, codex/versions/v1.0.html\n\n**Acceptance Criteria:**\n- Seed section rel-0-154-0 with 8 ADD entries (one per card, coverage summary) + Template/Structure note 'v1.0 — derived from claude-code-placemat v1.2'\n- Generated files fresh; versions/v1.0.html self-contained (shared CSS+JS inlined)\n- PR merged; https://dommango.github.io/agent-placemats/codex/ live\n\n**Verify:** node scripts/build-changes.js codex --check && node tests/placemat.test.js codex; curl live URL contains 'Codex CLI Placemat'.\n\n```json:metadata\n{\"files\": [\"codex/changelog.html\", \"codex/changes.json\", \"codex/feed.xml\", \"codex/versions/v1.0.html\"], \"verifyCommand\": \"node scripts/build-changes.js codex --check && node tests/placemat.test.js codex\", \"acceptanceCriteria\": [\"seed changelog\", \"fresh generated files\", \"self-contained snapshot\", \"live URL serves\"]}\n```"
+  },
+  {
+   "id": 9,
+   "subject": "Task 9: Kimi Code placemat content + seed",
+   "status": "pending",
+   "blockedBy": [
+    8
+   ],
+   "description": "**Goal:** kimi-code/ carries real Kimi Code 0.42.0 content, seeded changelog, generated files, snapshot. Use the Kimi fact sheet in the plan doc. Copy codex/ files as the starting shell; swap identity first (data-agent=kimi-code, title 'Kimi Code Placemat (Unofficial)', accents #4c6ef5/#845ef7, Moonshot disclaimer, release tag 'As of release: v0.42.0', sync 2026-09-09).\n\n**Files:**\n- Create: kimi-code/index.html, kimi-code/changelog.html, kimi-code/changes.json, kimi-code/feed.xml, kimi-code/versions/v1.0.html\n\n**Acceptance Criteria:**\n- Card map per plan: card-keys from keyboard.md (~20); slash-core ~25 + slash-tools ~20 (incl /swarm, /goal family, /import-from-cc-codex, built-in skill commands); card-cli 14 flags + 12 subcommands cross-checked vs local ~/.kimi-code/bin/kimi --help (local is 0.41.0 — diff vs 0.42.0 changelog); card-settings TOML sections (~25); card-env incl KIMI_CODE_HOME + experimental churn note; card-skills agents/override:true security note + AGENTS.md 4 locations; card-hooks '[Hooks & MCP]' incl [[hooks]], acp, server API pointer\n- Total 150-190 verified rows; web-UI-only items excluded\n- Seed rel-0-42-0; generated fresh; snapshot self-contained; PR merged; live URL serves\n\n**Verify:** node tests/placemat.test.js kimi-code && node scripts/build-changes.js kimi-code --check; browser search --yolo, /swarm, config.toml.\n\n```json:metadata\n{\"files\": [\"kimi-code/index.html\", \"kimi-code/changelog.html\", \"kimi-code/changes.json\", \"kimi-code/feed.xml\", \"kimi-code/versions/v1.0.html\"], \"verifyCommand\": \"node tests/placemat.test.js kimi-code && node scripts/build-changes.js kimi-code --check\", \"acceptanceCriteria\": [\"eight cards per map\", \"150-190 verified rows\", \"seeded + generated + snapshot\", \"live\"]}\n```"
+  },
+  {
+   "id": 10,
+   "subject": "Task 10: Hermes Agent placemat content + seed",
+   "status": "pending",
+   "blockedBy": [
+    9
+   ],
+   "description": "**Goal:** hermes/ carries SCOPED Hermes Agent content (v0.21.2 / tag v2026.9.11): CLI/TUI coding surface only, per the scope allowlist in the plan's Hermes fact sheet. Identity: data-agent=hermes, title 'Hermes Agent Placemat (Unofficial)', accents #b8860b/#8b7355, Nous Research disclaimer, release tag 'As of release: v0.21.2 (2026.9.11)', sync 2026-09-11.\n\n**Files:**\n- Create: hermes/index.html, hermes/changelog.html, hermes/changes.json, hermes/feed.xml, hermes/versions/v1.0.html\n\n**Acceptance Criteria:**\n- Scope note near legend (CLI/TUI coding only, links full docs); excluded commands (whatsapp, slack, voice, pets, dashboard, computer-use, curator, journey, proxy, egress, send, peer, webhook) appear nowhere\n- card-keys 'TUI & Symbols' from TUI guide + cli-symbols, inferred bindings unverified (~12-15); slash cards from slash-commands + profile-commands references; card-cli global+chat flags + allowlisted subcommands (~35, grouped); card-settings config.yaml sections incl terminal backends; card-env coding-relevant vars + .env; card-skills agentskills.io + catalogs + context files (AGENTS.md CLAUDE.md .cursorrules .hermes.md SOUL.md MEMORY.md USER.md) + subagents/Codex delegation; card-hooks titled 'Automation & MCP' (cron, loops, heartbeats, kanban lanes, blueprints, MCP, fallback chains, Nous Portal)\n- Total 120-170 rows; seed rel-0-21-2; generated fresh; snapshot; PR merged; live\n\n**Verify:** node tests/placemat.test.js hermes && node scripts/build-changes.js hermes --check; grep -c 'whatsapp\\|pets' hermes/index.html -> 0.\n\n```json:metadata\n{\"files\": [\"hermes/index.html\", \"hermes/changelog.html\", \"hermes/changes.json\", \"hermes/feed.xml\", \"hermes/versions/v1.0.html\"], \"verifyCommand\": \"node tests/placemat.test.js hermes && node scripts/build-changes.js hermes --check\", \"acceptanceCriteria\": [\"scope allowlist enforced\", \"eight cards per map\", \"120-170 rows\", \"seeded + live\"]}\n```"
+  },
+  {
+   "id": 11,
+   "subject": "Task 11: Hub page",
+   "status": "pending",
+   "blockedBy": [
+    10
+   ],
+   "description": "**Goal:** Root index.html: four placemat cards (Claude Code external + the three local) with live 'As of' + 'N changes since your last visit' from each changes.json, links (placemat/changelog/feed/official docs), click-to-copy install one-liners. Full fetch/compare JS is in plan doc Task 11 Step 1 — use verbatim. NEVER write seen-keys from the hub (D7).\n\n**Files:**\n- Create: index.html (repo root)\n\n**Acceptance Criteria:**\n- shared/placemat.css + inline theme-init FOUC guard; neutral accents\n- Graceful degradation to em-dash placeholders when a fetch fails (CC card in local preview); no console errors\n- Disclaimer covering all vendors; repo link\n\n**Verify:** chrome-devtools-axi open http://localhost:8000/ -> three local cards live, CC degrades; deployed hub shows all four.\n\n```json:metadata\n{\"files\": [\"index.html\"], \"verifyCommand\": \"chrome-devtools-axi open http://localhost:8000/\", \"acceptanceCriteria\": [\"four cards with live data\", \"read-only seen keys\", \"graceful degradation\", \"deployed\"]}\n```"
+  },
+  {
+   "id": 12,
+   "subject": "Task 12: Rosetta card (cross-agent equivalents)",
+   "status": "pending",
+   "blockedBy": [
+    11
+   ],
+   "description": "**Goal:** Hub gains the Rosetta table mapping ~17 everyday concepts across Claude Code / Codex CLI / Kimi Code / Hermes Agent. Row content is in plan doc Task 12 Step 1 (verified 2026-09-12 except four flagged cells).\n\n**Files:**\n- Modify: index.html (hub)\n\n**Acceptance Criteria:**\n- details/search-group table, columns Concept + four agents; unverified cells carry class=\"unverified\"; absent features show em-dash; no cell truncated\n- The four flagged (unverified) cells re-checked against current docs before publish\n- Readable at 400px (horizontal scroll container)\n\n**Verify:** browser render at 400px; spot-check three rows against docs.\n\n```json:metadata\n{\"files\": [\"index.html\"], \"verifyCommand\": \"chrome-devtools-axi open http://localhost:8000/\", \"acceptanceCriteria\": [\"table seeded per plan\", \"unverified cells resolved or flagged\", \"mobile-readable\"]}\n```"
+  },
+  {
+   "id": 13,
+   "subject": "Task 13: Pipeline manifests (sources.json + PIPELINE.md x3)",
+   "status": "pending",
+   "blockedBy": [
+    12
+   ],
+   "description": "**Goal:** Each agent dir carries the machine-readable source manifest and prose pipeline rules its daily routine follows. codex/sources.json full content + PIPELINE.md template are in plan doc Task 13; build kimi/hermes manifests from their fact sheets (kimi poll = curated docs changelog .md, strip tag prefix, exclude web: entries; hermes poll = GitHub releases API, dual-version transform, PyPI ban, scope_allowlist array).\n\n**Files:**\n- Create: codex/sources.json, codex/PIPELINE.md, kimi-code/sources.json, kimi-code/PIPELINE.md, hermes/sources.json, hermes/PIPELINE.md\n\n**Acceptance Criteria:**\n- Each sources.json parses via node -e require\n- Each PIPELINE.md has the 8-step common procedure + that agent's traps (codex: rust-v filter + '## Changelog' cutoff + ?surface=cli; kimi: /en/ + prefix strip + web: exclusion; hermes: dual version + narrative summarization + PyPI ban + allowlist)\n\n**Verify:** node -e \"require('./codex/sources.json');require('./kimi-code/sources.json');require('./hermes/sources.json')\" -> silent; grep each PIPELINE.md for its traps.\n\n```json:metadata\n{\"files\": [\"codex/sources.json\", \"codex/PIPELINE.md\", \"kimi-code/sources.json\", \"kimi-code/PIPELINE.md\", \"hermes/sources.json\", \"hermes/PIPELINE.md\"], \"verifyCommand\": \"node -e \\\"require('./codex/sources.json');require('./kimi-code/sources.json');require('./hermes/sources.json')\\\"\", \"acceptanceCriteria\": [\"manifests parse\", \"pipeline rules complete with traps\"]}\n```"
+  },
+  {
+   "id": 14,
+   "subject": "Task 14: Pipeline dry-runs — GATE",
+   "status": "pending",
+   "blockedBy": [
+    13
+   ],
+   "description": "**Goal:** Prove each pipeline works end-to-end before any schedule exists.\n\n**USER-ORDERED GATE — NON-SKIPPABLE.** This task was requested by the user in the current conversation. It MUST NOT be closed by walking around it, by declaring it \"verified inline\", or by substituting a cheaper check. Close only after every item in acceptanceCriteria has been re-validated independently, with output captured.\n\n**Files:** none permanent — produces three real PRs or three recorded no-op runs.\n\n**Acceptance Criteria:**\n- Per agent: a fresh session given ONLY the Task-15 routine prompt either opened a correct update PR with green CI, or correctly exited silently with no newer release — evidence captured\n- Failures fixed by amending PIPELINE.md/sources.json/AGENTS.md (rules live in-repo) and re-run to pass\n- Any produced PR reviewed row-by-row against the release notes it claims to apply, then merged or deliberately closed\n\n**Verify:** gh pr list --repo dommango/agent-placemats --state all --search \"update placemat\" shows the dry-run PRs (or no-op transcripts captured for all three).\n\n```json:metadata\n{\"userGate\": true, \"tags\": [\"user-gate\"], \"files\": [], \"verifyCommand\": \"gh pr list --repo dommango/agent-placemats --state all --search 'update placemat'\", \"acceptanceCriteria\": [\"codex dry-run PR or verified no-op with evidence\", \"kimi dry-run PR or verified no-op with evidence\", \"hermes dry-run PR or verified no-op with evidence\", \"fixes folded into in-repo rules\"], \"requireEvidenceTokens\": [[\"codex\"], [\"kimi\"], [\"hermes\"]]}\n```"
+  },
+  {
+   "id": 15,
+   "subject": "Task 15: Scheduled routines",
+   "status": "pending",
+   "blockedBy": [
+    14
+   ],
+   "description": "**Goal:** Three daily cloud routines: codex-placemat-sync (15 9 * * * UTC), kimi-placemat-sync (30 9 * * *), hermes-placemat-sync (45 9 * * *), each with the tiny routine prompt from plan doc Task 15 Step 1 (read AGENTS.md + <agent>/PIPELINE.md + sources.json, silent no-op, else one PR). Created via the /schedule skill in an interactive session (Dom may need to authorize); RemoteTrigger fallback.\n\n**Files:** none (account-level routines)\n\n**Acceptance Criteria:**\n- Three routines exist with correct crons and prompts, staggered after CC's 09:00 routine\n\n**Verify:** routine listing via /schedule (or Dom confirms in /tasks) shows all three; capture listing.\n\n```json:metadata\n{\"files\": [], \"verifyCommand\": \"/schedule list\", \"acceptanceCriteria\": [\"three routines with correct crons\", \"prompts match template\"]}\n```"
+  },
+  {
+   "id": 16,
+   "subject": "Task 16: Launch polish",
+   "status": "pending",
+   "blockedBy": [
+    15
+   ],
+   "description": "**Goal:** Live site complete, discoverable, cross-linked.\n\n**Files:**\n- Create: og-image.png (1200x630 hub screenshot via chrome-devtools-axi; defer with a note if tool unavailable)\n- Modify: README.md; separate PR to dommango/claude-code-placemat adding footer link 'More agent placemats →' (following THAT repo's rules: changelog Template/Structure entry, build-changes, tests)\n- Create: project memory in ~/.claude/projects/-home-dom-projects-agent-placemats/memory/ (+ MEMORY.md line): what the repo is, plan/D-decisions location, routine names\n\n**Acceptance Criteria:**\n- Hub + three placemat URLs return 200; feeds resolve\n- og-image committed (or deferral noted); CC placemat PR merged; memory written\n\n**Verify:** for u in \"\" codex/ kimi-code/ hermes/; do curl -so /dev/null -w \"%{http_code} \" https://dommango.github.io/agent-placemats/$u; done -> 200 200 200 200.\n\n```json:metadata\n{\"files\": [\"og-image.png\", \"README.md\"], \"verifyCommand\": \"curl -so /dev/null -w '%{http_code}' https://dommango.github.io/agent-placemats/\", \"acceptanceCriteria\": [\"all URLs 200\", \"cross-link PR merged\", \"memory written\"]}\n```"
+  }
+ ],
+ "lastUpdated": "2026-09-12T18:05:00Z"
+}
