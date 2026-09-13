@@ -29,7 +29,7 @@ const AGENTS = ['codex', 'kimi-code', 'hermes', 'claude-code'];
 // Agents whose sources.json MUST carry a vendor-extracted inventory. The three
 // launch placemats were verified by hand before this existed; every agent added
 // from here on declares one. Remove an entry only by backfilling its inventory.
-const INVENTORY_REQUIRED = ['antigravity'];
+const INVENTORY_REQUIRED = ['antigravity', 'kimi-code'];
 const arg = process.argv[2];
 const targets = arg ? [arg] : AGENTS.filter((a) => {
   if (fs.existsSync(path.join(ROOT, a, 'index.html'))) return true;
