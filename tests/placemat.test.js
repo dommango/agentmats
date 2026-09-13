@@ -25,6 +25,11 @@ const CANONICAL_CARDS = [
 ];
 
 const AGENTS = ['codex', 'kimi-code', 'hermes', 'antigravity'];
+
+// Agents whose sources.json MUST carry a vendor-extracted inventory. The three
+// launch placemats were verified by hand before this existed; every agent added
+// from here on declares one. Remove an entry only by backfilling its inventory.
+const INVENTORY_REQUIRED = ['antigravity'];
 const arg = process.argv[2];
 const targets = arg ? [arg] : AGENTS.filter((a) => {
   if (fs.existsSync(path.join(ROOT, a, 'index.html'))) return true;
@@ -418,8 +423,8 @@ for (const agent of targets) {
 
   // shared/placemat.js does unguarded getElementById(...).something lookups. A page
   // missing one of those ids throws at load, and everything after the throw never
-  // binds -- silently, since the rows still render. Derive the list from the script
-  // itself so a newly-referenced id is covered automatically.
+  // binds -- silently, since the rows still render and the HTML still validates.
+  // Derive the list from the script itself so a newly-referenced id is covered.
   test(`${agent}: index.html has every element id shared/placemat.js looks up`, () => {
     const js = read('shared/placemat.js');
     const ids = [...new Set([...js.matchAll(/getElementById\('([A-Za-z]+)'\)/g)].map((m) => m[1]))];
@@ -436,9 +441,9 @@ for (const agent of targets) {
     assert.ok(snap.includes('<style>') && snap.includes('<script>'), 'snapshot is missing inlined css/js');
   });
 
-  // A snapshot built with a JS string-replace turns the $& in placemat.js into the
-  // matched text -- which injects a literal </script> mid-string, closing the block
-  // early and spilling the rest of the script onto the page as visible text.
+  // Build a snapshot with a JS string-replace and the $& in placemat.js's regex
+  // escape expands to the matched text -- splicing a literal </script> into a string
+  // literal, ending the block early and spilling the rest onto the page as text.
   test(`${agent}: versions/v1.0.html has balanced script tags and leaks no code`, () => {
     const snap = read(`${agent}/versions/v1.0.html`);
     const open = (snap.match(/<script[\s>]/g) || []).length;
@@ -447,6 +452,102 @@ for (const agent of targets) {
     const body = snap.replace(/<script[\s\S]*?<\/script>/g, '').replace(/<style[\s\S]*?<\/style>/g, '');
     const leaked = body.match(/document\.(querySelector|getElementById|addEventListener)/g) || [];
     assert.deepStrictEqual(leaked, [], 'script content is rendering as page text');
+  });
+
+  // ---- cross-placemat alignment -------------------------------------------
+  // A new agent's page is built next to three finished ones, and the cheapest
+  // way to fill a card is to copy the neighbour's. These guards pin the parts
+  // that genuinely are uniform, so divergence shows up as a failure rather
+  // than as a page that merely looks a bit different.
+
+  // Four card titles are identical across every placemat; settings varies only
+  // by config filename. The keys/skills/hooks cards are legitimately per-agent.
+  test(`${agent}: canonical card titles match the other placemats`, () => {
+    const titleOf = (id) => {
+      const card = html.split(`id="${id}"`)[1];
+      assert.ok(card, `${id} not found`);
+      const m = card.match(/<h2[^>]*>([^<]+)/);
+      assert.ok(m, `${id} has no h2`);
+      return m[1].trim();
+    };
+    assert.strictEqual(titleOf('card-slash-core'), 'Slash Commands (Core)');
+    assert.strictEqual(titleOf('card-slash-tools'), 'Slash Commands (Tools)');
+    assert.strictEqual(titleOf('card-cli'), 'CLI &amp; Subcommands');
+    assert.strictEqual(titleOf('card-env'), 'Environment Variables');
+    assert.ok(/^Settings \(\S+\)$/.test(titleOf('card-settings')),
+      `settings title should read "Settings (<config file>)", got "${titleOf('card-settings')}"`);
+  });
+
+  // A class with no rule renders unstyled, which HTML validation never notices.
+  // search-exclude is a JS hook; disclaimer is deliberately unstyled.
+  test(`${agent}: every class used on the page has a CSS rule`, () => {
+    const JS_HOOKS = new Set(['search-exclude', 'disclaimer']);
+    const rules = new Set();
+    const collect = (css) => { for (const m of css.matchAll(/\.([a-zA-Z][\w-]*)/g)) rules.add(m[1]); };
+    collect(read('shared/placemat.css'));
+    for (const m of html.matchAll(/<style>([\s\S]*?)<\/style>/g)) collect(m[1]);
+    const used = new Set();
+    for (const m of html.matchAll(/class="([^"]+)"/g)) m[1].split(/\s+/).forEach((c) => c && used.add(c));
+    const undef = [...used].filter((c) => !rules.has(c) && !JS_HOOKS.has(c)).sort();
+    assert.deepStrictEqual(undef, [], `classes used but never defined: ${undef.join(', ')}`);
+  });
+
+  // Internal links stay relative so the page works under a local preview server.
+  // (canonical/og:url are absolute by design and are not <a href>.)
+  test(`${agent}: internal links are relative, not absolute site URLs`, () => {
+    const bad = [...html.matchAll(/<a[^>]+href="(https:\/\/dommango\.github\.io\/agent-placemats\/[^"]*)"/g)]
+      .map((m) => m[1]);
+    assert.deepStrictEqual(bad, [], `link to the live site instead of a relative path: ${bad.join(', ')}`);
+  });
+
+  // The content rule "verified against official docs" was unenforceable prose,
+  // and a placemat built mostly from its neighbours passed every other check.
+  // sources.json may carry an inventory extracted from the vendor reference;
+  // any command or settings key not on it has to be marked unverified.
+  test(`${agent}: command and settings rows are on the verified inventory`, () => {
+    const manifest = JSON.parse(read(`${agent}/sources.json`));
+    const inv = manifest.inventory;
+    if (!inv) {
+      assert.ok(!INVENTORY_REQUIRED.includes(agent),
+        `${agent}/sources.json must declare an "inventory" block (see AGENTS.md)`);
+      return;
+    }
+    assert.ok(inv.source && inv.fetched, 'inventory needs a source url and a fetched date');
+    const cardRows = (id) => {
+      const card = html.split(`id="${id}"`)[1];
+      if (!card) return [];
+      const end = card.indexOf('</div>');
+      return [...(end === -1 ? card : card.slice(0, end))
+        .matchAll(/id="(i-[a-z0-9-]*)"[\s\S]*?<\/a>(<code[^>]*>)([\s\S]*?)<\/code>/g)]
+        .map((m) => ({ id: m[1], unverified: /class="[^"]*unverified/.test(m[2]),
+                       chip: m[3].replace(/<[^>]+>/g, '').trim() }));
+    };
+    const offenders = [];
+    if (Array.isArray(inv.slash)) {
+      for (const card of ['card-slash-core', 'card-slash-tools']) {
+        for (const row of cardRows(card)) {
+          const cmd = row.chip.split(/\s+/)[0];
+          if (!cmd.startsWith('/') || row.unverified) continue;
+          if (!inv.slash.includes(cmd)) offenders.push(`${row.id} (${cmd})`);
+        }
+      }
+    }
+    if (Array.isArray(inv.settings)) {
+      for (const row of cardRows('card-settings')) {
+        const key = row.chip.trim();
+        if (row.unverified || !/^[A-Za-z][\w.]*$/.test(key)) continue;
+        if (!inv.settings.includes(key)) offenders.push(`${row.id} (${key})`);
+      }
+    }
+    if (Array.isArray(inv.hooks)) {
+      for (const row of cardRows('card-hooks')) {
+        const ev = row.chip.trim();
+        if (row.unverified || !/^[A-Za-z][\w]*$/.test(ev)) continue;
+        if (!inv.hooks.includes(ev)) offenders.push(`${row.id} (${ev})`);
+      }
+    }
+    assert.deepStrictEqual(offenders, [],
+      `not on the vendor inventory and not marked unverified: ${offenders.join(', ')}`);
   });
 
   test(`${agent}: og:image, twitter card and canonical are present on both pages`, () => {
