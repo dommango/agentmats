@@ -1,0 +1,49 @@
+name: New agent request
+description: Ask for a new coding-agent placemat to be added.
+title: "[new agent] "
+labels: ["new-agent"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Read [AGENTS.md § Adding a new agent](../../AGENTS.md#adding-a-new-agent) first.
+        Every card on a new placemat must be sourced from the vendor's own reference, never
+        from a sibling placemat — so the single most important thing this issue collects is
+        the URL of that reference.
+  - type: input
+    id: name
+    attributes:
+      label: Agent name
+      placeholder: "e.g. Aider"
+    validations:
+      required: true
+  - type: input
+    id: vendor
+    attributes:
+      label: Vendor / maintainer
+      placeholder: "e.g. Aider AI (open source, maintained by paul-gauthier)"
+    validations:
+      required: true
+  - type: input
+    id: install
+    attributes:
+      label: Install command
+      placeholder: "e.g. python -m pip install aider-install && aider-install"
+    validations:
+      required: true
+  - type: input
+    id: reference-url
+    attributes:
+      label: Vendor command/settings reference URL
+      description: >-
+        Required. The official page listing this agent's slash commands, CLI flags, settings
+        keys, and hook/automation events — this is the inventory source `sources.json.inventory`
+        gets built from, and the only thing the test suite's inventory gate will accept as proof.
+      placeholder: "https://aider.chat/docs/usage/commands.html"
+    validations:
+      required: true
+  - type: textarea
+    id: notes
+    attributes:
+      label: Anything else
+      description: Rough sense of scope — does it have hooks/MCP-equivalents, a settings file, skills, etc.?

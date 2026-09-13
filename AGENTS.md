@@ -230,6 +230,12 @@ the routine chatty. The signal belongs in the scheduler's own run record — if 
 sync looks overdue, check that the routine ran at all before assuming the poll
 was wrong.
 
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for the bot/human ownership split, the
+checks a PR must pass, and the workflow. [SECURITY.md](SECURITY.md) and
+[CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) apply too.
+
 ## Branch and commit conventions
 
 - Feature branches only; never commit directly to `main`
