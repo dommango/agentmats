@@ -51,7 +51,7 @@
     {
      "tag": "DEL",
      "item": "/init",
-     "html": "<span class=\"summary\">Removed 12 phantom slash commands absent from the vendor reference <button type=\"button\" class=\"notes-btn\" aria-expanded=\"false\">+1</button><ul class=\"notes\" hidden><li><code>/init</code>, <code>/compact</code>, <code>/plan</code>, <code>/status</code>, <code>/history</code>, <code>/mode</code>, <code>/effort</code>, <code>/reset</code>, <code>/goal</code>, <code>/learn</code>, <code>/browser</code>, <code>/schedule</code>, <code>/grill-me</code> — a review of the prior draft found these did not exist on <code>cli/reference</code>."
+     "html": "<span class=\"summary\">Removed 12 phantom slash commands absent from the vendor reference</span> <button type=\"button\" class=\"notes-btn\" aria-expanded=\"false\">+1</button><ul class=\"notes\" hidden><li><code>/init</code>, <code>/compact</code>, <code>/plan</code>, <code>/status</code>, <code>/history</code>, <code>/mode</code>, <code>/effort</code>, <code>/reset</code>, <code>/goal</code>, <code>/learn</code>, <code>/browser</code>, <code>/schedule</code>, <code>/grill-me</code> — a review of the prior draft found these did not exist on <code>cli/reference</code>."
     }
    ]
   }
