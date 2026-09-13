@@ -1060,7 +1060,7 @@ code.unverified {
     * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 }
 
-</style>
+    </style>
     <style>
         :root { --accent-1: #7c4dff; --accent-1-2: #b388ff; --accent-2: #00b0ff; --accent-2-2: #80d8ff; }
         :root[data-theme="light"] { --accent-1: #651fff; --accent-1-2: #4615b2; --accent-2: #0091ea; --accent-2-2: #0064b7; }
@@ -1450,6 +1450,8 @@ code.unverified {
             </details>
         </div>
 
+        <div class="no-results search-exclude" id="noResults">No matches — clear search to see everything.</div>
+
     </main>
 
     <footer class="global-footer">
@@ -1467,16 +1469,16 @@ code.unverified {
     </footer>
 
     <!-- What's new since your last visit drawer -->
-    <div class="since-drawer" id="sinceDrawer" hidden>
+    <aside class="since-drawer" id="sinceDrawer" hidden aria-label="Changes since your last visit">
         <div class="since-drawer-head">
-            <h2>What&rsquo;s new <span class="since-drawer-sub" id="sinceSub"></span></h2>
+            <h2 id="sinceDrawerTitle">Since your last visit</h2>
             <div class="since-drawer-tools">
                 <button type="button" id="sinceReadAll">Mark all as read</button>
                 <button type="button" id="sinceClose" aria-label="Close changes drawer">&times;</button>
             </div>
         </div>
         <div class="since-drawer-body" id="sinceBody"></div>
-    </div>
+    </aside>
 
     <script>
 // Shared placemat behaviour. Storage keys are derived per agent from
@@ -1677,7 +1679,7 @@ function markHits(cell, term) {
     // Tolerate the separators the normaliser strips: "ctrl+r" matches "Ctrl R".
     const chars = term.split('')
         .filter((ch) => !/[\s+_\-\/.:~]/.test(ch))
-        .map((ch) => ch.replace(/[.*+?^${}()|[\]\\]/g, '\\<script src="../shared/placemat.js" defer></script>'));
+        .map((ch) => ch.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
     if (!chars.length) return;
     const re = new RegExp(chars.join('[\\s+_\\-\\/.:~]*'), 'i');
     const walker = document.createTreeWalker(cell, NodeFilter.SHOW_TEXT);
@@ -1866,7 +1868,7 @@ const versionNumber = (v) => v.replace(/^v/, '').split('.').map(Number).reduce((
         strip.hidden = false;
         title.textContent = seen ? 'Since ' + seen : 'Recent changes';
         body.innerHTML = releases.map((rel) =>
-            '<section class="since-release"><h3>CC ' + rel.label + ' <span>' + rel.date + '</span></h3><ul>'
+            '<section class="since-release"><h3>' + rel.label + ' <span>' + rel.date + '</span></h3><ul>'
             + rel.entries.map((entry) => {
                 const row = findRow(entry);
                 return '<li' + (row ? ' data-row="' + row.id + '"' : ' class="unlinked"') + '><span class="tag '
@@ -1899,6 +1901,6 @@ const versionNumber = (v) => v.replace(/^v/, '').split('.').map(Number).reduce((
     window.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !drawer.hidden) drawer.hidden = true; });
 })();
 
-</script>
+    </script>
 </body>
 </html>

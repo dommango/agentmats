@@ -404,6 +404,8 @@
             </details>
         </div>
 
+        <div class="no-results search-exclude" id="noResults">No matches — clear search to see everything.</div>
+
     </main>
 
     <footer class="global-footer">
@@ -421,16 +423,16 @@
     </footer>
 
     <!-- What's new since your last visit drawer -->
-    <div class="since-drawer" id="sinceDrawer" hidden>
+    <aside class="since-drawer" id="sinceDrawer" hidden aria-label="Changes since your last visit">
         <div class="since-drawer-head">
-            <h2>What&rsquo;s new <span class="since-drawer-sub" id="sinceSub"></span></h2>
+            <h2 id="sinceDrawerTitle">Since your last visit</h2>
             <div class="since-drawer-tools">
                 <button type="button" id="sinceReadAll">Mark all as read</button>
                 <button type="button" id="sinceClose" aria-label="Close changes drawer">&times;</button>
             </div>
         </div>
         <div class="since-drawer-body" id="sinceBody"></div>
-    </div>
+    </aside>
 
     <script src="../shared/placemat.js" defer></script>
 </body>

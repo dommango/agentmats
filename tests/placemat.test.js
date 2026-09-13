@@ -416,6 +416,39 @@ for (const agent of targets) {
     assert.strictEqual(footer[1], newest[1], 'footer sync date is stale');
   });
 
+  // shared/placemat.js does unguarded getElementById(...).something lookups. A page
+  // missing one of those ids throws at load, and everything after the throw never
+  // binds -- silently, since the rows still render. Derive the list from the script
+  // itself so a newly-referenced id is covered automatically.
+  test(`${agent}: index.html has every element id shared/placemat.js looks up`, () => {
+    const js = read('shared/placemat.js');
+    const ids = [...new Set([...js.matchAll(/getElementById\('([A-Za-z]+)'\)/g)].map((m) => m[1]))];
+    assert.ok(ids.length > 10, 'id extraction failed');
+    const missing = ids.filter((id) => !html.includes(`id="${id}"`));
+    assert.deepStrictEqual(missing, [], `index.html is missing ids: ${missing.join(', ')}`);
+  });
+
+  // Snapshots are immutable archives and must not depend on shared/, or a later
+  // edit to the shared files would retroactively change how a past version renders.
+  test(`${agent}: versions/v1.0.html is self-contained`, () => {
+    const snap = read(`${agent}/versions/v1.0.html`);
+    assert.ok(!snap.includes('shared/placemat'), 'snapshot references shared/ instead of inlining it');
+    assert.ok(snap.includes('<style>') && snap.includes('<script>'), 'snapshot is missing inlined css/js');
+  });
+
+  // A snapshot built with a JS string-replace turns the $& in placemat.js into the
+  // matched text -- which injects a literal </script> mid-string, closing the block
+  // early and spilling the rest of the script onto the page as visible text.
+  test(`${agent}: versions/v1.0.html has balanced script tags and leaks no code`, () => {
+    const snap = read(`${agent}/versions/v1.0.html`);
+    const open = (snap.match(/<script[\s>]/g) || []).length;
+    const close = (snap.match(/<\/script>/g) || []).length;
+    assert.strictEqual(open, close, `unbalanced script tags (${open} open, ${close} close)`);
+    const body = snap.replace(/<script[\s\S]*?<\/script>/g, '').replace(/<style[\s\S]*?<\/style>/g, '');
+    const leaked = body.match(/document\.(querySelector|getElementById|addEventListener)/g) || [];
+    assert.deepStrictEqual(leaked, [], 'script content is rendering as page text');
+  });
+
   test(`${agent}: og:image, twitter card and canonical are present on both pages`, () => {
     [html, changelog].forEach((page) => {
       assert.ok(page.includes(`<meta property="og:image" content="${SITE}og-image.png">`), 'og:image missing or wrong');

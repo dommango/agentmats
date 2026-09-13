@@ -385,7 +385,7 @@ const versionNumber = (v) => v.replace(/^v/, '').split('.').map(Number).reduce((
         strip.hidden = false;
         title.textContent = seen ? 'Since ' + seen : 'Recent changes';
         body.innerHTML = releases.map((rel) =>
-            '<section class="since-release"><h3>CC ' + rel.label + ' <span>' + rel.date + '</span></h3><ul>'
+            '<section class="since-release"><h3>' + rel.label + ' <span>' + rel.date + '</span></h3><ul>'
             + rel.entries.map((entry) => {
                 const row = findRow(entry);
                 return '<li' + (row ? ' data-row="' + row.id + '"' : ' class="unlinked"') + '><span class="tag '
