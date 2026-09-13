@@ -1,0 +1,54 @@
+{
+  "name": "Antigravity CLI",
+  "vendor": "Google DeepMind",
+  "version_poll": {
+    "url": "https://antigravity.google/changelog",
+    "filter": "latest release header '## X.Y.Z (YYYY-MM-DD)'",
+    "transform": "version = release tag"
+  },
+  "cross_check": "agy --version",
+  "local_binary": "agy --help",
+  "release_notes": "Use the official changelog notes on https://antigravity.google/changelog; filter out IDE-specific features and keep CLI/TUI and core runtime features.",
+  "docs": {
+    "index": "https://antigravity.google/docs",
+    "cli_features": "https://antigravity.google/docs/cli/features",
+    "cli_reference": "https://antigravity.google/docs/cli/reference",
+    "cli_best_practices": "https://antigravity.google/docs/cli/best-practices",
+    "skills": "https://antigravity.google/docs/skills",
+    "rules": "https://antigravity.google/docs/rules-workflows",
+    "hooks": "https://antigravity.google/docs/hooks",
+    "plugins": "https://antigravity.google/docs/plugins",
+    "sidecars": "https://antigravity.google/docs/sidecars",
+    "mcp": "https://antigravity.google/docs/mcp",
+    "permissions": "https://antigravity.google/docs/permissions",
+    "sandbox": "https://antigravity.google/docs/sandbox",
+    "changelog": "https://antigravity.google/changelog"
+  },
+  "gotchas": [
+    "The CLI binary is `agy`, not `antigravity`",
+    "Skills and rules follow progressive disclosure (only metadata loaded until activated)",
+    "Global rules live in `~/.gemini/GEMINI.md`; workspace rules in `.agents/rules/*.md`",
+    "Plugin system supports importing packages from both Gemini and Claude ecosystems (`agy plugin import`)"
+  ],
+  "inventory": {
+    "source": "https://antigravity.google/docs/cli/reference",
+    "fetched": "2026-09-13",
+    "slash": [
+      "/add-dir", "/agents", "/boost", "/artifact", "/btw", "/clear", "/new",
+      "/config", "/settings", "/context", "/copy", "/credits", "/diff",
+      "/exit", "/quit", "/fast", "/feedback", "/fork", "/branch", "/help",
+      "/hooks", "/keybindings", "/logout", "/mcp", "/model", "/open",
+      "/permissions", "/planning", "/rename", "/resume", "/switch",
+      "/conversation", "/rewind", "/undo", "/skills", "/statusline",
+      "/tasks", "/teamwork-preview", "/teamwork", "/title", "/usage",
+      "/quota", "/voice", "/record"
+    ],
+    "settings": [
+      "colorScheme", "altScreenMode", "toolPermission", "artifactReviewPolicy",
+      "notifications", "showTips", "showFeedbackSurvey", "editor", "editorMode",
+      "vimInsertFirst", "allowNonWorkspaceAccess", "enableTerminalSandbox",
+      "useG1Credits", "enableTelemetry", "verbosity", "runningLightSpeed"
+    ],
+    "hooks": ["PreToolUse", "PostToolUse", "PreInvocation", "PostInvocation", "Stop"]
+  }
+}

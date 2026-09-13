@@ -1,0 +1,1956 @@
+<!DOCTYPE html>
+<html lang="en" data-agent="antigravity">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Antigravity CLI Placemat (Unofficial)</title>
+    <meta name="description" content="Unofficial single-page reference for Google Antigravity CLI — commands, flags, configuration, skills, rules, hooks, and MCP. Auto-updated from official docs.">
+    <meta property="og:title" content="Antigravity CLI Placemat (Unofficial)">
+    <meta property="og:description" content="Unofficial single-page reference for Google Antigravity CLI — commands, flags, configuration, skills, rules, hooks, and MCP.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://dommango.github.io/agentmats/antigravity/">
+    <meta property="og:image" content="https://dommango.github.io/agentmats/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://dommango.github.io/agentmats/antigravity/">
+    <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+PHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iNiIgZmlsbD0iIzdjNGRmZiIvPjx0ZXh0IHg9IjE2IiB5PSIyMyIgZm9udC1mYW1pbHk9Im1vbm9zcGFjZSIgZm9udC1zaXplPSIxNiIgZm9udC13ZWlnaHQ9IjcwMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzFlMWUxZSI+Jmd0O188L3RleHQ+PC9zdmc+Cg==">
+    <link rel="alternate" type="application/atom+xml" title="Antigravity CLI Placemat changes" href="feed.xml">
+    <style>
+/* ============================================================
+   Claude Code Placemat — refined
+   ----------------------------------------------------------
+   Same dashboard shape, tighter typography, tuned color tiers,
+   sharper hierarchy. Press Start 2P shows up only as a small
+   wordmark accent — body stays Geist.
+   ============================================================ */
+
+/* Fonts loaded via system stack + local install — no external CDN dependency */
+
+/* ---------- TOKENS ---------- */
+:root {
+    /* surfaces */
+    --bg-page: #0a0a0a;
+    --bg-card: #141414;
+    --bg-card-2: #1a1a1a;        /* nested surface, modal */
+    --bg-code: #1f1f1f;
+    --header-bg: rgba(10, 10, 10, 0.88);
+
+    /* lines */
+    --border:        #262626;
+    --border-strong: #3a3a3a;
+    --border-soft:   #1f1f1f;
+
+    /* text tiers */
+    --fg-main:  #ededed;
+    --fg-muted: #9a9a9a;
+    --fg-dim:   #6e6e6e;
+
+    /* brand */
+    --accent-1: #d97757;
+    --accent-1-2: #e8a586;
+    --accent-2:  #879d86;
+    --accent-2-2: #a9bba8;
+
+    /* state tints */
+    --new-bg:         rgba(135, 157, 134, 0.14);
+    --new-border:     rgba(135, 157, 134, 0.55);
+    --new-bar:        #879d86;
+    --unverified-bg:  rgba(245, 158, 11, 0.12);
+    --unverified-border: rgba(245, 158, 11, 0.45);
+    --unverified-bar: #f59e0b;
+
+    /* interaction */
+    --row-hover:    rgba(255, 255, 255, 0.025);
+    --success-flash: rgba(217, 119, 87, 0.32);
+
+    /* type */
+    --font-sans: "Geist", "Inter", system-ui, -apple-system, sans-serif;
+    --font-mono: "Geist Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    --font-pixel: "Press Start 2P", ui-monospace, monospace;
+
+    /* radii */
+    --r-xs: 3px;
+    --r-sm: 4px;
+    --r-md: 6px;
+
+    /* motion */
+    --dur: 0.18s;
+    --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+:root[data-theme="light"] {
+    --bg-page: #f5f4ef;
+    --bg-card: #ffffff;
+    --bg-card-2: #fbfaf6;
+    --bg-code: #f1efe9;
+    --header-bg: rgba(245, 244, 239, 0.9);
+
+    --border:        #e3e0d6;
+    --border-strong: #c8c4b6;
+    --border-soft:   #ece9e0;
+
+    --fg-main:  #1a1a1a;
+    --fg-muted: #5a5a55;
+    --fg-dim:   #8a8a82;
+
+    --accent-1: #c2410c;
+    --accent-1-2: #9c3309;
+    --accent-2:  #0f766e;
+    --accent-2-2: #115e59;
+
+    --new-bg:         rgba(15, 118, 110, 0.08);
+    --new-border:     rgba(15, 118, 110, 0.35);
+    --new-bar:        #0f766e;
+    --unverified-bg:  rgba(180, 116, 0, 0.10);
+    --unverified-border: rgba(180, 116, 0, 0.4);
+    --unverified-bar: #b47400;
+
+    --row-hover:    rgba(0, 0, 0, 0.025);
+    --success-flash: rgba(194, 65, 12, 0.22);
+}
+
+/* ---------- BASE ---------- */
+* { box-sizing: border-box; }
+html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg-page);
+    color: var(--fg-main);
+    font-family: var(--font-sans);
+    font-size: 13.5px;
+    line-height: 1.4;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition: background-color var(--dur) var(--ease), color var(--dur) var(--ease);
+}
+body {
+    /* --header-h / --nav-h are measured at runtime so the two fixed bars always clear each other */
+    padding: calc(var(--header-h, 52px) + var(--nav-h, 32px) + 12px) 18px 24px;
+}
+
+/* ---------- HEADER ---------- */
+.global-header {
+    position: fixed;
+    top: 0; left: 0; width: 100%;
+    background: var(--header-bg);
+    backdrop-filter: saturate(120%) blur(10px);
+    -webkit-backdrop-filter: saturate(120%) blur(10px);
+    border-bottom: 1px solid var(--border);
+    z-index: 1000;
+    padding: 0 18px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
+}
+
+.minion-icon {
+    width: 24px;
+    height: 24px;
+    image-rendering: pixelated;
+    flex-shrink: 0;
+}
+
+.header-title h1 {
+    margin: 0;
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: -0.015em;
+    color: var(--fg-main);
+    white-space: nowrap;
+}
+.header-title h1 .wm-pixel {
+    font-family: var(--font-pixel);
+    font-size: 9px;
+    letter-spacing: 0;
+    color: var(--accent-1);
+    transform: translateY(-1px);
+}
+
+.header-tagline {
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    color: var(--fg-dim);
+    border-left: 1px solid var(--border-strong);
+    padding-left: 12px;
+    white-space: nowrap;
+}
+@media (max-width: 1000px) { .header-tagline { display: none; } }
+
+.global-controls {
+    display: flex; gap: 8px;
+    align-items: center;
+}
+
+.release-tag {
+    display: inline-flex; align-items: center;
+    gap: 6px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--fg-muted);
+    background: var(--bg-code);
+    border: 1px solid var(--border);
+    padding: 4px 9px;
+    border-radius: 999px;
+    white-space: nowrap;
+}
+.release-tag::before {
+    content: "";
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--accent-1);
+    box-shadow: 0 0 0 2px rgba(217,119,87,0.18);
+}
+
+.header-link {
+    display: inline-flex; align-items: center; gap: 4px;
+    color: var(--fg-muted);
+    text-decoration: none;
+    font-size: 11.5px;
+    padding: 5px 10px;
+    border: 1px solid var(--border);
+    border-radius: var(--r-sm);
+    transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+.header-link:hover { color: var(--fg-main); border-color: var(--accent-2); }
+
+.theme-toggle {
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--fg-main);
+    padding: 4px 9px;
+    border-radius: var(--r-sm);
+    cursor: pointer;
+    font-size: 12px;
+    transition: border-color var(--dur) var(--ease);
+}
+.theme-toggle:hover { border-color: var(--accent-1); }
+
+.search-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+#dashboardSearch {
+    width: 220px;
+    padding: 6px 38px 6px 12px;
+    border-radius: var(--r-sm);
+    border: 1px solid var(--border);
+    background: var(--bg-code);
+    color: var(--fg-main);
+    font-family: var(--font-sans);
+    font-size: 12px;
+    transition: border-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+}
+#dashboardSearch::placeholder { color: var(--fg-dim); }
+#dashboardSearch:focus {
+    outline: none;
+    border-color: var(--accent-2);
+    box-shadow: 0 0 0 3px rgba(135,157,134,0.12);
+}
+.search-wrap .kbd {
+    position: absolute;
+    right: 8px;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--fg-dim);
+    background: var(--bg-card);
+    border: 1px solid var(--border-strong);
+    border-radius: var(--r-xs);
+    padding: 1px 5px;
+    pointer-events: none;
+}
+.search-count {
+    position: absolute;
+    right: 8px;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--accent-2-2);
+    background: var(--bg-card);
+    border: 1px solid var(--accent-2);
+    border-radius: var(--r-xs);
+    padding: 1px 5px;
+    pointer-events: none;
+    display: none;
+}
+.search-wrap.has-term .kbd { display: none; }
+.search-wrap.has-term .search-count { display: inline-block; }
+
+.skip-link {
+    position: absolute;
+    left: -999px;
+    top: 8px;
+    z-index: 1001;
+    background: var(--accent-1);
+    color: #0a0a0a;
+    padding: 6px 10px;
+    border-radius: var(--r-sm);
+    font-weight: 700;
+    text-decoration: none;
+}
+.skip-link:focus { left: 8px; }
+
+/* ---------- SECTION NAV ---------- */
+.section-nav {
+    position: fixed;
+    top: var(--header-h, 52px); left: 0; width: 100%;
+    z-index: 999;
+    background: var(--header-bg);
+    backdrop-filter: saturate(120%) blur(10px);
+    -webkit-backdrop-filter: saturate(120%) blur(10px);
+    border-bottom: 1px solid var(--border);
+}
+.section-nav-inner {
+    max-width: 1900px;
+    margin: 0 auto;
+    padding: 6px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+.section-chips {
+    display: flex;
+    gap: 6px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    min-width: 0;
+}
+.section-chips::-webkit-scrollbar { display: none; }
+.section-chips a {
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--fg-muted);
+    text-decoration: none;
+    padding: 4px 9px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+.section-chips a .chip-count { color: var(--fg-dim); font-size: 10px; }
+.section-chips a:hover { color: var(--fg-main); border-color: var(--border-strong); }
+.section-chips a.is-active { color: var(--accent-1); border-color: var(--accent-1); }
+.section-chips a.is-active .chip-count { color: var(--accent-1-2); }
+.section-tools { display: flex; gap: 6px; flex-shrink: 0; }
+.section-tools button {
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--fg-muted);
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    padding: 4px 9px;
+    border-radius: var(--r-sm);
+    cursor: pointer;
+    transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+.section-tools button:hover { color: var(--fg-main); border-color: var(--accent-2); }
+.section-tools button[aria-pressed="true"] { color: var(--accent-2-2); border-color: var(--accent-2); }
+.card-count {
+    margin-left: auto;
+    font-family: var(--font-mono);
+    font-weight: 400;
+    font-size: 10px;
+    color: var(--fg-dim);
+    letter-spacing: 0;
+}
+
+/* compact density */
+body.density-compact { font-size: 12.5px; }
+body.density-compact td { padding: 2px 5px 2px; }
+body.density-compact td:first-child { width: 38%; }
+body.density-compact .desc { font-size: 11px; line-height: 1.3; }
+body.density-compact code { font-size: 10.5px; }
+body.density-compact .card { padding: 10px 12px 8px; }
+body.density-compact .dashboard-grid {
+    gap: 10px;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+}
+
+/* ---------- DASHBOARD GRID ---------- */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(360px, 100%), 1fr));
+    gap: 14px;
+    max-width: 1900px;
+    margin: 0 auto;
+    align-items: start;
+}
+/* grid items default to min-width:auto, which lets a wide row push the page sideways */
+.dashboard-grid > * { min-width: 0; }
+
+/* ---------- CARDS ---------- */
+.card {
+    position: relative;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--r-md);
+    padding: 14px 16px 12px 22px;
+    transition: border-color var(--dur) var(--ease);
+}
+.card:hover { border-color: var(--border-strong); }
+.card { scroll-margin-top: calc(var(--header-h, 52px) + var(--nav-h, 32px) + 8px); }
+.card.full-width { grid-column: 1 / -1; }
+.card.legend-strip { padding: 8px 16px; }
+.legend-strip-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.scope-note { flex: 1 1 320px; margin: 0; font-size: 11px; line-height: 1.45; color: var(--fg-muted); }
+.scope-note strong { color: var(--fg-main); }
+
+.card h2 {
+    margin: 0 0 12px 0;
+    padding: 0 0 8px 0;
+    border-bottom: 1px solid var(--border);
+    color: var(--fg-main);
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.card h2::before {
+    content: "";
+    width: 8px; height: 8px;
+    background: var(--accent-1);
+    border-radius: 1.5px;
+    flex-shrink: 0;
+}
+
+/* ---------- GROUPS ---------- */
+.search-group { margin-bottom: 12px; }
+.search-group:last-child { margin-bottom: 0; }
+
+.search-group h3 {
+    color: var(--accent-2);
+    font-family: var(--font-mono);
+    font-size: 10px;
+    margin: 0 0 6px 0;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+.search-group h3::before {
+    content: "▸";
+    color: var(--accent-1);
+    font-size: 9px;
+    transform: translateY(-1px);
+}
+.search-group + .search-group h3 {
+    margin-top: 4px;
+    padding-top: 8px;
+    border-top: 1px dashed var(--border);
+}
+
+/* collapsible groups */
+details.search-group > summary {
+    list-style: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0 0 6px 0;
+}
+details.search-group > summary::-webkit-details-marker { display: none; }
+details.search-group > summary h3 { margin: 0; }
+details.search-group > summary h3::before { transition: transform var(--dur) var(--ease); }
+details.search-group[open] > summary h3::before { transform: rotate(90deg); }
+details.search-group:not([open]) > summary { margin-bottom: 0; }
+details.search-group:not([open]) > summary h3 { color: var(--fg-muted); }
+details.search-group > summary:hover h3 { color: var(--accent-2-2); }
+details.search-group > summary:focus-visible { outline: 2px solid var(--accent-2); outline-offset: 2px; border-radius: var(--r-xs); }
+details.search-group + details.search-group > summary h3 {
+    margin-top: 4px;
+    padding-top: 8px;
+    border-top: 1px dashed var(--border);
+}
+.group-count {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--fg-dim);
+}
+
+/* ---------- TABLES ---------- */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+    table-layout: fixed;
+}
+td {
+    padding: 4px 6px 3px;
+    border-bottom: 1px dotted var(--border);
+    vertical-align: middle;
+}
+td:first-child {
+    width: 44%;
+    padding-left: 0;
+}
+tr:last-child td { border-bottom: none; }
+tr { transition: background-color var(--dur) var(--ease); }
+tr:hover { background-color: var(--row-hover); }
+
+.desc {
+    color: var(--fg-muted);
+    font-size: 11.5px;
+    line-height: 1.35;
+}
+
+/* permalinks + roving focus */
+.search-item { scroll-margin-top: calc(var(--header-h, 52px) + var(--nav-h, 32px) + 8px); }
+.search-item td:first-child { position: relative; }
+.row-link {
+    position: absolute;
+    left: -14px;
+    top: 5px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--fg-dim);
+    text-decoration: none;
+    opacity: 0;
+    transition: opacity var(--dur) var(--ease), color var(--dur) var(--ease);
+}
+.search-item:hover .row-link,
+.search-item:focus-within .row-link,
+.row-link:focus-visible { opacity: 1; }
+.row-link:hover { color: var(--accent-1); }
+.row-link.copied { color: var(--accent-2-2); }
+.search-item:target { background: var(--new-bg); box-shadow: inset 2px 0 0 0 var(--accent-2); }
+.search-item:focus { outline: none; background: var(--row-hover); box-shadow: inset 2px 0 0 0 var(--accent-1); }
+
+mark.hit {
+    background: rgba(217, 119, 87, 0.28);
+    color: inherit;
+    border-radius: 2px;
+    padding: 0 1px;
+}
+:root[data-theme="light"] mark.hit { background: rgba(194, 65, 12, 0.22); }
+
+/* ---------- CODE CHIPS ---------- */
+code {
+    font-family: var(--font-mono);
+    background: var(--bg-code);
+    color: var(--fg-main);
+    padding: 1px 5px 2px;
+    border-radius: var(--r-xs);
+    font-size: 11px;
+    line-height: 1.2;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: border-color var(--dur) var(--ease), background-color var(--dur) var(--ease);
+    word-break: break-word;
+    display: inline-block;
+    max-width: 100%;
+}
+code:hover { border-color: var(--accent-1); }
+code:focus-visible {
+    outline: none;
+    border-color: var(--accent-2);
+    box-shadow: 0 0 0 2px rgba(135,157,134,0.25);
+}
+code.copied {
+    animation: copyFlash 0.3s ease-out;
+    border-color: var(--accent-1);
+}
+@keyframes copyFlash {
+    0%   { background: var(--success-flash); }
+    100% { background: var(--bg-code); }
+}
+
+/* state variants — left-bar marker for legibility */
+code.new {
+    background: var(--new-bg);
+    border-color: var(--new-border);
+    box-shadow: inset 2px 0 0 0 var(--new-bar);
+    padding-left: 7px;
+}
+code.unverified {
+    background: var(--unverified-bg);
+    border-color: var(--unverified-border);
+    box-shadow: inset 2px 0 0 0 var(--unverified-bar);
+    padding-left: 7px;
+}
+
+/* inline code inside .desc — quieter */
+.desc code {
+    font-size: 10.5px;
+    padding: 0 4px 1px;
+}
+
+/* ---------- TWO-TIER ENTRIES ---------- */
+.desc .summary { display: inline; }
+.notes-btn {
+    display: inline-block;
+    vertical-align: 1px;
+    margin-left: 4px;
+    background: none;
+    border: 1px solid var(--border-strong);
+    color: var(--accent-2-2);
+    font-family: var(--font-mono);
+    font-size: 9.5px;
+    padding: 0 5px;
+    border-radius: 999px;
+    cursor: pointer;
+    line-height: 1.5;
+}
+.notes-btn:hover,
+.notes-btn[aria-expanded="true"] {
+    border-color: var(--accent-2);
+    color: var(--fg-main);
+    background: var(--new-bg);
+}
+.notes {
+    list-style: none;
+    margin: 5px 0 2px;
+    padding: 0 0 0 10px;
+    border-left: 1px solid var(--border-strong);
+}
+.notes li {
+    position: relative;
+    padding: 2px 0 2px 10px;
+    font-size: 11px;
+    line-height: 1.35;
+    color: var(--fg-muted);
+}
+.notes li::before {
+    content: "▸";
+    position: absolute;
+    left: 0;
+    top: 2px;
+    color: var(--accent-2);
+    font-size: 9px;
+}
+.notes-all {
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--fg-muted);
+    font-family: var(--font-mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 3px 8px;
+    border-radius: var(--r-sm);
+    cursor: pointer;
+    transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+.notes-all:hover,
+.notes-all[aria-pressed="true"] { color: var(--accent-2-2); border-color: var(--accent-2); }
+
+/* ---------- LEGEND + BUILDER (full-width strip) ---------- */
+.legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 18px;
+    align-items: center;
+    font-size: 11px;
+    color: var(--fg-muted);
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+.legend-item { display: flex; align-items: center; gap: 6px; }
+.legend-swatch {
+    display: inline-block;
+    width: 26px; height: 12px;
+    border-radius: var(--r-xs);
+}
+.swatch-new       { background: var(--new-bg); border: 1px solid var(--new-border); box-shadow: inset 2px 0 0 0 var(--new-bar); }
+.swatch-unverified{ background: var(--unverified-bg); border: 1px solid var(--unverified-border); box-shadow: inset 2px 0 0 0 var(--unverified-bar); }
+.swatch-default   { background: var(--bg-code); border: 1px solid var(--border); }
+
+
+/* ---------- SR-ONLY / NO-RESULTS ---------- */
+.sr-only {
+    position: absolute;
+    width: 1px; height: 1px;
+    padding: 0; margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+.no-results {
+    display: none;
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 40px 12px;
+    color: var(--fg-muted);
+    font-family: var(--font-mono);
+    font-size: 12.5px;
+}
+.no-results.is-visible { display: block; }
+
+/* ---------- FOOTER ---------- */
+.global-footer {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 18px 12px 6px;
+    margin-top: 6px;
+    color: var(--fg-dim);
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.05em;
+    border-top: 1px solid var(--border);
+}
+.global-footer a {
+    color: var(--accent-2);
+    text-decoration: none;
+    font-weight: 600;
+}
+.global-footer a:hover { color: var(--accent-2-2); text-decoration: underline; }
+
+/* ---------- WHAT'S NEW MODAL ---------- */
+.whats-new-overlay {
+    position: fixed; inset: 0;
+    background: rgba(0,0,0,0.55);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1001;
+    animation: modalFadeIn 0.22s var(--ease);
+}
+.whats-new-overlay.hidden { display: none; }
+.whats-new-modal {
+    background: var(--bg-card-2);
+    border: 1px solid var(--border-strong);
+    border-radius: var(--r-md);
+    max-width: 580px;
+    width: 92%;
+    max-height: 70vh;
+    overflow-y: auto;
+    padding: 22px 24px 20px;
+    box-shadow:
+        0 12px 40px rgba(0,0,0,0.45),
+        0 0 0 1px rgba(217,119,87,0.06);
+}
+.whats-new-header {
+    display: flex; align-items: baseline; justify-content: space-between;
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+    gap: 16px;
+}
+.whats-new-header h2 {
+    margin: 0;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--accent-1);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    display: flex; align-items: center; gap: 8px;
+}
+.whats-new-header h2::before {
+    content: "";
+    width: 8px; height: 8px;
+    background: var(--accent-1);
+    border-radius: 1.5px;
+}
+.whats-new-header .version-date {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--fg-muted);
+    font-weight: 400;
+}
+.whats-new-close {
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--fg-muted);
+    width: 26px; height: 26px;
+    border-radius: var(--r-sm);
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 1;
+    display: flex; align-items: center; justify-content: center;
+    transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+    margin-left: auto;
+}
+.whats-new-close:hover { color: var(--fg-main); border-color: var(--accent-1); }
+.whats-new-list { list-style: none; padding: 0; margin: 0; }
+.whats-new-list li {
+    padding: 8px 0;
+    border-bottom: 1px dotted var(--border);
+    font-size: 12.5px;
+    color: var(--fg-main);
+    line-height: 1.45;
+}
+.whats-new-list li:last-child { border-bottom: none; }
+.whats-new-list .tag {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 9.5px;
+    font-weight: 700;
+    padding: 2px 6px;
+    border-radius: var(--r-xs);
+    margin-right: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    min-width: 32px;
+    text-align: center;
+    vertical-align: 1px;
+}
+.whats-new-list .tag-add    { background: rgba(135,157,134,0.16); color: var(--accent-2-2);  border: 1px solid var(--accent-2); }
+.whats-new-list .tag-change { background: rgba(245,158,11,0.10);  color: #fbbf24;        border: 1px solid #f59e0b; }
+.whats-new-list .tag-remove { background: rgba(239,68,68,0.10);   color: #f87171;        border: 1px solid #ef4444; }
+.whats-new-list .tag-fix    { background: rgba(96,165,250,0.10);  color: #60a5fa;        border: 1px solid #3b82f6; }
+
+@keyframes modalFadeIn {
+    from { opacity: 0; transform: translateY(-6px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 900px) {
+    .global-header { padding: 0 14px; }
+    #dashboardSearch { width: 160px; }
+    .release-tag { display: none; }
+}
+@media (max-width: 700px) {
+    body { padding: calc(var(--header-h, 96px) + var(--nav-h, 32px) + 12px) 12px 24px; }
+    .section-tools { display: none; }
+    .global-header {
+        height: auto;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 10px 14px;
+        gap: 8px;
+    }
+    .global-controls { width: 100%; justify-content: space-between; flex-wrap: wrap; }
+    .dashboard-grid { grid-template-columns: 1fr; }
+    .whats-new-modal { width: 95%; max-height: 80vh; }
+}
+
+/* ---------- SINCE YOUR LAST VISIT ---------- */
+.since-strip { padding: 8px 16px; border-color: var(--accent-2); background: var(--new-bg); }
+.since-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    font-size: 12.5px;
+}
+.since-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--accent-2);
+    box-shadow: 0 0 0 3px var(--new-bg);
+    flex-shrink: 0;
+}
+.since-text { flex: 1 1 220px; min-width: 0; }
+.since-text b { color: var(--fg-main); }
+.since-text code { cursor: default; }
+.since-actions { margin-left: auto; display: flex; gap: 6px; }
+.since-actions button,
+.since-drawer-foot button {
+    background: var(--accent-2);
+    color: #0a0a0a;
+    border: 1px solid var(--accent-2);
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 4px 10px;
+    border-radius: var(--r-sm);
+    cursor: pointer;
+}
+.since-actions button.quiet {
+    background: none;
+    color: var(--fg-muted);
+    border-color: var(--border-strong);
+}
+.since-actions button.quiet:hover { color: var(--fg-main); border-color: var(--accent-2); }
+
+.since-drawer {
+    position: fixed;
+    top: var(--header-h, 52px); right: 0; bottom: 0;
+    width: min(440px, 100vw);
+    background: var(--bg-card-2);
+    border-left: 1px solid var(--border-strong);
+    z-index: 1002;
+    display: flex;
+    flex-direction: column;
+    box-shadow: -12px 0 40px rgba(0, 0, 0, 0.35);
+    animation: drawerIn 0.2s var(--ease);
+}
+.since-drawer[hidden] { display: none; }
+@keyframes drawerIn {
+    from { transform: translateX(24px); opacity: 0; }
+    to   { transform: none; opacity: 1; }
+}
+.since-drawer-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 16px 10px;
+    border-bottom: 1px solid var(--border);
+}
+.since-drawer-head h2 {
+    margin: 0;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--accent-1);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+.since-drawer-tools { display: flex; align-items: center; gap: 10px; }
+.since-drawer-body { overflow-y: auto; padding: 8px 16px; flex: 1; }
+.since-release { margin: 10px 0 14px; }
+.since-release h3 {
+    margin: 0 0 6px;
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    color: var(--accent-2);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    display: flex;
+    gap: 8px;
+    align-items: baseline;
+}
+.since-release h3 span { color: var(--fg-dim); font-weight: 400; text-transform: none; letter-spacing: 0; }
+.since-release ul { list-style: none; margin: 0; padding: 0; }
+.since-release li {
+    display: grid;
+    grid-template-columns: 36px minmax(0, 1fr);
+    gap: 8px;
+    padding: 6px 0;
+    border-bottom: 1px dotted var(--border);
+    font-size: 12px;
+    line-height: 1.4;
+    color: var(--fg-main);
+    cursor: pointer;
+}
+.since-release li:hover { background: var(--row-hover); }
+.since-release li.unlinked { color: var(--fg-muted); cursor: default; }
+.since-release li .tag {
+    font-family: var(--font-mono);
+    font-size: 9.5px;
+    font-weight: 700;
+    padding: 2px 0;
+    border-radius: var(--r-xs);
+    text-align: center;
+    align-self: start;
+    text-transform: uppercase;
+}
+.since-release li .tag-add    { background: rgba(135, 157, 134, 0.16); color: var(--accent-2-2); border: 1px solid var(--accent-2); }
+.since-release li .tag-change { background: rgba(245, 158, 11, 0.10);  color: #fbbf24;       border: 1px solid #f59e0b; }
+.since-release li .tag-remove { background: rgba(239, 68, 68, 0.10);   color: #f87171;       border: 1px solid #ef4444; }
+.since-release li .tag-fix    { background: rgba(96, 165, 250, 0.10);  color: #60a5fa;       border: 1px solid #3b82f6; }
+.since-drawer-foot {
+    padding: 10px 16px;
+    border-top: 1px solid var(--border);
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    color: var(--fg-dim);
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+.since-drawer-foot a { color: var(--accent-2); text-decoration: none; }
+.since-drawer-foot a:hover { text-decoration: underline; }
+.search-item.flash { animation: rowFlash 1.6s ease-out; }
+@keyframes rowFlash {
+    0%, 40% { background: var(--success-flash); }
+    100%    { background: transparent; }
+}
+
+
+/* ---------- PRINT ---------- */
+.print-head { display: none; }
+.print-btn { cursor: pointer; background: none; font-family: var(--font-sans); }
+
+@page { size: A4 landscape; margin: 7mm 8mm; }
+
+@media print {
+    .global-header, .section-nav, .legend-strip, .since-strip, .since-drawer,
+    .no-results, .notes, .notes-btn, .row-link, .skip-link { display: none !important; }
+
+    html, body { padding: 0; background: #fff; color: #111; font-size: 8pt; line-height: 1.25; }
+
+    .print-head {
+        display: flex;
+        column-span: all;
+        justify-content: space-between;
+        gap: 6mm;
+        font-family: var(--font-mono);
+        font-size: 7pt;
+        color: #333;
+        border-bottom: 1.5px solid #111;
+        padding-bottom: 1mm;
+        margin-bottom: 3mm;
+    }
+    .print-head-title { font-family: var(--font-sans); font-weight: 700; font-size: 9pt; color: #111; }
+    .print-head-title b { font-family: var(--font-pixel); font-size: 6pt; color: #c2410c; font-weight: 400; margin-left: 4px; }
+
+    .dashboard-grid { display: block; column-count: 4; column-gap: 5mm; column-fill: auto; max-width: none; }
+
+    .card {
+        display: block;
+        margin: 0 0 3mm;
+        padding: 0;
+        border: none;
+        border-radius: 0;
+        background: none;
+        break-inside: auto;
+    }
+    .card h2 {
+        font-size: 8.5pt;
+        color: #111;
+        border-bottom: 1.5px solid #111;
+        padding-bottom: 1.5px;
+        margin: 0 0 2mm;
+        break-after: avoid;
+    }
+    .card h2::before { background: #c2410c; }
+    .card-count { display: none; }
+
+    .search-group { margin-bottom: 2mm; break-inside: auto; }
+    details.search-group > summary { margin-bottom: 1mm; }
+    details.search-group:not([open]) > table { display: table; }   /* folded groups still print */
+    .search-group h3 { font-size: 6.5pt; color: #0f766e; margin: 0 0 1mm; break-after: avoid; }
+    .search-group h3::before { color: #c2410c; }
+    details.search-group + details.search-group > summary h3 { border-top: 1px dashed #bbb; padding-top: 1mm; margin-top: 1mm; }
+    .group-count { color: #666; }
+
+    table { font-size: 7.5pt; }
+    tr { break-inside: avoid; }
+    td { padding: 0.6mm 1mm 0.4mm 0; border-bottom: 0.4pt dotted #999; vertical-align: top; }
+    td:first-child { width: 40%; }
+    .desc { font-size: 7pt; color: #333; line-height: 1.25; }
+
+    code {
+        font-size: 6.8pt;
+        background: #f1efe9;
+        color: #111;
+        border: 0.4pt solid #ddd;
+        padding: 0 2px;
+        cursor: default;
+    }
+    .desc code { font-size: 6.5pt; }
+    code.new { background: #dfe8de; border-color: #0f766e; box-shadow: inset 2px 0 0 0 #0f766e; }
+    code.new::after { content: " ■"; color: #0f766e; font-size: 5pt; }
+    code.unverified { background: #f7edd6; border-color: #b47400; box-shadow: inset 2px 0 0 0 #b47400; }
+    code.unverified::after { content: " □"; color: #b47400; font-size: 5pt; }
+    mark.hit { background: none; }
+
+    .global-footer { border: none; padding: 2mm 0 0; font-size: 6pt; color: #666; text-align: left; }
+    .global-footer a { color: #666; }
+    .global-footer br { display: none; }
+
+    * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+
+</style>
+    <style>
+        :root { --accent-1: #7c4dff; --accent-1-2: #b388ff; --accent-2: #00b0ff; --accent-2-2: #80d8ff; }
+        :root[data-theme="light"] { --accent-1: #651fff; --accent-1-2: #4615b2; --accent-2: #0091ea; --accent-2-2: #0064b7; }
+    </style>
+    <script>
+        (function() {
+            var stored = localStorage.getItem('placemat-theme');
+            var theme = (stored === 'light' || stored === 'dark')
+                ? stored
+                : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            document.documentElement.dataset.theme = theme;
+        })();
+    </script>
+</head>
+<body>
+
+    <a class="skip-link" href="#card-keys">Skip to content</a>
+
+    <header class="global-header">
+        <div class="header-title">
+            <svg class="minion-icon" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Terminal prompt">
+                <rect x="2" y="3" width="2" height="2" fill="var(--accent-1)"/>
+                <rect x="4" y="5" width="2" height="2" fill="var(--accent-1)"/>
+                <rect x="6" y="7" width="2" height="2" fill="var(--accent-1)"/>
+                <rect x="4" y="9" width="2" height="2" fill="var(--accent-1)"/>
+                <rect x="2" y="11" width="2" height="2" fill="var(--accent-1)"/>
+                <rect x="9" y="11" width="5" height="2" fill="var(--accent-2)"/>
+            </svg>
+            <h1>Antigravity CLI <span class="wm-pixel">PLACEMAT</span></h1>
+            <span class="header-tagline">Unofficial · auto-updated reference</span>
+        </div>
+        <div class="global-controls">
+            <span class="release-tag">As of release: v1.2.2</span>
+            <a href="changelog.html" class="header-link">Changelog →</a>
+            <a href="feed.xml" class="header-link" title="Subscribe to placemat changes (RSS)">RSS</a>
+            <button type="button" class="header-link print-btn" id="printBtn" title="Print or save as PDF (Ctrl P)">⎙ Print</button>
+            <button type="button" class="theme-toggle" id="themeBtn" onclick="toggleTheme()" title="Toggle theme" aria-label="Toggle light and dark theme">&#9728;&#65039;</button>
+            <div class="search-wrap">
+                <input type="text" id="dashboardSearch" placeholder="Search the placemat…" aria-label="Search the placemat">
+                <span class="kbd" id="searchKbd">⌘K</span>
+                <span class="search-count" id="searchCount" aria-live="polite"></span>
+            </div>
+        </div>
+    </header>
+
+    <nav class="section-nav" aria-label="Sections">
+        <div class="section-nav-inner">
+            <div class="section-chips">
+                <a href="#card-keys" data-target="card-keys">TUI &amp; Keys<span class="chip-count"></span></a>
+                <a href="#card-slash-core" data-target="card-slash-core">Slash (Core)<span class="chip-count"></span></a>
+                <a href="#card-slash-tools" data-target="card-slash-tools">Slash (Tools)<span class="chip-count"></span></a>
+                <a href="#card-cli" data-target="card-cli">CLI<span class="chip-count"></span></a>
+                <a href="#card-settings" data-target="card-settings">Settings<span class="chip-count"></span></a>
+                <a href="#card-env" data-target="card-env">Env Vars<span class="chip-count"></span></a>
+                <a href="#card-skills" data-target="card-skills">Rules &amp; Skills<span class="chip-count"></span></a>
+                <a href="#card-hooks" data-target="card-hooks">Hooks &amp; MCP<span class="chip-count"></span></a>
+            </div>
+            <div class="section-tools">
+                <button type="button" id="collapseAll">Collapse all</button>
+                <button type="button" id="expandAll">Expand all</button>
+                <button type="button" id="densityBtn" aria-pressed="false">Compact</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="dashboard-grid">
+
+        <div class="print-head" aria-hidden="true">
+            <span class="print-head-title">Antigravity CLI <b>PLACEMAT</b></span>
+            <span>As of release v1.2.2</span>
+            <span>■ = new &nbsp; □ = unverified</span>
+            <span>dommango.github.io/agentmats/antigravity</span>
+        </div>
+
+        <div class="card full-width search-exclude since-strip" id="sinceStrip" hidden>
+            <div class="since-row">
+                <span class="since-dot" aria-hidden="true"></span>
+                <span class="since-text" id="sinceText"></span>
+                <span class="since-actions">
+                    <button type="button" id="sinceShow">Show changes</button>
+                    <button type="button" id="sinceRead" class="quiet">Mark as read</button>
+                </span>
+            </div>
+        </div>
+
+        <!-- Legend -->
+        <div class="card full-width search-exclude legend-strip">
+            <div class="legend-strip-row">
+                <div class="legend">
+                    <div class="legend-item"><span class="legend-swatch swatch-default"></span> Verified</div>
+                    <div class="legend-item"><span class="legend-swatch swatch-new"></span> <span id="legendNew">New since your last visit</span></div>
+                    <div class="legend-item"><span class="legend-swatch swatch-unverified"></span> Unverified</div>
+                    <div class="legend-item"><button type="button" class="notes-all" id="notesAll" aria-pressed="false">Show all notes</button></div>
+                </div>
+                <p class="scope-note">Reference for the <strong>Antigravity CLI</strong> (<code>agy</code>) and its core extensibility surface. Official documentation at <a href="https://antigravity.google/docs" target="_blank" rel="noopener noreferrer">antigravity.google/docs</a>.</p>
+            </div>
+        </div>
+
+        <!-- 1. KEYBOARD & TUI -->
+        <div class="card" id="card-keys">
+            <h2>TUI &amp; Keys <span class="card-count"></span></h2>
+
+            <details class="search-group" open data-group="Global controls">
+                <summary><h3>Global controls</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-key-esc"><td><a class="row-link" href="#i-key-esc" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>Esc</code></td><td class="desc">Close active panels, halt streams, or clear an empty prompt</td></tr>
+                    <tr class="search-item" id="i-ctrl-c"><td><a class="row-link" href="#i-ctrl-c" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>Ctrl+C</code></td><td class="desc"><span class="summary">Terminate the CLI session</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Prompts for confirmation if the agent is still working.</li></ul></td></tr>
+                    <tr class="search-item" id="i-ctrl-d"><td><a class="row-link" href="#i-ctrl-d" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>Ctrl+D</code></td><td class="desc">Exit the session, only when the prompt box is empty</td></tr>
+                    <tr class="search-item" id="i-ctrl-l"><td><a class="row-link" href="#i-ctrl-l" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>Ctrl+L</code></td><td class="desc">Refresh and clear the visual terminal buffer</td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="Prompt focus">
+                <summary><h3>Prompt focus</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-key-enter"><td><a class="row-link" href="#i-key-enter" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>Enter</code></td><td class="desc">Submit your prompt or the active menu selection</td></tr>
+                    <tr class="search-item" id="i-key-newline"><td><a class="row-link" href="#i-key-newline" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>Shift+Enter</code> / <code>Ctrl+J</code></td><td class="desc">Insert a newline without submitting</td></tr>
+                    <tr class="search-item" id="i-ctrl-v"><td><a class="row-link" href="#i-ctrl-v" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>Ctrl+V</code></td><td class="desc">Paste media files or clipboard blocks into the prompt</td></tr>
+                    <tr class="search-item" id="i-ctrl-o"><td><a class="row-link" href="#i-ctrl-o" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>Ctrl+O</code></td><td class="desc">Expand or collapse detailed tool reasoning output</td></tr>
+                    <tr class="search-item" id="i-ctrl-r"><td><a class="row-link" href="#i-ctrl-r" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>Ctrl+R</code></td><td class="desc">Open the Artifact Review Panel</td></tr>
+                    <tr class="search-item" id="i-ctrl-g"><td><a class="row-link" href="#i-ctrl-g" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>Ctrl+G</code></td><td class="desc">Launch your default <code>$EDITOR</code> to compose the prompt</td></tr>
+                    <tr class="search-item" id="i-alt-j"><td><a class="row-link" href="#i-alt-j" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>Alt+J</code></td><td class="desc">Switch focus to the next subagent awaiting confirmation</td></tr>
+                    <tr class="search-item" id="i-ctrl-k"><td><a class="row-link" href="#i-ctrl-k" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>Ctrl+K</code></td><td class="desc">Instantly approve the pending subagent action</td></tr>
+                    <tr class="search-item" id="i-key-cursor"><td><a class="row-link" href="#i-key-cursor" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>Ctrl+A</code> / <code>Ctrl+E</code></td><td class="desc">Move the cursor to the start or end of the line</td></tr>
+                    <tr class="search-item" id="i-key-undo-text"><td><a class="row-link" href="#i-key-undo-text" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>Ctrl+Z</code> / <code>Ctrl+Shift+Z</code></td><td class="desc">Undo or redo the last text edit in the prompt</td></tr>
+                    <tr class="search-item" id="i-key-f5"><td><a class="row-link" href="#i-key-f5" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>F5</code></td><td class="desc">Start or stop voice dictation</td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="Navigation &amp; scrolling">
+                <summary><h3>Navigation &amp; scrolling</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-up-down"><td><a class="row-link" href="#i-up-down" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>↑</code> / <code>↓</code></td><td class="desc">Scroll highlighted selections up or down by one item</td></tr>
+                    <tr class="search-item" id="i-key-pgup"><td><a class="row-link" href="#i-key-pgup" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>PgUp</code> / <code>Shift+↑</code></td><td class="desc">Scroll the active text viewport up by one page</td></tr>
+                    <tr class="search-item" id="i-key-pgdn"><td><a class="row-link" href="#i-key-pgdn" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>PgDn</code> / <code>Shift+↓</code></td><td class="desc">Scroll the active text viewport down by one page</td></tr>
+                    <tr class="search-item" id="i-key-leftright"><td><a class="row-link" href="#i-key-leftright" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>←</code> / <code>→</code></td><td class="desc">Swap pages inside multipage panels like the Session Picker</td></tr>
+                    <tr class="search-item" id="i-tab"><td><a class="row-link" href="#i-tab" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>Tab</code></td><td class="desc">Confirm the highlighted slash-command autofill option</td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="Tool confirmations">
+                <summary><h3>Tool confirmations</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-key-y"><td><a class="row-link" href="#i-key-y" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>y</code></td><td class="desc">Authorize the proposed tool, command, or artifact</td></tr>
+                    <tr class="search-item" id="i-key-n"><td><a class="row-link" href="#i-key-n" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>n</code></td><td class="desc">Reject the proposed tool, command, or artifact</td></tr>
+                    <tr class="search-item" id="i-key-approve-all"><td><a class="row-link" href="#i-key-approve-all" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>A</code></td><td class="desc">Approve all generated artifacts, inside the Review Panel</td></tr>
+                </table>
+            </details>
+        </div>
+
+        <!-- 2. SLASH COMMANDS (CORE) -->
+        <div class="card" id="card-slash-core">
+            <h2>Slash Commands (Core) <span class="card-count"></span></h2>
+
+            <details class="search-group" open data-group="Session lifecycle">
+                <summary><h3>Session lifecycle</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-help"><td><a class="row-link" href="#i-help" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/help</code></td><td class="desc">Open the help panel of commands and shortcuts</td></tr>
+                    <tr class="search-item" id="i-exit"><td><a class="row-link" href="#i-exit" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/exit</code> / <code>/quit</code></td><td class="desc">Close the TUI session and restore your host shell</td></tr>
+                    <tr class="search-item" id="i-clear"><td><a class="row-link" href="#i-clear" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/clear</code> / <code>/new</code></td><td class="desc"><span class="summary">Resets active conversation contexts, not just the display</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Clears the terminal AND wipes the model's context for that thread — closer to starting fresh than a scrollback clear.</li></ul></td></tr>
+                    <tr class="search-item" id="i-rewind"><td><a class="row-link" href="#i-rewind" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/rewind</code> / <code>/undo</code></td><td class="desc"><span class="summary">Roll back conversation history to a previous message</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Rewinds the conversation transcript only — it does not take or restore a git snapshot of file changes.</li></ul></td></tr>
+                    <tr class="search-item" id="i-fork"><td><a class="row-link" href="#i-fork" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/fork</code> / <code>/branch</code></td><td class="desc">Clone the current conversation thread into a new parallel session</td></tr>
+                    <tr class="search-item" id="i-rename"><td><a class="row-link" href="#i-rename" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/rename &lt;name&gt;</code></td><td class="desc">Rename the current session thread</td></tr>
+                    <tr class="search-item" id="i-resume"><td><a class="row-link" href="#i-resume" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/resume</code> / <code>/switch</code> / <code>/conversation</code></td><td class="desc">Open the conversation picker overlay to load a previous thread</td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="Configuration &amp; account">
+                <summary><h3>Configuration &amp; account</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-config"><td><a class="row-link" href="#i-config" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/config</code> / <code>/settings</code></td><td class="desc">Open the interactive Settings Editor Overlay</td></tr>
+                    <tr class="search-item" id="i-model"><td><a class="row-link" href="#i-model" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/model</code></td><td class="desc">Choose your preferred reasoning model for the session</td></tr>
+                    <tr class="search-item" id="i-permissions"><td><a class="row-link" href="#i-permissions" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/permissions</code></td><td class="desc">Open the interactive tool permissions manager panel</td></tr>
+                    <tr class="search-item" id="i-planning"><td><a class="row-link" href="#i-planning" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/planning</code></td><td class="desc">Enable multi-turn plan generation for complex tasks</td></tr>
+                    <tr class="search-item" id="i-fast"><td><a class="row-link" href="#i-fast" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/fast</code></td><td class="desc">Enable fast mode, bypassing reasoning plans for quick actions</td></tr>
+                    <tr class="search-item" id="i-keybindings"><td><a class="row-link" href="#i-keybindings" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/keybindings</code></td><td class="desc">Open the interactive Keyboard Shortcut Editor</td></tr>
+                    <tr class="search-item" id="i-statusline"><td><a class="row-link" href="#i-statusline" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/statusline</code></td><td class="desc">Open the Status Bar customization overlay</td></tr>
+                    <tr class="search-item" id="i-title"><td><a class="row-link" href="#i-title" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/title [on/off]</code></td><td class="desc">Toggle or set terminal window title updates</td></tr>
+                    <tr class="search-item" id="i-credits"><td><a class="row-link" href="#i-credits" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/credits</code></td><td class="desc">View remaining G1 credits and purchase links</td></tr>
+                    <tr class="search-item" id="i-logout"><td><a class="row-link" href="#i-logout" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/logout</code></td><td class="desc">Disconnect your profile and purge auth tokens from the keyring</td></tr>
+                </table>
+            </details>
+        </div>
+
+        <!-- 3. SLASH COMMANDS (TOOLS & OPS) -->
+        <div class="card" id="card-slash-tools">
+            <h2>Slash Commands (Tools) <span class="card-count"></span></h2>
+
+            <details class="search-group" open data-group="Tools &amp; tasks">
+                <summary><h3>Tools &amp; tasks</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-agents"><td><a class="row-link" href="#i-agents" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/agents</code></td><td class="desc">Open the Agent Manager Panel for background subagents</td></tr>
+                    <tr class="search-item" id="i-artifact"><td><a class="row-link" href="#i-artifact" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/artifact</code></td><td class="desc">Open the Artifact Review Panel</td></tr>
+                    <tr class="search-item" id="i-hooks"><td><a class="row-link" href="#i-hooks" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/hooks</code></td><td class="desc">Browse active pre-flight/post-format script hooks</td></tr>
+                    <tr class="search-item" id="i-mcp"><td><a class="row-link" href="#i-mcp" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/mcp</code></td><td class="desc">Open the Model Context Protocol server manager</td></tr>
+                    <tr class="search-item" id="i-skills"><td><a class="row-link" href="#i-skills" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/skills</code></td><td class="desc">Browse loaded local and global Agent Skills</td></tr>
+                    <tr class="search-item" id="i-tasks"><td><a class="row-link" href="#i-tasks" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/tasks</code></td><td class="desc">Open the Task Manager Panel for background shell logs</td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="Reasoning &amp; collaboration">
+                <summary><h3>Reasoning &amp; collaboration</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-boost"><td><a class="row-link" href="#i-boost" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/boost &lt;task&gt;</code></td><td class="desc">Run on-demand multi-agent deep reasoning loops</td></tr>
+                    <tr class="search-item" id="i-teamwork-preview"><td><a class="row-link" href="#i-teamwork-preview" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/teamwork-preview</code> / <code>/teamwork</code></td><td class="desc">Launch collaborative multi-agent teams for long-horizon work</td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="Utilities">
+                <summary><h3>Utilities</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-add-dir"><td><a class="row-link" href="#i-add-dir" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/add-dir &lt;path&gt;</code></td><td class="desc">Add a directory path to the active workspace</td></tr>
+                    <tr class="search-item" id="i-btw"><td><a class="row-link" href="#i-btw" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/btw &lt;query&gt;</code></td><td class="desc">Ask a side question without interrupting the main thread</td></tr>
+                    <tr class="search-item" id="i-context"><td><a class="row-link" href="#i-context" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/context</code></td><td class="desc">Open the context usage visualization panel</td></tr>
+                    <tr class="search-item" id="i-copy"><td><a class="row-link" href="#i-copy" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/copy</code></td><td class="desc">Copy the last agent response to the clipboard</td></tr>
+                    <tr class="search-item" id="i-diff"><td><a class="row-link" href="#i-diff" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/diff</code></td><td class="desc">Open the Interactive Diff Viewer</td></tr>
+                    <tr class="search-item" id="i-feedback"><td><a class="row-link" href="#i-feedback" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/feedback</code></td><td class="desc">Open the feedback submission panel</td></tr>
+                    <tr class="search-item" id="i-open"><td><a class="row-link" href="#i-open" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/open &lt;path&gt;</code></td><td class="desc">Force the path open in your default system editor</td></tr>
+                    <tr class="search-item" id="i-usage"><td><a class="row-link" href="#i-usage" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/usage</code> / <code>/quota</code></td><td class="desc">Display model quota usage</td></tr>
+                    <tr class="search-item" id="i-voice"><td><a class="row-link" href="#i-voice" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/voice</code> / <code>/record</code></td><td class="desc">Dictate a prompt using your microphone</td></tr>
+                </table>
+            </details>
+        </div>
+
+        <!-- 4. CLI FLAGS & SUBCOMMANDS -->
+        <div class="card" id="card-cli">
+            <h2>CLI &amp; Subcommands <span class="card-count"></span></h2>
+
+            <details class="search-group" open data-group="Session flags">
+                <summary><h3>Session flags</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-agy"><td><a class="row-link" href="#i-agy" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>agy</code></td><td class="desc">Launch an interactive Antigravity CLI coding session</td></tr>
+                    <tr class="search-item" id="i-continue"><td><a class="row-link" href="#i-continue" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>-c</code> / <code>--continue</code></td><td class="desc">Continue the most recent conversation session</td></tr>
+                    <tr class="search-item" id="i-conversation"><td><a class="row-link" href="#i-conversation" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>--conversation &lt;id&gt;</code></td><td class="desc">Resume a previous conversation by its unique ID</td></tr>
+                    <tr class="search-item" id="i-print"><td><a class="row-link" href="#i-print" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>-p</code> / <code>--print</code> / <code>--prompt</code></td><td class="desc">Run prompt non-interactively and print response to stdout</td></tr>
+                    <tr class="search-item" id="i-prompt-interactive"><td><a class="row-link" href="#i-prompt-interactive" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>-i</code> / <code>--prompt-interactive</code></td><td class="desc">Execute initial prompt and continue interactive session</td></tr>
+                    <tr class="search-item" id="i-model-flag"><td><a class="row-link" href="#i-model-flag" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>--model &lt;name&gt;</code></td><td class="desc">Specify model for current CLI session</td></tr>
+                    <tr class="search-item" id="i-effort-flag"><td><a class="row-link" href="#i-effort-flag" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>--effort &lt;level&gt;</code></td><td class="desc">Set reasoning effort for session (<code>low</code>, <code>medium</code>, <code>high</code>)</td></tr>
+                    <tr class="search-item" id="i-mode-flag"><td><a class="row-link" href="#i-mode-flag" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>--mode &lt;mode&gt;</code></td><td class="desc">Set agent execution mode (<code>accept-edits</code>, <code>plan</code>)</td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="Workspace &amp; sandbox">
+                <summary><h3>Workspace &amp; sandbox</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-project"><td><a class="row-link" href="#i-project" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>--project &lt;id&gt;</code></td><td class="desc">Project ID or project name for current CLI session</td></tr>
+                    <tr class="search-item" id="i-new-project"><td><a class="row-link" href="#i-new-project" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>--new-project</code></td><td class="desc">Initialize a new project state for current session</td></tr>
+                    <tr class="search-item" id="i-add-dir-2"><td><a class="row-link" href="#i-add-dir-2" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>--add-dir &lt;path&gt;</code></td><td class="desc">Add directory to workspace context (repeatable flag)</td></tr>
+                    <tr class="search-item" id="i-agent"><td><a class="row-link" href="#i-agent" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>--agent &lt;name&gt;</code></td><td class="desc">Specify agent role or persona for current session</td></tr>
+                    <tr class="search-item" id="i-sandbox"><td><a class="row-link" href="#i-sandbox" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>--sandbox</code></td><td class="desc">Run inside sandbox with terminal execution restrictions</td></tr>
+                    <tr class="search-item" id="i-dangerously-skip-permissions"><td><a class="row-link" href="#i-dangerously-skip-permissions" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>--dangerously-skip-permissions</code></td><td class="desc">Auto-approve tool permission requests without prompting</td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="Piping &amp; output">
+                <summary><h3>Piping &amp; output</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-input-format"><td><a class="row-link" href="#i-input-format" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>--input-format &lt;fmt&gt;</code></td><td class="desc"><span class="summary">Input format for print mode (<code>text</code>, <code>stream-json</code>)</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li><code>stream-json</code> reads NDJSON messages from stdin per turn; requires matching output format.</li></ul></td></tr>
+                    <tr class="search-item" id="i-output-format"><td><a class="row-link" href="#i-output-format" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>--output-format &lt;fmt&gt;</code></td><td class="desc">Output format for print mode (<code>text</code>, <code>json</code>, <code>stream-json</code>)</td></tr>
+                    <tr class="search-item" id="i-json-schema"><td><a class="row-link" href="#i-json-schema" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>--json-schema &lt;schema&gt;</code></td><td class="desc">Enforce structured output using JSON schema string or file</td></tr>
+                    <tr class="search-item" id="i-print-timeout"><td><a class="row-link" href="#i-print-timeout" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>--print-timeout &lt;dur&gt;</code></td><td class="desc">Timeout for print mode execution wait (default 5m0s)</td></tr>
+                    <tr class="search-item" id="i-disable-slash-commands"><td><a class="row-link" href="#i-disable-slash-commands" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>--disable-slash-commands</code></td><td class="desc">Disable slash command and skill expansion in print mode</td></tr>
+                    <tr class="search-item" id="i-log-file"><td><a class="row-link" href="#i-log-file" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>--log-file &lt;path&gt;</code></td><td class="desc">Override CLI log file path</td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="Subcommands">
+                <summary><h3>Subcommands</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-sub-models"><td><a class="row-link" href="#i-sub-models" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>agy models</code></td><td class="desc">List available models and reasoning configurations</td></tr>
+                    <tr class="search-item" id="i-sub-agents"><td><a class="row-link" href="#i-sub-agents" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>agy agents</code> / <code>agy agent</code></td><td class="desc">List available subagent roles and configurations</td></tr>
+                    <tr class="search-item" id="i-sub-mcp"><td><a class="row-link" href="#i-sub-mcp" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>agy mcp &lt;cmd&gt;</code></td><td class="desc">Manage MCP servers (<code>add</code>, <code>remove</code>, <code>list</code>, <code>enable</code>, <code>disable</code>)</td></tr>
+                    <tr class="search-item" id="i-sub-plugin"><td><a class="row-link" href="#i-sub-plugin" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>agy plugin &lt;cmd&gt;</code></td><td class="desc">Manage plugins (<code>install</code>, <code>list</code>, <code>import</code>, <code>validate</code>)</td></tr>
+                    <tr class="search-item" id="i-sub-changelog"><td><a class="row-link" href="#i-sub-changelog" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>agy changelog</code></td><td class="desc">Show changelog and release notes for installed CLI</td></tr>
+                    <tr class="search-item" id="i-sub-install"><td><a class="row-link" href="#i-sub-install" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>agy install</code></td><td class="desc">Configure environment paths and shell completions</td></tr>
+                    <tr class="search-item" id="i-sub-update"><td><a class="row-link" href="#i-sub-update" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>agy update</code></td><td class="desc">Update CLI binary to latest available release</td></tr>
+                    <tr class="search-item" id="i-sub-mic-serve"><td><a class="row-link" href="#i-sub-mic-serve" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>agy mic-serve</code></td><td class="desc">Serve host microphone input to CLI on another host</td></tr>
+                    <tr class="search-item" id="i-sub-remote-control"><td><a class="row-link" href="#i-sub-remote-control" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>agy remote-control</code></td><td class="desc">Manage remote-control background daemon (<code>start</code>, <code>status</code>, <code>stop</code>)</td></tr>
+                </table>
+            </details>
+        </div>
+
+        <!-- 5. SETTINGS JSON -->
+        <div class="card" id="card-settings">
+            <h2>Settings (settings.json) <span class="card-count"></span></h2>
+
+            <details class="search-group" open data-group="Appearance &amp; editing">
+                <summary><h3>Appearance &amp; editing</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-cfg-color-scheme"><td><a class="row-link" href="#i-cfg-color-scheme" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>colorScheme</code></td><td class="desc"><span class="summary">TUI color theme, default <code>"terminal"</code></span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Also accepts light/dark/solarized/colorblind-friendly/tokyo night variants.</li></ul></td></tr>
+                    <tr class="search-item" id="i-cfg-alt-screen-mode"><td><a class="row-link" href="#i-cfg-alt-screen-mode" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>altScreenMode</code></td><td class="desc">Screen buffer mode: <code>default</code>, <code>always</code>, or <code>never</code></td></tr>
+                    <tr class="search-item" id="i-cfg-editor"><td><a class="row-link" href="#i-cfg-editor" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>editor</code></td><td class="desc">External editor target: <code>auto</code>, <code>vim</code>, <code>emacs</code>, or custom</td></tr>
+                    <tr class="search-item" id="i-cfg-editor-mode"><td><a class="row-link" href="#i-cfg-editor-mode" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>editorMode</code></td><td class="desc">Prompt editing model: <code>default</code> (flat) or <code>vim</code> (modal)</td></tr>
+                    <tr class="search-item" id="i-cfg-vim-insert-first"><td><a class="row-link" href="#i-cfg-vim-insert-first" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>vimInsertFirst</code></td><td class="desc">Start Vim mode in Insert; requires <code>editorMode: "vim"</code></td></tr>
+                    <tr class="search-item" id="i-cfg-verbosity"><td><a class="row-link" href="#i-cfg-verbosity" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>verbosity</code></td><td class="desc">Visual verbosity: <code>high</code> (full output) or <code>low</code> (minimal)</td></tr>
+                    <tr class="search-item" id="i-cfg-running-light-speed"><td><a class="row-link" href="#i-cfg-running-light-speed" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>runningLightSpeed</code></td><td class="desc">Progress animation speed: <code>fast</code>, <code>medium</code>, <code>slow</code>, <code>off</code></td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="Safety &amp; permissions">
+                <summary><h3>Safety &amp; permissions</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-cfg-tool-permission"><td><a class="row-link" href="#i-cfg-tool-permission" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>toolPermission</code></td><td class="desc"><span class="summary">Global safety preset, default <code>"request-review"</code></span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Also accepts <code>proceed-in-sandbox</code>, <code>always-proceed</code>, or <code>strict</code>.</li></ul></td></tr>
+                    <tr class="search-item" id="i-cfg-artifact-review-policy"><td><a class="row-link" href="#i-cfg-artifact-review-policy" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>artifactReviewPolicy</code></td><td class="desc">Code review policy: asks-for-review, agent-decides, always-proceed</td></tr>
+                    <tr class="search-item" id="i-cfg-allow-non-workspace-access"><td><a class="row-link" href="#i-cfg-allow-non-workspace-access" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>allowNonWorkspaceAccess</code></td><td class="desc">Let file read/write tools navigate outside the workspace root</td></tr>
+                    <tr class="search-item" id="i-cfg-enable-terminal-sandbox"><td><a class="row-link" href="#i-cfg-enable-terminal-sandbox" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>enableTerminalSandbox</code></td><td class="desc">Restrict local execution commands to OS containment rings</td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="Notifications &amp; account">
+                <summary><h3>Notifications &amp; account</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-cfg-notifications"><td><a class="row-link" href="#i-cfg-notifications" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>notifications</code></td><td class="desc">Desktop and terminal bell chime on task completion</td></tr>
+                    <tr class="search-item" id="i-cfg-show-tips"><td><a class="row-link" href="#i-cfg-show-tips" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>showTips</code></td><td class="desc">Show agentic tips above the prompt panel while generating</td></tr>
+                    <tr class="search-item" id="i-cfg-show-feedback-survey"><td><a class="row-link" href="#i-cfg-show-feedback-survey" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>showFeedbackSurvey</code></td><td class="desc">Show periodic quality feedback surveys after tasks</td></tr>
+                    <tr class="search-item" id="i-cfg-use-g1-credits"><td><a class="row-link" href="#i-cfg-use-g1-credits" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>useG1Credits</code></td><td class="desc">Use personal AI credits once plan quotas are exhausted</td></tr>
+                    <tr class="search-item" id="i-cfg-enable-telemetry"><td><a class="row-link" href="#i-cfg-enable-telemetry" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>enableTelemetry</code></td><td class="desc">Allow metric collection and crash log streaming</td></tr>
+                </table>
+            </details>
+        </div>
+
+        <!-- 6. ENVIRONMENT VARIABLES -->
+        <div class="card" id="card-env">
+            <h2>Environment Variables <span class="card-count"></span></h2>
+
+            <details class="search-group" open data-group="Authentication">
+                <summary><h3>Authentication</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-env-gemini-key"><td><a class="row-link" href="#i-env-gemini-key" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>GEMINI_API_KEY</code></td><td class="desc"><span class="summary">Authenticate with a Gemini API key instead of Google sign-in</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Also set <code>modelProvider: "gemini"</code> in <code>settings.json</code>; suits headless and CI runs. The CLI reads this credential only from the environment, not from <code>.env</code> files.</li></ul></td></tr>
+                    <tr class="search-item" id="i-env-base-url"><td><a class="row-link" href="#i-env-base-url" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>GOOGLE_GEMINI_BASE_URL</code></td><td class="desc">Point the CLI at a different Gemini-compatible endpoint</td></tr>
+                </table>
+            </details>
+        </div>
+
+        <!-- 7. RULES & SKILLS -->
+        <div class="card" id="card-skills">
+            <h2>Rules &amp; Skills <span class="card-count"></span></h2>
+
+            <details class="search-group" open data-group="Project rules">
+                <summary><h3>Project rules</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-rule-global"><td><a class="row-link" href="#i-rule-global" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>~/.gemini/GEMINI.md</code></td><td class="desc">Global rules applied across every workspace</td></tr>
+                    <tr class="search-item" id="i-rule-dir"><td><a class="row-link" href="#i-rule-dir" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>.agents/rules/*.md</code></td><td class="desc"><span class="summary">Workspace-level rule files, 12,000 characters each</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Backward-compatible with the older <code>.agent/rules</code> path.</li></ul></td></tr>
+                    <tr class="search-item" id="i-rule-triggers"><td><a class="row-link" href="#i-rule-triggers" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>Manual</code> / <code>Always On</code> / <code>Model Decision</code> / <code>Glob</code></td><td class="desc"><span class="summary">The four rule activation modes</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Manual is @-mentioned; Always On always applies; Model Decision lets the agent judge relevance; Glob matches a file pattern like <code>src/**/*.ts</code>.</li></ul></td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="Custom skills">
+                <summary><h3>Custom skills</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-skill-workspace"><td><a class="row-link" href="#i-skill-workspace" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>.agents/skills/&lt;name&gt;/SKILL.md</code></td><td class="desc"><span class="summary">Workspace-level skill definition with YAML frontmatter</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Workspace customizations in <code>.agents/</code> override global and built-in skills.</li></ul></td></tr>
+                    <tr class="search-item" id="i-skill-global"><td><a class="row-link" href="#i-skill-global" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>~/.gemini/config/skills/</code></td><td class="desc">Global machine-wide custom skills directory</td></tr>
+                    <tr class="search-item" id="i-skill-progressive"><td><a class="row-link" href="#i-skill-progressive" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>progressive disclosure</code></td><td class="desc"><span class="summary">Only a skill's name and description load until it's activated</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>The agent decides from context whether a skill is relevant, then reads the full <code>SKILL.md</code> before following it.</li></ul></td></tr>
+                </table>
+            </details>
+        </div>
+
+        <!-- 8. HOOKS, PLUGINS & MCP -->
+        <div class="card" id="card-hooks">
+            <h2>Hooks &amp; MCP <span class="card-count"></span></h2>
+
+            <details class="search-group" open data-group="Lifecycle hooks">
+                <summary><h3>Lifecycle hooks</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-hook-config"><td><a class="row-link" href="#i-hook-config" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hooks.json</code></td><td class="desc">Config file in <code>.agents/</code> or <code>~/.gemini/config/</code> mapping hooks to events</td></tr>
+                    <tr class="search-item" id="i-hook-pre-tool-use"><td><a class="row-link" href="#i-hook-pre-tool-use" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>PreToolUse</code></td><td class="desc">Fires before a tool executes</td></tr>
+                    <tr class="search-item" id="i-hook-post-tool-use"><td><a class="row-link" href="#i-hook-post-tool-use" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>PostToolUse</code></td><td class="desc">Fires after a tool finishes</td></tr>
+                    <tr class="search-item" id="i-hook-pre-invocation"><td><a class="row-link" href="#i-hook-pre-invocation" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>PreInvocation</code></td><td class="desc">Fires before calling the model</td></tr>
+                    <tr class="search-item" id="i-hook-post-invocation"><td><a class="row-link" href="#i-hook-post-invocation" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>PostInvocation</code></td><td class="desc">Fires immediately after the model responds</td></tr>
+                    <tr class="search-item" id="i-hook-stop"><td><a class="row-link" href="#i-hook-stop" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>Stop</code></td><td class="desc">Fires when execution terminates</td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="Plugins">
+                <summary><h3>Plugins</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-plugin-manifest"><td><a class="row-link" href="#i-plugin-manifest" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>plugins/&lt;name&gt;/plugin.json</code></td><td class="desc">Manifest bundling skills, rules, and MCP configurations</td></tr>
+                    <tr class="search-item" id="i-plugin-list"><td><a class="row-link" href="#i-plugin-list" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>agy plugin list</code></td><td class="desc">List all installed, enabled, and imported plugins</td></tr>
+                    <tr class="search-item" id="i-plugin-import-gemini"><td><a class="row-link" href="#i-plugin-import-gemini" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>agy plugin import gemini</code></td><td class="desc">Import plugin bundle from Gemini ecosystem</td></tr>
+                    <tr class="search-item" id="i-plugin-import-claude"><td><a class="row-link" href="#i-plugin-import-claude" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>agy plugin import claude</code></td><td class="desc">Import compatible plugin bundle from Claude ecosystem</td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="Model Context Protocol">
+                <summary><h3>Model Context Protocol</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-mcp-config"><td><a class="row-link" href="#i-mcp-config" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>mcp_config.json</code></td><td class="desc">Configuration registering external MCP tool servers</td></tr>
+                    <tr class="search-item" id="i-mcp-add"><td><a class="row-link" href="#i-mcp-add" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>agy mcp add &lt;name&gt; &lt;cmd&gt;</code></td><td class="desc">Register an MCP server with executable command and flags</td></tr>
+                    <tr class="search-item" id="i-mcp-list"><td><a class="row-link" href="#i-mcp-list" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>agy mcp list</code></td><td class="desc">Display configured MCP servers and connection status</td></tr>
+                    <tr class="search-item" id="i-mcp-enable"><td><a class="row-link" href="#i-mcp-enable" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>agy mcp enable &lt;name&gt;</code></td><td class="desc">Enable a previously registered MCP server</td></tr>
+                    <tr class="search-item" id="i-mcp-disable"><td><a class="row-link" href="#i-mcp-disable" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>agy mcp disable &lt;name&gt;</code></td><td class="desc">Disable an MCP server without removing its configuration</td></tr>
+                </table>
+            </details>
+        </div>
+
+        <div class="no-results search-exclude" id="noResults">No matches — clear search to see everything.</div>
+
+    </main>
+
+    <footer class="global-footer">
+        <p>Content synced 2026-09-13 · <a href="../" class="header-link">More agent placemats →</a></p>
+        <p class="disclaimer">
+            Unofficial community reference — <strong>not affiliated with or endorsed by</strong>
+            Google DeepMind or Google. No vendor logos or wordmarks are used. Every entry is
+            condensed in our own words from the official documentation and links back to it — always confirm
+            against the official docs before relying on anything here.
+        </p>
+        <p class="disclaimer">
+            <a href="https://github.com/dommango/agentmats" target="_blank" rel="noopener noreferrer">Source on GitHub</a> ·
+            <a href="https://dommango.github.io" target="_blank" rel="noopener noreferrer">Context//Collapse</a>
+        </p>
+    </footer>
+
+    <!-- What's new since your last visit drawer -->
+    <aside class="since-drawer" id="sinceDrawer" hidden aria-label="Changes since your last visit">
+        <div class="since-drawer-head">
+            <h2 id="sinceDrawerTitle">Since your last visit</h2>
+            <div class="since-drawer-tools">
+                <button type="button" id="sinceReadAll">Mark all as read</button>
+                <button type="button" id="sinceClose" aria-label="Close changes drawer">&times;</button>
+            </div>
+        </div>
+        <div class="since-drawer-body" id="sinceBody"></div>
+    </aside>
+
+    <script>
+// Shared placemat behaviour. Storage keys are derived per agent from
+// <html data-agent="…">; theme/density are deliberately shared origin-wide (D6).
+const AGENT = document.documentElement.dataset.agent || 'agent';
+const LS_SEEN = 'pm-' + AGENT + '-seen-version';
+const LS_COLLAPSED = 'pm-' + AGENT + '-collapsed';
+
+// --- ONE-TIME MIGRATION (U4): the Claude Code placemat used to own the
+// unprefixed seen/collapsed keys directly, before it moved onto this shared
+// script. Existing visitors keep their seen-state instead of re-seeing
+// everything as "new" the first time they load the migrated page.
+if (AGENT === 'claude-code') {
+    try {
+        const oldSeenKey = 'placemat' + '-seen-version';
+        const oldCollapsedKey = 'placemat' + '-collapsed';
+        const oldSeen = localStorage.getItem(oldSeenKey);
+        if (oldSeen !== null && localStorage.getItem(LS_SEEN) === null) {
+            localStorage.setItem(LS_SEEN, oldSeen);
+            const oldCollapsed = localStorage.getItem(oldCollapsedKey);
+            if (oldCollapsed !== null) localStorage.setItem(LS_COLLAPSED, oldCollapsed);
+            localStorage.removeItem(oldSeenKey);
+            localStorage.removeItem(oldCollapsedKey);
+        }
+    } catch (err) {}
+}
+
+// --- THEME TOGGLE LOGIC ---
+function setThemeIcon(theme) {
+    const btn = document.getElementById('themeBtn');
+    if (btn) btn.innerHTML = theme === 'dark' ? '&#9728;&#65039;' : '&#127769;';
+}
+function toggleTheme() {
+    const root = document.documentElement;
+    const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
+    root.dataset.theme = next;
+    localStorage.setItem('placemat-theme', next);
+    setThemeIcon(next);
+}
+setThemeIcon(document.documentElement.dataset.theme);
+
+// --- CLICK TO COPY LOGIC (mouse + keyboard) ---
+function makeCopyable(el, getText) {
+    el.title = "Click to copy";
+    el.tabIndex = -1;
+    el.setAttribute('role', 'button');
+    el.addEventListener('click', () => copyText(el, getText()));
+    el.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            copyText(el, getText());
+        }
+    });
+}
+
+document.querySelectorAll('code').forEach(el => {
+    makeCopyable(el, () => el.innerText);
+});
+
+async function copyText(element, text) {
+    try {
+        await navigator.clipboard.writeText(text);
+        element.classList.add('copied');
+        setTimeout(() => element.classList.remove('copied'), 300);
+    } catch (err) { console.error('Failed to copy: ', err); }
+}
+
+// --- HIERARCHICAL SEARCH LOGIC ---
+const searchInput = document.getElementById('dashboardSearch');
+
+// --- COLLAPSIBLE GROUPS (counts computed at load; folded state remembered) ---
+const groupEls = Array.from(document.querySelectorAll('details.search-group'));
+const COLLAPSED_KEY = LS_COLLAPSED;
+let collapsedGroups = new Set();
+try { collapsedGroups = new Set(JSON.parse(localStorage.getItem(COLLAPSED_KEY) || '[]')); } catch (err) {}
+
+function saveCollapsed() {
+    try { localStorage.setItem(COLLAPSED_KEY, JSON.stringify(Array.from(collapsedGroups))); } catch (err) {}
+}
+
+groupEls.forEach((group) => {
+    group.querySelector('.group-count').textContent = group.querySelectorAll('.search-item').length;
+    group.open = !collapsedGroups.has(group.dataset.group);
+    group.addEventListener('toggle', () => {
+        if (searchInput.value.trim()) return; // search-driven opens are temporary
+        group.open ? collapsedGroups.delete(group.dataset.group) : collapsedGroups.add(group.dataset.group);
+        saveCollapsed();
+    });
+});
+
+function applyGroupState(term) {
+    groupEls.forEach((group) => { group.open = term ? true : !collapsedGroups.has(group.dataset.group); });
+}
+
+// --- FIXED BAR HEIGHTS: measured so the header and nav always clear each other ---
+(function trackBarHeights() {
+    const header = document.querySelector('.global-header');
+    const nav = document.querySelector('.section-nav');
+    const sync = () => {
+        document.documentElement.style.setProperty('--header-h', Math.round(header.offsetHeight) + 'px');
+        document.documentElement.style.setProperty('--nav-h', Math.round(nav.offsetHeight) + 'px');
+    };
+    sync();
+    if (typeof ResizeObserver === 'function') {
+        const observer = new ResizeObserver(sync);
+        observer.observe(header);
+        observer.observe(nav);
+    }
+    window.addEventListener('resize', sync);
+})();
+
+// --- SECTION NAV: counts, active chip, collapse/expand all ---
+const navChips = Array.from(document.querySelectorAll('.section-chips a'));
+navChips.forEach((chip) => {
+    const card = document.getElementById(chip.dataset.target);
+    if (!card) return;
+    const count = card.querySelectorAll('.search-item').length;
+    chip.querySelector('.chip-count').textContent = count;
+    card.querySelector('.card-count').textContent = count;
+});
+const cardObserver = new IntersectionObserver((entries) => {
+    const visible = entries
+        .filter((entry) => entry.isIntersecting)
+        .sort((a, b) => (a.boundingClientRect.top - b.boundingClientRect.top)
+            || (a.boundingClientRect.left - b.boundingClientRect.left));
+    if (!visible.length) return;
+    navChips.forEach((chip) => chip.classList.toggle('is-active', chip.dataset.target === visible[0].target.id));
+}, { rootMargin: '-100px 0px -60% 0px', threshold: 0 });
+navChips.forEach((chip) => {
+    const card = document.getElementById(chip.dataset.target);
+    if (card) cardObserver.observe(card);
+});
+
+function setAllGroups(open) {
+    collapsedGroups = new Set(open ? [] : groupEls.map((group) => group.dataset.group));
+    saveCollapsed();
+    groupEls.forEach((group) => { group.open = open; });
+}
+document.getElementById('printBtn').addEventListener('click', () => window.print());
+document.getElementById('collapseAll').addEventListener('click', () => setAllGroups(false));
+document.getElementById('expandAll').addEventListener('click', () => setAllGroups(true));
+
+// --- DENSITY TOGGLE ---
+(function initDensity() {
+    const DENSITY_KEY = 'placemat-density';
+    const btn = document.getElementById('densityBtn');
+    const apply = (compact) => {
+        document.body.classList.toggle('density-compact', compact);
+        btn.setAttribute('aria-pressed', String(compact));
+    };
+    let compact = false;
+    try { compact = localStorage.getItem(DENSITY_KEY) === 'compact'; } catch (err) {}
+    apply(compact);
+    btn.addEventListener('click', () => {
+        compact = !compact;
+        apply(compact);
+        try { localStorage.setItem(DENSITY_KEY, compact ? 'compact' : 'comfortable'); } catch (err) {}
+    });
+})();
+
+searchInput.addEventListener('input', (e) => {
+    performSearch(e.target.value);
+    applyGroupState(e.target.value.trim());
+    revealNoteHits(e.target.value);
+});
+
+const searchKbd = document.getElementById('searchKbd');
+if (searchKbd && !/mac/i.test(navigator.platform || navigator.userAgentData?.platform || '')) {
+    searchKbd.textContent = 'Ctrl K';
+}
+
+window.addEventListener('keydown', (e) => {
+    if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+        e.preventDefault(); searchInput.focus();
+    }
+});
+
+// --- TWO-TIER ENTRIES: notes disclosure ---
+const noteButtons = Array.from(document.querySelectorAll('.notes-btn'));
+const setNotes = (btn, open) => {
+    btn.setAttribute('aria-expanded', String(open));
+    btn.nextElementSibling.hidden = !open;
+};
+noteButtons.forEach((btn) => btn.addEventListener('click', () => setNotes(btn, btn.getAttribute('aria-expanded') !== 'true')));
+const notesAllBtn = document.getElementById('notesAll');
+notesAllBtn.addEventListener('click', () => {
+    const open = notesAllBtn.getAttribute('aria-pressed') !== 'true';
+    notesAllBtn.setAttribute('aria-pressed', String(open));
+    notesAllBtn.textContent = open ? 'Hide all notes' : 'Show all notes';
+    noteButtons.forEach((btn) => setNotes(btn, open));
+});
+function revealNoteHits(term) {
+    const needle = term.toLowerCase().trim();
+    if (!needle) return;
+    noteButtons.forEach((btn) => {
+        const row = btn.closest('.search-item');
+        const outside = (row.querySelector('td').textContent + ' ' + row.querySelector('.summary').textContent).toLowerCase().includes(needle);
+        const inside = btn.nextElementSibling.textContent.toLowerCase().includes(needle);
+        if (inside && !outside) setNotes(btn, true);
+    });
+}
+
+// --- SEARCH: normalised match, highlight, count, URL state ---
+const normaliseSearch = (s) => s.toLowerCase().replace(/[\s+_\-\/.:~]/g, '');
+const searchRows = Array.from(document.querySelectorAll('.search-item'));
+searchRows.forEach((row) => {
+    const heading = row.closest('.search-group').querySelector('h3');
+    row.dataset.norm = normaliseSearch((heading ? heading.textContent + ' ' : '') + row.textContent);
+});
+const searchWrap = document.querySelector('.search-wrap');
+const searchCount = document.getElementById('searchCount');
+
+function markHits(cell, term) {
+    cell.querySelectorAll('mark.hit').forEach((mark) => mark.replaceWith(mark.textContent));
+    cell.normalize();
+    if (!term || term.length < 2) return;
+    // Tolerate the separators the normaliser strips: "ctrl+r" matches "Ctrl R".
+    const chars = term.split('')
+        .filter((ch) => !/[\s+_\-\/.:~]/.test(ch))
+        .map((ch) => ch.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
+    if (!chars.length) return;
+    const re = new RegExp(chars.join('[\\s+_\\-\\/.:~]*'), 'i');
+    const walker = document.createTreeWalker(cell, NodeFilter.SHOW_TEXT);
+    const nodes = [];
+    while (walker.nextNode()) nodes.push(walker.currentNode);
+    nodes.forEach((node) => {
+        if (node.parentElement.closest('a.row-link')) return;
+        const found = node.data.match(re);
+        if (!found || !found[0]) return;
+        const mark = document.createElement('mark');
+        mark.className = 'hit';
+        const after = node.splitText(found.index);
+        after.data = after.data.slice(found[0].length);
+        mark.textContent = found[0];
+        node.parentNode.insertBefore(mark, after);
+    });
+}
+
+function performSearch(raw) {
+    const term = raw.trim();
+    const needle = normaliseSearch(term);
+    let total = 0;
+    document.querySelectorAll('.dashboard-grid .card:not(.search-exclude)').forEach((card) => {
+        let cardHasMatch = false;
+        card.querySelectorAll('.search-group').forEach((group) => {
+            let groupHasMatch = false;
+            group.querySelectorAll('.search-item').forEach((row) => {
+                const hit = !needle || row.dataset.norm.includes(needle);
+                row.style.display = hit ? 'table-row' : 'none';
+                row.querySelectorAll('td').forEach((cell) => markHits(cell, hit ? term : ''));
+                if (hit) { groupHasMatch = true; total++; }
+            });
+            group.style.display = groupHasMatch ? 'block' : 'none';
+            if (groupHasMatch) cardHasMatch = true;
+        });
+        card.style.display = cardHasMatch ? 'block' : 'none';
+    });
+    document.getElementById('noResults').classList.toggle('is-visible', total === 0);
+    searchWrap.classList.toggle('has-term', !!needle);
+    searchCount.textContent = total + (total === 1 ? ' match' : ' matches');
+    const url = new URL(location.href);
+    if (needle) url.searchParams.set('q', term); else url.searchParams.delete('q');
+    history.replaceState(null, '', url);
+    rebindRoving();
+}
+
+const initialQuery = new URLSearchParams(location.search).get('q');
+if (initialQuery) { searchInput.value = initialQuery; performSearch(initialQuery); applyGroupState(initialQuery.trim()); revealNoteHits(initialQuery); }
+
+window.addEventListener('keydown', (e) => {
+    const inField = /^(INPUT|SELECT|TEXTAREA)$/.test(document.activeElement.tagName);
+    if (e.key === '/' && !inField) { e.preventDefault(); searchInput.focus(); searchInput.select(); }
+    if (e.key === 'Escape' && document.activeElement === searchInput) {
+        searchInput.value = '';
+        searchInput.dispatchEvent(new Event('input'));
+        searchInput.blur();
+    }
+});
+
+// --- PERMALINKS ---
+document.querySelectorAll('.row-link').forEach((link) => {
+    link.addEventListener('click', async (e) => {
+        e.preventDefault();
+        const href = link.getAttribute('href');
+        try {
+            await navigator.clipboard.writeText(location.origin + location.pathname + href);
+        } catch (err) { console.error('Failed to copy link:', err); }
+        history.replaceState(null, '', href);
+        link.classList.add('copied');
+        link.textContent = '✓';
+        setTimeout(() => { link.classList.remove('copied'); link.textContent = '#'; }, 900);
+    });
+});
+if (location.hash) {
+    const target = document.getElementById(location.hash.slice(1));
+    if (target) target.scrollIntoView({ block: 'center' });
+}
+
+// --- ROVING FOCUS: the grid is one tab stop ---
+function visibleRows() {
+    return searchRows.filter((row) => row.style.display !== 'none' && row.closest('.card').style.display !== 'none');
+}
+function rebindRoving() {
+    const rows = visibleRows();
+    searchRows.forEach((row) => { row.tabIndex = -1; });
+    if (rows[0]) rows[0].tabIndex = 0;
+}
+rebindRoving();
+document.querySelector('.dashboard-grid').addEventListener('keydown', (e) => {
+    const row = e.target.closest('.search-item');
+    if (!row || e.target !== row) return;
+    const rows = visibleRows();
+    const index = rows.indexOf(row);
+    const move = (next) => {
+        if (!next) return;
+        e.preventDefault();
+        row.tabIndex = -1;
+        next.tabIndex = 0;
+        next.focus();
+    };
+    if (e.key === 'ArrowDown') move(rows[index + 1]);
+    if (e.key === 'ArrowUp') move(rows[index - 1]);
+    if (e.key === 'Enter') {
+        e.preventDefault();
+        const chip = row.querySelector('code');
+        if (chip) copyText(chip, chip.innerText);
+    }
+    if (e.key === 'l') {
+        const link = row.querySelector('.row-link');
+        if (link) link.click();
+    }
+});
+searchInput.addEventListener('keydown', (e) => {
+    if (e.key !== 'ArrowDown') return;
+    const rows = visibleRows();
+    if (rows[0]) { e.preventDefault(); rows[0].focus(); }
+});
+
+// --- SINCE YOUR LAST VISIT ---
+const versionNumber = (v) => v.replace(/^v/, '').split('.').map(Number).reduce((a, b) => a * 1000 + b, 0);
+(async function initSince() {
+    const SEEN_KEY = LS_SEEN;
+    const current = (document.querySelector('.release-tag').textContent.match(/v[\d.]+/) || [])[0];
+    if (!current) return;
+    let data;
+    try {
+        const res = await fetch('changes.json');
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        data = await res.json();
+    } catch (err) {
+        console.warn('changes.json unavailable:', err.message);
+        return;
+    }
+
+    const tagClass = { ADD: 'tag-add', CHG: 'tag-change', DEL: 'tag-remove', FIX: 'tag-fix' };
+    const rows = Array.from(document.querySelectorAll('.search-item'));
+    const byCode = new Map();
+    rows.forEach((row) => row.querySelectorAll('td:first-child code').forEach((chip) => {
+        const key = chip.innerText.trim();
+        if (!byCode.has(key)) byCode.set(key, row);
+    }));
+    const findRow = (entry) => {
+        if (entry.row) return document.getElementById(entry.row);
+        const item = entry.item;
+        if (!item) return null;
+        if (byCode.has(item)) return byCode.get(item);
+        for (const [key, row] of byCode) if (key.startsWith(item + ' ') || key.startsWith(item + '=')) return row;
+        for (const [key, row] of byCode) if (key.includes(item)) return row;
+        return null;
+    };
+
+    const strip = document.getElementById('sinceStrip');
+    const text = document.getElementById('sinceText');
+    const drawer = document.getElementById('sinceDrawer');
+    const body = document.getElementById('sinceBody');
+    const title = document.getElementById('sinceDrawerTitle');
+    const legend = document.getElementById('legendNew');
+
+    function render() {
+        let seen = null;
+        try { seen = localStorage.getItem(SEEN_KEY); } catch (err) {}
+        rows.forEach((row) => row.querySelectorAll('td:first-child code.new').forEach((chip) => chip.classList.remove('new')));
+
+        let releases;
+        if (!seen) releases = data.releases.slice(0, 3);
+        else if (versionNumber(seen) < versionNumber(current)) {
+            releases = data.releases.filter((rel) => versionNumber(rel.version) > versionNumber(seen)
+                && versionNumber(rel.version) <= versionNumber(current));
+        } else releases = [];
+
+        const changes = releases.reduce((sum, rel) => sum + rel.entries.length, 0);
+        legend.textContent = seen ? 'New since your last visit (' + seen + ')' : 'New in the last 3 releases';
+        if (!changes) { strip.hidden = true; drawer.hidden = true; return; }
+
+        const linked = new Set();
+        releases.forEach((rel) => rel.entries.forEach((entry) => {
+            const row = findRow(entry);
+            if (row) { row.querySelector('td:first-child code').classList.add('new'); linked.add(row); }
+        }));
+        text.innerHTML = seen
+            ? '<b>' + releases.length + (releases.length === 1 ? ' release' : ' releases') + ' · ' + changes
+                + (changes === 1 ? ' change' : ' changes') + '</b> since your last visit <code>' + seen
+                + '</code> → <code>' + current + '</code>; ' + linked.size + ' entries highlighted below'
+            : '<b>Welcome.</b> ' + changes + ' changes across the last ' + releases.length
+                + ' releases are highlighted; next time you will see only what changed since today';
+        strip.hidden = false;
+        title.textContent = seen ? 'Since ' + seen : 'Recent changes';
+        body.innerHTML = releases.map((rel) =>
+            '<section class="since-release"><h3>' + rel.label + ' <span>' + rel.date + '</span></h3><ul>'
+            + rel.entries.map((entry) => {
+                const row = findRow(entry);
+                return '<li' + (row ? ' data-row="' + row.id + '"' : ' class="unlinked"') + '><span class="tag '
+                    + (tagClass[entry.tag] || 'tag-add') + '">' + entry.tag + '</span><span>' + entry.html + '</span></li>';
+            }).join('') + '</ul></section>').join('');
+    }
+    render();
+
+    const markRead = () => {
+        try { localStorage.setItem(SEEN_KEY, current); } catch (err) {}
+        render();
+    };
+    document.getElementById('sinceShow').addEventListener('click', () => {
+        drawer.hidden = false;
+        document.getElementById('sinceClose').focus();
+    });
+    document.getElementById('sinceClose').addEventListener('click', () => { drawer.hidden = true; });
+    document.getElementById('sinceRead').addEventListener('click', markRead);
+    document.getElementById('sinceReadAll').addEventListener('click', markRead);
+    body.addEventListener('click', (e) => {
+        const item = e.target.closest('li[data-row]');
+        if (!item) return;
+        const row = document.getElementById(item.dataset.row);
+        if (!row) return;
+        row.scrollIntoView({ block: 'center', behavior: 'smooth' });
+        row.classList.remove('flash');
+        void row.offsetWidth;
+        row.classList.add('flash');
+    });
+    window.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !drawer.hidden) drawer.hidden = true; });
+})();
+
+</script>
+</body>
+</html>

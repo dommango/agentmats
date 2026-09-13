@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en" data-agent="antigravity">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Antigravity CLI Placemat (Unofficial)</title>
+    <meta name="description" content="Unofficial single-page reference for Google Antigravity CLI — commands, flags, configuration, skills, rules, hooks, and MCP. Auto-updated from official docs.">
+    <meta property="og:title" content="Antigravity CLI Placemat (Unofficial)">
+    <meta property="og:description" content="Unofficial single-page reference for Google Antigravity CLI — commands, flags, configuration, skills, rules, hooks, and MCP.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://dommango.github.io/agentmats/antigravity/">
+    <meta property="og:image" content="https://dommango.github.io/agentmats/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://dommango.github.io/agentmats/antigravity/">
+    <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+PHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iNiIgZmlsbD0iIzdjNGRmZiIvPjx0ZXh0IHg9IjE2IiB5PSIyMyIgZm9udC1mYW1pbHk9Im1vbm9zcGFjZSIgZm9udC1zaXplPSIxNiIgZm9udC13ZWlnaHQ9IjcwMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzFlMWUxZSI+Jmd0O188L3RleHQ+PC9zdmc+Cg==">
+    <link rel="alternate" type="application/atom+xml" title="Antigravity CLI Placemat changes" href="feed.xml">
+    <link rel="stylesheet" href="../shared/placemat.css">
+    <style>
+        :root { --accent-1: #7c4dff; --accent-1-2: #b388ff; --accent-2: #00b0ff; --accent-2-2: #80d8ff; }
+        :root[data-theme="light"] { --accent-1: #651fff; --accent-1-2: #4615b2; --accent-2: #0091ea; --accent-2-2: #0064b7; }
+    </style>
+    <script>
+        (function() {
+            var stored = localStorage.getItem('placemat-theme');
+            var theme = (stored === 'light' || stored === 'dark')
+                ? stored
+                : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            document.documentElement.dataset.theme = theme;
+        })();
+    </script>
+</head>
+<body>
+
+    <a class="skip-link" href="#card-keys">Skip to content</a>
+
+    <header class="global-header">
+        <div class="header-title">
+            <svg class="minion-icon" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Terminal prompt">
+                <rect x="2" y="3" width="2" height="2" fill="var(--accent-1)"/>
+                <rect x="4" y="5" width="2" height="2" fill="var(--accent-1)"/>
+                <rect x="6" y="7" width="2" height="2" fill="var(--accent-1)"/>
+                <rect x="4" y="9" width="2" height="2" fill="var(--accent-1)"/>
+                <rect x="2" y="11" width="2" height="2" fill="var(--accent-1)"/>
+                <rect x="9" y="11" width="5" height="2" fill="var(--accent-2)"/>
+            </svg>
+            <h1>Antigravity CLI <span class="wm-pixel">PLACEMAT</span></h1>
+            <span class="header-tagline">Unofficial · auto-updated reference</span>
+        </div>
+        <div class="global-controls">
+            <span class="release-tag">As of release: v1.2.2</span>
+            <a href="changelog.html" class="header-link">Changelog →</a>
+            <a href="feed.xml" class="header-link" title="Subscribe to placemat changes (RSS)">RSS</a>
+            <button type="button" class="header-link print-btn" id="printBtn" title="Print or save as PDF (Ctrl P)">⎙ Print</button>
+            <button type="button" class="theme-toggle" id="themeBtn" onclick="toggleTheme()" title="Toggle theme" aria-label="Toggle light and dark theme">&#9728;&#65039;</button>
+            <div class="search-wrap">
+                <input type="text" id="dashboardSearch" placeholder="Search the placemat…" aria-label="Search the placemat">
+                <span class="kbd" id="searchKbd">⌘K</span>
+                <span class="search-count" id="searchCount" aria-live="polite"></span>
+            </div>
+        </div>
+    </header>
+
+    <nav class="section-nav" aria-label="Sections">
+        <div class="section-nav-inner">
+            <div class="section-chips">
+                <a href="#card-keys" data-target="card-keys">TUI &amp; Keys<span class="chip-count"></span></a>
+                <a href="#card-slash-core" data-target="card-slash-core">Slash (Core)<span class="chip-count"></span></a>
+                <a href="#card-slash-tools" data-target="card-slash-tools">Slash (Tools)<span class="chip-count"></span></a>
+                <a href="#card-cli" data-target="card-cli">CLI<span class="chip-count"></span></a>
+                <a href="#card-settings" data-target="card-settings">Settings<span class="chip-count"></span></a>
+                <a href="#card-env" data-target="card-env">Env Vars<span class="chip-count"></span></a>
+                <a href="#card-skills" data-target="card-skills">Rules &amp; Skills<span class="chip-count"></span></a>
+                <a href="#card-hooks" data-target="card-hooks">Hooks &amp; MCP<span class="chip-count"></span></a>
+            </div>
+            <div class="section-tools">
+                <button type="button" id="collapseAll">Collapse all</button>
+                <button type="button" id="expandAll">Expand all</button>
+                <button type="button" id="densityBtn" aria-pressed="false">Compact</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="dashboard-grid">
+
+        <div class="print-head" aria-hidden="true">
+            <span class="print-head-title">Antigravity CLI <b>PLACEMAT</b></span>
+            <span>As of release v1.2.2</span>
+            <span>■ = new &nbsp; □ = unverified</span>
+            <span>dommango.github.io/agentmats/antigravity</span>
+        </div>
+
+        <div class="card full-width search-exclude since-strip" id="sinceStrip" hidden>
+            <div class="since-row">
+                <span class="since-dot" aria-hidden="true"></span>
+                <span class="since-text" id="sinceText"></span>
+                <span class="since-actions">
+                    <button type="button" id="sinceShow">Show changes</button>
+                    <button type="button" id="sinceRead" class="quiet">Mark as read</button>
+                </span>
+            </div>
+        </div>
+
+        <!-- Legend -->
+        <div class="card full-width search-exclude legend-strip">
+            <div class="legend-strip-row">
+                <div class="legend">
+                    <div class="legend-item"><span class="legend-swatch swatch-default"></span> Verified</div>
+                    <div class="legend-item"><span class="legend-swatch swatch-new"></span> <span id="legendNew">New since your last visit</span></div>
+                    <div class="legend-item"><span class="legend-swatch swatch-unverified"></span> Unverified</div>
+                    <div class="legend-item"><button type="button" class="notes-all" id="notesAll" aria-pressed="false">Show all notes</button></div>
+                </div>
+                <p class="scope-note">Reference for the <strong>Antigravity CLI</strong> (<code>agy</code>) and its core extensibility surface. Official documentation at <a href="https://antigravity.google/docs" target="_blank" rel="noopener noreferrer">antigravity.google/docs</a>.</p>
+            </div>
+        </div>
+
+        <!-- 1. KEYBOARD & TUI -->
+        <div class="card" id="card-keys">
+            <h2>TUI &amp; Keys <span class="card-count"></span></h2>
+
+            <details class="search-group" open data-group="Global controls">
+                <summary><h3>Global controls</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-key-esc"><td><a class="row-link" href="#i-key-esc" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>Esc</code></td><td class="desc">Close active panels, halt streams, or clear an empty prompt</td></tr>
+                    <tr class="search-item" id="i-ctrl-c"><td><a class="row-link" href="#i-ctrl-c" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>Ctrl+C</code></td><td class="desc"><span class="summary">Terminate the CLI session</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Prompts for confirmation if the agent is still working.</li></ul></td></tr>
+                    <tr class="search-item" id="i-ctrl-d"><td><a class="row-link" href="#i-ctrl-d" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>Ctrl+D</code></td><td class="desc">Exit the session, only when the prompt box is empty</td></tr>
+                    <tr class="search-item" id="i-ctrl-l"><td><a class="row-link" href="#i-ctrl-l" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>Ctrl+L</code></td><td class="desc">Refresh and clear the visual terminal buffer</td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="Prompt focus">
+                <summary><h3>Prompt focus</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-key-enter"><td><a class="row-link" href="#i-key-enter" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>Enter</code></td><td class="desc">Submit your prompt or the active menu selection</td></tr>
+                    <tr class="search-item" id="i-key-newline"><td><a class="row-link" href="#i-key-newline" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>Shift+Enter</code> / <code>Ctrl+J</code></td><td class="desc">Insert a newline without submitting</td></tr>
+                    <tr class="search-item" id="i-ctrl-v"><td><a class="row-link" href="#i-ctrl-v" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>Ctrl+V</code></td><td class="desc">Paste media files or clipboard blocks into the prompt</td></tr>
+                    <tr class="search-item" id="i-ctrl-o"><td><a class="row-link" href="#i-ctrl-o" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>Ctrl+O</code></td><td class="desc">Expand or collapse detailed tool reasoning output</td></tr>
+                    <tr class="search-item" id="i-ctrl-r"><td><a class="row-link" href="#i-ctrl-r" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>Ctrl+R</code></td><td class="desc">Open the Artifact Review Panel</td></tr>
+                    <tr class="search-item" id="i-ctrl-g"><td><a class="row-link" href="#i-ctrl-g" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>Ctrl+G</code></td><td class="desc">Launch your default <code>$EDITOR</code> to compose the prompt</td></tr>
+                    <tr class="search-item" id="i-alt-j"><td><a class="row-link" href="#i-alt-j" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>Alt+J</code></td><td class="desc">Switch focus to the next subagent awaiting confirmation</td></tr>
+                    <tr class="search-item" id="i-ctrl-k"><td><a class="row-link" href="#i-ctrl-k" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>Ctrl+K</code></td><td class="desc">Instantly approve the pending subagent action</td></tr>
+                    <tr class="search-item" id="i-key-cursor"><td><a class="row-link" href="#i-key-cursor" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>Ctrl+A</code> / <code>Ctrl+E</code></td><td class="desc">Move the cursor to the start or end of the line</td></tr>
+                    <tr class="search-item" id="i-key-undo-text"><td><a class="row-link" href="#i-key-undo-text" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>Ctrl+Z</code> / <code>Ctrl+Shift+Z</code></td><td class="desc">Undo or redo the last text edit in the prompt</td></tr>
+                    <tr class="search-item" id="i-key-f5"><td><a class="row-link" href="#i-key-f5" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>F5</code></td><td class="desc">Start or stop voice dictation</td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="Navigation &amp; scrolling">
+                <summary><h3>Navigation &amp; scrolling</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-up-down"><td><a class="row-link" href="#i-up-down" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>↑</code> / <code>↓</code></td><td class="desc">Scroll highlighted selections up or down by one item</td></tr>
+                    <tr class="search-item" id="i-key-pgup"><td><a class="row-link" href="#i-key-pgup" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>PgUp</code> / <code>Shift+↑</code></td><td class="desc">Scroll the active text viewport up by one page</td></tr>
+                    <tr class="search-item" id="i-key-pgdn"><td><a class="row-link" href="#i-key-pgdn" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>PgDn</code> / <code>Shift+↓</code></td><td class="desc">Scroll the active text viewport down by one page</td></tr>
+                    <tr class="search-item" id="i-key-leftright"><td><a class="row-link" href="#i-key-leftright" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>←</code> / <code>→</code></td><td class="desc">Swap pages inside multipage panels like the Session Picker</td></tr>
+                    <tr class="search-item" id="i-tab"><td><a class="row-link" href="#i-tab" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>Tab</code></td><td class="desc">Confirm the highlighted slash-command autofill option</td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="Tool confirmations">
+                <summary><h3>Tool confirmations</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-key-y"><td><a class="row-link" href="#i-key-y" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>y</code></td><td class="desc">Authorize the proposed tool, command, or artifact</td></tr>
+                    <tr class="search-item" id="i-key-n"><td><a class="row-link" href="#i-key-n" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>n</code></td><td class="desc">Reject the proposed tool, command, or artifact</td></tr>
+                    <tr class="search-item" id="i-key-approve-all"><td><a class="row-link" href="#i-key-approve-all" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>A</code></td><td class="desc">Approve all generated artifacts, inside the Review Panel</td></tr>
+                </table>
+            </details>
+        </div>
+
+        <!-- 2. SLASH COMMANDS (CORE) -->
+        <div class="card" id="card-slash-core">
+            <h2>Slash Commands (Core) <span class="card-count"></span></h2>
+
+            <details class="search-group" open data-group="Session lifecycle">
+                <summary><h3>Session lifecycle</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-help"><td><a class="row-link" href="#i-help" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/help</code></td><td class="desc">Open the help panel of commands and shortcuts</td></tr>
+                    <tr class="search-item" id="i-exit"><td><a class="row-link" href="#i-exit" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/exit</code> / <code>/quit</code></td><td class="desc">Close the TUI session and restore your host shell</td></tr>
+                    <tr class="search-item" id="i-clear"><td><a class="row-link" href="#i-clear" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/clear</code> / <code>/new</code></td><td class="desc"><span class="summary">Resets active conversation contexts, not just the display</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Clears the terminal AND wipes the model's context for that thread — closer to starting fresh than a scrollback clear.</li></ul></td></tr>
+                    <tr class="search-item" id="i-rewind"><td><a class="row-link" href="#i-rewind" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/rewind</code> / <code>/undo</code></td><td class="desc"><span class="summary">Roll back conversation history to a previous message</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Rewinds the conversation transcript only — it does not take or restore a git snapshot of file changes.</li></ul></td></tr>
+                    <tr class="search-item" id="i-fork"><td><a class="row-link" href="#i-fork" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/fork</code> / <code>/branch</code></td><td class="desc">Clone the current conversation thread into a new parallel session</td></tr>
+                    <tr class="search-item" id="i-rename"><td><a class="row-link" href="#i-rename" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/rename &lt;name&gt;</code></td><td class="desc">Rename the current session thread</td></tr>
+                    <tr class="search-item" id="i-resume"><td><a class="row-link" href="#i-resume" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/resume</code> / <code>/switch</code> / <code>/conversation</code></td><td class="desc">Open the conversation picker overlay to load a previous thread</td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="Configuration &amp; account">
+                <summary><h3>Configuration &amp; account</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-config"><td><a class="row-link" href="#i-config" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/config</code> / <code>/settings</code></td><td class="desc">Open the interactive Settings Editor Overlay</td></tr>
+                    <tr class="search-item" id="i-model"><td><a class="row-link" href="#i-model" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/model</code></td><td class="desc">Choose your preferred reasoning model for the session</td></tr>
+                    <tr class="search-item" id="i-permissions"><td><a class="row-link" href="#i-permissions" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/permissions</code></td><td class="desc">Open the interactive tool permissions manager panel</td></tr>
+                    <tr class="search-item" id="i-planning"><td><a class="row-link" href="#i-planning" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/planning</code></td><td class="desc">Enable multi-turn plan generation for complex tasks</td></tr>
+                    <tr class="search-item" id="i-fast"><td><a class="row-link" href="#i-fast" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/fast</code></td><td class="desc">Enable fast mode, bypassing reasoning plans for quick actions</td></tr>
+                    <tr class="search-item" id="i-keybindings"><td><a class="row-link" href="#i-keybindings" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/keybindings</code></td><td class="desc">Open the interactive Keyboard Shortcut Editor</td></tr>
+                    <tr class="search-item" id="i-statusline"><td><a class="row-link" href="#i-statusline" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/statusline</code></td><td class="desc">Open the Status Bar customization overlay</td></tr>
+                    <tr class="search-item" id="i-title"><td><a class="row-link" href="#i-title" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/title [on/off]</code></td><td class="desc">Toggle or set terminal window title updates</td></tr>
+                    <tr class="search-item" id="i-credits"><td><a class="row-link" href="#i-credits" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/credits</code></td><td class="desc">View remaining G1 credits and purchase links</td></tr>
+                    <tr class="search-item" id="i-logout"><td><a class="row-link" href="#i-logout" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/logout</code></td><td class="desc">Disconnect your profile and purge auth tokens from the keyring</td></tr>
+                </table>
+            </details>
+        </div>
+
+        <!-- 3. SLASH COMMANDS (TOOLS & OPS) -->
+        <div class="card" id="card-slash-tools">
+            <h2>Slash Commands (Tools) <span class="card-count"></span></h2>
+
+            <details class="search-group" open data-group="Tools &amp; tasks">
+                <summary><h3>Tools &amp; tasks</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-agents"><td><a class="row-link" href="#i-agents" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/agents</code></td><td class="desc">Open the Agent Manager Panel for background subagents</td></tr>
+                    <tr class="search-item" id="i-artifact"><td><a class="row-link" href="#i-artifact" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/artifact</code></td><td class="desc">Open the Artifact Review Panel</td></tr>
+                    <tr class="search-item" id="i-hooks"><td><a class="row-link" href="#i-hooks" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/hooks</code></td><td class="desc">Browse active pre-flight/post-format script hooks</td></tr>
+                    <tr class="search-item" id="i-mcp"><td><a class="row-link" href="#i-mcp" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/mcp</code></td><td class="desc">Open the Model Context Protocol server manager</td></tr>
+                    <tr class="search-item" id="i-skills"><td><a class="row-link" href="#i-skills" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/skills</code></td><td class="desc">Browse loaded local and global Agent Skills</td></tr>
+                    <tr class="search-item" id="i-tasks"><td><a class="row-link" href="#i-tasks" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/tasks</code></td><td class="desc">Open the Task Manager Panel for background shell logs</td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="Reasoning &amp; collaboration">
+                <summary><h3>Reasoning &amp; collaboration</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-boost"><td><a class="row-link" href="#i-boost" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/boost &lt;task&gt;</code></td><td class="desc">Run on-demand multi-agent deep reasoning loops</td></tr>
+                    <tr class="search-item" id="i-teamwork-preview"><td><a class="row-link" href="#i-teamwork-preview" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/teamwork-preview</code> / <code>/teamwork</code></td><td class="desc">Launch collaborative multi-agent teams for long-horizon work</td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="Utilities">
+                <summary><h3>Utilities</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-add-dir"><td><a class="row-link" href="#i-add-dir" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/add-dir &lt;path&gt;</code></td><td class="desc">Add a directory path to the active workspace</td></tr>
+                    <tr class="search-item" id="i-btw"><td><a class="row-link" href="#i-btw" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/btw &lt;query&gt;</code></td><td class="desc">Ask a side question without interrupting the main thread</td></tr>
+                    <tr class="search-item" id="i-context"><td><a class="row-link" href="#i-context" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/context</code></td><td class="desc">Open the context usage visualization panel</td></tr>
+                    <tr class="search-item" id="i-copy"><td><a class="row-link" href="#i-copy" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/copy</code></td><td class="desc">Copy the last agent response to the clipboard</td></tr>
+                    <tr class="search-item" id="i-diff"><td><a class="row-link" href="#i-diff" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/diff</code></td><td class="desc">Open the Interactive Diff Viewer</td></tr>
+                    <tr class="search-item" id="i-feedback"><td><a class="row-link" href="#i-feedback" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/feedback</code></td><td class="desc">Open the feedback submission panel</td></tr>
+                    <tr class="search-item" id="i-open"><td><a class="row-link" href="#i-open" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/open &lt;path&gt;</code></td><td class="desc">Force the path open in your default system editor</td></tr>
+                    <tr class="search-item" id="i-usage"><td><a class="row-link" href="#i-usage" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/usage</code> / <code>/quota</code></td><td class="desc">Display model quota usage</td></tr>
+                    <tr class="search-item" id="i-voice"><td><a class="row-link" href="#i-voice" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/voice</code> / <code>/record</code></td><td class="desc">Dictate a prompt using your microphone</td></tr>
+                </table>
+            </details>
+        </div>
+
+        <!-- 4. CLI FLAGS & SUBCOMMANDS -->
+        <div class="card" id="card-cli">
+            <h2>CLI &amp; Subcommands <span class="card-count"></span></h2>
+
+            <details class="search-group" open data-group="Session flags">
+                <summary><h3>Session flags</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-agy"><td><a class="row-link" href="#i-agy" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>agy</code></td><td class="desc">Launch an interactive Antigravity CLI coding session</td></tr>
+                    <tr class="search-item" id="i-continue"><td><a class="row-link" href="#i-continue" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>-c</code> / <code>--continue</code></td><td class="desc">Continue the most recent conversation session</td></tr>
+                    <tr class="search-item" id="i-conversation"><td><a class="row-link" href="#i-conversation" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>--conversation &lt;id&gt;</code></td><td class="desc">Resume a previous conversation by its unique ID</td></tr>
+                    <tr class="search-item" id="i-print"><td><a class="row-link" href="#i-print" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>-p</code> / <code>--print</code> / <code>--prompt</code></td><td class="desc">Run prompt non-interactively and print response to stdout</td></tr>
+                    <tr class="search-item" id="i-prompt-interactive"><td><a class="row-link" href="#i-prompt-interactive" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>-i</code> / <code>--prompt-interactive</code></td><td class="desc">Execute initial prompt and continue interactive session</td></tr>
+                    <tr class="search-item" id="i-model-flag"><td><a class="row-link" href="#i-model-flag" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>--model &lt;name&gt;</code></td><td class="desc">Specify model for current CLI session</td></tr>
+                    <tr class="search-item" id="i-effort-flag"><td><a class="row-link" href="#i-effort-flag" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>--effort &lt;level&gt;</code></td><td class="desc">Set reasoning effort for session (<code>low</code>, <code>medium</code>, <code>high</code>)</td></tr>
+                    <tr class="search-item" id="i-mode-flag"><td><a class="row-link" href="#i-mode-flag" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>--mode &lt;mode&gt;</code></td><td class="desc">Set agent execution mode (<code>accept-edits</code>, <code>plan</code>)</td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="Workspace &amp; sandbox">
+                <summary><h3>Workspace &amp; sandbox</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-project"><td><a class="row-link" href="#i-project" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>--project &lt;id&gt;</code></td><td class="desc">Project ID or project name for current CLI session</td></tr>
+                    <tr class="search-item" id="i-new-project"><td><a class="row-link" href="#i-new-project" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>--new-project</code></td><td class="desc">Initialize a new project state for current session</td></tr>
+                    <tr class="search-item" id="i-add-dir-2"><td><a class="row-link" href="#i-add-dir-2" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>--add-dir &lt;path&gt;</code></td><td class="desc">Add directory to workspace context (repeatable flag)</td></tr>
+                    <tr class="search-item" id="i-agent"><td><a class="row-link" href="#i-agent" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>--agent &lt;name&gt;</code></td><td class="desc">Specify agent role or persona for current session</td></tr>
+                    <tr class="search-item" id="i-sandbox"><td><a class="row-link" href="#i-sandbox" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>--sandbox</code></td><td class="desc">Run inside sandbox with terminal execution restrictions</td></tr>
+                    <tr class="search-item" id="i-dangerously-skip-permissions"><td><a class="row-link" href="#i-dangerously-skip-permissions" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>--dangerously-skip-permissions</code></td><td class="desc">Auto-approve tool permission requests without prompting</td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="Piping &amp; output">
+                <summary><h3>Piping &amp; output</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-input-format"><td><a class="row-link" href="#i-input-format" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>--input-format &lt;fmt&gt;</code></td><td class="desc"><span class="summary">Input format for print mode (<code>text</code>, <code>stream-json</code>)</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li><code>stream-json</code> reads NDJSON messages from stdin per turn; requires matching output format.</li></ul></td></tr>
+                    <tr class="search-item" id="i-output-format"><td><a class="row-link" href="#i-output-format" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>--output-format &lt;fmt&gt;</code></td><td class="desc">Output format for print mode (<code>text</code>, <code>json</code>, <code>stream-json</code>)</td></tr>
+                    <tr class="search-item" id="i-json-schema"><td><a class="row-link" href="#i-json-schema" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>--json-schema &lt;schema&gt;</code></td><td class="desc">Enforce structured output using JSON schema string or file</td></tr>
+                    <tr class="search-item" id="i-print-timeout"><td><a class="row-link" href="#i-print-timeout" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>--print-timeout &lt;dur&gt;</code></td><td class="desc">Timeout for print mode execution wait (default 5m0s)</td></tr>
+                    <tr class="search-item" id="i-disable-slash-commands"><td><a class="row-link" href="#i-disable-slash-commands" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>--disable-slash-commands</code></td><td class="desc">Disable slash command and skill expansion in print mode</td></tr>
+                    <tr class="search-item" id="i-log-file"><td><a class="row-link" href="#i-log-file" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>--log-file &lt;path&gt;</code></td><td class="desc">Override CLI log file path</td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="Subcommands">
+                <summary><h3>Subcommands</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-sub-models"><td><a class="row-link" href="#i-sub-models" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>agy models</code></td><td class="desc">List available models and reasoning configurations</td></tr>
+                    <tr class="search-item" id="i-sub-agents"><td><a class="row-link" href="#i-sub-agents" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>agy agents</code> / <code>agy agent</code></td><td class="desc">List available subagent roles and configurations</td></tr>
+                    <tr class="search-item" id="i-sub-mcp"><td><a class="row-link" href="#i-sub-mcp" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>agy mcp &lt;cmd&gt;</code></td><td class="desc">Manage MCP servers (<code>add</code>, <code>remove</code>, <code>list</code>, <code>enable</code>, <code>disable</code>)</td></tr>
+                    <tr class="search-item" id="i-sub-plugin"><td><a class="row-link" href="#i-sub-plugin" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>agy plugin &lt;cmd&gt;</code></td><td class="desc">Manage plugins (<code>install</code>, <code>list</code>, <code>import</code>, <code>validate</code>)</td></tr>
+                    <tr class="search-item" id="i-sub-changelog"><td><a class="row-link" href="#i-sub-changelog" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>agy changelog</code></td><td class="desc">Show changelog and release notes for installed CLI</td></tr>
+                    <tr class="search-item" id="i-sub-install"><td><a class="row-link" href="#i-sub-install" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>agy install</code></td><td class="desc">Configure environment paths and shell completions</td></tr>
+                    <tr class="search-item" id="i-sub-update"><td><a class="row-link" href="#i-sub-update" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>agy update</code></td><td class="desc">Update CLI binary to latest available release</td></tr>
+                    <tr class="search-item" id="i-sub-mic-serve"><td><a class="row-link" href="#i-sub-mic-serve" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>agy mic-serve</code></td><td class="desc">Serve host microphone input to CLI on another host</td></tr>
+                    <tr class="search-item" id="i-sub-remote-control"><td><a class="row-link" href="#i-sub-remote-control" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>agy remote-control</code></td><td class="desc">Manage remote-control background daemon (<code>start</code>, <code>status</code>, <code>stop</code>)</td></tr>
+                </table>
+            </details>
+        </div>
+
+        <!-- 5. SETTINGS JSON -->
+        <div class="card" id="card-settings">
+            <h2>Settings (settings.json) <span class="card-count"></span></h2>
+
+            <details class="search-group" open data-group="Appearance &amp; editing">
+                <summary><h3>Appearance &amp; editing</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-cfg-color-scheme"><td><a class="row-link" href="#i-cfg-color-scheme" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>colorScheme</code></td><td class="desc"><span class="summary">TUI color theme, default <code>"terminal"</code></span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Also accepts light/dark/solarized/colorblind-friendly/tokyo night variants.</li></ul></td></tr>
+                    <tr class="search-item" id="i-cfg-alt-screen-mode"><td><a class="row-link" href="#i-cfg-alt-screen-mode" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>altScreenMode</code></td><td class="desc">Screen buffer mode: <code>default</code>, <code>always</code>, or <code>never</code></td></tr>
+                    <tr class="search-item" id="i-cfg-editor"><td><a class="row-link" href="#i-cfg-editor" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>editor</code></td><td class="desc">External editor target: <code>auto</code>, <code>vim</code>, <code>emacs</code>, or custom</td></tr>
+                    <tr class="search-item" id="i-cfg-editor-mode"><td><a class="row-link" href="#i-cfg-editor-mode" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>editorMode</code></td><td class="desc">Prompt editing model: <code>default</code> (flat) or <code>vim</code> (modal)</td></tr>
+                    <tr class="search-item" id="i-cfg-vim-insert-first"><td><a class="row-link" href="#i-cfg-vim-insert-first" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>vimInsertFirst</code></td><td class="desc">Start Vim mode in Insert; requires <code>editorMode: "vim"</code></td></tr>
+                    <tr class="search-item" id="i-cfg-verbosity"><td><a class="row-link" href="#i-cfg-verbosity" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>verbosity</code></td><td class="desc">Visual verbosity: <code>high</code> (full output) or <code>low</code> (minimal)</td></tr>
+                    <tr class="search-item" id="i-cfg-running-light-speed"><td><a class="row-link" href="#i-cfg-running-light-speed" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>runningLightSpeed</code></td><td class="desc">Progress animation speed: <code>fast</code>, <code>medium</code>, <code>slow</code>, <code>off</code></td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="Safety &amp; permissions">
+                <summary><h3>Safety &amp; permissions</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-cfg-tool-permission"><td><a class="row-link" href="#i-cfg-tool-permission" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>toolPermission</code></td><td class="desc"><span class="summary">Global safety preset, default <code>"request-review"</code></span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Also accepts <code>proceed-in-sandbox</code>, <code>always-proceed</code>, or <code>strict</code>.</li></ul></td></tr>
+                    <tr class="search-item" id="i-cfg-artifact-review-policy"><td><a class="row-link" href="#i-cfg-artifact-review-policy" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>artifactReviewPolicy</code></td><td class="desc">Code review policy: asks-for-review, agent-decides, always-proceed</td></tr>
+                    <tr class="search-item" id="i-cfg-allow-non-workspace-access"><td><a class="row-link" href="#i-cfg-allow-non-workspace-access" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>allowNonWorkspaceAccess</code></td><td class="desc">Let file read/write tools navigate outside the workspace root</td></tr>
+                    <tr class="search-item" id="i-cfg-enable-terminal-sandbox"><td><a class="row-link" href="#i-cfg-enable-terminal-sandbox" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>enableTerminalSandbox</code></td><td class="desc">Restrict local execution commands to OS containment rings</td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="Notifications &amp; account">
+                <summary><h3>Notifications &amp; account</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-cfg-notifications"><td><a class="row-link" href="#i-cfg-notifications" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>notifications</code></td><td class="desc">Desktop and terminal bell chime on task completion</td></tr>
+                    <tr class="search-item" id="i-cfg-show-tips"><td><a class="row-link" href="#i-cfg-show-tips" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>showTips</code></td><td class="desc">Show agentic tips above the prompt panel while generating</td></tr>
+                    <tr class="search-item" id="i-cfg-show-feedback-survey"><td><a class="row-link" href="#i-cfg-show-feedback-survey" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>showFeedbackSurvey</code></td><td class="desc">Show periodic quality feedback surveys after tasks</td></tr>
+                    <tr class="search-item" id="i-cfg-use-g1-credits"><td><a class="row-link" href="#i-cfg-use-g1-credits" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>useG1Credits</code></td><td class="desc">Use personal AI credits once plan quotas are exhausted</td></tr>
+                    <tr class="search-item" id="i-cfg-enable-telemetry"><td><a class="row-link" href="#i-cfg-enable-telemetry" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>enableTelemetry</code></td><td class="desc">Allow metric collection and crash log streaming</td></tr>
+                </table>
+            </details>
+        </div>
+
+        <!-- 6. ENVIRONMENT VARIABLES -->
+        <div class="card" id="card-env">
+            <h2>Environment Variables <span class="card-count"></span></h2>
+
+            <details class="search-group" open data-group="Authentication">
+                <summary><h3>Authentication</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-env-gemini-key"><td><a class="row-link" href="#i-env-gemini-key" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>GEMINI_API_KEY</code></td><td class="desc"><span class="summary">Authenticate with a Gemini API key instead of Google sign-in</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Also set <code>modelProvider: "gemini"</code> in <code>settings.json</code>; suits headless and CI runs. The CLI reads this credential only from the environment, not from <code>.env</code> files.</li></ul></td></tr>
+                    <tr class="search-item" id="i-env-base-url"><td><a class="row-link" href="#i-env-base-url" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>GOOGLE_GEMINI_BASE_URL</code></td><td class="desc">Point the CLI at a different Gemini-compatible endpoint</td></tr>
+                </table>
+            </details>
+        </div>
+
+        <!-- 7. RULES & SKILLS -->
+        <div class="card" id="card-skills">
+            <h2>Rules &amp; Skills <span class="card-count"></span></h2>
+
+            <details class="search-group" open data-group="Project rules">
+                <summary><h3>Project rules</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-rule-global"><td><a class="row-link" href="#i-rule-global" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>~/.gemini/GEMINI.md</code></td><td class="desc">Global rules applied across every workspace</td></tr>
+                    <tr class="search-item" id="i-rule-dir"><td><a class="row-link" href="#i-rule-dir" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>.agents/rules/*.md</code></td><td class="desc"><span class="summary">Workspace-level rule files, 12,000 characters each</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Backward-compatible with the older <code>.agent/rules</code> path.</li></ul></td></tr>
+                    <tr class="search-item" id="i-rule-triggers"><td><a class="row-link" href="#i-rule-triggers" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>Manual</code> / <code>Always On</code> / <code>Model Decision</code> / <code>Glob</code></td><td class="desc"><span class="summary">The four rule activation modes</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Manual is @-mentioned; Always On always applies; Model Decision lets the agent judge relevance; Glob matches a file pattern like <code>src/**/*.ts</code>.</li></ul></td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="Custom skills">
+                <summary><h3>Custom skills</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-skill-workspace"><td><a class="row-link" href="#i-skill-workspace" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>.agents/skills/&lt;name&gt;/SKILL.md</code></td><td class="desc"><span class="summary">Workspace-level skill definition with YAML frontmatter</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Workspace customizations in <code>.agents/</code> override global and built-in skills.</li></ul></td></tr>
+                    <tr class="search-item" id="i-skill-global"><td><a class="row-link" href="#i-skill-global" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>~/.gemini/config/skills/</code></td><td class="desc">Global machine-wide custom skills directory</td></tr>
+                    <tr class="search-item" id="i-skill-progressive"><td><a class="row-link" href="#i-skill-progressive" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>progressive disclosure</code></td><td class="desc"><span class="summary">Only a skill's name and description load until it's activated</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>The agent decides from context whether a skill is relevant, then reads the full <code>SKILL.md</code> before following it.</li></ul></td></tr>
+                </table>
+            </details>
+        </div>
+
+        <!-- 8. HOOKS, PLUGINS & MCP -->
+        <div class="card" id="card-hooks">
+            <h2>Hooks &amp; MCP <span class="card-count"></span></h2>
+
+            <details class="search-group" open data-group="Lifecycle hooks">
+                <summary><h3>Lifecycle hooks</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-hook-config"><td><a class="row-link" href="#i-hook-config" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hooks.json</code></td><td class="desc">Config file in <code>.agents/</code> or <code>~/.gemini/config/</code> mapping hooks to events</td></tr>
+                    <tr class="search-item" id="i-hook-pre-tool-use"><td><a class="row-link" href="#i-hook-pre-tool-use" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>PreToolUse</code></td><td class="desc">Fires before a tool executes</td></tr>
+                    <tr class="search-item" id="i-hook-post-tool-use"><td><a class="row-link" href="#i-hook-post-tool-use" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>PostToolUse</code></td><td class="desc">Fires after a tool finishes</td></tr>
+                    <tr class="search-item" id="i-hook-pre-invocation"><td><a class="row-link" href="#i-hook-pre-invocation" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>PreInvocation</code></td><td class="desc">Fires before calling the model</td></tr>
+                    <tr class="search-item" id="i-hook-post-invocation"><td><a class="row-link" href="#i-hook-post-invocation" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>PostInvocation</code></td><td class="desc">Fires immediately after the model responds</td></tr>
+                    <tr class="search-item" id="i-hook-stop"><td><a class="row-link" href="#i-hook-stop" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>Stop</code></td><td class="desc">Fires when execution terminates</td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="Plugins">
+                <summary><h3>Plugins</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-plugin-manifest"><td><a class="row-link" href="#i-plugin-manifest" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>plugins/&lt;name&gt;/plugin.json</code></td><td class="desc">Manifest bundling skills, rules, and MCP configurations</td></tr>
+                    <tr class="search-item" id="i-plugin-list"><td><a class="row-link" href="#i-plugin-list" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>agy plugin list</code></td><td class="desc">List all installed, enabled, and imported plugins</td></tr>
+                    <tr class="search-item" id="i-plugin-import-gemini"><td><a class="row-link" href="#i-plugin-import-gemini" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>agy plugin import gemini</code></td><td class="desc">Import plugin bundle from Gemini ecosystem</td></tr>
+                    <tr class="search-item" id="i-plugin-import-claude"><td><a class="row-link" href="#i-plugin-import-claude" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>agy plugin import claude</code></td><td class="desc">Import compatible plugin bundle from Claude ecosystem</td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="Model Context Protocol">
+                <summary><h3>Model Context Protocol</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-mcp-config"><td><a class="row-link" href="#i-mcp-config" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>mcp_config.json</code></td><td class="desc">Configuration registering external MCP tool servers</td></tr>
+                    <tr class="search-item" id="i-mcp-add"><td><a class="row-link" href="#i-mcp-add" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>agy mcp add &lt;name&gt; &lt;cmd&gt;</code></td><td class="desc">Register an MCP server with executable command and flags</td></tr>
+                    <tr class="search-item" id="i-mcp-list"><td><a class="row-link" href="#i-mcp-list" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>agy mcp list</code></td><td class="desc">Display configured MCP servers and connection status</td></tr>
+                    <tr class="search-item" id="i-mcp-enable"><td><a class="row-link" href="#i-mcp-enable" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>agy mcp enable &lt;name&gt;</code></td><td class="desc">Enable a previously registered MCP server</td></tr>
+                    <tr class="search-item" id="i-mcp-disable"><td><a class="row-link" href="#i-mcp-disable" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>agy mcp disable &lt;name&gt;</code></td><td class="desc">Disable an MCP server without removing its configuration</td></tr>
+                </table>
+            </details>
+        </div>
+
+        <div class="no-results search-exclude" id="noResults">No matches — clear search to see everything.</div>
+
+    </main>
+
+    <footer class="global-footer">
+        <p>Content synced 2026-09-13 · <a href="../" class="header-link">More agent placemats →</a></p>
+        <p class="disclaimer">
+            Unofficial community reference — <strong>not affiliated with or endorsed by</strong>
+            Google DeepMind or Google. No vendor logos or wordmarks are used. Every entry is
+            condensed in our own words from the official documentation and links back to it — always confirm
+            against the official docs before relying on anything here.
+        </p>
+        <p class="disclaimer">
+            <a href="https://github.com/dommango/agentmats" target="_blank" rel="noopener noreferrer">Source on GitHub</a> ·
+            <a href="https://dommango.github.io" target="_blank" rel="noopener noreferrer">Context//Collapse</a>
+        </p>
+    </footer>
+
+    <!-- What's new since your last visit drawer -->
+    <aside class="since-drawer" id="sinceDrawer" hidden aria-label="Changes since your last visit">
+        <div class="since-drawer-head">
+            <h2 id="sinceDrawerTitle">Since your last visit</h2>
+            <div class="since-drawer-tools">
+                <button type="button" id="sinceReadAll">Mark all as read</button>
+                <button type="button" id="sinceClose" aria-label="Close changes drawer">&times;</button>
+            </div>
+        </div>
+        <div class="since-drawer-body" id="sinceBody"></div>
+    </aside>
+
+    <script src="../shared/placemat.js" defer></script>
+</body>
+</html>

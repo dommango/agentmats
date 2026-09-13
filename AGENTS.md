@@ -2,8 +2,9 @@
 
 Unofficial single-page placemat references for CLI coding agents, one per
 directory: `claude-code/` (Anthropic Claude Code), `codex/` (OpenAI Codex CLI),
-`kimi-code/` (Moonshot Kimi Code), `hermes/` (Nous Research Hermes Agent). The
-hub page at the repo root links them all, each a peer directory in this repo.
+`kimi-code/` (Moonshot Kimi Code), `hermes/` (Nous Research Hermes Agent),
+`antigravity/` (Google DeepMind Antigravity CLI). The hub page at the repo root
+links them all, each a peer directory in this repo.
 
 **Live:** https://dommango.github.io/agentmats/ — GitHub Pages deploys
 from `main`.
@@ -24,6 +25,7 @@ codex/
   versions/v1.0.html
 kimi-code/                — same shape as codex/
 hermes/                   — same shape as codex/
+antigravity/              — same shape as codex/
 scripts/build-changes.js  — generator (per-agent arg, or --all)
 tests/placemat.test.js    — structural suite (per-agent arg, or all built agents)
 .github/workflows/ci.yml
@@ -212,7 +214,8 @@ The release tag may run at most 3 versions ahead of the newest changelog entry
 ## Update pipeline
 
 One scheduled routine per agent, staggered after the Claude Code placemat's
-09:00 UTC run: codex 09:15, kimi-code 09:30, hermes 09:45. Each run follows
+09:00 UTC run: codex 09:15, kimi-code 09:30, hermes 09:45, antigravity 10:00.
+Each run follows
 `<agent>/PIPELINE.md` and `<agent>/sources.json` — the rules live in this repo,
 versioned, not in the routine prompt, so fixing a pipeline is a normal PR.
 

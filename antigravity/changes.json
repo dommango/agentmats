@@ -1,0 +1,59 @@
+{
+ "generated": "2026-09-13",
+ "latest": "v1.2.2",
+ "releases": [
+  {
+   "version": "v1.2.2",
+   "label": "Antigravity CLI v1.2.2",
+   "date": "2026-09-13",
+   "id": "rel-1-2-2",
+   "entries": [
+    {
+     "tag": "ADD",
+     "item": "card-keys",
+     "html": "<code>card-keys</code> — keybindings for global controls, prompt focus, navigation and tool confirmations, from <code>cli/reference</code>"
+    },
+    {
+     "tag": "ADD",
+     "item": "card-slash-core",
+     "html": "<code>card-slash-core</code> — session lifecycle and configuration/account slash commands, from <code>cli/reference</code>"
+    },
+    {
+     "tag": "ADD",
+     "item": "card-slash-tools",
+     "html": "<code>card-slash-tools</code> — tools &amp; tasks, reasoning/collaboration and utility slash commands, from <code>cli/reference</code>"
+    },
+    {
+     "tag": "ADD",
+     "item": "card-cli",
+     "html": "<code>card-cli</code> — <code>agy</code> flags and subcommands, verified against the installed 1.2.2 binary's <code>--help</code>"
+    },
+    {
+     "tag": "ADD",
+     "item": "card-settings",
+     "html": "<code>card-settings</code> — the 16 real <code>settings.json</code> keys, grouped by appearance, safety and account"
+    },
+    {
+     "tag": "ADD",
+     "item": "card-env",
+     "html": "<code>card-env</code> — <code>GEMINI_API_KEY</code> and <code>GOOGLE_GEMINI_BASE_URL</code>, from the install/auth docs"
+    },
+    {
+     "tag": "ADD",
+     "item": "card-skills",
+     "html": "<code>card-skills</code> — the <code>GEMINI.md</code>/<code>.agents/rules</code> tiers and Agent Skills discovery, from the rules and skills docs"
+    },
+    {
+     "tag": "ADD",
+     "item": "card-hooks",
+     "html": "<code>card-hooks</code> — <code>hooks.json</code> lifecycle events, plugin manifests and MCP server config"
+    },
+    {
+     "tag": "DEL",
+     "item": "/init",
+     "html": "<span class=\"summary\">Removed 12 phantom slash commands absent from the vendor reference</span> <button type=\"button\" class=\"notes-btn\" aria-expanded=\"false\">+1</button><ul class=\"notes\" hidden><li><code>/init</code>, <code>/compact</code>, <code>/plan</code>, <code>/status</code>, <code>/history</code>, <code>/mode</code>, <code>/effort</code>, <code>/reset</code>, <code>/goal</code>, <code>/learn</code>, <code>/browser</code>, <code>/schedule</code>, <code>/grill-me</code> — a review of the prior draft found these did not exist on <code>cli/reference</code>."
+    }
+   ]
+  }
+ ]
+}
