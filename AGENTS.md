@@ -115,6 +115,38 @@ key names, so a page gets the right keys just by declaring its agent.
 never writes any seen-marker at all (D7): only a placemat page marks itself
 seen, so "N new since your last visit" stays true until you actually visit.
 
+## Adding a new agent
+
+A new placemat gets built next to finished ones, and the cheapest way to fill a
+card is to copy the neighbour's. That is how the first Antigravity attempt went
+wrong: 12 of its 21 slash commands did not exist, and 8 of those 12 were sitting
+in a sibling placemat. Its settings card was snake_case because its neighbours'
+TOML keys are, while the real schema is camelCase. Nothing in CI noticed,
+because every check tested structure rather than truth.
+
+So, when building a new agent:
+
+- **Source each card from the vendor, never from another placemat.** The other
+  placemats tell you what a card is *for*, never what belongs in it. If a fact
+  arrives because a sibling has it, it is not sourced.
+- **Watch for near-misses.** `/plan` for `/planning` is the signature of a row
+  derived by analogy. So is a whole card in the wrong naming convention.
+- **The Rosetta table is the highest-risk surface**, because its shape invites
+  filling every cell. An agent that lacks an equivalent gets `—`.
+- **Nothing outside the vendor's docs is vendor surface.** The local machine's
+  skills, this repo's tooling, and the CLI you are running in are all off-limits
+  as sources. One row in that attempt documented a skill from the author's own
+  `~/.agents/skills/` as a built-in.
+- **A card with no verified content stays short.** The eight cards are a fixed
+  set of headings, not eight quotas to fill.
+- **Extract an inventory first, build the page second.** `sources.json` carries
+  an `inventory` block — the command, settings-key and hook-event names lifted
+  from the vendor reference, with `source` and `fetched`. The test suite checks
+  every row against it, so a fabricated command fails CI rather than review.
+  Anything genuinely real but absent from the reference gets `unverified`.
+- A binary's `--help` verifies the CLI card only. Keybindings, slash commands,
+  settings keys and env vars are most of the page and need their own sources.
+
 ## Content rules
 
 - Only include features verified against that agent's official docs, its
