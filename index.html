@@ -183,7 +183,7 @@
                     </thead>
                     <tr><td>Launch TUI</td><td><code>claude</code></td><td><code>codex</code></td><td><code>kimi</code></td><td><code>hermes</code></td><td><code>agy</code></td></tr>
                     <tr><td>Context file</td><td><code>CLAUDE.md</code></td><td><code>AGENTS.md</code><span class="rosetta-note">global + walk</span></td><td><code>AGENTS.md</code><span class="rosetta-note">four locations</span></td><td><code>.hermes.md</code><span class="rosetta-note">then AGENTS.md, CLAUDE.md</span></td><td><code>AGENTS.md</code><span class="rosetta-note">or GEMINI.md</span></td></tr>
-                    <tr><td>Generate context file</td><td><code>/init</code></td><td><code>/init</code></td><td><code>/init</code></td><td><code>/init</code></td><td><code>/init</code></td></tr>
+                    <tr><td>Generate context file</td><td><code>/init</code></td><td><code>/init</code></td><td><code>/init</code></td><td><code>/init</code></td><td>—</td></tr>
                     <tr><td>Continue last session</td><td><code>claude --continue</code></td><td><code>codex resume</code></td><td><code>kimi -c</code></td><td><code>hermes -c</code></td><td><code>agy -c</code></td></tr>
                     <tr><td>One-shot / non-interactive</td><td><code>claude -p</code></td><td><code>codex exec</code></td><td><code>kimi -p</code></td><td><code>hermes -z</code></td><td><code>agy -p</code></td></tr>
                     <tr><td>Full-auto mode</td><td><code>--dangerously-skip-permissions</code></td><td><code>--dangerously-bypass-approvals-and-sandbox</code></td><td><code>--auto</code><span class="rosetta-note">--yolo still asks on risk</span></td><td><code>--yolo</code></td><td><code>--dangerously-skip-permissions</code></td></tr>
@@ -192,12 +192,12 @@
                     <tr><td>Skills</td><td><code>/skills</code></td><td><code>/skills</code></td><td><code>/skill:&lt;name&gt;</code></td><td><code>hermes skills</code><span class="rosetta-note">agentskills.io</span></td><td><code>.agents/skills/</code></td></tr>
                     <tr><td>Hooks</td><td><code>settings.json</code></td><td><code>hooks.json</code></td><td><code>[[hooks]]</code></td><td><code>hermes hooks</code></td><td><code>hooks.json</code></td></tr>
                     <tr><td>Subagents</td><td><code>.claude/agents/</code></td><td><code>/agent</code></td><td><code>.kimi-code/agents/</code></td><td><code>/agents</code></td><td><code>agy agent</code><span class="rosetta-note">or /teamwork-preview</span></td></tr>
-                    <tr><td>Compact context</td><td><code>/compact</code></td><td><code>/compact</code></td><td><code>/compact</code></td><td><code>/compress</code></td><td><code>/compact</code></td></tr>
-                    <tr><td>Plan mode</td><td><code>Shift+Tab</code></td><td><code>/plan</code></td><td><code>Shift-Tab</code><span class="rosetta-note">or --plan</span></td><td><code>/plan</code><span class="rosetta-note">writes a plan file</span></td><td><code>/plan</code><span class="rosetta-note">or --mode plan</span></td></tr>
+                    <tr><td>Compact context</td><td><code>/compact</code></td><td><code>/compact</code></td><td><code>/compact</code></td><td><code>/compress</code></td><td>—</td></tr>
+                    <tr><td>Plan mode</td><td><code>Shift+Tab</code></td><td><code>/plan</code></td><td><code>Shift-Tab</code><span class="rosetta-note">or --plan</span></td><td><code>/plan</code><span class="rosetta-note">writes a plan file</span></td><td><code>/planning</code></td></tr>
                     <tr><td>Switch model</td><td><code>/model</code></td><td><code>/model</code></td><td><code>/model</code></td><td><code>/model</code></td><td><code>agy models</code><span class="rosetta-note">or /model</span></td></tr>
                     <tr><td>Isolated git worktree</td><td>—</td><td><code>--worktree</code></td><td>—</td><td><code>-w</code><span class="rosetta-note">or /worktree new</span></td><td>—</td></tr>
                     <tr><td>Migrate from another agent</td><td>—</td><td><code>/import</code></td><td><code>/import-from-cc-codex</code></td><td><code>hermes import-agent</code></td><td><code>agy plugin import</code><span class="rosetta-note">claude / gemini</span></td></tr>
-                    <tr><td>Health check</td><td><code>/doctor</code></td><td><code>codex doctor</code></td><td><code>kimi doctor</code></td><td><code>hermes doctor</code></td><td><code>agy install</code></td></tr>
+                    <tr><td>Health check</td><td><code>/doctor</code></td><td><code>codex doctor</code></td><td><code>kimi doctor</code></td><td><code>hermes doctor</code></td><td>—</td></tr>
                     <tr><td>Update the CLI</td><td>native installer</td><td><code>codex update</code></td><td><code>kimi upgrade</code></td><td><code>hermes update</code></td><td><code>agy update</code></td></tr>
                 </table>
             </div>

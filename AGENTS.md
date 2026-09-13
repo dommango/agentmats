@@ -214,7 +214,8 @@ The release tag may run at most 3 versions ahead of the newest changelog entry
 ## Update pipeline
 
 One scheduled routine per agent, staggered after the Claude Code placemat's
-09:00 UTC run: codex 09:15, kimi-code 09:30, hermes 09:45. Each run follows
+09:00 UTC run: codex 09:15, kimi-code 09:30, hermes 09:45, antigravity 10:00.
+Each run follows
 `<agent>/PIPELINE.md` and `<agent>/sources.json` — the rules live in this repo,
 versioned, not in the routine prompt, so fixing a pipeline is a normal PR.
 

@@ -23,6 +23,20 @@ Machine-readable sources live in `sources.json`; this file is the procedure.
 ## Antigravity-specific traps
 
 - **Binary name is `agy`.** Top-level invocations use `agy`, never `antigravity`.
-- **Progressive disclosure.** Rules and skills only expose YAML frontmatter by default; do not confuse declared configurations with active context.
-- **Hierarchical rules.** `AGENTS.md` and `GEMINI.md` are loaded by traversing up from the CWD to the repository root.
-- **Model flags.** Antigravity defaults to `gemini-3.8-flash-high` with customizable reasoning effort (`low`, `medium`, `high`) via `--effort`.
+- **Progressive disclosure.** Skills expose only name + description until the agent
+  decides one is relevant, then loads the full `SKILL.md`.
+- **Two-tier rules, not a walked hierarchy.** Global rules live in `~/.gemini/GEMINI.md`;
+  workspace rules live in `.agents/rules/*.md` (12,000 chars each). Do not assume an
+  AGENTS.md-style walk-up-to-root unless a fresh vendor fetch confirms it.
+- **`cli/reference` is the only source for slash commands, settings keys, hook events,
+  and keybindings** — never a sibling placemat, never this machine's `~/.agents/skills`,
+  never the CLI you are running in. Settings keys are camelCase (`toolPermission`, not
+  `tool_permission`); hook events are `PreToolUse`/`PostToolUse`/`PreInvocation`/
+  `PostInvocation`/`Stop` — nothing else.
+- **CLI flags/subcommands come from `agy --help`, not the docs site** — the reference
+  page has no flags/subcommands section. Re-run `agy --help` and diff against the
+  `card-cli` rows on every sync.
+- **Environment variables are thin.** Only `GEMINI_API_KEY` and
+  `GOOGLE_GEMINI_BASE_URL` are vendor-confirmed (from the install/auth docs, not
+  `cli/reference`). Do not add `ANTIGRAVITY_*`/`ANTHROPIC_API_KEY`/`OPENAI_API_KEY`/
+  `NO_COLOR`/proxy vars without a fresh citation — the first build invented all of them.

@@ -27,7 +27,28 @@
   "gotchas": [
     "The CLI binary is `agy`, not `antigravity`",
     "Skills and rules follow progressive disclosure (only metadata loaded until activated)",
-    "Project rules hierarchically load GEMINI.md and AGENTS.md walking up to the repo root",
+    "Global rules live in `~/.gemini/GEMINI.md`; workspace rules in `.agents/rules/*.md`",
     "Plugin system supports importing packages from both Gemini and Claude ecosystems (`agy plugin import`)"
-  ]
+  ],
+  "inventory": {
+    "source": "https://antigravity.google/docs/cli/reference",
+    "fetched": "2026-09-13",
+    "slash": [
+      "/add-dir", "/agents", "/boost", "/artifact", "/btw", "/clear", "/new",
+      "/config", "/settings", "/context", "/copy", "/credits", "/diff",
+      "/exit", "/quit", "/fast", "/feedback", "/fork", "/branch", "/help",
+      "/hooks", "/keybindings", "/logout", "/mcp", "/model", "/open",
+      "/permissions", "/planning", "/rename", "/resume", "/switch",
+      "/conversation", "/rewind", "/undo", "/skills", "/statusline",
+      "/tasks", "/teamwork-preview", "/teamwork", "/title", "/usage",
+      "/quota", "/voice", "/record"
+    ],
+    "settings": [
+      "colorScheme", "altScreenMode", "toolPermission", "artifactReviewPolicy",
+      "notifications", "showTips", "showFeedbackSurvey", "editor", "editorMode",
+      "vimInsertFirst", "allowNonWorkspaceAccess", "enableTerminalSandbox",
+      "useG1Credits", "enableTelemetry", "verbosity", "runningLightSpeed"
+    ],
+    "hooks": ["PreToolUse", "PostToolUse", "PreInvocation", "PostInvocation", "Stop"]
+  }
 }
