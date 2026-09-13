@@ -16,7 +16,7 @@ const vm = require('vm');
 
 const ROOT = path.join(__dirname, '..');
 const read = (f) => fs.readFileSync(path.join(ROOT, f), 'utf8');
-const SITE = 'https://dommango.github.io/agent-placemats/';
+const SITE = 'https://dommango.github.io/agentmats/';
 
 // The eight canonical cards, identical ids and order in every agent's index.html (D2).
 const CANONICAL_CARDS = [
@@ -495,7 +495,7 @@ for (const agent of targets) {
   // Internal links stay relative so the page works under a local preview server.
   // (canonical/og:url are absolute by design and are not <a href>.)
   test(`${agent}: internal links are relative, not absolute site URLs`, () => {
-    const bad = [...html.matchAll(/<a[^>]+href="(https:\/\/dommango\.github\.io\/agent-placemats\/[^"]*)"/g)]
+    const bad = [...html.matchAll(/<a[^>]+href="(https:\/\/dommango\.github\.io\/agentmats\/[^"]*)"/g)]
       .map((m) => m[1]);
     assert.deepStrictEqual(bad, [], `link to the live site instead of a relative path: ${bad.join(', ')}`);
   });

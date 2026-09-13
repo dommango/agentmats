@@ -1,23 +1,22 @@
-# Agent Placemats
+# agentmats
 
 Unofficial single-page reference "placemats" for CLI coding agents — every
 command, flag, shortcut and config key you actually reach for, on one printable
 page per agent, kept current by a daily sync.
 
-**→ https://dommango.github.io/agent-placemats/**
+**→ https://dommango.github.io/agentmats/**
 
 ## The placemats
 
 | Placemat | Agent | Vendor | Official docs |
 |---|---|---|---|
-| [Codex CLI](https://dommango.github.io/agent-placemats/codex/) | Codex CLI | OpenAI | [developers.openai.com/codex](https://developers.openai.com/codex) |
-| [Kimi Code](https://dommango.github.io/agent-placemats/kimi-code/) | Kimi Code | Moonshot AI | [moonshotai.github.io/kimi-code](https://moonshotai.github.io/kimi-code/) |
-| [Hermes Agent](https://dommango.github.io/agent-placemats/hermes/) | Hermes Agent | Nous Research | [hermes-agent.nousresearch.com](https://hermes-agent.nousresearch.com/docs/) |
-| [Claude Code](https://dommango.github.io/claude-code-placemat/) | Claude Code | Anthropic | [code.claude.com/docs](https://code.claude.com/docs) |
+| [Claude Code](https://dommango.github.io/agentmats/claude-code/) | Claude Code | Anthropic | [code.claude.com/docs](https://code.claude.com/docs) |
+| [Codex CLI](https://dommango.github.io/agentmats/codex/) | Codex CLI | OpenAI | [developers.openai.com/codex](https://developers.openai.com/codex) |
+| [Kimi Code](https://dommango.github.io/agentmats/kimi-code/) | Kimi Code | Moonshot AI | [moonshotai.github.io/kimi-code](https://moonshotai.github.io/kimi-code/) |
+| [Hermes Agent](https://dommango.github.io/agentmats/hermes/) | Hermes Agent | Nous Research | [hermes-agent.nousresearch.com](https://hermes-agent.nousresearch.com/docs/) |
 
-The Claude Code placemat lives in its own repo,
-[dommango/claude-code-placemat](https://github.com/dommango/claude-code-placemat),
-and is linked from the hub rather than duplicated here.
+The Claude Code placemat lives at
+[`claude-code/`](claude-code/) in this repo, a peer of every other agent.
 
 ## What you get
 
@@ -45,9 +44,6 @@ issue.
 ```bash
 python3 -m http.server 8000   # then open http://localhost:8000
 ```
-
-Cross-origin `changes.json` (the Claude Code card on the hub) will not load in
-local preview; that card degrades to `—` placeholders by design.
 
 ## Development
 

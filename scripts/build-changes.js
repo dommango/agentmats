@@ -6,7 +6,7 @@ const fs = require('fs');
 const path = require('path');
 
 const ROOT = path.join(__dirname, '..');
-const SITE = 'https://dommango.github.io/agent-placemats/';
+const SITE = 'https://dommango.github.io/agentmats/';
 const AGENTS = { codex: 'Codex CLI', 'kimi-code': 'Kimi Code', hermes: 'Hermes Agent' };
 const TAGS = { 'tag-add': 'ADD', 'tag-change': 'CHG', 'tag-remove': 'DEL', 'tag-fix': 'FIX' };
 
