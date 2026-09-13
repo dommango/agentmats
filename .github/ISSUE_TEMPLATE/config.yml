@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Live site
+    url: https://dommango.github.io/agentmats/
+    about: Check the current placemats before filing — your question might already be answered there.
+  - name: Security report
+    url: https://github.com/dommango/agentmats/security/advisories/new
+    about: Report a vulnerability privately via GitHub Security Advisories.

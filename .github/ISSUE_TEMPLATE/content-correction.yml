@@ -1,0 +1,67 @@
+name: Content correction
+description: An entry on a placemat is wrong, outdated, or missing.
+title: "[content] "
+labels: ["content"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this for fixes to **existing** entries or **missing** entries that should be there.
+        New features from a release are normally handled by that agent's auto-update pipeline —
+        but if the bot missed something, file it here.
+  - type: dropdown
+    id: agent
+    attributes:
+      label: Agent
+      description: Which placemat is this about?
+      options:
+        - Claude Code
+        - Codex CLI
+        - Kimi Code
+        - Hermes Agent
+        - Antigravity
+        - Hub (Rosetta table)
+    validations:
+      required: true
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Type of correction
+      options:
+        - Wrong (the entry is incorrect)
+        - Outdated (the entry used to be right, but the agent changed)
+        - Missing (should exist but doesn't)
+        - Misclassified (verified vs unverified vs new)
+    validations:
+      required: true
+  - type: input
+    id: row
+    attributes:
+      label: Row permalink
+      description: >-
+        The row's permalink, e.g. the `#i-...` anchor from clicking the row's `#` link
+        (or "l" on the row). If it's a hub Rosetta row instead, note the agent + capability.
+      placeholder: "https://dommango.github.io/agentmats/codex/#i-approval-mode-full-auto"
+    validations:
+      required: true
+  - type: textarea
+    id: current
+    attributes:
+      label: Current entry
+      description: Paste the current content (or "missing" if it doesn't exist yet).
+  - type: textarea
+    id: proposed
+    attributes:
+      label: Proposed correction
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: Source
+      description: >-
+        Link to the official vendor doc, changelog entry, or `--help` output that proves this —
+        never another placemat in this repo (see AGENTS.md's inventory-first rule).
+      placeholder: "https://code.claude.com/docs/en/changelog#vX.Y.Z"
+    validations:
+      required: true
