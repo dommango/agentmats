@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agent Placemats</title>
+    <title>agentmats - one page per coding agent</title>
     <meta name="description" content="Unofficial single-page references for CLI coding agents — Claude Code, Codex CLI, Kimi Code and Hermes Agent — with what changed since your last visit and a cross-agent Rosetta table.">
-    <meta property="og:title" content="Agent Placemats">
+    <meta property="og:title" content="agentmats">
     <meta property="og:description" content="Unofficial single-page references for CLI coding agents, with what changed since your last visit and a cross-agent Rosetta table.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://dommango.github.io/agent-placemats/">
-    <meta property="og:image" content="https://dommango.github.io/agent-placemats/og-image.png">
+    <meta property="og:url" content="https://dommango.github.io/agentmats/">
+    <meta property="og:image" content="https://dommango.github.io/agentmats/og-image.png">
     <meta name="twitter:card" content="summary_large_image">
-    <link rel="canonical" href="https://dommango.github.io/agent-placemats/">
+    <link rel="canonical" href="https://dommango.github.io/agentmats/">
     <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+PHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iNiIgZmlsbD0iIzg3OWQ4NiIvPjx0ZXh0IHg9IjE2IiB5PSIyMyIgZm9udC1mYW1pbHk9Im1vbm9zcGFjZSIgZm9udC1zaXplPSIxNiIgZm9udC13ZWlnaHQ9IjcwMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzFlMWUxZSI+Jmd0O188L3RleHQ+PC9zdmc+Cg==">
     <link rel="stylesheet" href="shared/placemat.css">
     <script>
@@ -76,11 +76,11 @@
                 <rect x="2" y="11" width="2" height="2" fill="var(--accent-1)"/>
                 <rect x="9" y="11" width="5" height="2" fill="var(--accent-2)"/>
             </svg>
-            <h1>Agent <span class="wm-pixel">PLACEMATS</span></h1>
+            <h1>agent<span class="wm-pixel">mats</span></h1>
             <span class="header-tagline">One page per CLI coding agent</span>
         </div>
         <div class="global-controls">
-            <a href="https://github.com/dommango/agent-placemats" class="header-link" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="https://github.com/dommango/agentmats" class="header-link" target="_blank" rel="noopener noreferrer">GitHub</a>
             <button type="button" class="theme-toggle" id="themeBtn" title="Toggle theme" aria-label="Toggle light and dark theme">&#9728;&#65039;</button>
         </div>
     </header>
@@ -101,9 +101,9 @@
                 <span class="pm-version">—</span>
                 <span class="pm-fresh"></span>
                 <div class="pm-links">
-                    <a href="https://dommango.github.io/claude-code-placemat/">Placemat →</a>
-                    <a href="https://dommango.github.io/claude-code-placemat/changelog.html">Changelog</a>
-                    <a href="https://dommango.github.io/claude-code-placemat/feed.xml">RSS</a>
+                    <a href="claude-code/">Placemat →</a>
+                    <a href="claude-code/changelog.html">Changelog</a>
+                    <a href="claude-code/feed.xml">RSS</a>
                     <a href="https://code.claude.com/docs" target="_blank" rel="noopener noreferrer">Docs</a>
                 </div>
                 <div class="pm-install"><code>npm install -g @anthropic-ai/claude-code</code></div>
@@ -198,7 +198,7 @@
             against the official docs before relying on anything here.
         </p>
         <p class="hub-disclaimer">
-            <a href="https://github.com/dommango/agent-placemats" target="_blank" rel="noopener noreferrer">Source on GitHub</a> ·
+            <a href="https://github.com/dommango/agentmats" target="_blank" rel="noopener noreferrer">Source on GitHub</a> ·
             <a href="https://dommango.github.io" target="_blank" rel="noopener noreferrer">Context//Collapse</a>
         </p>
     </footer>
@@ -238,7 +238,7 @@
         // --- WHAT CHANGED SINCE YOUR LAST VISIT ---
         const PLACEMATS = [
             { key: 'claude-code',
-              changes: 'https://dommango.github.io/claude-code-placemat/changes.json',
+              changes: 'claude-code/changes.json',
               seenKey: 'placemat-seen-version' },
             { key: 'codex',     changes: 'codex/changes.json',     seenKey: 'pm-codex-seen-version' },
             { key: 'kimi-code', changes: 'kimi-code/changes.json', seenKey: 'pm-kimi-code-seen-version' },

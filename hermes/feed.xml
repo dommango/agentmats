@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Hermes Agent Placemat — changes</title>
-  <link href="https://dommango.github.io/agent-placemats/hermes/"/>
-  <link rel="self" href="https://dommango.github.io/agent-placemats/hermes/feed.xml"/>
-  <id>https://dommango.github.io/agent-placemats/hermes/</id>
+  <link href="https://dommango.github.io/agentmats/hermes/"/>
+  <link rel="self" href="https://dommango.github.io/agentmats/hermes/feed.xml"/>
+  <id>https://dommango.github.io/agentmats/hermes/</id>
   <updated>2026-09-11T09:00:00Z</updated>
   <entry>
     <title>Hermes Agent v0.21.2 (2026.9.11) — 8 placemat changes</title>
-    <id>https://dommango.github.io/agent-placemats/hermes/changelog.html#rel-0-21-2</id>
-    <link href="https://dommango.github.io/agent-placemats/hermes/changelog.html#rel-0-21-2"/>
+    <id>https://dommango.github.io/agentmats/hermes/changelog.html#rel-0-21-2</id>
+    <link href="https://dommango.github.io/agentmats/hermes/changelog.html#rel-0-21-2"/>
     <updated>2026-09-11T09:00:00Z</updated>
     <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;card-keys&lt;/code&gt; — initial reference: TUI keybindings plus the transcript, status-bar and overlay symbol glossary (17 rows)&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;card-slash-core&lt;/code&gt; — initial reference: session, context, coding-workflow and run-control commands (29 rows)&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;card-slash-tools&lt;/code&gt; — initial reference: model and reasoning control, tools, skills and profile commands (28 rows)&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;card-cli&lt;/code&gt; — initial reference: global options and every in-scope subcommand (45 rows)&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;card-settings&lt;/code&gt; — initial reference: &lt;code&gt;config.yaml&lt;/code&gt; precedence, the seven terminal backends, agent behaviour and limits (22 rows)&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;card-env&lt;/code&gt; — initial reference: &lt;code&gt;HERMES_HOME&lt;/code&gt;, secrets handling and backend variables (6 rows)&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;card-skills&lt;/code&gt; — initial reference: the context-file precedence chain, memory, skills and subagent delegation (15 rows)&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;card-hooks&lt;/code&gt; — initial reference: cron, heartbeats, goals, suggestions, blueprints, kanban and MCP (8 rows)&lt;/li&gt;&lt;/ul&gt;</content>
   </entry>

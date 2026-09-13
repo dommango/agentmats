@@ -1,12 +1,11 @@
-# AGENTS.md — agent-placemats
+# AGENTS.md — agentmats
 
 Unofficial single-page placemat references for CLI coding agents, one per
-directory: `codex/` (OpenAI Codex CLI), `kimi-code/` (Moonshot Kimi Code),
-`hermes/` (Nous Research Hermes Agent). The hub page at the repo root links
-them plus the external Claude Code placemat (which lives in its own repo,
-`dommango/claude-code-placemat`, on the same `dommango.github.io` origin).
+directory: `claude-code/` (Anthropic Claude Code), `codex/` (OpenAI Codex CLI),
+`kimi-code/` (Moonshot Kimi Code), `hermes/` (Nous Research Hermes Agent). The
+hub page at the repo root links them all, each a peer directory in this repo.
 
-**Live:** https://dommango.github.io/agent-placemats/ — GitHub Pages deploys
+**Live:** https://dommango.github.io/agentmats/ — GitHub Pages deploys
 from `main`.
 
 The full implementation plan, including the locked design decisions D1-D8 that
