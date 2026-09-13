@@ -4,6 +4,25 @@ const AGENT = document.documentElement.dataset.agent || 'agent';
 const LS_SEEN = 'pm-' + AGENT + '-seen-version';
 const LS_COLLAPSED = 'pm-' + AGENT + '-collapsed';
 
+// --- ONE-TIME MIGRATION (U4): the Claude Code placemat used to own the
+// unprefixed seen/collapsed keys directly, before it moved onto this shared
+// script. Existing visitors keep their seen-state instead of re-seeing
+// everything as "new" the first time they load the migrated page.
+if (AGENT === 'claude-code') {
+    try {
+        const oldSeenKey = 'placemat' + '-seen-version';
+        const oldCollapsedKey = 'placemat' + '-collapsed';
+        const oldSeen = localStorage.getItem(oldSeenKey);
+        if (oldSeen !== null && localStorage.getItem(LS_SEEN) === null) {
+            localStorage.setItem(LS_SEEN, oldSeen);
+            const oldCollapsed = localStorage.getItem(oldCollapsedKey);
+            if (oldCollapsed !== null) localStorage.setItem(LS_COLLAPSED, oldCollapsed);
+            localStorage.removeItem(oldSeenKey);
+            localStorage.removeItem(oldCollapsedKey);
+        }
+    } catch (err) {}
+}
+
 // --- THEME TOGGLE LOGIC ---
 function setThemeIcon(theme) {
     const btn = document.getElementById('themeBtn');

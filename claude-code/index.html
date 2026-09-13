@@ -1,20 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-agent="claude-code">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Claude Code Placemat</title>
-    <meta name="description" content="Single-page reference for Claude Code — commands, shortcuts, flags, configuration, hooks, MCP, skills, and agents. Auto-updated from the official changelog.">
-    <meta property="og:title" content="Claude Code Placemat">
-    <meta property="og:description" content="Single-page reference for Claude Code — commands, shortcuts, flags, configuration, hooks, MCP, skills, and agents.">
+    <title>Claude Code Placemat (Unofficial)</title>
+    <meta name="description" content="Unofficial single-page reference for Claude Code — commands, shortcuts, flags, configuration, hooks, MCP, skills, and agents. Auto-updated from the official changelog.">
+    <meta property="og:title" content="Claude Code Placemat (Unofficial)">
+    <meta property="og:description" content="Unofficial single-page reference for Claude Code — commands, shortcuts, flags, configuration, hooks, MCP, skills, and agents.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://dommango.github.io/claude-code-placemat/">
-    <meta property="og:image" content="https://dommango.github.io/claude-code-placemat/og-image.png">
+    <meta property="og:url" content="https://dommango.github.io/agentmats/claude-code/">
+    <meta property="og:image" content="https://dommango.github.io/agentmats/og-image.png">
     <meta name="twitter:card" content="summary_large_image">
-    <link rel="canonical" href="https://dommango.github.io/claude-code-placemat/">
-    <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+PHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iNiIgZmlsbD0iI2Q5Nzc1NyIvPjx0ZXh0IHg9IjE2IiB5PSIyMyIgZm9udC1mYW1pbHk9Im1vbm9zcGFjZSIgZm9udC1zaXplPSIxNiIgZm9udC13ZWlnaHQ9IjcwMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzFlMWUxZSI+Jmd0O188L3RleHQ+PC9zdmc+Cg==">
+    <link rel="canonical" href="https://dommango.github.io/agentmats/claude-code/">
+    <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+PHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iNiIgZmlsbD0iI2MyNDc4YSIvPjx0ZXh0IHg9IjE2IiB5PSIyMyIgZm9udC1mYW1pbHk9Im1vbm9zcGFjZSIgZm9udC1zaXplPSIxNiIgZm9udC13ZWlnaHQ9IjcwMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzFlMWUxZSI+Jmd0O188L3RleHQ+PC9zdmc+Cg==">
     <link rel="alternate" type="application/atom+xml" title="Claude Code Placemat changes" href="feed.xml">
-    <link rel="stylesheet" href="placemat.css">
+    <link rel="stylesheet" href="../shared/placemat.css">
+    <style>
+        :root { --accent-1: #c2478a; --accent-1-2: #dd6ea8; --accent-2: #6b5b73; --accent-2-2: #8f7d97; }
+        :root[data-theme="light"] { --accent-1: #9c3570; --accent-1-2: #7a2857; --accent-2: #574a5e; --accent-2-2: #443a49; }
+    </style>
     <script>
         (function() {
             var stored = localStorage.getItem('placemat-theme');
@@ -31,25 +35,17 @@
 
     <header class="global-header">
         <div class="header-title">
-            <!-- 8-bit Claude Code minion icon -->
-            <svg class="minion-icon" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-                <rect x="5" y="1" width="6" height="2" fill="#d97757"/>
-                <rect x="4" y="3" width="8" height="2" fill="#d97757"/>
-                <rect x="3" y="5" width="10" height="3" fill="#d97757"/>
-                <rect x="5" y="5" width="2" height="2" fill="#1e1e1e"/>
-                <rect x="9" y="5" width="2" height="2" fill="#1e1e1e"/>
-                <rect x="6" y="6" width="1" height="1" fill="#f1f1f1"/>
-                <rect x="10" y="6" width="1" height="1" fill="#f1f1f1"/>
-                <rect x="4" y="8" width="8" height="2" fill="#d97757"/>
-                <rect x="6" y="9" width="4" height="1" fill="#1e1e1e"/>
-                <rect x="3" y="10" width="3" height="3" fill="#d97757"/>
-                <rect x="10" y="10" width="3" height="3" fill="#d97757"/>
-                <rect x="5" y="10" width="6" height="3" fill="#d97757"/>
-                <rect x="3" y="13" width="3" height="2" fill="#d97757"/>
-                <rect x="10" y="13" width="3" height="2" fill="#d97757"/>
+            <!-- neutral 8-bit terminal-prompt mark (no vendor logos — D5) -->
+            <svg class="minion-icon" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Terminal prompt">
+                <rect x="2" y="3" width="2" height="2" fill="var(--accent-1)"/>
+                <rect x="4" y="5" width="2" height="2" fill="var(--accent-1)"/>
+                <rect x="6" y="7" width="2" height="2" fill="var(--accent-1)"/>
+                <rect x="4" y="9" width="2" height="2" fill="var(--accent-1)"/>
+                <rect x="2" y="11" width="2" height="2" fill="var(--accent-1)"/>
+                <rect x="9" y="11" width="5" height="2" fill="var(--accent-2)"/>
             </svg>
             <h1>Claude Code <span class="wm-pixel">PLACEMAT</span></h1>
-            <span class="header-tagline">Auto-updated reference — always current</span>
+            <span class="header-tagline">Unofficial · auto-updated reference</span>
         </div>
         <div class="global-controls">
             <span class="release-tag">As of release: v2.1.270</span>
@@ -71,7 +67,7 @@
                 <a href="#card-keys" data-target="card-keys">Keys &amp; Shortcuts<span class="chip-count"></span></a>
                 <a href="#card-slash-core" data-target="card-slash-core">Slash (Core)<span class="chip-count"></span></a>
                 <a href="#card-slash-tools" data-target="card-slash-tools">Slash (Tools)<span class="chip-count"></span></a>
-                <a href="#card-cli" data-target="card-cli">CLI Flags<span class="chip-count"></span></a>
+                <a href="#card-cli" data-target="card-cli">CLI<span class="chip-count"></span></a>
                 <a href="#card-settings" data-target="card-settings">Settings<span class="chip-count"></span></a>
                 <a href="#card-env" data-target="card-env">Env Vars<span class="chip-count"></span></a>
                 <a href="#card-skills" data-target="card-skills">Skills &amp; Agents<span class="chip-count"></span></a>
@@ -91,7 +87,7 @@
             <span class="print-head-title">Claude Code <b>PLACEMAT</b></span>
             <span>As of release v2.1.270</span>
             <span>■ = new &nbsp; □ = unverified</span>
-            <span>dommango.github.io/claude-code-placemat</span>
+            <span>dommango.github.io/agentmats/claude-code</span>
         </div>
 
         <div class="card full-width search-exclude since-strip" id="sinceStrip" hidden>
@@ -105,7 +101,7 @@
             </div>
         </div>
 
-        <!-- Legend + Command Builder -->
+        <!-- Legend -->
         <div class="card full-width search-exclude legend-strip">
             <div class="legend-strip-row">
                 <div class="legend">
@@ -114,41 +110,11 @@
                     <div class="legend-item"><span class="legend-swatch swatch-unverified"></span> Unverified</div>
                     <div class="legend-item"><button type="button" class="notes-all" id="notesAll" aria-pressed="false">Show all notes</button></div>
                 </div>
-                <div class="compact-builder">
-                    <span class="builder-label">Builder ▸</span>
-                    <input type="text" id="labPrompt" placeholder="Instruction (e.g., refactor auth)">
-                    <select id="labEffort" aria-label="Effort">
-                        <option value="">Effort: Auto</option>
-                        <option value="--effort low">Low</option>
-                        <option value="--effort medium">Medium</option>
-                        <option value="--effort high">High</option>
-                        <option value="--effort xhigh">xhigh</option>
-                    </select>
-                    <select id="labModel" aria-label="Model">
-                        <option value="">Model: Default</option>
-                        <option value="--model claude-sonnet-5">Sonnet 5</option>
-                        <option value="--model claude-opus-5">Opus 5</option>
-                        <option value="--model claude-haiku-4-5-20251001">Haiku 4.5</option>
-                    </select>
-                    <select id="labMode" aria-label="Permission mode">
-                        <option value="">Permission: Default</option>
-                        <option value="--permission-mode plan">Plan</option>
-                        <option value="--permission-mode acceptEdits">Accept edits</option>
-                        <option value="--permission-mode auto">Auto</option>
-                        <option value="--dangerously-skip-permissions">Bypass</option>
-                    </select>
-                    <select id="labFormat">
-                        <option value="">Text Output</option>
-                        <option value="--output-format json">JSON Output</option>
-                    </select>
-                    <label class="builder-label"><input type="checkbox" id="labBare"> Bare Headless</label>
-                    <code id="generatedCmd" title="Click to copy">claude -p ""</code>
-                </div>
             </div>
         </div>
 
         <div class="card" id="card-keys">
-            <h2>Keys & Shortcuts <span class="card-count"></span></h2>
+            <h2>Keys &amp; Shortcuts <span class="card-count"></span></h2>
 
             <details class="search-group" open data-group="General Controls">
                 <summary><h3>General Controls</h3><span class="group-count"></span></summary>
@@ -323,7 +289,7 @@
         </div>
 
         <div class="card" id="card-cli">
-            <h2>CLI & Headless Flags <span class="card-count"></span></h2>
+            <h2>CLI &amp; Subcommands <span class="card-count"></span></h2>
 
             <details class="search-group" open data-group="Core Execution">
                 <summary><h3>Core Execution</h3><span class="group-count"></span></summary>
@@ -585,7 +551,7 @@
         </div>
 
         <div class="card" id="card-skills">
-            <h2>Skills & Agent Frontmatter <span class="card-count"></span></h2>
+            <h2>Skills &amp; Agent Frontmatter <span class="card-count"></span></h2>
 
             <details class="search-group" open data-group="Built-in Skills & Locations">
                 <summary><h3>Built-in Skills & Locations</h3><span class="group-count"></span></summary>
@@ -663,7 +629,7 @@
         </div>
 
         <div class="card" id="card-hooks">
-            <h2>Memory, Hooks & MCP <span class="card-count"></span></h2>
+            <h2>Memory, Hooks &amp; MCP <span class="card-count"></span></h2>
 
             <details class="search-group" open data-group="Rules & Auto-Memory">
                 <summary><h3>Rules & Auto-Memory</h3><span class="group-count"></span></summary>
@@ -737,7 +703,10 @@
 
         <footer class="global-footer">
             Template v1.2 · Content synced 2026-09-11<br>
-            <a href="https://dommango.github.io/agent-placemats/" class="header-link">More agent placemats →</a> ·
+            <span class="disclaimer">Unofficial community reference — not affiliated with or endorsed by Anthropic.
+            Condensed from the official docs; always confirm against
+            <a href="https://code.claude.com/docs" target="_blank" rel="noopener noreferrer">code.claude.com/docs</a>.</span><br>
+            <a href="../" class="header-link">← All agent placemats</a> ·
             <a href="https://dommango.github.io" target="_blank" rel="noopener noreferrer">Context//Collapse</a>
         </footer>
 
@@ -755,449 +724,6 @@
         </div>
     </aside>
 
-    <script>
-        // --- THEME TOGGLE LOGIC ---
-        function setThemeIcon(theme) {
-            const btn = document.getElementById('themeBtn');
-            if (btn) btn.innerHTML = theme === 'dark' ? '&#9728;&#65039;' : '&#127769;';
-        }
-        function toggleTheme() {
-            const root = document.documentElement;
-            const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
-            root.dataset.theme = next;
-            localStorage.setItem('placemat-theme', next);
-            setThemeIcon(next);
-        }
-        setThemeIcon(document.documentElement.dataset.theme);
-
-        // --- CLICK TO COPY LOGIC (mouse + keyboard) ---
-        function makeCopyable(el, getText) {
-            el.title = "Click to copy";
-            el.tabIndex = -1;
-            el.setAttribute('role', 'button');
-            el.addEventListener('click', () => copyText(el, getText()));
-            el.addEventListener('keydown', (e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    copyText(el, getText());
-                }
-            });
-        }
-
-        document.querySelectorAll('code').forEach(el => {
-            if(el.id === 'generatedCmd') return;
-            makeCopyable(el, () => el.innerText);
-        });
-
-        async function copyText(element, text) {
-            try {
-                await navigator.clipboard.writeText(text);
-                element.classList.add('copied');
-                setTimeout(() => element.classList.remove('copied'), 300);
-            } catch (err) { console.error('Failed to copy: ', err); }
-        }
-
-        // --- HIERARCHICAL SEARCH LOGIC ---
-        const searchInput = document.getElementById('dashboardSearch');
-
-        // --- COLLAPSIBLE GROUPS (counts computed at load; folded state remembered) ---
-        const groupEls = Array.from(document.querySelectorAll('details.search-group'));
-        const COLLAPSED_KEY = 'placemat-collapsed';
-        let collapsedGroups = new Set();
-        try { collapsedGroups = new Set(JSON.parse(localStorage.getItem(COLLAPSED_KEY) || '[]')); } catch (err) {}
-
-        function saveCollapsed() {
-            try { localStorage.setItem(COLLAPSED_KEY, JSON.stringify(Array.from(collapsedGroups))); } catch (err) {}
-        }
-
-        groupEls.forEach((group) => {
-            group.querySelector('.group-count').textContent = group.querySelectorAll('.search-item').length;
-            group.open = !collapsedGroups.has(group.dataset.group);
-            group.addEventListener('toggle', () => {
-                if (searchInput.value.trim()) return; // search-driven opens are temporary
-                group.open ? collapsedGroups.delete(group.dataset.group) : collapsedGroups.add(group.dataset.group);
-                saveCollapsed();
-            });
-        });
-
-        function applyGroupState(term) {
-            groupEls.forEach((group) => { group.open = term ? true : !collapsedGroups.has(group.dataset.group); });
-        }
-
-        // --- FIXED BAR HEIGHTS: measured so the header and nav always clear each other ---
-        (function trackBarHeights() {
-            const header = document.querySelector('.global-header');
-            const nav = document.querySelector('.section-nav');
-            const sync = () => {
-                document.documentElement.style.setProperty('--header-h', Math.round(header.offsetHeight) + 'px');
-                document.documentElement.style.setProperty('--nav-h', Math.round(nav.offsetHeight) + 'px');
-            };
-            sync();
-            if (typeof ResizeObserver === 'function') {
-                const observer = new ResizeObserver(sync);
-                observer.observe(header);
-                observer.observe(nav);
-            }
-            window.addEventListener('resize', sync);
-        })();
-
-        // --- SECTION NAV: counts, active chip, collapse/expand all ---
-        const navChips = Array.from(document.querySelectorAll('.section-chips a'));
-        navChips.forEach((chip) => {
-            const card = document.getElementById(chip.dataset.target);
-            if (!card) return;
-            const count = card.querySelectorAll('.search-item').length;
-            chip.querySelector('.chip-count').textContent = count;
-            card.querySelector('.card-count').textContent = count;
-        });
-        const cardObserver = new IntersectionObserver((entries) => {
-            const visible = entries
-                .filter((entry) => entry.isIntersecting)
-                .sort((a, b) => (a.boundingClientRect.top - b.boundingClientRect.top)
-                    || (a.boundingClientRect.left - b.boundingClientRect.left));
-            if (!visible.length) return;
-            navChips.forEach((chip) => chip.classList.toggle('is-active', chip.dataset.target === visible[0].target.id));
-        }, { rootMargin: '-100px 0px -60% 0px', threshold: 0 });
-        navChips.forEach((chip) => {
-            const card = document.getElementById(chip.dataset.target);
-            if (card) cardObserver.observe(card);
-        });
-
-        function setAllGroups(open) {
-            collapsedGroups = new Set(open ? [] : groupEls.map((group) => group.dataset.group));
-            saveCollapsed();
-            groupEls.forEach((group) => { group.open = open; });
-        }
-        document.getElementById('printBtn').addEventListener('click', () => window.print());
-        document.getElementById('collapseAll').addEventListener('click', () => setAllGroups(false));
-        document.getElementById('expandAll').addEventListener('click', () => setAllGroups(true));
-
-        // --- DENSITY TOGGLE ---
-        (function initDensity() {
-            const DENSITY_KEY = 'placemat-density';
-            const btn = document.getElementById('densityBtn');
-            const apply = (compact) => {
-                document.body.classList.toggle('density-compact', compact);
-                btn.setAttribute('aria-pressed', String(compact));
-            };
-            let compact = false;
-            try { compact = localStorage.getItem(DENSITY_KEY) === 'compact'; } catch (err) {}
-            apply(compact);
-            btn.addEventListener('click', () => {
-                compact = !compact;
-                apply(compact);
-                try { localStorage.setItem(DENSITY_KEY, compact ? 'compact' : 'comfortable'); } catch (err) {}
-            });
-        })();
-
-        searchInput.addEventListener('input', (e) => {
-            performSearch(e.target.value);
-            applyGroupState(e.target.value.trim());
-            revealNoteHits(e.target.value);
-        });
-
-        const searchKbd = document.getElementById('searchKbd');
-        if (searchKbd && !/mac/i.test(navigator.platform || navigator.userAgentData?.platform || '')) {
-            searchKbd.textContent = 'Ctrl K';
-        }
-
-        window.addEventListener('keydown', (e) => {
-            if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
-                e.preventDefault(); searchInput.focus();
-            }
-        });
-
-        // --- TWO-TIER ENTRIES: notes disclosure ---
-        const noteButtons = Array.from(document.querySelectorAll('.notes-btn'));
-        const setNotes = (btn, open) => {
-            btn.setAttribute('aria-expanded', String(open));
-            btn.nextElementSibling.hidden = !open;
-        };
-        noteButtons.forEach((btn) => btn.addEventListener('click', () => setNotes(btn, btn.getAttribute('aria-expanded') !== 'true')));
-        const notesAllBtn = document.getElementById('notesAll');
-        notesAllBtn.addEventListener('click', () => {
-            const open = notesAllBtn.getAttribute('aria-pressed') !== 'true';
-            notesAllBtn.setAttribute('aria-pressed', String(open));
-            notesAllBtn.textContent = open ? 'Hide all notes' : 'Show all notes';
-            noteButtons.forEach((btn) => setNotes(btn, open));
-        });
-        function revealNoteHits(term) {
-            const needle = term.toLowerCase().trim();
-            if (!needle) return;
-            noteButtons.forEach((btn) => {
-                const row = btn.closest('.search-item');
-                const outside = (row.querySelector('td').textContent + ' ' + row.querySelector('.summary').textContent).toLowerCase().includes(needle);
-                const inside = btn.nextElementSibling.textContent.toLowerCase().includes(needle);
-                if (inside && !outside) setNotes(btn, true);
-            });
-        }
-
-        // --- SEARCH: normalised match, highlight, count, URL state ---
-        const normaliseSearch = (s) => s.toLowerCase().replace(/[\s+_\-\/.:~]/g, '');
-        const searchRows = Array.from(document.querySelectorAll('.search-item'));
-        searchRows.forEach((row) => {
-            const heading = row.closest('.search-group').querySelector('h3');
-            row.dataset.norm = normaliseSearch((heading ? heading.textContent + ' ' : '') + row.textContent);
-        });
-        const searchWrap = document.querySelector('.search-wrap');
-        const searchCount = document.getElementById('searchCount');
-
-        function markHits(cell, term) {
-            cell.querySelectorAll('mark.hit').forEach((mark) => mark.replaceWith(mark.textContent));
-            cell.normalize();
-            if (!term || term.length < 2) return;
-            // Tolerate the separators the normaliser strips: "ctrl+r" matches "Ctrl R".
-            const chars = term.split('')
-                .filter((ch) => !/[\s+_\-\/.:~]/.test(ch))
-                .map((ch) => ch.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
-            if (!chars.length) return;
-            const re = new RegExp(chars.join('[\\s+_\\-\\/.:~]*'), 'i');
-            const walker = document.createTreeWalker(cell, NodeFilter.SHOW_TEXT);
-            const nodes = [];
-            while (walker.nextNode()) nodes.push(walker.currentNode);
-            nodes.forEach((node) => {
-                if (node.parentElement.closest('a.row-link')) return;
-                const found = node.data.match(re);
-                if (!found || !found[0]) return;
-                const mark = document.createElement('mark');
-                mark.className = 'hit';
-                const after = node.splitText(found.index);
-                after.data = after.data.slice(found[0].length);
-                mark.textContent = found[0];
-                node.parentNode.insertBefore(mark, after);
-            });
-        }
-
-        function performSearch(raw) {
-            const term = raw.trim();
-            const needle = normaliseSearch(term);
-            let total = 0;
-            document.querySelectorAll('.dashboard-grid .card:not(.search-exclude)').forEach((card) => {
-                let cardHasMatch = false;
-                card.querySelectorAll('.search-group').forEach((group) => {
-                    let groupHasMatch = false;
-                    group.querySelectorAll('.search-item').forEach((row) => {
-                        const hit = !needle || row.dataset.norm.includes(needle);
-                        row.style.display = hit ? 'table-row' : 'none';
-                        row.querySelectorAll('td').forEach((cell) => markHits(cell, hit ? term : ''));
-                        if (hit) { groupHasMatch = true; total++; }
-                    });
-                    group.style.display = groupHasMatch ? 'block' : 'none';
-                    if (groupHasMatch) cardHasMatch = true;
-                });
-                card.style.display = cardHasMatch ? 'block' : 'none';
-            });
-            document.getElementById('noResults').classList.toggle('is-visible', total === 0);
-            searchWrap.classList.toggle('has-term', !!needle);
-            searchCount.textContent = total + (total === 1 ? ' match' : ' matches');
-            const url = new URL(location.href);
-            if (needle) url.searchParams.set('q', term); else url.searchParams.delete('q');
-            history.replaceState(null, '', url);
-            rebindRoving();
-        }
-
-        const initialQuery = new URLSearchParams(location.search).get('q');
-        if (initialQuery) { searchInput.value = initialQuery; performSearch(initialQuery); applyGroupState(initialQuery.trim()); revealNoteHits(initialQuery); }
-
-        window.addEventListener('keydown', (e) => {
-            const inField = /^(INPUT|SELECT|TEXTAREA)$/.test(document.activeElement.tagName);
-            if (e.key === '/' && !inField) { e.preventDefault(); searchInput.focus(); searchInput.select(); }
-            if (e.key === 'Escape' && document.activeElement === searchInput) {
-                searchInput.value = '';
-                searchInput.dispatchEvent(new Event('input'));
-                searchInput.blur();
-            }
-        });
-
-        // --- PERMALINKS ---
-        document.querySelectorAll('.row-link').forEach((link) => {
-            link.addEventListener('click', async (e) => {
-                e.preventDefault();
-                const href = link.getAttribute('href');
-                try {
-                    await navigator.clipboard.writeText(location.origin + location.pathname + href);
-                } catch (err) { console.error('Failed to copy link:', err); }
-                history.replaceState(null, '', href);
-                link.classList.add('copied');
-                link.textContent = '✓';
-                setTimeout(() => { link.classList.remove('copied'); link.textContent = '#'; }, 900);
-            });
-        });
-        if (location.hash) {
-            const target = document.getElementById(location.hash.slice(1));
-            if (target) target.scrollIntoView({ block: 'center' });
-        }
-
-        // --- ROVING FOCUS: the grid is one tab stop ---
-        function visibleRows() {
-            return searchRows.filter((row) => row.style.display !== 'none' && row.closest('.card').style.display !== 'none');
-        }
-        function rebindRoving() {
-            const rows = visibleRows();
-            searchRows.forEach((row) => { row.tabIndex = -1; });
-            if (rows[0]) rows[0].tabIndex = 0;
-        }
-        rebindRoving();
-        document.querySelector('.dashboard-grid').addEventListener('keydown', (e) => {
-            const row = e.target.closest('.search-item');
-            if (!row || e.target !== row) return;
-            const rows = visibleRows();
-            const index = rows.indexOf(row);
-            const move = (next) => {
-                if (!next) return;
-                e.preventDefault();
-                row.tabIndex = -1;
-                next.tabIndex = 0;
-                next.focus();
-            };
-            if (e.key === 'ArrowDown') move(rows[index + 1]);
-            if (e.key === 'ArrowUp') move(rows[index - 1]);
-            if (e.key === 'Enter') {
-                e.preventDefault();
-                const chip = row.querySelector('code');
-                if (chip) copyText(chip, chip.innerText);
-            }
-            if (e.key === 'l') {
-                const link = row.querySelector('.row-link');
-                if (link) link.click();
-            }
-        });
-        searchInput.addEventListener('keydown', (e) => {
-            if (e.key !== 'ArrowDown') return;
-            const rows = visibleRows();
-            if (rows[0]) { e.preventDefault(); rows[0].focus(); }
-        });
-
-        // --- COMPACT COMMAND BUILDER LOGIC ---
-        const labPrompt = document.getElementById('labPrompt');
-        const labEffort = document.getElementById('labEffort');
-        const labFormat = document.getElementById('labFormat');
-        const labModel = document.getElementById('labModel');
-        const labMode = document.getElementById('labMode');
-        const labBare = document.getElementById('labBare');
-        const genOut = document.getElementById('generatedCmd');
-
-        // Single-quote the prompt and escape embedded single quotes the POSIX-safe way
-        // ('\'') — unlike double-quote escaping, this is immune to $VAR and `cmd` expansion.
-        const shellSingleQuote = (str) => `'${str.replace(/'/g, `'\\''`)}'`;
-
-        const updateCmd = () => {
-            const parts = [`claude -p ${shellSingleQuote(labPrompt.value)}`];
-            [labEffort.value, labModel.value, labMode.value, labFormat.value, labBare.checked ? '--bare' : '']
-                .forEach((flag) => { if (flag) parts.push(flag); });
-            genOut.innerText = parts.join(' ');
-        };
-
-        [labPrompt, labEffort, labModel, labMode, labFormat].forEach(el => el.addEventListener('input', updateCmd));
-        labBare.addEventListener('change', updateCmd);
-        updateCmd();
-
-        makeCopyable(genOut, () => genOut.innerText);
-        genOut.tabIndex = 0;
-
-        // --- SINCE YOUR LAST VISIT ---
-        const versionNumber = (v) => v.replace(/^v/, '').split('.').map(Number).reduce((a, b) => a * 1000 + b, 0);
-        (async function initSince() {
-            const SEEN_KEY = 'placemat-seen-version';
-            const current = (document.querySelector('.release-tag').textContent.match(/v[\d.]+/) || [])[0];
-            if (!current) return;
-            let data;
-            try {
-                const res = await fetch('changes.json');
-                if (!res.ok) throw new Error('HTTP ' + res.status);
-                data = await res.json();
-            } catch (err) {
-                console.warn('changes.json unavailable:', err.message);
-                return;
-            }
-
-            const tagClass = { ADD: 'tag-add', CHG: 'tag-change', DEL: 'tag-remove', FIX: 'tag-fix' };
-            const rows = Array.from(document.querySelectorAll('.search-item'));
-            const byCode = new Map();
-            rows.forEach((row) => row.querySelectorAll('td:first-child code').forEach((chip) => {
-                const key = chip.innerText.trim();
-                if (!byCode.has(key)) byCode.set(key, row);
-            }));
-            const findRow = (entry) => {
-                if (entry.row) return document.getElementById(entry.row);
-                const item = entry.item;
-                if (!item) return null;
-                if (byCode.has(item)) return byCode.get(item);
-                for (const [key, row] of byCode) if (key.startsWith(item + ' ') || key.startsWith(item + '=')) return row;
-                for (const [key, row] of byCode) if (key.includes(item)) return row;
-                return null;
-            };
-
-            const strip = document.getElementById('sinceStrip');
-            const text = document.getElementById('sinceText');
-            const drawer = document.getElementById('sinceDrawer');
-            const body = document.getElementById('sinceBody');
-            const title = document.getElementById('sinceDrawerTitle');
-            const legend = document.getElementById('legendNew');
-
-            function render() {
-                let seen = null;
-                try { seen = localStorage.getItem(SEEN_KEY); } catch (err) {}
-                rows.forEach((row) => row.querySelectorAll('td:first-child code.new').forEach((chip) => chip.classList.remove('new')));
-
-                let releases;
-                if (!seen) releases = data.releases.slice(0, 3);
-                else if (versionNumber(seen) < versionNumber(current)) {
-                    releases = data.releases.filter((rel) => versionNumber(rel.version) > versionNumber(seen)
-                        && versionNumber(rel.version) <= versionNumber(current));
-                } else releases = [];
-
-                const changes = releases.reduce((sum, rel) => sum + rel.entries.length, 0);
-                legend.textContent = seen ? 'New since your last visit (' + seen + ')' : 'New in the last 3 releases';
-                if (!changes) { strip.hidden = true; drawer.hidden = true; return; }
-
-                const linked = new Set();
-                releases.forEach((rel) => rel.entries.forEach((entry) => {
-                    const row = findRow(entry);
-                    if (row) { row.querySelector('td:first-child code').classList.add('new'); linked.add(row); }
-                }));
-                text.innerHTML = seen
-                    ? '<b>' + releases.length + (releases.length === 1 ? ' release' : ' releases') + ' · ' + changes
-                        + (changes === 1 ? ' change' : ' changes') + '</b> since your last visit <code>' + seen
-                        + '</code> → <code>' + current + '</code>; ' + linked.size + ' entries highlighted below'
-                    : '<b>Welcome.</b> ' + changes + ' changes across the last ' + releases.length
-                        + ' releases are highlighted; next time you will see only what changed since today';
-                strip.hidden = false;
-                title.textContent = seen ? 'Since ' + seen : 'Recent changes';
-                body.innerHTML = releases.map((rel) =>
-                    '<section class="since-release"><h3>CC ' + rel.label + ' <span>' + rel.date + '</span></h3><ul>'
-                    + rel.entries.map((entry) => {
-                        const row = findRow(entry);
-                        return '<li' + (row ? ' data-row="' + row.id + '"' : ' class="unlinked"') + '><span class="tag '
-                            + (tagClass[entry.tag] || 'tag-add') + '">' + entry.tag + '</span><span>' + entry.html + '</span></li>';
-                    }).join('') + '</ul></section>').join('');
-            }
-            render();
-
-            const markRead = () => {
-                try { localStorage.setItem(SEEN_KEY, current); } catch (err) {}
-                render();
-            };
-            document.getElementById('sinceShow').addEventListener('click', () => {
-                drawer.hidden = false;
-                document.getElementById('sinceClose').focus();
-            });
-            document.getElementById('sinceClose').addEventListener('click', () => { drawer.hidden = true; });
-            document.getElementById('sinceRead').addEventListener('click', markRead);
-            document.getElementById('sinceReadAll').addEventListener('click', markRead);
-            body.addEventListener('click', (e) => {
-                const item = e.target.closest('li[data-row]');
-                if (!item) return;
-                const row = document.getElementById(item.dataset.row);
-                if (!row) return;
-                row.scrollIntoView({ block: 'center', behavior: 'smooth' });
-                row.classList.remove('flash');
-                void row.offsetWidth;
-                row.classList.add('flash');
-            });
-            window.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !drawer.hidden) drawer.hidden = true; });
-        })();
-
-    </script>
+    <script src="../shared/placemat.js" defer></script>
 </body>
 </html>
