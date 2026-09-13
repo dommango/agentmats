@@ -229,6 +229,11 @@
                     <li><span class="tag tag-fix">FIX</span><span class="entry">Command builder no longer labels effort levels with model names; added <code>--model</code> and <code>--permission-mode</code> selects</span></li>
                     <li><span class="tag tag-fix">FIX</span><span class="entry">Changelog entries are a tag/text grid, so wrapped lines align under the text; only the newest month starts open; the header now matches the placemat</span></li>
                     <li><span class="tag tag-add">ADD</span><span class="entry">Link previews — <code>og:image</code>, Twitter card and canonical URLs on both pages</span></li>
+                    <li><span class="tag tag-add">ADD</span><span class="entry">Vendor inventory gate — <code>sources.json</code> now carries a <code>slash</code>/<code>settings</code>/<code>hooks</code> inventory extracted from the official reference pages, and <code>tests/placemat.test.js</code> fails any slash-command or settings/hooks row not on it and not marked <code>unverified</code></span></li>
+                    <li><span class="tag tag-fix">FIX</span><span class="entry"><code>permissions.defaultMode</code> row was mislabeled as a bare top-level <code>defaultMode</code> key; the settings reference documents it only in dotted form</span></li>
+                    <li><span class="tag tag-fix">FIX</span><span class="entry"><code>extraKnownMarketplaces</code> row was mislabeled <code>additionalMarketplaces</code> and described as its "friendlier alias" — no such alias exists in the settings reference</span></li>
+                    <li><span class="tag tag-fix">FIX</span><span class="entry">Hooks card row for <code>EnterWorktree</code> confused a worktree-switching tool with the actual worktree hook events; corrected to <code>WorktreeCreate</code> / <code>WorktreeRemove</code></span></li>
+                    <li><span class="tag tag-remove">DEL</span><span class="entry"><code>dynamicWorkflowSize</code> settings row removed — not a documented settings.json key; the real key for the same feature is the existing <code>workflowSizeGuideline</code> row</span></li>
                 </ul>
             </div>
         </div>
