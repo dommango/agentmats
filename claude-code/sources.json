@@ -1,0 +1,30 @@
+{
+  "name": "Claude Code",
+  "vendor": "Anthropic",
+  "version_poll": {
+    "url": "https://registry.npmjs.org/@anthropic-ai/claude-code",
+    "filter": "dist-tags.latest",
+    "transform": "version = dist-tags.latest, as published"
+  },
+  "cross_check": "https://code.claude.com/docs/en/changelog — confirm the npm dist-tag has a matching changelog entry before syncing content",
+  "release_notes": "Use the official changelog page directly; each entry there is already scoped to what shipped in that release.",
+  "docs": {
+    "index": "https://code.claude.com/docs",
+    "changelog_page": "https://code.claude.com/docs/en/changelog",
+    "cli_reference": "https://code.claude.com/docs/en/cli-reference",
+    "interactive_mode": "https://code.claude.com/docs/en/interactive-mode",
+    "slash_commands": "https://code.claude.com/docs/en/slash-commands",
+    "settings": "https://code.claude.com/docs/en/settings",
+    "hooks": "https://code.claude.com/docs/en/hooks",
+    "mcp": "https://code.claude.com/docs/en/mcp",
+    "sub_agents": "https://code.claude.com/docs/en/sub-agents",
+    "skills": "https://code.claude.com/docs/en/skills",
+    "memory": "https://code.claude.com/docs/en/memory"
+  },
+  "gotchas": [
+    "npm dist-tags.latest can land ahead of the changelog page by a few hours — cross-check before syncing content, not just the version number.",
+    "Two independent version numbers are tracked on this placemat: the template version (this page's own structure, bumped only on structural/visual redesigns) and the CC release version (content, updated on every sync). Only the CC release version drives the header's 'As of release' tag and the changelog's Content/Release sections.",
+    "The standalone claude-code-placemat repo used class=\"new\" and an <!-- added:vX.Y.Z --> comment to mark recent items directly in index.html. That convention is gone — this template computes 'new' per visitor at runtime from changes.json (house AGENTS.md); never write class=\"new\" into index.html.",
+    "JSON settings that only apply in managed/enterprise policy files belong in the 'Managed & Enterprise' group of the Settings (JSON) card, not in the general settings groups."
+  ]
+}

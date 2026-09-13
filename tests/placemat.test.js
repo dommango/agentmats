@@ -24,7 +24,7 @@ const CANONICAL_CARDS = [
   'card-settings', 'card-env', 'card-skills', 'card-hooks',
 ];
 
-const AGENTS = ['codex', 'kimi-code', 'hermes'];
+const AGENTS = ['codex', 'kimi-code', 'hermes', 'claude-code'];
 
 // Agents whose sources.json MUST carry a vendor-extracted inventory. The three
 // launch placemats were verified by hand before this existed; every agent added
