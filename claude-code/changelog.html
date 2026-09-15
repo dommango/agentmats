@@ -163,8 +163,22 @@
                 <h3>Content / CC Release Updates</h3>
                 <!-- September 2026 -->
                 <details class="month-group" open>
-                    <summary>September 2026 <span class="version-date">v2.1.265 – v2.1.269</span> <span class="month-count">5 releases</span></summary>
+                    <summary>September 2026 <span class="version-date">v2.1.265 – v2.1.271</span> <span class="month-count">6 releases</span></summary>
                     <div class="month-content">
+
+                        <div class="change-section">
+                            <h3 id="rel-2-1-271">CC v2.1.271 <span class="version-date">2026-09-14</span></h3>
+                            <ul class="change-list">
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>/fast [on/off]</code> — now works in Claude Code Remote sessions (cloud and self-hosted runners) too, via the host's fast-mode setting or by typing <code>/fast</code> in the session</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>/config</code> — mouse support in fullscreen mode: the wheel scrolls the list, a click on a value changes it, and the row under the pointer is highlighted</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>claude self-hosted-runner --drain-marker-file &lt;path&gt;</code> CLI flag — when present at a SIGTERM drain, the runner reports its exit to the server as a host drain (telemetry only)</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>claude self-hosted-runner --host-config-snapshot disk|memory</code> CLI flag — choose where host config is cached; avoids silently losing it once the config directory exceeds 64 MiB</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>allowed_domains</code> — per-command field on Bash, PowerShell and Monitor in sandboxed auto mode; the classifier reviews the domains a command needs and opens sandbox access to only those</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>omitClaudeMd</code> agent frontmatter field (also settable via <code>--agents</code> JSON) — let a custom or plugin subagent run without user, project and local CLAUDE.md files; managed policy files still load</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>claude plugin install</code> / <code>update</code> — added <code>--accept-command &lt;sha256&gt;</code> to accept exactly the command a previous <code>--json</code> run displayed, instead of <code>-y</code></span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>modelPricing</code> — the discount multiplier can now run above 1, up to 10, for marked-up internal chargeback rates; the Claude apps gateway <code>pricing</code> block supports the same range</span></li>
+                            </ul>
+                        </div>
 
                         <div class="change-section">
                             <h3 id="rel-2-1-269">CC v2.1.269 <span class="version-date">2026-09-11</span></h3>
@@ -1374,7 +1388,7 @@
         </div>
 
         <footer class="global-footer">
-            Template v1.2 · Content synced 2026-09-11<br>
+            Template v1.2 · Content synced 2026-09-14<br>
             <span class="disclaimer">Unofficial community reference — not affiliated with or endorsed by Anthropic.
             Condensed from the official docs; always confirm against
             <a href="https://code.claude.com/docs" target="_blank" rel="noopener noreferrer">code.claude.com/docs</a>.</span><br>

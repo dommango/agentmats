@@ -1,7 +1,55 @@
 {
- "generated": "2026-09-11",
- "latest": "v2.1.269",
+ "generated": "2026-09-14",
+ "latest": "v2.1.271",
  "releases": [
+  {
+   "version": "v2.1.271",
+   "label": "CC v2.1.271",
+   "date": "2026-09-14",
+   "id": "rel-2-1-271",
+   "entries": [
+    {
+     "tag": "CHG",
+     "item": "/fast [on/off]",
+     "html": "<code>/fast [on/off]</code> — now works in Claude Code Remote sessions (cloud and self-hosted runners) too, via the host's fast-mode setting or by typing <code>/fast</code> in the session"
+    },
+    {
+     "tag": "CHG",
+     "item": "/config",
+     "html": "<code>/config</code> — mouse support in fullscreen mode: the wheel scrolls the list, a click on a value changes it, and the row under the pointer is highlighted"
+    },
+    {
+     "tag": "ADD",
+     "item": "claude self-hosted-runner --drain-marker-file <path>",
+     "html": "<code>claude self-hosted-runner --drain-marker-file &lt;path&gt;</code> CLI flag — when present at a SIGTERM drain, the runner reports its exit to the server as a host drain (telemetry only)"
+    },
+    {
+     "tag": "ADD",
+     "item": "claude self-hosted-runner --host-config-snapshot disk|memory",
+     "html": "<code>claude self-hosted-runner --host-config-snapshot disk|memory</code> CLI flag — choose where host config is cached; avoids silently losing it once the config directory exceeds 64 MiB"
+    },
+    {
+     "tag": "ADD",
+     "item": "allowed_domains",
+     "html": "<code>allowed_domains</code> — per-command field on Bash, PowerShell and Monitor in sandboxed auto mode; the classifier reviews the domains a command needs and opens sandbox access to only those"
+    },
+    {
+     "tag": "ADD",
+     "item": "omitClaudeMd",
+     "html": "<code>omitClaudeMd</code> agent frontmatter field (also settable via <code>--agents</code> JSON) — let a custom or plugin subagent run without user, project and local CLAUDE.md files; managed policy files still load"
+    },
+    {
+     "tag": "ADD",
+     "item": "claude plugin install",
+     "html": "<code>claude plugin install</code> / <code>update</code> — added <code>--accept-command &lt;sha256&gt;</code> to accept exactly the command a previous <code>--json</code> run displayed, instead of <code>-y</code>"
+    },
+    {
+     "tag": "CHG",
+     "item": "modelPricing",
+     "html": "<code>modelPricing</code> — the discount multiplier can now run above 1, up to 10, for marked-up internal chargeback rates; the Claude apps gateway <code>pricing</code> block supports the same range"
+    }
+   ]
+  },
   {
    "version": "v2.1.269",
    "label": "CC v2.1.269",
