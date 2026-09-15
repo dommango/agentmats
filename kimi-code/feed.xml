@@ -4,7 +4,21 @@
   <link href="https://dommango.github.io/agentmats/kimi-code/"/>
   <link rel="self" href="https://dommango.github.io/agentmats/kimi-code/feed.xml"/>
   <id>https://dommango.github.io/agentmats/kimi-code/</id>
-  <updated>2026-09-09T09:00:00Z</updated>
+  <updated>2026-09-15T09:00:00Z</updated>
+  <entry>
+    <title>Kimi Code v0.43.1 — 2 placemat changes</title>
+    <id>https://dommango.github.io/agentmats/kimi-code/changelog.html#rel-0-43-1</id>
+    <link href="https://dommango.github.io/agentmats/kimi-code/changelog.html#rel-0-43-1"/>
+    <updated>2026-09-15T09:00:00Z</updated>
+    <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;/copy&lt;/code&gt; — native clipboard write path for Linux X11 sessions&lt;/li&gt;&lt;li&gt;&lt;b&gt;FIX&lt;/b&gt; &lt;code&gt;Ctrl-C&lt;/code&gt; while subagents are running now interrupts only the subagents, instead of exiting the whole CLI&lt;/li&gt;&lt;/ul&gt;</content>
+  </entry>
+  <entry>
+    <title>Kimi Code v0.43.0 — 6 placemat changes</title>
+    <id>https://dommango.github.io/agentmats/kimi-code/changelog.html#rel-0-43-0</id>
+    <link href="https://dommango.github.io/agentmats/kimi-code/changelog.html#rel-0-43-0"/>
+    <updated>2026-09-14T09:00:00Z</updated>
+    <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;/sessions&lt;/code&gt; — &lt;code&gt;Ctrl-X&lt;/code&gt; then &lt;code&gt;y&lt;/code&gt; deletes the selected session from the picker&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;kimi upgrade&lt;/code&gt; / &lt;code&gt;kimi update&lt;/code&gt; — &lt;code&gt;-y, --yes&lt;/code&gt; skips the confirmation prompt and installs directly&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;loop_control.compaction_max_attempts&lt;/code&gt; — caps total attempts for a failing compaction request; default 5&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;KIMI_CODE_PERMISSION_MODE_REMINDER&lt;/code&gt; env var — set to &lt;code&gt;0&lt;/code&gt; to stop injecting auto permission-mode reminders into the model context&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;Ctrl-S&lt;/code&gt; — a steering message can now interrupt a wait for a background task&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;/goal&lt;/code&gt; — the time budget no longer counts time spent with the session closed, and the 24-hour limit is removed&lt;/li&gt;&lt;/ul&gt;</content>
+  </entry>
   <entry>
     <title>Kimi Code v0.42.0 — 12 placemat changes</title>
     <id>https://dommango.github.io/agentmats/kimi-code/changelog.html#rel-0-42-0</id>

@@ -36,7 +36,7 @@
   ],
   "inventory": {
     "source": "https://moonshotai.github.io/kimi-code/en/reference/slash-commands.md, https://moonshotai.github.io/kimi-code/en/configuration/config-files.md, https://moonshotai.github.io/kimi-code/en/customization/hooks.md",
-    "fetched": "2026-09-13",
+    "fetched": "2026-09-15",
     "note": "Extracted from the vendor's own reference/configuration/customization docs (raw .md). release-notes/changelog.md was used only to confirm the current release, never as a source of surface facts.",
     "slash": [
       "/login", "/logout", "/provider", "/model", "/secondary-model", "/subagent-model",
@@ -69,7 +69,7 @@
       "secondary_model.default_effort",
       "thinking.enabled", "thinking.effort", "thinking.keep",
       "loop_control.max_steps_per_turn", "loop_control.max_attempts_per_step",
-      "loop_control.reserved_context_size",
+      "loop_control.reserved_context_size", "loop_control.compaction_max_attempts",
       "token_counting.strategy",
       "background.max_running_tasks", "background.keep_alive_on_exit",
       "background.kill_grace_period_ms", "background.bash_auto_background_on_timeout",
