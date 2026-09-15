@@ -19,6 +19,7 @@ Machine-readable sources live in `sources.json`; this file is the procedure.
 7. Run `node scripts/build-changes.js <agent>` then `node tests/placemat.test.js <agent>`. Both must pass before you go further.
 8. Self-review: technical accuracy against the sources, changelog entry quality, consistency with the other cards.
 9. Branch `claude/<agent>-update-v<newest>`, commit `feat(<agent>): update placemat for <Name> v<newest>`, push, and open a PR with a change summary and your checklist results. Never push to `main`. Never touch another agent's directory.
+10. **Merge gate.** Spawn a `code-reviewer` subagent (via `Task`) against the PR's diff — independent of your Step 8 self-review. No CRITICAL/HIGH finding → merge immediately: `gh pr merge --squash --delete-branch`. Any CRITICAL/HIGH finding → fix it and request exactly one re-review; if a CRITICAL/HIGH finding still stands after that, stop — leave the PR open, post the findings as a PR comment, and do not merge.
 
 ## Antigravity-specific traps
 
