@@ -11,7 +11,7 @@
     {
      "tag": "CHG",
      "item": "/copy",
-     "html": "<code>/copy</code> — native clipboard support on Linux X11, so copying no longer depends on the terminal's OSC 52 support"
+     "html": "<code>/copy</code> — native clipboard write path for Linux X11 sessions"
     },
     {
      "tag": "FIX",
