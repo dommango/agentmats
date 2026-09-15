@@ -7,7 +7,7 @@ here's how the split works so you know where to land.
 
 | Area | Owner |
 |------|-------|
-| New release content for an existing agent (commands, flags, config keys) | **Bot** — daily auto-PR per agent (see [AGENTS.md](AGENTS.md#update-pipeline)) |
+| New release content for an existing agent (commands, flags, config keys) | **Bot** — daily auto-PR per agent, self-merges on a clean review (see [AGENTS.md](AGENTS.md#update-pipeline)) |
 | Bug fixes (broken layout, typos, dead links) | **Humans** |
 | Design / CSS / accessibility / responsive tweaks | **Humans** |
 | Style guide changes and structural rework | **Humans** |
@@ -16,9 +16,12 @@ here's how the split works so you know where to land.
 | Adding a new agent placemat | **Humans** — see below |
 
 Each agent has its own daily sync routine (`claude-code`, `codex`, `kimi-code`,
-`hermes`, `antigravity`), staggered 15 minutes apart. If a bot run is about to
-make the same change you're planning, it'll show up as an open
-`claude/<agent>-update-vX.Y.Z` PR — comment there instead of opening a duplicate.
+`hermes`, `antigravity`), staggered 15 minutes apart. A clean bot PR passes its
+own `code-reviewer` pass and squash-merges itself within minutes, so you'll
+usually find the change already on `main` rather than sitting as an open PR.
+If a bot run is about to make the same change you're planning and its PR is
+still open — meaning its review pass flagged something — comment there instead
+of opening a duplicate.
 
 ## Ground rules
 
@@ -69,7 +72,10 @@ node scripts/build-changes.js --all --check   # generated files are fresh
 
 CI also runs HTML validation (`html5validator`) over every page except
 `versions/`. Please get these green locally before requesting review — CI runs
-the same three checks and is the gate for merge.
+the same three checks and is the gate for merge on human PRs. Bot PRs carry an
+additional gate: a `code-reviewer` subagent pass over the diff (see
+[AGENTS.md](AGENTS.md#update-pipeline)) that must come back clean before the
+routine merges its own PR.
 
 ## Workflow
 
