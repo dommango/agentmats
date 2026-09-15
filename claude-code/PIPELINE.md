@@ -33,6 +33,12 @@ Machine-readable sources live in `sources.json`; this file is the procedure.
    `feat(claude-code): update placemat for Claude Code v<newest>`, push, and open
    a PR with a change summary and your checklist results. Never push to `main`.
    Never touch another agent's directory.
+10. **Merge gate.** Spawn a `code-reviewer` subagent (via `Task`) against the PR's
+    diff — independent of your Step 8 self-review. No CRITICAL/HIGH finding →
+    merge immediately: `gh pr merge --squash --delete-branch`. Any CRITICAL/HIGH
+    finding → fix it and request exactly one re-review; if a CRITICAL/HIGH finding
+    still stands after that, stop — leave the PR open, post the findings as a PR
+    comment, and do not merge.
 
 ## Claude Code-specific traps
 

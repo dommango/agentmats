@@ -4,7 +4,14 @@
   <link href="https://dommango.github.io/agentmats/hermes/"/>
   <link rel="self" href="https://dommango.github.io/agentmats/hermes/feed.xml"/>
   <id>https://dommango.github.io/agentmats/hermes/</id>
-  <updated>2026-09-11T09:00:00Z</updated>
+  <updated>2026-09-14T09:00:00Z</updated>
+  <entry>
+    <title>Hermes Agent v0.21.3 (2026.9.14) — 6 placemat changes</title>
+    <id>https://dommango.github.io/agentmats/hermes/changelog.html#rel-0-21-3</id>
+    <link href="https://dommango.github.io/agentmats/hermes/changelog.html#rel-0-21-3"/>
+    <updated>2026-09-14T09:00:00Z</updated>
+    <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;/loop&lt;/code&gt; (alias &lt;code&gt;/proactive&lt;/code&gt;) — re-run a prompt on a recurring interval within a session, with &lt;code&gt;--times&lt;/code&gt;/&lt;code&gt;--until&lt;/code&gt; and status/pause/resume/stop subcommands&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;display.vim_mode&lt;/code&gt; settings key — CLI-only vi/vim keybindings for the input composer&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;/queue&lt;/code&gt; — bare invocation now lists the pending queue; added &lt;code&gt;list&lt;/code&gt;, &lt;code&gt;edit&lt;/code&gt;, &lt;code&gt;rm&lt;/code&gt;, &lt;code&gt;move&lt;/code&gt; and &lt;code&gt;clear&lt;/code&gt; subcommands, plus a force-queue &lt;code&gt;add&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;/model&lt;/code&gt; — added a &lt;code&gt;--reasoning &amp;lt;level&amp;gt;&lt;/code&gt; flag and OpenRouter account-preset selection (&lt;code&gt;@preset/&amp;lt;slug&amp;gt;&lt;/code&gt;)&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;hermes auth&lt;/code&gt; — OpenRouter credentials can now be added via OAuth browser login (PKCE), alongside the existing API-key flow&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;hermes backup&lt;/code&gt; — exclusions expanded to cover regenerable &lt;code&gt;models/&lt;/code&gt;, &lt;code&gt;runtimes/&lt;/code&gt; and &lt;code&gt;node/&lt;/code&gt; downloads, more of &lt;code&gt;cache/&lt;/code&gt;, and Unix sockets, devices and symlinks&lt;/li&gt;&lt;/ul&gt;</content>
+  </entry>
   <entry>
     <title>Hermes Agent v0.21.2 (2026.9.11) — 8 placemat changes</title>
     <id>https://dommango.github.io/agentmats/hermes/changelog.html#rel-0-21-2</id>

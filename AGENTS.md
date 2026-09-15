@@ -220,7 +220,17 @@ Each run follows
 versioned, not in the routine prompt, so fixing a pipeline is a normal PR.
 
 Branch `claude/<agent>-update-v<version>`, commit
-`feat(<agent>): update placemat for <Name> v<version>`, PR to `main`, human merges.
+`feat(<agent>): update placemat for <Name> v<version>`, PR to `main`.
+
+**Merge gate:** the routine spawns a `code-reviewer` subagent against its own
+diff — independent of the pipeline's Step 8 self-review — and only merges on a
+clean result. No CRITICAL/HIGH finding → squash-merge immediately, no human
+involved. Any CRITICAL/HIGH finding → one fix-and-re-review pass; if the
+finding still stands, the PR stays open with the findings posted as a comment
+and nothing merges. This formalizes the review pass that caught three
+runtime-breaking defects in the Antigravity rebuild (PR #11) before they
+reached `main` — the same check now runs on every sync instead of depending on
+someone doing it by hand.
 
 **If there is no release newer than the placemat's current "As of release"
 version, the run exits silently — no commits, no PR, no output.** A routine

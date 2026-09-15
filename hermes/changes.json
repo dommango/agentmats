@@ -1,7 +1,45 @@
 {
- "generated": "2026-09-11",
- "latest": "v0.21.2",
+ "generated": "2026-09-14",
+ "latest": "v0.21.3",
  "releases": [
+  {
+   "version": "v0.21.3",
+   "label": "Hermes Agent v0.21.3 (2026.9.14)",
+   "date": "2026-09-14",
+   "id": "rel-0-21-3",
+   "entries": [
+    {
+     "tag": "ADD",
+     "item": "/loop",
+     "html": "<code>/loop</code> (alias <code>/proactive</code>) — re-run a prompt on a recurring interval within a session, with <code>--times</code>/<code>--until</code> and status/pause/resume/stop subcommands"
+    },
+    {
+     "tag": "ADD",
+     "item": "display.vim_mode",
+     "html": "<code>display.vim_mode</code> settings key — CLI-only vi/vim keybindings for the input composer"
+    },
+    {
+     "tag": "CHG",
+     "item": "/queue",
+     "html": "<code>/queue</code> — bare invocation now lists the pending queue; added <code>list</code>, <code>edit</code>, <code>rm</code>, <code>move</code> and <code>clear</code> subcommands, plus a force-queue <code>add</code>"
+    },
+    {
+     "tag": "CHG",
+     "item": "/model",
+     "html": "<code>/model</code> — added a <code>--reasoning &lt;level&gt;</code> flag and OpenRouter account-preset selection (<code>@preset/&lt;slug&gt;</code>)"
+    },
+    {
+     "tag": "CHG",
+     "item": "hermes auth",
+     "html": "<code>hermes auth</code> — OpenRouter credentials can now be added via OAuth browser login (PKCE), alongside the existing API-key flow"
+    },
+    {
+     "tag": "CHG",
+     "item": "hermes backup",
+     "html": "<code>hermes backup</code> — exclusions expanded to cover regenerable <code>models/</code>, <code>runtimes/</code> and <code>node/</code> downloads, more of <code>cache/</code>, and Unix sockets, devices and symlinks"
+    }
+   ]
+  },
   {
    "version": "v0.21.2",
    "label": "Hermes Agent v0.21.2 (2026.9.11)",

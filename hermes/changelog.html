@@ -163,8 +163,20 @@
                 <h3>Content / Hermes Agent Releases</h3>
                 <!-- September 2026 -->
                 <details class="month-group" open>
-                    <summary>September 2026 <span class="version-date">v0.21.2</span> <span class="month-count">1 release</span></summary>
+                    <summary>September 2026 <span class="version-date">v0.21.2 – v0.21.3</span> <span class="month-count">2 releases</span></summary>
                     <div class="month-content">
+
+                        <div class="change-section">
+                            <h3 id="rel-0-21-3">Hermes Agent v0.21.3 (2026.9.14) <span class="version-date">2026-09-14</span></h3>
+                            <ul class="change-list">
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>/loop</code> (alias <code>/proactive</code>) — re-run a prompt on a recurring interval within a session, with <code>--times</code>/<code>--until</code> and status/pause/resume/stop subcommands</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>display.vim_mode</code> settings key — CLI-only vi/vim keybindings for the input composer</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>/queue</code> — bare invocation now lists the pending queue; added <code>list</code>, <code>edit</code>, <code>rm</code>, <code>move</code> and <code>clear</code> subcommands, plus a force-queue <code>add</code></span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>/model</code> — added a <code>--reasoning &lt;level&gt;</code> flag and OpenRouter account-preset selection (<code>@preset/&lt;slug&gt;</code>)</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>hermes auth</code> — OpenRouter credentials can now be added via OAuth browser login (PKCE), alongside the existing API-key flow</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>hermes backup</code> — exclusions expanded to cover regenerable <code>models/</code>, <code>runtimes/</code> and <code>node/</code> downloads, more of <code>cache/</code>, and Unix sockets, devices and symlinks</span></li>
+                            </ul>
+                        </div>
 
                         <div class="change-section">
                             <h3 id="rel-0-21-2">Hermes Agent v0.21.2 (2026.9.11) <span class="version-date">2026-09-11</span></h3>
@@ -195,7 +207,7 @@
         </div>
 
         <footer class="global-footer">
-            Template v1.0 · Content synced 2026-09-11<br>
+            Template v1.0 · Content synced 2026-09-14<br>
             <span class="disclaimer">Unofficial community reference — not affiliated with or endorsed by Nous Research.
             Condensed from the official docs; always confirm against
             <a href="https://hermes-agent.nousresearch.com/docs/" target="_blank" rel="noopener noreferrer">hermes-agent.nousresearch.com/docs</a>.</span><br>
