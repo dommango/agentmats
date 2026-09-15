@@ -163,8 +163,28 @@
                 <h3>Content / Kimi Code Releases</h3>
                 <!-- September 2026 -->
                 <details class="month-group" open>
-                    <summary>September 2026 <span class="version-date">v0.42.0</span> <span class="month-count">1 release</span></summary>
+                    <summary>September 2026 <span class="version-date">v0.42.0 – v0.43.1</span> <span class="month-count">3 releases</span></summary>
                     <div class="month-content">
+
+                        <div class="change-section">
+                            <h3 id="rel-0-43-1">Kimi Code v0.43.1 <span class="version-date">2026-09-15</span></h3>
+                            <ul class="change-list">
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>/copy</code> — native clipboard support on Linux X11, so copying no longer depends on the terminal's OSC 52 support</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>Ctrl-C</code> while subagents are running now interrupts only the subagents, instead of exiting the whole CLI</span></li>
+                            </ul>
+                        </div>
+
+                        <div class="change-section">
+                            <h3 id="rel-0-43-0">Kimi Code v0.43.0 <span class="version-date">2026-09-14</span></h3>
+                            <ul class="change-list">
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>/sessions</code> — <code>Ctrl-X</code> then <code>y</code> deletes the selected session from the picker</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>kimi upgrade</code> / <code>kimi update</code> — <code>-y, --yes</code> skips the confirmation prompt and installs directly</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>loop_control.compaction_max_attempts</code> — caps total attempts for a failing compaction request; default 5</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>KIMI_CODE_PERMISSION_MODE_REMINDER</code> env var — set to <code>0</code> to stop injecting auto permission-mode reminders into the model context</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>Ctrl-S</code> — a steering message can now interrupt a wait for a background task</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>/goal</code> — the time budget no longer counts time spent with the session closed, and the 24-hour limit is removed</span></li>
+                            </ul>
+                        </div>
 
                         <div class="change-section">
                             <h3 id="rel-0-42-0">Kimi Code v0.42.0 <span class="version-date">2026-09-09</span></h3>
@@ -198,7 +218,7 @@
         </div>
 
         <footer class="global-footer">
-            Template v1.0 · Content synced 2026-09-09<br>
+            Template v1.0 · Content synced 2026-09-15<br>
             <span class="disclaimer">Unofficial community reference — not affiliated with or endorsed by Moonshot AI.
             Condensed from the official docs; always confirm against
             <a href="https://moonshotai.github.io/kimi-code/" target="_blank" rel="noopener noreferrer">moonshotai.github.io/kimi-code</a>.</span><br>

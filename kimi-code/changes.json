@@ -1,7 +1,63 @@
 {
- "generated": "2026-09-09",
- "latest": "v0.42.0",
+ "generated": "2026-09-15",
+ "latest": "v0.43.1",
  "releases": [
+  {
+   "version": "v0.43.1",
+   "label": "Kimi Code v0.43.1",
+   "date": "2026-09-15",
+   "id": "rel-0-43-1",
+   "entries": [
+    {
+     "tag": "CHG",
+     "item": "/copy",
+     "html": "<code>/copy</code> — native clipboard support on Linux X11, so copying no longer depends on the terminal's OSC 52 support"
+    },
+    {
+     "tag": "FIX",
+     "item": "Ctrl-C",
+     "html": "<code>Ctrl-C</code> while subagents are running now interrupts only the subagents, instead of exiting the whole CLI"
+    }
+   ]
+  },
+  {
+   "version": "v0.43.0",
+   "label": "Kimi Code v0.43.0",
+   "date": "2026-09-14",
+   "id": "rel-0-43-0",
+   "entries": [
+    {
+     "tag": "ADD",
+     "item": "/sessions",
+     "html": "<code>/sessions</code> — <code>Ctrl-X</code> then <code>y</code> deletes the selected session from the picker"
+    },
+    {
+     "tag": "ADD",
+     "item": "kimi upgrade",
+     "html": "<code>kimi upgrade</code> / <code>kimi update</code> — <code>-y, --yes</code> skips the confirmation prompt and installs directly"
+    },
+    {
+     "tag": "ADD",
+     "item": "loop_control.compaction_max_attempts",
+     "html": "<code>loop_control.compaction_max_attempts</code> — caps total attempts for a failing compaction request; default 5"
+    },
+    {
+     "tag": "ADD",
+     "item": "KIMI_CODE_PERMISSION_MODE_REMINDER",
+     "html": "<code>KIMI_CODE_PERMISSION_MODE_REMINDER</code> env var — set to <code>0</code> to stop injecting auto permission-mode reminders into the model context"
+    },
+    {
+     "tag": "CHG",
+     "item": "Ctrl-S",
+     "html": "<code>Ctrl-S</code> — a steering message can now interrupt a wait for a background task"
+    },
+    {
+     "tag": "CHG",
+     "item": "/goal",
+     "html": "<code>/goal</code> — the time budget no longer counts time spent with the session closed, and the 24-hour limit is removed"
+    }
+   ]
+  },
   {
    "version": "v0.42.0",
    "label": "Kimi Code v0.42.0",
