@@ -163,8 +163,18 @@
                 <h3>Content / CC Release Updates</h3>
                 <!-- September 2026 -->
                 <details class="month-group" open>
-                    <summary>September 2026 <span class="version-date">v2.1.265 – v2.1.271</span> <span class="month-count">6 releases</span></summary>
+                    <summary>September 2026 <span class="version-date">v2.1.265 – v2.1.273</span> <span class="month-count">6 releases</span></summary>
                     <div class="month-content">
+
+                        <div class="change-section">
+                            <h3 id="rel-2-1-273">CC v2.1.273 <span class="version-date">2026-09-15</span></h3>
+                            <ul class="change-list">
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>CLAUDE_CODE_GATEWAY_HINT_HEADERS</code> env var — opt in to sending <code>x-claude-code-request-class</code>, <code>x-claude-code-agent-type</code>, <code>x-claude-code-prev-tool-durations</code>, <code>x-claude-code-compaction</code> and <code>x-claude-code-context-compacted</code> request headers to LLM gateways</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>CLAUDE_CODE_AUTO_MODE_SERVER</code> env var — use the platform's server-side auto mode classifier on Bedrock, Vertex and Foundry; those platforms now default to a local classifier instead</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>/remote-control</code> — from the Claude app, fork a session started this way (or with <code>claude --remote-control</code>); the fork runs as a background session on your computer</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>/mcp</code> — notifies when a server disconnects mid-session and automatic reconnection gives up</span></li>
+                            </ul>
+                        </div>
 
                         <div class="change-section">
                             <h3 id="rel-2-1-271">CC v2.1.271 <span class="version-date">2026-09-14</span></h3>
