@@ -32,7 +32,7 @@ function toggleTheme() {
     const root = document.documentElement;
     const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
     root.dataset.theme = next;
-    localStorage.setItem('placemat-theme', next);
+    try { localStorage.setItem('placemat-theme', next); } catch (err) {}
     setThemeIcon(next);
 }
 setThemeIcon(document.documentElement.dataset.theme);
@@ -336,6 +336,10 @@ searchInput.addEventListener('keydown', (e) => {
 
 // --- SINCE YOUR LAST VISIT ---
 const versionNumber = (v) => v.replace(/^v/, '').split('.').map(Number).reduce((a, b) => a * 1000 + b, 0);
+// `seen` comes from localStorage, which every placemat on this origin can write (D6) —
+// escape it before it lands in innerHTML, unlike changes.json content, which is
+// repo-authored and intentionally carries markup (<code> chips).
+const escapeHtml = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 (async function initSince() {
     const SEEN_KEY = LS_SEEN;
     const current = (document.querySelector('.release-tag').textContent.match(/v[\d.]+/) || [])[0];
@@ -397,7 +401,7 @@ const versionNumber = (v) => v.replace(/^v/, '').split('.').map(Number).reduce((
         }));
         text.innerHTML = seen
             ? '<b>' + releases.length + (releases.length === 1 ? ' release' : ' releases') + ' · ' + changes
-                + (changes === 1 ? ' change' : ' changes') + '</b> since your last visit <code>' + seen
+                + (changes === 1 ? ' change' : ' changes') + '</b> since your last visit <code>' + escapeHtml(seen)
                 + '</code> → <code>' + current + '</code>; ' + linked.size + ' entries highlighted below'
             : '<b>Welcome.</b> ' + changes + ' changes across the last ' + releases.length
                 + ' releases are highlighted; next time you will see only what changed since today';
