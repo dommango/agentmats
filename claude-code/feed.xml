@@ -4,7 +4,14 @@
   <link href="https://dommango.github.io/agentmats/claude-code/"/>
   <link rel="self" href="https://dommango.github.io/agentmats/claude-code/feed.xml"/>
   <id>https://dommango.github.io/agentmats/claude-code/</id>
-  <updated>2026-09-14T09:00:00Z</updated>
+  <updated>2026-09-15T09:00:00Z</updated>
+  <entry>
+    <title>CC v2.1.273 — 4 placemat changes</title>
+    <id>https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-273</id>
+    <link href="https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-273"/>
+    <updated>2026-09-15T09:00:00Z</updated>
+    <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;CLAUDE_CODE_GATEWAY_HINT_HEADERS&lt;/code&gt; env var — opt in to sending &lt;code&gt;x-claude-code-request-class&lt;/code&gt;, &lt;code&gt;x-claude-code-agent-type&lt;/code&gt;, &lt;code&gt;x-claude-code-prev-tool-durations&lt;/code&gt;, &lt;code&gt;x-claude-code-compaction&lt;/code&gt; and &lt;code&gt;x-claude-code-context-compacted&lt;/code&gt; request headers to LLM gateways&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;CLAUDE_CODE_AUTO_MODE_SERVER&lt;/code&gt; env var — use the platform's server-side auto mode classifier on Bedrock, Vertex and Foundry; those platforms now default to a local classifier instead&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;/remote-control&lt;/code&gt; — from the Claude app, fork a session started this way (or with &lt;code&gt;claude --remote-control&lt;/code&gt;); the fork runs as a background session on your computer&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;/mcp&lt;/code&gt; — notifies when a server disconnects mid-session and automatic reconnection gives up&lt;/li&gt;&lt;/ul&gt;</content>
+  </entry>
   <entry>
     <title>CC v2.1.271 — 8 placemat changes</title>
     <id>https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-271</id>
@@ -137,12 +144,5 @@
     <link href="https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-235"/>
     <updated>2026-08-18T09:00:00Z</updated>
     <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;spellcheck&lt;/code&gt; JSON setting — underline misspelled words in the prompt input as you type; requires &lt;code&gt;aspell&lt;/code&gt;, &lt;code&gt;hunspell&lt;/code&gt;, or &lt;code&gt;ispell&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt;</content>
-  </entry>
-  <entry>
-    <title>CC v2.1.234 — 6 placemat changes</title>
-    <id>https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-234</id>
-    <link href="https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-234"/>
-    <updated>2026-08-17T09:00:00Z</updated>
-    <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;selection:clear&lt;/code&gt; keybinding action — bind to a key via &lt;code&gt;/keybindings&lt;/code&gt; to clear an in-app text selection; works in agents view&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;/goal&lt;/code&gt; — clears itself on unrecoverable errors (revoked auth, exhausted credits, context overflow); checks in on background tasks waiting 30+ min (set &lt;code&gt;CLAUDE_CODE_GOAL_CHECKIN_MINUTES=0&lt;/code&gt; to opt out)&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;/permissions&lt;/code&gt; — can now be opened while Claude is working; rule changes apply to the rest of the current turn&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;/add-dir &amp;lt;path&amp;gt;&lt;/code&gt; — now usable while Claude is working&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;CLAUDE_CODE_PROJECT_DIR_NAME&lt;/code&gt; env var — custom short name for the per-project transcript directory&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;CLAUDE_CODE_GOAL_CHECKIN_MINUTES&lt;/code&gt; env var — set to &lt;code&gt;0&lt;/code&gt; to disable automatic check-ins when &lt;code&gt;/goal&lt;/code&gt; is waiting on background tasks for 30+ min&lt;/li&gt;&lt;/ul&gt;</content>
   </entry>
 </feed>

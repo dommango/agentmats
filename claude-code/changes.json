@@ -1,7 +1,35 @@
 {
- "generated": "2026-09-14",
- "latest": "v2.1.271",
+ "generated": "2026-09-15",
+ "latest": "v2.1.273",
  "releases": [
+  {
+   "version": "v2.1.273",
+   "label": "CC v2.1.273",
+   "date": "2026-09-15",
+   "id": "rel-2-1-273",
+   "entries": [
+    {
+     "tag": "ADD",
+     "item": "CLAUDE_CODE_GATEWAY_HINT_HEADERS",
+     "html": "<code>CLAUDE_CODE_GATEWAY_HINT_HEADERS</code> env var — opt in to sending <code>x-claude-code-request-class</code>, <code>x-claude-code-agent-type</code>, <code>x-claude-code-prev-tool-durations</code>, <code>x-claude-code-compaction</code> and <code>x-claude-code-context-compacted</code> request headers to LLM gateways"
+    },
+    {
+     "tag": "ADD",
+     "item": "CLAUDE_CODE_AUTO_MODE_SERVER",
+     "html": "<code>CLAUDE_CODE_AUTO_MODE_SERVER</code> env var — use the platform's server-side auto mode classifier on Bedrock, Vertex and Foundry; those platforms now default to a local classifier instead"
+    },
+    {
+     "tag": "CHG",
+     "item": "/remote-control",
+     "html": "<code>/remote-control</code> — from the Claude app, fork a session started this way (or with <code>claude --remote-control</code>); the fork runs as a background session on your computer"
+    },
+    {
+     "tag": "CHG",
+     "item": "/mcp",
+     "html": "<code>/mcp</code> — notifies when a server disconnects mid-session and automatic reconnection gives up"
+    }
+   ]
+  },
   {
    "version": "v2.1.271",
    "label": "CC v2.1.271",
