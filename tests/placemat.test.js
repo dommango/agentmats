@@ -24,7 +24,9 @@ const CANONICAL_CARDS = [
   'card-settings', 'card-env', 'card-skills', 'card-hooks',
 ];
 
-const AGENTS = ['codex', 'kimi-code', 'hermes', 'claude-code', 'antigravity'];
+// Shared with scripts/build-changes.js so the two can't drift apart (a past
+// audit found this list hand-duplicated in three places with no guard).
+const AGENTS = Object.keys(require(path.join(ROOT, 'agents.json')));
 
 // Agents whose sources.json MUST carry a vendor-extracted inventory. The three
 // launch placemats were verified by hand before this existed; every agent added
@@ -431,6 +433,19 @@ for (const agent of targets) {
     assert.ok(ids.length > 10, 'id extraction failed');
     const missing = ids.filter((id) => !html.includes(`id="${id}"`));
     assert.deepStrictEqual(missing, [], `index.html is missing ids: ${missing.join(', ')}`);
+  });
+
+  // Same idea as the id check above, for the handful of singular class selectors
+  // (document.querySelector, not querySelectorAll) the script dereferences without
+  // a null guard -- e.g. trackBarHeights reads .global-header/.section-nav on every
+  // page load. A page that loads shared/placemat.js but drops one of these classes
+  // would throw at that line and silently break every binding after it.
+  test(`${agent}: index.html has every singular class shared/placemat.js queries`, () => {
+    const js = read('shared/placemat.js');
+    const classes = [...new Set([...js.matchAll(/document\.querySelector\('\.([\w-]+)'\)/g)].map((m) => m[1]))];
+    assert.ok(classes.length > 3, 'class-selector extraction failed');
+    const missing = classes.filter((cls) => !new RegExp(`class="[^"]*\\b${cls}\\b`).test(html));
+    assert.deepStrictEqual(missing, [], `index.html is missing classes: ${missing.join(', ')}`);
   });
 
   // Snapshots are immutable archives and must not depend on shared/, or a later
