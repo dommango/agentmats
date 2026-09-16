@@ -7,7 +7,9 @@ const path = require('path');
 
 const ROOT = path.join(__dirname, '..');
 const SITE = 'https://dommango.github.io/agentmats/';
-const AGENTS = { codex: 'Codex CLI', 'kimi-code': 'Kimi Code', hermes: 'Hermes Agent', 'claude-code': 'Claude Code', antigravity: 'Antigravity CLI' };
+// Single source of truth for "which agents exist, what's each one called" —
+// shared with tests/placemat.test.js so the two can't drift apart.
+const AGENTS = require(path.join(ROOT, 'agents.json'));
 const TAGS = { 'tag-add': 'ADD', 'tag-change': 'CHG', 'tag-remove': 'DEL', 'tag-fix': 'FIX' };
 
 const decode = (s) => s.replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"').replace(/&amp;/g, '&');

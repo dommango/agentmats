@@ -251,15 +251,11 @@
         });
 
         // --- WHAT CHANGED SINCE YOUR LAST VISIT ---
-        const PLACEMATS = [
-            { key: 'claude-code',
-              changes: 'claude-code/changes.json',
-              seenKey: 'placemat-seen-version' },
-            { key: 'codex',     changes: 'codex/changes.json',     seenKey: 'pm-codex-seen-version' },
-            { key: 'kimi-code', changes: 'kimi-code/changes.json', seenKey: 'pm-kimi-code-seen-version' },
-            { key: 'hermes',    changes: 'hermes/changes.json',    seenKey: 'pm-hermes-seen-version' },
-            { key: 'antigravity', changes: 'antigravity/changes.json', seenKey: 'pm-antigravity-seen-version' },
-        ];
+        // changes/seenKey are mechanically derived from key, the same pattern
+        // shared/placemat.js uses for its own storage keys -- a new agent card
+        // only needs its key added here, not a hand-typed seenKey to keep in sync.
+        const PLACEMATS = ['claude-code', 'codex', 'kimi-code', 'hermes', 'antigravity']
+            .map((key) => ({ key, changes: key + '/changes.json', seenKey: 'pm-' + key + '-seen-version' }));
 
         const cmp = (a, b) => {   // numeric-aware version compare, mirrors shared/placemat.js
             const na = String(a).replace(/^v/, '').split('.').map(Number);
