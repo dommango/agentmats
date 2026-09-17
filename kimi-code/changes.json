@@ -1,7 +1,30 @@
 {
- "generated": "2026-09-15",
- "latest": "v0.43.1",
+ "generated": "2026-09-17",
+ "latest": "v2.0.0",
  "releases": [
+  {
+   "version": "v2.0.0",
+   "label": "Kimi Code v2.0.0",
+   "date": "2026-09-17",
+   "id": "rel-2-0-0",
+   "entries": [
+    {
+     "tag": "ADD",
+     "item": "/desktop",
+     "html": "<code>/desktop</code> / <code>/install-desktop</code> — opens the Kimi Code desktop app page in your browser"
+    },
+    {
+     "tag": "ADD",
+     "item": "kimi install-desktop",
+     "html": "<code>kimi install-desktop</code> — prints and opens the desktop app page; the former name <code>kimi install-app</code> is now a hidden alias"
+    },
+    {
+     "tag": "ADD",
+     "item": "[markdown].mermaid",
+     "html": "<code>[markdown].mermaid</code> — renders fenced mermaid code blocks in the terminal as diagrams (marked <code>unverified</code> — not yet in the config reference)"
+    }
+   ]
+  },
   {
    "version": "v0.43.1",
    "label": "Kimi Code v0.43.1",

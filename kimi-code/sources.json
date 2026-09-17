@@ -36,7 +36,7 @@
   ],
   "inventory": {
     "source": "https://moonshotai.github.io/kimi-code/en/reference/slash-commands.md, https://moonshotai.github.io/kimi-code/en/configuration/config-files.md, https://moonshotai.github.io/kimi-code/en/customization/hooks.md",
-    "fetched": "2026-09-15",
+    "fetched": "2026-09-17",
     "note": "Extracted from the vendor's own reference/configuration/customization docs (raw .md). release-notes/changelog.md was used only to confirm the current release, never as a source of surface facts.",
     "slash": [
       "/login", "/logout", "/provider", "/model", "/secondary-model", "/subagent-model",
@@ -50,6 +50,7 @@
       "/help", "/h", "/?", "/btw", "/usage", "/status", "/mcp", "/plugins", "/version",
       "/feedback", "/bug", "/exit", "/quit", "/q",
       "/mcp-config", "/custom-theme", "/update-config", "/check-kimi-code-docs",
+      "/desktop", "/install-desktop",
       "/import-from-cc-codex", "/sub-skill", "/sub-skill.review", "/sub-skill.consolidate",
       "/skill:&lt;name&gt;", "/&lt;parent&gt;.&lt;sub-skill&gt;"
     ],
