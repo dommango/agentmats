@@ -25,8 +25,8 @@
     },
     {
      "tag": "CHG",
-     "item": "OTEL_LOG_RAW_API_BODIES=file:<dir>",
-     "html": "<code>OTEL_LOG_RAW_API_BODIES=file:&lt;dir&gt;</code> — also writes an <code>index.jsonl</code> linking each response to its request file and transcript message"
+     "item": "OTEL_LOG_RAW_API_BODIES",
+     "html": "<code>OTEL_LOG_RAW_API_BODIES</code> — its <code>file:&lt;dir&gt;</code> mode also writes an <code>index.jsonl</code> linking each response to its request file and transcript message"
     },
     {
      "tag": "CHG",
