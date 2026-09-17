@@ -4,7 +4,14 @@
   <link href="https://dommango.github.io/agentmats/claude-code/"/>
   <link rel="self" href="https://dommango.github.io/agentmats/claude-code/feed.xml"/>
   <id>https://dommango.github.io/agentmats/claude-code/</id>
-  <updated>2026-09-15T09:00:00Z</updated>
+  <updated>2026-09-17T09:00:00Z</updated>
+  <entry>
+    <title>CC v2.1.274 — 5 placemat changes</title>
+    <id>https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-274</id>
+    <link href="https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-274"/>
+    <updated>2026-09-17T09:00:00Z</updated>
+    <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;CLAUDE_CODE_MCP_STARTUP_WAIT_MS&lt;/code&gt; env var — bound how long the first non-interactive turn waits for connecting MCP servers; &lt;code&gt;0&lt;/code&gt; skips the wait&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;OTEL_LOG_MANAGED_SETTINGS=1&lt;/code&gt; env var — opt in to redacted settings and digests in the new managed-settings-resolved OTel event&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;MCP_SDK_GENERATION=v1&lt;/code&gt; / &lt;code&gt;MCP_PROTOCOL_NEGOTIATION=legacy&lt;/code&gt; env vars — opt out of the v2 MCP client and MCP 2026-07-28 negotiation now default for direct HTTP servers on Bedrock, Vertex, Foundry and telemetry-disabled installs&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;OTEL_LOG_RAW_API_BODIES=file:&amp;lt;dir&amp;gt;&lt;/code&gt; — also writes an &lt;code&gt;index.jsonl&lt;/code&gt; linking each response to its request file and transcript message&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;/status&lt;/code&gt; — the GitHub connection line now reads "Cloud sessions" instead of "Claude Code on the web"&lt;/li&gt;&lt;/ul&gt;</content>
+  </entry>
   <entry>
     <title>CC v2.1.273 — 4 placemat changes</title>
     <id>https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-273</id>
@@ -137,12 +144,5 @@
     <link href="https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-236"/>
     <updated>2026-08-19T09:00:00Z</updated>
     <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;ANTHROPIC_DEFAULT_MODEL&lt;/code&gt; env var — sets the model new sessions start on; a &lt;code&gt;/model&lt;/code&gt; pick still overrides it and persists across restarts, unlike &lt;code&gt;ANTHROPIC_MODEL&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;SendMessage&lt;/code&gt; — added &lt;code&gt;notify_when_idle&lt;/code&gt; option: ask another session to send one notice when it next goes idle, opt-in, one-shot, no polling (macOS and Linux)&lt;/li&gt;&lt;/ul&gt;</content>
-  </entry>
-  <entry>
-    <title>CC v2.1.235 — 1 placemat change</title>
-    <id>https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-235</id>
-    <link href="https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-235"/>
-    <updated>2026-08-18T09:00:00Z</updated>
-    <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;spellcheck&lt;/code&gt; JSON setting — underline misspelled words in the prompt input as you type; requires &lt;code&gt;aspell&lt;/code&gt;, &lt;code&gt;hunspell&lt;/code&gt;, or &lt;code&gt;ispell&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt;</content>
   </entry>
 </feed>

@@ -1,7 +1,40 @@
 {
- "generated": "2026-09-15",
- "latest": "v2.1.273",
+ "generated": "2026-09-17",
+ "latest": "v2.1.274",
  "releases": [
+  {
+   "version": "v2.1.274",
+   "label": "CC v2.1.274",
+   "date": "2026-09-17",
+   "id": "rel-2-1-274",
+   "entries": [
+    {
+     "tag": "ADD",
+     "item": "CLAUDE_CODE_MCP_STARTUP_WAIT_MS",
+     "html": "<code>CLAUDE_CODE_MCP_STARTUP_WAIT_MS</code> env var — bound how long the first non-interactive turn waits for connecting MCP servers; <code>0</code> skips the wait"
+    },
+    {
+     "tag": "ADD",
+     "item": "OTEL_LOG_MANAGED_SETTINGS=1",
+     "html": "<code>OTEL_LOG_MANAGED_SETTINGS=1</code> env var — opt in to redacted settings and digests in the new managed-settings-resolved OTel event"
+    },
+    {
+     "tag": "ADD",
+     "item": "MCP_SDK_GENERATION=v1",
+     "html": "<code>MCP_SDK_GENERATION=v1</code> / <code>MCP_PROTOCOL_NEGOTIATION=legacy</code> env vars — opt out of the v2 MCP client and MCP 2026-07-28 negotiation now default for direct HTTP servers on Bedrock, Vertex, Foundry and telemetry-disabled installs"
+    },
+    {
+     "tag": "CHG",
+     "item": "OTEL_LOG_RAW_API_BODIES=file:<dir>",
+     "html": "<code>OTEL_LOG_RAW_API_BODIES=file:&lt;dir&gt;</code> — also writes an <code>index.jsonl</code> linking each response to its request file and transcript message"
+    },
+    {
+     "tag": "CHG",
+     "item": "/status",
+     "html": "<code>/status</code> — the GitHub connection line now reads \"Cloud sessions\" instead of \"Claude Code on the web\""
+    }
+   ]
+  },
   {
    "version": "v2.1.273",
    "label": "CC v2.1.273",
