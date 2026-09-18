@@ -1,7 +1,35 @@
 {
  "generated": "2026-09-17",
- "latest": "v2.1.274",
+ "latest": "v2.1.275",
  "releases": [
+  {
+   "version": "v2.1.275",
+   "label": "CC v2.1.275",
+   "date": "2026-09-17",
+   "id": "rel-2-1-275",
+   "entries": [
+    {
+     "tag": "ADD",
+     "item": "Ctrl Enter",
+     "html": "<code>Ctrl Enter</code> / <code>Ctrl X Ctrl S</code> send-now key — interrupts the current turn and sends all queued messages at once; sent and queued messages show in gray until the model receives them"
+    },
+    {
+     "tag": "ADD",
+     "item": "syncClaudeAiSkills",
+     "html": "<code>syncClaudeAiSkills</code> / <code>syncClaudeAiPlugins</code> settings — set to <code>false</code> to stop syncing the skills or plugins enabled on your claude.ai account into signed-in terminal sessions"
+    },
+    {
+     "tag": "ADD",
+     "item": "/plugin install <name>",
+     "html": "<code>/plugin install &lt;name&gt;</code> — added <code>--marketplace &lt;source&gt;</code>, which offers to add the marketplace before installing the plugin"
+    },
+    {
+     "tag": "CHG",
+     "item": "/plugin install <name>",
+     "html": "<code>/plugin install &lt;name&gt;</code> — an <code>npm</code>-source install now runs <code>npm pack --ignore-scripts</code> and is integrity-verified, so the package's install scripts never run"
+    }
+   ]
+  },
   {
    "version": "v2.1.274",
    "label": "CC v2.1.274",

@@ -6,6 +6,13 @@
   <id>https://dommango.github.io/agentmats/claude-code/</id>
   <updated>2026-09-17T09:00:00Z</updated>
   <entry>
+    <title>CC v2.1.275 — 4 placemat changes</title>
+    <id>https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-275</id>
+    <link href="https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-275"/>
+    <updated>2026-09-17T09:00:00Z</updated>
+    <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;Ctrl Enter&lt;/code&gt; / &lt;code&gt;Ctrl X Ctrl S&lt;/code&gt; send-now key — interrupts the current turn and sends all queued messages at once; sent and queued messages show in gray until the model receives them&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;syncClaudeAiSkills&lt;/code&gt; / &lt;code&gt;syncClaudeAiPlugins&lt;/code&gt; settings — set to &lt;code&gt;false&lt;/code&gt; to stop syncing the skills or plugins enabled on your claude.ai account into signed-in terminal sessions&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;/plugin install &amp;lt;name&amp;gt;&lt;/code&gt; — added &lt;code&gt;--marketplace &amp;lt;source&amp;gt;&lt;/code&gt;, which offers to add the marketplace before installing the plugin&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;/plugin install &amp;lt;name&amp;gt;&lt;/code&gt; — an &lt;code&gt;npm&lt;/code&gt;-source install now runs &lt;code&gt;npm pack --ignore-scripts&lt;/code&gt; and is integrity-verified, so the package's install scripts never run&lt;/li&gt;&lt;/ul&gt;</content>
+  </entry>
+  <entry>
     <title>CC v2.1.274 — 5 placemat changes</title>
     <id>https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-274</id>
     <link href="https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-274"/>
@@ -137,12 +144,5 @@
     <link href="https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-237"/>
     <updated>2026-08-20T09:00:00Z</updated>
     <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;outputStyle&lt;/code&gt; JSON setting — &lt;code&gt;"concise"&lt;/code&gt; makes Claude lead with results and skip preamble/narration; configure via &lt;code&gt;/config&lt;/code&gt; → Output style&lt;/li&gt;&lt;/ul&gt;</content>
-  </entry>
-  <entry>
-    <title>CC v2.1.236 — 2 placemat changes</title>
-    <id>https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-236</id>
-    <link href="https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-236"/>
-    <updated>2026-08-19T09:00:00Z</updated>
-    <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;ANTHROPIC_DEFAULT_MODEL&lt;/code&gt; env var — sets the model new sessions start on; a &lt;code&gt;/model&lt;/code&gt; pick still overrides it and persists across restarts, unlike &lt;code&gt;ANTHROPIC_MODEL&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;SendMessage&lt;/code&gt; — added &lt;code&gt;notify_when_idle&lt;/code&gt; option: ask another session to send one notice when it next goes idle, opt-in, one-shot, no polling (macOS and Linux)&lt;/li&gt;&lt;/ul&gt;</content>
   </entry>
 </feed>
