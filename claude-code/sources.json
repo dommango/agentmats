@@ -32,7 +32,8 @@
     "bashEditDiffEnabled and gatewayInternalNetworks are documented only in the changelog (v2.1.269 and v2.1.268) and not yet in settings-reference.md — included in inventory.settings on release-notes confirmation.",
     "allowed_domains is a per-command field on Bash/PowerShell/Monitor in sandboxed auto mode (v2.1.271 changelog), not a settings.json key, but it appears as a bare <code> chip in the placemat's Settings card like the other hook/status-line fields below — included in inventory.settings on release-notes confirmation, not yet in settings-reference.md.",
     "inventory.hooks mixes true lifecycle event names with a few other bare <code> chips from the same card (continueOnBlock, terminalSequence — hook I/O fields per hooks.md; alwaysLoad — an MCP server config field per mcp.md, since the placemat's MCP Servers group lives inside card-hooks) — all are documented verbatim in the vendor docs, just not as event names.",
-    "inventory.settings likewise carries a few dotted identifiers that are hook input / status line stdin JSON fields rather than settings.json keys, because they appear as bare <code> chips in the placemat's Settings card: autoMode.hard_deny (settings-reference.md), statusLine.refreshInterval, workspace.git_worktree, effort.level and prompt_cache (all statusline.md) — every one is verbatim in the vendor docs, just not in settings-reference.md's own key index."
+    "inventory.settings likewise carries a few dotted identifiers that are hook input / status line stdin JSON fields rather than settings.json keys, because they appear as bare <code> chips in the placemat's Settings card: autoMode.hard_deny (settings-reference.md), statusLine.refreshInterval, workspace.git_worktree, effort.level and prompt_cache (all statusline.md) — every one is verbatim in the vendor docs, just not in settings-reference.md's own key index.",
+    "syncClaudeAiPlugins is documented only in the changelog (v2.1.275, alongside the already-listed syncClaudeAiSkills) and not yet in settings-reference.md — included in inventory.settings on release-notes confirmation."
   ],
   "inventory": {
     "source": "https://code.claude.com/docs/en/commands, https://code.claude.com/docs/en/settings-reference, https://code.claude.com/docs/en/hooks, https://code.claude.com/docs/en/changelog",
@@ -401,6 +402,7 @@
       "subagentPromptCacheTtl",
       "subagentStatusLine",
       "switchModelsOnFlag",
+      "syncClaudeAiPlugins",
       "syncClaudeAiSkills",
       "syntaxHighlightingDisabled",
       "taskOutputMaxChars",
