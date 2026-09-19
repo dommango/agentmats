@@ -163,8 +163,25 @@
                 <h3>Content / CC Release Updates</h3>
                 <!-- September 2026 -->
                 <details class="month-group" open>
-                    <summary>September 2026 <span class="version-date">v2.1.265 – v2.1.275</span> <span class="month-count">8 releases</span></summary>
+                    <summary>September 2026 <span class="version-date">v2.1.265 – v2.1.278</span> <span class="month-count">10 releases</span></summary>
                     <div class="month-content">
+
+                        <div class="change-section">
+                            <h3 id="rel-2-1-278">CC v2.1.278 <span class="version-date">2026-09-19</span></h3>
+                            <ul class="change-list">
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>CLAUDE_CODE_AUTO_MODE_SERVER</code> — the server-side auto mode classifier is now the default for Claude API and Enterprise users, and on Bedrock, Vertex, Foundry and gateways; set to <code>0</code> to opt out on Bedrock, Vertex, Foundry and gateways</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>/status</code> — new <code>Auto mode server</code> row shows whether this session's auto mode classifier runs on the server</span></li>
+                            </ul>
+                        </div>
+
+                        <div class="change-section">
+                            <h3 id="rel-2-1-277">CC v2.1.277 <span class="version-date">2026-09-18</span></h3>
+                            <ul class="change-list">
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>AGENTS.md</code> support — in a project with no <code>CLAUDE.md</code>, Claude Code reads <code>AGENTS.md</code> instead; toggle under "Project instructions" in <code>/config</code> (not yet on Bedrock, Vertex or Foundry)</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>CLAUDE_GATEWAY_PROXY_IS_EGRESS_BOUNDARY</code> env var — for Claude apps gateways whose only egress is a forward proxy; every outbound request hands the proxy the hostname instead of resolving it locally</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>taskOutputMaxChars</code> no longer has any effect — the deprecated TaskOutput tool was removed; Claude reads a background task's output file with Read instead</span></li>
+                            </ul>
+                        </div>
 
                         <div class="change-section">
                             <h3 id="rel-2-1-275">CC v2.1.275 <span class="version-date">2026-09-17</span></h3>
@@ -1419,7 +1436,7 @@
         </div>
 
         <footer class="global-footer">
-            Template v1.2 · Content synced 2026-09-17<br>
+            Template v1.2 · Content synced 2026-09-19<br>
             <span class="disclaimer">Unofficial community reference — not affiliated with or endorsed by Anthropic.
             Condensed from the official docs; always confirm against
             <a href="https://code.claude.com/docs" target="_blank" rel="noopener noreferrer">code.claude.com/docs</a>.</span><br>
