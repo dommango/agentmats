@@ -163,14 +163,25 @@
                 <h3>Content / Kimi Code Releases</h3>
                 <!-- September 2026 -->
                 <details class="month-group" open>
-                    <summary>September 2026 <span class="version-date">v0.42.0 – v2.0.0</span> <span class="month-count">4 releases</span></summary>
+                    <summary>September 2026 <span class="version-date">v0.42.0 – v2.0.1</span> <span class="month-count">5 releases</span></summary>
                     <div class="month-content">
+
+                        <div class="change-section">
+                            <h3 id="rel-2-0-1">Kimi Code v2.0.1 <span class="version-date">2026-09-18</span></h3>
+                            <ul class="change-list">
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>[watch]</code> / <code>KIMI_CODE_WATCH</code> — disable filesystem watchers for <code>local.toml</code>, <code>AGENTS.md</code>, skills and MCP config entirely</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>[providers."&lt;id&gt;"]</code> — <code>api_key_env</code> names an environment variable to read the API key from, as an alternative to <code>api_key</code></span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>[database]</code> — <code>searchSyncSessionCap</code> / <code>searchSyncDebounceMs</code> tune the incremental background search-sync pass (marked <code>unverified</code> — not yet in the config reference)</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>/yolo</code> / <code>-y, --yolo</code> — Ask When Needed no longer prompts for a <code>Bash</code> command that cannot be statically analyzed</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>kimi install-app</code> — renamed to <code>kimi install-desktop</code>; the old name keeps working as a hidden alias</span></li>
+                            </ul>
+                        </div>
 
                         <div class="change-section">
                             <h3 id="rel-2-0-0">Kimi Code v2.0.0 <span class="version-date">2026-09-17</span></h3>
                             <ul class="change-list">
                                 <li><span class="tag tag-add">ADD</span><span class="entry"><code>/desktop</code> / <code>/install-desktop</code> — opens the Kimi Code desktop app page in your browser</span></li>
-                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>kimi install-desktop</code> — prints and opens the desktop app page; the former name <code>kimi install-app</code> is now a hidden alias</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>kimi install-app</code> — prints and opens the desktop app page (renamed to <code>kimi install-desktop</code> in 2.0.1)</span></li>
                                 <li><span class="tag tag-add">ADD</span><span class="entry"><code>[markdown].mermaid</code> — renders fenced mermaid code blocks in the terminal as diagrams (marked <code>unverified</code> — not yet in the config reference)</span></li>
                             </ul>
                         </div>
@@ -227,7 +238,7 @@
         </div>
 
         <footer class="global-footer">
-            Template v1.0 · Content synced 2026-09-17<br>
+            Template v1.0 · Content synced 2026-09-18<br>
             <span class="disclaimer">Unofficial community reference — not affiliated with or endorsed by Moonshot AI.
             Condensed from the official docs; always confirm against
             <a href="https://moonshotai.github.io/kimi-code/" target="_blank" rel="noopener noreferrer">moonshotai.github.io/kimi-code</a>.</span><br>

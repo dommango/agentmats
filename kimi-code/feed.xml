@@ -4,13 +4,20 @@
   <link href="https://dommango.github.io/agentmats/kimi-code/"/>
   <link rel="self" href="https://dommango.github.io/agentmats/kimi-code/feed.xml"/>
   <id>https://dommango.github.io/agentmats/kimi-code/</id>
-  <updated>2026-09-17T09:00:00Z</updated>
+  <updated>2026-09-18T09:00:00Z</updated>
+  <entry>
+    <title>Kimi Code v2.0.1 — 5 placemat changes</title>
+    <id>https://dommango.github.io/agentmats/kimi-code/changelog.html#rel-2-0-1</id>
+    <link href="https://dommango.github.io/agentmats/kimi-code/changelog.html#rel-2-0-1"/>
+    <updated>2026-09-18T09:00:00Z</updated>
+    <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;[watch]&lt;/code&gt; / &lt;code&gt;KIMI_CODE_WATCH&lt;/code&gt; — disable filesystem watchers for &lt;code&gt;local.toml&lt;/code&gt;, &lt;code&gt;AGENTS.md&lt;/code&gt;, skills and MCP config entirely&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;[providers."&amp;lt;id&amp;gt;"]&lt;/code&gt; — &lt;code&gt;api_key_env&lt;/code&gt; names an environment variable to read the API key from, as an alternative to &lt;code&gt;api_key&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;[database]&lt;/code&gt; — &lt;code&gt;searchSyncSessionCap&lt;/code&gt; / &lt;code&gt;searchSyncDebounceMs&lt;/code&gt; tune the incremental background search-sync pass (marked &lt;code&gt;unverified&lt;/code&gt; — not yet in the config reference)&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;/yolo&lt;/code&gt; / &lt;code&gt;-y, --yolo&lt;/code&gt; — Ask When Needed no longer prompts for a &lt;code&gt;Bash&lt;/code&gt; command that cannot be statically analyzed&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;kimi install-app&lt;/code&gt; — renamed to &lt;code&gt;kimi install-desktop&lt;/code&gt;; the old name keeps working as a hidden alias&lt;/li&gt;&lt;/ul&gt;</content>
+  </entry>
   <entry>
     <title>Kimi Code v2.0.0 — 3 placemat changes</title>
     <id>https://dommango.github.io/agentmats/kimi-code/changelog.html#rel-2-0-0</id>
     <link href="https://dommango.github.io/agentmats/kimi-code/changelog.html#rel-2-0-0"/>
     <updated>2026-09-17T09:00:00Z</updated>
-    <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;/desktop&lt;/code&gt; / &lt;code&gt;/install-desktop&lt;/code&gt; — opens the Kimi Code desktop app page in your browser&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;kimi install-desktop&lt;/code&gt; — prints and opens the desktop app page; the former name &lt;code&gt;kimi install-app&lt;/code&gt; is now a hidden alias&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;[markdown].mermaid&lt;/code&gt; — renders fenced mermaid code blocks in the terminal as diagrams (marked &lt;code&gt;unverified&lt;/code&gt; — not yet in the config reference)&lt;/li&gt;&lt;/ul&gt;</content>
+    <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;/desktop&lt;/code&gt; / &lt;code&gt;/install-desktop&lt;/code&gt; — opens the Kimi Code desktop app page in your browser&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;kimi install-app&lt;/code&gt; — prints and opens the desktop app page (renamed to &lt;code&gt;kimi install-desktop&lt;/code&gt; in 2.0.1)&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;[markdown].mermaid&lt;/code&gt; — renders fenced mermaid code blocks in the terminal as diagrams (marked &lt;code&gt;unverified&lt;/code&gt; — not yet in the config reference)&lt;/li&gt;&lt;/ul&gt;</content>
   </entry>
   <entry>
     <title>Kimi Code v0.43.1 — 2 placemat changes</title>

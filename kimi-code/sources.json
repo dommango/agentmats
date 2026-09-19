@@ -36,7 +36,7 @@
   ],
   "inventory": {
     "source": "https://moonshotai.github.io/kimi-code/en/reference/slash-commands.md, https://moonshotai.github.io/kimi-code/en/configuration/config-files.md, https://moonshotai.github.io/kimi-code/en/customization/hooks.md",
-    "fetched": "2026-09-17",
+    "fetched": "2026-09-19",
     "note": "Extracted from the vendor's own reference/configuration/customization docs (raw .md). release-notes/changelog.md was used only to confirm the current release, never as a source of surface facts.",
     "slash": [
       "/login", "/logout", "/provider", "/model", "/secondary-model", "/subagent-model",
@@ -58,7 +58,8 @@
       "default_model", "default_permission_mode", "default_plan_mode",
       "merge_all_available_skills", "extra_skill_dirs", "extra_agent_dirs",
       "builtin_product_skills", "telemetry",
-      "providers.<name>.type", "providers.<name>.api_key", "providers.<name>.base_url",
+      "providers.<name>.type", "providers.<name>.api_key", "providers.<name>.api_key_env",
+      "providers.<name>.base_url",
       "providers.<name>.oauth", "providers.<name>.env", "providers.<name>.custom_headers",
       "models.<alias>.provider", "models.<alias>.model", "models.<alias>.max_context_size",
       "models.<alias>.max_input_size", "models.<alias>.max_output_size",
@@ -83,6 +84,7 @@
       "read.default_max_chars", "read.max_chars",
       "image.max_edge_px", "image.read_byte_budget",
       "database.base", "database.search",
+      "watch.enabled",
       "services.moonshot_search.base_url", "services.moonshot_search.api_key",
       "services.moonshot_search.oauth", "services.moonshot_search.custom_headers",
       "services.moonshot_fetch.base_url", "services.moonshot_fetch.api_key",

@@ -1,7 +1,40 @@
 {
- "generated": "2026-09-17",
- "latest": "v2.0.0",
+ "generated": "2026-09-18",
+ "latest": "v2.0.1",
  "releases": [
+  {
+   "version": "v2.0.1",
+   "label": "Kimi Code v2.0.1",
+   "date": "2026-09-18",
+   "id": "rel-2-0-1",
+   "entries": [
+    {
+     "tag": "ADD",
+     "item": "[watch]",
+     "html": "<code>[watch]</code> / <code>KIMI_CODE_WATCH</code> — disable filesystem watchers for <code>local.toml</code>, <code>AGENTS.md</code>, skills and MCP config entirely"
+    },
+    {
+     "tag": "CHG",
+     "item": "[providers.\"<id>\"]",
+     "html": "<code>[providers.\"&lt;id&gt;\"]</code> — <code>api_key_env</code> names an environment variable to read the API key from, as an alternative to <code>api_key</code>"
+    },
+    {
+     "tag": "ADD",
+     "item": "[database]",
+     "html": "<code>[database]</code> — <code>searchSyncSessionCap</code> / <code>searchSyncDebounceMs</code> tune the incremental background search-sync pass (marked <code>unverified</code> — not yet in the config reference)"
+    },
+    {
+     "tag": "CHG",
+     "item": "/yolo",
+     "html": "<code>/yolo</code> / <code>-y, --yolo</code> — Ask When Needed no longer prompts for a <code>Bash</code> command that cannot be statically analyzed"
+    },
+    {
+     "tag": "CHG",
+     "item": "kimi install-app",
+     "html": "<code>kimi install-app</code> — renamed to <code>kimi install-desktop</code>; the old name keeps working as a hidden alias"
+    }
+   ]
+  },
   {
    "version": "v2.0.0",
    "label": "Kimi Code v2.0.0",
@@ -15,8 +48,8 @@
     },
     {
      "tag": "ADD",
-     "item": "kimi install-desktop",
-     "html": "<code>kimi install-desktop</code> — prints and opens the desktop app page; the former name <code>kimi install-app</code> is now a hidden alias"
+     "item": "kimi install-app",
+     "html": "<code>kimi install-app</code> — prints and opens the desktop app page (renamed to <code>kimi install-desktop</code> in 2.0.1)"
     },
     {
      "tag": "ADD",
