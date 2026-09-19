@@ -10,7 +10,7 @@
     <id>https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-278</id>
     <link href="https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-278"/>
     <updated>2026-09-19T09:00:00Z</updated>
-    <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;CLAUDE_CODE_AUTO_MODE_SERVER&lt;/code&gt; — the server-side auto mode classifier is now the default for Claude API and Enterprise users, and on Bedrock, Vertex, Foundry and gateways; set to &lt;code&gt;0&lt;/code&gt; to opt out on Bedrock, Vertex, Foundry and gateways&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;/status&lt;/code&gt; — new &lt;code&gt;Auto mode server&lt;/code&gt; row shows whether this session's auto mode classifier runs on the server&lt;/li&gt;&lt;/ul&gt;</content>
+    <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;CLAUDE_CODE_AUTO_MODE_SERVER&lt;/code&gt; — the server-side auto mode classifier, which doesn't charge for classifier overhead, is now the default for Claude API and Enterprise users, and on Bedrock, Vertex, Foundry and gateways; set to &lt;code&gt;0&lt;/code&gt; to opt out on Bedrock, Vertex, Foundry and gateways; warns on billed fallback&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;/status&lt;/code&gt; — new &lt;code&gt;Auto mode server&lt;/code&gt; row shows whether this session's auto mode classifier runs on the server&lt;/li&gt;&lt;/ul&gt;</content>
   </entry>
   <entry>
     <title>CC v2.1.277 — 3 placemat changes</title>

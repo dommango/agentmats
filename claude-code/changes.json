@@ -11,7 +11,7 @@
     {
      "tag": "CHG",
      "item": "CLAUDE_CODE_AUTO_MODE_SERVER",
-     "html": "<code>CLAUDE_CODE_AUTO_MODE_SERVER</code> — the server-side auto mode classifier is now the default for Claude API and Enterprise users, and on Bedrock, Vertex, Foundry and gateways; set to <code>0</code> to opt out on Bedrock, Vertex, Foundry and gateways"
+     "html": "<code>CLAUDE_CODE_AUTO_MODE_SERVER</code> — the server-side auto mode classifier, which doesn't charge for classifier overhead, is now the default for Claude API and Enterprise users, and on Bedrock, Vertex, Foundry and gateways; set to <code>0</code> to opt out on Bedrock, Vertex, Foundry and gateways; warns on billed fallback"
     },
     {
      "tag": "ADD",
