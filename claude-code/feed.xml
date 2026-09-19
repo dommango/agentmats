@@ -4,7 +4,21 @@
   <link href="https://dommango.github.io/agentmats/claude-code/"/>
   <link rel="self" href="https://dommango.github.io/agentmats/claude-code/feed.xml"/>
   <id>https://dommango.github.io/agentmats/claude-code/</id>
-  <updated>2026-09-17T09:00:00Z</updated>
+  <updated>2026-09-19T09:00:00Z</updated>
+  <entry>
+    <title>CC v2.1.278 — 2 placemat changes</title>
+    <id>https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-278</id>
+    <link href="https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-278"/>
+    <updated>2026-09-19T09:00:00Z</updated>
+    <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;CLAUDE_CODE_AUTO_MODE_SERVER&lt;/code&gt; — the server-side auto mode classifier, which doesn't charge for classifier overhead, is now the default for Claude API and Enterprise users, and on Bedrock, Vertex, Foundry and gateways; set to &lt;code&gt;0&lt;/code&gt; to opt out on Bedrock, Vertex, Foundry and gateways; warns on billed fallback&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;/status&lt;/code&gt; — new &lt;code&gt;Auto mode server&lt;/code&gt; row shows whether this session's auto mode classifier runs on the server&lt;/li&gt;&lt;/ul&gt;</content>
+  </entry>
+  <entry>
+    <title>CC v2.1.277 — 3 placemat changes</title>
+    <id>https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-277</id>
+    <link href="https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-277"/>
+    <updated>2026-09-18T09:00:00Z</updated>
+    <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;AGENTS.md&lt;/code&gt; support — in a project with no &lt;code&gt;CLAUDE.md&lt;/code&gt;, Claude Code reads &lt;code&gt;AGENTS.md&lt;/code&gt; instead; toggle under "Project instructions" in &lt;code&gt;/config&lt;/code&gt; (not yet on Bedrock, Vertex or Foundry)&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;CLAUDE_GATEWAY_PROXY_IS_EGRESS_BOUNDARY&lt;/code&gt; env var — for Claude apps gateways whose only egress is a forward proxy; every outbound request hands the proxy the hostname instead of resolving it locally&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;taskOutputMaxChars&lt;/code&gt; no longer has any effect — the deprecated TaskOutput tool was removed; Claude reads a background task's output file with Read instead&lt;/li&gt;&lt;/ul&gt;</content>
+  </entry>
   <entry>
     <title>CC v2.1.275 — 4 placemat changes</title>
     <id>https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-275</id>
@@ -130,19 +144,5 @@
     <link href="https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-239"/>
     <updated>2026-08-21T09:00:00Z</updated>
     <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;claude plugin enable/disable &amp;lt;name&amp;gt;@synced&lt;/code&gt; — cloud-synced plugins from claude.ai appear as &lt;code&gt;name@synced&lt;/code&gt;; managed with &lt;code&gt;enable/disable &amp;lt;name&amp;gt;@synced&lt;/code&gt;; never override a locally installed same-named plugin&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;/claude-api upgrade&lt;/code&gt; — new subcommand; migrates Python projects from &lt;code&gt;anthropic&lt;/code&gt; 0.x to 1.x (timeouts use &lt;code&gt;anthropic.Timeout&lt;/code&gt;, not &lt;code&gt;httpx.Timeout&lt;/code&gt;)&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;/goal&lt;/code&gt; — check-ins back off (30 min → 1 h → 2 h) instead of repeating every 30 min; resuming via &lt;code&gt;claude --resume&lt;/code&gt; now restores the active goal&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;keybindingFlavor: "readline"&lt;/code&gt; — extended with word-motion keys: Alt+F and Ctrl/Option+→ stop at end of word, Alt+D deletes to it (Ctrl+Y pastes back), punctuation separates words&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;ListAgents&lt;/code&gt; / &lt;code&gt;SendMessage&lt;/code&gt; — &lt;code&gt;ListAgents&lt;/code&gt; now reports the session's own name (the identifier peers use to message it) and includes live teammates in its listing&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;CLAUDE_CODE_RETRY_WATCHDOG&lt;/code&gt; — now fails immediately on organization spend-limit and out-of-credits errors instead of waiting indefinitely&lt;/li&gt;&lt;/ul&gt;</content>
-  </entry>
-  <entry>
-    <title>CC v2.1.238 — 6 placemat changes</title>
-    <id>https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-238</id>
-    <link href="https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-238"/>
-    <updated>2026-08-20T09:00:00Z</updated>
-    <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;keybindingFlavor&lt;/code&gt; JSON setting — set to &lt;code&gt;"readline"&lt;/code&gt; to make Ctrl+W delete back to previous whitespace (Bash-style); default &lt;code&gt;"classic"&lt;/code&gt; unchanged&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;headersHelper&lt;/code&gt; (plugin marketplace / catalog entry) — command that mints HTTP headers (e.g. a short-lived token) for catalog and same-origin archive fetches; for catalog entries, runs only on &lt;code&gt;claude plugin install/update&lt;/code&gt; after displaying the command (&lt;code&gt;-y&lt;/code&gt; to skip prompt)&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;claude self-hosted-runner --defer-shutdown-max-min &amp;lt;minutes&amp;gt;&lt;/code&gt; — on SIGTERM, keep serving attached sessions for up to N minutes before parking remaining sessions and exiting&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;claude self-hosted-runner --proxy-authorization-command&lt;/code&gt; / &lt;code&gt;--proxy-authorization-file&lt;/code&gt; — supply a freshly issued &lt;code&gt;Proxy-Authorization&lt;/code&gt; header on every connection for egress proxies requiring per-request credentials&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;Ctrl L&lt;/code&gt; / &lt;code&gt;Cmd+K&lt;/code&gt; in fullscreen — now always just repaints; the double-press &lt;code&gt;/clear&lt;/code&gt; shortcut was removed&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;claude mcp list&lt;/code&gt; / &lt;code&gt;claude mcp get&lt;/code&gt; — disabled servers now show as &lt;code&gt;⊘ Disabled&lt;/code&gt; instead of connecting for a health check&lt;/li&gt;&lt;/ul&gt;</content>
-  </entry>
-  <entry>
-    <title>CC v2.1.237 — 1 placemat change</title>
-    <id>https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-237</id>
-    <link href="https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-237"/>
-    <updated>2026-08-20T09:00:00Z</updated>
-    <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;outputStyle&lt;/code&gt; JSON setting — &lt;code&gt;"concise"&lt;/code&gt; makes Claude lead with results and skip preamble/narration; configure via &lt;code&gt;/config&lt;/code&gt; → Output style&lt;/li&gt;&lt;/ul&gt;</content>
   </entry>
 </feed>

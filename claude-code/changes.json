@@ -1,7 +1,48 @@
 {
- "generated": "2026-09-17",
- "latest": "v2.1.275",
+ "generated": "2026-09-19",
+ "latest": "v2.1.278",
  "releases": [
+  {
+   "version": "v2.1.278",
+   "label": "CC v2.1.278",
+   "date": "2026-09-19",
+   "id": "rel-2-1-278",
+   "entries": [
+    {
+     "tag": "CHG",
+     "item": "CLAUDE_CODE_AUTO_MODE_SERVER",
+     "html": "<code>CLAUDE_CODE_AUTO_MODE_SERVER</code> — the server-side auto mode classifier, which doesn't charge for classifier overhead, is now the default for Claude API and Enterprise users, and on Bedrock, Vertex, Foundry and gateways; set to <code>0</code> to opt out on Bedrock, Vertex, Foundry and gateways; warns on billed fallback"
+    },
+    {
+     "tag": "ADD",
+     "item": "/status",
+     "html": "<code>/status</code> — new <code>Auto mode server</code> row shows whether this session's auto mode classifier runs on the server"
+    }
+   ]
+  },
+  {
+   "version": "v2.1.277",
+   "label": "CC v2.1.277",
+   "date": "2026-09-18",
+   "id": "rel-2-1-277",
+   "entries": [
+    {
+     "tag": "ADD",
+     "item": "AGENTS.md",
+     "html": "<code>AGENTS.md</code> support — in a project with no <code>CLAUDE.md</code>, Claude Code reads <code>AGENTS.md</code> instead; toggle under \"Project instructions\" in <code>/config</code> (not yet on Bedrock, Vertex or Foundry)"
+    },
+    {
+     "tag": "ADD",
+     "item": "CLAUDE_GATEWAY_PROXY_IS_EGRESS_BOUNDARY",
+     "html": "<code>CLAUDE_GATEWAY_PROXY_IS_EGRESS_BOUNDARY</code> env var — for Claude apps gateways whose only egress is a forward proxy; every outbound request hands the proxy the hostname instead of resolving it locally"
+    },
+    {
+     "tag": "CHG",
+     "item": "taskOutputMaxChars",
+     "html": "<code>taskOutputMaxChars</code> no longer has any effect — the deprecated TaskOutput tool was removed; Claude reads a background task's output file with Read instead"
+    }
+   ]
+  },
   {
    "version": "v2.1.275",
    "label": "CC v2.1.275",
