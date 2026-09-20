@@ -1,7 +1,25 @@
 {
- "generated": "2026-09-09",
- "latest": "v0.154.0",
+ "generated": "2026-09-18",
+ "latest": "v0.155.1",
  "releases": [
+  {
+   "version": "v0.155.1",
+   "label": "Codex CLI v0.155.0–v0.155.1",
+   "date": "2026-09-18",
+   "id": "rel-0-155-1",
+   "entries": [
+    {
+     "tag": "ADD",
+     "item": "codex app-server",
+     "html": "<code>codex app-server</code> (<code>card-cli</code>) — noted the <code>daemon</code> subcommand tree, including the new <code>daemon update</code> for restarting a standalone install&rsquo;s managed daemon on a configurable schedule"
+    },
+    {
+     "tag": "FIX",
+     "item": "model_reasoning_summary",
+     "html": "<code>model_reasoning_summary</code> (<code>card-settings</code>) — noted that new local TUI sessions now default to summaries disabled, so providers that reject the field no longer fail requests; an explicit value is still respected"
+    }
+   ]
+  },
   {
    "version": "v0.154.0",
    "label": "Codex CLI v0.154.0",
