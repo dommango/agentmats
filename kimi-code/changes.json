@@ -1,7 +1,35 @@
 {
- "generated": "2026-09-18",
- "latest": "v2.0.1",
+ "generated": "2026-09-19",
+ "latest": "v2.0.2",
  "releases": [
+  {
+   "version": "v2.0.2",
+   "label": "Kimi Code v2.0.2",
+   "date": "2026-09-19",
+   "id": "rel-2-0-2",
+   "entries": [
+    {
+     "tag": "FIX",
+     "item": "/resume",
+     "html": "<code>/resume</code> — new messages no longer land at an old position in the conversation after resuming a session"
+    },
+    {
+     "tag": "FIX",
+     "item": "/compact",
+     "html": "<code>/compact</code> — no longer fails after switching to a model with a smaller context window"
+    },
+    {
+     "tag": "CHG",
+     "item": null,
+     "html": "the agent no longer assumes the current working directory is the project root"
+    },
+    {
+     "tag": "FIX",
+     "item": null,
+     "html": "a message sent while the agent was running no longer sometimes appears twice in the chat"
+    }
+   ]
+  },
   {
    "version": "v2.0.1",
    "label": "Kimi Code v2.0.1",
