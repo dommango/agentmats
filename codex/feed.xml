@@ -4,7 +4,14 @@
   <link href="https://dommango.github.io/agentmats/codex/"/>
   <link rel="self" href="https://dommango.github.io/agentmats/codex/feed.xml"/>
   <id>https://dommango.github.io/agentmats/codex/</id>
-  <updated>2026-09-09T09:00:00Z</updated>
+  <updated>2026-09-18T09:00:00Z</updated>
+  <entry>
+    <title>Codex CLI v0.155.0–v0.155.1 — 2 placemat changes</title>
+    <id>https://dommango.github.io/agentmats/codex/changelog.html#rel-0-155-1</id>
+    <link href="https://dommango.github.io/agentmats/codex/changelog.html#rel-0-155-1"/>
+    <updated>2026-09-18T09:00:00Z</updated>
+    <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;codex app-server&lt;/code&gt; (&lt;code&gt;card-cli&lt;/code&gt;) — noted the &lt;code&gt;daemon&lt;/code&gt; subcommand tree, including the new &lt;code&gt;daemon update&lt;/code&gt; for restarting a standalone install&amp;rsquo;s managed daemon on a configurable schedule&lt;/li&gt;&lt;li&gt;&lt;b&gt;FIX&lt;/b&gt; &lt;code&gt;model_reasoning_summary&lt;/code&gt; (&lt;code&gt;card-settings&lt;/code&gt;) — noted that new local TUI sessions now default to summaries disabled, so providers that reject the field no longer fail requests; an explicit value is still respected&lt;/li&gt;&lt;/ul&gt;</content>
+  </entry>
   <entry>
     <title>Codex CLI v0.154.0 — 8 placemat changes</title>
     <id>https://dommango.github.io/agentmats/codex/changelog.html#rel-0-154-0</id>
