@@ -5,7 +5,15 @@ Machine-readable sources live in `sources.json`; this file is the procedure.
 ## Procedure
 
 1. Read the current version from `index.html`'s `.release-tag`.
-2. Poll `sources.json → version_poll` (apply its filter and transform), then confirm against `cross_check` (`agy --version`).
+2. Poll `sources.json → version_poll`: fetch the changelog HTML and read **only** the
+   `<div class="grid-body" data-list-panel="cli">` panel — the page's default tab is
+   the 2.x Antigravity hub, not the CLI. The first `<a class="version-link"
+   title="View release X.Y.Z">` in that panel is the newest CLI version; its date is
+   the text after the link. Confirm with `cross_check`, which is HTTP-only (href is
+   `/download#antigravity-cli`, date not older than the placemat's synced date, every
+   intermediate version present in the same panel). `local_binary` (`agy --version`,
+   `agy --help`) is an optional extra where a binary exists; a cloud run has none, and
+   its absence is never grounds for a "nothing newer" exit. A fetch failure exits loudly.
 3. **Not newer → exit silently: no branch, no commits, no PR, no output.**
    A routine that opens empty PRs trains everyone to ignore the queue.
 4. Collect release notes for EVERY release between the current and newest version, following the `release_notes` rule.
@@ -23,6 +31,13 @@ Machine-readable sources live in `sources.json`; this file is the procedure.
 
 ## Antigravity-specific traps
 
+- **The changelog page has tabs, and the CLI is not the default one.** All four
+  products (hub, IDE, SDK, CLI) are in one HTML page as `data-list-panel` panels;
+  the hub panel is visible by default and carries 2.15.x-style versions, the CLI
+  panel is `display: none` and carries 1.2.x. Reading the first version on the page
+  gives 2.x and silently skips every CLI release. There is no markdown heading to
+  match and no separate CLI URL — parse the raw HTML for `data-list-panel="cli"`.
+  This is how 1.2.3–1.2.5 went unsynced.
 - **Binary name is `agy`.** Top-level invocations use `agy`, never `antigravity`.
 - **Progressive disclosure.** Skills expose only name + description until the agent
   decides one is relevant, then loads the full `SKILL.md`.

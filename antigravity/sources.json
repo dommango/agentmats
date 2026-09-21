@@ -3,12 +3,14 @@
   "vendor": "Google DeepMind",
   "version_poll": {
     "url": "https://antigravity.google/changelog",
-    "filter": "latest release header '## X.Y.Z (YYYY-MM-DD)'",
-    "transform": "version = release tag"
+    "format": "HTML, not markdown. One page carries four product panels, `<div class=\"grid-body\" data-list-panel=\"hub|ide|sdk|cli\">`. The default (visible) panel is the Antigravity 2.0 hub, whose versions are 2.x; the CLI panel is `data-list-panel=\"cli\"` and ships hidden (`style=\"display: none;\"`), so read it from the raw HTML rather than from whatever renders first.",
+    "filter": "inside the `data-list-panel=\"cli\"` panel only, the first `<a class=\"version-link\" href=\"/download#antigravity-cli\" title=\"View release X.Y.Z\">X.Y.Z</a>`; each row's date is the text after that link's `<br>` (e.g. `September 18, 2026`)",
+    "transform": "version = the `title=\"View release X.Y.Z\"` value (identical to the link text); date = the following text parsed to YYYY-MM-DD",
+    "reject": "any version >= 2.0.0 — that is the hub, IDE or SDK panel, never the CLI"
   },
-  "cross_check": "agy --version",
-  "local_binary": "agy --help",
-  "release_notes": "Use the official changelog notes on https://antigravity.google/changelog; filter out IDE-specific features and keep CLI/TUI and core runtime features.",
+  "cross_check": "HTTP only: the matched row's href must be exactly `/download#antigravity-cli`, its date must be on or after the placemat's `Content synced` date, and every version between the current `.release-tag` and the new one must also appear as a row in the `cli` panel. A run that cannot reach the page fails loudly; it never reports 'nothing newer'.",
+  "local_binary": "Optional, only where a binary is installed (cloud runs have none and must not treat its absence as a no-op): `agy --version` for the installed version, `agy --help` as ground truth for `card-cli` flags and subcommands at that version",
+  "release_notes": "Read every `cli` panel row between the current and newest version. Each row has an `<h3>` title, a summary paragraph, and `Improvements (N)` / `Fixes (N)` / `Patches (N)` details lists. Ignore the hub, IDE and SDK panels entirely; keep CLI/TUI and core runtime items.",
   "docs": {
     "index": "https://antigravity.google/docs",
     "cli_features": "https://antigravity.google/docs/cli/features",
@@ -22,24 +24,26 @@
     "mcp": "https://antigravity.google/docs/mcp",
     "permissions": "https://antigravity.google/docs/permissions",
     "sandbox": "https://antigravity.google/docs/sandbox",
-    "changelog": "https://antigravity.google/changelog"
+    "changelog": "https://antigravity.google/changelog",
+    "download": "https://antigravity.google/download#antigravity-cli"
   },
   "gotchas": [
     "The CLI binary is `agy`, not `antigravity`",
+    "The changelog page's default tab is the Antigravity 2.0 hub (2.15.x and rising); those 2.x versions are NOT the CLI. The CLI lives in the hidden `data-list-panel=\"cli\"` panel, currently 1.2.x. A poll that reads the first version on the page will always see 2.x and either skip the CLI forever or file a bogus 2.x release",
     "Skills and rules follow progressive disclosure (only metadata loaded until activated)",
     "Global rules live in `~/.gemini/GEMINI.md`; workspace rules in `.agents/rules/*.md`",
     "Plugin system supports importing packages from both Gemini and Claude ecosystems (`agy plugin import`)"
   ],
   "inventory": {
     "source": "https://antigravity.google/docs/cli/reference",
-    "fetched": "2026-09-13",
+    "fetched": "2026-09-21",
     "slash": [
       "/add-dir", "/agents", "/boost", "/artifact", "/btw", "/clear", "/new",
       "/config", "/settings", "/context", "/copy", "/credits", "/diff",
       "/exit", "/quit", "/fast", "/feedback", "/fork", "/branch", "/help",
       "/hooks", "/keybindings", "/logout", "/mcp", "/model", "/open",
-      "/permissions", "/planning", "/rename", "/resume", "/switch",
-      "/conversation", "/rewind", "/undo", "/skills", "/statusline",
+      "/permissions", "/planning", "/remote-control", "/rename", "/resume",
+      "/switch", "/conversation", "/rewind", "/undo", "/skills", "/statusline",
       "/tasks", "/teamwork-preview", "/teamwork", "/title", "/usage",
       "/quota", "/voice", "/record"
     ],
