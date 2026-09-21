@@ -4,7 +4,35 @@
   <link href="https://dommango.github.io/agentmats/antigravity/"/>
   <link rel="self" href="https://dommango.github.io/agentmats/antigravity/feed.xml"/>
   <id>https://dommango.github.io/agentmats/antigravity/</id>
-  <updated>2026-09-13T09:00:00Z</updated>
+  <updated>2026-09-18T09:00:00Z</updated>
+  <entry>
+    <title>Antigravity CLI v1.2.6 — 8 placemat changes</title>
+    <id>https://dommango.github.io/agentmats/antigravity/changelog.html#rel-1-2-6</id>
+    <link href="https://dommango.github.io/agentmats/antigravity/changelog.html#rel-1-2-6"/>
+    <updated>2026-09-18T09:00:00Z</updated>
+    <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;/remote-control [on/off]&lt;/code&gt; (&lt;code&gt;card-slash-tools&lt;/code&gt;) — session-scoped Remote Control for following and controlling the terminal session from another device; confirmed on &lt;code&gt;cli/reference&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;--remote-control&lt;/code&gt; (&lt;code&gt;card-cli&lt;/code&gt;) — startup flag that opens the same connection; marked unverified until a newer &lt;code&gt;agy --help&lt;/code&gt; confirms it&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;Alt+F&lt;/code&gt; / &lt;code&gt;Alt+B&lt;/code&gt; and &lt;code&gt;Ctrl+W&lt;/code&gt; / &lt;code&gt;Alt+Backspace&lt;/code&gt; / &lt;code&gt;Alt+D&lt;/code&gt; (&lt;code&gt;card-keys&lt;/code&gt;) — word-wise movement and deletion, which the release notes changed to stop at punctuation; unverified because the reference keybinding table omits them&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;--print-timeout &amp;lt;dur&amp;gt;&lt;/code&gt; (&lt;code&gt;card-cli&lt;/code&gt;) — headless runs no longer default to a 5-minute limit; the summary drops the stale default and a note records it&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;-p&lt;/code&gt; (&lt;code&gt;card-cli&lt;/code&gt;) — noted the structured &lt;code&gt;AGY_ERROR: {...}&lt;/code&gt; stderr line and exit code 3 on agent or model API failures&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;/model&lt;/code&gt; (&lt;code&gt;card-slash-core&lt;/code&gt;) — noted that a model switch submitted mid-turn waits for the queued prompt instead of changing the running turn&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;GEMINI_API_KEY&lt;/code&gt; (&lt;code&gt;card-env&lt;/code&gt;) — noted that headless sessions authenticated this way keep daemon background commands running after the turn&lt;/li&gt;&lt;li&gt;&lt;b&gt;FIX&lt;/b&gt; &lt;code&gt;/rewind&lt;/code&gt; (&lt;code&gt;card-slash-core&lt;/code&gt;) — the note claimed rewind never touched files; the release notes describe workspace snapshot reverts, so it now says rewind restores the matching snapshot and records the 1.2.6 lookup fix&lt;/li&gt;&lt;/ul&gt;</content>
+  </entry>
+  <entry>
+    <title>Antigravity CLI v1.2.5 — 1 placemat change</title>
+    <id>https://dommango.github.io/agentmats/antigravity/changelog.html#rel-1-2-5</id>
+    <link href="https://dommango.github.io/agentmats/antigravity/changelog.html#rel-1-2-5"/>
+    <updated>2026-09-17T09:00:00Z</updated>
+    <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;/tasks&lt;/code&gt; (&lt;code&gt;card-slash-tools&lt;/code&gt;) — noted that an explicitly named background task keeps its name in notifications and the task list&lt;/li&gt;&lt;/ul&gt;</content>
+  </entry>
+  <entry>
+    <title>Antigravity CLI v1.2.4 — 3 placemat changes</title>
+    <id>https://dommango.github.io/agentmats/antigravity/changelog.html#rel-1-2-4</id>
+    <link href="https://dommango.github.io/agentmats/antigravity/changelog.html#rel-1-2-4"/>
+    <updated>2026-09-16T09:00:00Z</updated>
+    <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;/skills&lt;/code&gt; (&lt;code&gt;card-slash-tools&lt;/code&gt;) — noted the &lt;code&gt;/skills reload&lt;/code&gt; subcommand for live skill and slash-command rediscovery&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;/model&lt;/code&gt; (&lt;code&gt;card-slash-core&lt;/code&gt;) — noted the inline argument autocomplete and the fuzzy search bar inside the picker&lt;/li&gt;&lt;li&gt;&lt;b&gt;FIX&lt;/b&gt; &lt;code&gt;hooks.json&lt;/code&gt; (&lt;code&gt;card-hooks&lt;/code&gt;) — noted the fix for configurations silently dropped under customization token-budget truncation&lt;/li&gt;&lt;/ul&gt;</content>
+  </entry>
+  <entry>
+    <title>Antigravity CLI v1.2.3 — 2 placemat changes</title>
+    <id>https://dommango.github.io/agentmats/antigravity/changelog.html#rel-1-2-3</id>
+    <link href="https://dommango.github.io/agentmats/antigravity/changelog.html#rel-1-2-3"/>
+    <updated>2026-09-15T09:00:00Z</updated>
+    <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;/copy&lt;/code&gt; (&lt;code&gt;card-slash-tools&lt;/code&gt;) — noted the &lt;code&gt;/copy btw&lt;/code&gt; subcommand that copies the active side-question response, plus argument ghost hints&lt;/li&gt;&lt;li&gt;&lt;b&gt;FIX&lt;/b&gt; &lt;code&gt;/hooks&lt;/code&gt; (&lt;code&gt;card-slash-tools&lt;/code&gt;) — noted that the listing includes hooks bundled inside enabled plugins&lt;/li&gt;&lt;/ul&gt;</content>
+  </entry>
   <entry>
     <title>Antigravity CLI v1.2.2 — 9 placemat changes</title>
     <id>https://dommango.github.io/agentmats/antigravity/changelog.html#rel-1-2-2</id>

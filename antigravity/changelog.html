@@ -162,9 +162,43 @@
                 <h3>Content / Antigravity CLI Releases</h3>
                 <!-- September 2026 -->
                 <details class="month-group" open>
-                    <summary>September 2026 <span class="version-date">v1.2.2</span> <span class="month-count">1 release</span></summary>
+                    <summary>September 2026 <span class="version-date">v1.2.2 – v1.2.6</span> <span class="month-count">5 releases</span></summary>
                     <div class="month-content">
 
+                        <div class="change-section">
+                            <h3 id="rel-1-2-6">Antigravity CLI v1.2.6 <span class="version-date">2026-09-18</span></h3>
+                            <ul class="change-list">
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>/remote-control [on/off]</code> (<code>card-slash-tools</code>) — session-scoped Remote Control for following and controlling the terminal session from another device; confirmed on <code>cli/reference</code></span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>--remote-control</code> (<code>card-cli</code>) — startup flag that opens the same connection; marked unverified until a newer <code>agy --help</code> confirms it</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>Alt+F</code> / <code>Alt+B</code> and <code>Ctrl+W</code> / <code>Alt+Backspace</code> / <code>Alt+D</code> (<code>card-keys</code>) — word-wise movement and deletion, which the release notes changed to stop at punctuation; unverified because the reference keybinding table omits them</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>--print-timeout &lt;dur&gt;</code> (<code>card-cli</code>) — headless runs no longer default to a 5-minute limit; the summary drops the stale default and a note records it</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>-p</code> (<code>card-cli</code>) — noted the structured <code>AGY_ERROR: {...}</code> stderr line and exit code 3 on agent or model API failures</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>/model</code> (<code>card-slash-core</code>) — noted that a model switch submitted mid-turn waits for the queued prompt instead of changing the running turn</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>GEMINI_API_KEY</code> (<code>card-env</code>) — noted that headless sessions authenticated this way keep daemon background commands running after the turn</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>/rewind</code> (<code>card-slash-core</code>) — the note claimed rewind never touched files; the release notes describe workspace snapshot reverts, so it now says rewind restores the matching snapshot and records the 1.2.6 lookup fix</span></li>
+                            </ul>
+                        </div>
+                        <div class="change-section">
+                            <h3 id="rel-1-2-5">Antigravity CLI v1.2.5 <span class="version-date">2026-09-17</span></h3>
+                            <ul class="change-list">
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>/tasks</code> (<code>card-slash-tools</code>) — noted that an explicitly named background task keeps its name in notifications and the task list</span></li>
+                            </ul>
+                        </div>
+                        <div class="change-section">
+                            <h3 id="rel-1-2-4">Antigravity CLI v1.2.4 <span class="version-date">2026-09-16</span></h3>
+                            <ul class="change-list">
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>/skills</code> (<code>card-slash-tools</code>) — noted the <code>/skills reload</code> subcommand for live skill and slash-command rediscovery</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>/model</code> (<code>card-slash-core</code>) — noted the inline argument autocomplete and the fuzzy search bar inside the picker</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>hooks.json</code> (<code>card-hooks</code>) — noted the fix for configurations silently dropped under customization token-budget truncation</span></li>
+                            </ul>
+                        </div>
+                        <div class="change-section">
+                            <h3 id="rel-1-2-3">Antigravity CLI v1.2.3 <span class="version-date">2026-09-15</span></h3>
+                            <ul class="change-list">
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>/copy</code> (<code>card-slash-tools</code>) — noted the <code>/copy btw</code> subcommand that copies the active side-question response, plus argument ghost hints</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>/hooks</code> (<code>card-slash-tools</code>) — noted that the listing includes hooks bundled inside enabled plugins</span></li>
+                            </ul>
+                        </div>
                         <div class="change-section">
                             <h3 id="rel-1-2-2">Antigravity CLI v1.2.2 <span class="version-date">2026-09-13</span></h3>
                             <ul class="change-list">
@@ -195,6 +229,7 @@
                 <ul class="change-list">
                     <li><span class="tag tag-add">ADD</span><span class="entry">Initial release of the Antigravity CLI Placemat following the canonical 8-card architecture</span></li>
                     <li><span class="tag tag-add">ADD</span><span class="entry">Cosmic violet and cyan theme with dark/light mode and A4 landscape print stylesheet</span></li>
+                    <li><span class="tag tag-change">CHG</span><span class="entry"><span class="summary">Sync pipeline reads the vendor changelog's hidden CLI panel and no longer needs a local binary</span></span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>The daily routine polled for a markdown heading that the HTML changelog never had, then cross-checked with <code>agy --version</code>, which a cloud sandbox cannot run — so 1.2.3 through 1.2.5 were missed. <code>sources.json</code> and <code>PIPELINE.md</code> now target <code>data-list-panel="cli"</code> and an HTTP-only cross-check.</li></ul></li>
                     <li><span class="tag tag-fix">FIX</span><span class="entry"><span class="summary">Regenerated <code>versions/v1.0.html</code> from the corrected page</span></span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>The original snapshot was built during rebuild and never published; this is the only self-contained archive of v1.0.</li></ul></li>
                     <li><span class="tag tag-fix">FIX</span><span class="entry">Replaced absolute <code>agent-placemats</code> URLs with relative paths on the <code>agentmats</code> origin, and defined <code>.scope-note</code>/<code>.since-drawer-tools</code> generically in <code>shared/placemat.css</code></span></li>
                 </ul>
