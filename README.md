@@ -39,13 +39,13 @@ agent that has no equivalent for a row gets `—` rather than a guess.
 
 ## The placemats
 
-| Placemat | Agent | Vendor | As of | Official docs |
-|---|---|---|---|---|
-| [Claude Code](https://dommango.github.io/agentmats/claude-code/) | Claude Code | Anthropic | v2.1.269 | [code.claude.com/docs](https://code.claude.com/docs) |
-| [Codex CLI](https://dommango.github.io/agentmats/codex/) | Codex CLI | OpenAI | v0.154.0 | [developers.openai.com/codex](https://developers.openai.com/codex) |
-| [Kimi Code](https://dommango.github.io/agentmats/kimi-code/) | Kimi Code | Moonshot AI | v0.42.0 | [moonshotai.github.io/kimi-code](https://moonshotai.github.io/kimi-code/) |
-| [Hermes Agent](https://dommango.github.io/agentmats/hermes/) | Hermes Agent | Nous Research | v0.21.2 | [hermes-agent.nousresearch.com](https://hermes-agent.nousresearch.com/docs/) |
-| [Antigravity CLI](https://dommango.github.io/agentmats/antigravity/) | Antigravity CLI | Google DeepMind | v1.2.2 | [antigravity.google/docs](https://antigravity.google/docs) |
+| Placemat | Agent | Vendor | Official docs |
+|---|---|---|---|
+| [Claude Code](https://dommango.github.io/agentmats/claude-code/) | Claude Code | Anthropic | [code.claude.com/docs](https://code.claude.com/docs) |
+| [Codex CLI](https://dommango.github.io/agentmats/codex/) | Codex CLI | OpenAI | [developers.openai.com/codex](https://developers.openai.com/codex) |
+| [Kimi Code](https://dommango.github.io/agentmats/kimi-code/) | Kimi Code | Moonshot AI | [moonshotai.github.io/kimi-code](https://moonshotai.github.io/kimi-code/) |
+| [Hermes Agent](https://dommango.github.io/agentmats/hermes/) | Hermes Agent | Nous Research | [hermes-agent.nousresearch.com](https://hermes-agent.nousresearch.com/docs/) |
+| [Antigravity CLI](https://dommango.github.io/agentmats/antigravity/) | Antigravity CLI | Google DeepMind | [antigravity.google/docs](https://antigravity.google/docs) |
 
 Every placemat lives at its own directory in this repo (`claude-code/`,
 `codex/`, `kimi-code/`, `hermes/`, `antigravity/`) — peers on one shared
