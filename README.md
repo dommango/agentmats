@@ -12,7 +12,7 @@ vendor's own docs.
 **→ https://dommango.github.io/agentmats/**
 
 <p align="center">
-  <img src="docs/hub-screenshot.png" alt="The agentmats hub: five agent cards (Claude Code, Codex CLI, Kimi Code, Hermes Agent, Antigravity CLI) followed by a five-column Rosetta table mapping the same job across every agent">
+  <img src="docs/hero.png" width="800" alt="agentmats — one page per coding agent. A five-column table showing the same job in each agent: launch (claude, codex, kimi, hermes, agy), continue (claude --continue, codex resume, kimi -c, hermes -c, agy -c), one-shot, plan mode and health check.">
 </p>
 
 ## Why
@@ -32,6 +32,10 @@ concept ("launch TUI", "continue last session", "full-auto mode", "switch
 model"...), one column per agent, so you can see at a glance that `claude -c`,
 `codex resume`, `kimi -c`, `hermes -c` and `agy -c` are all the same job. An
 agent that has no equivalent for a row gets `—` rather than a guess.
+
+<p align="center">
+  <img src="docs/hub-screenshot.png" alt="The agentmats hub: five agent cards (Claude Code, Codex CLI, Kimi Code, Hermes Agent, Antigravity CLI) followed by a five-column Rosetta table mapping the same job across every agent">
+</p>
 
 ## The placemats
 
@@ -108,6 +112,10 @@ node scripts/build-changes.js --all --check
 Conventions, content rules and the update pipeline are in
 [AGENTS.md](AGENTS.md). Zero dependencies — Node is used only for the
 generator and the test suite.
+
+`og-image.png` and `docs/hero.png` are screenshots of `docs/hero-source.html`
+at a 1200×630 viewport (1× and 2×); edit the HTML and re-capture rather than
+editing the PNGs.
 
 Each agent directory also carries `sources.json` (where its version and docs
 come from, and the traps in getting them) and `PIPELINE.md` (the procedure a

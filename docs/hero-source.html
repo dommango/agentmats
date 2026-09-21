@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>agentmats hero</title>
+<style>
+  :root {
+    --bg: #0a0a0a; --card: #141414; --card-2: #1a1a1a; --code: #1f1f1f;
+    --border: #262626; --border-strong: #3a3a3a;
+    --fg: #ededed; --muted: #9a9a9a; --dim: #6e6e6e;
+    --orange: #d97757; --green: #879d86;
+    --cc: #c2478a; --codex: #10a37f; --kimi: #4c6ef5; --hermes: #b8860b; --agy: #7c4dff;
+    --mono: "Ubuntu Mono", "DejaVu Sans Mono", ui-monospace, monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1200px; height: 630px; overflow: hidden; background: var(--bg); color: var(--fg); font-family: var(--mono); }
+  .page { position: relative; width: 1200px; height: 630px; padding: 56px 72px 48px; display: flex; flex-direction: column; }
+  .page::before {
+    content: ""; position: absolute; inset: 0; pointer-events: none;
+    background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px);
+    background-size: 24px 24px; opacity: .28;
+    -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 30%, transparent 100%);
+            mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 30%, transparent 100%);
+  }
+  .head { display: flex; align-items: center; gap: 22px; position: relative; }
+  .mark { width: 68px; height: 68px; image-rendering: pixelated; flex: none; }
+  .wm { font-size: 78px; font-weight: 700; letter-spacing: -0.02em; line-height: 1; }
+  .wm .mats { color: var(--orange); }
+  .tag { margin-top: 12px; font-size: 21px; letter-spacing: .28em; text-transform: uppercase; color: var(--muted); }
+  .cursor { display: inline-block; width: 24px; height: 60px; background: var(--green); margin-left: 6px; vertical-align: -6px; }
+  .card {
+    position: relative; margin-top: 44px; background: var(--card); border: 1px solid var(--border-strong);
+    border-radius: 8px; overflow: hidden; box-shadow: 0 24px 60px rgba(0,0,0,.6);
+  }
+  table { width: 100%; border-collapse: collapse; font-size: 20px; }
+  th, td { padding: 12px 14px; text-align: left; border-bottom: 1px solid var(--border); white-space: nowrap; }
+  tr:last-child td { border-bottom: 0; }
+  th { font-size: 15px; letter-spacing: .12em; text-transform: uppercase; color: var(--dim); font-weight: 400; background: var(--card-2); padding-top: 11px; padding-bottom: 11px; }
+  th.agent { color: var(--fg); }
+  th.agent i { display: inline-block; width: 11px; height: 11px; margin-right: 9px; vertical-align: 0; }
+  td.label { color: var(--muted); font-size: 16px; letter-spacing: .04em; text-transform: uppercase; width: 214px; }
+  td code { display: inline-block; background: var(--code); border: 1px solid var(--border); border-radius: 4px; padding: 3px 9px 4px; color: var(--fg); font-family: inherit; font-size: 19px; }
+  td .none { color: var(--dim); padding-left: 9px; }
+  .foot { position: absolute; left: 72px; right: 72px; bottom: 44px; display: flex; justify-content: space-between; align-items: baseline; color: var(--dim); font-size: 18px; letter-spacing: .04em; }
+  .foot .url { color: var(--muted); }
+  .foot .agents span { color: var(--muted); }
+  .foot .agents em { font-style: normal; margin: 0 8px; color: var(--border-strong); }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="head">
+    <svg class="mark" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <rect x="2" y="3" width="2" height="2" fill="#d97757"/>
+      <rect x="4" y="5" width="2" height="2" fill="#d97757"/>
+      <rect x="6" y="7" width="2" height="2" fill="#d97757"/>
+      <rect x="4" y="9" width="2" height="2" fill="#d97757"/>
+      <rect x="2" y="11" width="2" height="2" fill="#d97757"/>
+      <rect x="9" y="11" width="5" height="2" fill="#879d86"/>
+    </svg>
+    <div>
+      <div class="wm">agent<span class="mats">mats</span></div>
+      <div class="tag">One page per coding agent</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <table>
+      <thead>
+        <tr>
+          <th>Same job</th>
+          <th class="agent"><i style="background:var(--cc)"></i>Claude Code</th>
+          <th class="agent"><i style="background:var(--codex)"></i>Codex</th>
+          <th class="agent"><i style="background:var(--kimi)"></i>Kimi Code</th>
+          <th class="agent"><i style="background:var(--hermes)"></i>Hermes</th>
+          <th class="agent"><i style="background:var(--agy)"></i>Antigravity</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="label">Launch</td><td><code>claude</code></td><td><code>codex</code></td><td><code>kimi</code></td><td><code>hermes</code></td><td><code>agy</code></td></tr>
+        <tr><td class="label">Continue</td><td><code>claude --continue</code></td><td><code>codex resume</code></td><td><code>kimi -c</code></td><td><code>hermes -c</code></td><td><code>agy -c</code></td></tr>
+        <tr><td class="label">One-shot</td><td><code>claude -p</code></td><td><code>codex exec</code></td><td><code>kimi -p</code></td><td><code>hermes -z</code></td><td><code>agy -p</code></td></tr>
+        <tr><td class="label">Plan mode</td><td><code>Shift+Tab</code></td><td><code>/plan</code></td><td><code>Shift-Tab</code></td><td><code>/plan</code></td><td><code>/planning</code></td></tr>
+        <tr><td class="label">Health</td><td><code>/doctor</code></td><td><code>codex doctor</code></td><td><code>kimi doctor</code></td><td><code>hermes doctor</code></td><td><span class="none">—</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="foot">
+    <div class="url">dommango.github.io/agentmats</div>
+    <div class="agents"><span>verified against each vendor's own docs</span><em>·</em>unofficial<em>·</em>MIT</div>
+  </div>
+</div>
+</body>
+</html>
