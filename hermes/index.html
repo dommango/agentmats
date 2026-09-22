@@ -51,7 +51,7 @@
             <span class="header-tagline">Unofficial · auto-updated reference</span>
         </div>
         <div class="global-controls">
-            <span class="release-tag">As of release: v0.21.3 (2026.9.14)</span>
+            <span class="release-tag">As of release: v0.21.4 (2026.9.21)</span>
             <a href="changelog.html" class="header-link">Changelog →</a>
             <a href="feed.xml" class="header-link" title="Subscribe to placemat changes (RSS)">RSS</a>
             <button type="button" class="header-link print-btn" id="printBtn" title="Print or save as PDF (Ctrl P)">⎙ Print</button>
@@ -88,7 +88,7 @@
 
         <div class="print-head" aria-hidden="true">
             <span class="print-head-title">Hermes Agent <b>PLACEMAT</b></span>
-            <span>As of release v0.21.3 (2026.9.14)</span>
+            <span>As of release v0.21.4 (2026.9.21)</span>
             <span>■ = new &nbsp; □ = unverified</span>
             <span>dommango.github.io/agentmats/hermes</span>
         </div>
@@ -319,6 +319,7 @@
                     <tr class="search-item" id="i-hermes-moa"><td><a class="row-link" href="#i-hermes-moa" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes moa</code></td><td class="desc">Configure named Mixture of Agents presets</td></tr>
                     <tr class="search-item" id="i-hermes-fallback"><td><a class="row-link" href="#i-hermes-fallback" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes fallback</code></td><td class="desc">Manage fallback providers tried when the primary model errors</td></tr>
                     <tr class="search-item" id="i-hermes-lsp"><td><a class="row-link" href="#i-hermes-lsp" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes lsp</code></td><td class="desc">Manage LSP integration for semantic diagnostics on writes</td></tr>
+                    <tr class="search-item" id="i-format-stream-json"><td><a class="row-link" href="#i-format-stream-json" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>--format stream-json</code></td><td class="desc"><span class="summary">Emit structured JSONL events for a scripted <code>hermes chat -q</code> run</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Implies <code>--quiet</code>; requires <code>-q</code>/<code>--query</code> or <code>--query-file</code>, and cannot combine with <code>--tui</code>.</li></ul></td></tr>
                 </table>
             </details>
 
@@ -326,7 +327,7 @@
                 <summary><h3>Sessions &amp; projects</h3><span class="group-count"></span></summary>
                 <table>
                     <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
-                    <tr class="search-item" id="i-hermes-sessions"><td><a class="row-link" href="#i-hermes-sessions" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes sessions</code></td><td class="desc">Browse, export, prune, rename and delete sessions</td></tr>
+                    <tr class="search-item" id="i-hermes-sessions"><td><a class="row-link" href="#i-hermes-sessions" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes sessions</code></td><td class="desc"><span class="summary">Browse, export, prune, rename and delete sessions</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li><code>set-journal-mode &lt;wal|delete&gt;</code> converts <code>state.db</code>'s SQLite journal mode once every Hermes process for the profile has stopped.</li></ul></td></tr>
                     <tr class="search-item" id="i-hermes-project"><td><a class="row-link" href="#i-hermes-project" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes project</code></td><td class="desc"><span class="summary">Manage named multi-folder workspaces</span> <button type="button" class="notes-btn" aria-expanded="false">+2</button><ul class="notes" hidden><li>Anchors session grouping and, bound to a kanban board, gives tasks a deterministic worktree and branch convention.</li><li>State is per-profile.</li></ul></td></tr>
                     <tr class="search-item" id="i-hermes-checkpoints"><td><a class="row-link" href="#i-hermes-checkpoints" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes checkpoints</code></td><td class="desc"><span class="summary">Inspect, prune or clear the shadow store behind <code>/rollback</code></span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Run with no arguments for a status overview.</li></ul></td></tr>
                     <tr class="search-item" id="i-hermes-profile"><td><a class="row-link" href="#i-hermes-profile" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes profile</code></td><td class="desc">Manage profiles — multiple isolated Hermes instances</td></tr>
@@ -522,6 +523,7 @@
                     <tr class="search-item" id="i-hermes-skills-2"><td><a class="row-link" href="#i-hermes-skills-2" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>~/.hermes/skills/</code></td><td class="desc">Agent-created skills, managed by the skill tool</td></tr>
                     <tr class="search-item" id="i-skill-md"><td><a class="row-link" href="#i-skill-md" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>SKILL.md</code></td><td class="desc"><span class="summary">The file a skill is authored in</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Hermes follows the agentskills.io standard, so skills are portable between tools.</li></ul></td></tr>
                     <tr class="search-item" id="i-skills-write-approval"><td><a class="row-link" href="#i-skills-write-approval" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>skills.write_approval</code></td><td class="desc"><span class="summary">Gate agent skill writes behind review</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Review with <code>/skills pending</code>, <code>/skills diff &lt;id&gt;</code>, <code>approve</code> and <code>reject</code>.</li></ul></td></tr>
+                    <tr class="search-item" id="i-skills-auto-load"><td><a class="row-link" href="#i-skills-auto-load" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>skills.auto_load</code></td><td class="desc"><span class="summary">Pin named skills to load into every new session's prompt</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Resolved once when the prompt is first built, so edits apply next session; <code>--ignore-rules</code> or <code>HERMES_IGNORE_RULES=1</code> suppresses it. Profile-scoped.</li></ul></td></tr>
                 </table>
             </details>
 
@@ -571,6 +573,7 @@
                 <table>
                     <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
                     <tr class="search-item" id="i-cred-pool-strategies"><td><a class="row-link" href="#i-cred-pool-strategies" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>credential pool strategies</code></td><td class="desc">How multiple credentials for one provider are rotated</td></tr>
+                    <tr class="search-item" id="i-mcp-discovery-concurrency"><td><a class="row-link" href="#i-mcp-discovery-concurrency" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code class="unverified">mcp.discovery_concurrency</code></td><td class="desc">Caps concurrent MCP server discovery connections</td></tr>
                 </table>
             </details>
         </div>
@@ -578,7 +581,7 @@
         <div class="no-results search-exclude" id="noResults">No matches — clear search to see everything.</div>
 
         <footer class="global-footer">
-            Template v1.0 · Content synced 2026-09-14<br>
+            Template v1.0 · Content synced 2026-09-21<br>
             <span class="disclaimer">Unofficial community reference — not affiliated with or endorsed by Nous Research.
             Condensed from the official docs; always confirm against
             <a href="https://hermes-agent.nousresearch.com/docs/" target="_blank" rel="noopener noreferrer">hermes-agent.nousresearch.com/docs</a>.</span><br>

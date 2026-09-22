@@ -163,8 +163,18 @@
                 <h3>Content / Hermes Agent Releases</h3>
                 <!-- September 2026 -->
                 <details class="month-group" open>
-                    <summary>September 2026 <span class="version-date">v0.21.2 – v0.21.3</span> <span class="month-count">2 releases</span></summary>
+                    <summary>September 2026 <span class="version-date">v0.21.2 – v0.21.4</span> <span class="month-count">3 releases</span></summary>
                     <div class="month-content">
+
+                        <div class="change-section">
+                            <h3 id="rel-0-21-4">Hermes Agent v0.21.4 (2026.9.21) <span class="version-date">2026-09-21</span></h3>
+                            <ul class="change-list">
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>--format stream-json</code> — structured JSONL output for a scripted <code>hermes chat -q</code> run, one event object per stdout line</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>skills.auto_load</code> settings key — pin named skills to load into every new session's prompt</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>hermes sessions set-journal-mode</code> — convert <code>state.db</code>'s SQLite journal mode after every Hermes process for the profile stops</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>mcp.discovery_concurrency</code> settings key (unverified) — named in the release notes as a configurable MCP discovery connect cap, not yet in the reference docs</span></li>
+                            </ul>
+                        </div>
 
                         <div class="change-section">
                             <h3 id="rel-0-21-3">Hermes Agent v0.21.3 (2026.9.14) <span class="version-date">2026-09-14</span></h3>
@@ -207,7 +217,7 @@
         </div>
 
         <footer class="global-footer">
-            Template v1.0 · Content synced 2026-09-14<br>
+            Template v1.0 · Content synced 2026-09-21<br>
             <span class="disclaimer">Unofficial community reference — not affiliated with or endorsed by Nous Research.
             Condensed from the official docs; always confirm against
             <a href="https://hermes-agent.nousresearch.com/docs/" target="_blank" rel="noopener noreferrer">hermes-agent.nousresearch.com/docs</a>.</span><br>
