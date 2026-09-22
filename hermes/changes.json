@@ -1,7 +1,35 @@
 {
- "generated": "2026-09-14",
- "latest": "v0.21.3",
+ "generated": "2026-09-21",
+ "latest": "v0.21.4",
  "releases": [
+  {
+   "version": "v0.21.4",
+   "label": "Hermes Agent v0.21.4 (2026.9.21)",
+   "date": "2026-09-21",
+   "id": "rel-0-21-4",
+   "entries": [
+    {
+     "tag": "ADD",
+     "item": "--format stream-json",
+     "html": "<code>--format stream-json</code> — structured JSONL output for a scripted <code>hermes chat -q</code> run, one event object per stdout line"
+    },
+    {
+     "tag": "ADD",
+     "item": "skills.auto_load",
+     "html": "<code>skills.auto_load</code> settings key — pin named skills to load into every new session's prompt"
+    },
+    {
+     "tag": "ADD",
+     "item": "hermes sessions set-journal-mode",
+     "html": "<code>hermes sessions set-journal-mode</code> — convert <code>state.db</code>'s SQLite journal mode after every Hermes process for the profile stops"
+    },
+    {
+     "tag": "ADD",
+     "item": "mcp.discovery_concurrency",
+     "html": "<code>mcp.discovery_concurrency</code> settings key (unverified) — named in the release notes as a configurable MCP discovery connect cap, not yet in the reference docs"
+    }
+   ]
+  },
   {
    "version": "v0.21.3",
    "label": "Hermes Agent v0.21.3 (2026.9.14)",
