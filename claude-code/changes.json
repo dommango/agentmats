@@ -42,9 +42,9 @@
      "html": "<code>CLAUDE_CODE_MAX_MCP_DESCRIPTION_LENGTH</code> env var — change the 2,048-character cap on MCP tool descriptions and server instructions for the session"
     },
     {
-     "tag": "ADD",
+     "tag": "CHG",
      "item": "PermissionRequest",
-     "html": "<code>PermissionRequest</code> hook — fires between <code>PreToolUse</code> and <code>PostToolUse</code> when a tool call needs a permission decision; an <code>agent</code>-type hook can no longer run here since it has no way to return a decision, and now shows an error pointing to a <code>command</code> or <code>http</code> hook instead"
+     "html": "<code>PermissionRequest</code> hook — an <code>agent</code>-type hook no longer runs here since it has no way to return a decision; shows an error pointing to a <code>command</code> or <code>http</code> hook instead"
     }
    ]
   },

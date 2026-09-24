@@ -17,7 +17,7 @@
     <id>https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-280</id>
     <link href="https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-280"/>
     <updated>2026-09-22T09:00:00Z</updated>
-    <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;CLAUDE_CODE_MAX_MCP_DESCRIPTION_LENGTH&lt;/code&gt; env var — change the 2,048-character cap on MCP tool descriptions and server instructions for the session&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;PermissionRequest&lt;/code&gt; hook — fires between &lt;code&gt;PreToolUse&lt;/code&gt; and &lt;code&gt;PostToolUse&lt;/code&gt; when a tool call needs a permission decision; an &lt;code&gt;agent&lt;/code&gt;-type hook can no longer run here since it has no way to return a decision, and now shows an error pointing to a &lt;code&gt;command&lt;/code&gt; or &lt;code&gt;http&lt;/code&gt; hook instead&lt;/li&gt;&lt;/ul&gt;</content>
+    <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;CLAUDE_CODE_MAX_MCP_DESCRIPTION_LENGTH&lt;/code&gt; env var — change the 2,048-character cap on MCP tool descriptions and server instructions for the session&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;PermissionRequest&lt;/code&gt; hook — an &lt;code&gt;agent&lt;/code&gt;-type hook no longer runs here since it has no way to return a decision; shows an error pointing to a &lt;code&gt;command&lt;/code&gt; or &lt;code&gt;http&lt;/code&gt; hook instead&lt;/li&gt;&lt;/ul&gt;</content>
   </entry>
   <entry>
     <title>CC v2.1.278 — 2 placemat changes</title>
