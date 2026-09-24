@@ -4,7 +4,21 @@
   <link href="https://dommango.github.io/agentmats/claude-code/"/>
   <link rel="self" href="https://dommango.github.io/agentmats/claude-code/feed.xml"/>
   <id>https://dommango.github.io/agentmats/claude-code/</id>
-  <updated>2026-09-19T09:00:00Z</updated>
+  <updated>2026-09-23T09:00:00Z</updated>
+  <entry>
+    <title>CC v2.1.281 — 4 placemat changes</title>
+    <id>https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-281</id>
+    <link href="https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-281"/>
+    <updated>2026-09-23T09:00:00Z</updated>
+    <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;attribution&lt;/code&gt; setting — set to &lt;code&gt;false&lt;/code&gt; to hide all commit and PR attribution in one step; older CLI versions skip a settings file that only holds this boolean, so keep the object form in files shared across versions&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;Ctrl Enter&lt;/code&gt; / &lt;code&gt;Ctrl X Ctrl S&lt;/code&gt; send-now key — moves running tools to the background and sends all queued messages, instead of cancelling the turn outright&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;CLAUDE_CODE_AUTO_MODE_SERVER&lt;/code&gt; — also applies on a direct Anthropic API connection (&lt;code&gt;1&lt;/code&gt; opts in, &lt;code&gt;0&lt;/code&gt; opts out); where the server-side classifier runs, it now also reviews read-only and sandboxed shell commands&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;claude plugin validate&lt;/code&gt; — also flags &lt;code&gt;.mcp.json&lt;/code&gt; entries that would be silently dropped at load, undeclared &lt;code&gt;${user_config.*}&lt;/code&gt; references, and insecure URLs&lt;/li&gt;&lt;/ul&gt;</content>
+  </entry>
+  <entry>
+    <title>CC v2.1.280 — 2 placemat changes</title>
+    <id>https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-280</id>
+    <link href="https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-280"/>
+    <updated>2026-09-22T09:00:00Z</updated>
+    <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;CLAUDE_CODE_MAX_MCP_DESCRIPTION_LENGTH&lt;/code&gt; env var — change the 2,048-character cap on MCP tool descriptions and server instructions for the session&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;PermissionRequest&lt;/code&gt; hook — an &lt;code&gt;agent&lt;/code&gt;-type hook no longer runs here since it has no way to return a decision; shows an error pointing to a &lt;code&gt;command&lt;/code&gt; or &lt;code&gt;http&lt;/code&gt; hook instead&lt;/li&gt;&lt;/ul&gt;</content>
+  </entry>
   <entry>
     <title>CC v2.1.278 — 2 placemat changes</title>
     <id>https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-278</id>
@@ -130,19 +144,5 @@
     <link href="https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-246"/>
     <updated>2026-08-25T09:00:00Z</updated>
     <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;/permissions&lt;/code&gt; — new Auto mode tab for viewing and editing auto mode classifier rules&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;/cd&lt;/code&gt; — project settings, hooks, &lt;code&gt;.mcp.json&lt;/code&gt; servers (behind the usual approval prompt), skills, and agents now take effect immediately after the move instead of on &lt;code&gt;--resume&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;/code-review&lt;/code&gt; — Claude can also start it on its own on Bedrock, Vertex AI, Foundry, through the Claude apps gateway, and when telemetry or non-essential traffic is disabled&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;/goal&lt;/code&gt; — idle sessions start at most three check-ins per goal; your next message allows three more&lt;/li&gt;&lt;/ul&gt;</content>
-  </entry>
-  <entry>
-    <title>CC v2.1.243 — 6 placemat changes</title>
-    <id>https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-243</id>
-    <link href="https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-243"/>
-    <updated>2026-08-25T09:00:00Z</updated>
-    <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;modelPicker&lt;/code&gt; JSON setting — curate the &lt;code&gt;/model&lt;/code&gt; picker with an ordered, labeled list of models (any id spelling, including Vertex/Bedrock ids); entries are appended to or replace the built-in lineup&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;modelPricing&lt;/code&gt; managed setting — set an organization's contracted per-model rates and discount multiplier for &lt;code&gt;/cost&lt;/code&gt;, status line, and telemetry cost figures instead of list price&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;promptCacheTtl&lt;/code&gt; / &lt;code&gt;subagentPromptCacheTtl&lt;/code&gt; JSON settings — set a 1-hour prompt cache TTL for the main conversation while subagents stay at 5 minutes; for API-key and cloud-provider users&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;/usage&lt;/code&gt; — new Loops breakdown: per-loop run count, total tokens, tokens per run, and last run&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;/status&lt;/code&gt; — new &lt;code&gt;Skipped sources&lt;/code&gt; line listing managed settings sources present but not applied; shows GitHub connection status for Claude Code on the web (Pro/Max)&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;/mcp&lt;/code&gt; — shows a &lt;code&gt;managed&lt;/code&gt; marker on claude.ai connectors whose authentication is managed by your organization&lt;/li&gt;&lt;/ul&gt;</content>
-  </entry>
-  <entry>
-    <title>CC v2.1.239 — 6 placemat changes</title>
-    <id>https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-239</id>
-    <link href="https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-239"/>
-    <updated>2026-08-21T09:00:00Z</updated>
-    <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;claude plugin enable/disable &amp;lt;name&amp;gt;@synced&lt;/code&gt; — cloud-synced plugins from claude.ai appear as &lt;code&gt;name@synced&lt;/code&gt;; managed with &lt;code&gt;enable/disable &amp;lt;name&amp;gt;@synced&lt;/code&gt;; never override a locally installed same-named plugin&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;/claude-api upgrade&lt;/code&gt; — new subcommand; migrates Python projects from &lt;code&gt;anthropic&lt;/code&gt; 0.x to 1.x (timeouts use &lt;code&gt;anthropic.Timeout&lt;/code&gt;, not &lt;code&gt;httpx.Timeout&lt;/code&gt;)&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;/goal&lt;/code&gt; — check-ins back off (30 min → 1 h → 2 h) instead of repeating every 30 min; resuming via &lt;code&gt;claude --resume&lt;/code&gt; now restores the active goal&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;keybindingFlavor: "readline"&lt;/code&gt; — extended with word-motion keys: Alt+F and Ctrl/Option+→ stop at end of word, Alt+D deletes to it (Ctrl+Y pastes back), punctuation separates words&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;ListAgents&lt;/code&gt; / &lt;code&gt;SendMessage&lt;/code&gt; — &lt;code&gt;ListAgents&lt;/code&gt; now reports the session's own name (the identifier peers use to message it) and includes live teammates in its listing&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;CLAUDE_CODE_RETRY_WATCHDOG&lt;/code&gt; — now fails immediately on organization spend-limit and out-of-credits errors instead of waiting indefinitely&lt;/li&gt;&lt;/ul&gt;</content>
   </entry>
 </feed>

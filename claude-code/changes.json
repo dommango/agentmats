@@ -1,7 +1,53 @@
 {
- "generated": "2026-09-19",
- "latest": "v2.1.278",
+ "generated": "2026-09-23",
+ "latest": "v2.1.281",
  "releases": [
+  {
+   "version": "v2.1.281",
+   "label": "CC v2.1.281",
+   "date": "2026-09-23",
+   "id": "rel-2-1-281",
+   "entries": [
+    {
+     "tag": "ADD",
+     "item": "attribution",
+     "html": "<code>attribution</code> setting — set to <code>false</code> to hide all commit and PR attribution in one step; older CLI versions skip a settings file that only holds this boolean, so keep the object form in files shared across versions"
+    },
+    {
+     "tag": "CHG",
+     "item": "Ctrl Enter",
+     "html": "<code>Ctrl Enter</code> / <code>Ctrl X Ctrl S</code> send-now key — moves running tools to the background and sends all queued messages, instead of cancelling the turn outright"
+    },
+    {
+     "tag": "CHG",
+     "item": "CLAUDE_CODE_AUTO_MODE_SERVER",
+     "html": "<code>CLAUDE_CODE_AUTO_MODE_SERVER</code> — also applies on a direct Anthropic API connection (<code>1</code> opts in, <code>0</code> opts out); where the server-side classifier runs, it now also reviews read-only and sandboxed shell commands"
+    },
+    {
+     "tag": "CHG",
+     "item": "claude plugin validate",
+     "html": "<code>claude plugin validate</code> — also flags <code>.mcp.json</code> entries that would be silently dropped at load, undeclared <code>${user_config.*}</code> references, and insecure URLs"
+    }
+   ]
+  },
+  {
+   "version": "v2.1.280",
+   "label": "CC v2.1.280",
+   "date": "2026-09-22",
+   "id": "rel-2-1-280",
+   "entries": [
+    {
+     "tag": "ADD",
+     "item": "CLAUDE_CODE_MAX_MCP_DESCRIPTION_LENGTH",
+     "html": "<code>CLAUDE_CODE_MAX_MCP_DESCRIPTION_LENGTH</code> env var — change the 2,048-character cap on MCP tool descriptions and server instructions for the session"
+    },
+    {
+     "tag": "CHG",
+     "item": "PermissionRequest",
+     "html": "<code>PermissionRequest</code> hook — an <code>agent</code>-type hook no longer runs here since it has no way to return a decision; shows an error pointing to a <code>command</code> or <code>http</code> hook instead"
+    }
+   ]
+  },
   {
    "version": "v2.1.278",
    "label": "CC v2.1.278",
