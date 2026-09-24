@@ -163,8 +163,21 @@
                 <h3>Content / Kimi Code Releases</h3>
                 <!-- September 2026 -->
                 <details class="month-group" open>
-                    <summary>September 2026 <span class="version-date">v0.42.0 – v2.0.2</span> <span class="month-count">6 releases</span></summary>
+                    <summary>September 2026 <span class="version-date">v0.42.0 – v2.1.1</span> <span class="month-count">7 releases</span></summary>
                     <div class="month-content">
+
+                        <div class="change-section">
+                            <h3 id="rel-2-1-1">Kimi Code v2.1.0–v2.1.1 <span class="version-date">2026-09-24</span></h3>
+                            <ul class="change-list">
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>tui_mode</code> (<code>/settings</code> &rarr; TUI mode) &mdash; experimental fullscreen TUI layout; click a folded block to toggle it, with a clickable &ldquo;Jump to bottom&rdquo; indicator</span></li>
+                                <li><span class="tag tag-remove">DEL</span><span class="entry"><code>KIMI_CODE_TUI_FULL_SCREEN</code> &mdash; removed now that fullscreen is a <code>tui_mode</code> setting instead of an env flag</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>KIMI_CODE_REPEAT_BREAKER</code> &mdash; set to <code>0</code> to stop reminders and forced stops for repeated tool calls</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>[workspace].additional_dir</code> &mdash; rejects directories that resolve to the home directory or filesystem root</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry">hardened workspace security: file tools can no longer escape the working directory via symlinks, project-local config only applies once the workspace is trusted, and background git operations can no longer run commands from repository git config</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry">reduced the CLI&rsquo;s startup time and memory usage</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>[watch]</code> / <code>KIMI_CODE_WATCH</code> &mdash; briefly defaulted to off in 2.1.0; reverted to on by default in 2.1.1</span></li>
+                            </ul>
+                        </div>
 
                         <div class="change-section">
                             <h3 id="rel-2-0-2">Kimi Code v2.0.2 <span class="version-date">2026-09-19</span></h3>
@@ -248,7 +261,7 @@
         </div>
 
         <footer class="global-footer">
-            Template v1.0 · Content synced 2026-09-19<br>
+            Template v1.0 · Content synced 2026-09-24<br>
             <span class="disclaimer">Unofficial community reference — not affiliated with or endorsed by Moonshot AI.
             Condensed from the official docs; always confirm against
             <a href="https://moonshotai.github.io/kimi-code/" target="_blank" rel="noopener noreferrer">moonshotai.github.io/kimi-code</a>.</span><br>

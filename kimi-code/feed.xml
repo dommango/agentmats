@@ -4,7 +4,14 @@
   <link href="https://dommango.github.io/agentmats/kimi-code/"/>
   <link rel="self" href="https://dommango.github.io/agentmats/kimi-code/feed.xml"/>
   <id>https://dommango.github.io/agentmats/kimi-code/</id>
-  <updated>2026-09-19T09:00:00Z</updated>
+  <updated>2026-09-24T09:00:00Z</updated>
+  <entry>
+    <title>Kimi Code v2.1.0–v2.1.1 — 7 placemat changes</title>
+    <id>https://dommango.github.io/agentmats/kimi-code/changelog.html#rel-2-1-1</id>
+    <link href="https://dommango.github.io/agentmats/kimi-code/changelog.html#rel-2-1-1"/>
+    <updated>2026-09-24T09:00:00Z</updated>
+    <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;tui_mode&lt;/code&gt; (&lt;code&gt;/settings&lt;/code&gt; &amp;rarr; TUI mode) &amp;mdash; experimental fullscreen TUI layout; click a folded block to toggle it, with a clickable &amp;ldquo;Jump to bottom&amp;rdquo; indicator&lt;/li&gt;&lt;li&gt;&lt;b&gt;DEL&lt;/b&gt; &lt;code&gt;KIMI_CODE_TUI_FULL_SCREEN&lt;/code&gt; &amp;mdash; removed now that fullscreen is a &lt;code&gt;tui_mode&lt;/code&gt; setting instead of an env flag&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;KIMI_CODE_REPEAT_BREAKER&lt;/code&gt; &amp;mdash; set to &lt;code&gt;0&lt;/code&gt; to stop reminders and forced stops for repeated tool calls&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;[workspace].additional_dir&lt;/code&gt; &amp;mdash; rejects directories that resolve to the home directory or filesystem root&lt;/li&gt;&lt;li&gt;&lt;b&gt;FIX&lt;/b&gt; hardened workspace security: file tools can no longer escape the working directory via symlinks, project-local config only applies once the workspace is trusted, and background git operations can no longer run commands from repository git config&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; reduced the CLI&amp;rsquo;s startup time and memory usage&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;[watch]&lt;/code&gt; / &lt;code&gt;KIMI_CODE_WATCH&lt;/code&gt; &amp;mdash; briefly defaulted to off in 2.1.0; reverted to on by default in 2.1.1&lt;/li&gt;&lt;/ul&gt;</content>
+  </entry>
   <entry>
     <title>Kimi Code v2.0.2 — 4 placemat changes</title>
     <id>https://dommango.github.io/agentmats/kimi-code/changelog.html#rel-2-0-2</id>
