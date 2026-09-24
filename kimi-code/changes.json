@@ -1,7 +1,50 @@
 {
- "generated": "2026-09-19",
- "latest": "v2.0.2",
+ "generated": "2026-09-24",
+ "latest": "v2.1.1",
  "releases": [
+  {
+   "version": "v2.1.1",
+   "label": "Kimi Code v2.1.0&ndash;v2.1.1",
+   "date": "2026-09-24",
+   "id": "rel-2-1-1",
+   "entries": [
+    {
+     "tag": "ADD",
+     "item": "tui_mode",
+     "html": "<code>tui_mode</code> (<code>/settings</code> &rarr; TUI mode) &mdash; experimental fullscreen TUI layout; click a folded block to toggle it, with a clickable &ldquo;Jump to bottom&rdquo; indicator"
+    },
+    {
+     "tag": "DEL",
+     "item": "KIMI_CODE_TUI_FULL_SCREEN",
+     "html": "<code>KIMI_CODE_TUI_FULL_SCREEN</code> &mdash; removed now that fullscreen is a <code>tui_mode</code> setting instead of an env flag"
+    },
+    {
+     "tag": "ADD",
+     "item": "KIMI_CODE_REPEAT_BREAKER",
+     "html": "<code>KIMI_CODE_REPEAT_BREAKER</code> &mdash; set to <code>0</code> to stop reminders and forced stops for repeated tool calls"
+    },
+    {
+     "tag": "CHG",
+     "item": "[workspace].additional_dir",
+     "html": "<code>[workspace].additional_dir</code> &mdash; rejects directories that resolve to the home directory or filesystem root"
+    },
+    {
+     "tag": "FIX",
+     "item": null,
+     "html": "hardened workspace security: file tools can no longer escape the working directory via symlinks, project-local config only applies once the workspace is trusted, and background git operations can no longer run commands from repository git config"
+    },
+    {
+     "tag": "CHG",
+     "item": null,
+     "html": "reduced the CLI&rsquo;s startup time and memory usage"
+    },
+    {
+     "tag": "CHG",
+     "item": "[watch]",
+     "html": "<code>[watch]</code> / <code>KIMI_CODE_WATCH</code> &mdash; briefly defaulted to off in 2.1.0; reverted to on by default in 2.1.1"
+    }
+   ]
+  },
   {
    "version": "v2.0.2",
    "label": "Kimi Code v2.0.2",

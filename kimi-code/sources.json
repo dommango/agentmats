@@ -36,7 +36,7 @@
   ],
   "inventory": {
     "source": "https://moonshotai.github.io/kimi-code/en/reference/slash-commands.md, https://moonshotai.github.io/kimi-code/en/configuration/config-files.md, https://moonshotai.github.io/kimi-code/en/customization/hooks.md",
-    "fetched": "2026-09-19",
+    "fetched": "2026-09-24",
     "note": "Extracted from the vendor's own reference/configuration/customization docs (raw .md). release-notes/changelog.md was used only to confirm the current release, never as a source of surface facts.",
     "slash": [
       "/login", "/logout", "/provider", "/model", "/secondary-model", "/subagent-model",
@@ -96,7 +96,7 @@
       "disable_feedback_survey",
       "editor.command", "notifications.enabled", "notifications.notification_condition",
       "upgrade.auto_install", "status_line.items", "status_line.command",
-      "workspace.additional_dir"
+      "workspace.additional_dir", "tui_mode"
     ],
     "hooks": [
       "UserPromptSubmit", "UserPromptQueued", "PreToolUse", "PostToolUse",

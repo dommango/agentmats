@@ -48,7 +48,7 @@
             <span class="header-tagline">Unofficial · auto-updated reference</span>
         </div>
         <div class="global-controls">
-            <span class="release-tag">As of release: v2.0.2</span>
+            <span class="release-tag">As of release: v2.1.1</span>
             <a href="changelog.html" class="header-link">Changelog →</a>
             <a href="feed.xml" class="header-link" title="Subscribe to placemat changes (RSS)">RSS</a>
             <button type="button" class="header-link print-btn" id="printBtn" title="Print or save as PDF (Ctrl P)">⎙ Print</button>
@@ -85,7 +85,7 @@
 
         <div class="print-head" aria-hidden="true">
             <span class="print-head-title">Kimi Code <b>PLACEMAT</b></span>
-            <span>As of release v2.0.2</span>
+            <span>As of release v2.1.1</span>
             <span>■ = new &nbsp; □ = unverified</span>
             <span>dommango.github.io/agentmats/kimi-code</span>
         </div>
@@ -415,6 +415,7 @@
                 <table>
                     <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
                     <tr class="search-item" id="i-theme-2"><td><a class="row-link" href="#i-theme-2" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>theme</code></td><td class="desc">Colour theme: <code>auto</code>, <code>dark</code>, <code>light</code> or a custom theme name</td></tr>
+                    <tr class="search-item" id="i-tui-mode"><td><a class="row-link" href="#i-tui-mode" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>tui_mode</code></td><td class="desc"><span class="summary">UI layout: <code>regular</code> (default) or the experimental <code>fullscreen</code> mode</span> <button type="button" class="notes-btn" aria-expanded="false">+2</button><ul class="notes" hidden><li>Toggle from the TUI mode setting in <code>/settings</code>, or set <code>tui_mode</code> directly in <code>tui.toml</code>; applies after restart or <code>/reload-tui</code>.</li><li>In fullscreen, click a folded block to open or close it, and use the clickable &ldquo;Jump to bottom&rdquo; indicator.</li></ul></td></tr>
                     <tr class="search-item" id="i-render-latex"><td><a class="row-link" href="#i-render-latex" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>render_latex</code> / <code>disable_paste_burst</code></td><td class="desc"><span class="summary">Render LaTeX in messages as Unicode text; <code>false</code> keeps the raw source</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li><code>disable_paste_burst</code> turns off the fallback that keeps rapid multi-line pastes from submitting line by line.</li></ul></td></tr>
                     <tr class="search-item" id="i-cache-expiry-hint"><td><a class="row-link" href="#i-cache-expiry-hint" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>cache_expiry_hint</code> / <code>disable_feedback_survey</code></td><td class="desc"><span class="summary">Warn that the context cache may have expired on resume or after a long idle</span> <button type="button" class="notes-btn" aria-expanded="false">+2</button><ul class="notes" hidden><li>v2 engine only; offers to compact or start a new session.</li><li><code>disable_feedback_survey</code> hides the occasional session rating prompt.</li></ul></td></tr>
                     <tr class="search-item" id="i-editor-command"><td><a class="row-link" href="#i-editor-command" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>[editor].command</code></td><td class="desc">External editor command; empty falls back to <code>$VISUAL</code> / <code>$EDITOR</code></td></tr>
@@ -430,7 +431,7 @@
                 <summary><h3>Project-local</h3><span class="group-count"></span></summary>
                 <table>
                     <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
-                    <tr class="search-item" id="i-workspace-additional-dir"><td><a class="row-link" href="#i-workspace-additional-dir" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>[workspace].additional_dir</code></td><td class="desc">Extra absolute workspace directories for every session of this project</td></tr>
+                    <tr class="search-item" id="i-workspace-additional-dir"><td><a class="row-link" href="#i-workspace-additional-dir" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>[workspace].additional_dir</code></td><td class="desc"><span class="summary">Extra absolute workspace directories for every session of this project</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Rejects directories that resolve to the home directory or filesystem root.</li></ul></td></tr>
                 </table>
             </details>
         </div>
@@ -474,6 +475,7 @@
                     <tr class="search-item" id="i-kimi-disable-cron"><td><a class="row-link" href="#i-kimi-disable-cron" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>KIMI_DISABLE_CRON</code></td><td class="desc"><span class="summary">Disable the scheduled-task tool</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li><code>CronCreate</code> rejects new schedules and existing tasks stop firing.</li></ul></td></tr>
                     <tr class="search-item" id="i-kimi-code-infinite-retry"><td><a class="row-link" href="#i-kimi-code-infinite-retry" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>KIMI_CODE_INFINITE_RETRY</code></td><td class="desc"><span class="summary">Retry failed LLM requests indefinitely</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Exponential backoff capped at 32 s, honouring <code>Retry-After</code>; aborting still cancels immediately.</li></ul></td></tr>
                     <tr class="search-item" id="i-kimi-code-permission-mode-reminder"><td><a class="row-link" href="#i-kimi-code-permission-mode-reminder" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>KIMI_CODE_PERMISSION_MODE_REMINDER</code></td><td class="desc">Set to <code>0</code> to stop injecting the auto permission-mode reminders into the model context</td></tr>
+                    <tr class="search-item" id="i-kimi-code-repeat-breaker"><td><a class="row-link" href="#i-kimi-code-repeat-breaker" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>KIMI_CODE_REPEAT_BREAKER</code></td><td class="desc">Set to <code>0</code> to stop reminders and forced stops for repeated tool calls</td></tr>
                     <tr class="search-item" id="i-kimi-code-watch"><td><a class="row-link" href="#i-kimi-code-watch" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>KIMI_CODE_WATCH</code></td><td class="desc"><span class="summary">Disable filesystem watchers for config and skill files</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Overrides <code>[watch] enabled</code> in <code>config.toml</code>; added in 2.0.1.</li></ul></td></tr>
                 </table>
             </details>
@@ -484,7 +486,7 @@
                     <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
                     <tr class="search-item" id="i-kimi-code-experimental-flag"><td><a class="row-link" href="#i-kimi-code-experimental-flag" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>KIMI_CODE_EXPERIMENTAL_FLAG</code></td><td class="desc"><span class="summary">Enable every registered experimental feature for this process</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Experimental flags are short-lived: 0.42.0 removed <code>KIMI_CODE_EXPERIMENTAL_REMOTE_CONTROL</code> and <code>KIMI_CODE_EXPERIMENTAL_SECONDARY_MODEL</code> once those features became always-on.</li></ul></td></tr>
                     <tr class="search-item" id="i-kimi-code-experimental-subagent-fork"><td><a class="row-link" href="#i-kimi-code-experimental-subagent-fork" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>KIMI_CODE_EXPERIMENTAL_SUBAGENT_FORK</code></td><td class="desc">Start a subagent from a snapshot of the caller&rsquo;s history</td></tr>
-                    <tr class="search-item" id="i-kimi-code-tui-full-screen"><td><a class="row-link" href="#i-kimi-code-tui-full-screen" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>KIMI_CODE_TUI_FULL_SCREEN</code></td><td class="desc"><span class="summary">Experimental fullscreen UI</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Scrollable transcript, mouse selection, clickable links and <code>Ctrl-Shift-F</code> search.</li></ul></td></tr>
+                    <tr class="search-item" id="i-kimi-code-tui-full-screen"><td><a class="row-link" href="#i-kimi-code-tui-full-screen" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>KIMI_CODE_TUI_FULL_SCREEN</code></td><td class="desc"><span class="summary">Retired flag for the experimental fullscreen UI</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Removed in 2.1.0; the fullscreen layout is a <code>tui_mode</code> setting now, toggled from <code>/settings</code> or <code>tui.toml</code>.</li></ul></td></tr>
                     <tr class="search-item" id="i-kimi-code-search-worker"><td><a class="row-link" href="#i-kimi-code-search-worker" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>KIMI_CODE_SEARCH_WORKER</code> / <code>KIMI_CODE_PERSISTENCE_MINIDB_READMODEL</code></td><td class="desc"><span class="summary">Run the global search index in a dedicated worker thread</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Replaced the experimental minidb flags in 0.42.0; both default to on and map to <code>[database]</code>.</li></ul></td></tr>
                 </table>
             </details>
@@ -596,7 +598,7 @@
         <div class="no-results search-exclude" id="noResults">No matches — clear search to see everything.</div>
 
         <footer class="global-footer">
-            Template v1.0 · Content synced 2026-09-19<br>
+            Template v1.0 · Content synced 2026-09-24<br>
             <span class="disclaimer">Unofficial community reference — not affiliated with or endorsed by Moonshot AI.
             Condensed from the official docs; always confirm against
             <a href="https://moonshotai.github.io/kimi-code/" target="_blank" rel="noopener noreferrer">moonshotai.github.io/kimi-code</a>.</span><br>
