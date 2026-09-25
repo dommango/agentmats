@@ -163,8 +163,27 @@
                 <h3>Content / Codex CLI Releases</h3>
                 <!-- September 2026 -->
                 <details class="month-group" open>
-                    <summary>September 2026 <span class="version-date">v0.154.0 – v0.155.1</span> <span class="month-count">3 releases</span></summary>
+                    <summary>September 2026 <span class="version-date">v0.154.0 – v0.157.0</span> <span class="month-count">6 releases</span></summary>
                     <div class="month-content">
+
+                        <div class="change-section">
+                            <h3 id="rel-0-157-0">Codex CLI v0.157.0 <span class="version-date">2026-09-25</span></h3>
+                            <ul class="change-list">
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>/import</code> (<code>card-slash-tools</code>) — now works in remote and local background-server sessions, not just plain interactive ones</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>codex app-server</code> (<code>card-cli</code>) — can now start automatically for qualifying interactive sessions, with a recovery prompt when existing settings are incompatible</span></li>
+                            </ul>
+                        </div>
+
+                        <div class="change-section">
+                            <h3 id="rel-0-156-0">Codex CLI v0.156.0 <span class="version-date">2026-09-22</span></h3>
+                            <ul class="change-list">
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>/tui</code> (<code>card-keys</code>) — fullscreen terminal transcript interface with transcript search, mouse selection and right-click copying; <code>unverified</code></span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>/daemon</code> (<code>card-slash-tools</code>) — updates the local background-server daemon from the TUI; <code>unverified</code></span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>--no-daemon</code> (<code>card-cli</code>) — opts a run out of the shared background-server daemon; <code>unverified</code></span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>--worktree</code> (<code>card-cli</code>) — worktree sessions are now enabled by default, with browsing and status filtering added to the agent command center</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>/usage</code> (<code>card-slash-tools</code>) — the usage view now also surfaces plugin and skill activity alongside token totals</span></li>
+                            </ul>
+                        </div>
 
                         <div class="change-section">
                             <h3 id="rel-0-155-1">Codex CLI v0.155.0–v0.155.1 <span class="version-date">2026-09-18</span></h3>
@@ -201,12 +220,13 @@
                     <li><span class="tag tag-remove">DEL</span><span class="entry">Command builder — it generated <code>claude</code> invocations and did not carry over</span></li>
                     <li><span class="tag tag-fix">FIX</span><span class="entry"><code>sources.json</code> gained a vendor-extracted <code>inventory</code> (54 slash commands, 224 settings keys, 12 hook events, sourced from <code>developer-commands.md</code>, <code>config-reference.md</code>, <code>config-basic.md</code> and <code>hooks.md</code>); <code>codex</code> is now under the inventory gate in <code>tests/placemat.test.js</code></span></li>
                     <li><span class="tag tag-fix">FIX</span><span class="entry">Marked <code>mcp_oauth_callback_port</code> and <code>mcp_optional_startup_grace_ms</code> (<code>card-hooks</code>) <code>unverified</code> — both are confirmed <code>config.toml</code> keys, but the inventory gate reads every bare-word chip in <code>card-hooks</code> as a hook-event candidate, and neither is a hook event</span></li>
+                    <li><span class="tag tag-fix">FIX</span><span class="entry">Marked the v0.156.0 additions <code>/tui</code>, <code>/daemon</code> and <code>--no-daemon</code> <code>unverified</code> — <code>learn.chatgpt.com</code> (developer-commands, config-reference, hooks) was unreachable from the sync sandbox this run, so <code>sources.json → inventory</code> was not re-extracted; promote them once a future sync confirms against the docs</span></li>
                 </ul>
             </div>
         </div>
 
         <footer class="global-footer">
-            Template v1.0 · Content synced 2026-09-18<br>
+            Template v1.0 · Content synced 2026-09-25<br>
             <span class="disclaimer">Unofficial community reference — not affiliated with or endorsed by OpenAI.
             Condensed from the official docs; always confirm against
             <a href="https://developers.openai.com/codex" target="_blank" rel="noopener noreferrer">developers.openai.com/codex</a>.</span><br>

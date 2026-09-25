@@ -1,7 +1,58 @@
 {
- "generated": "2026-09-18",
- "latest": "v0.155.1",
+ "generated": "2026-09-25",
+ "latest": "v0.157.0",
  "releases": [
+  {
+   "version": "v0.157.0",
+   "label": "Codex CLI v0.157.0",
+   "date": "2026-09-25",
+   "id": "rel-0-157-0",
+   "entries": [
+    {
+     "tag": "CHG",
+     "item": "/import",
+     "html": "<code>/import</code> (<code>card-slash-tools</code>) — now works in remote and local background-server sessions, not just plain interactive ones"
+    },
+    {
+     "tag": "CHG",
+     "item": "codex app-server",
+     "html": "<code>codex app-server</code> (<code>card-cli</code>) — can now start automatically for qualifying interactive sessions, with a recovery prompt when existing settings are incompatible"
+    }
+   ]
+  },
+  {
+   "version": "v0.156.0",
+   "label": "Codex CLI v0.156.0",
+   "date": "2026-09-22",
+   "id": "rel-0-156-0",
+   "entries": [
+    {
+     "tag": "ADD",
+     "item": "/tui",
+     "html": "<code>/tui</code> (<code>card-keys</code>) — fullscreen terminal transcript interface with transcript search, mouse selection and right-click copying; <code>unverified</code>"
+    },
+    {
+     "tag": "ADD",
+     "item": "/daemon",
+     "html": "<code>/daemon</code> (<code>card-slash-tools</code>) — updates the local background-server daemon from the TUI; <code>unverified</code>"
+    },
+    {
+     "tag": "ADD",
+     "item": "--no-daemon",
+     "html": "<code>--no-daemon</code> (<code>card-cli</code>) — opts a run out of the shared background-server daemon; <code>unverified</code>"
+    },
+    {
+     "tag": "CHG",
+     "item": "--worktree",
+     "html": "<code>--worktree</code> (<code>card-cli</code>) — worktree sessions are now enabled by default, with browsing and status filtering added to the agent command center"
+    },
+    {
+     "tag": "CHG",
+     "item": "/usage",
+     "html": "<code>/usage</code> (<code>card-slash-tools</code>) — the usage view now also surfaces plugin and skill activity alongside token totals"
+    }
+   ]
+  },
   {
    "version": "v0.155.1",
    "label": "Codex CLI v0.155.0–v0.155.1",
