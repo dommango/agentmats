@@ -4,7 +4,11 @@
   "version_poll": {
     "url": "https://api.github.com/repos/openai/codex/releases?per_page=30",
     "filter": "tag_name starts with 'rust-v' AND prerelease == false AND draft == false",
-    "transform": "version = tag_name without 'rust-v' prefix"
+    "transform": "version = tag_name without 'rust-v' prefix",
+    "fallbacks": [
+      "https://github.com/openai/codex/releases.atom",
+      "https://github.com/openai/codex/releases"
+    ]
   },
   "cross_check": "https://registry.npmjs.org/@openai/codex (dist-tags.latest)",
   "release_notes": "Use the release body ABOVE the '## Changelog' heading only; below it is auto-generated PR spam.",
@@ -25,6 +29,8 @@
     "changelog_page": "https://learn.chatgpt.com/docs/changelog"
   },
   "gotchas": [
+    "api.github.com is gated in the routine sandbox ('GitHub access to this repository is not enabled for this session') even though it works from other contexts — fall through to version_poll.fallbacks",
+    "version_poll.fallbacks: github.com/openai/codex/releases.atom (works when api.github.com is gated) paired with the /releases HTML page, since the atom feed carries no prerelease flag",
     "developers.openai.com/codex/* 308-redirects to learn.chatgpt.com — follow redirects, expect URL churn",
     "Append .md for raw markdown; the global-flags table is a client-rendered <ConfigTable> stub in .md — use `codex --help` instead",
     "The whole config reference is one <ConfigTable options={[...]}> JS array, not a markdown table — parse the key/type/description entries",

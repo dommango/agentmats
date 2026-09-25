@@ -222,15 +222,18 @@ versioned, not in the routine prompt, so fixing a pipeline is a normal PR.
 Branch `claude/<agent>-update-v<version>`, commit
 `feat(<agent>): update placemat for <Name> v<version>`, PR to `main`.
 
-**Merge gate:** the routine spawns a `code-reviewer` subagent against its own
-diff — independent of the pipeline's Step 8 self-review — and only merges on a
-clean result. No CRITICAL/HIGH finding → squash-merge immediately, no human
-involved. Any CRITICAL/HIGH finding → one fix-and-re-review pass; if the
-finding still stands, the PR stays open with the findings posted as a comment
-and nothing merges. This formalizes the review pass that caught three
-runtime-breaking defects in the Antigravity rebuild (PR #11) before they
-reached `main` — the same check now runs on every sync instead of depending on
-someone doing it by hand.
+**Merge gate:** the routine runs the `code-review` skill against its own diff —
+independent of the pipeline's Step 8 self-review, and posted as a PR comment
+before merging either way, clean or not — and only merges on a clean result
+with both CI checks green. No CRITICAL/HIGH finding → merge via the GitHub MCP
+and delete the branch explicitly, no human involved. Any CRITICAL/HIGH finding
+→ one fix-and-re-review pass; if the finding still stands, the PR stays open
+with the findings posted as a comment and nothing merges. This formalizes the
+review pass that caught three runtime-breaking defects in the Antigravity
+rebuild (PR #11) before they reached `main` — the same check now runs on every
+sync instead of depending on someone doing it by hand. (The routine sandbox
+has neither the `Task`/Agent tool nor `gh`, which is why this is a skill
+invocation and an MCP merge rather than a spawned subagent and `gh pr merge`.)
 
 **If there is no release newer than the placemat's current "As of release"
 version, the run exits silently — no commits, no PR, no output.** A routine
@@ -241,6 +244,17 @@ identical from the outside: both produce nothing. Do not "fix" this by making
 the routine chatty. The signal belongs in the scheduler's own run record — if a
 sync looks overdue, check that the routine ran at all before assuming the poll
 was wrong.
+
+**A run that cannot reach its declared sources is a third outcome, distinct
+from both of the above:** it fails loudly rather than reporting "nothing
+newer", and — on top of the usual push notification — opens or comments on a
+GitHub issue titled `sync blocked: <agent>` so the block survives and is
+queryable instead of only existing in an ephemeral push. Each agent's
+`sources.json → version_poll.fallbacks` declares, in order, the only sources a
+run may fall back to when the primary is unreachable; an undeclared substitute
+is never acceptable, even one that has worked before. `api.github.com` in
+particular is gated in the routine sandbox regardless of which agent is
+running. See each `<agent>/PIPELINE.md` for the exact mechanics.
 
 ## Contributing
 

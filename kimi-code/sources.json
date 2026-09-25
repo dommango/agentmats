@@ -4,7 +4,10 @@
   "version_poll": {
     "url": "https://moonshotai.github.io/kimi-code/en/release-notes/changelog.md",
     "filter": "top '## X.Y.Z (YYYY-MM-DD)' heading",
-    "transform": "version = heading version; sections Features/Polish/Bug Fixes are the release notes"
+    "transform": "version = heading version; sections Features/Polish/Bug Fixes are the release notes",
+    "fallbacks": [
+      "https://raw.githubusercontent.com/MoonshotAI/kimi-code/main/docs/en/release-notes/changelog.md"
+    ]
   },
   "cross_check": "https://api.github.com/repos/MoonshotAI/kimi-code/releases (strip tag prefix '@moonshot-ai/kimi-code@'); https://registry.npmjs.org/@moonshot-ai/kimi-code",
   "release_notes": "Use the curated docs changelog blocks; EXCLUDE entries prefixed 'web:' (web UI, not the CLI). Deep technical detail: https://raw.githubusercontent.com/MoonshotAI/kimi-code/main/apps/kimi-code/CHANGELOG.md",
@@ -27,6 +30,7 @@
   },
   "local_binary": "~/.kimi-code/bin/kimi --help (the binary is `kimi`, not `kimi-code`) — useful ground truth, but check its version against the release being synced",
   "gotchas": [
+    "moonshotai.github.io is blocked in the routine sandbox — version_poll.fallbacks declares the raw.githubusercontent.com docs mirror as the sanctioned substitute; never improvise a different one",
     "Docs are bilingual — only use /en/ pages; llms.txt interleaves /zh/ entries",
     "Binary is `kimi`, package/repo are kimi-code; ignore stale 'kimi-cli' content elsewhere",
     "KIMI_CODE_EXPERIMENTAL_* env flags churn within ~2 releases — expect DEL entries when a feature becomes always-on",

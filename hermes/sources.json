@@ -4,7 +4,10 @@
   "version_poll": {
     "url": "https://api.github.com/repos/NousResearch/hermes-agent/releases",
     "filter": "newest non-draft, non-prerelease release",
-    "transform": "date tag vYYYY.M.D(.N) from tag_name; semver app version from the release title, e.g. 'Hermes Agent v0.21.2 (v2026.9.11)'; display 'vX.Y.Z (YYYY.M.D)'; use the semver for the changelog id"
+    "transform": "date tag vYYYY.M.D(.N) from tag_name; semver app version from the release title, e.g. 'Hermes Agent v0.21.2 (v2026.9.11)'; display 'vX.Y.Z (YYYY.M.D)'; use the semver for the changelog id",
+    "fallbacks": [
+      "https://github.com/NousResearch/hermes-agent/releases"
+    ]
   },
   "cross_check": "release title vs tag; NEVER use PyPI hermes-agent (lags badly)",
   "release_notes": "Narrative essays covering hundreds of commits — summarize, extracting ONLY items touching the scope_allowlist surface; ignore everything else.",
@@ -92,6 +95,7 @@
     "subscription"
   ],
   "gotchas": [
+    "api.github.com is gated in the routine sandbox ('GitHub access to this repository is not enabled for this session') even though it works from other contexts — fall through to version_poll.fallbacks",
     "General-purpose agent — placemat covers the CLI/TUI coding surface ONLY (scope_allowlist); never add anything on the scope_denylist",
     "The docs site 404s on .md — ALWAYS fetch markdown from raw_mirror instead",
     "Dual versioning: date tag + semver title; tag date can differ from publish date; same-day .N patch tags",
