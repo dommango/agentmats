@@ -565,6 +565,21 @@ for (const agent of targets) {
       `not on the vendor inventory and not marked unverified: ${offenders.join(', ')}`);
   });
 
+  // Contractual fallbacks (rec 3, placemat-sync-audit): a declared source_poll.fallbacks
+  // entry is an ordered array of real https URLs, never an empty placeholder that would
+  // silently permit "no fallback worked" to fall through as if none were declared.
+  test(`${agent}: sources.json version_poll.fallbacks, when declared, is a non-empty ordered array of URLs`, () => {
+    const manifest = JSON.parse(read(`${agent}/sources.json`));
+    const fallbacks = manifest.version_poll && manifest.version_poll.fallbacks;
+    if (fallbacks === undefined) return;
+    assert.ok(Array.isArray(fallbacks) && fallbacks.length > 0,
+      'version_poll.fallbacks must be a non-empty array when declared');
+    fallbacks.forEach((url) => {
+      assert.strictEqual(typeof url, 'string', `fallback entry is not a string: ${url}`);
+      assert.ok(/^https:\/\/\S+$/.test(url), `fallback is not an https URL: ${url}`);
+    });
+  });
+
   test(`${agent}: og:image, twitter card and canonical are present on both pages`, () => {
     [html, changelog].forEach((page) => {
       assert.ok(page.includes(`<meta property="og:image" content="${SITE}og-image.png">`), 'og:image missing or wrong');
