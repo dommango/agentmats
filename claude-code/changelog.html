@@ -163,8 +163,16 @@
                 <h3>Content / CC Release Updates</h3>
                 <!-- September 2026 -->
                 <details class="month-group" open>
-                    <summary>September 2026 <span class="version-date">v2.1.265 – v2.1.281</span> <span class="month-count">12 releases</span></summary>
+                    <summary>September 2026 <span class="version-date">v2.1.265 – v2.1.282</span> <span class="month-count">13 releases</span></summary>
                     <div class="month-content">
+
+                        <div class="change-section">
+                            <h3 id="rel-2-1-282">CC v2.1.282 <span class="version-date">2026-09-24</span></h3>
+                            <ul class="change-list">
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>maxProseWidth</code> setting — caps the width of Claude's prose in wide terminals; tables and code blocks keep the full width</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>allowClaudeInChromeWithManagedMcp</code> managed setting — let <code>claude --chrome</code> run alongside an exclusive <code>managed-mcp.json</code>; the error shown when Chrome is blocked now names it</span></li>
+                            </ul>
+                        </div>
 
                         <div class="change-section">
                             <h3 id="rel-2-1-281">CC v2.1.281 <span class="version-date">2026-09-23</span></h3>
@@ -1454,7 +1462,7 @@
         </div>
 
         <footer class="global-footer">
-            Template v1.2 · Content synced 2026-09-23<br>
+            Template v1.2 · Content synced 2026-09-24<br>
             <span class="disclaimer">Unofficial community reference — not affiliated with or endorsed by Anthropic.
             Condensed from the official docs; always confirm against
             <a href="https://code.claude.com/docs" target="_blank" rel="noopener noreferrer">code.claude.com/docs</a>.</span><br>

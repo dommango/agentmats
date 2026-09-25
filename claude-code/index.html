@@ -48,7 +48,7 @@
             <span class="header-tagline">Unofficial · auto-updated reference</span>
         </div>
         <div class="global-controls">
-            <span class="release-tag">As of release: v2.1.281</span>
+            <span class="release-tag">As of release: v2.1.282</span>
             <a href="changelog.html" class="header-link">Changelog →</a>
             <a href="feed.xml" class="header-link" title="Subscribe to placemat changes (RSS)">RSS</a>
             <button type="button" class="header-link print-btn" id="printBtn" title="Print or save as PDF (Ctrl P)">⎙ Print</button>
@@ -85,7 +85,7 @@
 
         <div class="print-head" aria-hidden="true">
             <span class="print-head-title">Claude Code <b>PLACEMAT</b></span>
-            <span>As of release v2.1.281</span>
+            <span>As of release v2.1.282</span>
             <span>■ = new &nbsp; □ = unverified</span>
             <span>dommango.github.io/agentmats/claude-code</span>
         </div>
@@ -440,6 +440,7 @@
                     <tr class="search-item" id="i-feedbackdrafts"><td><a class="row-link" href="#i-feedbackdrafts" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>feedbackDrafts</code></td><td class="desc"><span class="summary">Set to <code>false</code> to stop Claude auto-drafting a feedback report</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>When enabled (default), Claude drafts a report for you to review and send via <code>/feedback</code></li></ul></td></tr>
                     <tr class="search-item" id="i-bashoutputmaxchars"><td><a class="row-link" href="#i-bashoutputmaxchars" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>bashOutputMaxChars</code> / <code>taskOutputMaxChars</code></td><td class="desc"><span class="summary">Raise how much Bash command output Claude receives inline before it is saved to a file</span> <button type="button" class="notes-btn" aria-expanded="false">+3</button><ul class="notes" hidden><li><code>bashOutputMaxChars</code> covers Bash output; the paired <code>taskOutputMaxChars</code> covered background-task output</li><li>Caps at 128K characters</li><li><code>taskOutputMaxChars</code> no longer has any effect as of v2.1.277 — the TaskOutput tool was removed, and Claude reads background task output with Read instead</li></ul></td></tr>
                     <tr class="search-item" id="i-basheditdiffenabled"><td><a class="row-link" href="#i-basheditdiffenabled" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code class="new">bashEditDiffEnabled</code> <!-- added:v2.1.269 --></td><td class="desc">Show a diff of files a Bash command changed in the tool result when the Bash tool handles file edits</td></tr>
+                    <tr class="search-item" id="i-maxprosewidth"><td><a class="row-link" href="#i-maxprosewidth" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>maxProseWidth</code></td><td class="desc">Cap the width of Claude's prose in wide terminals; tables and code blocks keep full width</td></tr>
                 </table>
             </details>
 
@@ -462,6 +463,7 @@
                     <tr class="search-item" id="i-enforceavailablemodels"><td><a class="row-link" href="#i-enforceavailablemodels" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>enforceAvailableModels</code></td><td class="desc"><span class="summary">Managed setting — the <code>availableModels</code> allowlist also constrains the Default model</span> <button type="button" class="notes-btn" aria-expanded="false">+2</button><ul class="notes" hidden><li>A Default that resolves to a disallowed model falls back to the first allowed model</li><li>User or project settings cannot widen a managed <code>availableModels</code> list</li></ul></td></tr>
                     <tr class="search-item" id="i-forcelogingatewayurl"><td><a class="row-link" href="#i-forcelogingatewayurl" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>forceLoginGatewayUrl</code></td><td class="desc"><span class="summary">Managed setting — gateway URL; machines with this set start as gateway sessions from startup</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Overrides any leftover claude.ai login or API key; behaves like <code>forceLoginMethod: "gateway"</code></li></ul></td></tr>
                     <tr class="search-item" id="i-gatewayinternalnetworks"><td><a class="row-link" href="#i-gatewayinternalnetworks" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code class="new">gatewayInternalNetworks</code> <!-- added:v2.1.268 --></td><td class="desc">Managed setting — allow <code>/login</code> to a Claude apps gateway on the organization's own public IPv4 block</td></tr>
+                    <tr class="search-item" id="i-allowclaudeinchromewithmanagedmcp"><td><a class="row-link" href="#i-allowclaudeinchromewithmanagedmcp" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>allowClaudeInChromeWithManagedMcp</code></td><td class="desc">Managed setting — let <code>claude --chrome</code> run alongside an exclusive <code>managed-mcp.json</code></td></tr>
                 </table>
             </details>
 
@@ -717,7 +719,7 @@
         <div class="no-results search-exclude" id="noResults">No matches — clear search to see everything.</div>
 
         <footer class="global-footer">
-            Template v1.2 · Content synced 2026-09-23<br>
+            Template v1.2 · Content synced 2026-09-24<br>
             <span class="disclaimer">Unofficial community reference — not affiliated with or endorsed by Anthropic.
             Condensed from the official docs; always confirm against
             <a href="https://code.claude.com/docs" target="_blank" rel="noopener noreferrer">code.claude.com/docs</a>.</span><br>
