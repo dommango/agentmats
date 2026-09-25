@@ -4,7 +4,21 @@
   <link href="https://dommango.github.io/agentmats/codex/"/>
   <link rel="self" href="https://dommango.github.io/agentmats/codex/feed.xml"/>
   <id>https://dommango.github.io/agentmats/codex/</id>
-  <updated>2026-09-18T09:00:00Z</updated>
+  <updated>2026-09-25T09:00:00Z</updated>
+  <entry>
+    <title>Codex CLI v0.157.0 — 2 placemat changes</title>
+    <id>https://dommango.github.io/agentmats/codex/changelog.html#rel-0-157-0</id>
+    <link href="https://dommango.github.io/agentmats/codex/changelog.html#rel-0-157-0"/>
+    <updated>2026-09-25T09:00:00Z</updated>
+    <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;/import&lt;/code&gt; (&lt;code&gt;card-slash-tools&lt;/code&gt;) — now works in remote and local background-server sessions, not just plain interactive ones&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;codex app-server&lt;/code&gt; (&lt;code&gt;card-cli&lt;/code&gt;) — can now start automatically for qualifying interactive sessions, with a recovery prompt when existing settings are incompatible&lt;/li&gt;&lt;/ul&gt;</content>
+  </entry>
+  <entry>
+    <title>Codex CLI v0.156.0 — 5 placemat changes</title>
+    <id>https://dommango.github.io/agentmats/codex/changelog.html#rel-0-156-0</id>
+    <link href="https://dommango.github.io/agentmats/codex/changelog.html#rel-0-156-0"/>
+    <updated>2026-09-22T09:00:00Z</updated>
+    <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;/tui&lt;/code&gt; (&lt;code&gt;card-keys&lt;/code&gt;) — fullscreen terminal transcript interface with transcript search, mouse selection and right-click copying; &lt;code&gt;unverified&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;/daemon&lt;/code&gt; (&lt;code&gt;card-slash-tools&lt;/code&gt;) — updates the local background-server daemon from the TUI; &lt;code&gt;unverified&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;--no-daemon&lt;/code&gt; (&lt;code&gt;card-cli&lt;/code&gt;) — opts a run out of the shared background-server daemon; &lt;code&gt;unverified&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;--worktree&lt;/code&gt; (&lt;code&gt;card-cli&lt;/code&gt;) — worktree sessions are now enabled by default, with browsing and status filtering added to the agent command center&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;/usage&lt;/code&gt; (&lt;code&gt;card-slash-tools&lt;/code&gt;) — the usage view now also surfaces plugin and skill activity alongside token totals&lt;/li&gt;&lt;/ul&gt;</content>
+  </entry>
   <entry>
     <title>Codex CLI v0.155.0–v0.155.1 — 2 placemat changes</title>
     <id>https://dommango.github.io/agentmats/codex/changelog.html#rel-0-155-1</id>
