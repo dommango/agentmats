@@ -4,7 +4,14 @@
   <link href="https://dommango.github.io/agentmats/claude-code/"/>
   <link rel="self" href="https://dommango.github.io/agentmats/claude-code/feed.xml"/>
   <id>https://dommango.github.io/agentmats/claude-code/</id>
-  <updated>2026-09-23T09:00:00Z</updated>
+  <updated>2026-09-24T09:00:00Z</updated>
+  <entry>
+    <title>CC v2.1.282 — 2 placemat changes</title>
+    <id>https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-282</id>
+    <link href="https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-282"/>
+    <updated>2026-09-24T09:00:00Z</updated>
+    <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;maxProseWidth&lt;/code&gt; setting — caps the width of Claude's prose in wide terminals; tables and code blocks keep the full width&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;allowClaudeInChromeWithManagedMcp&lt;/code&gt; managed setting — let &lt;code&gt;claude --chrome&lt;/code&gt; run alongside an exclusive &lt;code&gt;managed-mcp.json&lt;/code&gt;; the error shown when Chrome is blocked now names it&lt;/li&gt;&lt;/ul&gt;</content>
+  </entry>
   <entry>
     <title>CC v2.1.281 — 4 placemat changes</title>
     <id>https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-281</id>
@@ -137,12 +144,5 @@
     <link href="https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-247"/>
     <updated>2026-08-26T09:00:00Z</updated>
     <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;feedbackDrafts&lt;/code&gt; JSON setting — set to &lt;code&gt;false&lt;/code&gt; to prevent Claude from auto-drafting a feedback report when something goes wrong; draft appears in &lt;code&gt;/feedback&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;/claude-api&lt;/code&gt; — added &lt;code&gt;cost-optimize&lt;/code&gt; subcommand (profiles Claude API spend and works through cost levers); updated with Admin API coverage (organization members, invites, workspaces, API keys, rate limit reports, workload identity federation, CMEK)&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;/loop&lt;/code&gt; — self-paced dynamic mode and no-prompt autonomous default now always available, including on Bedrock, Vertex, and Foundry&lt;/li&gt;&lt;/ul&gt;</content>
-  </entry>
-  <entry>
-    <title>CC v2.1.246 — 4 placemat changes</title>
-    <id>https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-246</id>
-    <link href="https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-246"/>
-    <updated>2026-08-25T09:00:00Z</updated>
-    <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;/permissions&lt;/code&gt; — new Auto mode tab for viewing and editing auto mode classifier rules&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;/cd&lt;/code&gt; — project settings, hooks, &lt;code&gt;.mcp.json&lt;/code&gt; servers (behind the usual approval prompt), skills, and agents now take effect immediately after the move instead of on &lt;code&gt;--resume&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;/code-review&lt;/code&gt; — Claude can also start it on its own on Bedrock, Vertex AI, Foundry, through the Claude apps gateway, and when telemetry or non-essential traffic is disabled&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;/goal&lt;/code&gt; — idle sessions start at most three check-ins per goal; your next message allows three more&lt;/li&gt;&lt;/ul&gt;</content>
   </entry>
 </feed>
