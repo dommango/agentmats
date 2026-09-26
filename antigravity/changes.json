@@ -30,8 +30,8 @@
     },
     {
      "tag": "FIX",
-     "item": "GEMINI_API_KEY",
-     "html": "<code>GEMINI_API_KEY</code> (<code>card-env</code>) — noted the fix for daemon background processes lingering past run exit and hanging output-reading scripts"
+     "item": "-p",
+     "html": "<code>-p</code> (<code>card-cli</code>) — noted the fix for daemon background processes lingering past run exit and hanging output-reading scripts"
     },
     {
      "tag": "FIX",
