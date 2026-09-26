@@ -162,9 +162,34 @@
                 <h3>Content / Antigravity CLI Releases</h3>
                 <!-- September 2026 -->
                 <details class="month-group" open>
-                    <summary>September 2026 <span class="version-date">v1.2.2 – v1.2.6</span> <span class="month-count">5 releases</span></summary>
+                    <summary>September 2026 <span class="version-date">v1.2.2 – v1.2.9</span> <span class="month-count">8 releases</span></summary>
                     <div class="month-content">
 
+                        <div class="change-section">
+                            <h3 id="rel-1-2-9">Antigravity CLI v1.2.9 <span class="version-date">2026-09-23</span></h3>
+                            <ul class="change-list">
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>/agents</code> (<code>card-slash-tools</code>) — noted the <code>@&lt;subagent&gt; &lt;message&gt;</code> syntax to message a subagent directly, with autocomplete</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>/artifact</code> (<code>card-slash-tools</code>) — noted the footer pan hint added for wide diagrams in the Kitty graphics viewer</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>/rewind</code> (<code>card-slash-core</code>) — noted relative step timestamps and auto-focus on the most recent step</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>editorMode</code> (<code>card-settings</code>) — noted Vim numeric count multipliers across Normal and Visual modes</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>GEMINI_API_KEY</code> (<code>card-env</code>) — noted the fix for daemon background processes lingering past run exit and hanging output-reading scripts</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>--print-timeout &lt;dur&gt;</code> (<code>card-cli</code>) — noted the fix so background tasks wait for the timeout deadline, capped at 30 minutes, instead of canceling ~5s after the agent went idle</span></li>
+                            </ul>
+                        </div>
+                        <div class="change-section">
+                            <h3 id="rel-1-2-8">Antigravity CLI v1.2.8 <span class="version-date">2026-09-22</span></h3>
+                            <ul class="change-list">
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>Ctrl+G</code> (<code>card-keys</code>) — noted the fix for hanging with a <code>Vim: Warning: Output is not to a terminal</code> error; external editors now run against a real terminal stdout</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>/voice</code> (<code>card-slash-tools</code>) — noted dictation now auto-stops at 3 minutes 30 seconds instead of failing past 4 minutes</span></li>
+                            </ul>
+                        </div>
+                        <div class="change-section">
+                            <h3 id="rel-1-2-7">Antigravity CLI v1.2.7 <span class="version-date">2026-09-19</span></h3>
+                            <ul class="change-list">
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>/artifact</code> (<code>card-slash-tools</code>) — noted inline Kitty Graphics rendering for LaTeX math and Mermaid diagrams, with ASCII fallback and Left/Right panning</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>.agents/rules/*.md</code> (<code>card-skills</code>) — noted the dedicated 20,000-token rule budget that keeps large rule sets from evicting skills, workflows, subagents, or MCP tools</span></li>
+                            </ul>
+                        </div>
                         <div class="change-section">
                             <h3 id="rel-1-2-6">Antigravity CLI v1.2.6 <span class="version-date">2026-09-18</span></h3>
                             <ul class="change-list">
