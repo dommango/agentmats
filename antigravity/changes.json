@@ -1,7 +1,81 @@
 {
- "generated": "2026-09-18",
- "latest": "v1.2.6",
+ "generated": "2026-09-23",
+ "latest": "v1.2.9",
  "releases": [
+  {
+   "version": "v1.2.9",
+   "label": "Antigravity CLI v1.2.9",
+   "date": "2026-09-23",
+   "id": "rel-1-2-9",
+   "entries": [
+    {
+     "tag": "ADD",
+     "item": "/agents",
+     "html": "<code>/agents</code> (<code>card-slash-tools</code>) — noted the <code>@&lt;subagent&gt; &lt;message&gt;</code> syntax to message a subagent directly, with autocomplete"
+    },
+    {
+     "tag": "CHG",
+     "item": "/artifact",
+     "html": "<code>/artifact</code> (<code>card-slash-tools</code>) — noted the footer pan hint added for wide diagrams in the Kitty graphics viewer"
+    },
+    {
+     "tag": "CHG",
+     "item": "/rewind",
+     "html": "<code>/rewind</code> (<code>card-slash-core</code>) — noted relative step timestamps and auto-focus on the most recent step"
+    },
+    {
+     "tag": "CHG",
+     "item": "editorMode",
+     "html": "<code>editorMode</code> (<code>card-settings</code>) — noted Vim numeric count multipliers across Normal and Visual modes"
+    },
+    {
+     "tag": "FIX",
+     "item": "-p",
+     "html": "<code>-p</code> (<code>card-cli</code>) — noted the fix for daemon background processes lingering past run exit and hanging output-reading scripts"
+    },
+    {
+     "tag": "FIX",
+     "item": "--print-timeout <dur>",
+     "html": "<code>--print-timeout &lt;dur&gt;</code> (<code>card-cli</code>) — noted the fix so background tasks wait for the timeout deadline, capped at 30 minutes, instead of canceling ~5s after the agent went idle"
+    }
+   ]
+  },
+  {
+   "version": "v1.2.8",
+   "label": "Antigravity CLI v1.2.8",
+   "date": "2026-09-22",
+   "id": "rel-1-2-8",
+   "entries": [
+    {
+     "tag": "FIX",
+     "item": "Ctrl+G",
+     "html": "<code>Ctrl+G</code> (<code>card-keys</code>) — noted the fix for hanging with a <code>Vim: Warning: Output is not to a terminal</code> error; external editors now run against a real terminal stdout"
+    },
+    {
+     "tag": "FIX",
+     "item": "/voice",
+     "html": "<code>/voice</code> (<code>card-slash-tools</code>) — noted dictation now auto-stops at 3 minutes 30 seconds instead of failing past 4 minutes"
+    }
+   ]
+  },
+  {
+   "version": "v1.2.7",
+   "label": "Antigravity CLI v1.2.7",
+   "date": "2026-09-19",
+   "id": "rel-1-2-7",
+   "entries": [
+    {
+     "tag": "ADD",
+     "item": "/artifact",
+     "html": "<code>/artifact</code> (<code>card-slash-tools</code>) — noted inline Kitty Graphics rendering for LaTeX math and Mermaid diagrams, with ASCII fallback and Left/Right panning"
+    },
+    {
+     "tag": "CHG",
+     "item": ".agents/rules/*.md",
+     "html": "<code>.agents/rules/*.md</code> (<code>card-skills</code>) — noted the dedicated 20,000-token rule budget that keeps large rule sets from evicting skills, workflows, subagents, or MCP tools"
+    }
+   ]
+  },
   {
    "version": "v1.2.6",
    "label": "Antigravity CLI v1.2.6",
