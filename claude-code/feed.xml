@@ -4,7 +4,14 @@
   <link href="https://dommango.github.io/agentmats/claude-code/"/>
   <link rel="self" href="https://dommango.github.io/agentmats/claude-code/feed.xml"/>
   <id>https://dommango.github.io/agentmats/claude-code/</id>
-  <updated>2026-09-24T09:00:00Z</updated>
+  <updated>2026-09-25T09:00:00Z</updated>
+  <entry>
+    <title>CC v2.1.283 — 5 placemat changes</title>
+    <id>https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-283</id>
+    <link href="https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-283"/>
+    <updated>2026-09-25T09:00:00Z</updated>
+    <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;/doctor prompt-audit&lt;/code&gt; (also &lt;code&gt;/checkup prompt-audit&lt;/code&gt;) — audits CLAUDE.md files, skills, agents and commands for prompting patterns written for older models&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;availableModelsMatch&lt;/code&gt; managed setting — an &lt;code&gt;exact&lt;/code&gt; value restricts an &lt;code&gt;availableModels&lt;/code&gt; entry to that named version, so new releases of it stay blocked until listed&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;deniedModels&lt;/code&gt; managed setting — blocks specific models even when &lt;code&gt;availableModels&lt;/code&gt; allows them&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;CLAUDE_CODE_GATEWAY_HINT_HEADERS=1&lt;/code&gt; — also sends an &lt;code&gt;x-claude-code-prompt-id&lt;/code&gt; header so gateways can group the requests serving one user prompt&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;--system-prompt&lt;/code&gt; / &lt;code&gt;--append-system-prompt&lt;/code&gt; — each now combines with its &lt;code&gt;-file&lt;/code&gt; counterpart, with the file's text used first&lt;/li&gt;&lt;/ul&gt;</content>
+  </entry>
   <entry>
     <title>CC v2.1.282 — 2 placemat changes</title>
     <id>https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-282</id>
@@ -137,12 +144,5 @@
     <link href="https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-248"/>
     <updated>2026-08-27T09:00:00Z</updated>
     <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;--restricted&lt;/code&gt; CLI flag / &lt;code&gt;CLAUDE_CODE_RESTRICTED=1&lt;/code&gt; env var — removes built-in tools that run commands or code and &lt;code&gt;WebFetch&lt;/code&gt; (unless named in &lt;code&gt;--tools&lt;/code&gt;); keeps file tools inside the working directory; refuses &lt;code&gt;bypassPermissions&lt;/code&gt;; ignores user, project and local settings files&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;experimental.cacheTtl&lt;/code&gt; (agent frontmatter) — per-agent prompt cache TTL (&lt;code&gt;"5m"&lt;/code&gt; or &lt;code&gt;"1h"&lt;/code&gt;); used when no subagent TTL setting is configured in the session&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;claude self-hosted-runner --client-label &amp;lt;label&amp;gt;&lt;/code&gt; / &lt;code&gt;SELF_HOSTED_RUNNER_CLIENT_LABEL&lt;/code&gt; — override the label the runner registers with (default: hostname)&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;SendMessage&lt;/code&gt; / &lt;code&gt;ListAgents&lt;/code&gt; — cross-session messaging between sessions on the same machine now available on Bedrock, Vertex, Foundry, and when telemetry is disabled&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;/status&lt;/code&gt; — shows a line explaining a managed-settings load failure or why settings weren't fetched (e.g. Bedrock/Vertex/third-party provider, custom &lt;code&gt;ANTHROPIC_BASE_URL&lt;/code&gt;)&lt;/li&gt;&lt;/ul&gt;</content>
-  </entry>
-  <entry>
-    <title>CC v2.1.247 — 3 placemat changes</title>
-    <id>https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-247</id>
-    <link href="https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-247"/>
-    <updated>2026-08-26T09:00:00Z</updated>
-    <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;feedbackDrafts&lt;/code&gt; JSON setting — set to &lt;code&gt;false&lt;/code&gt; to prevent Claude from auto-drafting a feedback report when something goes wrong; draft appears in &lt;code&gt;/feedback&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;/claude-api&lt;/code&gt; — added &lt;code&gt;cost-optimize&lt;/code&gt; subcommand (profiles Claude API spend and works through cost levers); updated with Admin API coverage (organization members, invites, workspaces, API keys, rate limit reports, workload identity federation, CMEK)&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;/loop&lt;/code&gt; — self-paced dynamic mode and no-prompt autonomous default now always available, including on Bedrock, Vertex, and Foundry&lt;/li&gt;&lt;/ul&gt;</content>
   </entry>
 </feed>

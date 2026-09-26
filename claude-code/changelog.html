@@ -163,8 +163,19 @@
                 <h3>Content / CC Release Updates</h3>
                 <!-- September 2026 -->
                 <details class="month-group" open>
-                    <summary>September 2026 <span class="version-date">v2.1.265 – v2.1.282</span> <span class="month-count">13 releases</span></summary>
+                    <summary>September 2026 <span class="version-date">v2.1.265 – v2.1.283</span> <span class="month-count">14 releases</span></summary>
                     <div class="month-content">
+
+                        <div class="change-section">
+                            <h3 id="rel-2-1-283">CC v2.1.283 <span class="version-date">2026-09-25</span></h3>
+                            <ul class="change-list">
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>/doctor prompt-audit</code> (also <code>/checkup prompt-audit</code>) — audits CLAUDE.md files, skills, agents and commands for prompting patterns written for older models</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>availableModelsMatch</code> managed setting — an <code>exact</code> value restricts an <code>availableModels</code> entry to that named version, so new releases of it stay blocked until listed</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>deniedModels</code> managed setting — blocks specific models even when <code>availableModels</code> allows them</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>CLAUDE_CODE_GATEWAY_HINT_HEADERS=1</code> — also sends an <code>x-claude-code-prompt-id</code> header so gateways can group the requests serving one user prompt</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>--system-prompt</code> / <code>--append-system-prompt</code> — each now combines with its <code>-file</code> counterpart, with the file's text used first</span></li>
+                            </ul>
+                        </div>
 
                         <div class="change-section">
                             <h3 id="rel-2-1-282">CC v2.1.282 <span class="version-date">2026-09-24</span></h3>
@@ -1462,7 +1473,7 @@
         </div>
 
         <footer class="global-footer">
-            Template v1.2 · Content synced 2026-09-24<br>
+            Template v1.2 · Content synced 2026-09-25<br>
             <span class="disclaimer">Unofficial community reference — not affiliated with or endorsed by Anthropic.
             Condensed from the official docs; always confirm against
             <a href="https://code.claude.com/docs" target="_blank" rel="noopener noreferrer">code.claude.com/docs</a>.</span><br>
