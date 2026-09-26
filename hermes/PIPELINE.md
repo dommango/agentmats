@@ -52,16 +52,25 @@ Machine-readable sources live in `sources.json`; this file is the procedure.
     equivalent. Any CRITICAL/HIGH finding → fix it and request exactly one
     re-review; if a CRITICAL/HIGH finding still stands after that, stop — leave
     the PR open with the findings already posted as a comment, and do not merge.
+11. **Close-on-success.** Once Step 2 has reached a source (primary or a
+    declared fallback) this run, check whether a GitHub issue titled
+    `sync blocked: <agent>` is open (via the GitHub MCP) and, if so, close it
+    with a comment explaining why: cite this PR when Steps 4-10 shipped one,
+    or note that the source is reachable again with nothing newer when Step 3
+    exited silently instead. Run this check on every run that reaches a
+    source, not only ones that ship a PR — the block can clear before the
+    next new release does, so Step 3's silent no-op must not silently leave a
+    resolved issue open too.
 
 ## Sync-blocked reporting
 
 If Step 2 cannot reach the primary source and every declared fallback, in
 addition to the usual push notification: open a GitHub issue titled
 `sync blocked: <agent>` (or comment on the existing open one with that exact
-title) via the GitHub MCP, describing what was tried and why it failed. Close
-that issue the next time this agent's sync succeeds. This keeps a genuine
-block distinguishable from the correct silent no-op in Step 3 — a routine
-`status = SUCCEEDED` does not by itself mean content shipped.
+title) via the GitHub MCP, describing what was tried and why it failed. This
+keeps a genuine block distinguishable from the correct silent no-op in
+Step 3 — a routine `status = SUCCEEDED` does not by itself mean content
+shipped. Step 11 closes this issue once a later run reaches a source again.
 
 ## Hermes-specific traps
 

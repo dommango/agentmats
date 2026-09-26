@@ -580,6 +580,22 @@ for (const agent of targets) {
     });
   });
 
+  // Regression (issue #35): the close-on-success instruction used to live only
+  // inside "## Sync-blocked reporting", a section entered only when Step 2
+  // fails — so a normal successful sync never read it and never closed the
+  // open "sync blocked: <agent>" issue. It must live in the unconditional
+  // Procedure section instead.
+  test(`${agent}: PIPELINE.md's Procedure section closes the sync-blocked issue on success, unconditionally`, () => {
+    const pipeline = read(`${agent}/PIPELINE.md`);
+    const procedureMatch = pipeline.match(/## Procedure\n([\s\S]*?)\n## /);
+    assert.ok(procedureMatch, 'no ## Procedure section found');
+    const procedure = procedureMatch[1];
+    assert.ok(/sync blocked: <agent>/.test(procedure),
+      'Procedure section never mentions closing the sync-blocked issue — the close-on-success step is missing or stranded outside Procedure');
+    assert.ok(/close/i.test(procedure),
+      'Procedure section mentions the sync-blocked issue but not closing it');
+  });
+
   test(`${agent}: og:image, twitter card and canonical are present on both pages`, () => {
     [html, changelog].forEach((page) => {
       assert.ok(page.includes(`<meta property="og:image" content="${SITE}og-image.png">`), 'og:image missing or wrong');
