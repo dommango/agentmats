@@ -1,7 +1,35 @@
 {
- "generated": "2026-09-25",
- "latest": "v0.157.0",
+ "generated": "2026-09-28",
+ "latest": "v0.158.0",
  "releases": [
+  {
+   "version": "v0.158.0",
+   "label": "Codex CLI v0.158.0",
+   "date": "2026-09-28",
+   "id": "rel-0-158-0",
+   "entries": [
+    {
+     "tag": "ADD",
+     "item": "codex mcp add --oauth-client-secret",
+     "html": "<code>codex mcp add --oauth-client-secret</code> (<code>card-hooks</code>) — connects to MCP servers that require a pre-registered OAuth client secret"
+    },
+    {
+     "tag": "ADD",
+     "item": "codex exec-server --ws-auth",
+     "html": "<code>codex exec-server --ws-auth</code> (<code>card-cli</code>) — secures direct WebSocket connections with bearer tokens, matching what <code>codex app-server</code> already supported"
+    },
+    {
+     "tag": "CHG",
+     "item": "/tui",
+     "html": "<code>/tui</code> (<code>card-keys</code>) — release notes add configurable copy-on-select and right-click paste, preserving Markdown formatting in copied selections; still <code>unverified</code>"
+    },
+    {
+     "tag": "FIX",
+     "item": "--no-daemon",
+     "html": "<code>--no-daemon</code> (<code>card-cli</code>) — promoted from <code>unverified</code>, now confirmed in <code>codex --help</code>"
+    }
+   ]
+  },
   {
    "version": "v0.157.0",
    "label": "Codex CLI v0.157.0",
