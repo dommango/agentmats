@@ -1,7 +1,50 @@
 {
- "generated": "2026-09-25",
- "latest": "v2.1.283",
+ "generated": "2026-09-28",
+ "latest": "v2.1.284",
  "releases": [
+  {
+   "version": "v2.1.284",
+   "label": "CC v2.1.284",
+   "date": "2026-09-28",
+   "id": "rel-2-1-284",
+   "entries": [
+    {
+     "tag": "ADD",
+     "item": "effortSlider:decreaseEffort",
+     "html": "<code>effortSlider:decreaseEffort</code> / <code>increaseEffort</code> / <code>toggleUltracode</code> keybinding actions — rebind the <code>/effort</code> interactive slider's step and Ultracode-toggle keys in <code>keybindings.json</code>"
+    },
+    {
+     "tag": "ADD",
+     "item": "/rate-limit-options",
+     "html": "<code>/rate-limit-options</code> — added to <code>/help</code> and the command menu for claude.ai subscribers, so usage-limit notices that mention it point to a findable command"
+    },
+    {
+     "tag": "CHG",
+     "item": "/effort ultracode [on|off]",
+     "html": "<code>/effort ultracode [on|off]</code> (also Tab in the interactive slider) — toggles Ultracode independently of effort level; no longer forces xhigh, and stays on at any effort level once enabled"
+    },
+    {
+     "tag": "CHG",
+     "item": "/mcp reconnect all",
+     "html": "<code>/mcp reconnect all</code> — retries every server that failed to connect or needs authentication, in one pass"
+    },
+    {
+     "tag": "CHG",
+     "item": "permissions.defaultMode",
+     "html": "<code>permissions.defaultMode</code> — when unset, interactive terminal and VS Code sessions now start in auto mode on every plan and provider; this setting still overrides that default"
+    },
+    {
+     "tag": "CHG",
+     "item": "/recap",
+     "html": "<code>/recap</code> — declines with a short notice when relayed from a chat thread, a routine, or a webhook; typed in the terminal, Claude apps, Remote Control, <code>-p</code>, or an SDK host, it runs as usual"
+    },
+    {
+     "tag": "CHG",
+     "item": "CLAUDE_CODE_MCP_STARTUP_WAIT_MS=0",
+     "html": "<code>CLAUDE_CODE_MCP_STARTUP_WAIT_MS=0</code> — servers named by <code>--allowedTools</code> or an <code>mcp_tool</code> hook still get up to 2s to connect on the first non-interactive turn"
+    }
+   ]
+  },
   {
    "version": "v2.1.283",
    "label": "CC v2.1.283",

@@ -4,7 +4,14 @@
   <link href="https://dommango.github.io/agentmats/claude-code/"/>
   <link rel="self" href="https://dommango.github.io/agentmats/claude-code/feed.xml"/>
   <id>https://dommango.github.io/agentmats/claude-code/</id>
-  <updated>2026-09-25T09:00:00Z</updated>
+  <updated>2026-09-28T09:00:00Z</updated>
+  <entry>
+    <title>CC v2.1.284 — 7 placemat changes</title>
+    <id>https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-284</id>
+    <link href="https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-284"/>
+    <updated>2026-09-28T09:00:00Z</updated>
+    <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;effortSlider:decreaseEffort&lt;/code&gt; / &lt;code&gt;increaseEffort&lt;/code&gt; / &lt;code&gt;toggleUltracode&lt;/code&gt; keybinding actions — rebind the &lt;code&gt;/effort&lt;/code&gt; interactive slider's step and Ultracode-toggle keys in &lt;code&gt;keybindings.json&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;/rate-limit-options&lt;/code&gt; — added to &lt;code&gt;/help&lt;/code&gt; and the command menu for claude.ai subscribers, so usage-limit notices that mention it point to a findable command&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;/effort ultracode [on|off]&lt;/code&gt; (also Tab in the interactive slider) — toggles Ultracode independently of effort level; no longer forces xhigh, and stays on at any effort level once enabled&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;/mcp reconnect all&lt;/code&gt; — retries every server that failed to connect or needs authentication, in one pass&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;permissions.defaultMode&lt;/code&gt; — when unset, interactive terminal and VS Code sessions now start in auto mode on every plan and provider; this setting still overrides that default&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;/recap&lt;/code&gt; — declines with a short notice when relayed from a chat thread, a routine, or a webhook; typed in the terminal, Claude apps, Remote Control, &lt;code&gt;-p&lt;/code&gt;, or an SDK host, it runs as usual&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;CLAUDE_CODE_MCP_STARTUP_WAIT_MS=0&lt;/code&gt; — servers named by &lt;code&gt;--allowedTools&lt;/code&gt; or an &lt;code&gt;mcp_tool&lt;/code&gt; hook still get up to 2s to connect on the first non-interactive turn&lt;/li&gt;&lt;/ul&gt;</content>
+  </entry>
   <entry>
     <title>CC v2.1.283 — 5 placemat changes</title>
     <id>https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-283</id>
@@ -137,12 +144,5 @@
     <link href="https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-251"/>
     <updated>2026-08-28T09:00:00Z</updated>
     <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;PreModelSwitch&lt;/code&gt; / &lt;code&gt;PostModelSwitch&lt;/code&gt; hook events — block, confirm, or annotate a model switch before or after it happens&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;prompt_cache&lt;/code&gt; status line script JSON input field — per-session prompt-cache stats (hit ratio, misses, tokens re-cached, warm/cold)&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;/usage&lt;/code&gt; — spend limit bar for gateway users with spend limits; &lt;code&gt;/cost&lt;/code&gt; now shows a per-session prompt-cache line (hit ratio, misses, tokens re-cached, warm/cold)&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;/effort&lt;/code&gt; — saves the default effort level per model; each model keeps its own setting when you switch&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;SessionStart&lt;/code&gt; — resume hooks now receive session staleness and estimated re-cache cost&lt;/li&gt;&lt;/ul&gt;</content>
-  </entry>
-  <entry>
-    <title>CC v2.1.248 — 5 placemat changes</title>
-    <id>https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-248</id>
-    <link href="https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-248"/>
-    <updated>2026-08-27T09:00:00Z</updated>
-    <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;--restricted&lt;/code&gt; CLI flag / &lt;code&gt;CLAUDE_CODE_RESTRICTED=1&lt;/code&gt; env var — removes built-in tools that run commands or code and &lt;code&gt;WebFetch&lt;/code&gt; (unless named in &lt;code&gt;--tools&lt;/code&gt;); keeps file tools inside the working directory; refuses &lt;code&gt;bypassPermissions&lt;/code&gt;; ignores user, project and local settings files&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;experimental.cacheTtl&lt;/code&gt; (agent frontmatter) — per-agent prompt cache TTL (&lt;code&gt;"5m"&lt;/code&gt; or &lt;code&gt;"1h"&lt;/code&gt;); used when no subagent TTL setting is configured in the session&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;claude self-hosted-runner --client-label &amp;lt;label&amp;gt;&lt;/code&gt; / &lt;code&gt;SELF_HOSTED_RUNNER_CLIENT_LABEL&lt;/code&gt; — override the label the runner registers with (default: hostname)&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;SendMessage&lt;/code&gt; / &lt;code&gt;ListAgents&lt;/code&gt; — cross-session messaging between sessions on the same machine now available on Bedrock, Vertex, Foundry, and when telemetry is disabled&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;/status&lt;/code&gt; — shows a line explaining a managed-settings load failure or why settings weren't fetched (e.g. Bedrock/Vertex/third-party provider, custom &lt;code&gt;ANTHROPIC_BASE_URL&lt;/code&gt;)&lt;/li&gt;&lt;/ul&gt;</content>
   </entry>
 </feed>
