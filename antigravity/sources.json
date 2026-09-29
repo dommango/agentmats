@@ -36,16 +36,16 @@
   ],
   "inventory": {
     "source": "https://antigravity.google/docs/cli/reference",
-    "fetched": "2026-09-21",
+    "fetched": "2026-09-29",
     "slash": [
       "/add-dir", "/agents", "/boost", "/artifact", "/btw", "/clear", "/new",
       "/config", "/settings", "/context", "/copy", "/credits", "/diff",
       "/exit", "/quit", "/fast", "/feedback", "/fork", "/branch", "/help",
       "/hooks", "/keybindings", "/logout", "/mcp", "/model", "/open",
-      "/permissions", "/planning", "/remote-control", "/rename", "/resume",
-      "/switch", "/conversation", "/rewind", "/undo", "/skills", "/statusline",
-      "/tasks", "/teamwork-preview", "/teamwork", "/title", "/usage",
-      "/quota", "/voice", "/record"
+      "/permissions", "/planning", "/plugin", "/plugins", "/remote-control",
+      "/rename", "/resume", "/switch", "/conversation", "/rewind", "/undo",
+      "/skills", "/statusline", "/tasks", "/teamwork-preview", "/teamwork",
+      "/title", "/usage", "/quota", "/voice", "/record"
     ],
     "settings": [
       "colorScheme", "altScreenMode", "toolPermission", "artifactReviewPolicy",
