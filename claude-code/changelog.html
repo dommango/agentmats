@@ -163,8 +163,21 @@
                 <h3>Content / CC Release Updates</h3>
                 <!-- September 2026 -->
                 <details class="month-group" open>
-                    <summary>September 2026 <span class="version-date">v2.1.265 – v2.1.283</span> <span class="month-count">14 releases</span></summary>
+                    <summary>September 2026 <span class="version-date">v2.1.265 – v2.1.284</span> <span class="month-count">15 releases</span></summary>
                     <div class="month-content">
+
+                        <div class="change-section">
+                            <h3 id="rel-2-1-284">CC v2.1.284 <span class="version-date">2026-09-28</span></h3>
+                            <ul class="change-list">
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>effortSlider:decreaseEffort</code> / <code>increaseEffort</code> / <code>toggleUltracode</code> keybinding actions — rebind the <code>/effort</code> interactive slider's step and Ultracode-toggle keys in <code>keybindings.json</code></span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>/rate-limit-options</code> — added to <code>/help</code> and the command menu for claude.ai subscribers, so usage-limit notices that mention it point to a findable command</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>/effort ultracode [on|off]</code> (also Tab in the interactive slider) — toggles Ultracode independently of effort level; no longer forces xhigh, and stays on at any effort level once enabled</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>/mcp reconnect all</code> — retries every server that failed to connect or needs authentication, in one pass</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>permissions.defaultMode</code> — when unset, interactive terminal and VS Code sessions now start in auto mode on every plan and provider; this setting still overrides that default</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>/recap</code> — declines with a short notice when relayed from a chat thread, a routine, or a webhook; typed in the terminal, Claude apps, Remote Control, <code>-p</code>, or an SDK host, it runs as usual</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>CLAUDE_CODE_MCP_STARTUP_WAIT_MS=0</code> — servers named by <code>--allowedTools</code> or an <code>mcp_tool</code> hook still get up to 2s to connect on the first non-interactive turn</span></li>
+                            </ul>
+                        </div>
 
                         <div class="change-section">
                             <h3 id="rel-2-1-283">CC v2.1.283 <span class="version-date">2026-09-25</span></h3>
@@ -1473,7 +1486,7 @@
         </div>
 
         <footer class="global-footer">
-            Template v1.2 · Content synced 2026-09-25<br>
+            Template v1.2 · Content synced 2026-09-28<br>
             <span class="disclaimer">Unofficial community reference — not affiliated with or endorsed by Anthropic.
             Condensed from the official docs; always confirm against
             <a href="https://code.claude.com/docs" target="_blank" rel="noopener noreferrer">code.claude.com/docs</a>.</span><br>
