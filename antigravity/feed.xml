@@ -4,7 +4,21 @@
   <link href="https://dommango.github.io/agentmats/antigravity/"/>
   <link rel="self" href="https://dommango.github.io/agentmats/antigravity/feed.xml"/>
   <id>https://dommango.github.io/agentmats/antigravity/</id>
-  <updated>2026-09-23T09:00:00Z</updated>
+  <updated>2026-09-25T09:00:00Z</updated>
+  <entry>
+    <title>Antigravity CLI v1.2.11 — 4 placemat changes</title>
+    <id>https://dommango.github.io/agentmats/antigravity/changelog.html#rel-1-2-11</id>
+    <link href="https://dommango.github.io/agentmats/antigravity/changelog.html#rel-1-2-11"/>
+    <updated>2026-09-25T09:00:00Z</updated>
+    <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;/effort&lt;/code&gt; (&lt;code&gt;card-slash-core&lt;/code&gt;) — reasoning effort level gauge alongside &lt;code&gt;--effort&lt;/code&gt;; unverified, absent from the &lt;code&gt;cli/reference&lt;/code&gt; core slash command table&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;/plugin&lt;/code&gt; / &lt;code&gt;/plugins&lt;/code&gt; (&lt;code&gt;card-slash-tools&lt;/code&gt;) — interactive Plugins Manager and inline install/enable/disable/list, confirmed on &lt;code&gt;cli/reference&lt;/code&gt;; noted the change to unconfigured-plugin loading behavior&lt;/li&gt;&lt;li&gt;&lt;b&gt;FIX&lt;/b&gt; &lt;code&gt;/artifact&lt;/code&gt; (&lt;code&gt;card-slash-tools&lt;/code&gt;) — noted the restored ASCII fallback for Mermaid/LaTeX in WezTerm and the VS Code integrated terminal, and the &lt;code&gt;Copy on Select&lt;/code&gt; fix so the terminal's own selection, copy, and &lt;code&gt;Ctrl+C&lt;/code&gt; work again&lt;/li&gt;&lt;li&gt;&lt;b&gt;FIX&lt;/b&gt; &lt;code&gt;/agents&lt;/code&gt; (&lt;code&gt;card-slash-tools&lt;/code&gt;) and &lt;code&gt;--agent &amp;lt;name&amp;gt;&lt;/code&gt; (&lt;code&gt;card-cli&lt;/code&gt;) — noted the fix for project custom agents in &lt;code&gt;.agents/agents/&lt;/code&gt; not being found across Desktop-App/trusted workspaces, &lt;code&gt;--agent&lt;/code&gt; runs, and headless runs&lt;/li&gt;&lt;/ul&gt;</content>
+  </entry>
+  <entry>
+    <title>Antigravity CLI v1.2.10 — 6 placemat changes</title>
+    <id>https://dommango.github.io/agentmats/antigravity/changelog.html#rel-1-2-10</id>
+    <link href="https://dommango.github.io/agentmats/antigravity/changelog.html#rel-1-2-10"/>
+    <updated>2026-09-24T09:00:00Z</updated>
+    <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;verbosity&lt;/code&gt; (&lt;code&gt;card-settings&lt;/code&gt;) — noted a &lt;code&gt;medium&lt;/code&gt; level between &lt;code&gt;high&lt;/code&gt; and &lt;code&gt;low&lt;/code&gt;, per the release notes only; not yet on &lt;code&gt;cli/reference&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;/artifact&lt;/code&gt; (&lt;code&gt;card-slash-tools&lt;/code&gt;) — noted background diagram pre-rendering, the zoom flicker fix, and the combined footer hints&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;Esc&lt;/code&gt; (&lt;code&gt;card-keys&lt;/code&gt;) — noted that it now closes an open suggestions dropdown before a second press interrupts the agent&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;enableTerminalSandbox&lt;/code&gt; (&lt;code&gt;card-settings&lt;/code&gt;) — noted the agent asking to bypass the sandbox less often&lt;/li&gt;&lt;li&gt;&lt;b&gt;FIX&lt;/b&gt; &lt;code&gt;-p&lt;/code&gt; (&lt;code&gt;card-cli&lt;/code&gt;) — noted the fix so a run that streams part of a response then errors exits with code 3 and an &lt;code&gt;AGY_ERROR&lt;/code&gt; line instead of exit code 0&lt;/li&gt;&lt;li&gt;&lt;b&gt;FIX&lt;/b&gt; &lt;code&gt;agy remote-control&lt;/code&gt; (&lt;code&gt;card-cli&lt;/code&gt;) — noted the fix for the old Remote Control installer crash-looping after an upgrade&lt;/li&gt;&lt;/ul&gt;</content>
+  </entry>
   <entry>
     <title>Antigravity CLI v1.2.9 — 6 placemat changes</title>
     <id>https://dommango.github.io/agentmats/antigravity/changelog.html#rel-1-2-9</id>

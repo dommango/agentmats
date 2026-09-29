@@ -1,7 +1,73 @@
 {
- "generated": "2026-09-23",
- "latest": "v1.2.9",
+ "generated": "2026-09-25",
+ "latest": "v1.2.11",
  "releases": [
+  {
+   "version": "v1.2.11",
+   "label": "Antigravity CLI v1.2.11",
+   "date": "2026-09-25",
+   "id": "rel-1-2-11",
+   "entries": [
+    {
+     "tag": "ADD",
+     "item": "/effort",
+     "html": "<code>/effort</code> (<code>card-slash-core</code>) — reasoning effort level gauge alongside <code>--effort</code>; unverified, absent from the <code>cli/reference</code> core slash command table"
+    },
+    {
+     "tag": "ADD",
+     "item": "/plugin",
+     "html": "<code>/plugin</code> / <code>/plugins</code> (<code>card-slash-tools</code>) — interactive Plugins Manager and inline install/enable/disable/list, confirmed on <code>cli/reference</code>; noted the change to unconfigured-plugin loading behavior"
+    },
+    {
+     "tag": "FIX",
+     "item": "/artifact",
+     "html": "<code>/artifact</code> (<code>card-slash-tools</code>) — noted the restored ASCII fallback for Mermaid/LaTeX in WezTerm and the VS Code integrated terminal, and the <code>Copy on Select</code> fix so the terminal's own selection, copy, and <code>Ctrl+C</code> work again"
+    },
+    {
+     "tag": "FIX",
+     "item": "/agents",
+     "html": "<code>/agents</code> (<code>card-slash-tools</code>) and <code>--agent &lt;name&gt;</code> (<code>card-cli</code>) — noted the fix for project custom agents in <code>.agents/agents/</code> not being found across Desktop-App/trusted workspaces, <code>--agent</code> runs, and headless runs"
+    }
+   ]
+  },
+  {
+   "version": "v1.2.10",
+   "label": "Antigravity CLI v1.2.10",
+   "date": "2026-09-24",
+   "id": "rel-1-2-10",
+   "entries": [
+    {
+     "tag": "CHG",
+     "item": "verbosity",
+     "html": "<code>verbosity</code> (<code>card-settings</code>) — noted a <code>medium</code> level between <code>high</code> and <code>low</code>, per the release notes only; not yet on <code>cli/reference</code>"
+    },
+    {
+     "tag": "CHG",
+     "item": "/artifact",
+     "html": "<code>/artifact</code> (<code>card-slash-tools</code>) — noted background diagram pre-rendering, the zoom flicker fix, and the combined footer hints"
+    },
+    {
+     "tag": "CHG",
+     "item": "Esc",
+     "html": "<code>Esc</code> (<code>card-keys</code>) — noted that it now closes an open suggestions dropdown before a second press interrupts the agent"
+    },
+    {
+     "tag": "CHG",
+     "item": "enableTerminalSandbox",
+     "html": "<code>enableTerminalSandbox</code> (<code>card-settings</code>) — noted the agent asking to bypass the sandbox less often"
+    },
+    {
+     "tag": "FIX",
+     "item": "-p",
+     "html": "<code>-p</code> (<code>card-cli</code>) — noted the fix so a run that streams part of a response then errors exits with code 3 and an <code>AGY_ERROR</code> line instead of exit code 0"
+    },
+    {
+     "tag": "FIX",
+     "item": "agy remote-control",
+     "html": "<code>agy remote-control</code> (<code>card-cli</code>) — noted the fix for the old Remote Control installer crash-looping after an upgrade"
+    }
+   ]
+  },
   {
    "version": "v1.2.9",
    "label": "Antigravity CLI v1.2.9",

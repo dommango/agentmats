@@ -162,9 +162,29 @@
                 <h3>Content / Antigravity CLI Releases</h3>
                 <!-- September 2026 -->
                 <details class="month-group" open>
-                    <summary>September 2026 <span class="version-date">v1.2.2 – v1.2.9</span> <span class="month-count">8 releases</span></summary>
+                    <summary>September 2026 <span class="version-date">v1.2.2 – v1.2.11</span> <span class="month-count">10 releases</span></summary>
                     <div class="month-content">
 
+                        <div class="change-section">
+                            <h3 id="rel-1-2-11">Antigravity CLI v1.2.11 <span class="version-date">2026-09-25</span></h3>
+                            <ul class="change-list">
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>/effort</code> (<code>card-slash-core</code>) — reasoning effort level gauge alongside <code>--effort</code>; unverified, absent from the <code>cli/reference</code> core slash command table</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>/plugin</code> / <code>/plugins</code> (<code>card-slash-tools</code>) — interactive Plugins Manager and inline install/enable/disable/list, confirmed on <code>cli/reference</code>; noted the change to unconfigured-plugin loading behavior</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>/artifact</code> (<code>card-slash-tools</code>) — noted the restored ASCII fallback for Mermaid/LaTeX in WezTerm and the VS Code integrated terminal, and the <code>Copy on Select</code> fix so the terminal's own selection, copy, and <code>Ctrl+C</code> work again</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>/agents</code> (<code>card-slash-tools</code>) and <code>--agent &lt;name&gt;</code> (<code>card-cli</code>) — noted the fix for project custom agents in <code>.agents/agents/</code> not being found across Desktop-App/trusted workspaces, <code>--agent</code> runs, and headless runs</span></li>
+                            </ul>
+                        </div>
+                        <div class="change-section">
+                            <h3 id="rel-1-2-10">Antigravity CLI v1.2.10 <span class="version-date">2026-09-24</span></h3>
+                            <ul class="change-list">
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>verbosity</code> (<code>card-settings</code>) — noted a <code>medium</code> level between <code>high</code> and <code>low</code>, per the release notes only; not yet on <code>cli/reference</code></span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>/artifact</code> (<code>card-slash-tools</code>) — noted background diagram pre-rendering, the zoom flicker fix, and the combined footer hints</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>Esc</code> (<code>card-keys</code>) — noted that it now closes an open suggestions dropdown before a second press interrupts the agent</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>enableTerminalSandbox</code> (<code>card-settings</code>) — noted the agent asking to bypass the sandbox less often</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>-p</code> (<code>card-cli</code>) — noted the fix so a run that streams part of a response then errors exits with code 3 and an <code>AGY_ERROR</code> line instead of exit code 0</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>agy remote-control</code> (<code>card-cli</code>) — noted the fix for the old Remote Control installer crash-looping after an upgrade</span></li>
+                            </ul>
+                        </div>
                         <div class="change-section">
                             <h3 id="rel-1-2-9">Antigravity CLI v1.2.9 <span class="version-date">2026-09-23</span></h3>
                             <ul class="change-list">
