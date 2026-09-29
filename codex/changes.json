@@ -1,7 +1,30 @@
 {
- "generated": "2026-09-28",
- "latest": "v0.158.0",
+ "generated": "2026-09-29",
+ "latest": "v0.159.0",
  "releases": [
+  {
+   "version": "v0.159.0",
+   "label": "Codex CLI v0.159.0",
+   "date": "2026-09-29",
+   "id": "rel-0-159-0",
+   "entries": [
+    {
+     "tag": "ADD",
+     "item": "instant_interrupt",
+     "html": "<code>instant_interrupt</code> (<code>card-settings</code>) — opt-in setting to steer Codex mid-response or during extended code-mode runs; <code>unverified</code>"
+    },
+    {
+     "tag": "CHG",
+     "item": "/tui",
+     "html": "<code>/tui</code> (<code>card-keys</code>) — release notes add Markdown table and whitespace preservation on copy, plus automatic copy-on-select in more terminals; still <code>unverified</code>"
+    },
+    {
+     "tag": "CHG",
+     "item": "codex app-server",
+     "html": "<code>codex app-server</code> (<code>card-hooks</code>) — adds pagination for thread-history queries from a specific item"
+    }
+   ]
+  },
   {
    "version": "v0.158.0",
    "label": "Codex CLI v0.158.0",
