@@ -4,7 +4,14 @@
   <link href="https://dommango.github.io/agentmats/codex/"/>
   <link rel="self" href="https://dommango.github.io/agentmats/codex/feed.xml"/>
   <id>https://dommango.github.io/agentmats/codex/</id>
-  <updated>2026-09-28T09:00:00Z</updated>
+  <updated>2026-09-29T09:00:00Z</updated>
+  <entry>
+    <title>Codex CLI v0.159.0 — 3 placemat changes</title>
+    <id>https://dommango.github.io/agentmats/codex/changelog.html#rel-0-159-0</id>
+    <link href="https://dommango.github.io/agentmats/codex/changelog.html#rel-0-159-0"/>
+    <updated>2026-09-29T09:00:00Z</updated>
+    <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;instant_interrupt&lt;/code&gt; (&lt;code&gt;card-settings&lt;/code&gt;) — opt-in setting to steer Codex mid-response or during extended code-mode runs; &lt;code&gt;unverified&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;/tui&lt;/code&gt; (&lt;code&gt;card-keys&lt;/code&gt;) — release notes add Markdown table and whitespace preservation on copy, plus automatic copy-on-select in more terminals; still &lt;code&gt;unverified&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;codex app-server&lt;/code&gt; (&lt;code&gt;card-hooks&lt;/code&gt;) — adds pagination for thread-history queries from a specific item&lt;/li&gt;&lt;/ul&gt;</content>
+  </entry>
   <entry>
     <title>Codex CLI v0.158.0 — 4 placemat changes</title>
     <id>https://dommango.github.io/agentmats/codex/changelog.html#rel-0-158-0</id>
