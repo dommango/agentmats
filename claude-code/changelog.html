@@ -163,8 +163,22 @@
                 <h3>Content / CC Release Updates</h3>
                 <!-- September 2026 -->
                 <details class="month-group" open>
-                    <summary>September 2026 <span class="version-date">v2.1.265 – v2.1.284</span> <span class="month-count">15 releases</span></summary>
+                    <summary>September 2026 <span class="version-date">v2.1.265 – v2.1.285</span> <span class="month-count">16 releases</span></summary>
                     <div class="month-content">
+
+                        <div class="change-section">
+                            <h3 id="rel-2-1-285">CC v2.1.285 <span class="version-date">2026-09-29</span></h3>
+                            <ul class="change-list">
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>CLAUDE_CODE_DISABLE_WEB_FETCH</code> env var — turn off the WebFetch tool</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>claude --desktop</code> CLI flag — open the Claude desktop app on the current directory, or on a session with <code>--continue</code> / <code>--resume &lt;id&gt;</code></span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>claude plugin configure &lt;plugin&gt;</code> CLI command — show a plugin's options and which are unset, or save new values read from stdin with <code>--values-stdin</code></span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>claude plugin install --config &lt;server&gt;.&lt;key&gt;=&lt;value&gt;</code> — set a bundled <code>.mcpb</code> MCP server's own settings at install time, so it starts without a visit to <code>/plugin</code> → Configure</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>allowedProviders</code> managed setting — limit which API providers a machine may use (Anthropic API, a custom endpoint, Bedrock, Mantle, Vertex AI, Foundry, Claude Platform on AWS, or a Cloud gateway)</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>CLAUDE_CODE_NONSTREAMING_TIMEOUT_RETRIES</code> env var — cap re-sends of a non-streaming fallback request that timed out</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>claude mcp get</code> — hides the command, arguments, and environment values of stdio MCP servers provided by plugins; variable names are still shown</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>alwaysLoad</code> (MCP server config) — a tool that sets its own <code>_meta['anthropic/alwaysLoad']</code> to <code>false</code> now stays deferred even when its server is set to <code>alwaysLoad</code></span></li>
+                            </ul>
+                        </div>
 
                         <div class="change-section">
                             <h3 id="rel-2-1-284">CC v2.1.284 <span class="version-date">2026-09-28</span></h3>
@@ -1486,7 +1500,7 @@
         </div>
 
         <footer class="global-footer">
-            Template v1.2 · Content synced 2026-09-28<br>
+            Template v1.2 · Content synced 2026-09-29<br>
             <span class="disclaimer">Unofficial community reference — not affiliated with or endorsed by Anthropic.
             Condensed from the official docs; always confirm against
             <a href="https://code.claude.com/docs" target="_blank" rel="noopener noreferrer">code.claude.com/docs</a>.</span><br>
