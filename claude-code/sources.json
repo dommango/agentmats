@@ -37,12 +37,13 @@
     "maxProseWidth and allowClaudeInChromeWithManagedMcp are documented only in the changelog (v2.1.282) and not yet in settings-reference.md — included in inventory.settings on release-notes confirmation.",
     "availableModelsMatch and deniedModels are documented only in the changelog (v2.1.283) and not yet in settings-reference.md — included in inventory.settings on release-notes confirmation.",
     "v2.1.284 changed /effort's ultracode argument: commands.md now documents `/effort [level|auto|status|ultracode [on|off]]`, where `ultracode`/`ultracode on` turns Ultracode on at the current effort level (no longer forcing xhigh) and `ultracode off` turns it off (previously failed with Invalid argument); paired with new effortSlider:decreaseEffort/increaseEffort/toggleUltracode keybinding actions (Tab toggles Ultracode in the interactive slider) confirmed via the v2.1.284 changelog.",
-    "v2.1.284's changelog documents `/mcp reconnect all`, but commands.md's own /mcp syntax line (`/mcp [reconnect <server>|enable|disable [<server>|all]]`) still shows only single-server reconnect as of the 2026-09-29 fetch — included on changelog confirmation per the release_notes rule; re-check commands.md on a future sync and drop this gotcha once it lists reconnect all explicitly."
+    "v2.1.284's changelog documents `/mcp reconnect all`, but commands.md's own /mcp syntax line (`/mcp [reconnect <server>|enable|disable [<server>|all]]`) still shows only single-server reconnect as of the 2026-09-29 fetch — included on changelog confirmation per the release_notes rule; re-check commands.md on a future sync and drop this gotcha once it lists reconnect all explicitly.",
+    "allowedProviders is documented only in the changelog (v2.1.285) and not yet in settings-reference.md — included in inventory.settings on release-notes confirmation."
   ],
   "inventory": {
     "source": "https://code.claude.com/docs/en/commands, https://code.claude.com/docs/en/settings-reference, https://code.claude.com/docs/en/hooks, https://code.claude.com/docs/en/changelog",
-    "fetched": "2026-09-29",
-    "note": "slash extracted from the commands reference table plus its inline Alias/Aliases notes; settings extracted from the settings-reference key index; hooks extracted from the hooks reference's event sections plus two hook-field identifiers (continueOnBlock, terminalSequence) that appear as bare code chips in the placemat's hooks card. A handful of very recent items (see gotchas) are confirmed only via the official changelog and not yet in the reference pages themselves. Re-extraction on 2026-09-29 (v2.1.284 sync) added /bashes, /peers, /slides, /tp and /update-config (all present in the commands table but missing from the prior pass) and five settings-reference headers missing from the prior pass (claudeInChromeDefaultEnabled, copyFullResponse, defaultToAgentsView, leftArrowOpensAgents, prStatusFooterEnabled); none of these ten have a placemat row yet.",
+    "fetched": "2026-09-30",
+    "note": "slash extracted from the commands reference table plus its inline Alias/Aliases notes; settings extracted from the settings-reference key index; hooks extracted from the hooks reference's event sections plus two hook-field identifiers (continueOnBlock, terminalSequence) that appear as bare code chips in the placemat's hooks card. A handful of very recent items (see gotchas) are confirmed only via the official changelog and not yet in the reference pages themselves. Re-extraction on 2026-09-29 (v2.1.284 sync) added /bashes, /peers, /slides, /tp and /update-config (all present in the commands table but missing from the prior pass) and five settings-reference headers missing from the prior pass (claudeInChromeDefaultEnabled, copyFullResponse, defaultToAgentsView, leftArrowOpensAgents, prStatusFooterEnabled); none of these ten have a placemat row yet. Re-extraction on 2026-09-30 (v2.1.285 sync) added allowedProviders, confirmed via the v2.1.285 changelog and not yet in settings-reference.md.",
     "slash": [
       "/add-dir",
       "/advisor",
@@ -199,6 +200,7 @@
       "allowedDomains",
       "allowedHttpHookUrls",
       "allowedMcpServers",
+      "allowedProviders",
       "allowed_domains",
       "alwaysThinkingEnabled",
       "apiKeyHelper",
