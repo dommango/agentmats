@@ -4,7 +4,14 @@
   <link href="https://dommango.github.io/agentmats/claude-code/"/>
   <link rel="self" href="https://dommango.github.io/agentmats/claude-code/feed.xml"/>
   <id>https://dommango.github.io/agentmats/claude-code/</id>
-  <updated>2026-09-29T09:00:00Z</updated>
+  <updated>2026-09-30T09:00:00Z</updated>
+  <entry>
+    <title>CC v2.1.286 — 3 placemat changes</title>
+    <id>https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-286</id>
+    <link href="https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-286"/>
+    <updated>2026-09-30T09:00:00Z</updated>
+    <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;--bare&lt;/code&gt; CLI flag — connects only the MCP servers named on the command line, sends the model no system reminders, and starts no background tasks; a shell command that reaches its timeout now stops instead of moving to the background&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;/plugin install &amp;lt;name&amp;gt;&lt;/code&gt; (npm source) — refuses git-repository or folder sources, and installs the plugin's dependencies only from registry packages&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;/verify&lt;/code&gt; — if a project or user skill is literally named &lt;code&gt;verify&lt;/code&gt;, Claude is now told to run it right before committing, except for docs-only and tests-only commits&lt;/li&gt;&lt;/ul&gt;</content>
+  </entry>
   <entry>
     <title>CC v2.1.285 — 8 placemat changes</title>
     <id>https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-285</id>
@@ -137,12 +144,5 @@
     <link href="https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-259"/>
     <updated>2026-09-02T09:00:00Z</updated>
     <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;managedMcpServers&lt;/code&gt; managed setting — provide HTTP/SSE MCP servers to every user in the organization (same entry shape as &lt;code&gt;.mcp.json&lt;/code&gt;); entries naming a command to run are skipped&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;deniedMcpServers&lt;/code&gt; managed setting — blocklist of managed MCP servers to deny; as of v2.1.259, &lt;code&gt;allowedMcpServers&lt;/code&gt; governs only user-added servers and no longer filters &lt;code&gt;managed-mcp.json&lt;/code&gt; servers&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;--permission-prompts none&lt;/code&gt; CLI flag — deny any action that would prompt for unattended headless hosts; the active permission mode (including auto mode) still decides normally&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;claude plugin validate&lt;/code&gt; — added &lt;code&gt;--json&lt;/code&gt; for a machine-readable validation report&lt;/li&gt;&lt;/ul&gt;</content>
-  </entry>
-  <entry>
-    <title>CC v2.1.257 — 6 placemat changes</title>
-    <id>https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-257</id>
-    <link href="https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-257"/>
-    <updated>2026-09-01T09:00:00Z</updated>
-    <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;timeFormat&lt;/code&gt; / &lt;code&gt;timeZone&lt;/code&gt; JSON settings — control the turn-end clock and transcript timestamp format (12h, 24h, 24h UTC, or strftime pattern) and time zone&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;CLAUDE_CODE_SUBAGENT_MODEL_FORCE&lt;/code&gt; env var — apply &lt;code&gt;CLAUDE_CODE_SUBAGENT_MODEL&lt;/code&gt; (or the main model) to every subagent, ignoring per-spawn and agent-definition model overrides&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;permissions.blockReadsOutsideWorkingDirectories&lt;/code&gt; JSON setting — block file reads outside the configured working directories; a one-time prompt appears before the first such read in auto mode&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;/effort&lt;/code&gt; — press &lt;code&gt;s&lt;/code&gt; in the interactive picker to switch effort for the current session only, matching &lt;code&gt;/model&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;/btw&lt;/code&gt; — history browsing changed from &lt;code&gt;←&lt;/code&gt;/&lt;code&gt;→&lt;/code&gt; to &lt;code&gt;Shift+←&lt;/code&gt;/&lt;code&gt;Shift+→&lt;/code&gt; (or &lt;code&gt;[&lt;/code&gt;/&lt;code&gt;]&lt;/code&gt;)&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;defaultMode&lt;/code&gt; — &lt;code&gt;"bypassPermissions"&lt;/code&gt; is now ignored in &lt;code&gt;.claude/settings.json&lt;/code&gt; or &lt;code&gt;.claude/settings.local.json&lt;/code&gt;; set in user or managed settings, or pass &lt;code&gt;--permission-mode bypassPermissions&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt;</content>
   </entry>
 </feed>

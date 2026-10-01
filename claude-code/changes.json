@@ -1,7 +1,30 @@
 {
- "generated": "2026-09-29",
- "latest": "v2.1.285",
+ "generated": "2026-09-30",
+ "latest": "v2.1.286",
  "releases": [
+  {
+   "version": "v2.1.286",
+   "label": "CC v2.1.286",
+   "date": "2026-09-30",
+   "id": "rel-2-1-286",
+   "entries": [
+    {
+     "tag": "CHG",
+     "item": "--bare",
+     "html": "<code>--bare</code> CLI flag — connects only the MCP servers named on the command line, sends the model no system reminders, and starts no background tasks; a shell command that reaches its timeout now stops instead of moving to the background"
+    },
+    {
+     "tag": "CHG",
+     "item": "/plugin install <name>",
+     "html": "<code>/plugin install &lt;name&gt;</code> (npm source) — refuses git-repository or folder sources, and installs the plugin's dependencies only from registry packages"
+    },
+    {
+     "tag": "CHG",
+     "item": "/verify",
+     "html": "<code>/verify</code> — if a project or user skill is literally named <code>verify</code>, Claude is now told to run it right before committing, except for docs-only and tests-only commits"
+    }
+   ]
+  },
   {
    "version": "v2.1.285",
    "label": "CC v2.1.285",
