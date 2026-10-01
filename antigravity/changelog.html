@@ -162,9 +162,19 @@
                 <h3>Content / Antigravity CLI Releases</h3>
                 <!-- September 2026 -->
                 <details class="month-group" open>
-                    <summary>September 2026 <span class="version-date">v1.2.2 – v1.2.11</span> <span class="month-count">10 releases</span></summary>
+                    <summary>September 2026 <span class="version-date">v1.2.2 – v1.2.12</span> <span class="month-count">11 releases</span></summary>
                     <div class="month-content">
 
+                        <div class="change-section">
+                            <h3 id="rel-1-2-12">Antigravity CLI v1.2.12 <span class="version-date">2026-09-27</span></h3>
+                            <ul class="change-list">
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>GEMINI_API_KEY</code> (<code>card-env</code>) — noted that a session using this key now stops immediately on an exhausted daily quota, spend cap, or depleted prepaid credits instead of retrying for several minutes; per-minute rate limits still retry</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>/artifact</code> (<code>card-slash-tools</code>) — noted that bursts of scroll events are now coalesced before redrawing the full-screen view, cutting CPU use and scroll lag</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>CLI_GRAPHICS=kitty</code> (<code>card-env</code>) — promoted to verified; the release notes reconfirm it and fix the CLI sending its image-support probe through <code>screen</code>/<code>tmux</code>/Zellij, which had corrupted the terminal or tab title</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>editorMode</code> (<code>card-settings</code>) — noted the Vim mode fix for multibyte character navigation after <code>r</code>/<code>f</code>/<code>F</code>/<code>t</code>/<code>T</code>, <code>fv</code>/<code>fV</code> wrongly leaving Visual mode, and spurious empty undo steps from no-op edits</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>verbosity</code> (<code>card-settings</code>) — noted the fix for resuming a long conversation at <code>medium</code>/<code>low</code> verbosity lagging for many seconds while history replayed</span></li>
+                            </ul>
+                        </div>
                         <div class="change-section">
                             <h3 id="rel-1-2-11">Antigravity CLI v1.2.11 <span class="version-date">2026-09-25</span></h3>
                             <ul class="change-list">
@@ -275,6 +285,7 @@
                     <li><span class="tag tag-add">ADD</span><span class="entry">Initial release of the Antigravity CLI Placemat following the canonical 8-card architecture</span></li>
                     <li><span class="tag tag-add">ADD</span><span class="entry">Cosmic violet and cyan theme with dark/light mode and A4 landscape print stylesheet</span></li>
                     <li><span class="tag tag-change">CHG</span><span class="entry"><span class="summary">Sync pipeline reads the vendor changelog's hidden CLI panel and no longer needs a local binary</span></span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>The daily routine polled for a markdown heading that the HTML changelog never had, then cross-checked with <code>agy --version</code>, which a cloud sandbox cannot run — so 1.2.3 through 1.2.5 were missed. <code>sources.json</code> and <code>PIPELINE.md</code> now target <code>data-list-panel="cli"</code> and an HTTP-only cross-check.</li></ul></li>
+                    <li><span class="tag tag-fix">FIX</span><span class="entry"><span class="summary">Sync pipeline follows the vendor's changelog redirect to its new Starlight docs page</span></span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>The vendor rebuilt the changelog as an Astro/Starlight docs page at <code>/docs/changelog</code> and turned <code>/changelog</code> into a <code>&lt;meta http-equiv="refresh"&gt;</code> stub, which <code>curl -L</code> does not follow; the old <code>data-list-panel="cli"</code> grid markup is also gone, replaced by a hidden <code>id="panel-cli"</code> tab panel of <code>&lt;article id="rel-cli-X.Y.Z"&gt;</code> rows. <code>sources.json</code> and <code>PIPELINE.md</code> now target the real URL and the new markup; caught while syncing 1.2.12.</li></ul></li>
                     <li><span class="tag tag-fix">FIX</span><span class="entry"><span class="summary">Regenerated <code>versions/v1.0.html</code> from the corrected page</span></span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>The original snapshot was built during rebuild and never published; this is the only self-contained archive of v1.0.</li></ul></li>
                     <li><span class="tag tag-fix">FIX</span><span class="entry">Replaced absolute <code>agent-placemats</code> URLs with relative paths on the <code>agentmats</code> origin, and defined <code>.scope-note</code>/<code>.since-drawer-tools</code> generically in <code>shared/placemat.css</code></span></li>
                 </ul>
