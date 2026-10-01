@@ -1,7 +1,40 @@
 {
- "generated": "2026-09-25",
- "latest": "v1.2.11",
+ "generated": "2026-09-27",
+ "latest": "v1.2.12",
  "releases": [
+  {
+   "version": "v1.2.12",
+   "label": "Antigravity CLI v1.2.12",
+   "date": "2026-09-27",
+   "id": "rel-1-2-12",
+   "entries": [
+    {
+     "tag": "CHG",
+     "item": "GEMINI_API_KEY",
+     "html": "<code>GEMINI_API_KEY</code> (<code>card-env</code>) — noted that a session using this key now stops immediately on an exhausted daily quota, spend cap, or depleted prepaid credits instead of retrying for several minutes; per-minute rate limits still retry"
+    },
+    {
+     "tag": "CHG",
+     "item": "/artifact",
+     "html": "<code>/artifact</code> (<code>card-slash-tools</code>) — noted that bursts of scroll events are now coalesced before redrawing the full-screen view, cutting CPU use and scroll lag"
+    },
+    {
+     "tag": "FIX",
+     "item": "CLI_GRAPHICS=kitty",
+     "html": "<code>CLI_GRAPHICS=kitty</code> (<code>card-env</code>) — promoted to verified; the release notes reconfirm it and fix the CLI sending its image-support probe through <code>screen</code>/<code>tmux</code>/Zellij, which had corrupted the terminal or tab title"
+    },
+    {
+     "tag": "FIX",
+     "item": "editorMode",
+     "html": "<code>editorMode</code> (<code>card-settings</code>) — noted the Vim mode fix for multibyte character navigation after <code>r</code>/<code>f</code>/<code>F</code>/<code>t</code>/<code>T</code>, <code>fv</code>/<code>fV</code> wrongly leaving Visual mode, and spurious empty undo steps from no-op edits"
+    },
+    {
+     "tag": "FIX",
+     "item": "verbosity",
+     "html": "<code>verbosity</code> (<code>card-settings</code>) — noted the fix for resuming a long conversation at <code>medium</code>/<code>low</code> verbosity lagging for many seconds while history replayed"
+    }
+   ]
+  },
   {
    "version": "v1.2.11",
    "label": "Antigravity CLI v1.2.11",

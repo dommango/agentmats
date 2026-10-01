@@ -77,13 +77,22 @@ shipped. Step 11 closes this issue once a later run reaches a source again.
 - **No declared fallback exists for this agent.** `antigravity.google` has no known
   working mirror — do not invent one. A blocked run here always ends in
   "Sync-blocked reporting" above until the environment's network allowlist is fixed.
+- **`antigravity.google/changelog` is now a meta-refresh redirect**, to
+  `antigravity.google/docs/changelog`. It is an HTML `<meta http-equiv="refresh">`,
+  not an HTTP 3xx, so `curl -L` will not follow it and a naive fetch of `/changelog`
+  returns only the redirect stub. Poll `/docs/changelog` directly — `sources.json`'s
+  `version_poll.url` points there.
 - **The changelog page has tabs, and the CLI is not the default one.** All four
-  products (hub, IDE, SDK, CLI) are in one HTML page as `data-list-panel` panels;
-  the hub panel is visible by default and carries 2.15.x-style versions, the CLI
-  panel is `display: none` and carries 1.2.x. Reading the first version on the page
+  products (hub, IDE, SDK, CLI) are in one HTML page as `role="tabpanel"` panels
+  (`id="panel-hub|ide|sdk|cli"`, `data-panel-id="hub|ide|sdk|cli"`); the hub panel
+  is visible by default and carries 2.x-style versions, the CLI panel is
+  `style="display: none;"` and carries 1.2.x. Reading the first version on the page
   gives 2.x and silently skips every CLI release. There is no markdown heading to
-  match and no separate CLI URL — parse the raw HTML for `data-list-panel="cli"`.
-  This is how 1.2.3–1.2.5 went unsynced.
+  match and no separate CLI URL — parse the raw HTML for `id="panel-cli"`, then each
+  release's `<article id="rel-cli-X.Y.Z">` inside it. This is how 1.2.3–1.2.5 went
+  unsynced under the page's previous markup (`data-list-panel="cli"`), and how
+  1.2.12 would have gone unsynced too if this run had kept polling the old
+  `/changelog` URL without following the new redirect.
 - **Binary name is `agy`.** Top-level invocations use `agy`, never `antigravity`.
 - **Progressive disclosure.** Skills expose only name + description until the agent
   decides one is relevant, then loads the full `SKILL.md`.
