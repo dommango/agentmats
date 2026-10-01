@@ -163,8 +163,17 @@
                 <h3>Content / CC Release Updates</h3>
                 <!-- September 2026 -->
                 <details class="month-group" open>
-                    <summary>September 2026 <span class="version-date">v2.1.265 – v2.1.285</span> <span class="month-count">16 releases</span></summary>
+                    <summary>September 2026 <span class="version-date">v2.1.265 – v2.1.286</span> <span class="month-count">17 releases</span></summary>
                     <div class="month-content">
+
+                        <div class="change-section">
+                            <h3 id="rel-2-1-286">CC v2.1.286 <span class="version-date">2026-09-30</span></h3>
+                            <ul class="change-list">
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>--bare</code> CLI flag — connects only the MCP servers named on the command line, sends the model no system reminders, and starts no background tasks; a shell command that reaches its timeout now stops instead of moving to the background</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>/plugin install &lt;name&gt;</code> (npm source) — refuses git-repository or folder sources, and installs the plugin's dependencies only from registry packages</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>/verify</code> — if a project or user skill is literally named <code>verify</code>, Claude is now told to run it right before committing, except for docs-only and tests-only commits</span></li>
+                            </ul>
+                        </div>
 
                         <div class="change-section">
                             <h3 id="rel-2-1-285">CC v2.1.285 <span class="version-date">2026-09-29</span></h3>
