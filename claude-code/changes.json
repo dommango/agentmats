@@ -1,7 +1,45 @@
 {
- "generated": "2026-09-30",
- "latest": "v2.1.286",
+ "generated": "2026-10-01",
+ "latest": "v2.1.287",
  "releases": [
+  {
+   "version": "v2.1.287",
+   "label": "CC v2.1.287",
+   "date": "2026-10-01",
+   "id": "rel-2-1-287",
+   "entries": [
+    {
+     "tag": "ADD",
+     "item": "/plugin-authoring",
+     "html": "<code>/plugin-authoring</code> — load Claude's reference for writing a mod, a plugin whose JS/TS hooks can draw UI and intercept tool calls"
+    },
+    {
+     "tag": "ADD",
+     "item": "allowManagedModsOnly",
+     "html": "<code>allowManagedModsOnly</code> managed setting — stops a user-installed mod from loading, leaving the rest of its plugin in place"
+    },
+    {
+     "tag": "ADD",
+     "item": "\"bareElicitationCapability\": true",
+     "html": "<code>\"bareElicitationCapability\": true</code> MCP server config field — needed for a server on the MCP 2025-11-25 protocol that sends URL elicitation prompts and stopped connecting after this update"
+    },
+    {
+     "tag": "ADD",
+     "item": "CLAUDE_AX_PREPARK_MS=50",
+     "html": "<code>CLAUDE_AX_PREPARK_MS=50</code> env var — restores screen reader mode's old pause before writing a new or changed line"
+    },
+    {
+     "tag": "CHG",
+     "item": "CLAUDE_CODE_DISABLE_1M_CONTEXT",
+     "html": "<code>CLAUDE_CODE_DISABLE_1M_CONTEXT</code> — Opus 4.7+ and Fable now default to a 1M context window with no <code>[1m]</code> model-id suffix on Bedrock, Vertex, Foundry and the Claude apps gateway; this env var keeps 200K"
+    },
+    {
+     "tag": "CHG",
+     "item": "alwaysLoad",
+     "html": "<code>alwaysLoad</code> MCP server config — set explicitly to <code>false</code> to defer all of that server's tools behind tool search"
+    }
+   ]
+  },
   {
    "version": "v2.1.286",
    "label": "CC v2.1.286",

@@ -161,8 +161,27 @@
 
             <div class="change-section">
                 <h3>Content / CC Release Updates</h3>
-                <!-- September 2026 -->
+                <!-- October 2026 -->
                 <details class="month-group" open>
+                    <summary>October 2026 <span class="version-date">v2.1.287</span> <span class="month-count">1 release</span></summary>
+                    <div class="month-content">
+
+                        <div class="change-section">
+                            <h3 id="rel-2-1-287">CC v2.1.287 <span class="version-date">2026-10-01</span></h3>
+                            <ul class="change-list">
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>/plugin-authoring</code> — load Claude's reference for writing a mod, a plugin whose JS/TS hooks can draw UI and intercept tool calls</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>allowManagedModsOnly</code> managed setting — stops a user-installed mod from loading, leaving the rest of its plugin in place</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>"bareElicitationCapability": true</code> MCP server config field — needed for a server on the MCP 2025-11-25 protocol that sends URL elicitation prompts and stopped connecting after this update</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>CLAUDE_AX_PREPARK_MS=50</code> env var — restores screen reader mode's old pause before writing a new or changed line</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>CLAUDE_CODE_DISABLE_1M_CONTEXT</code> — Opus 4.7+ and Fable now default to a 1M context window with no <code>[1m]</code> model-id suffix on Bedrock, Vertex, Foundry and the Claude apps gateway; this env var keeps 200K</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>alwaysLoad</code> MCP server config — set explicitly to <code>false</code> to defer all of that server's tools behind tool search</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </details>
+
+                <!-- September 2026 -->
+                <details class="month-group">
                     <summary>September 2026 <span class="version-date">v2.1.265 – v2.1.286</span> <span class="month-count">17 releases</span></summary>
                     <div class="month-content">
 

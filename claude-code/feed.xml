@@ -4,7 +4,14 @@
   <link href="https://dommango.github.io/agentmats/claude-code/"/>
   <link rel="self" href="https://dommango.github.io/agentmats/claude-code/feed.xml"/>
   <id>https://dommango.github.io/agentmats/claude-code/</id>
-  <updated>2026-09-30T09:00:00Z</updated>
+  <updated>2026-10-01T09:00:00Z</updated>
+  <entry>
+    <title>CC v2.1.287 — 6 placemat changes</title>
+    <id>https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-287</id>
+    <link href="https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-287"/>
+    <updated>2026-10-01T09:00:00Z</updated>
+    <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;/plugin-authoring&lt;/code&gt; — load Claude's reference for writing a mod, a plugin whose JS/TS hooks can draw UI and intercept tool calls&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;allowManagedModsOnly&lt;/code&gt; managed setting — stops a user-installed mod from loading, leaving the rest of its plugin in place&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;"bareElicitationCapability": true&lt;/code&gt; MCP server config field — needed for a server on the MCP 2025-11-25 protocol that sends URL elicitation prompts and stopped connecting after this update&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;CLAUDE_AX_PREPARK_MS=50&lt;/code&gt; env var — restores screen reader mode's old pause before writing a new or changed line&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;CLAUDE_CODE_DISABLE_1M_CONTEXT&lt;/code&gt; — Opus 4.7+ and Fable now default to a 1M context window with no &lt;code&gt;[1m]&lt;/code&gt; model-id suffix on Bedrock, Vertex, Foundry and the Claude apps gateway; this env var keeps 200K&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;alwaysLoad&lt;/code&gt; MCP server config — set explicitly to &lt;code&gt;false&lt;/code&gt; to defer all of that server's tools behind tool search&lt;/li&gt;&lt;/ul&gt;</content>
+  </entry>
   <entry>
     <title>CC v2.1.286 — 3 placemat changes</title>
     <id>https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-286</id>
@@ -137,12 +144,5 @@
     <link href="https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-260"/>
     <updated>2026-09-03T09:00:00Z</updated>
     <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;/diff&lt;/code&gt; — in fullscreen mode, opens as a panel beside the conversation showing uncommitted changes as Claude edits&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;Ctrl L&lt;/code&gt; in fullscreen — clears the transcript view like a terminal &lt;code&gt;clear&lt;/code&gt;; scroll up to see earlier messages&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;/advisor&lt;/code&gt; — text form (&lt;code&gt;/advisor&lt;/code&gt;, &lt;code&gt;/advisor &amp;lt;model&amp;gt;&lt;/code&gt;, &lt;code&gt;/advisor off&lt;/code&gt;) now works in desktop, Remote Control, and headless (&lt;code&gt;-p&lt;/code&gt;/Agent SDK) sessions&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;/reload-plugins&lt;/code&gt; — now available in headless sessions (Claude Code Desktop and SDK)&lt;/li&gt;&lt;/ul&gt;</content>
-  </entry>
-  <entry>
-    <title>CC v2.1.259 — 4 placemat changes</title>
-    <id>https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-259</id>
-    <link href="https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-259"/>
-    <updated>2026-09-02T09:00:00Z</updated>
-    <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;managedMcpServers&lt;/code&gt; managed setting — provide HTTP/SSE MCP servers to every user in the organization (same entry shape as &lt;code&gt;.mcp.json&lt;/code&gt;); entries naming a command to run are skipped&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;deniedMcpServers&lt;/code&gt; managed setting — blocklist of managed MCP servers to deny; as of v2.1.259, &lt;code&gt;allowedMcpServers&lt;/code&gt; governs only user-added servers and no longer filters &lt;code&gt;managed-mcp.json&lt;/code&gt; servers&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;--permission-prompts none&lt;/code&gt; CLI flag — deny any action that would prompt for unattended headless hosts; the active permission mode (including auto mode) still decides normally&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;claude plugin validate&lt;/code&gt; — added &lt;code&gt;--json&lt;/code&gt; for a machine-readable validation report&lt;/li&gt;&lt;/ul&gt;</content>
   </entry>
 </feed>
