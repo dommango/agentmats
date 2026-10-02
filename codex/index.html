@@ -48,7 +48,7 @@
             <span class="header-tagline">Unofficial · auto-updated reference</span>
         </div>
         <div class="global-controls">
-            <span class="release-tag">As of release: v0.159.3</span>
+            <span class="release-tag">As of release: v0.160.0</span>
             <a href="changelog.html" class="header-link">Changelog →</a>
             <a href="feed.xml" class="header-link" title="Subscribe to placemat changes (RSS)">RSS</a>
             <button type="button" class="header-link print-btn" id="printBtn" title="Print or save as PDF (Ctrl P)">⎙ Print</button>
@@ -85,7 +85,7 @@
 
         <div class="print-head" aria-hidden="true">
             <span class="print-head-title">Codex CLI <b>PLACEMAT</b></span>
-            <span>As of release v0.159.3</span>
+            <span>As of release v0.160.0</span>
             <span>■ = new &nbsp; □ = unverified</span>
             <span>dommango.github.io/agentmats/codex</span>
         </div>
@@ -405,6 +405,8 @@
                     <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
                     <tr class="search-item" id="i-approval-policy"><td><a class="row-link" href="#i-approval-policy" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>approval_policy</code></td><td class="desc"><span class="summary">When Codex pauses for approval: <code>on-request</code> or <code>never</code></span> <button type="button" class="notes-btn" aria-expanded="false">+2</button><ul class="notes" hidden><li>A granular form allows or auto-rejects specific prompt categories while keeping others interactive.</li><li><code>untrusted</code> is unsupported and <code>on-failure</code> is deprecated.</li></ul></td></tr>
                     <tr class="search-item" id="i-approvals-reviewer"><td><a class="row-link" href="#i-approvals-reviewer" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>approvals_reviewer</code></td><td class="desc"><span class="summary">Who reviews eligible approval prompts: <code>user</code> or <code>auto_review</code></span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Does not change sandboxing or actions already allowed inside the sandbox.</li></ul></td></tr>
+                    <tr class="search-item" id="i-auto-review-policy"><td><a class="row-link" href="#i-auto-review-policy" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>auto_review.policy</code></td><td class="desc"><span class="summary">Local Markdown policy instructions for the <code>auto_review</code> reviewer</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Managed <code>guardian_policy_config</code> in <code>requirements.toml</code> takes precedence when set.</li></ul></td></tr>
+                    <tr class="search-item" id="i-auto-review-extra-policy"><td><a class="row-link" href="#i-auto-review-extra-policy" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>auto_review.extra_policy</code></td><td class="desc"><span class="summary">Additional Markdown policy appended alongside the main auto-review policy</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Managed <code>guardian_extra_policy</code> in <code>requirements.toml</code> takes precedence when set.</li></ul></td></tr>
                     <tr class="search-item" id="i-sandbox-mode"><td><a class="row-link" href="#i-sandbox-mode" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>sandbox_mode</code></td><td class="desc">Sandbox policy: <code>read-only</code>, <code>workspace-write</code>, <code>danger-full-access</code></td></tr>
                     <tr class="search-item" id="i-sandbox-workspace-write-writable-roots"><td><a class="row-link" href="#i-sandbox-workspace-write-writable-roots" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>sandbox_workspace_write.writable_roots</code></td><td class="desc">Extra directories writable in workspace-write mode</td></tr>
                     <tr class="search-item" id="i-sandbox-workspace-write-network-access"><td><a class="row-link" href="#i-sandbox-workspace-write-network-access" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>sandbox_workspace_write.network_access</code></td><td class="desc">Allow outbound network access inside the workspace-write sandbox</td></tr>
@@ -624,7 +626,7 @@
         <div class="no-results search-exclude" id="noResults">No matches — clear search to see everything.</div>
 
         <footer class="global-footer">
-            Template v1.0 · Content synced 2026-09-29<br>
+            Template v1.0 · Content synced 2026-10-01<br>
             <span class="disclaimer">Unofficial community reference — not affiliated with or endorsed by OpenAI.
             Condensed from the official docs; always confirm against
             <a href="https://developers.openai.com/codex" target="_blank" rel="noopener noreferrer">developers.openai.com/codex</a>.</span><br>

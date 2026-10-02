@@ -161,8 +161,23 @@
 
             <div class="change-section">
                 <h3>Content / Codex CLI Releases</h3>
-                <!-- September 2026 -->
+                <!-- October 2026 -->
                 <details class="month-group" open>
+                    <summary>October 2026 <span class="version-date">v0.160.0</span> <span class="month-count">1 release</span></summary>
+                    <div class="month-content">
+
+                        <div class="change-section">
+                            <h3 id="rel-0-160-0">Codex CLI v0.160.0 <span class="version-date">2026-10-01</span></h3>
+                            <ul class="change-list">
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>auto_review.extra_policy</code> (<code>card-settings</code>) — additional Markdown policy appended alongside the main auto-review policy, part of this release&rsquo;s opt-in Guardian review capabilities</span></li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </details>
+
+                <!-- September 2026 -->
+                <details class="month-group">
                     <summary>September 2026 <span class="version-date">v0.154.0 – v0.159.0</span> <span class="month-count">8 releases</span></summary>
                     <div class="month-content">
 
@@ -240,12 +255,13 @@
                     <li><span class="tag tag-fix">FIX</span><span class="entry"><code>sources.json</code> gained a vendor-extracted <code>inventory</code> (54 slash commands, 224 settings keys, 12 hook events, sourced from <code>developer-commands.md</code>, <code>config-reference.md</code>, <code>config-basic.md</code> and <code>hooks.md</code>); <code>codex</code> is now under the inventory gate in <code>tests/placemat.test.js</code></span></li>
                     <li><span class="tag tag-fix">FIX</span><span class="entry">Marked <code>mcp_oauth_callback_port</code> and <code>mcp_optional_startup_grace_ms</code> (<code>card-hooks</code>) <code>unverified</code> — both are confirmed <code>config.toml</code> keys, but the inventory gate reads every bare-word chip in <code>card-hooks</code> as a hook-event candidate, and neither is a hook event</span></li>
                     <li><span class="tag tag-fix">FIX</span><span class="entry">Marked the v0.156.0 additions <code>/tui</code>, <code>/daemon</code> and <code>--no-daemon</code> <code>unverified</code> — <code>learn.chatgpt.com</code> (developer-commands, config-reference, hooks) was unreachable from the sync sandbox this run, so <code>sources.json → inventory</code> was not re-extracted; promote them once a future sync confirms against the docs</span></li>
+                    <li><span class="tag tag-fix">FIX</span><span class="entry">Backfilled <code>auto_review.policy</code> (<code>card-settings</code>) — already a confirmed <code>config.toml</code> key in <code>sources.json → inventory</code> since the original extraction, but had never been given a placemat row</span></li>
                 </ul>
             </div>
         </div>
 
         <footer class="global-footer">
-            Template v1.0 · Content synced 2026-09-29<br>
+            Template v1.0 · Content synced 2026-10-01<br>
             <span class="disclaimer">Unofficial community reference — not affiliated with or endorsed by OpenAI.
             Condensed from the official docs; always confirm against
             <a href="https://developers.openai.com/codex" target="_blank" rel="noopener noreferrer">developers.openai.com/codex</a>.</span><br>
