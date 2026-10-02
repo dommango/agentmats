@@ -10,13 +10,8 @@
    "entries": [
     {
      "tag": "ADD",
-     "item": "auto_review.policy",
-     "html": "<code>auto_review.policy</code> (<code>card-settings</code>) — local Markdown policy instructions for the <code>auto_review</code> reviewer, part of this release&rsquo;s opt-in Guardian review capabilities"
-    },
-    {
-     "tag": "ADD",
      "item": "auto_review.extra_policy",
-     "html": "<code>auto_review.extra_policy</code> (<code>card-settings</code>) — additional Markdown policy appended alongside the main auto-review policy"
+     "html": "<code>auto_review.extra_policy</code> (<code>card-settings</code>) — additional Markdown policy appended alongside the main auto-review policy, part of this release&rsquo;s opt-in Guardian review capabilities"
     }
    ]
   },
