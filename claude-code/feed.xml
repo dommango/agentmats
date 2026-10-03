@@ -4,7 +4,14 @@
   <link href="https://dommango.github.io/agentmats/claude-code/"/>
   <link rel="self" href="https://dommango.github.io/agentmats/claude-code/feed.xml"/>
   <id>https://dommango.github.io/agentmats/claude-code/</id>
-  <updated>2026-10-01T09:00:00Z</updated>
+  <updated>2026-10-02T09:00:00Z</updated>
+  <entry>
+    <title>CC v2.1.288 — 5 placemat changes</title>
+    <id>https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-288</id>
+    <link href="https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-288"/>
+    <updated>2026-10-02T09:00:00Z</updated>
+    <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;/code-review --max-findings &amp;lt;n&amp;gt;|all&lt;/code&gt; — report more or fewer findings than the usual limit; sticks until you pass &lt;code&gt;--max-findings default&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;Ctrl F&lt;/code&gt; keybinding — find a session by name in &lt;code&gt;claude agents&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;Alt ↑&lt;/code&gt; / &lt;code&gt;Alt ↓&lt;/code&gt; keybindings — jump between groups in &lt;code&gt;claude agents&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;CLAUDE_CODE_DISABLE_STRUCTURED_OUTPUTS&lt;/code&gt; env var — turns off structured outputs on Mantle or gateways that reject them, fixing session titles, memory recall and prompt hooks&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;claude project purge&lt;/code&gt; renamed to &lt;code&gt;claude purge&lt;/code&gt;; the old form still works and prints a notice&lt;/li&gt;&lt;/ul&gt;</content>
+  </entry>
   <entry>
     <title>CC v2.1.287 — 6 placemat changes</title>
     <id>https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-287</id>
@@ -137,12 +144,5 @@
     <link href="https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-261"/>
     <updated>2026-09-04T09:00:00Z</updated>
     <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;/skill-doctor&lt;/code&gt; — shows which loaded skills go unused and what they cost in context, so you can prune them&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;--append-subagent-system-prompt-file&lt;/code&gt; CLI flag — reads the subagent system prompt from a file, for prompts too large to pass on the command line&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;bashOutputMaxChars&lt;/code&gt; / &lt;code&gt;taskOutputMaxChars&lt;/code&gt; JSON settings — raise how much Bash command or background-task output Claude receives inline before saving to a file (cap at 128K characters)&lt;/li&gt;&lt;/ul&gt;</content>
-  </entry>
-  <entry>
-    <title>CC v2.1.260 — 4 placemat changes</title>
-    <id>https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-260</id>
-    <link href="https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-260"/>
-    <updated>2026-09-03T09:00:00Z</updated>
-    <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;/diff&lt;/code&gt; — in fullscreen mode, opens as a panel beside the conversation showing uncommitted changes as Claude edits&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;Ctrl L&lt;/code&gt; in fullscreen — clears the transcript view like a terminal &lt;code&gt;clear&lt;/code&gt;; scroll up to see earlier messages&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;/advisor&lt;/code&gt; — text form (&lt;code&gt;/advisor&lt;/code&gt;, &lt;code&gt;/advisor &amp;lt;model&amp;gt;&lt;/code&gt;, &lt;code&gt;/advisor off&lt;/code&gt;) now works in desktop, Remote Control, and headless (&lt;code&gt;-p&lt;/code&gt;/Agent SDK) sessions&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;/reload-plugins&lt;/code&gt; — now available in headless sessions (Claude Code Desktop and SDK)&lt;/li&gt;&lt;/ul&gt;</content>
   </entry>
 </feed>

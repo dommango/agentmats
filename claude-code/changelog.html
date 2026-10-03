@@ -163,8 +163,19 @@
                 <h3>Content / CC Release Updates</h3>
                 <!-- October 2026 -->
                 <details class="month-group" open>
-                    <summary>October 2026 <span class="version-date">v2.1.287</span> <span class="month-count">1 release</span></summary>
+                    <summary>October 2026 <span class="version-date">v2.1.287 – v2.1.288</span> <span class="month-count">2 releases</span></summary>
                     <div class="month-content">
+
+                        <div class="change-section">
+                            <h3 id="rel-2-1-288">CC v2.1.288 <span class="version-date">2026-10-02</span></h3>
+                            <ul class="change-list">
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>/code-review --max-findings &lt;n&gt;|all</code> — report more or fewer findings than the usual limit; sticks until you pass <code>--max-findings default</code></span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>Ctrl F</code> keybinding — find a session by name in <code>claude agents</code></span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>Alt ↑</code> / <code>Alt ↓</code> keybindings — jump between groups in <code>claude agents</code></span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>CLAUDE_CODE_DISABLE_STRUCTURED_OUTPUTS</code> env var — turns off structured outputs on Mantle or gateways that reject them, fixing session titles, memory recall and prompt hooks</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>claude project purge</code> renamed to <code>claude purge</code>; the old form still works and prints a notice</span></li>
+                            </ul>
+                        </div>
 
                         <div class="change-section">
                             <h3 id="rel-2-1-287">CC v2.1.287 <span class="version-date">2026-10-01</span></h3>
@@ -1528,7 +1539,7 @@
         </div>
 
         <footer class="global-footer">
-            Template v1.2 · Content synced 2026-09-29<br>
+            Template v1.2 · Content synced 2026-10-02<br>
             <span class="disclaimer">Unofficial community reference — not affiliated with or endorsed by Anthropic.
             Condensed from the official docs; always confirm against
             <a href="https://code.claude.com/docs" target="_blank" rel="noopener noreferrer">code.claude.com/docs</a>.</span><br>
