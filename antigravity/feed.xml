@@ -4,7 +4,21 @@
   <link href="https://dommango.github.io/agentmats/antigravity/"/>
   <link rel="self" href="https://dommango.github.io/agentmats/antigravity/feed.xml"/>
   <id>https://dommango.github.io/agentmats/antigravity/</id>
-  <updated>2026-09-27T09:00:00Z</updated>
+  <updated>2026-09-30T09:00:00Z</updated>
+  <entry>
+    <title>Antigravity CLI v1.2.14 — 5 placemat changes</title>
+    <id>https://dommango.github.io/agentmats/antigravity/changelog.html#rel-1-2-14</id>
+    <link href="https://dommango.github.io/agentmats/antigravity/changelog.html#rel-1-2-14"/>
+    <updated>2026-09-30T09:00:00Z</updated>
+    <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;queuedMessages&lt;/code&gt; (&lt;code&gt;card-settings&lt;/code&gt;) — new setting for follow-up messages during a turn (&lt;code&gt;queue&lt;/code&gt; default, or &lt;code&gt;send-immediately&lt;/code&gt;); unverified, absent from the &lt;code&gt;cli/reference&lt;/code&gt; settings table&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;--json-schema &amp;lt;schema&amp;gt;&lt;/code&gt; (&lt;code&gt;card-cli&lt;/code&gt;) — noted that it now rejects plain text, bare type names, and missing schema files up front with exit code &lt;code&gt;1&lt;/code&gt;, instead of silently treating them as a string schema&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;agy remote-control&lt;/code&gt; (&lt;code&gt;card-cli&lt;/code&gt;) — noted &lt;code&gt;remote-control start&lt;/code&gt; running the daemon as a background process on systemd-free Linux machines instead of failing&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;/resume&lt;/code&gt; (&lt;code&gt;card-slash-core&lt;/code&gt;) — noted faster loading for conversations with thousands of steps&lt;/li&gt;&lt;li&gt;&lt;b&gt;FIX&lt;/b&gt; &lt;code&gt;/resume&lt;/code&gt; (&lt;code&gt;card-slash-core&lt;/code&gt;) — noted the fix for resuming a conversation with a missing history step overwriting its most recent steps&lt;/li&gt;&lt;/ul&gt;</content>
+  </entry>
+  <entry>
+    <title>Antigravity CLI v1.2.13 — 1 placemat change</title>
+    <id>https://dommango.github.io/agentmats/antigravity/changelog.html#rel-1-2-13</id>
+    <link href="https://dommango.github.io/agentmats/antigravity/changelog.html#rel-1-2-13"/>
+    <updated>2026-09-29T09:00:00Z</updated>
+    <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;/artifact&lt;/code&gt; (&lt;code&gt;card-slash-tools&lt;/code&gt;) — noted the &lt;code&gt;m&lt;/code&gt; hint now naming the content and mode it switches to, instead of a generic "toggle" label&lt;/li&gt;&lt;/ul&gt;</content>
+  </entry>
   <entry>
     <title>Antigravity CLI v1.2.12 — 5 placemat changes</title>
     <id>https://dommango.github.io/agentmats/antigravity/changelog.html#rel-1-2-12</id>
