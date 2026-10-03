@@ -1,7 +1,40 @@
 {
- "generated": "2026-10-01",
- "latest": "v2.1.287",
+ "generated": "2026-10-02",
+ "latest": "v2.1.288",
  "releases": [
+  {
+   "version": "v2.1.288",
+   "label": "CC v2.1.288",
+   "date": "2026-10-02",
+   "id": "rel-2-1-288",
+   "entries": [
+    {
+     "tag": "ADD",
+     "item": "/code-review --max-findings <n>|all",
+     "html": "<code>/code-review --max-findings &lt;n&gt;|all</code> — report more or fewer findings than the usual limit; sticks until you pass <code>--max-findings default</code>"
+    },
+    {
+     "tag": "ADD",
+     "item": "Ctrl F",
+     "html": "<code>Ctrl F</code> keybinding — find a session by name in <code>claude agents</code>"
+    },
+    {
+     "tag": "ADD",
+     "item": "Alt ↑",
+     "html": "<code>Alt ↑</code> / <code>Alt ↓</code> keybindings — jump between groups in <code>claude agents</code>"
+    },
+    {
+     "tag": "ADD",
+     "item": "CLAUDE_CODE_DISABLE_STRUCTURED_OUTPUTS",
+     "html": "<code>CLAUDE_CODE_DISABLE_STRUCTURED_OUTPUTS</code> env var — turns off structured outputs on Mantle or gateways that reject them, fixing session titles, memory recall and prompt hooks"
+    },
+    {
+     "tag": "CHG",
+     "item": "claude project purge",
+     "html": "<code>claude project purge</code> renamed to <code>claude purge</code>; the old form still works and prints a notice"
+    }
+   ]
+  },
   {
    "version": "v2.1.287",
    "label": "CC v2.1.287",
