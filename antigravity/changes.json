@@ -1,7 +1,53 @@
 {
- "generated": "2026-09-27",
- "latest": "v1.2.12",
+ "generated": "2026-09-30",
+ "latest": "v1.2.14",
  "releases": [
+  {
+   "version": "v1.2.14",
+   "label": "Antigravity CLI v1.2.14",
+   "date": "2026-09-30",
+   "id": "rel-1-2-14",
+   "entries": [
+    {
+     "tag": "ADD",
+     "item": "queuedMessages",
+     "html": "<code>queuedMessages</code> (<code>card-settings</code>) — new setting for follow-up messages during a turn (<code>queue</code> default, or <code>send-immediately</code>); unverified, absent from the <code>cli/reference</code> settings table"
+    },
+    {
+     "tag": "CHG",
+     "item": "--json-schema <schema>",
+     "html": "<code>--json-schema &lt;schema&gt;</code> (<code>card-cli</code>) — noted that it now rejects plain text, bare type names, and missing schema files up front with exit code <code>1</code>, instead of silently treating them as a string schema"
+    },
+    {
+     "tag": "CHG",
+     "item": "agy remote-control",
+     "html": "<code>agy remote-control</code> (<code>card-cli</code>) — noted <code>remote-control start</code> running the daemon as a background process on systemd-free Linux machines instead of failing"
+    },
+    {
+     "tag": "CHG",
+     "item": "/resume",
+     "html": "<code>/resume</code> (<code>card-slash-core</code>) — noted faster loading for conversations with thousands of steps"
+    },
+    {
+     "tag": "FIX",
+     "item": "/resume",
+     "html": "<code>/resume</code> (<code>card-slash-core</code>) — noted the fix for resuming a conversation with a missing history step overwriting its most recent steps"
+    }
+   ]
+  },
+  {
+   "version": "v1.2.13",
+   "label": "Antigravity CLI v1.2.13",
+   "date": "2026-09-29",
+   "id": "rel-1-2-13",
+   "entries": [
+    {
+     "tag": "CHG",
+     "item": "/artifact",
+     "html": "<code>/artifact</code> (<code>card-slash-tools</code>) — noted the <code>m</code> hint now naming the content and mode it switches to, instead of a generic \"toggle\" label"
+    }
+   ]
+  },
   {
    "version": "v1.2.12",
    "label": "Antigravity CLI v1.2.12",

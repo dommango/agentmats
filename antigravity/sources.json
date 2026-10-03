@@ -37,7 +37,7 @@
   ],
   "inventory": {
     "source": "https://antigravity.google/docs/cli/reference",
-    "fetched": "2026-09-29",
+    "fetched": "2026-10-03",
     "slash": [
       "/add-dir", "/agents", "/boost", "/artifact", "/btw", "/clear", "/new",
       "/config", "/settings", "/context", "/copy", "/credits", "/diff",
