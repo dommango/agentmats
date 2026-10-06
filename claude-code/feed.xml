@@ -4,7 +4,14 @@
   <link href="https://dommango.github.io/agentmats/claude-code/"/>
   <link rel="self" href="https://dommango.github.io/agentmats/claude-code/feed.xml"/>
   <id>https://dommango.github.io/agentmats/claude-code/</id>
-  <updated>2026-10-02T09:00:00Z</updated>
+  <updated>2026-10-05T09:00:00Z</updated>
+  <entry>
+    <title>CC v2.1.290 — 3 placemat changes</title>
+    <id>https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-290</id>
+    <link href="https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-290"/>
+    <updated>2026-10-05T09:00:00Z</updated>
+    <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;claude attach &amp;lt;id|name&amp;gt;&lt;/code&gt; / &lt;code&gt;claude logs &amp;lt;id|name&amp;gt;&lt;/code&gt; — part of a running background session's name now works in place of its id&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;CLAUDE_CODE_WEB_SEARCH_REFILLS_PER_HOUR&lt;/code&gt; env var — sets the hourly refill rate for an interactive session's WebSearch budget; &lt;code&gt;0&lt;/code&gt; turns off refilling&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;CLAUDE_CODE_MAX_WEB_SEARCHES_PER_SESSION&lt;/code&gt; — in an interactive session this budget now refills over time instead of ending for good once spent&lt;/li&gt;&lt;/ul&gt;</content>
+  </entry>
   <entry>
     <title>CC v2.1.288 — 5 placemat changes</title>
     <id>https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-288</id>
@@ -137,12 +144,5 @@
     <link href="https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-265"/>
     <updated>2026-09-08T09:00:00Z</updated>
     <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;--plugin-dir&lt;/code&gt; — now accepts a folder of plugins; each child folder with a manifest loads, and additions/removals while running are picked up&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;forceLoginGatewayUrl&lt;/code&gt; managed setting — URL of the Claude apps gateway; machines with this set start as gateway sessions from startup, overriding leftover logins or API keys&lt;/li&gt;&lt;/ul&gt;</content>
-  </entry>
-  <entry>
-    <title>CC v2.1.261 — 3 placemat changes</title>
-    <id>https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-261</id>
-    <link href="https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-261"/>
-    <updated>2026-09-04T09:00:00Z</updated>
-    <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;/skill-doctor&lt;/code&gt; — shows which loaded skills go unused and what they cost in context, so you can prune them&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;--append-subagent-system-prompt-file&lt;/code&gt; CLI flag — reads the subagent system prompt from a file, for prompts too large to pass on the command line&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;bashOutputMaxChars&lt;/code&gt; / &lt;code&gt;taskOutputMaxChars&lt;/code&gt; JSON settings — raise how much Bash command or background-task output Claude receives inline before saving to a file (cap at 128K characters)&lt;/li&gt;&lt;/ul&gt;</content>
   </entry>
 </feed>

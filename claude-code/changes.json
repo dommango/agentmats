@@ -1,7 +1,30 @@
 {
- "generated": "2026-10-02",
- "latest": "v2.1.288",
+ "generated": "2026-10-05",
+ "latest": "v2.1.290",
  "releases": [
+  {
+   "version": "v2.1.290",
+   "label": "CC v2.1.290",
+   "date": "2026-10-05",
+   "id": "rel-2-1-290",
+   "entries": [
+    {
+     "tag": "ADD",
+     "item": "claude attach <id|name>",
+     "html": "<code>claude attach &lt;id|name&gt;</code> / <code>claude logs &lt;id|name&gt;</code> — part of a running background session's name now works in place of its id"
+    },
+    {
+     "tag": "ADD",
+     "item": "CLAUDE_CODE_WEB_SEARCH_REFILLS_PER_HOUR",
+     "html": "<code>CLAUDE_CODE_WEB_SEARCH_REFILLS_PER_HOUR</code> env var — sets the hourly refill rate for an interactive session's WebSearch budget; <code>0</code> turns off refilling"
+    },
+    {
+     "tag": "CHG",
+     "item": "CLAUDE_CODE_MAX_WEB_SEARCHES_PER_SESSION",
+     "html": "<code>CLAUDE_CODE_MAX_WEB_SEARCHES_PER_SESSION</code> — in an interactive session this budget now refills over time instead of ending for good once spent"
+    }
+   ]
+  },
   {
    "version": "v2.1.288",
    "label": "CC v2.1.288",
