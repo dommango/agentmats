@@ -163,8 +163,17 @@
                 <h3>Content / CC Release Updates</h3>
                 <!-- October 2026 -->
                 <details class="month-group" open>
-                    <summary>October 2026 <span class="version-date">v2.1.287 – v2.1.288</span> <span class="month-count">2 releases</span></summary>
+                    <summary>October 2026 <span class="version-date">v2.1.287 – v2.1.290</span> <span class="month-count">3 releases</span></summary>
                     <div class="month-content">
+
+                        <div class="change-section">
+                            <h3 id="rel-2-1-290">CC v2.1.290 <span class="version-date">2026-10-05</span></h3>
+                            <ul class="change-list">
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>claude attach &lt;id|name&gt;</code> / <code>claude logs &lt;id|name&gt;</code> — part of a running background session's name now works in place of its id</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>CLAUDE_CODE_WEB_SEARCH_REFILLS_PER_HOUR</code> env var — sets the hourly refill rate for an interactive session's WebSearch budget; <code>0</code> turns off refilling</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>CLAUDE_CODE_MAX_WEB_SEARCHES_PER_SESSION</code> — in an interactive session this budget now refills over time instead of ending for good once spent</span></li>
+                            </ul>
+                        </div>
 
                         <div class="change-section">
                             <h3 id="rel-2-1-288">CC v2.1.288 <span class="version-date">2026-10-02</span></h3>
@@ -1539,7 +1548,7 @@
         </div>
 
         <footer class="global-footer">
-            Template v1.2 · Content synced 2026-10-02<br>
+            Template v1.2 · Content synced 2026-10-05<br>
             <span class="disclaimer">Unofficial community reference — not affiliated with or endorsed by Anthropic.
             Condensed from the official docs; always confirm against
             <a href="https://code.claude.com/docs" target="_blank" rel="noopener noreferrer">code.claude.com/docs</a>.</span><br>
