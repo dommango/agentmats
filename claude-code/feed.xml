@@ -4,7 +4,14 @@
   <link href="https://dommango.github.io/agentmats/claude-code/"/>
   <link rel="self" href="https://dommango.github.io/agentmats/claude-code/feed.xml"/>
   <id>https://dommango.github.io/agentmats/claude-code/</id>
-  <updated>2026-10-05T09:00:00Z</updated>
+  <updated>2026-10-06T09:00:00Z</updated>
+  <entry>
+    <title>CC v2.1.292 — 3 placemat changes</title>
+    <id>https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-292</id>
+    <link href="https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-292"/>
+    <updated>2026-10-06T09:00:00Z</updated>
+    <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;claude plugin install --marketplace &amp;lt;source&amp;gt;&lt;/code&gt; — adds the marketplace if needed, under the same checks as &lt;code&gt;claude plugin marketplace add&lt;/code&gt;, then installs the plugin from it&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;CLAUDE_CODE_OVERLOADED_RETRY_BASE_DELAY_MS&lt;/code&gt; env var — sets a longer base delay for the backoff when retrying an overloaded (529) request&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;MCP_PROTOCOL_NEGOTIATION=legacy&lt;/code&gt; — local (stdio) MCP server connections now negotiate protocol version 2026-07-28 by default on every install, Bedrock/Vertex/Foundry included; this opts back out&lt;/li&gt;&lt;/ul&gt;</content>
+  </entry>
   <entry>
     <title>CC v2.1.290 — 3 placemat changes</title>
     <id>https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-290</id>
@@ -137,12 +144,5 @@
     <link href="https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-267"/>
     <updated>2026-09-09T09:00:00Z</updated>
     <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;maxEffortLevel&lt;/code&gt; setting — caps the maximum effort level on every provider (top-level or per model under &lt;code&gt;modelSettings&lt;/code&gt;); applies to Bedrock, Vertex, and Foundry&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;--system-prompt-snapshot off&lt;/code&gt; flag — renders the system prompt fresh on every request instead of reusing the conversation's recorded prompt&lt;/li&gt;&lt;/ul&gt;</content>
-  </entry>
-  <entry>
-    <title>CC v2.1.265 — 2 placemat changes</title>
-    <id>https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-265</id>
-    <link href="https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-265"/>
-    <updated>2026-09-08T09:00:00Z</updated>
-    <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;--plugin-dir&lt;/code&gt; — now accepts a folder of plugins; each child folder with a manifest loads, and additions/removals while running are picked up&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;forceLoginGatewayUrl&lt;/code&gt; managed setting — URL of the Claude apps gateway; machines with this set start as gateway sessions from startup, overriding leftover logins or API keys&lt;/li&gt;&lt;/ul&gt;</content>
   </entry>
 </feed>

@@ -1,7 +1,30 @@
 {
- "generated": "2026-10-05",
- "latest": "v2.1.290",
+ "generated": "2026-10-06",
+ "latest": "v2.1.292",
  "releases": [
+  {
+   "version": "v2.1.292",
+   "label": "CC v2.1.292",
+   "date": "2026-10-06",
+   "id": "rel-2-1-292",
+   "entries": [
+    {
+     "tag": "ADD",
+     "item": "claude plugin install --marketplace <source>",
+     "html": "<code>claude plugin install --marketplace &lt;source&gt;</code> — adds the marketplace if needed, under the same checks as <code>claude plugin marketplace add</code>, then installs the plugin from it"
+    },
+    {
+     "tag": "ADD",
+     "item": "CLAUDE_CODE_OVERLOADED_RETRY_BASE_DELAY_MS",
+     "html": "<code>CLAUDE_CODE_OVERLOADED_RETRY_BASE_DELAY_MS</code> env var — sets a longer base delay for the backoff when retrying an overloaded (529) request"
+    },
+    {
+     "tag": "CHG",
+     "item": "MCP_PROTOCOL_NEGOTIATION=legacy",
+     "html": "<code>MCP_PROTOCOL_NEGOTIATION=legacy</code> — local (stdio) MCP server connections now negotiate protocol version 2026-07-28 by default on every install, Bedrock/Vertex/Foundry included; this opts back out"
+    }
+   ]
+  },
   {
    "version": "v2.1.290",
    "label": "CC v2.1.290",
