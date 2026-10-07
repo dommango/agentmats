@@ -163,8 +163,17 @@
                 <h3>Content / CC Release Updates</h3>
                 <!-- October 2026 -->
                 <details class="month-group" open>
-                    <summary>October 2026 <span class="version-date">v2.1.287 – v2.1.290</span> <span class="month-count">3 releases</span></summary>
+                    <summary>October 2026 <span class="version-date">v2.1.287 – v2.1.292</span> <span class="month-count">4 releases</span></summary>
                     <div class="month-content">
+
+                        <div class="change-section">
+                            <h3 id="rel-2-1-292">CC v2.1.292 <span class="version-date">2026-10-06</span></h3>
+                            <ul class="change-list">
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>claude plugin install --marketplace &lt;source&gt;</code> — adds the marketplace if needed, under the same checks as <code>claude plugin marketplace add</code>, then installs the plugin from it</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>CLAUDE_CODE_OVERLOADED_RETRY_BASE_DELAY_MS</code> env var — sets a longer base delay for the backoff when retrying an overloaded (529) request</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>MCP_PROTOCOL_NEGOTIATION=legacy</code> — local (stdio) MCP server connections now negotiate protocol version 2026-07-28 by default on every install, Bedrock/Vertex/Foundry included; this opts back out</span></li>
+                            </ul>
+                        </div>
 
                         <div class="change-section">
                             <h3 id="rel-2-1-290">CC v2.1.290 <span class="version-date">2026-10-05</span></h3>
