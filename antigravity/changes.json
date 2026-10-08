@@ -1,7 +1,202 @@
 {
- "generated": "2026-09-30",
- "latest": "v1.2.14",
+ "generated": "2026-10-07",
+ "latest": "v1.3.1",
  "releases": [
+  {
+   "version": "v1.3.1",
+   "label": "Antigravity CLI v1.3.1",
+   "date": "2026-10-07",
+   "id": "rel-1-3-1",
+   "entries": [
+    {
+     "tag": "ADD",
+     "item": "/diff",
+     "html": "<code>/diff</code> (<code>card-slash-tools</code>) — noted the improved cross-file navigation (←/→ jump to the next file's first change, per-file cursor/scroll memory, <code>n</code>/<code>N</code> continuing across files) and the new change A/B · file X/Y header position indicator"
+    },
+    {
+     "tag": "FIX",
+     "item": "/rewind",
+     "html": "<code>/rewind</code> (<code>card-slash-core</code>) — noted the fix for very long conversations listing space-compacted messages as <code>(empty message)</code> and erroring when selected"
+    },
+    {
+     "tag": "FIX",
+     "item": "/plugin",
+     "html": "<code>/plugin</code> / <code>/plugins</code> (<code>card-slash-tools</code>) — noted the Windows MCP-server lifecycle fix for install/reinstall/uninstall, UTF-8 BOM support for plugin and MCP/hook config files, and the marketplace-install overwrite fix"
+    },
+    {
+     "tag": "FIX",
+     "item": "/agents",
+     "html": "<code>/agents</code> (<code>card-slash-tools</code>) — noted the fix for relative <code>skills:</code>/<code>plugins:</code>/<code>rules:</code>/<code>agents:</code>/<code>hooks:</code> paths in Markdown custom agents, and subagents stuck on an error now showing <code>Error:</code> instead of <code>Done</code>"
+    },
+    {
+     "tag": "FIX",
+     "item": "/tasks",
+     "html": "<code>/tasks</code> (<code>card-slash-tools</code>) — noted that timers, recurring jobs, and other background tools now appear here too, not just background shell commands"
+    },
+    {
+     "tag": "FIX",
+     "item": "queuedMessages",
+     "html": "<code>queuedMessages</code> (<code>card-settings</code>) — noted the fix for <code>\"send-immediately\"</code> messages being silently queued whenever the agent had written or updated an artifact during the turn"
+    },
+    {
+     "tag": "FIX",
+     "item": "notifications",
+     "html": "<code>notifications</code> (<code>card-settings</code>) — noted that it now alerts for pending questions, not just tool permission prompts"
+    },
+    {
+     "tag": "FIX",
+     "item": "/mcp",
+     "html": "<code>/mcp</code> (<code>card-slash-tools</code>) — noted the fix for a server restart sometimes leaving it stopped with a \"Failed to stop existing instances for reload\" error"
+    },
+    {
+     "tag": "FIX",
+     "item": "GEMINI_API_KEY",
+     "html": "<code>GEMINI_API_KEY</code> (<code>card-env</code>) — noted that a dropped connection to the Gemini API now retries instead of failing the turn as cancelled"
+    }
+   ]
+  },
+  {
+   "version": "v1.3.0",
+   "label": "Antigravity CLI v1.3.0",
+   "date": "2026-10-06",
+   "id": "rel-1-3-0",
+   "entries": [
+    {
+     "tag": "CHG",
+     "item": "verbosity",
+     "html": "<code>verbosity</code> (<code>card-settings</code>) — noted the default changing from <code>high</code> to <code>medium</code>, per the release notes only; <code>cli/reference</code> still documents the old default and values"
+    },
+    {
+     "tag": "CHG",
+     "item": "/diff",
+     "html": "<code>/diff</code> (<code>card-slash-tools</code>) — noted <code>j</code>/<code>k</code> now moving the line cursor like the arrow keys instead of jumping between files"
+    }
+   ]
+  },
+  {
+   "version": "v1.2.17",
+   "label": "Antigravity CLI v1.2.17",
+   "date": "2026-10-05",
+   "id": "rel-1-2-17",
+   "entries": [
+    {
+     "tag": "ADD",
+     "item": "Esc",
+     "html": "<code>Esc</code> (<code>card-keys</code>) — noted the new dismissible announcement cards for model launches and service notices, dismissed permanently with <code>Esc</code> on an empty prompt"
+    },
+    {
+     "tag": "CHG",
+     "item": "enableTerminalSandbox",
+     "html": "<code>enableTerminalSandbox</code> (<code>card-settings</code>) — noted the Windows sandbox no longer needing administrator rights, with Python/Git/npm working out of the box"
+    },
+    {
+     "tag": "FIX",
+     "item": "/artifact",
+     "html": "<code>/artifact</code> (<code>card-slash-tools</code>) — noted the fix for <code>.tiff</code> images being misreported and silently converted to PNG"
+    }
+   ]
+  },
+  {
+   "version": "v1.2.16",
+   "label": "Antigravity CLI v1.2.16",
+   "date": "2026-10-03",
+   "id": "rel-1-2-16",
+   "entries": [
+    {
+     "tag": "ADD",
+     "item": "/config",
+     "html": "<code>/config</code> (<code>card-slash-core</code>) — noted the ←/→ shortcut to cycle a highlighted setting's value without opening the dropdown"
+    },
+    {
+     "tag": "ADD",
+     "item": "/agents",
+     "html": "<code>/agents</code> (<code>card-slash-tools</code>) — noted image-generation requests now running as a built-in image-generator subagent"
+    },
+    {
+     "tag": "CHG",
+     "item": "altScreenMode",
+     "html": "<code>altScreenMode</code> (<code>card-settings</code>) — noted improved resize performance in no-flicker (altscreen) mode for long conversations"
+    },
+    {
+     "tag": "CHG",
+     "item": "/artifact",
+     "html": "<code>/artifact</code> (<code>card-slash-tools</code>) — noted improved mouse text selection with auto-scroll and streaming-safe selection, in both the altscreen view and this viewer"
+    },
+    {
+     "tag": "CHG",
+     "item": "queuedMessages",
+     "html": "<code>queuedMessages</code> (<code>card-settings</code>) — noted the fix so <code>\"send-immediately\"</code> messages sent while others are queued go out together, in order, instead of joining the queue"
+    },
+    {
+     "tag": "FIX",
+     "item": "/tasks",
+     "html": "<code>/tasks</code> (<code>card-slash-tools</code>) — noted the fix for the agent stalling after a background command crashed or was killed, and for headless <code>-p</code> runs exiting too early"
+    },
+    {
+     "tag": "FIX",
+     "item": "editorMode",
+     "html": "<code>editorMode</code> (<code>card-settings</code>) — noted the fix for <code>k</code> in Vim Normal mode recalling command history instead of queued messages"
+    },
+    {
+     "tag": "FIX",
+     "item": ".agents/rules/*.md",
+     "html": "<code>.agents/rules/*.md</code> (<code>card-skills</code>) — noted the fix for manifests in a parent <code>.agents/</code> directory being ignored when a session started in a subdirectory"
+    },
+    {
+     "tag": "FIX",
+     "item": "/skills",
+     "html": "<code>/skills</code> (<code>card-slash-tools</code>) — noted the fix for the <code>/</code> menu listing skills the current agent does not enable"
+    }
+   ]
+  },
+  {
+   "version": "v1.2.15",
+   "label": "Antigravity CLI v1.2.15",
+   "date": "2026-10-02",
+   "id": "rel-1-2-15",
+   "entries": [
+    {
+     "tag": "CHG",
+     "item": "/usage",
+     "html": "<code>/usage</code> (<code>card-slash-tools</code>) — noted <code>-p \"/usage\"</code> printing quota reset times in the local time zone for interactive runs; piped and <code>--json</code> output stay UTC"
+    },
+    {
+     "tag": "CHG",
+     "item": "useG1Credits",
+     "html": "<code>useG1Credits</code> (<code>card-settings</code>) — noted the immediate \"credits too low\" error once both the plan quota and AI credits are exhausted, instead of a multi-minute retry"
+    },
+    {
+     "tag": "FIX",
+     "item": "CLI_GRAPHICS=kitty",
+     "html": "<code>CLI_GRAPHICS=kitty</code> (<code>card-env</code>) — noted the SSH image-probe rework limiting image-capable terminals to Kitty/Ghostty over SSH, fixing garbled placeholders in WezTerm/Konsole and leftover escape codes in macOS Terminal.app"
+    },
+    {
+     "tag": "FIX",
+     "item": "editorMode",
+     "html": "<code>editorMode</code> (<code>card-settings</code>) — noted the Vim mode cursor fix for emoji and combining characters"
+    },
+    {
+     "tag": "FIX",
+     "item": "/resume",
+     "html": "<code>/resume</code> (<code>card-slash-core</code>) — noted the fix for the search box wrapping long queries out of view"
+    },
+    {
+     "tag": "FIX",
+     "item": "~/.gemini/GEMINI.md",
+     "html": "<code>~/.gemini/GEMINI.md</code> (<code>card-skills</code>) — noted the fix for the agent being blocked from reading global rules/customization files, and for symlinked global rule files being added to context twice"
+    },
+    {
+     "tag": "FIX",
+     "item": "/mcp",
+     "html": "<code>/mcp</code> (<code>card-slash-tools</code>) — noted the fix for MCP OAuth client registration responses using HTTP 200 instead of 201"
+    },
+    {
+     "tag": "FIX",
+     "item": "/artifact",
+     "html": "<code>/artifact</code> (<code>card-slash-tools</code>) — noted the fix for large WebP images not being scaled down like PNG/JPEG"
+    }
+   ]
+  },
   {
    "version": "v1.2.14",
    "label": "Antigravity CLI v1.2.14",
