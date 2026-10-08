@@ -1,7 +1,20 @@
 {
- "generated": "2026-10-01",
- "latest": "v0.160.0",
+ "generated": "2026-10-07",
+ "latest": "v0.161.0",
  "releases": [
+  {
+   "version": "v0.161.0",
+   "label": "Codex CLI v0.161.0",
+   "date": "2026-10-07",
+   "id": "rel-0-161-0",
+   "entries": [
+    {
+     "tag": "CHG",
+     "item": "/mcp",
+     "html": "<code>/mcp</code> (<code>card-slash-tools</code>) — adds a <code>login &lt;name&gt;</code> subcommand to sign in to a streamable HTTP MCP server&rsquo;s OAuth flow from the terminal"
+    }
+   ]
+  },
   {
    "version": "v0.160.0",
    "label": "Codex CLI v0.160.0",
