@@ -1,7 +1,20 @@
 {
- "generated": "2026-10-06",
- "latest": "v2.1.292",
+ "generated": "2026-10-07",
+ "latest": "v2.1.293",
  "releases": [
+  {
+   "version": "v2.1.293",
+   "label": "CC v2.1.293",
+   "date": "2026-10-07",
+   "id": "rel-2-1-293",
+   "entries": [
+    {
+     "tag": "ADD",
+     "item": "agentType",
+     "html": "<code>agentType</code> <code>subagentStatusLine</code> task field — the subagent's type, the same value hooks get as <code>agent_type</code> on <code>SubagentStart</code>"
+    }
+   ]
+  },
   {
    "version": "v2.1.292",
    "label": "CC v2.1.292",
