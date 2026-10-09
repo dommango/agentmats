@@ -163,8 +163,19 @@
                 <h3>Content / CC Release Updates</h3>
                 <!-- October 2026 -->
                 <details class="month-group" open>
-                    <summary>October 2026 <span class="version-date">v2.1.287 – v2.1.293</span> <span class="month-count">5 releases</span></summary>
+                    <summary>October 2026 <span class="version-date">v2.1.287 – v2.1.295</span> <span class="month-count">6 releases</span></summary>
                     <div class="month-content">
+
+                        <div class="change-section">
+                            <h3 id="rel-2-1-295">CC v2.1.295 <span class="version-date">2026-10-08</span></h3>
+                            <ul class="change-list">
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>onFailure: "block"</code> hook field — a command or HTTP hook that can't start, times out, or exits unexpectedly now blocks the action instead of letting it through</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>CLAUDE_CODE_RETRY_WATCHDOG_MAX_WAIT_MS</code> env var — caps how long <code>CLAUDE_CODE_RETRY_WATCHDOG</code> waits out <code>429</code>/<code>529</code> errors before giving up</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>forceLoginMethod: "gateway"</code> / <code>forceLoginGatewayUrl</code> — now also work as your own user settings on machines with no managed settings</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>/copy</code> picker — quoted text in a response now copies without its leading <code>&gt;</code> markers</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>claude plugin validate</code> — prints the install line to paste when a plugin's README has none; never fails <code>--strict</code> over it</span></li>
+                            </ul>
+                        </div>
 
                         <div class="change-section">
                             <h3 id="rel-2-1-293">CC v2.1.293 <span class="version-date">2026-10-07</span></h3>

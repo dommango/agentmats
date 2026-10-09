@@ -1,7 +1,40 @@
 {
- "generated": "2026-10-07",
- "latest": "v2.1.293",
+ "generated": "2026-10-08",
+ "latest": "v2.1.295",
  "releases": [
+  {
+   "version": "v2.1.295",
+   "label": "CC v2.1.295",
+   "date": "2026-10-08",
+   "id": "rel-2-1-295",
+   "entries": [
+    {
+     "tag": "ADD",
+     "item": "onFailure: \"block\"",
+     "html": "<code>onFailure: \"block\"</code> hook field — a command or HTTP hook that can't start, times out, or exits unexpectedly now blocks the action instead of letting it through"
+    },
+    {
+     "tag": "ADD",
+     "item": "CLAUDE_CODE_RETRY_WATCHDOG_MAX_WAIT_MS",
+     "html": "<code>CLAUDE_CODE_RETRY_WATCHDOG_MAX_WAIT_MS</code> env var — caps how long <code>CLAUDE_CODE_RETRY_WATCHDOG</code> waits out <code>429</code>/<code>529</code> errors before giving up"
+    },
+    {
+     "tag": "ADD",
+     "item": "forceLoginMethod: \"gateway\"",
+     "html": "<code>forceLoginMethod: \"gateway\"</code> / <code>forceLoginGatewayUrl</code> — now also work as your own user settings on machines with no managed settings"
+    },
+    {
+     "tag": "ADD",
+     "item": "/copy",
+     "html": "<code>/copy</code> picker — quoted text in a response now copies without its leading <code>&gt;</code> markers"
+    },
+    {
+     "tag": "ADD",
+     "item": "claude plugin validate",
+     "html": "<code>claude plugin validate</code> — prints the install line to paste when a plugin's README has none; never fails <code>--strict</code> over it"
+    }
+   ]
+  },
   {
    "version": "v2.1.293",
    "label": "CC v2.1.293",

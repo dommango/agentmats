@@ -4,7 +4,14 @@
   <link href="https://dommango.github.io/agentmats/claude-code/"/>
   <link rel="self" href="https://dommango.github.io/agentmats/claude-code/feed.xml"/>
   <id>https://dommango.github.io/agentmats/claude-code/</id>
-  <updated>2026-10-07T09:00:00Z</updated>
+  <updated>2026-10-08T09:00:00Z</updated>
+  <entry>
+    <title>CC v2.1.295 — 5 placemat changes</title>
+    <id>https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-295</id>
+    <link href="https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-295"/>
+    <updated>2026-10-08T09:00:00Z</updated>
+    <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;onFailure: "block"&lt;/code&gt; hook field — a command or HTTP hook that can't start, times out, or exits unexpectedly now blocks the action instead of letting it through&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;CLAUDE_CODE_RETRY_WATCHDOG_MAX_WAIT_MS&lt;/code&gt; env var — caps how long &lt;code&gt;CLAUDE_CODE_RETRY_WATCHDOG&lt;/code&gt; waits out &lt;code&gt;429&lt;/code&gt;/&lt;code&gt;529&lt;/code&gt; errors before giving up&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;forceLoginMethod: "gateway"&lt;/code&gt; / &lt;code&gt;forceLoginGatewayUrl&lt;/code&gt; — now also work as your own user settings on machines with no managed settings&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;/copy&lt;/code&gt; picker — quoted text in a response now copies without its leading &lt;code&gt;&amp;gt;&lt;/code&gt; markers&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;claude plugin validate&lt;/code&gt; — prints the install line to paste when a plugin's README has none; never fails &lt;code&gt;--strict&lt;/code&gt; over it&lt;/li&gt;&lt;/ul&gt;</content>
+  </entry>
   <entry>
     <title>CC v2.1.293 — 1 placemat change</title>
     <id>https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-293</id>
@@ -137,12 +144,5 @@
     <link href="https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-269"/>
     <updated>2026-09-11T09:00:00Z</updated>
     <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;claude plugin eval&lt;/code&gt; CLI command — run a plugin's eval suite against Claude Code; outputs scored, reproducible results as JSON + HTML report&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;/output-style [name]&lt;/code&gt; slash command — list and switch output styles; works over Remote Control and in cloud and headless sessions&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;bashEditDiffEnabled&lt;/code&gt; setting — show a diff of files a Bash command changed in the tool result when the Bash tool handles file edits&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;OTEL_METRICS_INCLUDE_REPOSITORY&lt;/code&gt; env var — tag OpenTelemetry metrics and events with &lt;code&gt;vcs.*&lt;/code&gt; repository attributes; commit events also emit &lt;code&gt;vcs.ref.head.*&lt;/code&gt; with &lt;code&gt;OTEL_LOG_TOOL_DETAILS&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;CLAUDE_CODE_GATEWAY_MODEL_DISCOVERY_TIMEOUT_MS&lt;/code&gt; env var — extend the LLM gateway &lt;code&gt;/v1/models&lt;/code&gt; discovery timeout (default 3 s)&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;CLAUDE_CODE_WORKFLOW_MAX_CONCURRENT_AGENTS&lt;/code&gt; env var — raise the Workflow tool's per-run concurrent agent limit (1–256) for inference-bound fan-outs&lt;/li&gt;&lt;/ul&gt;</content>
-  </entry>
-  <entry>
-    <title>CC v2.1.268 — 5 placemat changes</title>
-    <id>https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-268</id>
-    <link href="https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-268"/>
-    <updated>2026-09-10T09:00:00Z</updated>
-    <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;claude self-hosted-runner --remove-session-state&lt;/code&gt; CLI flag — delete per-session directories under &lt;code&gt;&amp;lt;base-dir&amp;gt;/_sessions/&lt;/code&gt; when sessions end; off by default&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;CLAUDE_CODE_WEBFETCH_DEADLINE_MS&lt;/code&gt; env var — override the 300-second WebFetch response deadline; set to &lt;code&gt;0&lt;/code&gt; to disable&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;gatewayInternalNetworks&lt;/code&gt; managed setting — allow &lt;code&gt;/login&lt;/code&gt; to a Claude apps gateway on the organization's own public IPv4 block&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;claude plugin enable/disable&lt;/code&gt; — added &lt;code&gt;--json&lt;/code&gt; flag for structured output; also available on &lt;code&gt;install&lt;/code&gt;, &lt;code&gt;uninstall&lt;/code&gt;, and &lt;code&gt;update&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;CLAUDE_CODE_ENABLE_TODO_TOOLS=1&lt;/code&gt; — clarified: tools are on by default only for Claude 3.x, Opus 4.0–4.7, Sonnet 4.0–4.6, Haiku 4.5; set this to enable on newer models&lt;/li&gt;&lt;/ul&gt;</content>
   </entry>
 </feed>
