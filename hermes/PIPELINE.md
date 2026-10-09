@@ -96,10 +96,15 @@ shipped. Step 11 closes this issue once a later run reaches a source again.
   HTML-only** — it has no `?per_page` paging and no `draft`/`prerelease` flags, so
   confirm status by reading the page's "Latest" badge rather than assuming the top
   entry is stable.
-- **Dual versioning.** The tag is a date (`vYYYY.M.D`, sometimes with a `.N` same-day
-  patch) and the semver lives in the release title: `Hermes Agent v0.21.2 (v2026.9.11)`.
-  Display both, and use the **semver** for the changelog id. The tag date and the
-  publish date do not always agree.
+- **Dual versioning, through v0.21.5.** The tag is a date (`vYYYY.M.D`, sometimes with
+  a `.N` same-day patch) and the semver lives in the release title:
+  `Hermes Agent v0.21.2 (v2026.9.11)`. Display both, and use the **semver** for the
+  changelog id. The tag date and the publish date do not always agree.
+- **New stable pipeline, from v0.21.6.** The tag itself is plain semver (`v0.21.6`) with
+  no separate date tag — don't assume `tag_name` is a date without checking its shape
+  first. Display `vX.Y.Z (YYYY.M.D)` using the release's publish date in place of the
+  old tag-date. Check whether a later release reintroduces a date tag before assuming
+  this holds permanently.
 - **NEVER poll PyPI.** The `hermes-agent` package lags badly behind the releases.
 - **The docs site 404s on `.md`.** Fetch markdown from the in-repo mirror at
   `raw.githubusercontent.com/NousResearch/hermes-agent/main/website/docs/<path>.md`.

@@ -36,7 +36,7 @@
     {
      "tag": "CHG",
      "item": "hermes kanban list",
-     "html": "<code>hermes kanban list</code> — adds <code>--workflow-template-id</code> and <code>--current-step-key</code> filters, reserved columns for upcoming workflow-template routing"
+     "html": "<code>hermes kanban list</code> — adds <code>--workflow-template-id</code> and <code>--current-step-key</code> filters on two columns v1 stores but doesn't act on; routing logic ships later"
     },
     {
      "tag": "ADD",
