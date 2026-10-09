@@ -1,7 +1,30 @@
 {
- "generated": "2026-10-07",
- "latest": "v0.161.0",
+ "generated": "2026-10-08",
+ "latest": "v0.162.0",
  "releases": [
+  {
+   "version": "v0.162.0",
+   "label": "Codex CLI v0.162.0",
+   "date": "2026-10-08",
+   "id": "rel-0-162-0",
+   "entries": [
+    {
+     "tag": "CHG",
+     "item": "/tui",
+     "html": "<code>/tui</code> (<code>card-keys</code>) — release notes add transcript-block navigation and copying via <code>/copy</code>, a <code>Ctrl+Insert</code> selection-copy shortcut, and adjustable mouse-wheel scroll speed; still <code>unverified</code>"
+    },
+    {
+     "tag": "CHG",
+     "item": "codex agents",
+     "html": "<code>codex agents</code> (<code>card-cli</code>) — release notes add task pinning in the Command Center with <code>p</code>, kept in a shared Pinned group when the server supports it"
+    },
+    {
+     "tag": "CHG",
+     "item": "--worktree",
+     "html": "<code>--worktree</code> (<code>card-cli</code>) — adds tools to create and list managed worktrees for trusted local projects when the worktrees feature is enabled"
+    }
+   ]
+  },
   {
    "version": "v0.161.0",
    "label": "Codex CLI v0.161.0",
