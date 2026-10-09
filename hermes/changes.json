@@ -1,7 +1,60 @@
 {
- "generated": "2026-09-21",
- "latest": "v0.21.4",
+ "generated": "2026-10-08",
+ "latest": "v0.21.6",
  "releases": [
+  {
+   "version": "v0.21.6",
+   "label": "Hermes Agent v0.21.6",
+   "date": "2026-10-08",
+   "id": "rel-0-21-6",
+   "entries": [
+    {
+     "tag": "CHG",
+     "item": "v0.21.6",
+     "html": "v0.21.6 is the first release cut by Hermes's new stable-release pipeline; it ships a plain semver tag (<code>v0.21.6</code>) with no separate date tag, unlike earlier releases"
+    },
+    {
+     "tag": "CHG",
+     "item": "hermes model",
+     "html": "<code>hermes model</code> — adds a <code>Local models</code> entry that installs a managed llama.cpp engine and runs open models fully on-device"
+    },
+    {
+     "tag": "ADD",
+     "item": "local_runtime.enabled",
+     "html": "<code>local_runtime.enabled</code> / <code>local_runtime.backend</code> / <code>local_runtime.detect_ports</code> settings keys — configure the managed local-model server"
+    },
+    {
+     "tag": "CHG",
+     "item": "hermes status",
+     "html": "<code>hermes status</code> — now prints a one-screen summary by default; <code>--full</code> (alias <code>--all</code>) and <code>--deep</code> expand it"
+    },
+    {
+     "tag": "CHG",
+     "item": "hermes cron",
+     "html": "<code>hermes cron</code> — <code>cron status</code>/<code>cron list</code> now warn when the cron store isn't writable, and <code>hermes doctor</code> flags it too"
+    },
+    {
+     "tag": "CHG",
+     "item": "hermes kanban list",
+     "html": "<code>hermes kanban list</code> — adds <code>--workflow-template-id</code> and <code>--current-step-key</code> filters, reserved columns for upcoming workflow-template routing"
+    },
+    {
+     "tag": "ADD",
+     "item": "plugins.isolation",
+     "html": "<code>plugins.isolation</code> settings key — runs third-party plugins in an isolated per-profile host process instead of importing them into the main process"
+    },
+    {
+     "tag": "FIX",
+     "item": "hermes -w",
+     "html": "Automatic git calls (session workspace snapshot, subagent worktrees, kanban, worktree cleanup, <code>hermes -w</code>) could run <code>clean</code>/<code>smudge</code>/<code>process</code> filter programs defined by an untrusted repository's own config before the first prompt"
+    },
+    {
+     "tag": "CHG",
+     "item": "mcp.discovery_concurrency",
+     "html": "<code>mcp.discovery_concurrency</code> settings key — promoted from unverified; confirmed default 4, <code>0</code> means unlimited"
+    }
+   ]
+  },
   {
    "version": "v0.21.4",
    "label": "Hermes Agent v0.21.4 (2026.9.21)",

@@ -161,8 +161,31 @@
 
             <div class="change-section">
                 <h3>Content / Hermes Agent Releases</h3>
-                <!-- September 2026 -->
+                <!-- October 2026 -->
                 <details class="month-group" open>
+                    <summary>October 2026 <span class="version-date">v0.21.6</span> <span class="month-count">1 release</span></summary>
+                    <div class="month-content">
+
+                        <div class="change-section">
+                            <h3 id="rel-0-21-6">Hermes Agent v0.21.6 <span class="version-date">2026-10-08</span></h3>
+                            <ul class="change-list">
+                                <li><span class="tag tag-change">CHG</span><span class="entry">v0.21.6 is the first release cut by Hermes's new stable-release pipeline; it ships a plain semver tag (<code>v0.21.6</code>) with no separate date tag, unlike earlier releases</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>hermes model</code> — adds a <code>Local models</code> entry that installs a managed llama.cpp engine and runs open models fully on-device</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>local_runtime.enabled</code> / <code>local_runtime.backend</code> / <code>local_runtime.detect_ports</code> settings keys — configure the managed local-model server</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>hermes status</code> — now prints a one-screen summary by default; <code>--full</code> (alias <code>--all</code>) and <code>--deep</code> expand it</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>hermes cron</code> — <code>cron status</code>/<code>cron list</code> now warn when the cron store isn't writable, and <code>hermes doctor</code> flags it too</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>hermes kanban list</code> — adds <code>--workflow-template-id</code> and <code>--current-step-key</code> filters, reserved columns for upcoming workflow-template routing</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>plugins.isolation</code> settings key — runs third-party plugins in an isolated per-profile host process instead of importing them into the main process</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry">Automatic git calls (session workspace snapshot, subagent worktrees, kanban, worktree cleanup, <code>hermes -w</code>) could run <code>clean</code>/<code>smudge</code>/<code>process</code> filter programs defined by an untrusted repository's own config before the first prompt</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>mcp.discovery_concurrency</code> settings key — promoted from unverified; confirmed default 4, <code>0</code> means unlimited</span></li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </details>
+
+                <!-- September 2026 -->
+                <details class="month-group">
                     <summary>September 2026 <span class="version-date">v0.21.2 – v0.21.4</span> <span class="month-count">3 releases</span></summary>
                     <div class="month-content">
 
@@ -217,7 +240,7 @@
         </div>
 
         <footer class="global-footer">
-            Template v1.0 · Content synced 2026-09-21<br>
+            Template v1.0 · Content synced 2026-10-08<br>
             <span class="disclaimer">Unofficial community reference — not affiliated with or endorsed by Nous Research.
             Condensed from the official docs; always confirm against
             <a href="https://hermes-agent.nousresearch.com/docs/" target="_blank" rel="noopener noreferrer">hermes-agent.nousresearch.com/docs</a>.</span><br>

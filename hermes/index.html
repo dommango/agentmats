@@ -51,7 +51,7 @@
             <span class="header-tagline">Unofficial · auto-updated reference</span>
         </div>
         <div class="global-controls">
-            <span class="release-tag">As of release: v0.21.5 (2026.9.24)</span>
+            <span class="release-tag">As of release: v0.21.6 (2026.10.8)</span>
             <a href="changelog.html" class="header-link">Changelog →</a>
             <a href="feed.xml" class="header-link" title="Subscribe to placemat changes (RSS)">RSS</a>
             <button type="button" class="header-link print-btn" id="printBtn" title="Print or save as PDF (Ctrl P)">⎙ Print</button>
@@ -88,7 +88,7 @@
 
         <div class="print-head" aria-hidden="true">
             <span class="print-head-title">Hermes Agent <b>PLACEMAT</b></span>
-            <span>As of release v0.21.5 (2026.9.24)</span>
+            <span>As of release v0.21.6 (2026.10.8)</span>
             <span>■ = new &nbsp; □ = unverified</span>
             <span>dommango.github.io/agentmats/hermes</span>
         </div>
@@ -315,7 +315,7 @@
                     <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
                     <tr class="search-item" id="i-hermes-chat"><td><a class="row-link" href="#i-hermes-chat" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes chat</code></td><td class="desc">Interactive or one-shot chat with the agent</td></tr>
                     <tr class="search-item" id="i-hermes-z-prompt"><td><a class="row-link" href="#i-hermes-z-prompt" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes -z &lt;prompt&gt;</code></td><td class="desc">Scripted one-shot run</td></tr>
-                    <tr class="search-item" id="i-hermes-model"><td><a class="row-link" href="#i-hermes-model" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes model</code></td><td class="desc">Interactively choose the default provider and model</td></tr>
+                    <tr class="search-item" id="i-hermes-model"><td><a class="row-link" href="#i-hermes-model" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes model</code></td><td class="desc"><span class="summary">Interactively choose the default provider and model</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>A <code>Local models</code> entry installs a managed llama.cpp engine and runs open models fully on-device, no account or API key.</li></ul></td></tr>
                     <tr class="search-item" id="i-hermes-moa"><td><a class="row-link" href="#i-hermes-moa" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes moa</code></td><td class="desc">Configure named Mixture of Agents presets</td></tr>
                     <tr class="search-item" id="i-hermes-fallback"><td><a class="row-link" href="#i-hermes-fallback" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes fallback</code></td><td class="desc">Manage fallback providers tried when the primary model errors</td></tr>
                     <tr class="search-item" id="i-hermes-lsp"><td><a class="row-link" href="#i-hermes-lsp" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes lsp</code></td><td class="desc">Manage LSP integration for semantic diagnostics on writes</td></tr>
@@ -342,7 +342,7 @@
                     <tr class="search-item" id="i-hermes-setup"><td><a class="row-link" href="#i-hermes-setup" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes setup</code></td><td class="desc">Interactive setup wizard for all or part of the configuration</td></tr>
                     <tr class="search-item" id="i-hermes-auth"><td><a class="row-link" href="#i-hermes-auth" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes auth</code></td><td class="desc"><span class="summary">Add, list, remove, reset and check credentials</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Handles OAuth flows for Codex, Nous, Anthropic and OpenRouter (browser PKCE login). <code>hermes login</code> / <code>logout</code> are deprecated aliases.</li></ul></td></tr>
                     <tr class="search-item" id="i-hermes-migrate"><td><a class="row-link" href="#i-hermes-migrate" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes migrate</code></td><td class="desc">Rewrite <code>config.yaml</code> to replace retired models or deprecated settings</td></tr>
-                    <tr class="search-item" id="i-hermes-status"><td><a class="row-link" href="#i-hermes-status" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes status</code></td><td class="desc">Show agent and auth status</td></tr>
+                    <tr class="search-item" id="i-hermes-status"><td><a class="row-link" href="#i-hermes-status" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes status</code></td><td class="desc"><span class="summary">Show agent and auth status</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Prints a one-screen summary by default; <code>--full</code> (alias <code>--all</code>) shows every section and <code>--deep</code> runs slower checks, implying <code>--full</code>.</li></ul></td></tr>
                 </table>
             </details>
 
@@ -352,7 +352,7 @@
                     <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
                     <tr class="search-item" id="i-hermes-skills"><td><a class="row-link" href="#i-hermes-skills" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes skills</code></td><td class="desc">Browse, install, publish, audit and configure skills</td></tr>
                     <tr class="search-item" id="i-hermes-bundles"><td><a class="row-link" href="#i-hermes-bundles" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes bundles</code></td><td class="desc">Group several skills under one <code>/&lt;name&gt;</code> slash command</td></tr>
-                    <tr class="search-item" id="i-hermes-plugins"><td><a class="row-link" href="#i-hermes-plugins" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes plugins</code></td><td class="desc">Install, enable, disable and remove plugins</td></tr>
+                    <tr class="search-item" id="i-hermes-plugins"><td><a class="row-link" href="#i-hermes-plugins" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes plugins</code></td><td class="desc"><span class="summary">Install, enable, disable and remove plugins</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li><code>plugins.isolation: host</code> runs them in a separate per-profile process instead of importing into the main process.</li></ul></td></tr>
                     <tr class="search-item" id="i-hermes-mcp"><td><a class="row-link" href="#i-hermes-mcp" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes mcp</code></td><td class="desc">Manage MCP server configurations, and run Hermes as an MCP server</td></tr>
                     <tr class="search-item" id="i-hermes-acp"><td><a class="row-link" href="#i-hermes-acp" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes acp</code></td><td class="desc">Run Hermes as an ACP server for editor integration</td></tr>
                     <tr class="search-item" id="i-hermes-tools"><td><a class="row-link" href="#i-hermes-tools" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes tools</code></td><td class="desc">Configure enabled tools per platform</td></tr>
@@ -365,8 +365,8 @@
                 <summary><h3>Automation</h3><span class="group-count"></span></summary>
                 <table>
                     <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
-                    <tr class="search-item" id="i-hermes-cron"><td><a class="row-link" href="#i-hermes-cron" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes cron</code></td><td class="desc">Inspect and tick the cron scheduler</td></tr>
-                    <tr class="search-item" id="i-hermes-kanban"><td><a class="row-link" href="#i-hermes-kanban" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes kanban</code></td><td class="desc">Multi-profile collaboration board — tasks, links, dispatcher</td></tr>
+                    <tr class="search-item" id="i-hermes-cron"><td><a class="row-link" href="#i-hermes-cron" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes cron</code></td><td class="desc"><span class="summary">Inspect and tick the cron scheduler</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li><code>cron status</code> and <code>cron list</code> warn when the cron store isn't writable; <code>hermes doctor</code> flags it too.</li></ul></td></tr>
+                    <tr class="search-item" id="i-hermes-kanban"><td><a class="row-link" href="#i-hermes-kanban" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes kanban</code></td><td class="desc"><span class="summary">Multi-profile collaboration board — tasks, links, dispatcher</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li><code>kanban list</code> adds <code>--workflow-template-id</code> and <code>--current-step-key</code> filters, reserved columns for upcoming workflow-template routing.</li></ul></td></tr>
                     <tr class="search-item" id="i-hermes-gateway"><td><a class="row-link" href="#i-hermes-gateway" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes gateway</code></td><td class="desc"><span class="summary">Run or manage the messaging gateway service</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Out of scope for this placemat beyond the entry point — see the official docs for platform setup.</li></ul></td></tr>
                     <tr class="search-item" id="i-hermes-portal"><td><a class="row-link" href="#i-hermes-portal" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes portal</code></td><td class="desc">Nous Portal status and Tool Gateway routing</td></tr>
                 </table>
@@ -426,6 +426,24 @@
                     <tr class="search-item" id="i-worktree-sync"><td><a class="row-link" href="#i-worktree-sync" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>worktree_sync</code></td><td class="desc">How <code>/worktree new</code> and <code>hermes -w</code> branch from the remote tip</td></tr>
                     <tr class="search-item" id="i-display-interface"><td><a class="row-link" href="#i-display-interface" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>display.interface</code></td><td class="desc"><span class="summary">Classic CLI or TUI by default</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li><code>--tui</code> and <code>--cli</code> both override it for one invocation.</li></ul></td></tr>
                     <tr class="search-item" id="i-display-vim-mode"><td><a class="row-link" href="#i-display-vim-mode" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>display.vim_mode</code></td><td class="desc">CLI-only vi/vim keybindings for the input composer</td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="Plugins">
+                <summary><h3>Plugins</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-plugins-isolation"><td><a class="row-link" href="#i-plugins-isolation" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>plugins.isolation</code></td><td class="desc"><span class="summary">Run third-party plugins in an isolated per-profile host process</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Default <code>in_process</code> imports plugins into the main process; <code>host</code> starts one separate process per profile, talking to Hermes over a private pipe.</li></ul></td></tr>
+                </table>
+            </details>
+
+            <details class="search-group" open data-group="Local models">
+                <summary><h3>Local models</h3><span class="group-count"></span></summary>
+                <table>
+                    <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
+                    <tr class="search-item" id="i-local-runtime-enabled"><td><a class="row-link" href="#i-local-runtime-enabled" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>local_runtime.enabled</code></td><td class="desc">Start the managed local-model (llama.cpp) server alongside Hermes</td></tr>
+                    <tr class="search-item" id="i-local-runtime-backend"><td><a class="row-link" href="#i-local-runtime-backend" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>local_runtime.backend</code></td><td class="desc">Inference backend for the local-model server: auto, cuda, metal, vulkan, hip or cpu</td></tr>
+                    <tr class="search-item" id="i-local-runtime-detect-ports"><td><a class="row-link" href="#i-local-runtime-detect-ports" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>local_runtime.detect_ports</code></td><td class="desc"><span class="summary">Extra ports to probe for a self-run llama-server</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>The default probe is <code>:8080</code> only; an explicit <code>providers.llamacpp</code> endpoint wins over detection either way.</li></ul></td></tr>
                 </table>
             </details>
 
@@ -573,7 +591,7 @@
                 <table>
                     <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
                     <tr class="search-item" id="i-cred-pool-strategies"><td><a class="row-link" href="#i-cred-pool-strategies" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>credential pool strategies</code></td><td class="desc">How multiple credentials for one provider are rotated</td></tr>
-                    <tr class="search-item" id="i-mcp-discovery-concurrency"><td><a class="row-link" href="#i-mcp-discovery-concurrency" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code class="unverified">mcp.discovery_concurrency</code></td><td class="desc">Caps concurrent MCP server discovery connections</td></tr>
+                    <tr class="search-item" id="i-mcp-discovery-concurrency"><td><a class="row-link" href="#i-mcp-discovery-concurrency" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>mcp.discovery_concurrency</code></td><td class="desc"><span class="summary">Caps concurrent MCP server discovery connections</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Per profile, within one startup pass; default 4, <code>0</code> means unlimited.</li></ul></td></tr>
                 </table>
             </details>
         </div>
@@ -581,7 +599,7 @@
         <div class="no-results search-exclude" id="noResults">No matches — clear search to see everything.</div>
 
         <footer class="global-footer">
-            Template v1.0 · Content synced 2026-09-21<br>
+            Template v1.0 · Content synced 2026-10-08<br>
             <span class="disclaimer">Unofficial community reference — not affiliated with or endorsed by Nous Research.
             Condensed from the official docs; always confirm against
             <a href="https://hermes-agent.nousresearch.com/docs/" target="_blank" rel="noopener noreferrer">hermes-agent.nousresearch.com/docs</a>.</span><br>

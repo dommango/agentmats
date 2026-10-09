@@ -4,7 +4,14 @@
   <link href="https://dommango.github.io/agentmats/hermes/"/>
   <link rel="self" href="https://dommango.github.io/agentmats/hermes/feed.xml"/>
   <id>https://dommango.github.io/agentmats/hermes/</id>
-  <updated>2026-09-21T09:00:00Z</updated>
+  <updated>2026-10-08T09:00:00Z</updated>
+  <entry>
+    <title>Hermes Agent v0.21.6 — 9 placemat changes</title>
+    <id>https://dommango.github.io/agentmats/hermes/changelog.html#rel-0-21-6</id>
+    <link href="https://dommango.github.io/agentmats/hermes/changelog.html#rel-0-21-6"/>
+    <updated>2026-10-08T09:00:00Z</updated>
+    <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; v0.21.6 is the first release cut by Hermes's new stable-release pipeline; it ships a plain semver tag (&lt;code&gt;v0.21.6&lt;/code&gt;) with no separate date tag, unlike earlier releases&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;hermes model&lt;/code&gt; — adds a &lt;code&gt;Local models&lt;/code&gt; entry that installs a managed llama.cpp engine and runs open models fully on-device&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;local_runtime.enabled&lt;/code&gt; / &lt;code&gt;local_runtime.backend&lt;/code&gt; / &lt;code&gt;local_runtime.detect_ports&lt;/code&gt; settings keys — configure the managed local-model server&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;hermes status&lt;/code&gt; — now prints a one-screen summary by default; &lt;code&gt;--full&lt;/code&gt; (alias &lt;code&gt;--all&lt;/code&gt;) and &lt;code&gt;--deep&lt;/code&gt; expand it&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;hermes cron&lt;/code&gt; — &lt;code&gt;cron status&lt;/code&gt;/&lt;code&gt;cron list&lt;/code&gt; now warn when the cron store isn't writable, and &lt;code&gt;hermes doctor&lt;/code&gt; flags it too&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;hermes kanban list&lt;/code&gt; — adds &lt;code&gt;--workflow-template-id&lt;/code&gt; and &lt;code&gt;--current-step-key&lt;/code&gt; filters, reserved columns for upcoming workflow-template routing&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;plugins.isolation&lt;/code&gt; settings key — runs third-party plugins in an isolated per-profile host process instead of importing them into the main process&lt;/li&gt;&lt;li&gt;&lt;b&gt;FIX&lt;/b&gt; Automatic git calls (session workspace snapshot, subagent worktrees, kanban, worktree cleanup, &lt;code&gt;hermes -w&lt;/code&gt;) could run &lt;code&gt;clean&lt;/code&gt;/&lt;code&gt;smudge&lt;/code&gt;/&lt;code&gt;process&lt;/code&gt; filter programs defined by an untrusted repository's own config before the first prompt&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;mcp.discovery_concurrency&lt;/code&gt; settings key — promoted from unverified; confirmed default 4, &lt;code&gt;0&lt;/code&gt; means unlimited&lt;/li&gt;&lt;/ul&gt;</content>
+  </entry>
   <entry>
     <title>Hermes Agent v0.21.4 (2026.9.21) — 4 placemat changes</title>
     <id>https://dommango.github.io/agentmats/hermes/changelog.html#rel-0-21-4</id>
