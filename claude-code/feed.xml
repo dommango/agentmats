@@ -4,7 +4,14 @@
   <link href="https://dommango.github.io/agentmats/claude-code/"/>
   <link rel="self" href="https://dommango.github.io/agentmats/claude-code/feed.xml"/>
   <id>https://dommango.github.io/agentmats/claude-code/</id>
-  <updated>2026-10-08T09:00:00Z</updated>
+  <updated>2026-10-09T09:00:00Z</updated>
+  <entry>
+    <title>CC v2.1.296 — 4 placemat changes</title>
+    <id>https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-296</id>
+    <link href="https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-296"/>
+    <updated>2026-10-09T09:00:00Z</updated>
+    <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;autoCompactWindow&lt;/code&gt; — now also settable in subagent frontmatter and &lt;code&gt;--agents&lt;/code&gt; definitions, so a subagent can auto-compact earlier than the main conversation's window&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;CLAUDE_CODE_WORKFLOW_SUBAGENT_MODEL&lt;/code&gt; env var — run every Workflow tool agent on one model while other subagents keep theirs&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;CLAUDE_CODE_OVERLOADED_RETRY_MAX_DELAY_MS&lt;/code&gt; env var — sets a longer maximum delay for the backoff when retrying an overloaded (529) request&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;CLAUDE_CODE_MAX_MCP_DESCRIPTION_LENGTH&lt;/code&gt; — the default cap on MCP tool descriptions and server instructions is now 4,096 characters, raised from 2,048&lt;/li&gt;&lt;/ul&gt;</content>
+  </entry>
   <entry>
     <title>CC v2.1.295 — 5 placemat changes</title>
     <id>https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-295</id>
@@ -137,12 +144,5 @@
     <link href="https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-271"/>
     <updated>2026-09-14T09:00:00Z</updated>
     <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;/fast [on/off]&lt;/code&gt; — now works in Claude Code Remote sessions (cloud and self-hosted runners) too, via the host's fast-mode setting or by typing &lt;code&gt;/fast&lt;/code&gt; in the session&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;/config&lt;/code&gt; — mouse support in fullscreen mode: the wheel scrolls the list, a click on a value changes it, and the row under the pointer is highlighted&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;claude self-hosted-runner --drain-marker-file &amp;lt;path&amp;gt;&lt;/code&gt; CLI flag — when present at a SIGTERM drain, the runner reports its exit to the server as a host drain (telemetry only)&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;claude self-hosted-runner --host-config-snapshot disk|memory&lt;/code&gt; CLI flag — choose where host config is cached; avoids silently losing it once the config directory exceeds 64 MiB&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;allowed_domains&lt;/code&gt; — per-command field on Bash, PowerShell and Monitor in sandboxed auto mode; the classifier reviews the domains a command needs and opens sandbox access to only those&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;omitClaudeMd&lt;/code&gt; agent frontmatter field (also settable via &lt;code&gt;--agents&lt;/code&gt; JSON) — let a custom or plugin subagent run without user, project and local CLAUDE.md files; managed policy files still load&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;claude plugin install&lt;/code&gt; / &lt;code&gt;update&lt;/code&gt; — added &lt;code&gt;--accept-command &amp;lt;sha256&amp;gt;&lt;/code&gt; to accept exactly the command a previous &lt;code&gt;--json&lt;/code&gt; run displayed, instead of &lt;code&gt;-y&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;modelPricing&lt;/code&gt; — the discount multiplier can now run above 1, up to 10, for marked-up internal chargeback rates; the Claude apps gateway &lt;code&gt;pricing&lt;/code&gt; block supports the same range&lt;/li&gt;&lt;/ul&gt;</content>
-  </entry>
-  <entry>
-    <title>CC v2.1.269 — 6 placemat changes</title>
-    <id>https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-269</id>
-    <link href="https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-269"/>
-    <updated>2026-09-11T09:00:00Z</updated>
-    <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;claude plugin eval&lt;/code&gt; CLI command — run a plugin's eval suite against Claude Code; outputs scored, reproducible results as JSON + HTML report&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;/output-style [name]&lt;/code&gt; slash command — list and switch output styles; works over Remote Control and in cloud and headless sessions&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;bashEditDiffEnabled&lt;/code&gt; setting — show a diff of files a Bash command changed in the tool result when the Bash tool handles file edits&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;OTEL_METRICS_INCLUDE_REPOSITORY&lt;/code&gt; env var — tag OpenTelemetry metrics and events with &lt;code&gt;vcs.*&lt;/code&gt; repository attributes; commit events also emit &lt;code&gt;vcs.ref.head.*&lt;/code&gt; with &lt;code&gt;OTEL_LOG_TOOL_DETAILS&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;CLAUDE_CODE_GATEWAY_MODEL_DISCOVERY_TIMEOUT_MS&lt;/code&gt; env var — extend the LLM gateway &lt;code&gt;/v1/models&lt;/code&gt; discovery timeout (default 3 s)&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;CLAUDE_CODE_WORKFLOW_MAX_CONCURRENT_AGENTS&lt;/code&gt; env var — raise the Workflow tool's per-run concurrent agent limit (1–256) for inference-bound fan-outs&lt;/li&gt;&lt;/ul&gt;</content>
   </entry>
 </feed>

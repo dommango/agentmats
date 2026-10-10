@@ -1,7 +1,35 @@
 {
- "generated": "2026-10-08",
- "latest": "v2.1.295",
+ "generated": "2026-10-09",
+ "latest": "v2.1.296",
  "releases": [
+  {
+   "version": "v2.1.296",
+   "label": "CC v2.1.296",
+   "date": "2026-10-09",
+   "id": "rel-2-1-296",
+   "entries": [
+    {
+     "tag": "ADD",
+     "item": "autoCompactWindow",
+     "html": "<code>autoCompactWindow</code> — now also settable in subagent frontmatter and <code>--agents</code> definitions, so a subagent can auto-compact earlier than the main conversation's window"
+    },
+    {
+     "tag": "ADD",
+     "item": "CLAUDE_CODE_WORKFLOW_SUBAGENT_MODEL",
+     "html": "<code>CLAUDE_CODE_WORKFLOW_SUBAGENT_MODEL</code> env var — run every Workflow tool agent on one model while other subagents keep theirs"
+    },
+    {
+     "tag": "ADD",
+     "item": "CLAUDE_CODE_OVERLOADED_RETRY_MAX_DELAY_MS",
+     "html": "<code>CLAUDE_CODE_OVERLOADED_RETRY_MAX_DELAY_MS</code> env var — sets a longer maximum delay for the backoff when retrying an overloaded (529) request"
+    },
+    {
+     "tag": "CHG",
+     "item": "CLAUDE_CODE_MAX_MCP_DESCRIPTION_LENGTH",
+     "html": "<code>CLAUDE_CODE_MAX_MCP_DESCRIPTION_LENGTH</code> — the default cap on MCP tool descriptions and server instructions is now 4,096 characters, raised from 2,048"
+    }
+   ]
+  },
   {
    "version": "v2.1.295",
    "label": "CC v2.1.295",

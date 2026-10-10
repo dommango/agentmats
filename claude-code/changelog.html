@@ -163,8 +163,18 @@
                 <h3>Content / CC Release Updates</h3>
                 <!-- October 2026 -->
                 <details class="month-group" open>
-                    <summary>October 2026 <span class="version-date">v2.1.287 – v2.1.295</span> <span class="month-count">6 releases</span></summary>
+                    <summary>October 2026 <span class="version-date">v2.1.287 – v2.1.296</span> <span class="month-count">7 releases</span></summary>
                     <div class="month-content">
+
+                        <div class="change-section">
+                            <h3 id="rel-2-1-296">CC v2.1.296 <span class="version-date">2026-10-09</span></h3>
+                            <ul class="change-list">
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>autoCompactWindow</code> — now also settable in subagent frontmatter and <code>--agents</code> definitions, so a subagent can auto-compact earlier than the main conversation's window</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>CLAUDE_CODE_WORKFLOW_SUBAGENT_MODEL</code> env var — run every Workflow tool agent on one model while other subagents keep theirs</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>CLAUDE_CODE_OVERLOADED_RETRY_MAX_DELAY_MS</code> env var — sets a longer maximum delay for the backoff when retrying an overloaded (529) request</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>CLAUDE_CODE_MAX_MCP_DESCRIPTION_LENGTH</code> — the default cap on MCP tool descriptions and server instructions is now 4,096 characters, raised from 2,048</span></li>
+                            </ul>
+                        </div>
 
                         <div class="change-section">
                             <h3 id="rel-2-1-295">CC v2.1.295 <span class="version-date">2026-10-08</span></h3>
@@ -1575,7 +1585,7 @@
         </div>
 
         <footer class="global-footer">
-            Template v1.2 · Content synced 2026-10-05<br>
+            Template v1.2 · Content synced 2026-10-09<br>
             <span class="disclaimer">Unofficial community reference — not affiliated with or endorsed by Anthropic.
             Condensed from the official docs; always confirm against
             <a href="https://code.claude.com/docs" target="_blank" rel="noopener noreferrer">code.claude.com/docs</a>.</span><br>
