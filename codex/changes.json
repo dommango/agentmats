@@ -15,8 +15,8 @@
     },
     {
      "tag": "FIX",
-     "item": "/tui",
-     "html": "<code>/tui</code> (<code>card-keys</code>) — fixed a crash when asynchronous questions contain multiple lines; line breaks and full hyperlink destinations are now preserved"
+     "item": null,
+     "html": "TUI — fixed a crash when asynchronous questions contain multiple lines; line breaks and full hyperlink destinations are now preserved"
     }
    ]
   },
