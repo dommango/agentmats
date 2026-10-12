@@ -1,7 +1,30 @@
 {
- "generated": "2026-10-08",
- "latest": "v0.21.6",
+ "generated": "2026-10-12",
+ "latest": "v0.21.7",
  "releases": [
+  {
+   "version": "v0.21.7",
+   "label": "Hermes Agent v0.21.7",
+   "date": "2026-10-12",
+   "id": "rel-0-21-7",
+   "entries": [
+    {
+     "tag": "ADD",
+     "item": "hermes update",
+     "html": "<code>hermes update</code> — adds <code>--set-channel &lt;stable|main&gt;</code> to persist the update channel, <code>--channel &lt;stable|main&gt;</code> to override it for one run, and <code>--branch &lt;name&gt;</code> to pin a branch; source installs default to <code>stable</code> (the latest release's exact commit), forks and mirrors default to <code>main</code>"
+    },
+    {
+     "tag": "FIX",
+     "item": "--resume",
+     "html": "<code>--resume</code> (<code>hermes chat --resume</code>/<code>-r</code>) — signed reasoning (thinking) content now replays when resuming a session, and on the next gateway turn; Bedrock Converse reasoning models are no longer rejected on resumed sessions"
+    },
+    {
+     "tag": "FIX",
+     "item": "hermes update",
+     "html": "<code>hermes update</code> on the <code>main</code> channel no longer fails behind regional firewalls that blocked the release-record fetch with a 403; the stable check now uses a configured GitHub token (<code>GITHUB_TOKEN</code> or <code>gh auth login</code>) and reports a GitHub rate limit as a rate limit instead of a generic failure"
+    }
+   ]
+  },
   {
    "version": "v0.21.6",
    "label": "Hermes Agent v0.21.6",
