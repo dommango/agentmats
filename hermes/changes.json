@@ -15,8 +15,8 @@
     },
     {
      "tag": "FIX",
-     "item": "hermes chat --resume",
-     "html": "<code>hermes chat --resume</code>/<code>-r</code> — signed reasoning (thinking) content now replays on resume and on the next gateway turn; Bedrock Converse reasoning models are no longer rejected on resumed sessions"
+     "item": "--resume",
+     "html": "<code>--resume</code> (<code>hermes chat --resume</code>/<code>-r</code>) — signed reasoning (thinking) content now replays when resuming a session, and on the next gateway turn; Bedrock Converse reasoning models are no longer rejected on resumed sessions"
     },
     {
      "tag": "FIX",
