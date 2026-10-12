@@ -163,8 +163,17 @@
                 <h3>Content / Hermes Agent Releases</h3>
                 <!-- October 2026 -->
                 <details class="month-group" open>
-                    <summary>October 2026 <span class="version-date">v0.21.6</span> <span class="month-count">1 release</span></summary>
+                    <summary>October 2026 <span class="version-date">v0.21.6 – v0.21.7</span> <span class="month-count">2 releases</span></summary>
                     <div class="month-content">
+
+                        <div class="change-section">
+                            <h3 id="rel-0-21-7">Hermes Agent v0.21.7 <span class="version-date">2026-10-12</span></h3>
+                            <ul class="change-list">
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>hermes update</code> — adds <code>--set-channel &lt;stable|main&gt;</code> to persist the update channel, <code>--channel &lt;stable|main&gt;</code> to override it for one run, and <code>--branch &lt;name&gt;</code> to pin a branch; source installs default to <code>stable</code> (the latest release's exact commit), forks and mirrors default to <code>main</code></span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>hermes chat --resume</code>/<code>-r</code> — signed reasoning (thinking) content now replays on resume and on the next gateway turn; Bedrock Converse reasoning models are no longer rejected on resumed sessions</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry">Codex API requests are now handled by core instead of passing through the requesting plugin, so a plugin never holds the Codex access token</span></li>
+                            </ul>
+                        </div>
 
                         <div class="change-section">
                             <h3 id="rel-0-21-6">Hermes Agent v0.21.6 <span class="version-date">2026-10-08</span></h3>
@@ -240,7 +249,7 @@
         </div>
 
         <footer class="global-footer">
-            Template v1.0 · Content synced 2026-10-08<br>
+            Template v1.0 · Content synced 2026-10-12<br>
             <span class="disclaimer">Unofficial community reference — not affiliated with or endorsed by Nous Research.
             Condensed from the official docs; always confirm against
             <a href="https://hermes-agent.nousresearch.com/docs/" target="_blank" rel="noopener noreferrer">hermes-agent.nousresearch.com/docs</a>.</span><br>
