@@ -19,9 +19,9 @@
      "html": "<code>hermes chat --resume</code>/<code>-r</code> — signed reasoning (thinking) content now replays on resume and on the next gateway turn; Bedrock Converse reasoning models are no longer rejected on resumed sessions"
     },
     {
-     "tag": "CHG",
-     "item": null,
-     "html": "Codex API requests are now handled by core instead of passing through the requesting plugin, so a plugin never holds the Codex access token"
+     "tag": "FIX",
+     "item": "hermes update",
+     "html": "<code>hermes update</code> on the <code>main</code> channel no longer fails behind regional firewalls that blocked the release-record fetch with a 403; the stable check now uses a configured GitHub token (<code>GITHUB_TOKEN</code> or <code>gh auth login</code>) and reports a GitHub rate limit as a rate limit instead of a generic failure"
     }
    ]
   },
