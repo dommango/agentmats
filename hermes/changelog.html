@@ -163,8 +163,28 @@
                 <h3>Content / Hermes Agent Releases</h3>
                 <!-- October 2026 -->
                 <details class="month-group" open>
-                    <summary>October 2026 <span class="version-date">v0.21.6 – v0.21.7</span> <span class="month-count">2 releases</span></summary>
+                    <summary>October 2026 <span class="version-date">v0.21.6 – v0.22.0</span> <span class="month-count">3 releases</span></summary>
                     <div class="month-content">
+
+                        <div class="change-section">
+                            <h3 id="rel-0-22-0">Hermes Agent v0.22.0 — The Threshold Release <span class="version-date">2026-10-13</span></h3>
+                            <ul class="change-list">
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>hermes pm</code> — unified manager for Hermes's pinned Python, Node and other tool dependencies, with <code>doctor</code>, <code>status</code> and <code>repair</code> subcommands; the release notes also name a <code class="unverified">gc</code> subcommand, not yet confirmed in the CLI reference</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>hermes usage</code> — show the account's rate-limit windows without starting a session; <code>--provider &lt;name&gt;</code> picks the account, <code>--json</code> emits machine-readable output</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code class="unverified">hermes auth upgrade</code> — named in the release notes, alongside <code>/login</code>, as converting a free trial identity into a full Nous account; not yet confirmed in the CLI reference</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>hermes mcp login &lt;server&gt; --flow device</code> — forces RFC 8628 device-code authorization instead of browser PKCE, for headless logins</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>hermes sessions repair-profiles</code> / <code>repair-prompts</code> — settle session, routing and platform state stuck under the wrong profile, and report system prompts degraded by a since-fixed maintenance-compaction bug</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>agent.auto_recovery_cycles</code>, <code>agent.text_verbosity</code> and <code>agent.turn_liveness.timeout_s</code> settings keys — outage recovery cycles, final-answer length for Responses-API models, and a stalled-turn watchdog</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>display.bell_on_prompt</code> settings key — terminal bell, plus an OSC 9 desktop notification, when a blocking prompt opens</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry">Built-in tool names — <code>todo</code>, <code>cronjob</code> and <code>process</code> renamed to <code>todo_list</code>, <code>cronjob_manage</code> and <code>process_manage</code>; the old names still work</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>hermes plugins list</code> and the plugin catalog now make at most one live catalog request per load; enabling a plugin no longer strips core tools; a platform whose plugin fails at startup is flagged in <code>hermes status</code> and recovers without a restart</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry">A parked OAuth MCP server no longer replays its dead refresh token every session</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry">The gateway <code>/goal</code> add gate no longer lets non-admin users reach the host shell</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry">Automatic git calls from kanban, worktree cleanup and subagents no longer run a cloned repository's own hooks or filters</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry">Qwen models behind Alibaba's content guardrail now end the turn with the safety notice instead of retrying</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry">Resizing the CLI no longer re-appends the conversation to scrollback</span></li>
+                            </ul>
+                        </div>
 
                         <div class="change-section">
                             <h3 id="rel-0-21-7">Hermes Agent v0.21.7 <span class="version-date">2026-10-12</span></h3>
@@ -249,7 +269,7 @@
         </div>
 
         <footer class="global-footer">
-            Template v1.0 · Content synced 2026-10-12<br>
+            Template v1.0 · Content synced 2026-10-13<br>
             <span class="disclaimer">Unofficial community reference — not affiliated with or endorsed by Nous Research.
             Condensed from the official docs; always confirm against
             <a href="https://hermes-agent.nousresearch.com/docs/" target="_blank" rel="noopener noreferrer">hermes-agent.nousresearch.com/docs</a>.</span><br>
