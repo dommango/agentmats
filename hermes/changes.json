@@ -1,7 +1,85 @@
 {
- "generated": "2026-10-12",
- "latest": "v0.21.7",
+ "generated": "2026-10-13",
+ "latest": "v0.22.0",
  "releases": [
+  {
+   "version": "v0.22.0",
+   "label": "Hermes Agent v0.22.0 — The Threshold Release",
+   "date": "2026-10-13",
+   "id": "rel-0-22-0",
+   "entries": [
+    {
+     "tag": "ADD",
+     "item": "hermes pm",
+     "html": "<code>hermes pm</code> — unified manager for Hermes's pinned Python, Node and other tool dependencies, with <code>doctor</code>, <code>status</code> and <code>repair</code> subcommands; the release notes also name a <code class=\"unverified\">gc</code> subcommand, not yet confirmed in the CLI reference"
+    },
+    {
+     "tag": "ADD",
+     "item": "hermes usage",
+     "html": "<code>hermes usage</code> — show the account's rate-limit windows without starting a session; <code>--provider &lt;name&gt;</code> picks the account, <code>--json</code> emits machine-readable output"
+    },
+    {
+     "tag": "ADD",
+     "item": "hermes auth",
+     "html": "<code>hermes auth</code> — the v0.22.0 release notes name a new <code class=\"unverified\">upgrade</code> subcommand, alongside <code>/login</code>, converting a free trial identity into a full Nous account; not yet confirmed in the CLI reference"
+    },
+    {
+     "tag": "ADD",
+     "item": "hermes mcp",
+     "html": "<code>hermes mcp</code> — <code>login &lt;server&gt; --flow device</code> forces RFC 8628 device-code authorization instead of browser PKCE, for headless logins"
+    },
+    {
+     "tag": "ADD",
+     "item": "hermes sessions",
+     "html": "<code>hermes sessions</code> — new <code>repair-profiles</code> / <code>repair-prompts</code> subcommands settle session, routing and platform state stuck under the wrong profile, and report system prompts degraded by a since-fixed maintenance-compaction bug"
+    },
+    {
+     "tag": "ADD",
+     "item": "agent.auto_recovery_cycles",
+     "html": "<code>agent.auto_recovery_cycles</code>, <code>agent.text_verbosity</code> and <code>agent.turn_liveness.timeout_s</code> settings keys — outage recovery cycles, final-answer length for Responses-API models, and a stalled-turn watchdog"
+    },
+    {
+     "tag": "ADD",
+     "item": "display.bell_on_prompt",
+     "html": "<code>display.bell_on_prompt</code> settings key — terminal bell, plus an OSC 9 desktop notification, when a blocking prompt opens"
+    },
+    {
+     "tag": "CHG",
+     "item": "todo",
+     "html": "Built-in tool names — <code>todo</code>, <code>cronjob</code> and <code>process</code> renamed to <code>todo_list</code>, <code>cronjob_manage</code> and <code>process_manage</code>; the old names still work"
+    },
+    {
+     "tag": "FIX",
+     "item": "hermes plugins",
+     "html": "<code>hermes plugins</code> — <code>plugins list</code> and the plugin catalog now make at most one live catalog request per load; enabling a plugin no longer strips core tools; a platform whose plugin fails at startup is flagged in <code>hermes status</code> and recovers without a restart"
+    },
+    {
+     "tag": "FIX",
+     "item": null,
+     "html": "A parked OAuth MCP server no longer replays its dead refresh token every session"
+    },
+    {
+     "tag": "FIX",
+     "item": "/goal",
+     "html": "The gateway <code>/goal</code> add gate no longer lets non-admin users reach the host shell"
+    },
+    {
+     "tag": "FIX",
+     "item": null,
+     "html": "Automatic git calls from kanban, worktree cleanup and subagents no longer run a cloned repository's own hooks or filters"
+    },
+    {
+     "tag": "FIX",
+     "item": null,
+     "html": "Qwen models behind Alibaba's content guardrail now end the turn with the safety notice instead of retrying"
+    },
+    {
+     "tag": "FIX",
+     "item": null,
+     "html": "Resizing the CLI no longer re-appends the conversation to scrollback"
+    }
+   ]
+  },
   {
    "version": "v0.21.7",
    "label": "Hermes Agent v0.21.7",
