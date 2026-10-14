@@ -1,7 +1,50 @@
 {
- "generated": "2026-10-09",
- "latest": "v2.1.296",
+ "generated": "2026-10-14",
+ "latest": "v2.1.299",
  "releases": [
+  {
+   "version": "v2.1.299",
+   "label": "CC v2.1.299",
+   "date": "2026-10-14",
+   "id": "rel-2-1-299",
+   "entries": [
+    {
+     "tag": "ADD",
+     "item": "idleCompaction",
+     "html": "<code>idleCompaction</code> setting / <code>CLAUDE_CODE_IDLE_COMPACT_MIN_TOKENS</code> env var — idle compaction now auto-compacts a 200K+ token conversation left idle for a while before its prompt cache expires; set the setting to <code>false</code> to turn it off"
+    },
+    {
+     "tag": "ADD",
+     "item": "CLAUDE_CODE_DISABLE_FILE_MENTIONS",
+     "html": "<code>CLAUDE_CODE_DISABLE_FILE_MENTIONS</code> env var — stop expanding <code>@</code> file mentions; Claude gets the paths and reads them with its own file tools"
+    },
+    {
+     "tag": "ADD",
+     "item": "CLAUDE_CODE_ATTRIBUTION_HEADER",
+     "html": "<code>CLAUDE_CODE_ATTRIBUTION_HEADER</code> env var — set to <code>0</code> to drop the attribution block from the start of the system prompt"
+    },
+    {
+     "tag": "ADD",
+     "item": "claude self-hosted-runner orchestrator",
+     "html": "<code>claude self-hosted-runner orchestrator</code> — new <code>--shutdown-drain-sec &lt;n&gt;</code> flag lets an in-flight poll and running spawn hooks finish before SIGTERM exits the process"
+    },
+    {
+     "tag": "ADD",
+     "item": "claude plugin eval",
+     "html": "<code>claude plugin eval</code> — new <code>--disallow-tools</code> flag and <code>disallowed_tools</code> case field keep named built-in tools, such as Agent, out of eval runs"
+    },
+    {
+     "tag": "CHG",
+     "item": "claude agents",
+     "html": "<code>claude agents</code> — a bare <code>/model</code>, <code>/effort</code> or <code>/fast</code> in the dispatch input now opens a picker; <code>/effort</code> and <code>/fast</code> there set what new dispatched sessions start with"
+    },
+    {
+     "tag": "CHG",
+     "item": "MCP_PROTOCOL_NEGOTIATION=legacy",
+     "html": "<code>MCP_PROTOCOL_NEGOTIATION=legacy</code> — cloud sessions' and Remote Control's own MCP connectors also negotiate protocol 2026-07-28 by default now, on installs that fetch no flags"
+    }
+   ]
+  },
   {
    "version": "v2.1.296",
    "label": "CC v2.1.296",
