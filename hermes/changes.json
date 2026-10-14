@@ -20,18 +20,18 @@
     },
     {
      "tag": "ADD",
-     "item": "/login",
-     "html": "<code class=\"unverified\">hermes auth upgrade</code> — named in the release notes, alongside <code>/login</code>, as converting a free trial identity into a full Nous account; not yet confirmed in the CLI reference"
+     "item": "hermes auth",
+     "html": "<code>hermes auth</code> — the v0.22.0 release notes name a new <code class=\"unverified\">upgrade</code> subcommand, alongside <code>/login</code>, converting a free trial identity into a full Nous account; not yet confirmed in the CLI reference"
     },
     {
      "tag": "ADD",
-     "item": "hermes mcp login <server> --flow device",
-     "html": "<code>hermes mcp login &lt;server&gt; --flow device</code> — forces RFC 8628 device-code authorization instead of browser PKCE, for headless logins"
+     "item": "hermes mcp",
+     "html": "<code>hermes mcp</code> — <code>login &lt;server&gt; --flow device</code> forces RFC 8628 device-code authorization instead of browser PKCE, for headless logins"
     },
     {
      "tag": "ADD",
-     "item": "hermes sessions repair-profiles",
-     "html": "<code>hermes sessions repair-profiles</code> / <code>repair-prompts</code> — settle session, routing and platform state stuck under the wrong profile, and report system prompts degraded by a since-fixed maintenance-compaction bug"
+     "item": "hermes sessions",
+     "html": "<code>hermes sessions</code> — new <code>repair-profiles</code> / <code>repair-prompts</code> subcommands settle session, routing and platform state stuck under the wrong profile, and report system prompts degraded by a since-fixed maintenance-compaction bug"
     },
     {
      "tag": "ADD",
@@ -50,8 +50,8 @@
     },
     {
      "tag": "FIX",
-     "item": "hermes plugins list",
-     "html": "<code>hermes plugins list</code> and the plugin catalog now make at most one live catalog request per load; enabling a plugin no longer strips core tools; a platform whose plugin fails at startup is flagged in <code>hermes status</code> and recovers without a restart"
+     "item": "hermes plugins",
+     "html": "<code>hermes plugins</code> — <code>plugins list</code> and the plugin catalog now make at most one live catalog request per load; enabling a plugin no longer strips core tools; a platform whose plugin fails at startup is flagged in <code>hermes status</code> and recovers without a restart"
     },
     {
      "tag": "FIX",
