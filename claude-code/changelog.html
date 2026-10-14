@@ -163,8 +163,21 @@
                 <h3>Content / CC Release Updates</h3>
                 <!-- October 2026 -->
                 <details class="month-group" open>
-                    <summary>October 2026 <span class="version-date">v2.1.287 – v2.1.296</span> <span class="month-count">7 releases</span></summary>
+                    <summary>October 2026 <span class="version-date">v2.1.287 – v2.1.299</span> <span class="month-count">8 releases</span></summary>
                     <div class="month-content">
+
+                        <div class="change-section">
+                            <h3 id="rel-2-1-299">CC v2.1.299 <span class="version-date">2026-10-14</span></h3>
+                            <ul class="change-list">
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>idleCompaction</code> setting / <code>CLAUDE_CODE_IDLE_COMPACT_MIN_TOKENS</code> env var — idle compaction now auto-compacts a 200K+ token conversation left idle for a while before its prompt cache expires; set the setting to <code>false</code> to turn it off</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>CLAUDE_CODE_DISABLE_FILE_MENTIONS</code> env var — stop expanding <code>@</code> file mentions; Claude gets the paths and reads them with its own file tools</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>CLAUDE_CODE_ATTRIBUTION_HEADER</code> env var — set to <code>0</code> to drop the attribution block from the start of the system prompt</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>claude self-hosted-runner orchestrator</code> — new <code>--shutdown-drain-sec &lt;n&gt;</code> flag lets an in-flight poll and running spawn hooks finish before SIGTERM exits the process</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>claude plugin eval</code> — new <code>--disallow-tools</code> flag and <code>disallowed_tools</code> case field keep named built-in tools, such as Agent, out of eval runs</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>claude agents</code> — a bare <code>/model</code>, <code>/effort</code> or <code>/fast</code> in the dispatch input now opens a picker; <code>/effort</code> and <code>/fast</code> there set what new dispatched sessions start with</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>MCP_PROTOCOL_NEGOTIATION=legacy</code> — cloud sessions' and Remote Control's own MCP connectors also negotiate protocol 2026-07-28 by default now, on installs that fetch no flags</span></li>
+                            </ul>
+                        </div>
 
                         <div class="change-section">
                             <h3 id="rel-2-1-296">CC v2.1.296 <span class="version-date">2026-10-09</span></h3>
@@ -1585,7 +1598,7 @@
         </div>
 
         <footer class="global-footer">
-            Template v1.2 · Content synced 2026-10-09<br>
+            Template v1.2 · Content synced 2026-10-14<br>
             <span class="disclaimer">Unofficial community reference — not affiliated with or endorsed by Anthropic.
             Condensed from the official docs; always confirm against
             <a href="https://code.claude.com/docs" target="_blank" rel="noopener noreferrer">code.claude.com/docs</a>.</span><br>
