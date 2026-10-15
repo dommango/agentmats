@@ -38,8 +38,8 @@
     },
     {
      "tag": "CHG",
-     "item": "hermes pm gc",
-     "html": "<code>hermes pm gc</code> — promoted from unverified; confirmed in the package-management reference as removing unreferenced tool-store entries, download partials, unused Python generations and deleted-checkout state"
+     "item": "hermes pm",
+     "html": "<code>hermes pm</code> — its <code>gc</code> subcommand is promoted from unverified; confirmed in the package-management reference as removing unreferenced tool-store entries, download partials, unused Python generations and deleted-checkout state"
     }
    ]
   },
