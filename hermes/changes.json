@@ -1,7 +1,48 @@
 {
- "generated": "2026-10-13",
- "latest": "v0.22.0",
+ "generated": "2026-10-15",
+ "latest": "v0.22.2",
  "releases": [
+  {
+   "version": "v0.22.2",
+   "label": "Hermes Agent v0.22.2",
+   "date": "2026-10-15",
+   "id": "rel-0-22-2",
+   "entries": [
+    {
+     "tag": "CHG",
+     "item": null,
+     "html": "v0.22.2 replaces v0.22.1, which was built from the wrong commit and shipped unreleased gateway work; a session that ran under the v0.22.1 gateway can't be deleted from v0.22.2 (known issue)"
+    },
+    {
+     "tag": "FIX",
+     "item": null,
+     "html": "A supervised gateway (systemd, launchd or Docker) could refuse to start after a reboot because of a stale recorded process ID"
+    },
+    {
+     "tag": "CHG",
+     "item": null,
+     "html": "Long local-model turns on laptops get clearer progress display, sleep-aware stall timers, retry handling after server recovery, and corrected memory sizing on Windows unified-memory machines"
+    }
+   ]
+  },
+  {
+   "version": "v0.22.1",
+   "label": "Hermes Agent v0.22.1",
+   "date": "2026-10-14",
+   "id": "rel-0-22-1",
+   "entries": [
+    {
+     "tag": "ADD",
+     "item": "security.allow_lazy_installs",
+     "html": "<code>security.allow_lazy_installs</code> settings key — gate on-demand dependency installation; already-installed dependencies stay usable when set to <code>false</code>"
+    },
+    {
+     "tag": "CHG",
+     "item": "hermes pm",
+     "html": "<code>hermes pm</code> — its <code>gc</code> subcommand is promoted from unverified; confirmed in the package-management reference as removing unreferenced tool-store entries, download partials, unused Python generations and deleted-checkout state"
+    }
+   ]
+  },
   {
    "version": "v0.22.0",
    "label": "Hermes Agent v0.22.0 — The Threshold Release",
