@@ -1,7 +1,50 @@
 {
- "generated": "2026-10-14",
- "latest": "v2.1.299",
+ "generated": "2026-10-15",
+ "latest": "v2.1.300",
  "releases": [
+  {
+   "version": "v2.1.300",
+   "label": "CC v2.1.300",
+   "date": "2026-10-15",
+   "id": "rel-2-1-300",
+   "entries": [
+    {
+     "tag": "ADD",
+     "item": "advisorModel",
+     "html": "<code>advisorModel</code> setting / <code>--advisor &lt;model&gt;</code> flag — pick which model answers the server-side advisor tool; <code>/advisor</code> reaches Claude Platform on AWS"
+    },
+    {
+     "tag": "ADD",
+     "item": "CLAUDE_CODE_DISABLE_ADVISOR_TOOL",
+     "html": "<code>CLAUDE_CODE_DISABLE_ADVISOR_TOOL</code> env var — turn off the advisor tool entirely"
+    },
+    {
+     "tag": "ADD",
+     "item": "CLAUDE_CODE_GZIP_REQUEST_BODIES",
+     "html": "<code>CLAUDE_CODE_GZIP_REQUEST_BODIES</code> env var — set to <code>0</code> to stop gzip-compressing large requests to the Claude API"
+    },
+    {
+     "tag": "CHG",
+     "item": "PreToolUse",
+     "html": "<code>PreToolUse</code> hooks — an <code>updatedInput</code> is now validated like Claude's own input: unknown keys are dropped, and input the tool rejects denies the call"
+    },
+    {
+     "tag": "CHG",
+     "item": "PermissionRequest",
+     "html": "<code>PermissionRequest</code> hooks — in Cowork cloud sessions, a <code>setMode</code> update in the hook's allow is now ignored; the rest of the approval still applies"
+    },
+    {
+     "tag": "CHG",
+     "item": "forceLoginGatewayUrl",
+     "html": "<code>forceLoginGatewayUrl</code> — Claude Desktop's Code tab now applies managed settings when this names a reachable Anthropic-operated gateway serving the session's hostname"
+    },
+    {
+     "tag": "CHG",
+     "item": "claude-api",
+     "html": "<code>claude-api</code> skill — leaves Managed Agents sessions in place unless you ask to archive or delete them"
+    }
+   ]
+  },
   {
    "version": "v2.1.299",
    "label": "CC v2.1.299",

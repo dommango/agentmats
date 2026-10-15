@@ -4,7 +4,14 @@
   <link href="https://dommango.github.io/agentmats/claude-code/"/>
   <link rel="self" href="https://dommango.github.io/agentmats/claude-code/feed.xml"/>
   <id>https://dommango.github.io/agentmats/claude-code/</id>
-  <updated>2026-10-14T09:00:00Z</updated>
+  <updated>2026-10-15T09:00:00Z</updated>
+  <entry>
+    <title>CC v2.1.300 — 7 placemat changes</title>
+    <id>https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-300</id>
+    <link href="https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-300"/>
+    <updated>2026-10-15T09:00:00Z</updated>
+    <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;advisorModel&lt;/code&gt; setting / &lt;code&gt;--advisor &amp;lt;model&amp;gt;&lt;/code&gt; flag — pick which model answers the server-side advisor tool; &lt;code&gt;/advisor&lt;/code&gt; reaches Claude Platform on AWS&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;CLAUDE_CODE_DISABLE_ADVISOR_TOOL&lt;/code&gt; env var — turn off the advisor tool entirely&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;CLAUDE_CODE_GZIP_REQUEST_BODIES&lt;/code&gt; env var — set to &lt;code&gt;0&lt;/code&gt; to stop gzip-compressing large requests to the Claude API&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;PreToolUse&lt;/code&gt; hooks — an &lt;code&gt;updatedInput&lt;/code&gt; is now validated like Claude's own input: unknown keys are dropped, and input the tool rejects denies the call&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;PermissionRequest&lt;/code&gt; hooks — in Cowork cloud sessions, a &lt;code&gt;setMode&lt;/code&gt; update in the hook's allow is now ignored; the rest of the approval still applies&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;forceLoginGatewayUrl&lt;/code&gt; — Claude Desktop's Code tab now applies managed settings when this names a reachable Anthropic-operated gateway serving the session's hostname&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;claude-api&lt;/code&gt; skill — leaves Managed Agents sessions in place unless you ask to archive or delete them&lt;/li&gt;&lt;/ul&gt;</content>
+  </entry>
   <entry>
     <title>CC v2.1.299 — 7 placemat changes</title>
     <id>https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-299</id>
@@ -137,12 +144,5 @@
     <link href="https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-274"/>
     <updated>2026-09-17T09:00:00Z</updated>
     <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;CLAUDE_CODE_MCP_STARTUP_WAIT_MS&lt;/code&gt; env var — bound how long the first non-interactive turn waits for connecting MCP servers; &lt;code&gt;0&lt;/code&gt; skips the wait&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;OTEL_LOG_MANAGED_SETTINGS=1&lt;/code&gt; env var — opt in to redacted settings and digests in the new managed-settings-resolved OTel event&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;MCP_SDK_GENERATION=v1&lt;/code&gt; / &lt;code&gt;MCP_PROTOCOL_NEGOTIATION=legacy&lt;/code&gt; env vars — opt out of the v2 MCP client and MCP 2026-07-28 negotiation now default for direct HTTP servers on Bedrock, Vertex, Foundry and telemetry-disabled installs&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;OTEL_LOG_RAW_API_BODIES&lt;/code&gt; — its &lt;code&gt;file:&amp;lt;dir&amp;gt;&lt;/code&gt; mode also writes an &lt;code&gt;index.jsonl&lt;/code&gt; linking each response to its request file and transcript message&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;/status&lt;/code&gt; — the GitHub connection line now reads "Cloud sessions" instead of "Claude Code on the web"&lt;/li&gt;&lt;/ul&gt;</content>
-  </entry>
-  <entry>
-    <title>CC v2.1.273 — 4 placemat changes</title>
-    <id>https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-273</id>
-    <link href="https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-273"/>
-    <updated>2026-09-15T09:00:00Z</updated>
-    <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;CLAUDE_CODE_GATEWAY_HINT_HEADERS&lt;/code&gt; env var — opt in to sending &lt;code&gt;x-claude-code-request-class&lt;/code&gt;, &lt;code&gt;x-claude-code-agent-type&lt;/code&gt;, &lt;code&gt;x-claude-code-prev-tool-durations&lt;/code&gt;, &lt;code&gt;x-claude-code-compaction&lt;/code&gt; and &lt;code&gt;x-claude-code-context-compacted&lt;/code&gt; request headers to LLM gateways&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;CLAUDE_CODE_AUTO_MODE_SERVER&lt;/code&gt; env var — use the platform's server-side auto mode classifier on Bedrock, Vertex and Foundry; those platforms now default to a local classifier instead&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;/remote-control&lt;/code&gt; — from the Claude app, fork a session started this way (or with &lt;code&gt;claude --remote-control&lt;/code&gt;); the fork runs as a background session on your computer&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;/mcp&lt;/code&gt; — notifies when a server disconnects mid-session and automatic reconnection gives up&lt;/li&gt;&lt;/ul&gt;</content>
   </entry>
 </feed>

@@ -163,8 +163,21 @@
                 <h3>Content / CC Release Updates</h3>
                 <!-- October 2026 -->
                 <details class="month-group" open>
-                    <summary>October 2026 <span class="version-date">v2.1.287 – v2.1.299</span> <span class="month-count">8 releases</span></summary>
+                    <summary>October 2026 <span class="version-date">v2.1.287 – v2.1.300</span> <span class="month-count">9 releases</span></summary>
                     <div class="month-content">
+
+                        <div class="change-section">
+                            <h3 id="rel-2-1-300">CC v2.1.300 <span class="version-date">2026-10-15</span></h3>
+                            <ul class="change-list">
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>advisorModel</code> setting / <code>--advisor &lt;model&gt;</code> flag — pick which model answers the server-side advisor tool; <code>/advisor</code> reaches Claude Platform on AWS</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>CLAUDE_CODE_DISABLE_ADVISOR_TOOL</code> env var — turn off the advisor tool entirely</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>CLAUDE_CODE_GZIP_REQUEST_BODIES</code> env var — set to <code>0</code> to stop gzip-compressing large requests to the Claude API</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>PreToolUse</code> hooks — an <code>updatedInput</code> is now validated like Claude's own input: unknown keys are dropped, and input the tool rejects denies the call</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>PermissionRequest</code> hooks — in Cowork cloud sessions, a <code>setMode</code> update in the hook's allow is now ignored; the rest of the approval still applies</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>forceLoginGatewayUrl</code> — Claude Desktop's Code tab now applies managed settings when this names a reachable Anthropic-operated gateway serving the session's hostname</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>claude-api</code> skill — leaves Managed Agents sessions in place unless you ask to archive or delete them</span></li>
+                            </ul>
+                        </div>
 
                         <div class="change-section">
                             <h3 id="rel-2-1-299">CC v2.1.299 <span class="version-date">2026-10-14</span></h3>
@@ -1598,7 +1611,7 @@
         </div>
 
         <footer class="global-footer">
-            Template v1.2 · Content synced 2026-10-14<br>
+            Template v1.2 · Content synced 2026-10-15<br>
             <span class="disclaimer">Unofficial community reference — not affiliated with or endorsed by Anthropic.
             Condensed from the official docs; always confirm against
             <a href="https://code.claude.com/docs" target="_blank" rel="noopener noreferrer">code.claude.com/docs</a>.</span><br>
