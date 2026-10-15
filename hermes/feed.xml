@@ -4,7 +4,21 @@
   <link href="https://dommango.github.io/agentmats/hermes/"/>
   <link rel="self" href="https://dommango.github.io/agentmats/hermes/feed.xml"/>
   <id>https://dommango.github.io/agentmats/hermes/</id>
-  <updated>2026-10-13T09:00:00Z</updated>
+  <updated>2026-10-15T09:00:00Z</updated>
+  <entry>
+    <title>Hermes Agent v0.22.2 — 3 placemat changes</title>
+    <id>https://dommango.github.io/agentmats/hermes/changelog.html#rel-0-22-2</id>
+    <link href="https://dommango.github.io/agentmats/hermes/changelog.html#rel-0-22-2"/>
+    <updated>2026-10-15T09:00:00Z</updated>
+    <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; v0.22.2 replaces v0.22.1, which was built from the wrong commit and shipped unreleased gateway work; a session that ran under the v0.22.1 gateway can't be deleted from v0.22.2 (known issue)&lt;/li&gt;&lt;li&gt;&lt;b&gt;FIX&lt;/b&gt; A supervised gateway (systemd, launchd or Docker) could refuse to start after a reboot because of a stale recorded process ID&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; Long local-model turns on laptops get clearer progress display, sleep-aware stall timers, retry handling after server recovery, and corrected memory sizing on Windows unified-memory machines&lt;/li&gt;&lt;/ul&gt;</content>
+  </entry>
+  <entry>
+    <title>Hermes Agent v0.22.1 — 2 placemat changes</title>
+    <id>https://dommango.github.io/agentmats/hermes/changelog.html#rel-0-22-1</id>
+    <link href="https://dommango.github.io/agentmats/hermes/changelog.html#rel-0-22-1"/>
+    <updated>2026-10-14T09:00:00Z</updated>
+    <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;security.allow_lazy_installs&lt;/code&gt; settings key — gate on-demand dependency installation; already-installed dependencies stay usable when set to &lt;code&gt;false&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;hermes pm gc&lt;/code&gt; — promoted from unverified; confirmed in the package-management reference as removing unreferenced tool-store entries, download partials, unused Python generations and deleted-checkout state&lt;/li&gt;&lt;/ul&gt;</content>
+  </entry>
   <entry>
     <title>Hermes Agent v0.22.0 — The Threshold Release — 14 placemat changes</title>
     <id>https://dommango.github.io/agentmats/hermes/changelog.html#rel-0-22-0</id>
