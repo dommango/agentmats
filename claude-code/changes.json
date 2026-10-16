@@ -1,7 +1,45 @@
 {
  "generated": "2026-10-15",
- "latest": "v2.1.300",
+ "latest": "v2.1.301",
  "releases": [
+  {
+   "version": "v2.1.301",
+   "label": "CC v2.1.301",
+   "date": "2026-10-15",
+   "id": "rel-2-1-301",
+   "entries": [
+    {
+     "tag": "ADD",
+     "item": "CLAUDE_CODE_RETRY_WATCHDOG_MAX_USAGE_LIMIT_WAIT_MS",
+     "html": "<code>CLAUDE_CODE_RETRY_WATCHDOG_MAX_USAGE_LIMIT_WAIT_MS</code> env var — ends an unattended <code>CLAUDE_CODE_RETRY_WATCHDOG</code> request at a usage limit that resets too far away instead of waiting it out"
+    },
+    {
+     "tag": "ADD",
+     "item": "%",
+     "html": "<code>%</code> vim-mode motion — jump to the matching bracket in NORMAL mode, alone or combined with <code>d</code>/<code>c</code>/<code>y</code>"
+    },
+    {
+     "tag": "ADD",
+     "item": "prependPlugins",
+     "html": "<code>prependPlugins</code> / <code>appendPlugins</code> settings — list an organization's mods to run before or after every mod a user installs"
+    },
+    {
+     "tag": "ADD",
+     "item": "worktree.location",
+     "html": "<code>worktree.location</code> setting — choose the folder where Desktop SSH sessions create worktrees on the remote machine"
+    },
+    {
+     "tag": "ADD",
+     "item": "/artifact-capabilities",
+     "html": "<code>/artifact-capabilities</code> / <code>/artifact-diagramming</code> / <code>/claude-in-chrome [task]</code> — bundled skills already documented in the commands reference, given their first placemat rows this sync"
+    },
+    {
+     "tag": "FIX",
+     "item": "/fewer-permission-prompts",
+     "html": "Corrected the <code>/fewer-permission-prompts</code> skill row, which showed the command as <code>/less-permission-prompts</code>"
+    }
+   ]
+  },
   {
    "version": "v2.1.300",
    "label": "CC v2.1.300",

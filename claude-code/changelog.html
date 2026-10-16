@@ -163,8 +163,20 @@
                 <h3>Content / CC Release Updates</h3>
                 <!-- October 2026 -->
                 <details class="month-group" open>
-                    <summary>October 2026 <span class="version-date">v2.1.287 – v2.1.300</span> <span class="month-count">9 releases</span></summary>
+                    <summary>October 2026 <span class="version-date">v2.1.287 – v2.1.301</span> <span class="month-count">10 releases</span></summary>
                     <div class="month-content">
+
+                        <div class="change-section">
+                            <h3 id="rel-2-1-301">CC v2.1.301 <span class="version-date">2026-10-15</span></h3>
+                            <ul class="change-list">
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>CLAUDE_CODE_RETRY_WATCHDOG_MAX_USAGE_LIMIT_WAIT_MS</code> env var — ends an unattended <code>CLAUDE_CODE_RETRY_WATCHDOG</code> request at a usage limit that resets too far away instead of waiting it out</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>%</code> vim-mode motion — jump to the matching bracket in NORMAL mode, alone or combined with <code>d</code>/<code>c</code>/<code>y</code></span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>prependPlugins</code> / <code>appendPlugins</code> settings — list an organization's mods to run before or after every mod a user installs</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>worktree.location</code> setting — choose the folder where Desktop SSH sessions create worktrees on the remote machine</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>/artifact-capabilities</code> / <code>/artifact-diagramming</code> / <code>/claude-in-chrome [task]</code> — bundled skills already documented in the commands reference, given their first placemat rows this sync</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry">Corrected the <code>/fewer-permission-prompts</code> skill row, which showed the command as <code>/less-permission-prompts</code></span></li>
+                            </ul>
+                        </div>
 
                         <div class="change-section">
                             <h3 id="rel-2-1-300">CC v2.1.300 <span class="version-date">2026-10-15</span></h3>
