@@ -161,8 +161,32 @@
 
             <div class="change-section">
                 <h3>Content / Kimi Code Releases</h3>
-                <!-- September 2026 -->
+                <!-- October 2026 -->
                 <details class="month-group" open>
+                    <summary>October 2026 <span class="version-date">v2.2.0</span> <span class="month-count">1 release</span></summary>
+                    <div class="month-content">
+
+                        <div class="change-section">
+                            <h3 id="rel-2-2-0">Kimi Code v2.2.0 <span class="version-date">2026-10-14</span></h3>
+                            <ul class="change-list">
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>kimi app [path]</code> &mdash; opens a new desktop chat in the current or a given directory; needs a desktop app version that supports it</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>KIMI_CODE_TRUST_WORKSPACE</code> &mdash; marks the current workspace as trusted for this process, like the interactive trust prompt</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>Ctrl-P</code> / <code>Ctrl-N</code> Updates panel &mdash; now shows opt-in mid-turn progress updates, off by default and toggled from <code>/experiments</code></span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>Ctrl-S</code> &mdash; also sends a highlighted skill prompt, replacing the old skill-suggestion cards</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>tui_mode</code> fullscreen &mdash; a scrolled-out user message gets a sticky one-line summary; clicking it jumps back to the original message</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>[background]</code> &mdash; the agent&rsquo;s in-turn wait for a task is capped at 90 seconds and discourages repeated waits; a new message ends the wait early</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>Ctrl-C</code> &mdash; forces an immediate exit during shutdown hooks instead of waiting for the hook timeout; a &ldquo;Shutting down&rdquo; hint shows meanwhile</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>UserPromptSubmit</code> hook &mdash; fixed turn ordering and rendering when the hook injects text; hook JSON without a <code>message</code> field is no longer added to the conversation</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry">forked sessions &mdash; cron tasks from the source session no longer fire inside a fork</span></li>
+                                <li><span class="tag tag-remove">DEL</span><span class="entry"><code>executor = "kaos"</code> &mdash; removed from MCP stdio configuration (never implemented); configs using it now fail validation at load time</span></li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </details>
+
+                <!-- September 2026 -->
+                <details class="month-group">
                     <summary>September 2026 <span class="version-date">v0.42.0 – v2.1.1</span> <span class="month-count">7 releases</span></summary>
                     <div class="month-content">
 
@@ -261,7 +285,7 @@
         </div>
 
         <footer class="global-footer">
-            Template v1.0 · Content synced 2026-09-24<br>
+            Template v1.0 · Content synced 2026-10-14<br>
             <span class="disclaimer">Unofficial community reference — not affiliated with or endorsed by Moonshot AI.
             Condensed from the official docs; always confirm against
             <a href="https://moonshotai.github.io/kimi-code/" target="_blank" rel="noopener noreferrer">moonshotai.github.io/kimi-code</a>.</span><br>
