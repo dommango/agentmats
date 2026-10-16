@@ -19,14 +19,14 @@
      "html": "<code>/keymap</code> (<code>card-keys</code>) — adds a configurable leader key (default <code>Ctrl+X</code>) and moves voice mute to <code>F9</code>"
     },
     {
-     "tag": "CHG",
+     "tag": "FIX",
      "item": "/side",
      "html": "<code>/side</code> (<code>card-slash-core</code>) — fixes returning to an existing side chat after switching threads, and routes answers to pending prompts back to the thread that asked"
     },
     {
      "tag": "FIX",
      "item": "/daemon",
-     "html": "<code>/daemon</code> (<code>card-slash-tools</code>) — promoted from <code>unverified</code>, now confirmed in <code>developer-commands.md</code>; also adds restarting the managed server directly, not just updating it"
+     "html": "<code>/daemon</code> (<code>card-slash-tools</code>) — promoted from <code>unverified</code>, now confirmed in <code>developer-commands.md</code>; also adds restarting the managed server, per the release notes"
     }
    ]
   },
