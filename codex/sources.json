@@ -44,9 +44,9 @@
     "card-hooks bundles Hooks + MCP + Sandbox topics; the inventory gate treats every bare-word <code> chip in that card as a hook-event candidate, so genuine dotted-free MCP settings living there (mcp_oauth_callback_port, mcp_optional_startup_grace_ms) trip the hooks check even though they're confirmed settings, not hook events — mark them unverified rather than inventing fake hook-list entries to satisfy the regex"
   ],
   "inventory": {
-    "source": "https://learn.chatgpt.com/docs/developer-commands?surface=cli, https://learn.chatgpt.com/docs/config-file/config-reference, https://learn.chatgpt.com/docs/config-file/config-basic, https://learn.chatgpt.com/docs/hooks",
-    "fetched": "2026-10-02",
-    "note": "slash extracted from the raw developer-commands.md (rendered summaries drop rows); settings from config-reference.md's key table plus requirements.toml from config-basic.md; hooks from hooks.md's documented event list.",
+    "source": "https://learn.chatgpt.com/docs/developer-commands?surface=cli, https://learn.chatgpt.com/docs/config-file/config-reference, https://learn.chatgpt.com/docs/config-file/config-basic, https://learn.chatgpt.com/docs/hooks, v0.163.0 release notes",
+    "fetched": "2026-10-16",
+    "note": "slash extracted from the raw developer-commands.md (rendered summaries drop rows); settings from config-reference.md's key table plus requirements.toml from config-basic.md; hooks from hooks.md's documented event list. 2026-10-16: added /daemon, now documented in developer-commands.md (previously unverified); added /config, confirmed by the v0.163.0 release notes but not yet in developer-commands.md.",
     "slash": [
       "/permissions", "/ide", "/keymap", "/vim", "/setup-default-sandbox", "/sandbox-add-read-dir",
       "/agent", "/subagents", "/apps", "/plugins", "/hooks", "/clear", "/rename", "/archive",
@@ -54,7 +54,7 @@
       "/skills", "/import", "/feedback", "/init", "/logout", "/mcp", "/mention", "/model", "/fast",
       "/plan", "/goal", "/personality", "/ps", "/stop", "/fork", "/app", "/side", "/btw", "/raw",
       "/resume", "/new", "/quit", "/review", "/status", "/usage", "/debug-config", "/statusline",
-      "/title", "/theme", "/pets", "/pet", "/clean"
+      "/title", "/theme", "/pets", "/pet", "/clean", "/daemon", "/config"
     ],
     "settings": [
       "agents", "agents.<name>.config_file", "agents.<name>.description", "agents.default_subagent_model",
