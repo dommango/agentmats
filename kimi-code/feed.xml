@@ -4,7 +4,14 @@
   <link href="https://dommango.github.io/agentmats/kimi-code/"/>
   <link rel="self" href="https://dommango.github.io/agentmats/kimi-code/feed.xml"/>
   <id>https://dommango.github.io/agentmats/kimi-code/</id>
-  <updated>2026-09-24T09:00:00Z</updated>
+  <updated>2026-10-14T09:00:00Z</updated>
+  <entry>
+    <title>Kimi Code v2.2.0 — 10 placemat changes</title>
+    <id>https://dommango.github.io/agentmats/kimi-code/changelog.html#rel-2-2-0</id>
+    <link href="https://dommango.github.io/agentmats/kimi-code/changelog.html#rel-2-2-0"/>
+    <updated>2026-10-14T09:00:00Z</updated>
+    <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;kimi app [path]&lt;/code&gt; &amp;mdash; opens a new desktop chat in the current or a given directory; needs a desktop app version that supports it&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;KIMI_CODE_TRUST_WORKSPACE&lt;/code&gt; &amp;mdash; marks the current workspace as trusted for this process, like the interactive trust prompt&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;Ctrl-P&lt;/code&gt; / &lt;code&gt;Ctrl-N&lt;/code&gt; Updates panel &amp;mdash; now shows opt-in mid-turn progress updates, off by default and toggled from &lt;code&gt;/experiments&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;Ctrl-S&lt;/code&gt; &amp;mdash; also sends a highlighted skill prompt, replacing the old skill-suggestion cards&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;tui_mode&lt;/code&gt; fullscreen &amp;mdash; a scrolled-out user message gets a sticky one-line summary; clicking it jumps back to the original message&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;[background]&lt;/code&gt; &amp;mdash; the agent&amp;rsquo;s in-turn wait for a task is capped at 90 seconds and discourages repeated waits; a new message ends the wait early&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;Ctrl-C&lt;/code&gt; &amp;mdash; forces an immediate exit during shutdown hooks instead of waiting for the hook timeout; a &amp;ldquo;Shutting down&amp;rdquo; hint shows meanwhile&lt;/li&gt;&lt;li&gt;&lt;b&gt;FIX&lt;/b&gt; &lt;code&gt;UserPromptSubmit&lt;/code&gt; hook &amp;mdash; fixed turn ordering and rendering when the hook injects text; hook JSON without a &lt;code&gt;message&lt;/code&gt; field is no longer added to the conversation&lt;/li&gt;&lt;li&gt;&lt;b&gt;FIX&lt;/b&gt; forked sessions &amp;mdash; cron tasks from the source session no longer fire inside a fork&lt;/li&gt;&lt;li&gt;&lt;b&gt;DEL&lt;/b&gt; &lt;code&gt;executor = "kaos"&lt;/code&gt; &amp;mdash; removed from MCP stdio configuration (never implemented); configs using it now fail validation at load time&lt;/li&gt;&lt;/ul&gt;</content>
+  </entry>
   <entry>
     <title>Kimi Code v2.1.0–v2.1.1 — 7 placemat changes</title>
     <id>https://dommango.github.io/agentmats/kimi-code/changelog.html#rel-2-1-1</id>
