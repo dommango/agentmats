@@ -1,7 +1,267 @@
 {
- "generated": "2026-10-07",
- "latest": "v1.3.1",
+ "generated": "2026-10-15",
+ "latest": "v1.3.6",
  "releases": [
+  {
+   "version": "v1.3.6",
+   "label": "Antigravity CLI v1.3.6",
+   "date": "2026-10-15",
+   "id": "rel-1-3-6",
+   "entries": [
+    {
+     "tag": "ADD",
+     "item": "AGY_ADC_AUTH",
+     "html": "<code>AGY_ADC_AUTH</code> (<code>card-env</code>) — new unverified row for Application Default Credentials sign-in, named in this release (Claude Opus 5.5/Sonnet 5.5 availability) and in 1.3.3; absent from any docs page in <code>sources.json</code>"
+    },
+    {
+     "tag": "CHG",
+     "item": "--mode <mode>",
+     "html": "<code>--mode &lt;mode&gt;</code> (<code>card-cli</code>) — noted Auto mode's sandbox-escape review getting faster, allowing the workspace's own format/lint/fix commands, and blocking sensitive-data uploads"
+    },
+    {
+     "tag": "CHG",
+     "item": "/diff",
+     "html": "<code>/diff</code> (<code>card-slash-tools</code>) — noted the Commit Tree view's colorization (hashes, change IDs, dimmed descriptions, highlighted working-copy row, bold <code>@</code>)"
+    },
+    {
+     "tag": "CHG",
+     "item": "/model",
+     "html": "<code>/model</code> (<code>card-slash-core</code>) — noted Claude Opus 5.5 and Sonnet 5.5 becoming available via ADC sign-in, gated by Google Cloud project access"
+    },
+    {
+     "tag": "FIX",
+     "item": "/agents",
+     "html": "<code>/agents</code> (<code>card-slash-tools</code>) — noted the fix for lost subagent/workflow-agent questions, now surfaced as an <code>&lt;agent&gt; has a question</code> alert with a <code>Ctrl+K</code>/<code>a</code> picker, skipped in headless <code>-p</code> runs"
+    },
+    {
+     "tag": "FIX",
+     "item": ".agents/skills/<name>/SKILL.md",
+     "html": "<code>.agents/skills/&lt;name&gt;/SKILL.md</code> (<code>card-skills</code>) — noted the fix for skills/rules/workflows/Markdown agents failing to load when an unquoted <code>description:</code> contains a colon"
+    },
+    {
+     "tag": "FIX",
+     "item": "/artifact",
+     "html": "<code>/artifact</code> (<code>card-slash-tools</code>) — noted the Mermaid frontmatter/<code>%%{init}%%</code>/v11-syntax rendering fix, and the <code>/</code> search highlight/crash fix for lowercase-length-changing characters such as <code>İ</code>"
+    },
+    {
+     "tag": "FIX",
+     "item": "agy plugin <cmd>",
+     "html": "<code>agy plugin &lt;cmd&gt;</code> (<code>card-cli</code>) — noted the fix for a case-sensitive <code>Plugin.json</code> manifest not being found by <code>install</code>/<code>validate</code>/<code>enable</code>/<code>disable</code>"
+    },
+    {
+     "tag": "FIX",
+     "item": "/plugin",
+     "html": "<code>/plugin</code> / <code>/plugins</code> (<code>card-slash-tools</code>) — noted the fix for <code>/plugin</code> subcommands such as <code>/plugin List</code> failing on non-lowercase input"
+    },
+    {
+     "tag": "ADD",
+     "item": "cli/reference",
+     "html": "<span class=\"summary\">Re-extracted the slash command inventory from <code>cli/reference</code> and added five newly-documented commands</span> <button type=\"button\" class=\"notes-btn\" aria-expanded=\"false\">+1</button><ul class=\"notes\" hidden><li><code>/browser &lt;task&gt;</code>, <code>/goal &lt;objective&gt;</code>, and <code>/learn [instruction]</code> (<code>card-slash-tools</code>, Tools &amp; tasks/Reasoning), and <code>/schedule &lt;when&gt; &lt;task&gt;</code> and <code>/changelog</code> (<code>card-slash-tools</code>) are confirmed on the current core slash command table. <code>/browser</code>, <code>/goal</code>, <code>/learn</code>, and <code>/schedule</code> were explicitly removed as phantom commands from the first draft (v1.2.2) for not existing on that table at the time; they're real now."
+    }
+   ]
+  },
+  {
+   "version": "v1.3.5",
+   "label": "Antigravity CLI v1.3.5",
+   "date": "2026-10-14",
+   "id": "rel-1-3-5",
+   "entries": [
+    {
+     "tag": "ADD",
+     "item": "auto",
+     "html": "<code>auto</code> value on <code>--mode &lt;mode&gt;</code> (<code>card-cli</code>) — unverified Auto mode: autonomous approval of file edits and safe commands with sandbox-escape review by a separate agent; Linux/macOS only; absent from any <code>agy --help</code> this card was verified against"
+    },
+    {
+     "tag": "ADD",
+     "item": "Shift+Tab",
+     "html": "<code>Shift+Tab</code> (<code>card-keys</code>) — new unverified row for cycling agent execution modes, absent from the <code>cli/reference</code> keybinding tables"
+    },
+    {
+     "tag": "CHG",
+     "item": "/config",
+     "html": "<code>/config</code> (<code>card-slash-core</code>) — noted the new Agent Mode entry for picking <code>accept-edits</code>/<code>plan</code>/<code>auto</code>"
+    },
+    {
+     "tag": "CHG",
+     "item": "/diff",
+     "html": "<code>/diff</code> (<code>card-slash-tools</code>) — noted syntax highlighting, code folding (<code>Ctrl+O</code>, <code>f</code>), and row virtualization for very large files"
+    },
+    {
+     "tag": "FIX",
+     "item": "colorScheme",
+     "html": "<code>colorScheme</code> (<code>card-settings</code>) — noted the fix for colors dropping to 256 in iTerm2 over SSH where <code>COLORTERM</code> isn't forwarded"
+    }
+   ]
+  },
+  {
+   "version": "v1.3.4",
+   "label": "Antigravity CLI v1.3.4",
+   "date": "2026-10-13",
+   "id": "rel-1-3-4",
+   "entries": [
+    {
+     "tag": "ADD",
+     "item": "agy plugin list",
+     "html": "<code>agy plugin list</code> (<code>card-hooks</code>) — noted the new <code>--json</code> flag and the fix for listing only imported plugins instead of every installed plugin"
+    },
+    {
+     "tag": "CHG",
+     "item": "/model",
+     "html": "<code>/model</code> (<code>card-slash-core</code>) — noted the picker hiding third-party models a Business/GCP project can't access, instead of failing on send"
+    },
+    {
+     "tag": "CHG",
+     "item": "agy remote-control",
+     "html": "<code>agy remote-control</code> (<code>card-cli</code>) — noted the browser Settings modal now mirroring real CLI settings, and <code>serve</code> sessions reading/saving <code>settings.json</code>"
+    },
+    {
+     "tag": "FIX",
+     "item": "--agent <name>",
+     "html": "<code>--agent &lt;name&gt;</code> (<code>card-cli</code>) — noted the fix for an unknown agent name silently running the default agent instead of erroring or warning"
+    },
+    {
+     "tag": "FIX",
+     "item": "-p",
+     "html": "<code>-p</code> (<code>card-cli</code>) — noted <code>--print</code> combined with <code>--prompt-interactive</code> now exiting with status 2 instead of 0"
+    },
+    {
+     "tag": "FIX",
+     "item": "/resume",
+     "html": "<code>/resume</code> (<code>card-slash-core</code>) — noted the <code>@conversation:</code> suggestion fallback after a 2-second stall"
+    },
+    {
+     "tag": "FIX",
+     "item": "/mcp",
+     "html": "<code>/mcp</code> (<code>card-slash-tools</code>) — noted OAuth sign-outs now happening only on an actual rejection, not a transient network/timeout/server error"
+    },
+    {
+     "tag": "FIX",
+     "item": "/permissions",
+     "html": "<code>/permissions</code> (<code>card-slash-core</code>) — noted the fix for Remote Control \"Always allow\" rules outliving their removal in the browser or this panel"
+    },
+    {
+     "tag": "FIX",
+     "item": "/artifact",
+     "html": "<code>/artifact</code> (<code>card-slash-tools</code>) — noted the fix for a truncated or header-only WebM file being rejected on read instead of breaking every later request"
+    },
+    {
+     "tag": "FIX",
+     "item": "/plugin",
+     "html": "<code>/plugin</code> / <code>/plugins</code> (<code>card-slash-tools</code>) — noted the fix for plugin details leaving out subagents a plugin declares in its root <code>agents.json</code>"
+    }
+   ]
+  },
+  {
+   "version": "v1.3.3",
+   "label": "Antigravity CLI v1.3.3",
+   "date": "2026-10-10",
+   "id": "rel-1-3-3",
+   "entries": [
+    {
+     "tag": "ADD",
+     "item": "_meta: {\"antigravity/alwaysLoad\": true}",
+     "html": "<code>_meta: {\"antigravity/alwaysLoad\": true}</code> (<code>card-hooks</code>) — new unverified row: an MCP server can mark a tool as always loaded in its <code>tools/list</code> response; absent from <code>docs/mcp</code>"
+    },
+    {
+     "tag": "CHG",
+     "item": "altScreenMode",
+     "html": "<code>altScreenMode</code> (<code>card-settings</code>) — noted the pinned prompt header while scrolling back through a long conversation in no-flicker mode"
+    },
+    {
+     "tag": "CHG",
+     "item": "plugins/<name>/plugin.json",
+     "html": "<code>plugins/&lt;name&gt;/plugin.json</code> (<code>card-hooks</code>) — noted a root-level <code>agents.json</code> for a plugin's own subagents, per the release notes only"
+    },
+    {
+     "tag": "CHG",
+     "item": "enableTerminalSandbox",
+     "html": "<code>enableTerminalSandbox</code> (<code>card-settings</code>) — noted the macOS sandbox blocking <code>~/Library/Application Support</code> reads by default, and the Windows PowerShell 7 (Microsoft Store) fallback fix"
+    },
+    {
+     "tag": "CHG",
+     "item": "/usage",
+     "html": "<code>/usage</code> (<code>card-slash-tools</code>) — noted individual quota being reported immediately instead of retried first"
+    },
+    {
+     "tag": "CHG",
+     "item": "/plugin",
+     "html": "<code>/plugin</code> / <code>/plugins</code> (<code>card-slash-tools</code>) — noted the Installed tab's improved search (spaces, <code>Enter</code>, <code>Space</code> to toggle)"
+    },
+    {
+     "tag": "FIX",
+     "item": "/add-dir",
+     "html": "<code>/add-dir</code> (<code>card-slash-tools</code>) — noted the clearer <code>directory not found</code>/<code>not a directory</code> errors"
+    },
+    {
+     "tag": "FIX",
+     "item": "/btw",
+     "html": "<code>/btw</code> (<code>card-slash-tools</code>) — noted the fix stopping side questions from running user/workspace hooks"
+    },
+    {
+     "tag": "FIX",
+     "item": "/agents",
+     "html": "<code>/agents</code> (<code>card-slash-tools</code>) — noted the multi-repo subagent workspace isolation fix and the fix clearing a stopped subagent's pending approval right away"
+    },
+    {
+     "tag": "FIX",
+     "item": "--remote-control",
+     "html": "<code>--remote-control</code> (<code>card-cli</code>) and <code>/remote-control</code> (<code>card-slash-tools</code>) — noted both being disabled under ADC sign-in, which isn't supported yet, instead of failing unclearly"
+    },
+    {
+     "tag": "FIX",
+     "item": "/keybindings",
+     "html": "<code>/keybindings</code> (<code>card-slash-core</code>) — noted the macOS Option-key <code>alt</code> keybinding fix and the clear error when the configured editor can't be found"
+    },
+    {
+     "tag": "FIX",
+     "item": "agy plugin <cmd>",
+     "html": "<code>agy plugin &lt;cmd&gt;</code> (<code>card-cli</code>) — noted the <code>skills.json</code>-exclusion and import-race fixes for <code>validate</code> and plugin listings"
+    },
+    {
+     "tag": "FIX",
+     "item": "/diff",
+     "html": "<code>/diff</code> (<code>card-slash-tools</code>) — noted the <code>color.ui = always</code> fix and the real-cause fix when the fallback <code>git diff</code> also fails"
+    }
+   ]
+  },
+  {
+   "version": "v1.3.2",
+   "label": "Antigravity CLI v1.3.2",
+   "date": "2026-10-08",
+   "id": "rel-1-3-2",
+   "entries": [
+    {
+     "tag": "CHG",
+     "item": "/plugin",
+     "html": "<code>/plugin</code> / <code>/plugins</code> (<code>card-slash-tools</code>) — noted this manager opening onto the official plugin marketplace, with <code>agy plugin install &lt;name&gt;@antigravity-plugins-official</code> and local-directory installs, plus install reliability improvements"
+    },
+    {
+     "tag": "CHG",
+     "item": "plugins/<name>/plugin.json",
+     "html": "<code>plugins/&lt;name&gt;/plugin.json</code> (<code>card-hooks</code>) — noted the <code>.antigravity-plugin/</code>/<code>.gemini-plugin/</code> manifest folder, <code>skills</code> field, <code>PLUGIN_DATA</code>, and <code>bin/</code> folder, per the release notes only"
+    },
+    {
+     "tag": "CHG",
+     "item": "--dangerously-skip-permissions",
+     "html": "<code>--dangerously-skip-permissions</code> (<code>card-cli</code>) — noted this no longer auto-approving the implementation plan in planning mode; it only skips tool permission prompts now"
+    },
+    {
+     "tag": "CHG",
+     "item": "/artifact",
+     "html": "<code>/artifact</code> (<code>card-slash-tools</code>) — noted images now scaled to at most 2576px per side (previously 4096) to stay within Claude models' limits"
+    },
+    {
+     "tag": "FIX",
+     "item": "/diff",
+     "html": "<code>/diff</code> (<code>card-slash-tools</code>) — noted the Commit Tree <code>Tab</code>/arrow-key fix and the new <code>Shift+Tab</code> previous-view shortcut"
+    },
+    {
+     "tag": "FIX",
+     "item": "/resume",
+     "html": "<code>/resume</code> (<code>card-slash-core</code>) — noted the Other-tab import crash fix and the CJK conversation-title truncation fix"
+    }
+   ]
+  },
   {
    "version": "v1.3.1",
    "label": "Antigravity CLI v1.3.1",

@@ -37,16 +37,17 @@
   ],
   "inventory": {
     "source": "https://antigravity.google/docs/cli/reference",
-    "fetched": "2026-10-03",
+    "fetched": "2026-10-16",
     "slash": [
-      "/add-dir", "/agents", "/boost", "/artifact", "/btw", "/clear", "/new",
-      "/config", "/settings", "/context", "/copy", "/credits", "/diff",
-      "/exit", "/quit", "/fast", "/feedback", "/fork", "/branch", "/help",
-      "/hooks", "/keybindings", "/logout", "/mcp", "/model", "/open",
+      "/add-dir", "/agents", "/boost", "/artifact", "/browser", "/btw",
+      "/changelog", "/clear", "/new", "/config", "/settings", "/context",
+      "/copy", "/credits", "/diff", "/effort", "/exit", "/quit", "/fast",
+      "/feedback", "/fork", "/branch", "/goal", "/help", "/hooks",
+      "/keybindings", "/learn", "/logout", "/mcp", "/model", "/open",
       "/permissions", "/planning", "/plugin", "/plugins", "/remote-control",
       "/rename", "/resume", "/switch", "/conversation", "/rewind", "/undo",
-      "/skills", "/statusline", "/tasks", "/teamwork-preview", "/teamwork",
-      "/title", "/usage", "/quota", "/voice", "/record"
+      "/schedule", "/skills", "/statusline", "/tasks", "/teamwork-preview",
+      "/teamwork", "/title", "/usage", "/quota", "/voice", "/record"
     ],
     "settings": [
       "colorScheme", "altScreenMode", "toolPermission", "artifactReviewPolicy",
