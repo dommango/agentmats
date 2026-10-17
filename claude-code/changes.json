@@ -1,7 +1,45 @@
 {
- "generated": "2026-10-15",
- "latest": "v2.1.301",
+ "generated": "2026-10-16",
+ "latest": "v2.1.302",
  "releases": [
+  {
+   "version": "v2.1.302",
+   "label": "CC v2.1.302",
+   "date": "2026-10-16",
+   "id": "rel-2-1-302",
+   "entries": [
+    {
+     "tag": "ADD",
+     "item": "CLAUDE_CODE_AUTO_MODE_MODEL",
+     "html": "<code>CLAUDE_CODE_AUTO_MODE_MODEL</code> env var — choose the model the client-side auto mode classifier uses; the server-side classifier's model is unaffected"
+    },
+    {
+     "tag": "CHG",
+     "item": "CLAUDE_CODE_FORK_SUBAGENT=0",
+     "html": "<code>CLAUDE_CODE_FORK_SUBAGENT=0</code> — fork subagents (<code>subagent_type: \"fork\"</code>) are now on by default in <code>claude -p</code>, the Agent SDK, the desktop app and VS Code, as they already were in the terminal; set to <code>0</code> to turn them off, <code>claude mcp serve</code> never offers them"
+    },
+    {
+     "tag": "CHG",
+     "item": "permissions.defaultMode",
+     "html": "<code>permissions.defaultMode</code> — when unset, <code>claude -p</code> and Agent SDK sessions now start in manual mode instead on third-party providers, with telemetry off, or on a fresh install; <code>--permission-mode auto</code> still keeps auto"
+    },
+    {
+     "tag": "CHG",
+     "item": "idleCompaction",
+     "html": "<code>idleCompaction</code> — <code>/config</code> now has its own <code>Idle compaction</code> row, and the notice shown after an idle compaction says how to turn it off"
+    },
+    {
+     "tag": "ADD",
+     "item": "proxyAuthHelper",
+     "html": "<code>proxyAuthHelper</code> managed setting — read from only the highest-priority admin source, alongside <code>apiKeyHelper</code> and the other auth-refresh helpers; real and verified but otherwise undocumented on the reference page, so marked unverified"
+    },
+    {
+     "tag": "ADD",
+     "item": "additionalMarketplaces",
+     "html": "<code>additionalMarketplaces</code> — version-gated alias (v2.1.232+) of <code>extraKnownMarketplaces</code>, noted on its existing row alongside <code>allowedMarketplaces</code>'s matching alias of <code>strictKnownMarketplaces</code>"
+    }
+   ]
+  },
   {
    "version": "v2.1.301",
    "label": "CC v2.1.301",
