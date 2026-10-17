@@ -4,7 +4,14 @@
   <link href="https://dommango.github.io/agentmats/claude-code/"/>
   <link rel="self" href="https://dommango.github.io/agentmats/claude-code/feed.xml"/>
   <id>https://dommango.github.io/agentmats/claude-code/</id>
-  <updated>2026-10-15T09:00:00Z</updated>
+  <updated>2026-10-16T09:00:00Z</updated>
+  <entry>
+    <title>CC v2.1.302 — 4 placemat changes</title>
+    <id>https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-302</id>
+    <link href="https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-302"/>
+    <updated>2026-10-16T09:00:00Z</updated>
+    <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;CLAUDE_CODE_AUTO_MODE_MODEL&lt;/code&gt; env var — choose the model the client-side auto mode classifier uses; the server-side classifier's model is unaffected&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;CLAUDE_CODE_FORK_SUBAGENT=0&lt;/code&gt; — fork subagents (&lt;code&gt;subagent_type: "fork"&lt;/code&gt;) are now on by default in &lt;code&gt;claude -p&lt;/code&gt;, the Agent SDK, the desktop app and VS Code, as they already were in the terminal; set to &lt;code&gt;0&lt;/code&gt; to turn them off, &lt;code&gt;claude mcp serve&lt;/code&gt; never offers them&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;permissions.defaultMode&lt;/code&gt; — when unset, &lt;code&gt;claude -p&lt;/code&gt; and Agent SDK sessions now start in manual mode instead on third-party providers, with telemetry off, or on a fresh install; &lt;code&gt;--permission-mode auto&lt;/code&gt; still keeps auto&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;idleCompaction&lt;/code&gt; — &lt;code&gt;/config&lt;/code&gt; now has its own &lt;code&gt;Idle compaction&lt;/code&gt; row, and the notice shown after an idle compaction says how to turn it off&lt;/li&gt;&lt;/ul&gt;</content>
+  </entry>
   <entry>
     <title>CC v2.1.301 — 6 placemat changes</title>
     <id>https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-301</id>
@@ -137,12 +144,5 @@
     <link href="https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-277"/>
     <updated>2026-09-18T09:00:00Z</updated>
     <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;AGENTS.md&lt;/code&gt; support — in a project with no &lt;code&gt;CLAUDE.md&lt;/code&gt;, Claude Code reads &lt;code&gt;AGENTS.md&lt;/code&gt; instead; toggle under "Project instructions" in &lt;code&gt;/config&lt;/code&gt; (not yet on Bedrock, Vertex or Foundry)&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;CLAUDE_GATEWAY_PROXY_IS_EGRESS_BOUNDARY&lt;/code&gt; env var — for Claude apps gateways whose only egress is a forward proxy; every outbound request hands the proxy the hostname instead of resolving it locally&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;taskOutputMaxChars&lt;/code&gt; no longer has any effect — the deprecated TaskOutput tool was removed; Claude reads a background task's output file with Read instead&lt;/li&gt;&lt;/ul&gt;</content>
-  </entry>
-  <entry>
-    <title>CC v2.1.275 — 4 placemat changes</title>
-    <id>https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-275</id>
-    <link href="https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-275"/>
-    <updated>2026-09-17T09:00:00Z</updated>
-    <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;Ctrl Enter&lt;/code&gt; / &lt;code&gt;Ctrl X Ctrl S&lt;/code&gt; send-now key — interrupts the current turn and sends all queued messages at once; sent and queued messages show in gray until the model receives them&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;syncClaudeAiSkills&lt;/code&gt; / &lt;code&gt;syncClaudeAiPlugins&lt;/code&gt; settings — set to &lt;code&gt;false&lt;/code&gt; to stop syncing the skills or plugins enabled on your claude.ai account into signed-in terminal sessions&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;/plugin install &amp;lt;name&amp;gt;&lt;/code&gt; — added &lt;code&gt;--marketplace &amp;lt;source&amp;gt;&lt;/code&gt;, which offers to add the marketplace before installing the plugin&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;/plugin install &amp;lt;name&amp;gt;&lt;/code&gt; — an &lt;code&gt;npm&lt;/code&gt;-source install now runs &lt;code&gt;npm pack --ignore-scripts&lt;/code&gt; and is integrity-verified, so the package's install scripts never run&lt;/li&gt;&lt;/ul&gt;</content>
   </entry>
 </feed>

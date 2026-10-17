@@ -163,8 +163,18 @@
                 <h3>Content / CC Release Updates</h3>
                 <!-- October 2026 -->
                 <details class="month-group" open>
-                    <summary>October 2026 <span class="version-date">v2.1.287 – v2.1.301</span> <span class="month-count">10 releases</span></summary>
+                    <summary>October 2026 <span class="version-date">v2.1.287 – v2.1.302</span> <span class="month-count">11 releases</span></summary>
                     <div class="month-content">
+
+                        <div class="change-section">
+                            <h3 id="rel-2-1-302">CC v2.1.302 <span class="version-date">2026-10-16</span></h3>
+                            <ul class="change-list">
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>CLAUDE_CODE_AUTO_MODE_MODEL</code> env var — choose the model the client-side auto mode classifier uses; the server-side classifier's model is unaffected</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>CLAUDE_CODE_FORK_SUBAGENT=0</code> — fork subagents (<code>subagent_type: "fork"</code>) are now on by default in <code>claude -p</code>, the Agent SDK, the desktop app and VS Code, as they already were in the terminal; set to <code>0</code> to turn them off, <code>claude mcp serve</code> never offers them</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>permissions.defaultMode</code> — when unset, <code>claude -p</code> and Agent SDK sessions now start in manual mode instead on third-party providers, with telemetry off, or on a fresh install; <code>--permission-mode auto</code> still keeps auto</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>idleCompaction</code> — <code>/config</code> now has its own <code>Idle compaction</code> row, and the notice shown after an idle compaction says how to turn it off</span></li>
+                            </ul>
+                        </div>
 
                         <div class="change-section">
                             <h3 id="rel-2-1-301">CC v2.1.301 <span class="version-date">2026-10-15</span></h3>
