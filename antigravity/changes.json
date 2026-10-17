@@ -37,6 +37,11 @@
      "tag": "FIX",
      "item": "/tasks",
      "html": "<code>/tasks</code> (<code>card-slash-tools</code>) — noted the fix for the agent losing track of file changes, tasks, and session cost when a background command finished while it kept working, and for a background command's final output sometimes missing from its task log"
+    },
+    {
+     "tag": "FIX",
+     "item": "agy",
+     "html": "<code>agy</code> (<code>card-cli</code>) — noted the fix for every message failing with <code>Eligibility check failed</code> after a brief service outage or rate limit at launch, requiring a restart"
     }
    ]
   },
