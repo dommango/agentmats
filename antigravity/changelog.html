@@ -162,9 +162,20 @@
                 <h3>Content / Antigravity CLI Releases</h3>
                 <!-- October 2026 -->
                 <details class="month-group" open>
-                    <summary>October 2026 <span class="version-date">v1.2.15 – v1.3.6</span> <span class="month-count">10 releases</span></summary>
+                    <summary>October 2026 <span class="version-date">v1.2.15 – v1.4.0</span> <span class="month-count">11 releases</span></summary>
                     <div class="month-content">
 
+                        <div class="change-section">
+                            <h3 id="rel-1-4-0">Antigravity CLI v1.4.0 <span class="version-date">2026-10-16</span></h3>
+                            <ul class="change-list">
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>AGY_CLI_OSC7501</code> / <code>AGY_CLI_OSC7501_MESSAGES</code> (<code>card-env</code>) — two new unverified rows for OSC 7501 terminal status reporting (tab/window shows working/waiting/done/failed) and its <code>brief</code> message mode, named only in this release</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>Alt+M</code> (<code>card-keys</code>) — new unverified row for sending using the opposite of your <code>Queued Messages</code> setting, named only in this release</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>agy plugin &lt;cmd&gt;</code> (<code>card-cli</code>) — noted <code>validate</code> rewritten to check a plugin with the CLI's own loading rules, listing errors/warnings by file and line, plus the new <code>--strict</code> and <code>--json</code> flags</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>/diff</code> (<code>card-slash-tools</code>) — noted the Commit Tree view counting commits instead of lines, restricting the cursor to commit rows with <code>Enter</code> opening them, filling the terminal height, and showing the latest 100 commits (previously 10) with scrolling</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>mcp_config.json</code> (<code>card-hooks</code>) — noted the fix for plugin MCP servers using a header variable, such as a bearer token, sending the literal placeholder instead of the configured value</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>/tasks</code> (<code>card-slash-tools</code>) — noted the fix for the agent losing track of file changes, tasks, and session cost when a background command finished while it kept working, and for a background command's final output sometimes missing from its task log</span></li>
+                            </ul>
+                        </div>
                         <div class="change-section">
                             <h3 id="rel-1-3-6">Antigravity CLI v1.3.6 <span class="version-date">2026-10-15</span></h3>
                             <ul class="change-list">
