@@ -4,7 +4,14 @@
   <link href="https://dommango.github.io/agentmats/claude-code/"/>
   <link rel="self" href="https://dommango.github.io/agentmats/claude-code/feed.xml"/>
   <id>https://dommango.github.io/agentmats/claude-code/</id>
-  <updated>2026-10-16T09:00:00Z</updated>
+  <updated>2026-10-19T09:00:00Z</updated>
+  <entry>
+    <title>CC v2.1.304 — 8 placemat changes</title>
+    <id>https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-304</id>
+    <link href="https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-304"/>
+    <updated>2026-10-19T09:00:00Z</updated>
+    <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;/auto-mode-setup&lt;/code&gt; — given its first placemat row: drafts auto mode environment entries from your project and recent sessions for review before saving; now also available on Bedrock, Vertex, Foundry, the Claude apps gateway, and telemetry-disabled sessions&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;/artifacts&lt;/code&gt; — given its first placemat row: lists, attaches, opens, or copies the link of artifacts you own or that are shared with you; delete confirmation now uses numbered choices&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;CLAUDE_CODE_TRANSCRIPT_LOCAL_GC&lt;/code&gt; env var — given its first placemat row: trims pre-compaction history from a long &lt;code&gt;-p&lt;/code&gt;/SDK session's transcript file once it passes 5MB&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;CLAUDE_CODE_AUTO_COMPACT_WINDOW&lt;/code&gt; env var — given its first placemat row: sets the auto-compact window in tokens; now accepts &lt;code&gt;k&lt;/code&gt;/&lt;code&gt;M&lt;/code&gt; suffixes like &lt;code&gt;200k&lt;/code&gt;, with a warning on out-of-range or ignored values&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;/claude-api managed-agents-secure&lt;/code&gt; subcommand — compares a Managed Agents agent's settings against Anthropic's security guide without changing anything; real and verified via the changelog, not yet in the commands reference table&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;/reload-skills&lt;/code&gt; — compaction now resends the full skill list automatically, so this command itself sends only new or changed skills&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;-w&lt;/code&gt; / &lt;code&gt;--worktree&lt;/code&gt; — asks before removing the worktree and branch at exit when HEAD is detached or on another branch, so commits aren't lost&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;alwaysLoad&lt;/code&gt; (MCP server config) — cloud sessions: a new conversation's first turn no longer waits on stdio MCP servers of claude.ai-synced plugins unless this is set&lt;/li&gt;&lt;/ul&gt;</content>
+  </entry>
   <entry>
     <title>CC v2.1.302 — 6 placemat changes</title>
     <id>https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-302</id>
@@ -137,12 +144,5 @@
     <link href="https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-278"/>
     <updated>2026-09-19T09:00:00Z</updated>
     <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;CLAUDE_CODE_AUTO_MODE_SERVER&lt;/code&gt; — the server-side auto mode classifier, which doesn't charge for classifier overhead, is now the default for Claude API and Enterprise users, and on Bedrock, Vertex, Foundry and gateways; set to &lt;code&gt;0&lt;/code&gt; to opt out on Bedrock, Vertex, Foundry and gateways; warns on billed fallback&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;/status&lt;/code&gt; — new &lt;code&gt;Auto mode server&lt;/code&gt; row shows whether this session's auto mode classifier runs on the server&lt;/li&gt;&lt;/ul&gt;</content>
-  </entry>
-  <entry>
-    <title>CC v2.1.277 — 3 placemat changes</title>
-    <id>https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-277</id>
-    <link href="https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-277"/>
-    <updated>2026-09-18T09:00:00Z</updated>
-    <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;AGENTS.md&lt;/code&gt; support — in a project with no &lt;code&gt;CLAUDE.md&lt;/code&gt;, Claude Code reads &lt;code&gt;AGENTS.md&lt;/code&gt; instead; toggle under "Project instructions" in &lt;code&gt;/config&lt;/code&gt; (not yet on Bedrock, Vertex or Foundry)&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;CLAUDE_GATEWAY_PROXY_IS_EGRESS_BOUNDARY&lt;/code&gt; env var — for Claude apps gateways whose only egress is a forward proxy; every outbound request hands the proxy the hostname instead of resolving it locally&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;taskOutputMaxChars&lt;/code&gt; no longer has any effect — the deprecated TaskOutput tool was removed; Claude reads a background task's output file with Read instead&lt;/li&gt;&lt;/ul&gt;</content>
   </entry>
 </feed>

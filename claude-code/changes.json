@@ -1,7 +1,55 @@
 {
- "generated": "2026-10-16",
- "latest": "v2.1.302",
+ "generated": "2026-10-19",
+ "latest": "v2.1.304",
  "releases": [
+  {
+   "version": "v2.1.304",
+   "label": "CC v2.1.304",
+   "date": "2026-10-19",
+   "id": "rel-2-1-304",
+   "entries": [
+    {
+     "tag": "ADD",
+     "item": "/auto-mode-setup",
+     "html": "<code>/auto-mode-setup</code> — given its first placemat row: drafts auto mode environment entries from your project and recent sessions for review before saving; now also available on Bedrock, Vertex, Foundry, the Claude apps gateway, and telemetry-disabled sessions"
+    },
+    {
+     "tag": "ADD",
+     "item": "/artifacts",
+     "html": "<code>/artifacts</code> — given its first placemat row: lists, attaches, opens, or copies the link of artifacts you own or that are shared with you; delete confirmation now uses numbered choices"
+    },
+    {
+     "tag": "ADD",
+     "item": "CLAUDE_CODE_TRANSCRIPT_LOCAL_GC",
+     "html": "<code>CLAUDE_CODE_TRANSCRIPT_LOCAL_GC</code> env var — given its first placemat row: trims pre-compaction history from a long <code>-p</code>/SDK session's transcript file once it passes 5MB"
+    },
+    {
+     "tag": "ADD",
+     "item": "CLAUDE_CODE_AUTO_COMPACT_WINDOW",
+     "html": "<code>CLAUDE_CODE_AUTO_COMPACT_WINDOW</code> env var — given its first placemat row: sets the auto-compact window in tokens; now accepts <code>k</code>/<code>M</code> suffixes like <code>200k</code>, with a warning on out-of-range or ignored values"
+    },
+    {
+     "tag": "ADD",
+     "item": "/claude-api managed-agents-secure",
+     "html": "<code>/claude-api managed-agents-secure</code> subcommand — compares a Managed Agents agent's settings against Anthropic's security guide without changing anything; real and verified via the changelog, not yet in the commands reference table"
+    },
+    {
+     "tag": "CHG",
+     "item": "/reload-skills",
+     "html": "<code>/reload-skills</code> — compaction now resends the full skill list automatically, so this command itself sends only new or changed skills"
+    },
+    {
+     "tag": "CHG",
+     "item": "-w",
+     "html": "<code>-w</code> / <code>--worktree</code> — asks before removing the worktree and branch at exit when HEAD is detached or on another branch, so commits aren't lost"
+    },
+    {
+     "tag": "CHG",
+     "item": "alwaysLoad",
+     "html": "<code>alwaysLoad</code> (MCP server config) — cloud sessions: a new conversation's first turn no longer waits on stdio MCP servers of claude.ai-synced plugins unless this is set"
+    }
+   ]
+  },
   {
    "version": "v2.1.302",
    "label": "CC v2.1.302",
