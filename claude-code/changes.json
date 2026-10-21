@@ -21,7 +21,7 @@
     {
      "tag": "CHG",
      "item": "allowedMcpServers",
-     "html": "<code>allowedMcpServers</code> — a <code>managed-mcp.json</code> stdio server using <code>${VAR}</code> expansion only in <code>env</code> is now also exempt from its filtering, noted on the existing <code>deniedMcpServers</code> row"
+     "html": "<code>allowedMcpServers</code> — a <code>managed-mcp.json</code> stdio server using <code>${VAR}</code> expansion only in <code>env</code> is now exempt from its filtering too (one using <code>${VAR}</code> elsewhere is still filtered), noted on the existing <code>deniedMcpServers</code> row"
     },
     {
      "tag": "CHG",
