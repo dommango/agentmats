@@ -11,7 +11,7 @@
     {
      "tag": "ADD",
      "item": "auto_session_title",
-     "html": "<code>auto_session_title</code> &mdash; auto-generates a session title after the first turn and shows it as the terminal window title"
+     "html": "<code>auto_session_title</code> &mdash; auto-generates a session title after the first turn and shows it as the terminal window title; a global <code>config.toml</code> gate and an independent <code>tui.toml</code> opt-out"
     },
     {
      "tag": "ADD",
