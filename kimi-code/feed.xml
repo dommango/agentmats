@@ -4,7 +4,14 @@
   <link href="https://dommango.github.io/agentmats/kimi-code/"/>
   <link rel="self" href="https://dommango.github.io/agentmats/kimi-code/feed.xml"/>
   <id>https://dommango.github.io/agentmats/kimi-code/</id>
-  <updated>2026-10-14T09:00:00Z</updated>
+  <updated>2026-10-21T09:00:00Z</updated>
+  <entry>
+    <title>Kimi Code v2.3.0 — 8 placemat changes</title>
+    <id>https://dommango.github.io/agentmats/kimi-code/changelog.html#rel-2-3-0</id>
+    <link href="https://dommango.github.io/agentmats/kimi-code/changelog.html#rel-2-3-0"/>
+    <updated>2026-10-21T09:00:00Z</updated>
+    <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;auto_session_title&lt;/code&gt; &amp;mdash; auto-generates a session title after the first turn and shows it as the terminal window title&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;[mcp] default_deferred&lt;/code&gt; &amp;mdash; defaults every MCP server&amp;rsquo;s tools to on-demand loading when the experimental &lt;code&gt;tool-select&lt;/code&gt; flag is on&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;/model&lt;/code&gt; &amp;mdash; switching models mid-session with history can show a confirmation dialog, gated by cloud configuration&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;/compact&lt;/code&gt; &amp;mdash; now queues while the agent is busy instead of failing with an error&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;/skill:&amp;lt;name&amp;gt;&lt;/code&gt; &amp;mdash; plugin skills are listed and invoked only under their qualified &lt;code&gt;plugin-id:skill-name&lt;/code&gt; form; a bare plugin-skill name no longer resolves&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;disable_feedback_survey&lt;/code&gt; &amp;mdash; moved from &lt;code&gt;tui.toml&lt;/code&gt; to &lt;code&gt;config.toml&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;[permission].dangerous_command_guard&lt;/code&gt; &amp;mdash; set to &lt;code&gt;false&lt;/code&gt; now disables every built-in guard, not only the dangerous-command check&lt;/li&gt;&lt;li&gt;&lt;b&gt;FIX&lt;/b&gt; &lt;code&gt;[[hooks]]&lt;/code&gt; &amp;mdash; hook commands now run in the session&amp;rsquo;s project directory instead of the server&amp;rsquo;s startup directory&lt;/li&gt;&lt;/ul&gt;</content>
+  </entry>
   <entry>
     <title>Kimi Code v2.2.0 — 10 placemat changes</title>
     <id>https://dommango.github.io/agentmats/kimi-code/changelog.html#rel-2-2-0</id>

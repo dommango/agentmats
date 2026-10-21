@@ -40,7 +40,7 @@
   ],
   "inventory": {
     "source": "https://moonshotai.github.io/kimi-code/en/reference/slash-commands.md, https://moonshotai.github.io/kimi-code/en/configuration/config-files.md, https://moonshotai.github.io/kimi-code/en/customization/hooks.md",
-    "fetched": "2026-10-16",
+    "fetched": "2026-10-21",
     "note": "Extracted from the vendor's own reference/configuration/customization docs (raw .md). release-notes/changelog.md was used only to confirm the current release, never as a source of surface facts.",
     "slash": [
       "/login", "/logout", "/provider", "/model", "/secondary-model", "/subagent-model",
@@ -61,7 +61,7 @@
     "settings": [
       "default_model", "default_permission_mode", "default_plan_mode",
       "merge_all_available_skills", "extra_skill_dirs", "extra_agent_dirs",
-      "builtin_product_skills", "telemetry",
+      "builtin_product_skills", "telemetry", "auto_session_title",
       "providers.<name>.type", "providers.<name>.api_key", "providers.<name>.api_key_env",
       "providers.<name>.base_url",
       "providers.<name>.oauth", "providers.<name>.env", "providers.<name>.custom_headers",
@@ -82,7 +82,7 @@
       "background.bash_task_timeout_s", "background.print_background_mode",
       "background.print_wait_ceiling_s", "background.print_max_turns",
       "subagent.timeout_ms", "swarm.timeout_ms",
-      "mcp.startup_timeout_ms", "mcp.tool_timeout_ms",
+      "mcp.startup_timeout_ms", "mcp.tool_timeout_ms", "mcp.default_deferred",
       "identity.name", "identity.slug",
       "tools.enabled", "tools.disabled",
       "read.default_max_chars", "read.max_chars",
