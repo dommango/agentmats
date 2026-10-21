@@ -1,7 +1,45 @@
 {
- "generated": "2026-10-19",
- "latest": "v2.1.304",
+ "generated": "2026-10-20",
+ "latest": "v2.1.305",
  "releases": [
+  {
+   "version": "v2.1.305",
+   "label": "CC v2.1.305",
+   "date": "2026-10-20",
+   "id": "rel-2-1-305",
+   "entries": [
+    {
+     "tag": "ADD",
+     "item": "sandbox.allowNestedUserNamespaces",
+     "html": "<code>sandbox.allowNestedUserNamespaces</code> setting — given its first placemat row: Linux opt-in letting sandboxed commands create user namespaces (Chromium, rootless podman), loosening the sandbox's file protections"
+    },
+    {
+     "tag": "ADD",
+     "item": "CLAUDE_CODE_RETRY_WATCHDOG_USAGE_LIMIT_RECHECK_MS",
+     "html": "<code>CLAUDE_CODE_RETRY_WATCHDOG_USAGE_LIMIT_RECHECK_MS</code> env var — given its first placemat row: sets the minimum interval <code>CLAUDE_CODE_RETRY_WATCHDOG</code> waits between checks of whether a usage limit already lifted"
+    },
+    {
+     "tag": "CHG",
+     "item": "allowedMcpServers",
+     "html": "<code>allowedMcpServers</code> — a <code>managed-mcp.json</code> stdio server using <code>${VAR}</code> expansion only in <code>env</code> is now also exempt from its filtering, noted on the existing <code>deniedMcpServers</code> row"
+    },
+    {
+     "tag": "CHG",
+     "item": "/artifacts",
+     "html": "<code>/artifacts</code> delete confirmation — <code>y</code>/<code>n</code> no longer answer it; only <code>1</code>/Enter (keep), <code>2</code> (delete), and Esc (cancel) do now"
+    },
+    {
+     "tag": "CHG",
+     "item": "/usage",
+     "html": "<code>/usage</code> — each warning is now a one-line fix naming its source; press <code>f</code> to apply, and the same fixes surface in <code>/doctor</code>"
+    },
+    {
+     "tag": "CHG",
+     "item": "/remote-control",
+     "html": "<code>/remote-control</code> — pressing <code>w</code> during spawn-mode setup now says the chosen mode is saved for the folder, and a later start using that saved mode says where it came from"
+    }
+   ]
+  },
   {
    "version": "v2.1.304",
    "label": "CC v2.1.304",

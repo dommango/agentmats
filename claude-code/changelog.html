@@ -163,8 +163,20 @@
                 <h3>Content / CC Release Updates</h3>
                 <!-- October 2026 -->
                 <details class="month-group" open>
-                    <summary>October 2026 <span class="version-date">v2.1.287 – v2.1.304</span> <span class="month-count">12 releases</span></summary>
+                    <summary>October 2026 <span class="version-date">v2.1.287 – v2.1.306</span> <span class="month-count">13 releases</span></summary>
                     <div class="month-content">
+
+                        <div class="change-section">
+                            <h3 id="rel-2-1-305">CC v2.1.305 <span class="version-date">2026-10-20</span></h3>
+                            <ul class="change-list">
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>sandbox.allowNestedUserNamespaces</code> setting — given its first placemat row: Linux opt-in letting sandboxed commands create user namespaces (Chromium, rootless podman), loosening the sandbox's file protections</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>CLAUDE_CODE_RETRY_WATCHDOG_USAGE_LIMIT_RECHECK_MS</code> env var — given its first placemat row: sets the minimum interval <code>CLAUDE_CODE_RETRY_WATCHDOG</code> waits between checks of whether a usage limit already lifted</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>allowedMcpServers</code> — a <code>managed-mcp.json</code> stdio server using <code>${VAR}</code> expansion only in <code>env</code> is now also exempt from its filtering, noted on the existing <code>deniedMcpServers</code> row</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>/artifacts</code> delete confirmation — <code>y</code>/<code>n</code> no longer answer it; only <code>1</code>/Enter (keep), <code>2</code> (delete), and Esc (cancel) do now</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>/usage</code> — each warning is now a one-line fix naming its source; press <code>f</code> to apply, and the same fixes surface in <code>/doctor</code></span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>/remote-control</code> — pressing <code>w</code> during spawn-mode setup now says the chosen mode is saved for the folder, and a later start using that saved mode says where it came from</span></li>
+                            </ul>
+                        </div>
 
                         <div class="change-section">
                             <h3 id="rel-2-1-304">CC v2.1.304 <span class="version-date">2026-10-19</span></h3>
@@ -1649,7 +1661,7 @@
         </div>
 
         <footer class="global-footer">
-            Template v1.2 · Content synced 2026-10-15<br>
+            Template v1.2 · Content synced 2026-10-20<br>
             <span class="disclaimer">Unofficial community reference — not affiliated with or endorsed by Anthropic.
             Condensed from the official docs; always confirm against
             <a href="https://code.claude.com/docs" target="_blank" rel="noopener noreferrer">code.claude.com/docs</a>.</span><br>
