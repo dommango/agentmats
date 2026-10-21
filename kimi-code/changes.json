@@ -1,7 +1,55 @@
 {
- "generated": "2026-10-14",
- "latest": "v2.2.0",
+ "generated": "2026-10-21",
+ "latest": "v2.3.0",
  "releases": [
+  {
+   "version": "v2.3.0",
+   "label": "Kimi Code v2.3.0",
+   "date": "2026-10-21",
+   "id": "rel-2-3-0",
+   "entries": [
+    {
+     "tag": "ADD",
+     "item": "auto_session_title",
+     "html": "<code>auto_session_title</code> &mdash; auto-generates a session title after the first turn and shows it as the terminal window title; a global <code>config.toml</code> gate and an independent <code>tui.toml</code> opt-out"
+    },
+    {
+     "tag": "ADD",
+     "item": "[mcp] default_deferred",
+     "html": "<code>[mcp] default_deferred</code> &mdash; defaults every MCP server&rsquo;s tools to on-demand loading when the experimental <code>tool-select</code> flag is on"
+    },
+    {
+     "tag": "CHG",
+     "item": "/model",
+     "html": "<code>/model</code> &mdash; switching models mid-session with history can show a confirmation dialog, gated by cloud configuration"
+    },
+    {
+     "tag": "CHG",
+     "item": "/compact",
+     "html": "<code>/compact</code> &mdash; now queues while the agent is busy instead of failing with an error"
+    },
+    {
+     "tag": "CHG",
+     "item": "/skill:<name>",
+     "html": "<code>/skill:&lt;name&gt;</code> &mdash; plugin skills are listed and invoked only under their qualified <code>plugin-id:skill-name</code> form; a bare plugin-skill name no longer resolves"
+    },
+    {
+     "tag": "CHG",
+     "item": "disable_feedback_survey",
+     "html": "<code>disable_feedback_survey</code> &mdash; moved from <code>tui.toml</code> to <code>config.toml</code>"
+    },
+    {
+     "tag": "CHG",
+     "item": "[permission].dangerous_command_guard",
+     "html": "<code>[permission].dangerous_command_guard</code> &mdash; set to <code>false</code> now disables every built-in guard, not only the dangerous-command check"
+    },
+    {
+     "tag": "FIX",
+     "item": "[[hooks]]",
+     "html": "<code>[[hooks]]</code> &mdash; hook commands now run in the session&rsquo;s project directory instead of the server&rsquo;s startup directory"
+    }
+   ]
+  },
   {
    "version": "v2.2.0",
    "label": "Kimi Code v2.2.0",
