@@ -23,8 +23,8 @@
    "entries": [
     {
      "tag": "ADD",
-     "item": "hermes plugins update <name>",
-     "html": "<code>hermes plugins update &lt;name&gt;</code> re-pins that catalog install to the reviewed SHA; omitting the name updates everything installed (<code>--yes</code> skips confirmation)"
+     "item": "hermes plugins",
+     "html": "<code>hermes plugins</code> — <code>update &lt;name&gt;</code> re-pins that catalog install to the reviewed SHA; omitting the name updates everything installed (<code>--yes</code> skips confirmation)"
     },
     {
      "tag": "CHG",
