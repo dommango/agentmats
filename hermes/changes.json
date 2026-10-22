@@ -1,7 +1,48 @@
 {
- "generated": "2026-10-15",
- "latest": "v0.22.2",
+ "generated": "2026-10-21",
+ "latest": "v0.22.4",
  "releases": [
+  {
+   "version": "v0.22.4",
+   "label": "Hermes Agent v0.22.4",
+   "date": "2026-10-21",
+   "id": "rel-0-22-4",
+   "entries": [
+    {
+     "tag": "FIX",
+     "item": "hermes plugins",
+     "html": "<code>hermes plugins</code> — installing a plugin with no dependencies no longer shows an empty consent prompt"
+    },
+    {
+     "tag": "ADD",
+     "item": "hermes import-agent",
+     "html": "<code>hermes import-agent</code> — the v0.22.4 release notes also name <code class=\"unverified\">cursor</code> as a new source, alongside <code>claude-code</code> and <code>codex</code>; not yet confirmed in the CLI reference"
+    }
+   ]
+  },
+  {
+   "version": "v0.22.3",
+   "label": "Hermes Agent v0.22.3",
+   "date": "2026-10-21",
+   "id": "rel-0-22-3",
+   "entries": [
+    {
+     "tag": "ADD",
+     "item": "hermes plugins update <name>",
+     "html": "<code>hermes plugins update &lt;name&gt;</code> re-pins that catalog install to the reviewed SHA; omitting the name updates everything installed (<code>--yes</code> skips confirmation)"
+    },
+    {
+     "tag": "CHG",
+     "item": null,
+     "html": "MCP tool calls now show live progress notifications in the CLI/TUI while a long-running call is in flight"
+    },
+    {
+     "tag": "CHG",
+     "item": null,
+     "html": "The local runtime adds Nemotron 3.5 Bolt model support and single-slot DFlash draft decoding"
+    }
+   ]
+  },
   {
    "version": "v0.22.2",
    "label": "Hermes Agent v0.22.2",

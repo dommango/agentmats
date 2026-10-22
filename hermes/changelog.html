@@ -163,8 +163,25 @@
                 <h3>Content / Hermes Agent Releases</h3>
                 <!-- October 2026 -->
                 <details class="month-group" open>
-                    <summary>October 2026 <span class="version-date">v0.21.6 – v0.22.2</span> <span class="month-count">5 releases</span></summary>
+                    <summary>October 2026 <span class="version-date">v0.21.6 – v0.22.4</span> <span class="month-count">7 releases</span></summary>
                     <div class="month-content">
+
+                        <div class="change-section">
+                            <h3 id="rel-0-22-4">Hermes Agent v0.22.4 <span class="version-date">2026-10-21</span></h3>
+                            <ul class="change-list">
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>hermes plugins</code> — installing a plugin with no dependencies no longer shows an empty consent prompt</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>hermes import-agent</code> — the v0.22.4 release notes also name <code class="unverified">cursor</code> as a new source, alongside <code>claude-code</code> and <code>codex</code>; not yet confirmed in the CLI reference</span></li>
+                            </ul>
+                        </div>
+
+                        <div class="change-section">
+                            <h3 id="rel-0-22-3">Hermes Agent v0.22.3 <span class="version-date">2026-10-21</span></h3>
+                            <ul class="change-list">
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>hermes plugins update &lt;name&gt;</code> re-pins that catalog install to the reviewed SHA; omitting the name updates everything installed (<code>--yes</code> skips confirmation)</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry">MCP tool calls now show live progress notifications in the CLI/TUI while a long-running call is in flight</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry">The local runtime adds Nemotron 3.5 Bolt model support and single-slot DFlash draft decoding</span></li>
+                            </ul>
+                        </div>
 
                         <div class="change-section">
                             <h3 id="rel-0-22-2">Hermes Agent v0.22.2 <span class="version-date">2026-10-15</span></h3>
@@ -286,7 +303,7 @@
         </div>
 
         <footer class="global-footer">
-            Template v1.0 · Content synced 2026-10-15<br>
+            Template v1.0 · Content synced 2026-10-21<br>
             <span class="disclaimer">Unofficial community reference — not affiliated with or endorsed by Nous Research.
             Condensed from the official docs; always confirm against
             <a href="https://hermes-agent.nousresearch.com/docs/" target="_blank" rel="noopener noreferrer">hermes-agent.nousresearch.com/docs</a>.</span><br>
