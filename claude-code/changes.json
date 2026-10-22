@@ -11,7 +11,7 @@
     {
      "tag": "ADD",
      "item": "/claude-api api-version",
-     "html": "<code>/claude-api api-version</code> subcommand — updates your Claude API code for a newer API version, then switches requests to it; noted on the existing <code>/claude-api</code> row"
+     "html": "<code>/claude-api api-version</code> subcommand — migrates your code to a newer API version and repoints requests at it; noted on the existing <code>/claude-api</code> row"
     },
     {
      "tag": "ADD",
