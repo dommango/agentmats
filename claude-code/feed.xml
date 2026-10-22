@@ -4,7 +4,14 @@
   <link href="https://dommango.github.io/agentmats/claude-code/"/>
   <link rel="self" href="https://dommango.github.io/agentmats/claude-code/feed.xml"/>
   <id>https://dommango.github.io/agentmats/claude-code/</id>
-  <updated>2026-10-20T09:00:00Z</updated>
+  <updated>2026-10-21T09:00:00Z</updated>
+  <entry>
+    <title>CC v2.1.307 — 4 placemat changes</title>
+    <id>https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-307</id>
+    <link href="https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-307"/>
+    <updated>2026-10-21T09:00:00Z</updated>
+    <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;/claude-api api-version&lt;/code&gt; subcommand — migrates your code to a newer API version and repoints requests at it; noted on the existing &lt;code&gt;/claude-api&lt;/code&gt; row&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;claude self-hosted-runner --checkout-hook-timeout-min &amp;lt;n&amp;gt;&lt;/code&gt; CLI flag — given its first placemat row: stops a session's checkout hook after N minutes (default 30), failing its setup; &lt;code&gt;0&lt;/code&gt; disables&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;axScreenReader&lt;/code&gt; / &lt;code&gt;CLAUDE_AX_SCREEN_READER&lt;/code&gt; (in a settings &lt;code&gt;env&lt;/code&gt; block) — now apply only from user, managed, or &lt;code&gt;--settings&lt;/code&gt; settings, not project settings (since v2.1.305); noted on both existing rows&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;CLAUDE_CODE_MAX_WEB_SEARCHES_PER_SESSION&lt;/code&gt; — the notice Claude gets once this budget is spent now also tells it not to query search engines through a browser or computer use; noted on the existing row&lt;/li&gt;&lt;/ul&gt;</content>
+  </entry>
   <entry>
     <title>CC v2.1.305 — 6 placemat changes</title>
     <id>https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-305</id>
@@ -137,12 +144,5 @@
     <link href="https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-281"/>
     <updated>2026-09-23T09:00:00Z</updated>
     <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;attribution&lt;/code&gt; setting — set to &lt;code&gt;false&lt;/code&gt; to hide all commit and PR attribution in one step; older CLI versions skip a settings file that only holds this boolean, so keep the object form in files shared across versions&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;Ctrl Enter&lt;/code&gt; / &lt;code&gt;Ctrl X Ctrl S&lt;/code&gt; send-now key — moves running tools to the background and sends all queued messages, instead of cancelling the turn outright&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;CLAUDE_CODE_AUTO_MODE_SERVER&lt;/code&gt; — also applies on a direct Anthropic API connection (&lt;code&gt;1&lt;/code&gt; opts in, &lt;code&gt;0&lt;/code&gt; opts out); where the server-side classifier runs, it now also reviews read-only and sandboxed shell commands&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;claude plugin validate&lt;/code&gt; — also flags &lt;code&gt;.mcp.json&lt;/code&gt; entries that would be silently dropped at load, undeclared &lt;code&gt;${user_config.*}&lt;/code&gt; references, and insecure URLs&lt;/li&gt;&lt;/ul&gt;</content>
-  </entry>
-  <entry>
-    <title>CC v2.1.280 — 2 placemat changes</title>
-    <id>https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-280</id>
-    <link href="https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-280"/>
-    <updated>2026-09-22T09:00:00Z</updated>
-    <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;CLAUDE_CODE_MAX_MCP_DESCRIPTION_LENGTH&lt;/code&gt; env var — change the 2,048-character cap on MCP tool descriptions and server instructions for the session&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;PermissionRequest&lt;/code&gt; hook — an &lt;code&gt;agent&lt;/code&gt;-type hook no longer runs here since it has no way to return a decision; shows an error pointing to a &lt;code&gt;command&lt;/code&gt; or &lt;code&gt;http&lt;/code&gt; hook instead&lt;/li&gt;&lt;/ul&gt;</content>
   </entry>
 </feed>

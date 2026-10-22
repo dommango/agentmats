@@ -163,8 +163,18 @@
                 <h3>Content / CC Release Updates</h3>
                 <!-- October 2026 -->
                 <details class="month-group" open>
-                    <summary>October 2026 <span class="version-date">v2.1.287 – v2.1.306</span> <span class="month-count">13 releases</span></summary>
+                    <summary>October 2026 <span class="version-date">v2.1.287 – v2.1.308</span> <span class="month-count">14 releases</span></summary>
                     <div class="month-content">
+
+                        <div class="change-section">
+                            <h3 id="rel-2-1-307">CC v2.1.307 <span class="version-date">2026-10-21</span></h3>
+                            <ul class="change-list">
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>/claude-api api-version</code> subcommand — migrates your code to a newer API version and repoints requests at it; noted on the existing <code>/claude-api</code> row</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>claude self-hosted-runner --checkout-hook-timeout-min &lt;n&gt;</code> CLI flag — given its first placemat row: stops a session's checkout hook after N minutes (default 30), failing its setup; <code>0</code> disables</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>axScreenReader</code> / <code>CLAUDE_AX_SCREEN_READER</code> (in a settings <code>env</code> block) — now apply only from user, managed, or <code>--settings</code> settings, not project settings (since v2.1.305); noted on both existing rows</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>CLAUDE_CODE_MAX_WEB_SEARCHES_PER_SESSION</code> — the notice Claude gets once this budget is spent now also tells it not to query search engines through a browser or computer use; noted on the existing row</span></li>
+                            </ul>
+                        </div>
 
                         <div class="change-section">
                             <h3 id="rel-2-1-305">CC v2.1.305 <span class="version-date">2026-10-20</span></h3>
@@ -1661,7 +1671,7 @@
         </div>
 
         <footer class="global-footer">
-            Template v1.2 · Content synced 2026-10-20<br>
+            Template v1.2 · Content synced 2026-10-21<br>
             <span class="disclaimer">Unofficial community reference — not affiliated with or endorsed by Anthropic.
             Condensed from the official docs; always confirm against
             <a href="https://code.claude.com/docs" target="_blank" rel="noopener noreferrer">code.claude.com/docs</a>.</span><br>
