@@ -1,7 +1,204 @@
 {
- "generated": "2026-10-16",
- "latest": "v1.4.0",
+ "generated": "2026-10-21",
+ "latest": "v1.4.4",
  "releases": [
+  {
+   "version": "v1.4.4",
+   "label": "Antigravity CLI v1.4.4",
+   "date": "2026-10-21",
+   "id": "rel-1-4-4",
+   "entries": [
+    {
+     "tag": "CHG",
+     "item": "--mode <mode>",
+     "html": "<code>--mode &lt;mode&gt;</code> (<code>card-cli</code>) — noted Auto mode now available on Windows 11 24H2+ for personal Google Accounts, and its sandbox-escape review getting faster, considering the preceding question on short replies like <code>yes</code>, checking every subcommand in a pipeline, and prompting before destructive Git or file commands"
+    },
+    {
+     "tag": "CHG",
+     "item": "Shift+Tab",
+     "html": "<code>Shift+Tab</code> (<code>card-keys</code>) — noted it now also cycles into Auto mode on Windows 11 24H2+, matching <code>--mode auto</code>"
+    },
+    {
+     "tag": "CHG",
+     "item": "/diff",
+     "html": "<code>/diff</code> (<code>card-slash-tools</code>) — noted the whole-file toggle (<code>f</code>) and hunk folding (<code>Ctrl+O</code>) extended to the Commit Tree view, <code>Per Turn</code> diffs combining multiple edits to one file, and the fix for long rows wrapping instead of truncating and <code>Per Turn</code> headers truncating prompts at 50 characters"
+    },
+    {
+     "tag": "CHG",
+     "item": "mcp_config.json",
+     "html": "<code>mcp_config.json</code> (<code>card-hooks</code>) — noted <code>_meta[\"antigravity.google/root_conversation_id\"]</code> now sent on MCP <code>tools/call</code> requests so servers see the top-level conversation ID from nested subagents"
+    },
+    {
+     "tag": "CHG",
+     "item": "agy plugin <cmd>",
+     "html": "<code>agy plugin &lt;cmd&gt;</code> (<code>card-cli</code>) — noted <code>validate</code> getting stricter checks across <code>plugin.json</code>, MCP configs, <code>hooks.json</code>, and sidecar manifests for invalid JSON, unknown fields, bad placeholders, unrecognized hook matchers, and missing hook scripts"
+    },
+    {
+     "tag": "CHG",
+     "item": "/compact [message]",
+     "html": "<code>/compact [message]</code> (<code>card-slash-core</code>) — noted automatic and on-demand compaction now keeping tool declarations so the model API can reuse its cached prompt prefix"
+    },
+    {
+     "tag": "CHG",
+     "item": "agy remote-control",
+     "html": "<code>agy remote-control</code> (<code>card-cli</code>) — noted the multi-pane touch layout for tablets/foldables, scrollbar popovers staying open while dragged, and fixes for clipped phone dialogs, iOS Safari input zoom, reverting telemetry/marketing settings, dropped drag-URL query parameters, broken nested code blocks, <code>$VAR</code> parsed as LaTeX, blurry <code>Copy Image</code>/<code>Export as PDF</code>, and background-tab timer drift"
+    },
+    {
+     "tag": "FIX",
+     "item": "/agents",
+     "html": "<code>/agents</code> (<code>card-slash-tools</code>) — noted the fix for subagents losing plugins inherited from the parent session, and plugin-bundled subagents with restricted MCP tools failing to start"
+    },
+    {
+     "tag": "FIX",
+     "item": ".agents/skills/<name>/SKILL.md",
+     "html": "<code>.agents/skills/&lt;name&gt;/SKILL.md</code> (<code>card-skills</code>) — noted the fix for rules and skills loading twice when found in both a standalone folder and an enabled plugin"
+    },
+    {
+     "tag": "FIX",
+     "item": "verbosity",
+     "html": "<code>verbosity</code> (<code>card-settings</code>) — noted the fix for the prompt box staying mid-screen after closing panels, and blank gaps above the prompt in <code>Medium</code> verbosity"
+    },
+    {
+     "tag": "FIX",
+     "item": "Ctrl+Z",
+     "html": "<code>Ctrl+Z</code> / <code>Ctrl+Shift+Z</code> (<code>card-keys</code>) — noted the fix for mishandled pasted text, merged history entries, no-op undo steps, and characters truncated near emoji"
+    },
+    {
+     "tag": "FIX",
+     "item": "/mcp",
+     "html": "<code>/mcp</code> (<code>card-slash-tools</code>) — noted the fix for MCP client sessions and background connection routines leaking on a failed <code>tools/list</code> or shutdown mid-connect"
+    },
+    {
+     "tag": "FIX",
+     "item": "~/.gemini/GEMINI.md",
+     "html": "<code>~/.gemini/GEMINI.md</code> (<code>card-skills</code>) — noted the system-prompt wording fix so <code>GEMINI.md</code>/<code>AGENTS.md</code> rules explicitly override earlier built-in instructions too, not just later ones"
+    },
+    {
+     "tag": "FIX",
+     "item": "Ctrl+V",
+     "html": "<code>Ctrl+V</code> (<code>card-keys</code>) — noted the fix for parameterized MIME types such as <code>audio/webm; codecs=opus</code> being rejected as unsupported"
+    }
+   ]
+  },
+  {
+   "version": "v1.4.3",
+   "label": "Antigravity CLI v1.4.3",
+   "date": "2026-10-20",
+   "id": "rel-1-4-3",
+   "entries": [
+    {
+     "tag": "ADD",
+     "item": "/diff",
+     "html": "<code>/diff</code> (<code>card-slash-tools</code>) — noted the new <code>/</code> search across the file list and file view, with match highlighting, a match-count prompt, and <code>n</code>/<code>N</code> stepping through matches"
+    },
+    {
+     "tag": "CHG",
+     "item": "/artifact",
+     "html": "<code>/artifact</code> (<code>card-slash-tools</code>) — noted <code>n</code>/<code>N</code> in this viewer now also stepping through matches one at a time, including several on the same line"
+    },
+    {
+     "tag": "CHG",
+     "item": "agy plugin <cmd>",
+     "html": "<code>agy plugin &lt;cmd&gt;</code> (<code>card-cli</code>) — noted <code>validate</code> expanded to check a plugin's hooks, sidecars, and component manifests, and <code>install</code>/<code>import</code> now following <code>NO_COLOR</code>/<code>CLICOLOR</code>/<code>CLICOLOR_FORCE</code> like <code>validate</code> already did"
+    },
+    {
+     "tag": "CHG",
+     "item": "/tasks",
+     "html": "<code>/tasks</code> (<code>card-slash-tools</code>) — noted timer durations now shown in human-readable units, such as <code>1d 2h timer</code>, instead of raw seconds"
+    },
+    {
+     "tag": "CHG",
+     "item": "--mode <mode>",
+     "html": "<code>--mode &lt;mode&gt;</code> (<code>card-cli</code>) — noted subagents and custom agents in Auto mode no longer asking approval for every sandbox-escaping command; a separate agent reviews them like the main agent's"
+    },
+    {
+     "tag": "CHG",
+     "item": "enableTerminalSandbox",
+     "html": "<code>enableTerminalSandbox</code> (<code>card-settings</code>) — noted the CLI no longer offering sandboxed options on systems where the sandbox can't run, such as Linux systems blocking unprivileged user namespaces and Windows before 11 24H2"
+    },
+    {
+     "tag": "FIX",
+     "item": "GEMINI_API_KEY",
+     "html": "<code>GEMINI_API_KEY</code> (<code>card-env</code>) — noted the fix for Gemini 4 Argon not appearing in <code>/model</code> and <code>--model</code> when connected with this key"
+    },
+    {
+     "tag": "FIX",
+     "item": "/agents",
+     "html": "<code>/agents</code> (<code>card-slash-tools</code>) — noted the fix for the agent losing track of its most recently started subagents after a conversation was compacted"
+    },
+    {
+     "tag": "FIX",
+     "item": "PostToolUse",
+     "html": "<code>PostToolUse</code> (<code>card-hooks</code>) — noted a failing hook no longer marking a successful tool call as failed; the failure is now logged separately"
+    },
+    {
+     "tag": "FIX",
+     "item": "/plugin",
+     "html": "<code>/plugin</code> / <code>/plugins</code> (<code>card-slash-tools</code>) — noted the fix for updating or reinstalling a marketplace plugin on Windows leaving it half-deleted while another session or app had it open"
+    },
+    {
+     "tag": "FIX",
+     "item": "agy remote-control",
+     "html": "<code>agy remote-control</code> (<code>card-cli</code>) — noted Remote Control on iPhone/iPad no longer re-prompting the Security Notice and Enable Notifications dialogs every time; it now remembers those answers along with theme, layout, and dismissed tips"
+    }
+   ]
+  },
+  {
+   "version": "v1.4.2",
+   "label": "Antigravity CLI v1.4.2",
+   "date": "2026-10-18",
+   "id": "rel-1-4-2",
+   "entries": [
+    {
+     "tag": "FIX",
+     "item": "agy remote-control",
+     "html": "<code>agy remote-control</code> (<code>card-cli</code>) — fixed conversation history not appearing in Remote Control when running in daemon mode"
+    }
+   ]
+  },
+  {
+   "version": "v1.4.1",
+   "label": "Antigravity CLI v1.4.1",
+   "date": "2026-10-17",
+   "id": "rel-1-4-1",
+   "entries": [
+    {
+     "tag": "CHG",
+     "item": "agy plugin <cmd>",
+     "html": "<code>agy plugin &lt;cmd&gt;</code> (<code>card-cli</code>) — noted <code>validate</code> expanded to check a plugin's skills, subagents, and rules"
+    },
+    {
+     "tag": "CHG",
+     "item": "colorScheme",
+     "html": "<code>colorScheme</code> (<code>card-settings</code>) — noted the inline diff preview shown for proposed file edits now getting syntax highlighting and background tints under the <code>Terminal</code> color scheme"
+    },
+    {
+     "tag": "CHG",
+     "item": "enableTelemetry",
+     "html": "<code>enableTelemetry</code> (<code>card-settings</code>) — noted this now shown as <code>off (disabled)</code> with an explanation for Business accounts, including Application Default Credentials sign-in"
+    },
+    {
+     "tag": "CHG",
+     "item": "AGY_ADC_AUTH",
+     "html": "<code>AGY_ADC_AUTH</code> (<code>card-env</code>) — noted first-run setup under this sign-in method now showing the Google Cloud Platform Terms of Service without the consumer telemetry opt-in checkbox"
+    },
+    {
+     "tag": "CHG",
+     "item": "enableTerminalSandbox",
+     "html": "<code>enableTerminalSandbox</code> (<code>card-settings</code>) — noted Windows versions that don't support the terminal sandbox now falling back to asking before running commands instead of failing to start, when a sandboxed permission mode was selected"
+    },
+    {
+     "tag": "FIX",
+     "item": "/mcp",
+     "html": "<code>/mcp</code> (<code>card-slash-tools</code>) — noted an MCP server that exits unexpectedly is now marked <code>Error</code> and its closed session removed, instead of staying shown as <code>Ready</code>"
+    },
+    {
+     "tag": "FIX",
+     "item": "/title",
+     "html": "<code>/title</code> (<code>card-slash-core</code>) and <code>/remote-control</code> (<code>card-slash-tools</code>) — noted both now accepting <code>on</code>/<code>off</code> typed in any case"
+    }
+   ]
+  },
   {
    "version": "v1.4.0",
    "label": "Antigravity CLI v1.4.0",
