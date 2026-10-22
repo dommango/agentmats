@@ -51,7 +51,7 @@
             <span class="header-tagline">Unofficial · auto-updated reference</span>
         </div>
         <div class="global-controls">
-            <span class="release-tag">As of release: v0.22.2 (2026.10.15)</span>
+            <span class="release-tag">As of release: v0.22.4 (2026.10.21)</span>
             <a href="changelog.html" class="header-link">Changelog →</a>
             <a href="feed.xml" class="header-link" title="Subscribe to placemat changes (RSS)">RSS</a>
             <button type="button" class="header-link print-btn" id="printBtn" title="Print or save as PDF (Ctrl P)">⎙ Print</button>
@@ -88,7 +88,7 @@
 
         <div class="print-head" aria-hidden="true">
             <span class="print-head-title">Hermes Agent <b>PLACEMAT</b></span>
-            <span>As of release v0.22.2 (2026.10.15)</span>
+            <span>As of release v0.22.4 (2026.10.21)</span>
             <span>■ = new &nbsp; □ = unverified</span>
             <span>dommango.github.io/agentmats/hermes</span>
         </div>
@@ -352,7 +352,7 @@
                     <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
                     <tr class="search-item" id="i-hermes-skills"><td><a class="row-link" href="#i-hermes-skills" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes skills</code></td><td class="desc">Browse, install, publish, audit and configure skills</td></tr>
                     <tr class="search-item" id="i-hermes-bundles"><td><a class="row-link" href="#i-hermes-bundles" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes bundles</code></td><td class="desc">Group several skills under one <code>/&lt;name&gt;</code> slash command</td></tr>
-                    <tr class="search-item" id="i-hermes-plugins"><td><a class="row-link" href="#i-hermes-plugins" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes plugins</code></td><td class="desc"><span class="summary">Install, enable, disable and remove plugins</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li><code>plugins.isolation: host</code> runs them in a separate per-profile process instead of importing into the main process.</li></ul></td></tr>
+                    <tr class="search-item" id="i-hermes-plugins"><td><a class="row-link" href="#i-hermes-plugins" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes plugins</code></td><td class="desc"><span class="summary">Install, enable, disable and remove plugins</span> <button type="button" class="notes-btn" aria-expanded="false">+2</button><ul class="notes" hidden><li><code>plugins.isolation: host</code> runs them in a separate per-profile process instead of importing into the main process.</li><li><code>hermes plugins update &lt;name&gt;</code> re-pins that catalog install to the reviewed SHA; omitting the name updates everything installed (<code>--yes</code> skips confirmation).</li></ul></td></tr>
                     <tr class="search-item" id="i-hermes-mcp"><td><a class="row-link" href="#i-hermes-mcp" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes mcp</code></td><td class="desc"><span class="summary">Manage MCP server configurations, and run Hermes as an MCP server</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li><code>hermes mcp login &lt;server&gt; --flow device</code> forces RFC 8628 device-code authorization instead of browser PKCE, for a headless login.</li></ul></td></tr>
                     <tr class="search-item" id="i-hermes-acp"><td><a class="row-link" href="#i-hermes-acp" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes acp</code></td><td class="desc">Run Hermes as an ACP server for editor integration</td></tr>
                     <tr class="search-item" id="i-hermes-tools"><td><a class="row-link" href="#i-hermes-tools" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes tools</code></td><td class="desc">Configure enabled tools per platform</td></tr>
@@ -606,7 +606,7 @@
         <div class="no-results search-exclude" id="noResults">No matches — clear search to see everything.</div>
 
         <footer class="global-footer">
-            Template v1.0 · Content synced 2026-10-15<br>
+            Template v1.0 · Content synced 2026-10-21<br>
             <span class="disclaimer">Unofficial community reference — not affiliated with or endorsed by Nous Research.
             Condensed from the official docs; always confirm against
             <a href="https://hermes-agent.nousresearch.com/docs/" target="_blank" rel="noopener noreferrer">hermes-agent.nousresearch.com/docs</a>.</span><br>
