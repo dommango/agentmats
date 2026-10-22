@@ -6,11 +6,11 @@
   <id>https://dommango.github.io/agentmats/hermes/</id>
   <updated>2026-10-21T09:00:00Z</updated>
   <entry>
-    <title>Hermes Agent v0.22.4 — 2 placemat changes</title>
+    <title>Hermes Agent v0.22.4 — 1 placemat change</title>
     <id>https://dommango.github.io/agentmats/hermes/changelog.html#rel-0-22-4</id>
     <link href="https://dommango.github.io/agentmats/hermes/changelog.html#rel-0-22-4"/>
     <updated>2026-10-21T09:00:00Z</updated>
-    <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;FIX&lt;/b&gt; &lt;code&gt;hermes plugins&lt;/code&gt; — installing a plugin with no dependencies no longer shows an empty consent prompt&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;hermes import-agent&lt;/code&gt; — the v0.22.4 release notes also name &lt;code class="unverified"&gt;cursor&lt;/code&gt; as a new source, alongside &lt;code&gt;claude-code&lt;/code&gt; and &lt;code&gt;codex&lt;/code&gt;; not yet confirmed in the CLI reference&lt;/li&gt;&lt;/ul&gt;</content>
+    <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;FIX&lt;/b&gt; &lt;code&gt;hermes plugins&lt;/code&gt; — installing a plugin with no dependencies no longer shows an empty consent prompt&lt;/li&gt;&lt;/ul&gt;</content>
   </entry>
   <entry>
     <title>Hermes Agent v0.22.3 — 3 placemat changes</title>
