@@ -1,7 +1,35 @@
 {
- "generated": "2026-10-20",
- "latest": "v2.1.305",
+ "generated": "2026-10-21",
+ "latest": "v2.1.307",
  "releases": [
+  {
+   "version": "v2.1.307",
+   "label": "CC v2.1.307",
+   "date": "2026-10-21",
+   "id": "rel-2-1-307",
+   "entries": [
+    {
+     "tag": "ADD",
+     "item": "/claude-api api-version",
+     "html": "<code>/claude-api api-version</code> subcommand — updates your Claude API code for a newer API version, then switches requests to it; noted on the existing <code>/claude-api</code> row"
+    },
+    {
+     "tag": "ADD",
+     "item": "claude self-hosted-runner --checkout-hook-timeout-min <n>",
+     "html": "<code>claude self-hosted-runner --checkout-hook-timeout-min &lt;n&gt;</code> CLI flag — given its first placemat row: stops a session's checkout hook after N minutes (default 30), failing its setup; <code>0</code> disables"
+    },
+    {
+     "tag": "CHG",
+     "item": "axScreenReader",
+     "html": "<code>axScreenReader</code> / <code>CLAUDE_AX_SCREEN_READER</code> (in a settings <code>env</code> block) — now apply only from user, managed, or <code>--settings</code> settings, not project settings (since v2.1.305); noted on both existing rows"
+    },
+    {
+     "tag": "CHG",
+     "item": "CLAUDE_CODE_MAX_WEB_SEARCHES_PER_SESSION",
+     "html": "<code>CLAUDE_CODE_MAX_WEB_SEARCHES_PER_SESSION</code> — the notice Claude gets once this budget is spent now also tells it not to query search engines through a browser or computer use; noted on the existing row"
+    }
+   ]
+  },
   {
    "version": "v2.1.305",
    "label": "CC v2.1.305",
