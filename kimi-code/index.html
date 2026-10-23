@@ -48,7 +48,7 @@
             <span class="header-tagline">Unofficial · auto-updated reference</span>
         </div>
         <div class="global-controls">
-            <span class="release-tag">As of release: v2.3.0</span>
+            <span class="release-tag">As of release: v2.3.1</span>
             <a href="changelog.html" class="header-link">Changelog →</a>
             <a href="feed.xml" class="header-link" title="Subscribe to placemat changes (RSS)">RSS</a>
             <button type="button" class="header-link print-btn" id="printBtn" title="Print or save as PDF (Ctrl P)">⎙ Print</button>
@@ -85,7 +85,7 @@
 
         <div class="print-head" aria-hidden="true">
             <span class="print-head-title">Kimi Code <b>PLACEMAT</b></span>
-            <span>As of release v2.3.0</span>
+            <span>As of release v2.3.1</span>
             <span>■ = new &nbsp; □ = unverified</span>
             <span>dommango.github.io/agentmats/kimi-code</span>
         </div>
@@ -203,7 +203,7 @@
                 <table>
                     <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
                     <tr class="search-item" id="i-new"><td><a class="row-link" href="#i-new" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/new</code> / <code>/clear</code></td><td class="desc">Start a fresh session, discarding the current context</td></tr>
-                    <tr class="search-item" id="i-sessions"><td><a class="row-link" href="#i-sessions" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/sessions</code> / <code>/resume</code></td><td class="desc"><span class="summary">Browse and switch to a historical session</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>In the picker, <code>Ctrl-X</code> then <code>y</code> deletes the selected session.</li></ul></td></tr>
+                    <tr class="search-item" id="i-sessions"><td><a class="row-link" href="#i-sessions" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/sessions</code> / <code>/resume</code></td><td class="desc"><span class="summary">Browse and switch to a historical session</span> <button type="button" class="notes-btn" aria-expanded="false">+2</button><ul class="notes" hidden><li>In the picker, <code>Ctrl-X</code> then <code>y</code> deletes the selected session.</li><li>Since 2.3.1, resuming a session still held by an exited process offers to take it over after a retry, and the session-in-use error names the holding client.</li></ul></td></tr>
                     <tr class="search-item" id="i-fork"><td><a class="row-link" href="#i-fork" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/fork</code></td><td class="desc"><span class="summary">Fork a new session from this one, keeping full history</span> <button type="button" class="notes-btn" aria-expanded="false">+2</button><ul class="notes" hidden><li>You stay in the current session.</li><li>Since 2.2.0, a cron task scheduled from the source session no longer fires inside the fork.</li></ul></td></tr>
                     <tr class="search-item" id="i-title"><td><a class="row-link" href="#i-title" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/title</code> / <code>/rename</code></td><td class="desc"><span class="summary">Show or set the session title (max 200 characters)</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Since 2.3.0, a title is also auto-generated after the first turn and shown as the terminal window title; <code>auto_session_title</code> disables this.</li></ul></td></tr>
                     <tr class="search-item" id="i-compact"><td><a class="row-link" href="#i-compact" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/compact</code></td><td class="desc"><span class="summary">Compact the conversation context to free tokens</span> <button type="button" class="notes-btn" aria-expanded="false">+2</button><ul class="notes" hidden><li>An optional instruction hints to the model what to preserve.</li><li>Since 2.3.0, it queues instead of failing while the agent is busy; skipped if the context auto-compacts first.</li></ul></td></tr>
@@ -484,6 +484,7 @@
                     <tr class="search-item" id="i-kimi-code-repeat-breaker"><td><a class="row-link" href="#i-kimi-code-repeat-breaker" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>KIMI_CODE_REPEAT_BREAKER</code></td><td class="desc">Set to <code>0</code> to stop reminders and forced stops for repeated tool calls</td></tr>
                     <tr class="search-item" id="i-kimi-code-watch"><td><a class="row-link" href="#i-kimi-code-watch" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>KIMI_CODE_WATCH</code></td><td class="desc"><span class="summary">Disable filesystem watchers for config and skill files</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Overrides <code>[watch] enabled</code> in <code>config.toml</code>; added in 2.0.1.</li></ul></td></tr>
                     <tr class="search-item" id="i-kimi-code-trust-workspace"><td><a class="row-link" href="#i-kimi-code-trust-workspace" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>KIMI_CODE_TRUST_WORKSPACE</code></td><td class="desc"><span class="summary">Mark the current workspace as trusted, for this process only</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Equivalent to choosing &ldquo;Trust this folder&rdquo; at the interactive trust prompt, but leaves no lasting trust record.</li></ul></td></tr>
+                    <tr class="search-item" id="i-kimi-code-session-lock"><td><a class="row-link" href="#i-kimi-code-session-lock" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>KIMI_CODE_SESSION_LOCK</code></td><td class="desc"><span class="summary">Turn off the cross-process session write lock</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>On by default; disabling restores pre-lock behaviour, so concurrent writers can interleave the session history. Added in 2.3.1.</li></ul></td></tr>
                 </table>
             </details>
 
@@ -606,7 +607,7 @@
         <div class="no-results search-exclude" id="noResults">No matches — clear search to see everything.</div>
 
         <footer class="global-footer">
-            Template v1.0 · Content synced 2026-10-21<br>
+            Template v1.0 · Content synced 2026-10-23<br>
             <span class="disclaimer">Unofficial community reference — not affiliated with or endorsed by Moonshot AI.
             Condensed from the official docs; always confirm against
             <a href="https://moonshotai.github.io/kimi-code/" target="_blank" rel="noopener noreferrer">moonshotai.github.io/kimi-code</a>.</span><br>
