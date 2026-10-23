@@ -1,7 +1,35 @@
 {
- "generated": "2026-10-21",
- "latest": "v2.3.0",
+ "generated": "2026-10-23",
+ "latest": "v2.3.1",
  "releases": [
+  {
+   "version": "v2.3.1",
+   "label": "Kimi Code v2.3.1",
+   "date": "2026-10-23",
+   "id": "rel-2-3-1",
+   "entries": [
+    {
+     "tag": "ADD",
+     "item": "KIMI_CODE_SESSION_LOCK",
+     "html": "<code>KIMI_CODE_SESSION_LOCK</code> &mdash; set to <code>0</code> to turn off the cross-process lock that stops two processes writing the same session"
+    },
+    {
+     "tag": "CHG",
+     "item": "/sessions",
+     "html": "<code>/sessions</code> / <code>/resume</code> &mdash; after a retry, offers to take over a session still held by an exited process; session-in-use errors name the holding client"
+    },
+    {
+     "tag": "FIX",
+     "item": null,
+     "html": "sessions occasionally remaining occupied after an application crash on macOS and Linux"
+    },
+    {
+     "tag": "FIX",
+     "item": null,
+     "html": "workspace trust prompt &mdash; no longer fails when Git Bash is unavailable on Windows"
+    }
+   ]
+  },
   {
    "version": "v2.3.0",
    "label": "Kimi Code v2.3.0",

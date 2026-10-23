@@ -4,7 +4,14 @@
   <link href="https://dommango.github.io/agentmats/kimi-code/"/>
   <link rel="self" href="https://dommango.github.io/agentmats/kimi-code/feed.xml"/>
   <id>https://dommango.github.io/agentmats/kimi-code/</id>
-  <updated>2026-10-21T09:00:00Z</updated>
+  <updated>2026-10-23T09:00:00Z</updated>
+  <entry>
+    <title>Kimi Code v2.3.1 — 4 placemat changes</title>
+    <id>https://dommango.github.io/agentmats/kimi-code/changelog.html#rel-2-3-1</id>
+    <link href="https://dommango.github.io/agentmats/kimi-code/changelog.html#rel-2-3-1"/>
+    <updated>2026-10-23T09:00:00Z</updated>
+    <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;KIMI_CODE_SESSION_LOCK&lt;/code&gt; &amp;mdash; set to &lt;code&gt;0&lt;/code&gt; to turn off the cross-process lock that stops two processes writing the same session&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;/sessions&lt;/code&gt; / &lt;code&gt;/resume&lt;/code&gt; &amp;mdash; after a retry, offers to take over a session still held by an exited process; session-in-use errors name the holding client&lt;/li&gt;&lt;li&gt;&lt;b&gt;FIX&lt;/b&gt; sessions occasionally remaining occupied after an application crash on macOS and Linux&lt;/li&gt;&lt;li&gt;&lt;b&gt;FIX&lt;/b&gt; workspace trust prompt &amp;mdash; no longer fails when Git Bash is unavailable on Windows&lt;/li&gt;&lt;/ul&gt;</content>
+  </entry>
   <entry>
     <title>Kimi Code v2.3.0 — 8 placemat changes</title>
     <id>https://dommango.github.io/agentmats/kimi-code/changelog.html#rel-2-3-0</id>

@@ -163,8 +163,18 @@
                 <h3>Content / Kimi Code Releases</h3>
                 <!-- October 2026 -->
                 <details class="month-group" open>
-                    <summary>October 2026 <span class="version-date">v2.2.0 – v2.3.0</span> <span class="month-count">2 releases</span></summary>
+                    <summary>October 2026 <span class="version-date">v2.2.0 – v2.3.1</span> <span class="month-count">3 releases</span></summary>
                     <div class="month-content">
+
+                        <div class="change-section">
+                            <h3 id="rel-2-3-1">Kimi Code v2.3.1 <span class="version-date">2026-10-23</span></h3>
+                            <ul class="change-list">
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>KIMI_CODE_SESSION_LOCK</code> &mdash; set to <code>0</code> to turn off the cross-process lock that stops two processes writing the same session</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>/sessions</code> / <code>/resume</code> &mdash; after a retry, offers to take over a session still held by an exited process; session-in-use errors name the holding client</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry">sessions occasionally remaining occupied after an application crash on macOS and Linux</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry">workspace trust prompt &mdash; no longer fails when Git Bash is unavailable on Windows</span></li>
+                            </ul>
+                        </div>
 
                         <div class="change-section">
                             <h3 id="rel-2-3-0">Kimi Code v2.3.0 <span class="version-date">2026-10-21</span></h3>
