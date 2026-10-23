@@ -1,7 +1,55 @@
 {
- "generated": "2026-10-21",
- "latest": "v0.22.4",
+ "generated": "2026-10-22",
+ "latest": "v0.22.5",
  "releases": [
+  {
+   "version": "v0.22.5",
+   "label": "Hermes Agent v0.22.5",
+   "date": "2026-10-22",
+   "id": "rel-0-22-5",
+   "entries": [
+    {
+     "tag": "CHG",
+     "item": "hermes mcp",
+     "html": "<code>hermes mcp</code> — running Hermes as an MCP server moved out of core into the installable <code>mcp-serve</code> plugin, launched as <code>hermes mcp-serve</code>"
+    },
+    {
+     "tag": "ADD",
+     "item": "hermes import-agent",
+     "html": "<code>hermes import-agent</code> — now also imports OpenClaw and Cursor setups, via the on-demand <code>agent-importers</code> plugin"
+    },
+    {
+     "tag": "CHG",
+     "item": null,
+     "html": "Subagent delegation can route to a model map or per-profile backend, switchable per session"
+    },
+    {
+     "tag": "CHG",
+     "item": "hermes update",
+     "html": "<code>hermes update</code> now holds back a stable release it refuses rather than offering it"
+    },
+    {
+     "tag": "FIX",
+     "item": "hermes update",
+     "html": "<code>hermes update</code> recovers a paused gateway after a damaged <code>.git</code> directory"
+    },
+    {
+     "tag": "FIX",
+     "item": "hermes update",
+     "html": "<code>hermes update</code> on Windows no longer gets stuck on the old launcher after a Python version repin"
+    },
+    {
+     "tag": "FIX",
+     "item": "agent.turn_liveness.timeout_s",
+     "html": "A long Claude DirectSDK answer no longer gets misflagged as stalled by the <code>agent.turn_liveness.timeout_s</code> watchdog"
+    },
+    {
+     "tag": "FIX",
+     "item": null,
+     "html": "A chat whose working folder has disappeared now shows a clear message instead of a confusing error"
+    }
+   ]
+  },
   {
    "version": "v0.22.4",
    "label": "Hermes Agent v0.22.4",
