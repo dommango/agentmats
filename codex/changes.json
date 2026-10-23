@@ -1,7 +1,35 @@
 {
- "generated": "2026-10-15",
- "latest": "v0.163.0",
+ "generated": "2026-10-23",
+ "latest": "v0.164.0",
  "releases": [
+  {
+   "version": "v0.164.0",
+   "label": "Codex CLI v0.164.0",
+   "date": "2026-10-23",
+   "id": "rel-0-164-0",
+   "entries": [
+    {
+     "tag": "ADD",
+     "item": "/presets",
+     "html": "<code>/presets</code> (<code>card-slash-core</code>) — save reusable prompts and slash commands in ten numbered slots, with a keyboard menu for quick access"
+    },
+    {
+     "tag": "CHG",
+     "item": "/model",
+     "html": "<code>/model</code> (<code>card-slash-core</code>) — inline arguments now set the model, reasoning effort and speed directly"
+    },
+    {
+     "tag": "CHG",
+     "item": "/permissions",
+     "html": "<code>/permissions</code> (<code>card-slash-core</code>) — an inline argument now sets a permission profile directly"
+    },
+    {
+     "tag": "FIX",
+     "item": "/tui",
+     "html": "<code>/tui</code> (<code>card-keys</code>) — promoted from <code>unverified</code>, now confirmed in <code>developer-commands.md</code>"
+    }
+   ]
+  },
   {
    "version": "v0.163.0",
    "label": "Codex CLI v0.163.0",

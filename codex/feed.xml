@@ -4,7 +4,14 @@
   <link href="https://dommango.github.io/agentmats/codex/"/>
   <link rel="self" href="https://dommango.github.io/agentmats/codex/feed.xml"/>
   <id>https://dommango.github.io/agentmats/codex/</id>
-  <updated>2026-10-15T09:00:00Z</updated>
+  <updated>2026-10-23T09:00:00Z</updated>
+  <entry>
+    <title>Codex CLI v0.164.0 — 4 placemat changes</title>
+    <id>https://dommango.github.io/agentmats/codex/changelog.html#rel-0-164-0</id>
+    <link href="https://dommango.github.io/agentmats/codex/changelog.html#rel-0-164-0"/>
+    <updated>2026-10-23T09:00:00Z</updated>
+    <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;/presets&lt;/code&gt; (&lt;code&gt;card-slash-core&lt;/code&gt;) — save reusable prompts and slash commands in ten numbered slots, with a keyboard menu for quick access&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;/model&lt;/code&gt; (&lt;code&gt;card-slash-core&lt;/code&gt;) — inline arguments now set the model, reasoning effort and speed directly&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;/permissions&lt;/code&gt; (&lt;code&gt;card-slash-core&lt;/code&gt;) — an inline argument now sets a permission profile directly&lt;/li&gt;&lt;li&gt;&lt;b&gt;FIX&lt;/b&gt; &lt;code&gt;/tui&lt;/code&gt; (&lt;code&gt;card-keys&lt;/code&gt;) — promoted from &lt;code&gt;unverified&lt;/code&gt;, now confirmed in &lt;code&gt;developer-commands.md&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt;</content>
+  </entry>
   <entry>
     <title>Codex CLI v0.163.0 — 4 placemat changes</title>
     <id>https://dommango.github.io/agentmats/codex/changelog.html#rel-0-163-0</id>
