@@ -30,8 +30,8 @@
     },
     {
      "tag": "CHG",
-     "item": "sed -i",
-     "html": "<code>sed -i</code> edits now get the standard Bash permission prompt and run as written instead of a simulated file-edit preview; like other Bash edits, they are no longer restored by <code>/rewind</code>, noted on its existing row"
+     "item": "/rewind",
+     "html": "<code>/rewind</code> — <code>sed -i</code> edits now get the standard Bash permission prompt and run as written instead of a simulated file-edit preview, and like other Bash edits are no longer restored"
     }
    ]
   },
