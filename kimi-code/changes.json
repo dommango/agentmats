@@ -16,7 +16,7 @@
     {
      "tag": "CHG",
      "item": "/sessions",
-     "html": "<code>/sessions</code> / <code>/resume</code> &mdash; resuming a session still held by an exited process now offers to retry and take it over; session-in-use errors name the holding client"
+     "html": "<code>/sessions</code> / <code>/resume</code> &mdash; after a retry, offers to take over a session still held by an exited process; session-in-use errors name the holding client"
     },
     {
      "tag": "FIX",

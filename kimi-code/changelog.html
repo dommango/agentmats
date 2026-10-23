@@ -170,7 +170,7 @@
                             <h3 id="rel-2-3-1">Kimi Code v2.3.1 <span class="version-date">2026-10-23</span></h3>
                             <ul class="change-list">
                                 <li><span class="tag tag-add">ADD</span><span class="entry"><code>KIMI_CODE_SESSION_LOCK</code> &mdash; set to <code>0</code> to turn off the cross-process lock that stops two processes writing the same session</span></li>
-                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>/sessions</code> / <code>/resume</code> &mdash; resuming a session still held by an exited process now offers to retry and take it over; session-in-use errors name the holding client</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>/sessions</code> / <code>/resume</code> &mdash; after a retry, offers to take over a session still held by an exited process; session-in-use errors name the holding client</span></li>
                                 <li><span class="tag tag-fix">FIX</span><span class="entry">sessions occasionally remaining occupied after an application crash on macOS and Linux</span></li>
                                 <li><span class="tag tag-fix">FIX</span><span class="entry">workspace trust prompt &mdash; no longer fails when Git Bash is unavailable on Windows</span></li>
                             </ul>
