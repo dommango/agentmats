@@ -163,8 +163,19 @@
                 <h3>Content / CC Release Updates</h3>
                 <!-- October 2026 -->
                 <details class="month-group" open>
-                    <summary>October 2026 <span class="version-date">v2.1.287 – v2.1.308</span> <span class="month-count">14 releases</span></summary>
+                    <summary>October 2026 <span class="version-date">v2.1.287 – v2.1.309</span> <span class="month-count">15 releases</span></summary>
                     <div class="month-content">
+
+                        <div class="change-section">
+                            <h3 id="rel-2-1-309">CC v2.1.309 <span class="version-date">2026-10-22</span></h3>
+                            <ul class="change-list">
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>claude ultrareview</code>'s <code>--trust-workspace</code> flag and the <code>CLAUDE_CODE_DISABLE_ULTRAREVIEW_TRUST_CHECK</code> env var — the subcommand now requires workspace trust, asking on a terminal or exiting with <code>Error: Workspace not trusted</code> where it can't; the flag or env var trust a folder for CI; flag noted on the existing <code>claude ultrareview [target]</code> row, env var given its own row</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>sandbox.excludedCommands</code> setting — given its first placemat row: names Bash-rule-syntax command patterns that run outside the sandbox; while the sandbox is enabled but can't run, an excluded command now asks before writing to its write-list paths instead of an unsandboxed fallback, which is refused there</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>/claude-api</code> — service account keys and Workload Identity Federation tokens can now manage OpenTelemetry destinations; Managed Agents subagent teams now build on <code>multiagent_20261001</code> with dynamic workflows on by default, instead of <code>coordinator</code></span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>/dataviz</code> — the bundled palette validator now accepts APCA as a text-contrast measure alongside WCAG 2 ratios, adds an <code>apca(text, background)</code> function, and says whether a label inside a colored chart fill should read white or near-black</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>/rewind</code> — <code>sed -i</code> edits now get the standard Bash permission prompt and run as written instead of a simulated file-edit preview, and like other Bash edits are no longer restored</span></li>
+                            </ul>
+                        </div>
 
                         <div class="change-section">
                             <h3 id="rel-2-1-307">CC v2.1.307 <span class="version-date">2026-10-21</span></h3>
@@ -1671,7 +1682,7 @@
         </div>
 
         <footer class="global-footer">
-            Template v1.2 · Content synced 2026-10-21<br>
+            Template v1.2 · Content synced 2026-10-22<br>
             <span class="disclaimer">Unofficial community reference — not affiliated with or endorsed by Anthropic.
             Condensed from the official docs; always confirm against
             <a href="https://code.claude.com/docs" target="_blank" rel="noopener noreferrer">code.claude.com/docs</a>.</span><br>
