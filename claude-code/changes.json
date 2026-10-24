@@ -1,7 +1,45 @@
 {
- "generated": "2026-10-22",
- "latest": "v2.1.309",
+ "generated": "2026-10-23",
+ "latest": "v2.1.310",
  "releases": [
+  {
+   "version": "v2.1.310",
+   "label": "CC v2.1.310",
+   "date": "2026-10-23",
+   "id": "rel-2-1-310",
+   "entries": [
+    {
+     "tag": "ADD",
+     "item": "cleanupPeriodDays",
+     "html": "<code>cleanupPeriodDays</code> setting — given its first placemat row: sets how many days old transcripts are kept before automatic cleanup deletes them"
+    },
+    {
+     "tag": "ADD",
+     "item": "askUserQuestionTimeout",
+     "html": "<code>askUserQuestionTimeout</code> setting — given its first placemat row: auto-continues an unanswered question after an idle timeout instead of waiting indefinitely"
+    },
+    {
+     "tag": "CHG",
+     "item": null,
+     "html": "Elicitation — an MCP tool call that times out in a non-interactive session while its elicitation is unanswered now tells Claude no answer came and not to repeat the call; noted on the existing row"
+    },
+    {
+     "tag": "CHG",
+     "item": "monitors",
+     "html": "<code>monitors</code> plugin manifest key — the Monitor tool and plugin monitors now also work on Bedrock, Vertex, Foundry, and builds with telemetry or nonessential traffic disabled, where long foreground sleeps are blocked too; noted on the existing row"
+    },
+    {
+     "tag": "CHG",
+     "item": "sandbox.allowNestedUserNamespaces",
+     "html": "<code>sandbox.allowNestedUserNamespaces</code> — <code>/sandbox</code> and the sandbox startup warning now name Ubuntu's AppArmor restriction on user namespaces and how to lift it; noted on the existing row"
+    },
+    {
+     "tag": "CHG",
+     "item": "permissions.blockReadsOutsideWorkingDirectories",
+     "html": "<code>permissions.blockReadsOutsideWorkingDirectories</code> — auto mode's one-time prompt before the first blocked read now also says that blocking those reads makes shell commands ask for permission; noted on the existing row"
+    }
+   ]
+  },
   {
    "version": "v2.1.309",
    "label": "CC v2.1.309",

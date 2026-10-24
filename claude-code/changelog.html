@@ -163,8 +163,20 @@
                 <h3>Content / CC Release Updates</h3>
                 <!-- October 2026 -->
                 <details class="month-group" open>
-                    <summary>October 2026 <span class="version-date">v2.1.287 – v2.1.309</span> <span class="month-count">15 releases</span></summary>
+                    <summary>October 2026 <span class="version-date">v2.1.287 – v2.1.310</span> <span class="month-count">16 releases</span></summary>
                     <div class="month-content">
+
+                        <div class="change-section">
+                            <h3 id="rel-2-1-310">CC v2.1.310 <span class="version-date">2026-10-23</span></h3>
+                            <ul class="change-list">
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>cleanupPeriodDays</code> setting — given its first placemat row: sets how many days old transcripts are kept before automatic cleanup deletes them</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>askUserQuestionTimeout</code> setting — given its first placemat row: auto-continues an unanswered question after an idle timeout instead of waiting indefinitely</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry">Elicitation — an MCP tool call that times out in a non-interactive session while its elicitation is unanswered now tells Claude no answer came and not to repeat the call; noted on the existing row</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>monitors</code> plugin manifest key — the Monitor tool and plugin monitors now also work on Bedrock, Vertex, Foundry, and builds with telemetry or nonessential traffic disabled, where long foreground sleeps are blocked too; noted on the existing row</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>sandbox.allowNestedUserNamespaces</code> — <code>/sandbox</code> and the sandbox startup warning now name Ubuntu's AppArmor restriction on user namespaces and how to lift it; noted on the existing row</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>permissions.blockReadsOutsideWorkingDirectories</code> — auto mode's one-time prompt before the first blocked read now also says that blocking those reads makes shell commands ask for permission; noted on the existing row</span></li>
+                            </ul>
+                        </div>
 
                         <div class="change-section">
                             <h3 id="rel-2-1-309">CC v2.1.309 <span class="version-date">2026-10-22</span></h3>
@@ -1682,7 +1694,7 @@
         </div>
 
         <footer class="global-footer">
-            Template v1.2 · Content synced 2026-10-22<br>
+            Template v1.2 · Content synced 2026-10-23<br>
             <span class="disclaimer">Unofficial community reference — not affiliated with or endorsed by Anthropic.
             Condensed from the official docs; always confirm against
             <a href="https://code.claude.com/docs" target="_blank" rel="noopener noreferrer">code.claude.com/docs</a>.</span><br>
