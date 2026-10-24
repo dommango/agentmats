@@ -4,7 +4,14 @@
   <link href="https://dommango.github.io/agentmats/claude-code/"/>
   <link rel="self" href="https://dommango.github.io/agentmats/claude-code/feed.xml"/>
   <id>https://dommango.github.io/agentmats/claude-code/</id>
-  <updated>2026-10-22T09:00:00Z</updated>
+  <updated>2026-10-23T09:00:00Z</updated>
+  <entry>
+    <title>CC v2.1.310 — 6 placemat changes</title>
+    <id>https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-310</id>
+    <link href="https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-310"/>
+    <updated>2026-10-23T09:00:00Z</updated>
+    <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;cleanupPeriodDays&lt;/code&gt; setting — given its first placemat row: sets how many days old transcripts are kept before automatic cleanup deletes them&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;askUserQuestionTimeout&lt;/code&gt; setting — given its first placemat row: auto-continues an unanswered question after an idle timeout instead of waiting indefinitely&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; Elicitation — an MCP tool call that times out in a non-interactive session while its elicitation is unanswered now tells Claude no answer came and not to repeat the call; noted on the existing row&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;monitors&lt;/code&gt; plugin manifest key — the Monitor tool and plugin monitors now also work on Bedrock, Vertex, Foundry, and builds with telemetry or nonessential traffic disabled, where long foreground sleeps are blocked too; noted on the existing row&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;sandbox.allowNestedUserNamespaces&lt;/code&gt; — &lt;code&gt;/sandbox&lt;/code&gt; and the sandbox startup warning now name Ubuntu's AppArmor restriction on user namespaces and how to lift it; noted on the existing row&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;permissions.blockReadsOutsideWorkingDirectories&lt;/code&gt; — auto mode's one-time prompt before the first blocked read now also says that blocking those reads makes shell commands ask for permission; noted on the existing row&lt;/li&gt;&lt;/ul&gt;</content>
+  </entry>
   <entry>
     <title>CC v2.1.309 — 5 placemat changes</title>
     <id>https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-309</id>
@@ -137,12 +144,5 @@
     <link href="https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-283"/>
     <updated>2026-09-25T09:00:00Z</updated>
     <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;/doctor prompt-audit&lt;/code&gt; (also &lt;code&gt;/checkup prompt-audit&lt;/code&gt;) — audits CLAUDE.md files, skills, agents and commands for prompting patterns written for older models&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;availableModelsMatch&lt;/code&gt; managed setting — an &lt;code&gt;exact&lt;/code&gt; value restricts an &lt;code&gt;availableModels&lt;/code&gt; entry to that named version, so new releases of it stay blocked until listed&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;deniedModels&lt;/code&gt; managed setting — blocks specific models even when &lt;code&gt;availableModels&lt;/code&gt; allows them&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;CLAUDE_CODE_GATEWAY_HINT_HEADERS=1&lt;/code&gt; — also sends an &lt;code&gt;x-claude-code-prompt-id&lt;/code&gt; header so gateways can group the requests serving one user prompt&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;--system-prompt&lt;/code&gt; / &lt;code&gt;--append-system-prompt&lt;/code&gt; — each now combines with its &lt;code&gt;-file&lt;/code&gt; counterpart, with the file's text used first&lt;/li&gt;&lt;/ul&gt;</content>
-  </entry>
-  <entry>
-    <title>CC v2.1.282 — 2 placemat changes</title>
-    <id>https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-282</id>
-    <link href="https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-282"/>
-    <updated>2026-09-24T09:00:00Z</updated>
-    <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;maxProseWidth&lt;/code&gt; setting — caps the width of Claude's prose in wide terminals; tables and code blocks keep the full width&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;allowClaudeInChromeWithManagedMcp&lt;/code&gt; managed setting — let &lt;code&gt;claude --chrome&lt;/code&gt; run alongside an exclusive &lt;code&gt;managed-mcp.json&lt;/code&gt;; the error shown when Chrome is blocked now names it&lt;/li&gt;&lt;/ul&gt;</content>
   </entry>
 </feed>
