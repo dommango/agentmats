@@ -4,7 +4,14 @@
   <link href="https://dommango.github.io/agentmats/kimi-code/"/>
   <link rel="self" href="https://dommango.github.io/agentmats/kimi-code/feed.xml"/>
   <id>https://dommango.github.io/agentmats/kimi-code/</id>
-  <updated>2026-10-23T09:00:00Z</updated>
+  <updated>2026-10-25T09:00:00Z</updated>
+  <entry>
+    <title>Kimi Code v2.3.2 — 2 placemat changes</title>
+    <id>https://dommango.github.io/agentmats/kimi-code/changelog.html#rel-2-3-2</id>
+    <link href="https://dommango.github.io/agentmats/kimi-code/changelog.html#rel-2-3-2"/>
+    <updated>2026-10-25T09:00:00Z</updated>
+    <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;Agent&lt;/code&gt; — handles tasks directly by default instead of proactively launching subagents; delegation now needs an explicit request in your message, &lt;code&gt;AGENTS.md&lt;/code&gt;, a skill, or an enabled multi-agent mode&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;AgentSwarm&lt;/code&gt; — the agent can no longer launch it on its own; swarms now start only when swarm mode is turned on, so they&amp;rsquo;re unavailable in &lt;code&gt;kimi -p&lt;/code&gt; or ACP clients such as Zed&lt;/li&gt;&lt;/ul&gt;</content>
+  </entry>
   <entry>
     <title>Kimi Code v2.3.1 — 4 placemat changes</title>
     <id>https://dommango.github.io/agentmats/kimi-code/changelog.html#rel-2-3-1</id>

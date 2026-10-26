@@ -1,7 +1,25 @@
 {
- "generated": "2026-10-23",
- "latest": "v2.3.1",
+ "generated": "2026-10-25",
+ "latest": "v2.3.2",
  "releases": [
+  {
+   "version": "v2.3.2",
+   "label": "Kimi Code v2.3.2",
+   "date": "2026-10-25",
+   "id": "rel-2-3-2",
+   "entries": [
+    {
+     "tag": "CHG",
+     "item": "Agent",
+     "html": "<code>Agent</code> — handles tasks directly by default instead of proactively launching subagents; delegation now needs an explicit request in your message, <code>AGENTS.md</code>, a skill, or an enabled multi-agent mode"
+    },
+    {
+     "tag": "CHG",
+     "item": "AgentSwarm",
+     "html": "<code>AgentSwarm</code> — the agent can no longer launch it on its own; swarms now start only when swarm mode is turned on, so they&rsquo;re unavailable in <code>kimi -p</code> or ACP clients such as Zed"
+    }
+   ]
+  },
   {
    "version": "v2.3.1",
    "label": "Kimi Code v2.3.1",
