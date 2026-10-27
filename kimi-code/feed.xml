@@ -4,7 +4,14 @@
   <link href="https://dommango.github.io/agentmats/kimi-code/"/>
   <link rel="self" href="https://dommango.github.io/agentmats/kimi-code/feed.xml"/>
   <id>https://dommango.github.io/agentmats/kimi-code/</id>
-  <updated>2026-10-25T09:00:00Z</updated>
+  <updated>2026-10-26T09:00:00Z</updated>
+  <entry>
+    <title>Kimi Code v2.3.3 — 4 placemat changes</title>
+    <id>https://dommango.github.io/agentmats/kimi-code/changelog.html#rel-2-3-3</id>
+    <link href="https://dommango.github.io/agentmats/kimi-code/changelog.html#rel-2-3-3"/>
+    <updated>2026-10-26T09:00:00Z</updated>
+    <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;/swarm&lt;/code&gt; &amp;mdash; turning swarm mode on now shows a high-usage warning&lt;/li&gt;&lt;li&gt;&lt;b&gt;FIX&lt;/b&gt; &lt;code&gt;AgentSwarm&lt;/code&gt; &amp;mdash; rejecting a call before any subagent starts (such as while swarm mode is off) no longer shows as a failed swarm; the agent now points to &lt;code&gt;/swarm&lt;/code&gt; instead&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;/model&lt;/code&gt; &amp;mdash; reworded the model switch confirmation prompts&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; swarm/goal start confirmation &amp;mdash; merged the two repeated permission-mode notice lines into one sentence each&lt;/li&gt;&lt;/ul&gt;</content>
+  </entry>
   <entry>
     <title>Kimi Code v2.3.2 — 2 placemat changes</title>
     <id>https://dommango.github.io/agentmats/kimi-code/changelog.html#rel-2-3-2</id>
