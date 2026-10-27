@@ -1,7 +1,75 @@
 {
- "generated": "2026-10-23",
- "latest": "v2.1.310",
+ "generated": "2026-10-26",
+ "latest": "v2.1.311",
  "releases": [
+  {
+   "version": "v2.1.311",
+   "label": "CC v2.1.311",
+   "date": "2026-10-26",
+   "id": "rel-2-1-311",
+   "entries": [
+    {
+     "tag": "ADD",
+     "item": "claude self-hosted-runner --hold-idle-file",
+     "html": "<code>claude self-hosted-runner --hold-idle-file</code> / <code>--max-hold-min</code> — given their first placemat row: keeps an idle session alive while the host still reports leftover running processes"
+    },
+    {
+     "tag": "ADD",
+     "item": "ultrathink",
+     "html": "<code>ultrathink</code> prompt keyword — given its first placemat row: raises that turn to xhigh effort on Opus 5.5, Sonnet 5.5, Haiku 5.5 and Fable 5.1 via Anthropic's API"
+    },
+    {
+     "tag": "ADD",
+     "item": "DISABLE_COMPACT",
+     "html": "<code>DISABLE_COMPACT</code> env var — given its first placemat row: turns off both automatic compaction and the manual <code>/compact</code> command; setting it in a settings file's <code>env</code> block or a mod's <code>$.env.set</code> can now only disable compaction, never re-enable it"
+    },
+    {
+     "tag": "ADD",
+     "item": "CLAUDE_CODE_MODEL_CATALOG",
+     "html": "<code>CLAUDE_CODE_MODEL_CATALOG</code> env var — given its first placemat row: set to <code>off</code> to skip loading Bedrock/Mantle/Vertex/Foundry model settings from Anthropic's signed catalog"
+    },
+    {
+     "tag": "ADD",
+     "item": "CLAUDE_CODE_SYNC_SKILLS",
+     "html": "<code>CLAUDE_CODE_SYNC_SKILLS</code> env var — given its first placemat row: in <code>-p</code> mode, waits for claude.ai's enabled-skills list before the first query; with feature-flag fetching off, now reuses another session's list on the same machine if it's under 10 minutes old"
+    },
+    {
+     "tag": "CHG",
+     "item": "/model",
+     "html": "<code>/model</code> — model names and IDs now drop the <code>[1m]</code> suffix and its label where the suffix has no effect; the suffix is still accepted"
+    },
+    {
+     "tag": "CHG",
+     "item": "Ctrl D",
+     "html": "<code>Ctrl D</code> — in <code>claude agents</code>, also now needs two presses on an empty input to exit, matching the main prompt"
+    },
+    {
+     "tag": "CHG",
+     "item": "--output-format json",
+     "html": "<code>--output-format json</code> / <code>stream-json</code> — DEL, C1 control and Unicode format characters inside strings are now escaped as <code>\\uXXXX</code>; parsed values are unaffected"
+    },
+    {
+     "tag": "CHG",
+     "item": "claude --teleport",
+     "html": "<code>claude --teleport</code> / <code>/teleport</code> — now warns when a compacted cloud session loads from its last compaction, since the summarized messages aren't in the local copy"
+    },
+    {
+     "tag": "CHG",
+     "item": "claude purge",
+     "html": "<code>claude purge</code> — now says it deletes data only on this computer, not anything Anthropic stores"
+    },
+    {
+     "tag": "CHG",
+     "item": "/code-review",
+     "html": "<code>/code-review</code> — now puts the effort level argument before the target, and tells Claude to use max effort only when explicitly asked"
+    },
+    {
+     "tag": "ADD",
+     "item": "sshHostCommands",
+     "html": "<code>sshHostCommands</code> setting — given its first placemat row: adds SSH connections to the Desktop environment selector whose host comes from running a command; real and already documented, but missed by earlier passes"
+    }
+   ]
+  },
   {
    "version": "v2.1.310",
    "label": "CC v2.1.310",

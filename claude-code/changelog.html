@@ -163,8 +163,26 @@
                 <h3>Content / CC Release Updates</h3>
                 <!-- October 2026 -->
                 <details class="month-group" open>
-                    <summary>October 2026 <span class="version-date">v2.1.287 – v2.1.310</span> <span class="month-count">16 releases</span></summary>
+                    <summary>October 2026 <span class="version-date">v2.1.287 – v2.1.311</span> <span class="month-count">17 releases</span></summary>
                     <div class="month-content">
+
+                        <div class="change-section">
+                            <h3 id="rel-2-1-311">CC v2.1.311 <span class="version-date">2026-10-26</span></h3>
+                            <ul class="change-list">
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>claude self-hosted-runner --hold-idle-file</code> / <code>--max-hold-min</code> — given their first placemat row: keeps an idle session alive while the host still reports leftover running processes</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>ultrathink</code> prompt keyword — given its first placemat row: raises that turn to xhigh effort on Opus 5.5, Sonnet 5.5, Haiku 5.5 and Fable 5.1 via Anthropic's API</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>DISABLE_COMPACT</code> env var — given its first placemat row: turns off both automatic compaction and the manual <code>/compact</code> command; setting it in a settings file's <code>env</code> block or a mod's <code>$.env.set</code> can now only disable compaction, never re-enable it</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>CLAUDE_CODE_MODEL_CATALOG</code> env var — given its first placemat row: set to <code>off</code> to skip loading Bedrock/Mantle/Vertex/Foundry model settings from Anthropic's signed catalog</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>CLAUDE_CODE_SYNC_SKILLS</code> env var — given its first placemat row: in <code>-p</code> mode, waits for claude.ai's enabled-skills list before the first query; with feature-flag fetching off, now reuses another session's list on the same machine if it's under 10 minutes old</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>/model</code> — model names and IDs now drop the <code>[1m]</code> suffix and its label where the suffix has no effect; the suffix is still accepted</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>Ctrl D</code> — in <code>claude agents</code>, also now needs two presses on an empty input to exit, matching the main prompt</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>--output-format json</code> / <code>stream-json</code> — DEL, C1 control and Unicode format characters inside strings are now escaped as <code>\uXXXX</code>; parsed values are unaffected</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>claude --teleport</code> / <code>/teleport</code> — now warns when a compacted cloud session loads from its last compaction, since the summarized messages aren't in the local copy</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>claude purge</code> — now says it deletes data only on this computer, not anything Anthropic stores</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>/code-review</code> — now puts the effort level argument before the target, and tells Claude to use max effort only when explicitly asked</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>sshHostCommands</code> setting — given its first placemat row: adds SSH connections to the Desktop environment selector whose host comes from running a command; real and already documented, but missed by earlier passes</span></li>
+                            </ul>
+                        </div>
 
                         <div class="change-section">
                             <h3 id="rel-2-1-310">CC v2.1.310 <span class="version-date">2026-10-23</span></h3>
@@ -1694,7 +1712,7 @@
         </div>
 
         <footer class="global-footer">
-            Template v1.2 · Content synced 2026-10-23<br>
+            Template v1.2 · Content synced 2026-10-26<br>
             <span class="disclaimer">Unofficial community reference — not affiliated with or endorsed by Anthropic.
             Condensed from the official docs; always confirm against
             <a href="https://code.claude.com/docs" target="_blank" rel="noopener noreferrer">code.claude.com/docs</a>.</span><br>
