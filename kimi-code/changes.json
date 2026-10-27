@@ -1,7 +1,35 @@
 {
- "generated": "2026-10-25",
- "latest": "v2.3.2",
+ "generated": "2026-10-26",
+ "latest": "v2.3.3",
  "releases": [
+  {
+   "version": "v2.3.3",
+   "label": "Kimi Code v2.3.3",
+   "date": "2026-10-26",
+   "id": "rel-2-3-3",
+   "entries": [
+    {
+     "tag": "CHG",
+     "item": "/swarm",
+     "html": "<code>/swarm</code> &mdash; turning swarm mode on now shows a high-usage warning"
+    },
+    {
+     "tag": "FIX",
+     "item": "AgentSwarm",
+     "html": "<code>AgentSwarm</code> &mdash; rejecting a call before any subagent starts (such as while swarm mode is off) no longer shows as a failed swarm; the agent now points to <code>/swarm</code> instead"
+    },
+    {
+     "tag": "CHG",
+     "item": "/model",
+     "html": "<code>/model</code> &mdash; reworded the model switch confirmation prompts"
+    },
+    {
+     "tag": "CHG",
+     "item": null,
+     "html": "swarm/goal start confirmation &mdash; merged the two repeated permission-mode notice lines into one sentence each"
+    }
+   ]
+  },
   {
    "version": "v2.3.2",
    "label": "Kimi Code v2.3.2",
