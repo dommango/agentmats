@@ -163,8 +163,20 @@
                 <h3>Content / CC Release Updates</h3>
                 <!-- October 2026 -->
                 <details class="month-group" open>
-                    <summary>October 2026 <span class="version-date">v2.1.287 – v2.1.311</span> <span class="month-count">17 releases</span></summary>
+                    <summary>October 2026 <span class="version-date">v2.1.287 – v2.1.312</span> <span class="month-count">18 releases</span></summary>
                     <div class="month-content">
+
+                        <div class="change-section">
+                            <h3 id="rel-2-1-312">CC v2.1.312 <span class="version-date">2026-10-27</span></h3>
+                            <ul class="change-list">
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>CLAUDE_CODE_SIMPLE_SYSTEM_PROMPT</code> env var — given its first placemat row: picks the full system prompt or a shorter one with abbreviated tool descriptions; Bedrock, Vertex, Foundry and Mantle now use the shorter prompt for any unrecognized model name, even one fronting Sonnet or Haiku</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>CLAUDE_CODE_DISABLE_REFUSAL_FALLBACK</code> env var — given its first placemat row: turns off the automatic model switch when a safety classifier flags a request, now also for unrecognized model names</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>switchModelsOnFlag</code> setting — given its first placemat row: chooses whether a flagged request switches models automatically or pauses for you to decide</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>autoCompactWindow</code> — a subagent's window can now lower the one <code>CLAUDE_CODE_AUTO_COMPACT_WINDOW</code> sets, which it had no effect on before; still never raises it; noted on the existing row</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>Ctrl Enter</code> / <code>Ctrl X Ctrl S</code> — in fullscreen, clicking the "to send now" hint under a queued message now does the same thing as the key; noted on the existing row</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>/model</code> / <code>/effort</code> — a mid-task change's cache-refresh notice now says it may wait for your next message and clears once it no longer applies, and can trigger sooner while Claude is still working; noted on both existing rows</span></li>
+                            </ul>
+                        </div>
 
                         <div class="change-section">
                             <h3 id="rel-2-1-311">CC v2.1.311 <span class="version-date">2026-10-26</span></h3>
@@ -1712,7 +1724,7 @@
         </div>
 
         <footer class="global-footer">
-            Template v1.2 · Content synced 2026-10-26<br>
+            Template v1.2 · Content synced 2026-10-27<br>
             <span class="disclaimer">Unofficial community reference — not affiliated with or endorsed by Anthropic.
             Condensed from the official docs; always confirm against
             <a href="https://code.claude.com/docs" target="_blank" rel="noopener noreferrer">code.claude.com/docs</a>.</span><br>
