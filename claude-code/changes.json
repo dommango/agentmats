@@ -1,7 +1,45 @@
 {
- "generated": "2026-10-26",
- "latest": "v2.1.311",
+ "generated": "2026-10-27",
+ "latest": "v2.1.312",
  "releases": [
+  {
+   "version": "v2.1.312",
+   "label": "CC v2.1.312",
+   "date": "2026-10-27",
+   "id": "rel-2-1-312",
+   "entries": [
+    {
+     "tag": "ADD",
+     "item": "CLAUDE_CODE_SIMPLE_SYSTEM_PROMPT",
+     "html": "<code>CLAUDE_CODE_SIMPLE_SYSTEM_PROMPT</code> env var — given its first placemat row: picks the full system prompt or a shorter one with abbreviated tool descriptions; Bedrock, Vertex, Foundry and Mantle now use the shorter prompt for any unrecognized model name, even one fronting Sonnet or Haiku"
+    },
+    {
+     "tag": "ADD",
+     "item": "CLAUDE_CODE_DISABLE_REFUSAL_FALLBACK",
+     "html": "<code>CLAUDE_CODE_DISABLE_REFUSAL_FALLBACK</code> env var — given its first placemat row: turns off the automatic model switch when a safety classifier flags a request, now also for unrecognized model names"
+    },
+    {
+     "tag": "ADD",
+     "item": "switchModelsOnFlag",
+     "html": "<code>switchModelsOnFlag</code> setting — given its first placemat row: chooses whether a flagged request switches models automatically or pauses for you to decide"
+    },
+    {
+     "tag": "CHG",
+     "item": "autoCompactWindow",
+     "html": "<code>autoCompactWindow</code> — a subagent's window can now lower the one <code>CLAUDE_CODE_AUTO_COMPACT_WINDOW</code> sets, which it had no effect on before; still never raises it; noted on the existing row"
+    },
+    {
+     "tag": "CHG",
+     "item": "Ctrl Enter",
+     "html": "<code>Ctrl Enter</code> / <code>Ctrl X Ctrl S</code> — in fullscreen, clicking the \"to send now\" hint under a queued message now does the same thing as the key; noted on the existing row"
+    },
+    {
+     "tag": "CHG",
+     "item": "/model",
+     "html": "<code>/model</code> / <code>/effort</code> — a mid-task change's cache-refresh notice now says it may wait for your next message and clears once it no longer applies, and can trigger sooner while Claude is still working; noted on both existing rows"
+    }
+   ]
+  },
   {
    "version": "v2.1.311",
    "label": "CC v2.1.311",
