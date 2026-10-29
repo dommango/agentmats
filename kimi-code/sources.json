@@ -39,8 +39,8 @@
     "config-files.md documents nested TOML tables ([models.\"<alias>\"], [[hooks]], [[permission.rules]], etc.) whose leaf keys only ever appear dotted under their table in this inventory; a bare leaf name (e.g. \"command\") is only valid in that dotted form"
   ],
   "inventory": {
-    "source": "https://moonshotai.github.io/kimi-code/en/reference/slash-commands.md, https://moonshotai.github.io/kimi-code/en/configuration/config-files.md, https://moonshotai.github.io/kimi-code/en/customization/hooks.md",
-    "fetched": "2026-10-25",
+    "source": "https://moonshotai.github.io/kimi-code/en/reference/slash-commands.md, https://moonshotai.github.io/kimi-code/en/reference/kimi-command.md, https://moonshotai.github.io/kimi-code/en/configuration/config-files.md, https://moonshotai.github.io/kimi-code/en/configuration/env-vars.md, https://moonshotai.github.io/kimi-code/en/customization/hooks.md",
+    "fetched": "2026-10-29",
     "note": "Extracted from the vendor's own reference/configuration/customization docs (raw .md). release-notes/changelog.md was used only to confirm the current release, never as a source of surface facts.",
     "slash": [
       "/login", "/logout", "/provider", "/model", "/secondary-model", "/subagent-model",
@@ -54,6 +54,7 @@
       "/help", "/h", "/?", "/btw", "/usage", "/status", "/mcp", "/plugins", "/version",
       "/feedback", "/bug", "/exit", "/quit", "/q",
       "/mcp-config", "/custom-theme", "/update-config", "/check-kimi-code-docs",
+      "/import-sessions",
       "/desktop", "/install-desktop",
       "/import-from-cc-codex", "/sub-skill", "/sub-skill.review", "/sub-skill.consolidate",
       "/skill:&lt;name&gt;", "/&lt;parent&gt;.&lt;sub-skill&gt;"
@@ -83,6 +84,7 @@
       "background.print_wait_ceiling_s", "background.print_max_turns",
       "subagent.timeout_ms", "swarm.timeout_ms",
       "mcp.startup_timeout_ms", "mcp.tool_timeout_ms", "mcp.default_deferred",
+      "mcp.reconnect_initial_delay_ms", "mcp.reconnect_max_delay_ms",
       "identity.name", "identity.slug",
       "tools.enabled", "tools.disabled",
       "read.default_max_chars", "read.max_chars",

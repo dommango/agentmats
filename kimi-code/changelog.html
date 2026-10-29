@@ -163,8 +163,26 @@
                 <h3>Content / Kimi Code Releases</h3>
                 <!-- October 2026 -->
                 <details class="month-group" open>
-                    <summary>October 2026 <span class="version-date">v2.2.0 – v2.3.3</span> <span class="month-count">5 releases</span></summary>
+                    <summary>October 2026 <span class="version-date">v2.2.0 – v2.4.0</span> <span class="month-count">6 releases</span></summary>
                     <div class="month-content">
+
+                        <div class="change-section">
+                            <h3 id="rel-2-4-0">Kimi Code v2.4.0 <span class="version-date">2026-10-28</span></h3>
+                            <ul class="change-list">
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>/import-sessions</code> / <code>kimi import-sessions</code> &mdash; import Claude Code and Codex sessions from the last 15 or 30 days</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>/provider refresh [providerId]</code> &mdash; re-fetches one provider&rsquo;s model list, or every provider&rsquo;s with no argument</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>Ctrl-O</code> &mdash; also expands or collapses streaming thinking output</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry">main-session and subagent status reporting to compatible terminals via OSC 7501, including pending interactions and retained results</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry">Tower (experimental) &mdash; supports per-task model selection and reuses <code>max_running_tasks</code> as a combined worker/reviewer cap; raises the default agent concurrency from 16 to 256</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>[mcp] reconnect_initial_delay_ms</code> / <code>reconnect_max_delay_ms</code> (and the matching <code>KIMI_MCP_RECONNECT_INITIAL_DELAY_MS</code> / <code>KIMI_MCP_RECONNECT_MAX_DELAY_MS</code> env vars) &mdash; workspace MCP servers now reconnect automatically with backoff after a dropped or failed connection</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry">Plan mode can now only be enabled by the user, not entered automatically by the agent; every plan requires review</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry">Never Ask &mdash; no longer auto-approves plans</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>-p, --prompt</code> &mdash; now skips <code>default_plan_mode</code> and cannot approve a plan when the session is already in Plan mode</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry">Fullscreen UI &mdash; improved approval-option display, mouse selection, and focus switching</span></li>
+                                <li><span class="tag tag-remove">DEL</span><span class="entry"><code>Ctrl-T</code> and the old input-area todo panel &mdash; removed; todo lists now live in expandable transcript cards</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>/import-from-cc-codex</code> skill improved</span></li>
+                            </ul>
+                        </div>
 
                         <div class="change-section">
                             <h3 id="rel-2-3-3">Kimi Code v2.3.3 <span class="version-date">2026-10-26</span></h3>

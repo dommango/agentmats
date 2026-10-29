@@ -4,7 +4,14 @@
   <link href="https://dommango.github.io/agentmats/kimi-code/"/>
   <link rel="self" href="https://dommango.github.io/agentmats/kimi-code/feed.xml"/>
   <id>https://dommango.github.io/agentmats/kimi-code/</id>
-  <updated>2026-10-26T09:00:00Z</updated>
+  <updated>2026-10-28T09:00:00Z</updated>
+  <entry>
+    <title>Kimi Code v2.4.0 — 12 placemat changes</title>
+    <id>https://dommango.github.io/agentmats/kimi-code/changelog.html#rel-2-4-0</id>
+    <link href="https://dommango.github.io/agentmats/kimi-code/changelog.html#rel-2-4-0"/>
+    <updated>2026-10-28T09:00:00Z</updated>
+    <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;/import-sessions&lt;/code&gt; / &lt;code&gt;kimi import-sessions&lt;/code&gt; &amp;mdash; import Claude Code and Codex sessions from the last 15 or 30 days&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;/provider refresh [providerId]&lt;/code&gt; &amp;mdash; re-fetches one provider&amp;rsquo;s model list, or every provider&amp;rsquo;s with no argument&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;Ctrl-O&lt;/code&gt; &amp;mdash; also expands or collapses streaming thinking output&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; main-session and subagent status reporting to compatible terminals via OSC 7501, including pending interactions and retained results&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; Tower (experimental) &amp;mdash; supports per-task model selection and reuses &lt;code&gt;max_running_tasks&lt;/code&gt; as a combined worker/reviewer cap; raises the default agent concurrency from 16 to 256&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;[mcp] reconnect_initial_delay_ms&lt;/code&gt; / &lt;code&gt;reconnect_max_delay_ms&lt;/code&gt; (and the matching &lt;code&gt;KIMI_MCP_RECONNECT_INITIAL_DELAY_MS&lt;/code&gt; / &lt;code&gt;KIMI_MCP_RECONNECT_MAX_DELAY_MS&lt;/code&gt; env vars) &amp;mdash; workspace MCP servers now reconnect automatically with backoff after a dropped or failed connection&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; Plan mode can now only be enabled by the user, not entered automatically by the agent; every plan requires review&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; Never Ask &amp;mdash; no longer auto-approves plans&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;-p, --prompt&lt;/code&gt; &amp;mdash; now skips &lt;code&gt;default_plan_mode&lt;/code&gt; and cannot approve a plan when the session is already in Plan mode&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; Fullscreen UI &amp;mdash; improved approval-option display, mouse selection, and focus switching&lt;/li&gt;&lt;li&gt;&lt;b&gt;DEL&lt;/b&gt; &lt;code&gt;Ctrl-T&lt;/code&gt; and the old input-area todo panel &amp;mdash; removed; todo lists now live in expandable transcript cards&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;/import-from-cc-codex&lt;/code&gt; skill improved&lt;/li&gt;&lt;/ul&gt;</content>
+  </entry>
   <entry>
     <title>Kimi Code v2.3.3 — 4 placemat changes</title>
     <id>https://dommango.github.io/agentmats/kimi-code/changelog.html#rel-2-3-3</id>
