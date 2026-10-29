@@ -1,7 +1,75 @@
 {
- "generated": "2026-10-26",
- "latest": "v2.3.3",
+ "generated": "2026-10-28",
+ "latest": "v2.4.0",
  "releases": [
+  {
+   "version": "v2.4.0",
+   "label": "Kimi Code v2.4.0",
+   "date": "2026-10-28",
+   "id": "rel-2-4-0",
+   "entries": [
+    {
+     "tag": "ADD",
+     "item": "/import-sessions",
+     "html": "<code>/import-sessions</code> / <code>kimi import-sessions</code> &mdash; import Claude Code and Codex sessions from the last 15 or 30 days"
+    },
+    {
+     "tag": "ADD",
+     "item": "/provider refresh [providerId]",
+     "html": "<code>/provider refresh [providerId]</code> &mdash; re-fetches one provider&rsquo;s model list, or every provider&rsquo;s with no argument"
+    },
+    {
+     "tag": "CHG",
+     "item": "Ctrl-O",
+     "html": "<code>Ctrl-O</code> &mdash; also expands or collapses streaming thinking output"
+    },
+    {
+     "tag": "ADD",
+     "item": null,
+     "html": "main-session and subagent status reporting to compatible terminals via OSC 7501, including pending interactions and retained results"
+    },
+    {
+     "tag": "CHG",
+     "item": "max_running_tasks",
+     "html": "Tower (experimental) &mdash; supports per-task model selection and reuses <code>max_running_tasks</code> as a combined worker/reviewer cap; raises the default agent concurrency from 16 to 256"
+    },
+    {
+     "tag": "ADD",
+     "item": "[mcp] reconnect_initial_delay_ms",
+     "html": "<code>[mcp] reconnect_initial_delay_ms</code> / <code>reconnect_max_delay_ms</code> (and the matching <code>KIMI_MCP_RECONNECT_INITIAL_DELAY_MS</code> / <code>KIMI_MCP_RECONNECT_MAX_DELAY_MS</code> env vars) &mdash; workspace MCP servers now reconnect automatically with backoff after a dropped or failed connection"
+    },
+    {
+     "tag": "CHG",
+     "item": null,
+     "html": "Plan mode can now only be enabled by the user, not entered automatically by the agent; every plan requires review"
+    },
+    {
+     "tag": "CHG",
+     "item": null,
+     "html": "Never Ask &mdash; no longer auto-approves plans"
+    },
+    {
+     "tag": "CHG",
+     "item": "-p, --prompt",
+     "html": "<code>-p, --prompt</code> &mdash; now skips <code>default_plan_mode</code> and cannot approve a plan when the session is already in Plan mode"
+    },
+    {
+     "tag": "CHG",
+     "item": null,
+     "html": "Fullscreen UI &mdash; improved approval-option display, mouse selection, and focus switching"
+    },
+    {
+     "tag": "DEL",
+     "item": "Ctrl-T",
+     "html": "<code>Ctrl-T</code> and the old input-area todo panel &mdash; removed; todo lists now live in expandable transcript cards"
+    },
+    {
+     "tag": "CHG",
+     "item": "/import-from-cc-codex",
+     "html": "<code>/import-from-cc-codex</code> skill improved"
+    }
+   ]
+  },
   {
    "version": "v2.3.3",
    "label": "Kimi Code v2.3.3",
