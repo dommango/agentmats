@@ -163,8 +163,24 @@
                 <h3>Content / Codex CLI Releases</h3>
                 <!-- October 2026 -->
                 <details class="month-group" open>
-                    <summary>October 2026 <span class="version-date">v0.160.0 – v0.165.0</span> <span class="month-count">7 releases</span></summary>
+                    <summary>October 2026 <span class="version-date">v0.160.0 – v0.166.0</span> <span class="month-count">8 releases</span></summary>
                     <div class="month-content">
+
+                        <div class="change-section">
+                            <h3 id="rel-0-166-0">Codex CLI v0.166.0 <span class="version-date">2026-10-29</span></h3>
+                            <ul class="change-list">
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>/tui</code> (<code>card-keys</code>) — adds keyboard-driven transcript selection with word, line and page movement, an integrated search, and configurable shortcuts</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>codex queue</code> (<code>card-cli</code>) — adds <code>--resume</code> to resume an unloaded thread after queueing a message</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>codex doctor</code> (<code>card-cli</code>) — adds <code>--network-only</code> for focused configuration, connectivity and WebSocket diagnostics</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>approval_policy</code> (<code>card-settings</code>) — acknowledged approval and permission settings are now kept when resuming or forking threads</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>/archive</code> (<code>card-slash-core</code>) — spawned descendant threads are now restored when their parent is unarchived</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>codex app-server</code> (<code>card-cli</code>) — fixes thread startup and shutdown races, releasing completed runtimes promptly</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>model_auto_compact_token_limit</code> (<code>card-settings</code>) — reasoning-token accounting is now preserved across resume and fork, avoiding premature compaction</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry">TUI — Markdown now renders consistently in async questions, choices, answers and transcript replies</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry">TUI — adds clearer safety-block explanations and selectable safer follow-up prompts</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry">TUI — improved reconnection recovery, including offline <code>/quit</code> and <code>/exit</code> handling</span></li>
+                            </ul>
+                        </div>
 
                         <div class="change-section">
                             <h3 id="rel-0-165-0">Codex CLI v0.165.0 <span class="version-date">2026-10-27</span></h3>
@@ -320,7 +336,7 @@
         </div>
 
         <footer class="global-footer">
-            Template v1.0 · Content synced 2026-10-27<br>
+            Template v1.0 · Content synced 2026-10-29<br>
             <span class="disclaimer">Unofficial community reference — not affiliated with or endorsed by OpenAI.
             Condensed from the official docs; always confirm against
             <a href="https://developers.openai.com/codex" target="_blank" rel="noopener noreferrer">developers.openai.com/codex</a>.</span><br>

@@ -1,7 +1,65 @@
 {
- "generated": "2026-10-27",
- "latest": "v0.165.0",
+ "generated": "2026-10-29",
+ "latest": "v0.166.0",
  "releases": [
+  {
+   "version": "v0.166.0",
+   "label": "Codex CLI v0.166.0",
+   "date": "2026-10-29",
+   "id": "rel-0-166-0",
+   "entries": [
+    {
+     "tag": "CHG",
+     "item": "/tui",
+     "html": "<code>/tui</code> (<code>card-keys</code>) — adds keyboard-driven transcript selection with word, line and page movement, an integrated search, and configurable shortcuts"
+    },
+    {
+     "tag": "CHG",
+     "item": "codex queue",
+     "html": "<code>codex queue</code> (<code>card-cli</code>) — adds <code>--resume</code> to resume an unloaded thread after queueing a message"
+    },
+    {
+     "tag": "CHG",
+     "item": "codex doctor",
+     "html": "<code>codex doctor</code> (<code>card-cli</code>) — adds <code>--network-only</code> for focused configuration, connectivity and WebSocket diagnostics"
+    },
+    {
+     "tag": "FIX",
+     "item": "approval_policy",
+     "html": "<code>approval_policy</code> (<code>card-settings</code>) — acknowledged approval and permission settings are now kept when resuming or forking threads"
+    },
+    {
+     "tag": "FIX",
+     "item": "/archive",
+     "html": "<code>/archive</code> (<code>card-slash-core</code>) — spawned descendant threads are now restored when their parent is unarchived"
+    },
+    {
+     "tag": "FIX",
+     "item": "codex app-server",
+     "html": "<code>codex app-server</code> (<code>card-cli</code>) — fixes thread startup and shutdown races, releasing completed runtimes promptly"
+    },
+    {
+     "tag": "FIX",
+     "item": "model_auto_compact_token_limit",
+     "html": "<code>model_auto_compact_token_limit</code> (<code>card-settings</code>) — reasoning-token accounting is now preserved across resume and fork, avoiding premature compaction"
+    },
+    {
+     "tag": "CHG",
+     "item": null,
+     "html": "TUI — Markdown now renders consistently in async questions, choices, answers and transcript replies"
+    },
+    {
+     "tag": "CHG",
+     "item": null,
+     "html": "TUI — adds clearer safety-block explanations and selectable safer follow-up prompts"
+    },
+    {
+     "tag": "FIX",
+     "item": "/quit",
+     "html": "TUI — improved reconnection recovery, including offline <code>/quit</code> and <code>/exit</code> handling"
+    }
+   ]
+  },
   {
    "version": "v0.165.0",
    "label": "Codex CLI v0.165.0",
