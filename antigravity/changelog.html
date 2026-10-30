@@ -162,9 +162,77 @@
                 <h3>Content / Antigravity CLI Releases</h3>
                 <!-- October 2026 -->
                 <details class="month-group" open>
-                    <summary>October 2026 <span class="version-date">v1.2.15 – v1.4.4</span> <span class="month-count">15 releases</span></summary>
+                    <summary>October 2026 <span class="version-date">v1.2.15 – v1.4.10</span> <span class="month-count">21 releases</span></summary>
                     <div class="month-content">
 
+                        <div class="change-section">
+                            <h3 id="rel-1-4-10">Antigravity CLI v1.4.10 <span class="version-date">2026-10-29</span></h3>
+                            <ul class="change-list">
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>/agents</code> (<code>card-slash-tools</code>) — fixed subagents losing the task their parent agent gave them, and the parent's ID, after their context was compacted; a subagent's summary now keeps the parent's 10 most recent messages</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>/context</code> (<code>card-slash-core</code>) — noted the after-compaction size shown here and in the compaction marker now also counting what the summary carries into the next prompt, so it is closer to the real size</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>/artifact</code> (<code>card-slash-tools</code>) — capped attached images at 2000 pixels per side and converted large PNGs to JPEG to stop requests being rejected for exceeding the model's size limit, and fixed an image saved as JPEG but labeled PNG being rejected for a mismatched type</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>/browser &lt;task&gt;</code> (<code>card-slash-tools</code>) — fixed this subagent not receiving a page's snapshot when the selected page belongs to an isolated browser context, such as one opened with <code>isolatedContext</code></span></li>
+                            </ul>
+                        </div>
+                        <div class="change-section">
+                            <h3 id="rel-1-4-9">Antigravity CLI v1.4.9 <span class="version-date">2026-10-28</span></h3>
+                            <ul class="change-list">
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>Ctrl+V</code> (<code>card-keys</code>) — added native terminal paste shortcut and drag-and-drop image attachment, including over SSH with X11 or Wayland forwarding</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>/plugin</code> / <code>/plugins</code> (<code>card-slash-tools</code>) — noted the Discover tab now grouping marketplace plugins into sections instead of one flat list</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>agy plugin &lt;cmd&gt;</code> (<code>card-cli</code>) — noted <code>validate</code> warning on non-kebab-case plugin names and checking a plugin's <code>logo</code> and context provider <code>iconUri</code> paths</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>/diff</code> (<code>card-slash-tools</code>) — noted the position indicator under long lists now saying what it counts, such as <code>[1-44 of 195 files]</code></span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>--mode &lt;mode&gt;</code> (<code>card-cli</code>) — noted the sandbox-escape review now skipping <code>git status</code> in folders that aren't repositories</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>/permissions</code> (<code>card-slash-core</code>) — noted <code>execute_url</code> approvals now per-origin for sensitive Google apps such as <code>mail.google.com</code>, instead of being covered by approving a general Google site</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>/permissions</code> (<code>card-slash-core</code>) — fixed "Always allow" rules for multi-line commands, such as a <code>python -c</code> script spanning several lines, never taking effect</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>editorMode</code> (<code>card-settings</code>) — fixed Vim mode's <code>r</code>, <code>f</code>, <code>F</code>, <code>t</code>, and <code>T</code> canceling when the target character is a space, and a half-typed operator carrying over after submitting a prompt</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>/artifact</code> (<code>card-slash-tools</code>) — fixed conversations failing every later model request with <code>INVALID_MEDIA</code> after the agent viewed a corrupt or malformed image</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>/browser &lt;task&gt;</code> (<code>card-slash-tools</code>) — fixed this subagent not receiving the current page's snapshot with Chrome DevTools MCP 1.11 and later</span></li>
+                            </ul>
+                        </div>
+                        <div class="change-section">
+                            <h3 id="rel-1-4-8">Antigravity CLI v1.4.8 <span class="version-date">2026-10-27</span></h3>
+                            <ul class="change-list">
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>/diff</code> (<code>card-slash-tools</code>) — added <code>[</code>/<code>]</code> turn-jump shortcuts in <code>Per Turn</code>, progressive background loading for large repositories and long conversations, and sized listings for large or binary untracked files</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>--mode &lt;mode&gt;</code> (<code>card-cli</code>) — noted the sandbox-escape review getting more time to decide and stopping any single slow check after 10 seconds</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>agy plugin &lt;cmd&gt;</code> (<code>card-cli</code>) — noted expanded <code>install</code> output naming every installed component, and <code>validate</code> checking a plugin's <code>author</code>, <code>homepage</code>, and <code>repository</code> fields</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>/resume</code> / <code>/switch</code> / <code>/conversation</code> (<code>card-slash-core</code>) — noted resuming a conversation now using about 10% less CPU</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>/agents</code> (<code>card-slash-tools</code>) — fixed subagents failing to run when their custom agent's name contains a colon, and fixed deleting a conversation leaving its running subagents and workspaces behind instead of cleaning them up</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>Ctrl+V</code> (<code>card-keys</code>) — fixed pasting images on Windows when copied from a browser, Snipping Tool, or another app that puts PNG or V5 bitmap data on the clipboard</span></li>
+                            </ul>
+                        </div>
+                        <div class="change-section">
+                            <h3 id="rel-1-4-7">Antigravity CLI v1.4.7 <span class="version-date">2026-10-24</span></h3>
+                            <ul class="change-list">
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>hooks.json</code> (<code>card-hooks</code>) — added <code>lastUserInput</code> to the JSON that hook commands receive on stdin</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>/help</code> (<code>card-slash-core</code>) — noted the shortcuts tab leaving out basic navigation keys so the more useful shortcuts are easier to find</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>/mcp</code> (<code>card-slash-tools</code>) — noted on-demand MCP tools now returning inline results up to 10 KB, previously 4 KB</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>--mode &lt;mode&gt;</code> (<code>card-cli</code>) — noted Auto mode asking for approval less often on routine commands such as cleanup and formatting</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>colorScheme</code> (<code>card-settings</code>) — noted the default <code>Terminal</code> scheme now using box-drawing table borders in Markdown, matching the other color schemes</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>/compact [message]</code> (<code>card-slash-core</code>) — fixed conversations compacting over and over when a single message, tool output, or attached document was too large to fit in the context</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>editorMode</code> (<code>card-settings</code>) — fixed Vim mode's <code>r</code> replace leaving part of a collapsed pasted-text placeholder behind</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>/mcp</code> (<code>card-slash-tools</code>) — fixed plugin and MCP sign-ins not saving when the token was too large for the system keychain, and an OAuth token being shared across or left behind for different users of the same computer account</span></li>
+                            </ul>
+                        </div>
+                        <div class="change-section">
+                            <h3 id="rel-1-4-6">Antigravity CLI v1.4.6 <span class="version-date">2026-10-23</span></h3>
+                            <ul class="change-list">
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>/plugin</code> / <code>/plugins</code> (<code>card-slash-tools</code>) — added a <code>Configure MCP servers...</code> action for installed plugins to set or change MCP server variables without disabling and re-enabling the plugin</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>--sandbox</code> (<code>card-cli</code>) — noted sandboxed commands can no longer read or modify <code>~/.docker</code>, <code>~/.kube</code>, or <code>~/_netrc</code> without an explicit grant</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>/compact [message]</code> (<code>card-slash-core</code>) — noted compaction now keeping images, PDFs, and other attached files in the conversation summary</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>/statusline</code> (<code>card-slash-core</code>) — noted the in-progress status line now showing what the agent is waiting on, such as a retrying model, instead of a generic working label</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>agy plugin &lt;cmd&gt;</code> (<code>card-cli</code>) — noted <code>validate</code> expanded to check a plugin's context providers and <code>skills</code> entries in <code>plugin.json</code></span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>Esc</code> (<code>card-keys</code>) — fixed the <code>Esc disabled during file edits</code> warning naming the wrong reject key when the prompt shows an extra choice</span></li>
+                            </ul>
+                        </div>
+                        <div class="change-section">
+                            <h3 id="rel-1-4-5">Antigravity CLI v1.4.5 <span class="version-date">2026-10-22</span></h3>
+                            <ul class="change-list">
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>Ctrl+O</code> (<code>card-keys</code>) — noted collapsed thought blocks now showing only their <code>Thought for …</code> header, separated from the response by a blank line</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>/schedule &lt;when&gt; &lt;task&gt;</code> (<code>card-slash-tools</code>) — noted recurring schedules now firing at a consistent per-schedule offset instead of exactly on the cron boundary</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>/diff</code> (<code>card-slash-tools</code>) — noted folded-line match counts in <code>/</code> search, a consistent cursor style in <code>Commit Tree</code>, and <code>Per Turn</code> starting on the first file</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>/plugin</code> / <code>/plugins</code> (<code>card-slash-tools</code>) — fixed plugins failing to load when <code>plugin.json</code> gives <code>skills</code> as a single path string instead of an array, and marketplace installs failing on a briefly stale or interrupted download</span></li>
+                            </ul>
+                        </div>
                         <div class="change-section">
                             <h3 id="rel-1-4-4">Antigravity CLI v1.4.4 <span class="version-date">2026-10-21</span></h3>
                             <ul class="change-list">
