@@ -163,8 +163,25 @@
                 <h3>Content / CC Release Updates</h3>
                 <!-- October 2026 -->
                 <details class="month-group" open>
-                    <summary>October 2026 <span class="version-date">v2.1.287 – v2.1.312</span> <span class="month-count">18 releases</span></summary>
+                    <summary>October 2026 <span class="version-date">v2.1.287 – v2.1.314</span> <span class="month-count">19 releases</span></summary>
                     <div class="month-content">
+
+                        <div class="change-section">
+                            <h3 id="rel-2-1-314">CC v2.1.314 <span class="version-date">2026-10-30</span></h3>
+                            <ul class="change-list">
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>permissions.blockWritesOutsideWorkingDirectories</code> setting — given its first placemat row: Write, Edit and NotebookEdit refuse paths outside the working directories, in every permission mode</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>idleCompaction</code> — now also compacts idle 200K+ token conversations in VS Code and Claude Desktop's Code tab, and covers subscribers with telemetry off and Bedrock/Vertex/Foundry/gateway sessions once the hour-long prompt cache is on; noted on the existing row</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>FORCE_HYPERLINK=0</code> — <code>=false</code> (also <code>no</code> and <code>off</code>) now turns hyperlinks off too, instead of on; noted on the existing row</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>CLAUDE_CODE_DISABLE_REFUSAL_FALLBACK</code> — the automatic model switch it pairs with now retries on another model instead of ending in a refusal when <code>ANTHROPIC_DEFAULT_OPUS_MODEL</code>, <code>availableModels</code>, or <code>deniedModels</code> leaves only an older Opus model, or none; noted on the existing row</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>/claude-api</code> — Datadog API tracing setup now sends the <code>dd-llmobs-enabled: true</code> header and drops an outdated macOS <code>xattr</code> install step; also now asks to read a Managed Agents workflow run's workflow before changing the agent; noted on the existing row</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>/dataviz</code> — now advises on y/x-axis tick label formatting thresholds and answers donut/pie chart requests with ranked bars or a segmented bar instead; noted on the existing row</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>if:</code> (hook field) — <code>Monitor(tail *)</code> now matches the Monitor tool's shell commands as <code>Bash(tail *)</code> matches Bash's, though such a hook can only block or ask on a Monitor call, not approve or rewrite it; noted on the existing row</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>/ultrareview [PR#]</code> — now checks workspace trust before running git, as <code>claude ultrareview</code> already did; noted on the existing row</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>claude ultrareview [target]</code> — in a CI job with a terminal, now refuses an untrusted folder at once instead of asking, when <code>CI</code> is set (<code>claude remote-control</code> does the same); noted on the existing row</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>/permissions</code> — its Recently blocked tab now refuses to approve a row you can't read in full, including one the terminal is too short to show, and its footer explains Esc; noted on the existing row</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>PermissionRequest</code> — in Cowork cloud sessions, a hook's allow of an MCP tool call now counts as no answer, so the classifier or a permission prompt decides instead; noted on the existing row</span></li>
+                            </ul>
+                        </div>
 
                         <div class="change-section">
                             <h3 id="rel-2-1-312">CC v2.1.312 <span class="version-date">2026-10-27</span></h3>
@@ -1724,7 +1741,7 @@
         </div>
 
         <footer class="global-footer">
-            Template v1.2 · Content synced 2026-10-27<br>
+            Template v1.2 · Content synced 2026-10-30<br>
             <span class="disclaimer">Unofficial community reference — not affiliated with or endorsed by Anthropic.
             Condensed from the official docs; always confirm against
             <a href="https://code.claude.com/docs" target="_blank" rel="noopener noreferrer">code.claude.com/docs</a>.</span><br>

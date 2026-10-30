@@ -1,7 +1,70 @@
 {
- "generated": "2026-10-27",
- "latest": "v2.1.312",
+ "generated": "2026-10-30",
+ "latest": "v2.1.314",
  "releases": [
+  {
+   "version": "v2.1.314",
+   "label": "CC v2.1.314",
+   "date": "2026-10-30",
+   "id": "rel-2-1-314",
+   "entries": [
+    {
+     "tag": "ADD",
+     "item": "permissions.blockWritesOutsideWorkingDirectories",
+     "html": "<code>permissions.blockWritesOutsideWorkingDirectories</code> setting — given its first placemat row: Write, Edit and NotebookEdit refuse paths outside the working directories, in every permission mode"
+    },
+    {
+     "tag": "CHG",
+     "item": "idleCompaction",
+     "html": "<code>idleCompaction</code> — now also compacts idle 200K+ token conversations in VS Code and Claude Desktop's Code tab, and covers subscribers with telemetry off and Bedrock/Vertex/Foundry/gateway sessions once the hour-long prompt cache is on; noted on the existing row"
+    },
+    {
+     "tag": "FIX",
+     "item": "FORCE_HYPERLINK=0",
+     "html": "<code>FORCE_HYPERLINK=0</code> — <code>=false</code> (also <code>no</code> and <code>off</code>) now turns hyperlinks off too, instead of on; noted on the existing row"
+    },
+    {
+     "tag": "CHG",
+     "item": "CLAUDE_CODE_DISABLE_REFUSAL_FALLBACK",
+     "html": "<code>CLAUDE_CODE_DISABLE_REFUSAL_FALLBACK</code> — the automatic model switch it pairs with now retries on another model instead of ending in a refusal when <code>ANTHROPIC_DEFAULT_OPUS_MODEL</code>, <code>availableModels</code>, or <code>deniedModels</code> leaves only an older Opus model, or none; noted on the existing row"
+    },
+    {
+     "tag": "CHG",
+     "item": "/claude-api",
+     "html": "<code>/claude-api</code> — Datadog API tracing setup now sends the <code>dd-llmobs-enabled: true</code> header and drops an outdated macOS <code>xattr</code> install step; also now asks to read a Managed Agents workflow run's workflow before changing the agent; noted on the existing row"
+    },
+    {
+     "tag": "CHG",
+     "item": "/dataviz",
+     "html": "<code>/dataviz</code> — now advises on y/x-axis tick label formatting thresholds and answers donut/pie chart requests with ranked bars or a segmented bar instead; noted on the existing row"
+    },
+    {
+     "tag": "CHG",
+     "item": "if:",
+     "html": "<code>if:</code> (hook field) — <code>Monitor(tail *)</code> now matches the Monitor tool's shell commands as <code>Bash(tail *)</code> matches Bash's, though such a hook can only block or ask on a Monitor call, not approve or rewrite it; noted on the existing row"
+    },
+    {
+     "tag": "CHG",
+     "item": "/ultrareview [PR#]",
+     "html": "<code>/ultrareview [PR#]</code> — now checks workspace trust before running git, as <code>claude ultrareview</code> already did; noted on the existing row"
+    },
+    {
+     "tag": "FIX",
+     "item": "claude ultrareview [target]",
+     "html": "<code>claude ultrareview [target]</code> — in a CI job with a terminal, now refuses an untrusted folder at once instead of asking, when <code>CI</code> is set (<code>claude remote-control</code> does the same); noted on the existing row"
+    },
+    {
+     "tag": "CHG",
+     "item": "/permissions",
+     "html": "<code>/permissions</code> — its Recently blocked tab now refuses to approve a row you can't read in full, including one the terminal is too short to show, and its footer explains Esc; noted on the existing row"
+    },
+    {
+     "tag": "CHG",
+     "item": "PermissionRequest",
+     "html": "<code>PermissionRequest</code> — in Cowork cloud sessions, a hook's allow of an MCP tool call now counts as no answer, so the classifier or a permission prompt decides instead; noted on the existing row"
+    }
+   ]
+  },
   {
    "version": "v2.1.312",
    "label": "CC v2.1.312",
