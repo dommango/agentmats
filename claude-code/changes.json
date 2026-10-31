@@ -1,7 +1,55 @@
 {
- "generated": "2026-10-30",
- "latest": "v2.1.314",
+ "generated": "2026-10-31",
+ "latest": "v2.1.316",
  "releases": [
+  {
+   "version": "v2.1.316",
+   "label": "CC v2.1.316",
+   "date": "2026-10-31",
+   "id": "rel-2-1-316",
+   "entries": [
+    {
+     "tag": "ADD",
+     "item": "CLAUDE_CODE_DISABLE_ULTRATHINK",
+     "html": "<code>CLAUDE_CODE_DISABLE_ULTRATHINK</code> env var — given its first placemat row: turns off the <code>ultrathink</code> prompt keyword"
+    },
+    {
+     "tag": "ADD",
+     "item": "CLAUDE_CODE_DISABLE_LOOPED_CROSS_CERT_DROP",
+     "html": "<code>CLAUDE_CODE_DISABLE_LOOPED_CROSS_CERT_DROP</code> env var — given its first placemat row: keeps system cross-certificates that certify each other in a loop, for a private CA that needs one"
+    },
+    {
+     "tag": "ADD",
+     "item": "CLAUDE_CODE_SUBAGENT_EFFORT",
+     "html": "<code>CLAUDE_CODE_SUBAGENT_EFFORT</code> env var — given its first placemat row: sets the effort level subagents run at when nothing else names one"
+    },
+    {
+     "tag": "CHG",
+     "item": "/fast [on/off]",
+     "html": "Fast mode for Opus 4.8 is deprecated as of 2026-10-30 and removes on 2026-11-30; migrate to Opus 5.5 to keep the speedup; noted on the existing <code>/fast [on/off]</code> row"
+    },
+    {
+     "tag": "CHG",
+     "item": "autoMode.allow",
+     "html": "An <code>autoMode.allow</code> list without <code>\"$defaults\"</code> no longer removes the built-in rule on scheduled-task prompts; noted on the existing <code>\"$defaults\"</code> (autoMode) row"
+    },
+    {
+     "tag": "CHG",
+     "item": "/ultrareview [PR#]",
+     "html": "<code>/ultrareview [PR#]</code> — when it finds no GitHub remote, now says to create one at github.com/new instead of suggesting a <code>gh</code> command that <code>gh</code> rejects; noted on the existing row"
+    },
+    {
+     "tag": "FIX",
+     "item": "claude auth login/logout",
+     "html": "<code>claude auth login/logout</code> — where managed settings require a Claude apps gateway, a terminal run now shows the gateway sign-in instead of refusing; noted on the existing row"
+    },
+    {
+     "tag": "ADD",
+     "item": "/restart",
+     "html": "<code>/restart</code> / <code>/update</code> — given its first placemat row: restarts Claude Code and resumes the session to apply an installed update; real and already documented since v2.1.288, but missed by earlier passes"
+    }
+   ]
+  },
   {
    "version": "v2.1.314",
    "label": "CC v2.1.314",
