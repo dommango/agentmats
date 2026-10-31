@@ -4,7 +4,14 @@
   <link href="https://dommango.github.io/agentmats/kimi-code/"/>
   <link rel="self" href="https://dommango.github.io/agentmats/kimi-code/feed.xml"/>
   <id>https://dommango.github.io/agentmats/kimi-code/</id>
-  <updated>2026-10-28T09:00:00Z</updated>
+  <updated>2026-10-30T09:00:00Z</updated>
+  <entry>
+    <title>Kimi Code v2.4.1 — 2 placemat changes</title>
+    <id>https://dommango.github.io/agentmats/kimi-code/changelog.html#rel-2-4-1</id>
+    <link href="https://dommango.github.io/agentmats/kimi-code/changelog.html#rel-2-4-1"/>
+    <updated>2026-10-30T09:00:00Z</updated>
+    <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;[read] max_chars&lt;/code&gt; &amp;mdash; a single file read now returns at most 100,000 characters (~25,000 tokens) by default, down from 500,000; raise both limits here&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; built-in prompts optimized&lt;/li&gt;&lt;/ul&gt;</content>
+  </entry>
   <entry>
     <title>Kimi Code v2.4.0 — 12 placemat changes</title>
     <id>https://dommango.github.io/agentmats/kimi-code/changelog.html#rel-2-4-0</id>
