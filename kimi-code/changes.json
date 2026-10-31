@@ -1,7 +1,25 @@
 {
- "generated": "2026-10-28",
- "latest": "v2.4.0",
+ "generated": "2026-10-30",
+ "latest": "v2.4.1",
  "releases": [
+  {
+   "version": "v2.4.1",
+   "label": "Kimi Code v2.4.1",
+   "date": "2026-10-30",
+   "id": "rel-2-4-1",
+   "entries": [
+    {
+     "tag": "CHG",
+     "item": "[read] max_chars",
+     "html": "<code>[read] max_chars</code> &mdash; a single file read now returns at most 100,000 characters (~25,000 tokens) by default, down from 500,000; raise both limits here"
+    },
+    {
+     "tag": "CHG",
+     "item": null,
+     "html": "built-in tool and subagent prompts shortened, including repeated goal and plan mode reminders"
+    }
+   ]
+  },
   {
    "version": "v2.4.0",
    "label": "Kimi Code v2.4.0",
