@@ -163,8 +163,22 @@
                 <h3>Content / CC Release Updates</h3>
                 <!-- October 2026 -->
                 <details class="month-group" open>
-                    <summary>October 2026 <span class="version-date">v2.1.287 – v2.1.314</span> <span class="month-count">19 releases</span></summary>
+                    <summary>October 2026 <span class="version-date">v2.1.287 – v2.1.316</span> <span class="month-count">20 releases</span></summary>
                     <div class="month-content">
+
+                        <div class="change-section">
+                            <h3 id="rel-2-1-316">CC v2.1.316 <span class="version-date">2026-10-31</span></h3>
+                            <ul class="change-list">
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>CLAUDE_CODE_DISABLE_ULTRATHINK</code> env var — given its first placemat row: turns off the <code>ultrathink</code> prompt keyword</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>CLAUDE_CODE_DISABLE_LOOPED_CROSS_CERT_DROP</code> env var — given its first placemat row: keeps system cross-certificates that certify each other in a loop, for a private CA that needs one</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>CLAUDE_CODE_SUBAGENT_EFFORT</code> env var — given its first placemat row: sets the effort level subagents run at when nothing else names one</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry">Fast mode for Opus 4.8 is deprecated as of 2026-10-30 and removes on 2026-11-30; migrate to Opus 5.5 to keep the speedup; noted on the existing <code>/fast [on/off]</code> row</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry">An <code>autoMode.allow</code> list without <code>"$defaults"</code> no longer removes the built-in rule on scheduled-task prompts; noted on the existing <code>"$defaults"</code> (autoMode) row</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>/ultrareview [PR#]</code> — when it finds no GitHub remote, now says to create one at github.com/new instead of suggesting a <code>gh</code> command that <code>gh</code> rejects; noted on the existing row</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>claude auth login/logout</code> — where managed settings require a Claude apps gateway, a terminal run now shows the gateway sign-in instead of refusing; noted on the existing row</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>/restart</code> / <code>/update</code> — given its first placemat row: restarts Claude Code and resumes the session to apply an installed update; real and already documented since v2.1.288, but missed by earlier passes</span></li>
+                            </ul>
+                        </div>
 
                         <div class="change-section">
                             <h3 id="rel-2-1-314">CC v2.1.314 <span class="version-date">2026-10-30</span></h3>
@@ -1741,7 +1755,7 @@
         </div>
 
         <footer class="global-footer">
-            Template v1.2 · Content synced 2026-10-30<br>
+            Template v1.2 · Content synced 2026-10-31<br>
             <span class="disclaimer">Unofficial community reference — not affiliated with or endorsed by Anthropic.
             Condensed from the official docs; always confirm against
             <a href="https://code.claude.com/docs" target="_blank" rel="noopener noreferrer">code.claude.com/docs</a>.</span><br>

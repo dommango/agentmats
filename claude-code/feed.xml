@@ -4,7 +4,14 @@
   <link href="https://dommango.github.io/agentmats/claude-code/"/>
   <link rel="self" href="https://dommango.github.io/agentmats/claude-code/feed.xml"/>
   <id>https://dommango.github.io/agentmats/claude-code/</id>
-  <updated>2026-10-30T09:00:00Z</updated>
+  <updated>2026-10-31T09:00:00Z</updated>
+  <entry>
+    <title>CC v2.1.316 — 8 placemat changes</title>
+    <id>https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-316</id>
+    <link href="https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-316"/>
+    <updated>2026-10-31T09:00:00Z</updated>
+    <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;CLAUDE_CODE_DISABLE_ULTRATHINK&lt;/code&gt; env var — given its first placemat row: turns off the &lt;code&gt;ultrathink&lt;/code&gt; prompt keyword&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;CLAUDE_CODE_DISABLE_LOOPED_CROSS_CERT_DROP&lt;/code&gt; env var — given its first placemat row: keeps system cross-certificates that certify each other in a loop, for a private CA that needs one&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;CLAUDE_CODE_SUBAGENT_EFFORT&lt;/code&gt; env var — given its first placemat row: sets the effort level subagents run at when nothing else names one&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; Fast mode for Opus 4.8 is deprecated as of 2026-10-30 and removes on 2026-11-30; migrate to Opus 5.5 to keep the speedup; noted on the existing &lt;code&gt;/fast [on/off]&lt;/code&gt; row&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; An &lt;code&gt;autoMode.allow&lt;/code&gt; list without &lt;code&gt;"$defaults"&lt;/code&gt; no longer removes the built-in rule on scheduled-task prompts; noted on the existing &lt;code&gt;"$defaults"&lt;/code&gt; (autoMode) row&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;/ultrareview [PR#]&lt;/code&gt; — when it finds no GitHub remote, now says to create one at github.com/new instead of suggesting a &lt;code&gt;gh&lt;/code&gt; command that &lt;code&gt;gh&lt;/code&gt; rejects; noted on the existing row&lt;/li&gt;&lt;li&gt;&lt;b&gt;FIX&lt;/b&gt; &lt;code&gt;claude auth login/logout&lt;/code&gt; — where managed settings require a Claude apps gateway, a terminal run now shows the gateway sign-in instead of refusing; noted on the existing row&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;/restart&lt;/code&gt; / &lt;code&gt;/update&lt;/code&gt; — given its first placemat row: restarts Claude Code and resumes the session to apply an installed update; real and already documented since v2.1.288, but missed by earlier passes&lt;/li&gt;&lt;/ul&gt;</content>
+  </entry>
   <entry>
     <title>CC v2.1.314 — 11 placemat changes</title>
     <id>https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-314</id>
@@ -137,12 +144,5 @@
     <link href="https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-287"/>
     <updated>2026-10-01T09:00:00Z</updated>
     <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;/plugin-authoring&lt;/code&gt; — load Claude's reference for writing a mod, a plugin whose JS/TS hooks can draw UI and intercept tool calls&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;allowManagedModsOnly&lt;/code&gt; managed setting — stops a user-installed mod from loading, leaving the rest of its plugin in place&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;"bareElicitationCapability": true&lt;/code&gt; MCP server config field — needed for a server on the MCP 2025-11-25 protocol that sends URL elicitation prompts and stopped connecting after this update&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;CLAUDE_AX_PREPARK_MS=50&lt;/code&gt; env var — restores screen reader mode's old pause before writing a new or changed line&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;CLAUDE_CODE_DISABLE_1M_CONTEXT&lt;/code&gt; — Opus 4.7+ and Fable now default to a 1M context window with no &lt;code&gt;[1m]&lt;/code&gt; model-id suffix on Bedrock, Vertex, Foundry and the Claude apps gateway; this env var keeps 200K&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;alwaysLoad&lt;/code&gt; MCP server config — set explicitly to &lt;code&gt;false&lt;/code&gt; to defer all of that server's tools behind tool search&lt;/li&gt;&lt;/ul&gt;</content>
-  </entry>
-  <entry>
-    <title>CC v2.1.286 — 3 placemat changes</title>
-    <id>https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-286</id>
-    <link href="https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-286"/>
-    <updated>2026-09-30T09:00:00Z</updated>
-    <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;--bare&lt;/code&gt; CLI flag — connects only the MCP servers named on the command line, sends the model no system reminders, and starts no background tasks; a shell command that reaches its timeout now stops instead of moving to the background&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;/plugin install &amp;lt;name&amp;gt;&lt;/code&gt; (npm source) — refuses git-repository or folder sources, and installs the plugin's dependencies only from registry packages&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;/verify&lt;/code&gt; — if a project or user skill is literally named &lt;code&gt;verify&lt;/code&gt;, Claude is now told to run it right before committing, except for docs-only and tests-only commits&lt;/li&gt;&lt;/ul&gt;</content>
   </entry>
 </feed>
