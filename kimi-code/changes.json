@@ -16,7 +16,7 @@
     {
      "tag": "CHG",
      "item": null,
-     "html": "built-in prompts optimized"
+     "html": "Shrank built-in tool and subagent prompts, including repeated goal and plan-mode reminders"
     }
    ]
   },
