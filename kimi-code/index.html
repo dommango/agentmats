@@ -48,7 +48,7 @@
             <span class="header-tagline">Unofficial · auto-updated reference</span>
         </div>
         <div class="global-controls">
-            <span class="release-tag">As of release: v2.4.0</span>
+            <span class="release-tag">As of release: v2.4.1</span>
             <a href="changelog.html" class="header-link">Changelog →</a>
             <a href="feed.xml" class="header-link" title="Subscribe to placemat changes (RSS)">RSS</a>
             <button type="button" class="header-link print-btn" id="printBtn" title="Print or save as PDF (Ctrl P)">⎙ Print</button>
@@ -85,7 +85,7 @@
 
         <div class="print-head" aria-hidden="true">
             <span class="print-head-title">Kimi Code <b>PLACEMAT</b></span>
-            <span>As of release v2.4.0</span>
+            <span>As of release v2.4.1</span>
             <span>■ = new &nbsp; □ = unverified</span>
             <span>dommango.github.io/agentmats/kimi-code</span>
         </div>
@@ -397,7 +397,7 @@
                     <tr class="search-item" id="i-background"><td><a class="row-link" href="#i-background" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>[background]</code></td><td class="desc"><span class="summary">Background task runtime</span> <button type="button" class="notes-btn" aria-expanded="false">+3</button><ul class="notes" hidden><li><code>max_running_tasks</code> caps concurrency; <code>keep_alive_on_exit</code> decides whether tasks survive session close.</li><li>Since 2.2.0, the agent's in-turn wait for a background task is capped at 90 seconds and discourages repeated waits; a new message ends the wait early.</li><li>Since 2.4.0, Tower (experimental multi-agent mode) reuses <code>max_running_tasks</code> as a combined cap for its workers and reviewers, defaulting to 256, and supports per-task model selection.</li></ul></td></tr>
                     <tr class="search-item" id="i-subagent"><td><a class="row-link" href="#i-subagent" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>[subagent]</code> / <code>[swarm]</code></td><td class="desc">Subagent and AgentSwarm limits such as <code>timeout_ms</code></td></tr>
                     <tr class="search-item" id="i-tools"><td><a class="row-link" href="#i-tools" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>[tools]</code></td><td class="desc">Global tool switch</td></tr>
-                    <tr class="search-item" id="i-read"><td><a class="row-link" href="#i-read" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>[read]</code></td><td class="desc"><span class="summary">Character limits and resumable long-line file reads</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Added in 0.42.0 so long lines no longer produce repeated output truncation.</li></ul></td></tr>
+                    <tr class="search-item" id="i-read"><td><a class="row-link" href="#i-read" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>[read]</code></td><td class="desc"><span class="summary">Character limits and resumable long-line file reads</span> <button type="button" class="notes-btn" aria-expanded="false">+2</button><ul class="notes" hidden><li>Added in 0.42.0 so long lines no longer produce repeated output truncation.</li><li>Since 2.4.1, a single file read returns at most 100,000 characters (~25,000 tokens) by default, down from 500,000; raise both limits with <code>max_chars</code>.</li></ul></td></tr>
                     <tr class="search-item" id="i-image"><td><a class="row-link" href="#i-image" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>[image]</code></td><td class="desc">Image compression parameters such as <code>max_edge_px</code></td></tr>
                     <tr class="search-item" id="i-database"><td><a class="row-link" href="#i-database" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>[database]</code></td><td class="desc"><span class="summary">Session-index read model and global search worker</span> <button type="button" class="notes-btn" aria-expanded="false">+2</button><ul class="notes" hidden><li>Replaced the experimental minidb flags in 0.42.0; both default to on.</li><li>2.0.1 adds <code class="unverified">searchSyncSessionCap</code> / <code class="unverified">searchSyncDebounceMs</code> to tune the incremental background search-sync pass.</li></ul></td></tr>
                     <tr class="search-item" id="i-watch"><td><a class="row-link" href="#i-watch" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>[watch]</code></td><td class="desc"><span class="summary">Filesystem watchers that reload local.toml, AGENTS.md, skills and MCP config</span> <button type="button" class="notes-btn" aria-expanded="false">+3</button><ul class="notes" hidden><li><code>enabled</code> defaults to <code>true</code>; set to <code>false</code> to start with no watchers — added in 2.0.1.</li><li>Overridden by <code>KIMI_CODE_WATCH</code>, which takes priority over <code>config.toml</code>.</li><li>2.1.0 briefly defaulted <code>enabled</code> to <code>false</code>; 2.1.1 reverted it to <code>true</code>.</li></ul></td></tr>
@@ -612,7 +612,7 @@
         <div class="no-results search-exclude" id="noResults">No matches — clear search to see everything.</div>
 
         <footer class="global-footer">
-            Template v1.0 · Content synced 2026-10-28<br>
+            Template v1.0 · Content synced 2026-10-30<br>
             <span class="disclaimer">Unofficial community reference — not affiliated with or endorsed by Moonshot AI.
             Condensed from the official docs; always confirm against
             <a href="https://moonshotai.github.io/kimi-code/" target="_blank" rel="noopener noreferrer">moonshotai.github.io/kimi-code</a>.</span><br>
