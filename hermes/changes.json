@@ -1,7 +1,50 @@
 {
- "generated": "2026-10-22",
- "latest": "v0.22.5",
+ "generated": "2026-11-02",
+ "latest": "v0.22.6",
  "releases": [
+  {
+   "version": "v0.22.6",
+   "label": "Hermes Agent v0.22.6",
+   "date": "2026-11-02",
+   "id": "rel-0-22-6",
+   "entries": [
+    {
+     "tag": "ADD",
+     "item": "/model",
+     "html": "<code>/model</code> — <code>reset</code> drops this session's model pick and returns to <code>config.yaml</code>'s model without losing the conversation"
+    },
+    {
+     "tag": "ADD",
+     "item": "hermes cron",
+     "html": "<code>hermes cron</code> — <code>cancel &lt;job_id_or_name&gt;</code> stops a job's run in flight (lookup by name or ID), plus a per-job <code>--grace-minutes &lt;N&gt;</code> missed-run catch-up window"
+    },
+    {
+     "tag": "ADD",
+     "item": "compression.prepare_ahead",
+     "html": "<code>compression.prepare_ahead</code> settings key — opt-in background preparation of the next compaction summary before the trigger fires"
+    },
+    {
+     "tag": "ADD",
+     "item": "hermes import-agent",
+     "html": "<code>hermes import-agent</code> (also <code>hermes migrate &lt;agent&gt;</code>) — add Grok Bot and OpenBot as import sources, alongside OpenClaw, Claude Code, Codex CLI and Cursor"
+    },
+    {
+     "tag": "CHG",
+     "item": "pre_llm_call",
+     "html": "The <code>pre_llm_call</code> plugin hook can now return a block action that ends the turn before any inference request, not just inject context"
+    },
+    {
+     "tag": "CHG",
+     "item": "hermes pm",
+     "html": "<code>hermes pm</code> — tool downloads resume from where they stopped on a network failure instead of restarting"
+    },
+    {
+     "tag": "CHG",
+     "item": null,
+     "html": "v0.22.6 is a rollup patch release covering ~776 PRs since v0.22.5; curated notes for the rest of this window ship with v0.23.0"
+    }
+   ]
+  },
   {
    "version": "v0.22.5",
    "label": "Hermes Agent v0.22.5",

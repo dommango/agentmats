@@ -161,8 +161,29 @@
 
             <div class="change-section">
                 <h3>Content / Hermes Agent Releases</h3>
-                <!-- October 2026 -->
+                <!-- November 2026 -->
                 <details class="month-group" open>
+                    <summary>November 2026 <span class="version-date">v0.22.6</span> <span class="month-count">1 release</span></summary>
+                    <div class="month-content">
+
+                        <div class="change-section">
+                            <h3 id="rel-0-22-6">Hermes Agent v0.22.6 <span class="version-date">2026-11-02</span></h3>
+                            <ul class="change-list">
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>/model</code> — <code>reset</code> drops this session's model pick and returns to <code>config.yaml</code>'s model without losing the conversation</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>hermes cron</code> — <code>cancel &lt;job_id_or_name&gt;</code> stops a job's run in flight (lookup by name or ID), plus a per-job <code>--grace-minutes &lt;N&gt;</code> missed-run catch-up window</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>compression.prepare_ahead</code> settings key — opt-in background preparation of the next compaction summary before the trigger fires</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>hermes import-agent</code> (also <code>hermes migrate &lt;agent&gt;</code>) — add Grok Bot and OpenBot as import sources, alongside OpenClaw, Claude Code, Codex CLI and Cursor</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry">The <code>pre_llm_call</code> plugin hook can now return a block action that ends the turn before any inference request, not just inject context</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>hermes pm</code> — tool downloads resume from where they stopped on a network failure instead of restarting</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry">v0.22.6 is a rollup patch release covering ~776 PRs since v0.22.5; curated notes for the rest of this window ship with v0.23.0</span></li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </details>
+
+                <!-- October 2026 -->
+                <details class="month-group">
                     <summary>October 2026 <span class="version-date">v0.21.6 – v0.22.5</span> <span class="month-count">8 releases</span></summary>
                     <div class="month-content">
 
