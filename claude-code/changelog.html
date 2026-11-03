@@ -161,8 +161,27 @@
 
             <div class="change-section">
                 <h3>Content / CC Release Updates</h3>
-                <!-- October 2026 -->
+                <!-- November 2026 -->
                 <details class="month-group" open>
+                    <summary>November 2026 <span class="version-date">v2.1.317</span> <span class="month-count">1 release</span></summary>
+                    <div class="month-content">
+
+                        <div class="change-section">
+                            <h3 id="rel-2-1-317">CC v2.1.317 <span class="version-date">2026-11-03</span></h3>
+                            <ul class="change-list">
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>CLAUDE_CODE_DISABLE_NESTED_SESSION_ID</code> env var — given its first placemat row: on a self-hosted runner, has a nested <code>claude -p</code> run inside a session share that session's ID and transcript, as earlier versions did</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>CLAUDE_CODE_SUBAGENT_EFFORT</code> — a subagent or teammate on a different model from the main conversation now uses that model's own saved effort level or default instead of the session's, when nothing else names one; noted on the existing row</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>onFailure: "block"</code> (hook field) — now also applies to Agent SDK hook callbacks, not just command/HTTP hooks; noted on the existing row</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>/plugin-authoring</code> — once a mod you build works, now offers once to help you share it; noted on the existing row</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>/schedule</code> — now warns when a new cloud scheduled task gets connectors you didn't ask for, and how to remove them; noted on the existing row</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry">Auto mode's check now shows a notice in the main view when it has no answer for a subagent's tool call, instead of showing nothing; noted on the existing <code>"$defaults"</code> (autoMode) row</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </details>
+
+                <!-- October 2026 -->
+                <details class="month-group">
                     <summary>October 2026 <span class="version-date">v2.1.287 – v2.1.316</span> <span class="month-count">20 releases</span></summary>
                     <div class="month-content">
 
@@ -1755,7 +1774,7 @@
         </div>
 
         <footer class="global-footer">
-            Template v1.2 · Content synced 2026-10-31<br>
+            Template v1.2 · Content synced 2026-11-03<br>
             <span class="disclaimer">Unofficial community reference — not affiliated with or endorsed by Anthropic.
             Condensed from the official docs; always confirm against
             <a href="https://code.claude.com/docs" target="_blank" rel="noopener noreferrer">code.claude.com/docs</a>.</span><br>
