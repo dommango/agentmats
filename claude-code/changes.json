@@ -1,7 +1,45 @@
 {
- "generated": "2026-10-31",
- "latest": "v2.1.316",
+ "generated": "2026-11-03",
+ "latest": "v2.1.317",
  "releases": [
+  {
+   "version": "v2.1.317",
+   "label": "CC v2.1.317",
+   "date": "2026-11-03",
+   "id": "rel-2-1-317",
+   "entries": [
+    {
+     "tag": "ADD",
+     "item": "CLAUDE_CODE_DISABLE_NESTED_SESSION_ID",
+     "html": "<code>CLAUDE_CODE_DISABLE_NESTED_SESSION_ID</code> env var — given its first placemat row: on a self-hosted runner, has a nested <code>claude -p</code> run inside a session share that session's ID and transcript, as earlier versions did"
+    },
+    {
+     "tag": "CHG",
+     "item": "CLAUDE_CODE_SUBAGENT_EFFORT",
+     "html": "<code>CLAUDE_CODE_SUBAGENT_EFFORT</code> — a subagent or teammate on a different model from the main conversation now uses that model's own saved effort level or default instead of the session's, when nothing else names one; noted on the existing row"
+    },
+    {
+     "tag": "ADD",
+     "item": "onFailure: \"block\"",
+     "html": "<code>onFailure: \"block\"</code> (hook field) — now also applies to Agent SDK hook callbacks, not just command/HTTP hooks; noted on the existing row"
+    },
+    {
+     "tag": "CHG",
+     "item": "/plugin-authoring",
+     "html": "<code>/plugin-authoring</code> — once a mod you build works, now offers once to help you share it; noted on the existing row"
+    },
+    {
+     "tag": "ADD",
+     "item": "/schedule",
+     "html": "<code>/schedule</code> — now warns when a new cloud scheduled task gets connectors you didn't ask for, and how to remove them; noted on the existing row"
+    },
+    {
+     "tag": "ADD",
+     "item": "\"$defaults\"",
+     "html": "Auto mode's check now shows a notice in the main view when it has no answer for a subagent's tool call, instead of showing nothing; noted on the existing <code>\"$defaults\"</code> (autoMode) row"
+    }
+   ]
+  },
   {
    "version": "v2.1.316",
    "label": "CC v2.1.316",

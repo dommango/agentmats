@@ -4,7 +4,14 @@
   <link href="https://dommango.github.io/agentmats/claude-code/"/>
   <link rel="self" href="https://dommango.github.io/agentmats/claude-code/feed.xml"/>
   <id>https://dommango.github.io/agentmats/claude-code/</id>
-  <updated>2026-10-31T09:00:00Z</updated>
+  <updated>2026-11-03T09:00:00Z</updated>
+  <entry>
+    <title>CC v2.1.317 — 6 placemat changes</title>
+    <id>https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-317</id>
+    <link href="https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-317"/>
+    <updated>2026-11-03T09:00:00Z</updated>
+    <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;CLAUDE_CODE_DISABLE_NESTED_SESSION_ID&lt;/code&gt; env var — given its first placemat row: on a self-hosted runner, has a nested &lt;code&gt;claude -p&lt;/code&gt; run inside a session share that session's ID and transcript, as earlier versions did&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;CLAUDE_CODE_SUBAGENT_EFFORT&lt;/code&gt; — a subagent or teammate on a different model from the main conversation now uses that model's own saved effort level or default instead of the session's, when nothing else names one; noted on the existing row&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;onFailure: "block"&lt;/code&gt; (hook field) — now also applies to Agent SDK hook callbacks, not just command/HTTP hooks; noted on the existing row&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;/plugin-authoring&lt;/code&gt; — once a mod you build works, now offers once to help you share it; noted on the existing row&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;/schedule&lt;/code&gt; — now warns when a new cloud scheduled task gets connectors you didn't ask for, and how to remove them; noted on the existing row&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; Auto mode's check now shows a notice in the main view when it has no answer for a subagent's tool call, instead of showing nothing; noted on the existing &lt;code&gt;"$defaults"&lt;/code&gt; (autoMode) row&lt;/li&gt;&lt;/ul&gt;</content>
+  </entry>
   <entry>
     <title>CC v2.1.316 — 8 placemat changes</title>
     <id>https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-316</id>
@@ -137,12 +144,5 @@
     <link href="https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-288"/>
     <updated>2026-10-02T09:00:00Z</updated>
     <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;/code-review --max-findings &amp;lt;n&amp;gt;|all&lt;/code&gt; — report more or fewer findings than the usual limit; sticks until you pass &lt;code&gt;--max-findings default&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;Ctrl F&lt;/code&gt; keybinding — find a session by name in &lt;code&gt;claude agents&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;Alt ↑&lt;/code&gt; / &lt;code&gt;Alt ↓&lt;/code&gt; keybindings — jump between groups in &lt;code&gt;claude agents&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;CLAUDE_CODE_DISABLE_STRUCTURED_OUTPUTS&lt;/code&gt; env var — turns off structured outputs on Mantle or gateways that reject them, fixing session titles, memory recall and prompt hooks&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;claude project purge&lt;/code&gt; renamed to &lt;code&gt;claude purge&lt;/code&gt;; the old form still works and prints a notice&lt;/li&gt;&lt;/ul&gt;</content>
-  </entry>
-  <entry>
-    <title>CC v2.1.287 — 6 placemat changes</title>
-    <id>https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-287</id>
-    <link href="https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-287"/>
-    <updated>2026-10-01T09:00:00Z</updated>
-    <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;/plugin-authoring&lt;/code&gt; — load Claude's reference for writing a mod, a plugin whose JS/TS hooks can draw UI and intercept tool calls&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;allowManagedModsOnly&lt;/code&gt; managed setting — stops a user-installed mod from loading, leaving the rest of its plugin in place&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;"bareElicitationCapability": true&lt;/code&gt; MCP server config field — needed for a server on the MCP 2025-11-25 protocol that sends URL elicitation prompts and stopped connecting after this update&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;CLAUDE_AX_PREPARK_MS=50&lt;/code&gt; env var — restores screen reader mode's old pause before writing a new or changed line&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;CLAUDE_CODE_DISABLE_1M_CONTEXT&lt;/code&gt; — Opus 4.7+ and Fable now default to a 1M context window with no &lt;code&gt;[1m]&lt;/code&gt; model-id suffix on Bedrock, Vertex, Foundry and the Claude apps gateway; this env var keeps 200K&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;alwaysLoad&lt;/code&gt; MCP server config — set explicitly to &lt;code&gt;false&lt;/code&gt; to defer all of that server's tools behind tool search&lt;/li&gt;&lt;/ul&gt;</content>
   </entry>
 </feed>
