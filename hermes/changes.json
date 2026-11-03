@@ -10,18 +10,13 @@
    "entries": [
     {
      "tag": "ADD",
-     "item": "/model reset",
-     "html": "<code>/model reset</code> — drops this session's model pick and returns to <code>config.yaml</code>'s model without losing the conversation"
+     "item": "/model",
+     "html": "<code>/model</code> — <code>reset</code> drops this session's model pick and returns to <code>config.yaml</code>'s model without losing the conversation"
     },
     {
      "tag": "ADD",
-     "item": "hermes cron cancel <job_id_or_name>",
-     "html": "<code>hermes cron cancel &lt;job_id_or_name&gt;</code> — stops a job's run in flight; jobs can now be looked up by name as well as by ID"
-    },
-    {
-     "tag": "ADD",
-     "item": "hermes cron edit --grace-minutes <N>",
-     "html": "<code>hermes cron edit --grace-minutes &lt;N&gt;</code> — per-job catch-up window for a missed occurrence (<code>0</code> disables catch-up)"
+     "item": "hermes cron",
+     "html": "<code>hermes cron</code> — <code>cancel &lt;job_id_or_name&gt;</code> stops a job's run in flight (lookup by name or ID), plus a per-job <code>--grace-minutes &lt;N&gt;</code> missed-run catch-up window"
     },
     {
      "tag": "ADD",
@@ -30,8 +25,8 @@
     },
     {
      "tag": "ADD",
-     "item": "hermes migrate",
-     "html": "<code>hermes migrate</code> / <code>hermes import-agent</code> — add Grok Bot and OpenBot as import sources, alongside OpenClaw, Claude Code, Codex CLI and Cursor"
+     "item": "hermes import-agent",
+     "html": "<code>hermes import-agent</code> (also <code>hermes migrate &lt;agent&gt;</code>) — add Grok Bot and OpenBot as import sources, alongside OpenClaw, Claude Code, Codex CLI and Cursor"
     },
     {
      "tag": "CHG",
