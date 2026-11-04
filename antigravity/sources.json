@@ -15,6 +15,7 @@
     "index": "https://antigravity.google/docs",
     "cli_features": "https://antigravity.google/docs/cli/features",
     "cli_reference": "https://antigravity.google/docs/cli/reference",
+    "cli_settings": "https://antigravity.google/docs/settings?tab=cli",
     "cli_best_practices": "https://antigravity.google/docs/cli/best-practices",
     "skills": "https://antigravity.google/docs/skills",
     "rules": "https://antigravity.google/docs/rules-workflows",
@@ -36,25 +37,31 @@
     "Plugin system supports importing packages from both Gemini and Claude ecosystems (`agy plugin import`)"
   ],
   "inventory": {
-    "source": "https://antigravity.google/docs/cli/reference",
-    "fetched": "2026-10-16",
+    "source": "https://antigravity.google/docs/cli/reference (slash commands); https://antigravity.google/docs/settings?tab=cli (settings keys); https://antigravity.google/docs/hooks (hook events)",
+    "fetched": "2026-11-04",
     "slash": [
       "/add-dir", "/agents", "/boost", "/artifact", "/browser", "/btw",
-      "/changelog", "/clear", "/new", "/config", "/settings", "/context",
-      "/copy", "/credits", "/diff", "/effort", "/exit", "/quit", "/fast",
-      "/feedback", "/fork", "/branch", "/goal", "/help", "/hooks",
-      "/keybindings", "/learn", "/logout", "/mcp", "/model", "/open",
-      "/permissions", "/planning", "/plugin", "/plugins", "/remote-control",
-      "/rename", "/resume", "/switch", "/conversation", "/rewind", "/undo",
-      "/schedule", "/skills", "/statusline", "/tasks", "/teamwork-preview",
-      "/teamwork", "/title", "/usage", "/quota", "/voice", "/record"
+      "/changelog", "/clear", "/new", "/codesearch", "/cs", "/search",
+      "/config", "/settings", "/context", "/copy", "/credits", "/diff",
+      "/effort", "/exit", "/quit", "/feedback", "/fork", "/branch", "/goal",
+      "/grill-me", "/help", "/hooks", "/keybindings", "/learn", "/logout",
+      "/mcp", "/model", "/open", "/permissions", "/plan", "/plugin",
+      "/plugins", "/remote-control", "/rename", "/resume", "/switch",
+      "/conversation", "/rewind", "/undo", "/schedule", "/skills",
+      "/statusline", "/tasks", "/teamwork", "/title", "/usage", "/quota",
+      "/voice", "/record"
     ],
     "settings": [
       "colorScheme", "altScreenMode", "toolPermission", "artifactReviewPolicy",
       "notifications", "showTips", "showFeedbackSurvey", "editor", "editorMode",
       "vimInsertFirst", "allowNonWorkspaceAccess", "enableTerminalSandbox",
-      "useG1Credits", "enableTelemetry", "verbosity", "runningLightSpeed"
+      "useG1Credits", "enableTelemetry", "verbosity", "runningLightSpeed",
+      "agentMode", "queuedMessages", "hideActiveItems", "copyOnSelect",
+      "pickerGrouping", "clearScrollbackOnResize", "disableSlashCommands",
+      "historySize", "model", "modelProvider", "trustedWorkspaces",
+      "useTerminalCursor", "permissions", "statusLine", "title",
+      "sandboxProxy", "customModelsConfig", "gcp"
     ],
-    "hooks": ["PreToolUse", "PostToolUse", "PreInvocation", "PostInvocation", "Stop"]
+    "hooks": ["SessionStart", "PreToolUse", "PostToolUse", "PreInvocation", "PostInvocation", "Stop"]
   }
 }
