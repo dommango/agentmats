@@ -163,8 +163,24 @@
                 <h3>Content / CC Release Updates</h3>
                 <!-- November 2026 -->
                 <details class="month-group" open>
-                    <summary>November 2026 <span class="version-date">v2.1.317</span> <span class="month-count">1 release</span></summary>
+                    <summary>November 2026 <span class="version-date">v2.1.317 – v2.1.318</span> <span class="month-count">2 releases</span></summary>
                     <div class="month-content">
+
+                        <div class="change-section">
+                            <h3 id="rel-2-1-318">CC v2.1.318 <span class="version-date">2026-11-04</span></h3>
+                            <ul class="change-list">
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>/ide</code> — given its first placemat row: manage IDE integrations and show status</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>autoInstallIdeExtension</code> — given its first placemat row: lets <code>/ide</code> install the IDE extension from an external terminal</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry">Claude Code no longer installs or updates the IDE extension on its own when started in an IDE terminal; use <code>/ide</code> from an outside terminal, or your editor's extensions view, instead</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>switchModelsOnFlag</code> — subagents now stop instead of switching models when set to "Ask each time"; noted on the existing row</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>deniedMcpServers</code> — a URL entry now also blocks a matching Anthropic-provided server and connectors in cloud sessions and on self-hosted runners; noted on the existing row</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>/permissions</code> — rule details, built-in rules, and the delete confirmation now use the standard dialog; Ctrl+C twice there goes back or cancels instead of quitting; noted on the existing row</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>/claude-api</code> — <code>managed-agents-onboard</code> now gives a new agent's built-in tools, and a quickstart template's MCP tools, the <code>auto</code> permission policy by default; noted on the existing row</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>claude auth status</code> / <code>--output-format json</code> — gained <code>loginExpiresAt</code> / <code>credential_expires_at</code> fields showing when a stored claude.ai sign-in ends; noted on the existing rows</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>claude -p "q"</code> text output gets a one-line stderr warning starting 10 days before a stored claude.ai sign-in ends; noted on the existing row</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>claude self-hosted-runner orchestrator</code> — its spawn-runner hook's environment now includes <code>CLAUDE_RUNNER_SPAWN_REASON</code>, naming why Anthropic sent the request; noted on the existing row</span></li>
+                            </ul>
+                        </div>
 
                         <div class="change-section">
                             <h3 id="rel-2-1-317">CC v2.1.317 <span class="version-date">2026-11-03</span></h3>
@@ -1774,7 +1790,7 @@
         </div>
 
         <footer class="global-footer">
-            Template v1.2 · Content synced 2026-11-03<br>
+            Template v1.2 · Content synced 2026-11-04<br>
             <span class="disclaimer">Unofficial community reference — not affiliated with or endorsed by Anthropic.
             Condensed from the official docs; always confirm against
             <a href="https://code.claude.com/docs" target="_blank" rel="noopener noreferrer">code.claude.com/docs</a>.</span><br>

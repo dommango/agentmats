@@ -1,7 +1,65 @@
 {
- "generated": "2026-11-03",
- "latest": "v2.1.317",
+ "generated": "2026-11-04",
+ "latest": "v2.1.318",
  "releases": [
+  {
+   "version": "v2.1.318",
+   "label": "CC v2.1.318",
+   "date": "2026-11-04",
+   "id": "rel-2-1-318",
+   "entries": [
+    {
+     "tag": "ADD",
+     "item": "/ide",
+     "html": "<code>/ide</code> — given its first placemat row: manage IDE integrations and show status"
+    },
+    {
+     "tag": "ADD",
+     "item": "autoInstallIdeExtension",
+     "html": "<code>autoInstallIdeExtension</code> — given its first placemat row: lets <code>/ide</code> install the IDE extension from an external terminal"
+    },
+    {
+     "tag": "CHG",
+     "item": "/ide",
+     "html": "Claude Code no longer installs or updates the IDE extension on its own when started in an IDE terminal; use <code>/ide</code> from an outside terminal, or your editor's extensions view, instead"
+    },
+    {
+     "tag": "CHG",
+     "item": "switchModelsOnFlag",
+     "html": "<code>switchModelsOnFlag</code> — subagents now stop instead of switching models when set to \"Ask each time\"; noted on the existing row"
+    },
+    {
+     "tag": "CHG",
+     "item": "deniedMcpServers",
+     "html": "<code>deniedMcpServers</code> — a URL entry now also blocks a matching Anthropic-provided server and connectors in cloud sessions and on self-hosted runners; noted on the existing row"
+    },
+    {
+     "tag": "CHG",
+     "item": "/permissions",
+     "html": "<code>/permissions</code> — rule details, built-in rules, and the delete confirmation now use the standard dialog; Ctrl+C twice there goes back or cancels instead of quitting; noted on the existing row"
+    },
+    {
+     "tag": "CHG",
+     "item": "/claude-api",
+     "html": "<code>/claude-api</code> — <code>managed-agents-onboard</code> now gives a new agent's built-in tools, and a quickstart template's MCP tools, the <code>auto</code> permission policy by default; noted on the existing row"
+    },
+    {
+     "tag": "ADD",
+     "item": "claude auth status",
+     "html": "<code>claude auth status</code> / <code>--output-format json</code> — gained <code>loginExpiresAt</code> / <code>credential_expires_at</code> fields showing when a stored claude.ai sign-in ends; noted on the existing rows"
+    },
+    {
+     "tag": "ADD",
+     "item": "claude -p \"q\"",
+     "html": "<code>claude -p \"q\"</code> text output gets a one-line stderr warning starting 10 days before a stored claude.ai sign-in ends; noted on the existing row"
+    },
+    {
+     "tag": "CHG",
+     "item": "claude self-hosted-runner orchestrator",
+     "html": "<code>claude self-hosted-runner orchestrator</code> — its spawn-runner hook's environment now includes <code>CLAUDE_RUNNER_SPAWN_REASON</code>, naming why Anthropic sent the request; noted on the existing row"
+    }
+   ]
+  },
   {
    "version": "v2.1.317",
    "label": "CC v2.1.317",
