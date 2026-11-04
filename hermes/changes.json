@@ -1,7 +1,25 @@
 {
- "generated": "2026-11-02",
- "latest": "v0.22.6",
+ "generated": "2026-11-03",
+ "latest": "v0.22.7",
  "releases": [
+  {
+   "version": "v0.22.7",
+   "label": "Hermes Agent v0.22.7",
+   "date": "2026-11-03",
+   "id": "rel-0-22-7",
+   "entries": [
+    {
+     "tag": "ADD",
+     "item": "/autoprune",
+     "html": "<code>/autoprune</code> — <code>[on|off|later|status]</code> decides automatic deletion of old ended sessions (off by default); saves to <code>sessions.auto_prune</code>"
+    },
+    {
+     "tag": "CHG",
+     "item": null,
+     "html": "v0.22.7 is a rollup patch release covering ~174 PRs since v0.22.6; curated notes for the rest of this window ship with v0.23.0"
+    }
+   ]
+  },
   {
    "version": "v0.22.6",
    "label": "Hermes Agent v0.22.6",

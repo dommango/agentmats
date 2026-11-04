@@ -51,7 +51,7 @@
             <span class="header-tagline">Unofficial · auto-updated reference</span>
         </div>
         <div class="global-controls">
-            <span class="release-tag">As of release: v0.22.6 (2026.11.2)</span>
+            <span class="release-tag">As of release: v0.22.7 (2026.11.3)</span>
             <a href="changelog.html" class="header-link">Changelog →</a>
             <a href="feed.xml" class="header-link" title="Subscribe to placemat changes (RSS)">RSS</a>
             <button type="button" class="header-link print-btn" id="printBtn" title="Print or save as PDF (Ctrl P)">⎙ Print</button>
@@ -88,7 +88,7 @@
 
         <div class="print-head" aria-hidden="true">
             <span class="print-head-title">Hermes Agent <b>PLACEMAT</b></span>
-            <span>As of release v0.22.6 (2026.11.2)</span>
+            <span>As of release v0.22.7 (2026.11.3)</span>
             <span>■ = new &nbsp; □ = unverified</span>
             <span>dommango.github.io/agentmats/hermes</span>
         </div>
@@ -184,6 +184,7 @@
                     <tr class="search-item" id="i-title"><td><a class="row-link" href="#i-title" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/title</code></td><td class="desc">Set a title for the current session</td></tr>
                     <tr class="search-item" id="i-undo"><td><a class="row-link" href="#i-undo" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/undo</code> / <code>/retry</code></td><td class="desc">Remove the last exchange, or resend the last message</td></tr>
                     <tr class="search-item" id="i-prompt"><td><a class="row-link" href="#i-prompt" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/prompt</code> / <code>/compose</code></td><td class="desc">Compose the next prompt in <code>$EDITOR</code> as markdown</td></tr>
+                    <tr class="search-item" id="i-autoprune"><td><a class="row-link" href="#i-autoprune" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/autoprune</code></td><td class="desc"><span class="summary">Decide automatic deletion of old ended sessions</span> <button type="button" class="notes-btn" aria-expanded="false">+2</button><ul class="notes" hidden><li>Hermes asks once when the disk holding its session database runs low; <code>on</code>/<code>off</code> answer and save the choice, <code>later</code> reminds you in a week, bare <code>status</code> shows the current setting.</li><li>Off by default; saves to <code>sessions.auto_prune</code> in <code>config.yaml</code>.</li></ul></td></tr>
                     <tr class="search-item" id="i-quit"><td><a class="row-link" href="#i-quit" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>/quit</code> / <code>/exit</code></td><td class="desc">Exit the CLI</td></tr>
                 </table>
             </details>
@@ -461,6 +462,7 @@
                     <tr class="search-item" id="i-compression-prepare-ahead"><td><a class="row-link" href="#i-compression-prepare-ahead" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>compression.prepare_ahead</code></td><td class="desc">Opt-in: write the next compaction summary in the background before the trigger fires</td></tr>
                     <tr class="search-item" id="i-context-2"><td><a class="row-link" href="#i-context-2" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>context</code></td><td class="desc">Context engine, pressure warnings and file truncation limits</td></tr>
                     <tr class="search-item" id="i-database"><td><a class="row-link" href="#i-database" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>database</code></td><td class="desc">Database settings for sessions and state</td></tr>
+                    <tr class="search-item" id="i-sessions-auto-prune"><td><a class="row-link" href="#i-sessions-auto-prune" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>sessions.auto_prune</code></td><td class="desc">Delete old ended sessions automatically; set by <code>/autoprune</code>, off by default</td></tr>
                     <tr class="search-item" id="i-updates"><td><a class="row-link" href="#i-updates" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>updates</code></td><td class="desc">Update behaviour</td></tr>
                 </table>
             </details>
@@ -607,7 +609,7 @@
         <div class="no-results search-exclude" id="noResults">No matches — clear search to see everything.</div>
 
         <footer class="global-footer">
-            Template v1.0 · Content synced 2026-11-02<br>
+            Template v1.0 · Content synced 2026-11-03<br>
             <span class="disclaimer">Unofficial community reference — not affiliated with or endorsed by Nous Research.
             Condensed from the official docs; always confirm against
             <a href="https://hermes-agent.nousresearch.com/docs/" target="_blank" rel="noopener noreferrer">hermes-agent.nousresearch.com/docs</a>.</span><br>
