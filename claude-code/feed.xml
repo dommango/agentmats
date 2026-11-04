@@ -4,7 +4,14 @@
   <link href="https://dommango.github.io/agentmats/claude-code/"/>
   <link rel="self" href="https://dommango.github.io/agentmats/claude-code/feed.xml"/>
   <id>https://dommango.github.io/agentmats/claude-code/</id>
-  <updated>2026-11-03T09:00:00Z</updated>
+  <updated>2026-11-04T09:00:00Z</updated>
+  <entry>
+    <title>CC v2.1.318 — 10 placemat changes</title>
+    <id>https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-318</id>
+    <link href="https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-318"/>
+    <updated>2026-11-04T09:00:00Z</updated>
+    <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;/ide&lt;/code&gt; — given its first placemat row: manage IDE integrations and show status&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;autoInstallIdeExtension&lt;/code&gt; — given its first placemat row: lets &lt;code&gt;/ide&lt;/code&gt; install the IDE extension from an external terminal&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; Claude Code no longer installs or updates the IDE extension on its own when started in an IDE terminal; use &lt;code&gt;/ide&lt;/code&gt; from an outside terminal, or your editor's extensions view, instead&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;switchModelsOnFlag&lt;/code&gt; — subagents now stop instead of switching models when set to "Ask each time"; noted on the existing row&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;deniedMcpServers&lt;/code&gt; — a URL entry now also blocks a matching Anthropic-provided server and connectors in cloud sessions and on self-hosted runners; noted on the existing row&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;/permissions&lt;/code&gt; — rule details, built-in rules, and the delete confirmation now use the standard dialog; Ctrl+C twice there goes back or cancels instead of quitting; noted on the existing row&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;/claude-api&lt;/code&gt; — &lt;code&gt;managed-agents-onboard&lt;/code&gt; now gives a new agent's built-in tools, and a quickstart template's MCP tools, the &lt;code&gt;auto&lt;/code&gt; permission policy by default; noted on the existing row&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;claude auth status&lt;/code&gt; / &lt;code&gt;--output-format json&lt;/code&gt; — gained &lt;code&gt;loginExpiresAt&lt;/code&gt; / &lt;code&gt;credential_expires_at&lt;/code&gt; fields showing when a stored claude.ai sign-in ends; noted on the existing rows&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;claude -p "q"&lt;/code&gt; text output gets a one-line stderr warning starting 10 days before a stored claude.ai sign-in ends; noted on the existing row&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;claude self-hosted-runner orchestrator&lt;/code&gt; — its spawn-runner hook's environment now includes &lt;code&gt;CLAUDE_RUNNER_SPAWN_REASON&lt;/code&gt;, naming why Anthropic sent the request; noted on the existing row&lt;/li&gt;&lt;/ul&gt;</content>
+  </entry>
   <entry>
     <title>CC v2.1.317 — 6 placemat changes</title>
     <id>https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-317</id>
@@ -137,12 +144,5 @@
     <link href="https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-290"/>
     <updated>2026-10-05T09:00:00Z</updated>
     <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;claude attach &amp;lt;id|name&amp;gt;&lt;/code&gt; / &lt;code&gt;claude logs &amp;lt;id|name&amp;gt;&lt;/code&gt; — part of a running background session's name now works in place of its id&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;CLAUDE_CODE_WEB_SEARCH_REFILLS_PER_HOUR&lt;/code&gt; env var — sets the hourly refill rate for an interactive session's WebSearch budget; &lt;code&gt;0&lt;/code&gt; turns off refilling&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;CLAUDE_CODE_MAX_WEB_SEARCHES_PER_SESSION&lt;/code&gt; — in an interactive session this budget now refills over time instead of ending for good once spent&lt;/li&gt;&lt;/ul&gt;</content>
-  </entry>
-  <entry>
-    <title>CC v2.1.288 — 5 placemat changes</title>
-    <id>https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-288</id>
-    <link href="https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-288"/>
-    <updated>2026-10-02T09:00:00Z</updated>
-    <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;/code-review --max-findings &amp;lt;n&amp;gt;|all&lt;/code&gt; — report more or fewer findings than the usual limit; sticks until you pass &lt;code&gt;--max-findings default&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;Ctrl F&lt;/code&gt; keybinding — find a session by name in &lt;code&gt;claude agents&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;Alt ↑&lt;/code&gt; / &lt;code&gt;Alt ↓&lt;/code&gt; keybindings — jump between groups in &lt;code&gt;claude agents&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;CLAUDE_CODE_DISABLE_STRUCTURED_OUTPUTS&lt;/code&gt; env var — turns off structured outputs on Mantle or gateways that reject them, fixing session titles, memory recall and prompt hooks&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;claude project purge&lt;/code&gt; renamed to &lt;code&gt;claude purge&lt;/code&gt;; the old form still works and prints a notice&lt;/li&gt;&lt;/ul&gt;</content>
   </entry>
 </feed>
