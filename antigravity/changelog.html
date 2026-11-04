@@ -162,9 +162,24 @@
                 <h3>Content / Antigravity CLI Releases</h3>
                 <!-- October 2026 -->
                 <details class="month-group" open>
-                    <summary>October 2026 <span class="version-date">v1.2.15 – v1.4.10</span> <span class="month-count">21 releases</span></summary>
+                    <summary>October 2026 <span class="version-date">v1.2.15 – v1.4.12</span> <span class="month-count">23 releases</span></summary>
                     <div class="month-content">
 
+                        <div class="change-section">
+                            <h3 id="rel-1-4-12">Antigravity CLI v1.4.12 <span class="version-date">2026-10-30</span></h3>
+                            <ul class="change-list">
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>plugins/&lt;name&gt;/auth.json</code> (<code>card-hooks</code>) — a plugin's API key entries can mark a key <code>"optional": true</code>, so unset keys for services with a free tier make unauthenticated requests at the limited rate instead of failing with a <code>401</code> error or a sign-in prompt</span></li>
+                            </ul>
+                        </div>
+                        <div class="change-section">
+                            <h3 id="rel-1-4-11">Antigravity CLI v1.4.11 <span class="version-date">2026-10-30</span></h3>
+                            <ul class="change-list">
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>PreInvocation</code> (<code>card-hooks</code>) — noted a new <code>terminationBehavior</code> field: returning <code>"terminate"</code> stops the turn before the model is called, and an <code>errorMessage</code> can carry a <code>userMessage</code> back to you without reaching the model</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>--output-format &lt;fmt&gt;</code> (<code>card-cli</code>) — noted a new <code>finished_reason</code> field on <code>json</code>/<code>stream-json</code> results explaining why a turn ended early</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>/plugin</code> / <code>/plugins</code> (<code>card-slash-tools</code>) — noted the Discover tab's long shelves now showing their first 6 plugins with an expand/collapse control and <code>[</code>/<code>]</code> shelf navigation</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>agy plugin import claude</code> (<code>card-hooks</code>) — fixed this failing to find plugins installed from a Claude Code marketplace, and fixed imported plugins losing their remote MCP servers and <code>.mcp.json</code>-sourced servers</span></li>
+                            </ul>
+                        </div>
                         <div class="change-section">
                             <h3 id="rel-1-4-10">Antigravity CLI v1.4.10 <span class="version-date">2026-10-29</span></h3>
                             <ul class="change-list">
@@ -574,6 +589,9 @@
                     <li><span class="tag tag-fix">FIX</span><span class="entry"><span class="summary">Sync pipeline follows the vendor's changelog redirect to its new Starlight docs page</span></span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>The vendor rebuilt the changelog as an Astro/Starlight docs page at <code>/docs/changelog</code> and turned <code>/changelog</code> into a <code>&lt;meta http-equiv="refresh"&gt;</code> stub, which <code>curl -L</code> does not follow; the old <code>data-list-panel="cli"</code> grid markup is also gone, replaced by a hidden <code>id="panel-cli"</code> tab panel of <code>&lt;article id="rel-cli-X.Y.Z"&gt;</code> rows. <code>sources.json</code> and <code>PIPELINE.md</code> now target the real URL and the new markup; caught while syncing 1.2.12.</li></ul></li>
                     <li><span class="tag tag-fix">FIX</span><span class="entry"><span class="summary">Regenerated <code>versions/v1.0.html</code> from the corrected page</span></span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>The original snapshot was built during rebuild and never published; this is the only self-contained archive of v1.0.</li></ul></li>
                     <li><span class="tag tag-fix">FIX</span><span class="entry">Replaced absolute <code>agent-placemats</code> URLs with relative paths on the <code>agentmats</code> origin, and defined <code>.scope-note</code>/<code>.since-drawer-tools</code> generically in <code>shared/placemat.css</code></span></li>
+                    <li><span class="tag tag-fix">FIX</span><span class="entry"><span class="summary">Corrected <code>/planning</code> to <code>/plan</code>, the exact near-miss this placemat's own build notes warned about, and re-synced the slash command inventory</span></span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>The 2026-11-04 re-fetch of <code>cli/reference</code>'s core slash command table found no <code>/planning</code>, <code>/fast</code>, or <code>/teamwork-preview</code> — the first is corrected to the real <code>/plan [task]</code>, and the other two are marked <code class="unverified">unverified</code> pending a source that confirms them. The same table added two genuinely new rows, <code>/codesearch</code> and <code>/grill-me</code>.</li></ul></li>
+                    <li><span class="tag tag-fix">FIX</span><span class="entry"><span class="summary">Sync pipeline now sources settings keys from <code>docs/settings?tab=cli</code>, not <code>cli/reference</code></span></span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li><code>cli/reference</code>'s "Configuration keys (settings.json)" section no longer lists keys inline; it now links to a CLI settings page, itself a hidden <code>role="tabpanel"</code> behind an "Antigravity CLI" tab — same hidden-panel shape as the changelog's product tabs. <code>sources.json</code> and <code>PIPELINE.md</code> now target it, which also confirmed <code>agentMode</code> as a settings key and promoted <code>queuedMessages</code> out of <code>unverified</code>.</li></ul></li>
+                    <li><span class="tag tag-add">ADD</span><span class="entry"><code>SessionStart</code> (<code>card-hooks</code>) — a sixth hook event, documented at <code>docs/hooks</code> but missing from this placemat and from <code>PIPELINE.md</code>'s hardcoded five-event list until the 2026-11-04 sync found it</span></li>
                 </ul>
             </div>
         </div>

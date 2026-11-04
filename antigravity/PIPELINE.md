@@ -99,11 +99,19 @@ shipped. Step 11 closes this issue once a later run reaches a source again.
 - **Two-tier rules, not a walked hierarchy.** Global rules live in `~/.gemini/GEMINI.md`;
   workspace rules live in `.agents/rules/*.md` (12,000 chars each). Do not assume an
   AGENTS.md-style walk-up-to-root unless a fresh vendor fetch confirms it.
-- **`cli/reference` is the only source for slash commands, settings keys, hook events,
-  and keybindings** — never a sibling placemat, never this machine's `~/.agents/skills`,
-  never the CLI you are running in. Settings keys are camelCase (`toolPermission`, not
-  `tool_permission`); hook events are `PreToolUse`/`PostToolUse`/`PreInvocation`/
-  `PostInvocation`/`Stop` — nothing else.
+- **`cli/reference` is the only source for slash commands and keybindings** — never a
+  sibling placemat, never this machine's `~/.agents/skills`, never the CLI you are
+  running in. As of the 2026-11-04 sync, `cli/reference`'s own "Configuration keys
+  (settings.json)" section no longer lists the keys inline — it just links to
+  `docs/settings?tab=cli` ("CLI settings"), which is now the source for settings keys.
+  That page renders its CLI content inside a hidden `role="tabpanel"` (the tab labeled
+  "Antigravity CLI"), same gotcha as the changelog's tab panels below — fetch the raw
+  HTML and find that panel's `id`, don't trust whatever renders by default.
+  Settings keys are camelCase (`toolPermission`, not `tool_permission`). Hook events
+  are sourced from `docs/hooks` and are `SessionStart`/`PreToolUse`/`PostToolUse`/
+  `PreInvocation`/`PostInvocation`/`Stop` — nothing else (`SessionStart` was missing
+  from this list before the 2026-11-04 sync found it documented; re-check `docs/hooks`
+  rather than trusting this list to stay exhaustive).
 - **CLI flags/subcommands come from `agy --help`, not the docs site** — the reference
   page has no flags/subcommands section. Re-run `agy --help` and diff against the
   `card-cli` rows on every sync.

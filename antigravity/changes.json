@@ -1,7 +1,48 @@
 {
- "generated": "2026-10-29",
- "latest": "v1.4.10",
+ "generated": "2026-10-30",
+ "latest": "v1.4.12",
  "releases": [
+  {
+   "version": "v1.4.12",
+   "label": "Antigravity CLI v1.4.12",
+   "date": "2026-10-30",
+   "id": "rel-1-4-12",
+   "entries": [
+    {
+     "tag": "ADD",
+     "item": "plugins/<name>/auth.json",
+     "html": "<code>plugins/&lt;name&gt;/auth.json</code> (<code>card-hooks</code>) — a plugin's API key entries can mark a key <code>\"optional\": true</code>, so unset keys for services with a free tier make unauthenticated requests at the limited rate instead of failing with a <code>401</code> error or a sign-in prompt"
+    }
+   ]
+  },
+  {
+   "version": "v1.4.11",
+   "label": "Antigravity CLI v1.4.11",
+   "date": "2026-10-30",
+   "id": "rel-1-4-11",
+   "entries": [
+    {
+     "tag": "CHG",
+     "item": "PreInvocation",
+     "html": "<code>PreInvocation</code> (<code>card-hooks</code>) — noted a new <code>terminationBehavior</code> field: returning <code>\"terminate\"</code> stops the turn before the model is called, and an <code>errorMessage</code> can carry a <code>userMessage</code> back to you without reaching the model"
+    },
+    {
+     "tag": "CHG",
+     "item": "--output-format <fmt>",
+     "html": "<code>--output-format &lt;fmt&gt;</code> (<code>card-cli</code>) — noted a new <code>finished_reason</code> field on <code>json</code>/<code>stream-json</code> results explaining why a turn ended early"
+    },
+    {
+     "tag": "CHG",
+     "item": "/plugin",
+     "html": "<code>/plugin</code> / <code>/plugins</code> (<code>card-slash-tools</code>) — noted the Discover tab's long shelves now showing their first 6 plugins with an expand/collapse control and <code>[</code>/<code>]</code> shelf navigation"
+    },
+    {
+     "tag": "FIX",
+     "item": "agy plugin import claude",
+     "html": "<code>agy plugin import claude</code> (<code>card-hooks</code>) — fixed this failing to find plugins installed from a Claude Code marketplace, and fixed imported plugins losing their remote MCP servers and <code>.mcp.json</code>-sourced servers"
+    }
+   ]
+  },
   {
    "version": "v1.4.10",
    "label": "Antigravity CLI v1.4.10",
