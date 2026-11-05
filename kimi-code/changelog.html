@@ -175,7 +175,7 @@
                                 <li><span class="tag tag-add">ADD</span><span class="entry"><code>[workspace] require_trust</code> &mdash; set to <code>false</code> to treat every workspace as trusted and skip the startup trust prompt; takes effect on <code>/reload</code></span></li>
                                 <li><span class="tag tag-change">CHG</span><span class="entry"><code>[secondary_model] force</code> &mdash; now ignored with a warning; a lone <code>default_model</code> already pins every subagent to it, and the pool no longer offers an implicit <code>primary</code> choice &mdash; list the main model explicitly to use it</span></li>
                                 <li><span class="tag tag-change">CHG</span><span class="entry"><code>[database] global_search</code> &mdash; now defaults to <code>false</code>; the full-text search index does not build and <code>POST /api/v1/search</code> reports it unavailable until enabled (<code>KIMI_CODE_GLOBAL_SEARCH</code>)</span></li>
-                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>/fork</code> / <code>kimi fork</code> &mdash; can now fork a still-running session, and fork from a selected historical turn instead of only the latest</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>/fork</code> &mdash; can now fork a still-running session, and fork from a selected historical turn instead of only the latest</span></li>
                             </ul>
                         </div>
 

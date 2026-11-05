@@ -41,7 +41,7 @@
     {
      "tag": "ADD",
      "item": "/fork",
-     "html": "<code>/fork</code> / <code>kimi fork</code> &mdash; can now fork a still-running session, and fork from a selected historical turn instead of only the latest"
+     "html": "<code>/fork</code> &mdash; can now fork a still-running session, and fork from a selected historical turn instead of only the latest"
     }
    ]
   },
