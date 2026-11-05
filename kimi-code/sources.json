@@ -39,8 +39,8 @@
     "config-files.md documents nested TOML tables ([models.\"<alias>\"], [[hooks]], [[permission.rules]], etc.) whose leaf keys only ever appear dotted under their table in this inventory; a bare leaf name (e.g. \"command\") is only valid in that dotted form"
   ],
   "inventory": {
-    "source": "https://moonshotai.github.io/kimi-code/en/reference/slash-commands.md, https://moonshotai.github.io/kimi-code/en/reference/kimi-command.md, https://moonshotai.github.io/kimi-code/en/configuration/config-files.md, https://moonshotai.github.io/kimi-code/en/configuration/env-vars.md, https://moonshotai.github.io/kimi-code/en/customization/hooks.md",
-    "fetched": "2026-10-29",
+    "source": "https://moonshotai.github.io/kimi-code/en/reference/slash-commands.md, https://moonshotai.github.io/kimi-code/en/reference/kimi-command.md, https://moonshotai.github.io/kimi-code/en/configuration/config-files.md, https://moonshotai.github.io/kimi-code/en/configuration/env-vars.md, https://moonshotai.github.io/kimi-code/en/customization/hooks.md, https://moonshotai.github.io/kimi-code/en/customization/skills.md, https://moonshotai.github.io/kimi-code/en/guides/remote-environment.md",
+    "fetched": "2026-11-05",
     "note": "Extracted from the vendor's own reference/configuration/customization docs (raw .md). release-notes/changelog.md was used only to confirm the current release, never as a source of surface facts.",
     "slash": [
       "/login", "/logout", "/provider", "/model", "/secondary-model", "/subagent-model",
@@ -89,8 +89,13 @@
       "tools.enabled", "tools.disabled",
       "read.default_max_chars", "read.max_chars",
       "image.max_edge_px", "image.read_byte_budget",
-      "database.base", "database.search",
+      "database.base", "database.search", "database.global_search",
       "watch.enabled",
+      "environments.default", "environments.<id>.type", "environments.<id>.host",
+      "environments.<id>.container", "environments.<id>.context",
+      "environments.<id>.command", "environments.<id>.args", "environments.<id>.env",
+      "environments.<id>.remoteBin", "environments.<id>.defaultCwd",
+      "workspace.require_trust",
       "services.moonshot_search.base_url", "services.moonshot_search.api_key",
       "services.moonshot_search.oauth", "services.moonshot_search.custom_headers",
       "services.moonshot_fetch.base_url", "services.moonshot_fetch.api_key",
