@@ -1,7 +1,50 @@
 {
- "generated": "2026-10-30",
- "latest": "v2.4.1",
+ "generated": "2026-11-04",
+ "latest": "v2.5.0",
  "releases": [
+  {
+   "version": "v2.5.0",
+   "label": "Kimi Code v2.5.0",
+   "date": "2026-11-04",
+   "id": "rel-2-5-0",
+   "entries": [
+    {
+     "tag": "ADD",
+     "item": null,
+     "html": "Switching the model while the agent is working &mdash; the change applies from the next turn; a turn that already started calling the model keeps its own settings"
+    },
+    {
+     "tag": "ADD",
+     "item": "[environments]",
+     "html": "<code>[environments]</code> / <code>--environment &lt;id&gt;</code> / <code>--environment-cwd &lt;path&gt;</code> &mdash; create sessions whose tools run on a configured SSH, Docker, or custom-launcher remote environment"
+    },
+    {
+     "tag": "ADD",
+     "item": null,
+     "html": "Project-level Skills now merge across every configured source directory instead of only the primary one; the primary directory still wins name conflicts"
+    },
+    {
+     "tag": "ADD",
+     "item": "[workspace] require_trust",
+     "html": "<code>[workspace] require_trust</code> &mdash; set to <code>false</code> to treat every workspace as trusted and skip the startup trust prompt; takes effect on <code>/reload</code>"
+    },
+    {
+     "tag": "CHG",
+     "item": "[secondary_model] force",
+     "html": "<code>[secondary_model] force</code> &mdash; now ignored with a warning; a lone <code>default_model</code> already pins every subagent to it, and the pool no longer offers an implicit <code>primary</code> choice &mdash; list the main model explicitly to use it"
+    },
+    {
+     "tag": "CHG",
+     "item": "[database] global_search",
+     "html": "<code>[database] global_search</code> &mdash; now defaults to <code>false</code>; the full-text search index does not build and <code>POST /api/v1/search</code> reports it unavailable until enabled (<code>KIMI_CODE_GLOBAL_SEARCH</code>)"
+    },
+    {
+     "tag": "ADD",
+     "item": "/fork",
+     "html": "<code>/fork</code> &mdash; can now fork a still-running session, and fork from a selected historical turn instead of only the latest"
+    }
+   ]
+  },
   {
    "version": "v2.4.1",
    "label": "Kimi Code v2.4.1",

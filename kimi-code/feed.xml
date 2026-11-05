@@ -4,7 +4,14 @@
   <link href="https://dommango.github.io/agentmats/kimi-code/"/>
   <link rel="self" href="https://dommango.github.io/agentmats/kimi-code/feed.xml"/>
   <id>https://dommango.github.io/agentmats/kimi-code/</id>
-  <updated>2026-10-30T09:00:00Z</updated>
+  <updated>2026-11-04T09:00:00Z</updated>
+  <entry>
+    <title>Kimi Code v2.5.0 — 7 placemat changes</title>
+    <id>https://dommango.github.io/agentmats/kimi-code/changelog.html#rel-2-5-0</id>
+    <link href="https://dommango.github.io/agentmats/kimi-code/changelog.html#rel-2-5-0"/>
+    <updated>2026-11-04T09:00:00Z</updated>
+    <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; Switching the model while the agent is working &amp;mdash; the change applies from the next turn; a turn that already started calling the model keeps its own settings&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;[environments]&lt;/code&gt; / &lt;code&gt;--environment &amp;lt;id&amp;gt;&lt;/code&gt; / &lt;code&gt;--environment-cwd &amp;lt;path&amp;gt;&lt;/code&gt; &amp;mdash; create sessions whose tools run on a configured SSH, Docker, or custom-launcher remote environment&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; Project-level Skills now merge across every configured source directory instead of only the primary one; the primary directory still wins name conflicts&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;[workspace] require_trust&lt;/code&gt; &amp;mdash; set to &lt;code&gt;false&lt;/code&gt; to treat every workspace as trusted and skip the startup trust prompt; takes effect on &lt;code&gt;/reload&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;[secondary_model] force&lt;/code&gt; &amp;mdash; now ignored with a warning; a lone &lt;code&gt;default_model&lt;/code&gt; already pins every subagent to it, and the pool no longer offers an implicit &lt;code&gt;primary&lt;/code&gt; choice &amp;mdash; list the main model explicitly to use it&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;[database] global_search&lt;/code&gt; &amp;mdash; now defaults to &lt;code&gt;false&lt;/code&gt;; the full-text search index does not build and &lt;code&gt;POST /api/v1/search&lt;/code&gt; reports it unavailable until enabled (&lt;code&gt;KIMI_CODE_GLOBAL_SEARCH&lt;/code&gt;)&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;/fork&lt;/code&gt; &amp;mdash; can now fork a still-running session, and fork from a selected historical turn instead of only the latest&lt;/li&gt;&lt;/ul&gt;</content>
+  </entry>
   <entry>
     <title>Kimi Code v2.4.1 — 2 placemat changes</title>
     <id>https://dommango.github.io/agentmats/kimi-code/changelog.html#rel-2-4-1</id>
