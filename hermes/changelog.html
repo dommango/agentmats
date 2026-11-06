@@ -163,8 +163,26 @@
                 <h3>Content / Hermes Agent Releases</h3>
                 <!-- November 2026 -->
                 <details class="month-group" open>
-                    <summary>November 2026 <span class="version-date">v0.22.6 – v0.22.7</span> <span class="month-count">2 releases</span></summary>
+                    <summary>November 2026 <span class="version-date">v0.22.6 – v0.23.0</span> <span class="month-count">3 releases</span></summary>
                     <div class="month-content">
+
+                        <div class="change-section">
+                            <h3 id="rel-0-23-0">Hermes Agent v0.23.0 — The Hearth Release <span class="version-date">2026-11-05</span></h3>
+                            <ul class="change-list">
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>/rewind</code> — <code>[N | fork N]</code> edits an earlier prompt directly and trims the session there, or forks a new session before it, leaving the original untouched; also <code>Esc Esc</code> on an idle, empty prompt in the classic CLI</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>delegation.backend</code> settings key — pluggable subagent delegation becomes core; <code>default</code> needs no plugin, while <code>model_map</code> and <code>profile_routes</code>, plus a session <code>/delegation &lt;backend&gt;</code> switch, come from the official <code>advanced-delegation</code> plugin</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>cron.catch_up_missed</code> settings key and a per-job <code>cron edit &lt;job&gt; --catch-up on|off</code> flag — a separate on/off switch for missed-run catch-up, distinct from the <code>--grace-minutes</code> window; <code>cron cancel</code> also takes <code>--reason &lt;text&gt;</code></span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>hermes sessions</code> — <code>optimize-storage</code> migrates the full-text search index to the compact v23 layout; <code>refresh-prompts</code> rebuilds a continuing session's stored system prompt from the current <code>SOUL.md</code></span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>hermes gateway migrate</code> folds per-profile standalone gateways onto the single host gateway every client (CLI, TUI, Desktop, editor integrations, bots, cron) now shares; there is no <code>--standalone</code> mode left</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry">MCP server entries can declare <code>tool_costs</code>, <code>spend_limit</code> and <code>cost_unit</code>; a costed call that would cross the per-chat budget asks first even under <code>trust: full</code> or YOLO mode</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry">The plugin catalog passed 1,050 entries; a new Verified tier joins Official and Community</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry">Pasted or tool-generated images now display inline in supported terminals</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry">Built-in browser-automation tools were replaced by a single <code>browser_exec</code> tool</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry">Built-in skills dropped from 58 to 44 as the Word, PowerPoint and Excel skills merged into one <code>microsoft-office</code> skill</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry">Cron jobs sharing a profile reuse prompt caches, one-shot runs spend fewer tokens on their final answer, and file edits return faster with LSP enabled</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry">v0.23.0 rolls up and fully documents the v0.22.1–v0.22.7 patch releases (Oct 14 – Nov 3), whose notes were previously deferred to this minor</span></li>
+                            </ul>
+                        </div>
 
                         <div class="change-section">
                             <h3 id="rel-0-22-7">Hermes Agent v0.22.7 <span class="version-date">2026-11-03</span></h3>
