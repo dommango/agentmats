@@ -30,8 +30,8 @@
     },
     {
      "tag": "CHG",
-     "item": "hermes gateway migrate",
-     "html": "<code>hermes gateway migrate</code> folds per-profile standalone gateways onto the single host gateway every client (CLI, TUI, Desktop, editor integrations, bots, cron) now shares; there is no <code>--standalone</code> mode left"
+     "item": "hermes gateway",
+     "html": "<code>hermes gateway</code> — <code>migrate</code> folds per-profile standalone gateways onto the single host gateway every client (CLI, TUI, Desktop, editor integrations, bots, cron) now shares; there is no <code>--standalone</code> mode left"
     },
     {
      "tag": "CHG",
