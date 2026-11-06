@@ -161,8 +161,27 @@
 
             <div class="change-section">
                 <h3>Content / Codex CLI Releases</h3>
-                <!-- October 2026 -->
+                <!-- November 2026 -->
                 <details class="month-group" open>
+                    <summary>November 2026 <span class="version-date">v0.167.0</span> <span class="month-count">1 release</span></summary>
+                    <div class="month-content">
+
+                        <div class="change-section">
+                            <h3 id="rel-0-167-0">Codex CLI v0.167.0 <span class="version-date">2026-11-06</span></h3>
+                            <ul class="change-list">
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>Ctrl L</code> / <code>Ctrl T</code> (<code>card-keys</code>) — clear the terminal display, then bring back messages hidden by it</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>codex agents</code> (<code>card-cli</code>) — the command center and session picker now mark unread results</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>/experimental</code> (<code>card-slash-tools</code>) — adds opting into the OS-level (macOS or Windows) system proxy</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>model_provider</code> (<code>card-settings</code>) — adds a <code>gcp_setup_wizard</code> flag that configures Vertex AI credentials interactively</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>model_auto_compact_token_limit</code> (<code>card-settings</code>) — now counts retained output from failed responses and responses missing token-usage data</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>!</code> (<code>card-keys</code>) — deleting back past a leading <code>!</code> now keeps the draft in chat mode instead of switching to shell mode</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </details>
+
+                <!-- October 2026 -->
+                <details class="month-group">
                     <summary>October 2026 <span class="version-date">v0.160.0 – v0.166.0</span> <span class="month-count">8 releases</span></summary>
                     <div class="month-content">
 
@@ -336,7 +355,7 @@
         </div>
 
         <footer class="global-footer">
-            Template v1.0 · Content synced 2026-10-29<br>
+            Template v1.0 · Content synced 2026-11-06<br>
             <span class="disclaimer">Unofficial community reference — not affiliated with or endorsed by OpenAI.
             Condensed from the official docs; always confirm against
             <a href="https://developers.openai.com/codex" target="_blank" rel="noopener noreferrer">developers.openai.com/codex</a>.</span><br>
