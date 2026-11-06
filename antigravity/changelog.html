@@ -160,8 +160,51 @@
 
             <div class="change-section">
                 <h3>Content / Antigravity CLI Releases</h3>
-                <!-- October 2026 -->
+                <!-- November 2026 -->
                 <details class="month-group" open>
+                    <summary>November 2026 <span class="version-date">v1.5.0 – v1.5.1</span> <span class="month-count">2 releases</span></summary>
+                    <div class="month-content">
+
+                        <div class="change-section">
+                            <h3 id="rel-1-5-1">Antigravity CLI v1.5.1 <span class="version-date">2026-11-05</span></h3>
+                            <ul class="change-list">
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>agy acp [flags]</code> (<code>card-cli</code>) — noted every model available to your account now offered to every ACP client, where previously only a fixed list of editors were offered models other than Gemini</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>/config</code> / <code>/settings</code> (<code>card-slash-core</code>) — noted the <code>Local</code>/<code>Remote</code> tabs renamed to <code>TUI</code>/<code>Remote Agent</code> during <code>--remote-agent</code> sessions</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>/tasks</code> (<code>card-slash-tools</code>) — noted the agent now moving on within about 1 second, instead of 5, after a terminal command exits while a background process it started still holds the output open</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>/agents</code> (<code>card-slash-tools</code>) — noted blocked subagent rows now naming the tool they are waiting on, such as <code>Blocked · AskQuestion</code></span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>--sandbox</code> (<code>card-cli</code>) — noted plugin OAuth credentials now protected per-header, so a sandboxed command can no longer get a site to echo a real token back from another header or the URL</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>agy acp [flags]</code> (<code>card-cli</code>) — fixed several session bugs: closing, reloading, or resuming a session mid-prompt now ends it as <code>cancelled</code> instead of hanging, cancelling a prompt no longer also stops the next one, and permission/question forms now close when answered elsewhere</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>/mcp</code> (<code>card-slash-tools</code>) — fixed stdio MCP servers on Windows leaving child processes running after the server stops, which could lock plugin folders and fail plugin upgrades</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>agy plugin &lt;cmd&gt;</code> (<code>card-cli</code>) — fixed these commands being unavailable, with no marketplaces listed, when signed in with Application Default Credentials (<code>AGY_ADC_AUTH</code>) or an enterprise model gateway</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>/browser &lt;task&gt;</code> (<code>card-slash-tools</code>) — fixed the built-in <code>browser</code> agent being listed among the agents you can start a conversation with; it still runs only as a subagent</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>/copy [n|btw]</code> (<code>card-slash-tools</code>) — fixed copy-on-select and this command inside GNU screen, so copied text reaches the clipboard and long selections no longer leave stray characters</span></li>
+                            </ul>
+                        </div>
+                        <div class="change-section">
+                            <h3 id="rel-1-5-0">Antigravity CLI v1.5.0 <span class="version-date">2026-11-04</span></h3>
+                            <ul class="change-list">
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>agy acp [flags]</code> (<code>card-cli</code>) — new subcommand that runs the CLI as an Agent Client Protocol server for editors such as Zed, JetBrains IDEs, Android Studio, and Xcode</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>--remote-agent</code> (<code>card-cli</code>) — new flag that runs the session's conversations on Remote Agents instead of this machine</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>/projects</code> (<code>card-slash-tools</code>) — new slash command to list, create, rename, and switch between local projects; unverified, absent from the current <code>cli/reference</code> core slash command table</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>/plugin</code> / <code>/plugins</code> (<code>card-slash-tools</code>) — noted a new sign-in flow for a partner plugin's MCP servers, with a <code>Connect &lt;plugin&gt;</code> screen and a <code>⚠ needs sign-in</code> marker</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>--print-timeout &lt;dur&gt;</code> (<code>card-cli</code>) — noted headless runs without this flag now waiting for background tasks to finish instead of stopping them after a hidden 30-minute limit; a timeout now exits with code <code>3</code> and an <code>AGY_ERROR</code> line</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>/btw &lt;query&gt;</code> (<code>card-slash-tools</code>) — noted side questions can now call tools, shown live with a <code>Called N tools</code> summary</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>altScreenMode</code> (<code>card-settings</code>) — noted the <code>always</code> option's <code>/config</code> label renamed from <code>no flickering (altscreen)</code> to <code>full screen (altscreen)</code>; the saved setting is unchanged</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>/mcp</code> (<code>card-slash-tools</code>) — noted a clearer error for a stdio server command that isn't installed, naming the command instead of a raw <code>executable file not found</code> error</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>--mode &lt;mode&gt;</code> (<code>card-cli</code>) — noted Auto mode's sandbox-escape review timing out and asking less often on more safe commands</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>/diff</code> (<code>card-slash-tools</code>) — fixed an empty <code>↕ ···</code> fold divider drawn at the top of new files and of edits starting at line 1, where nothing was folded away</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>Ctrl+Z</code> / <code>Ctrl+Shift+Z</code> (<code>card-keys</code>) — fixed undo in the main prompt bringing back an already-sent message, and undo in <code>!</code> shell or <code>:</code> search mode bringing back text <code>Enter</code> would then run</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>GEMINI_API_KEY</code> (<code>card-env</code>) — fixed conversations re-sending a prompt forever when the safety filter blocks it, and fixed the <code>pro</code>/<code>flash</code> subagents on this connection running models two generations older than intended</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>agy</code> (<code>card-cli</code>) — fixed certain models failing a turn on rate-limit or server errors instead of retrying, now honoring the server's <code>Retry-After</code> header</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>agy plugin &lt;cmd&gt;</code> (<code>card-cli</code>) — fixed auto-upgrades of a renamed plugin writing to a new folder and retrying on every startup instead of updating the existing folder in place</span></li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </details>
+
+                <!-- October 2026 -->
+                <details class="month-group">
                     <summary>October 2026 <span class="version-date">v1.2.15 – v1.4.12</span> <span class="month-count">23 releases</span></summary>
                     <div class="month-content">
 
@@ -592,6 +635,7 @@
                     <li><span class="tag tag-fix">FIX</span><span class="entry"><span class="summary">Corrected <code>/planning</code> to <code>/plan</code>, the exact near-miss this placemat's own build notes warned about, and re-synced the slash command inventory</span></span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>The 2026-11-04 re-fetch of <code>cli/reference</code>'s core slash command table found no <code>/planning</code>, <code>/fast</code>, or <code>/teamwork-preview</code> — the first is corrected to the real <code>/plan [task]</code>, and the other two are marked <code class="unverified">unverified</code> pending a source that confirms them. The same table added two genuinely new rows, <code>/codesearch</code> and <code>/grill-me</code>.</li></ul></li>
                     <li><span class="tag tag-fix">FIX</span><span class="entry"><span class="summary">Sync pipeline now sources settings keys from <code>docs/settings?tab=cli</code>, not <code>cli/reference</code></span></span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li><code>cli/reference</code>'s "Configuration keys (settings.json)" section no longer lists keys inline; it now links to a CLI settings page, itself a hidden <code>role="tabpanel"</code> behind an "Antigravity CLI" tab — same hidden-panel shape as the changelog's product tabs. <code>sources.json</code> and <code>PIPELINE.md</code> now target it, which also confirmed <code>agentMode</code> as a settings key and promoted <code>queuedMessages</code> out of <code>unverified</code>.</li></ul></li>
                     <li><span class="tag tag-add">ADD</span><span class="entry"><code>SessionStart</code> (<code>card-hooks</code>) — a sixth hook event, documented at <code>docs/hooks</code> but missing from this placemat and from <code>PIPELINE.md</code>'s hardcoded five-event list until the 2026-11-04 sync found it</span></li>
+                    <li><span class="tag tag-fix">FIX</span><span class="entry"><span class="summary">Marked <code>enableTelemetry</code> unverified as a <code>settings.json</code> key and removed it from the vendor inventory</span></span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>The 2026-11-06 re-fetch of <code>docs/settings?tab=cli</code> describes Enable Telemetry as saved with your account instead of in <code>settings.json</code>, unlike <code>useG1Credits</code>, <code>showTips</code>, and <code>showFeedbackSurvey</code> on the same page, which still show their <code>settings.json</code> key names; found while re-extracting the inventory for the 1.5.0/1.5.1 sync.</li></ul></li>
                 </ul>
             </div>
         </div>

@@ -1,7 +1,143 @@
 {
- "generated": "2026-10-30",
- "latest": "v1.4.12",
+ "generated": "2026-11-05",
+ "latest": "v1.5.1",
  "releases": [
+  {
+   "version": "v1.5.1",
+   "label": "Antigravity CLI v1.5.1",
+   "date": "2026-11-05",
+   "id": "rel-1-5-1",
+   "entries": [
+    {
+     "tag": "CHG",
+     "item": "agy acp [flags]",
+     "html": "<code>agy acp [flags]</code> (<code>card-cli</code>) — noted every model available to your account now offered to every ACP client, where previously only a fixed list of editors were offered models other than Gemini"
+    },
+    {
+     "tag": "CHG",
+     "item": "/config",
+     "html": "<code>/config</code> / <code>/settings</code> (<code>card-slash-core</code>) — noted the <code>Local</code>/<code>Remote</code> tabs renamed to <code>TUI</code>/<code>Remote Agent</code> during <code>--remote-agent</code> sessions"
+    },
+    {
+     "tag": "CHG",
+     "item": "/tasks",
+     "html": "<code>/tasks</code> (<code>card-slash-tools</code>) — noted the agent now moving on within about 1 second, instead of 5, after a terminal command exits while a background process it started still holds the output open"
+    },
+    {
+     "tag": "CHG",
+     "item": "/agents",
+     "html": "<code>/agents</code> (<code>card-slash-tools</code>) — noted blocked subagent rows now naming the tool they are waiting on, such as <code>Blocked · AskQuestion</code>"
+    },
+    {
+     "tag": "CHG",
+     "item": "--sandbox",
+     "html": "<code>--sandbox</code> (<code>card-cli</code>) — noted plugin OAuth credentials now protected per-header, so a sandboxed command can no longer get a site to echo a real token back from another header or the URL"
+    },
+    {
+     "tag": "FIX",
+     "item": "agy acp [flags]",
+     "html": "<code>agy acp [flags]</code> (<code>card-cli</code>) — fixed several session bugs: closing, reloading, or resuming a session mid-prompt now ends it as <code>cancelled</code> instead of hanging, cancelling a prompt no longer also stops the next one, and permission/question forms now close when answered elsewhere"
+    },
+    {
+     "tag": "FIX",
+     "item": "/mcp",
+     "html": "<code>/mcp</code> (<code>card-slash-tools</code>) — fixed stdio MCP servers on Windows leaving child processes running after the server stops, which could lock plugin folders and fail plugin upgrades"
+    },
+    {
+     "tag": "FIX",
+     "item": "agy plugin <cmd>",
+     "html": "<code>agy plugin &lt;cmd&gt;</code> (<code>card-cli</code>) — fixed these commands being unavailable, with no marketplaces listed, when signed in with Application Default Credentials (<code>AGY_ADC_AUTH</code>) or an enterprise model gateway"
+    },
+    {
+     "tag": "FIX",
+     "item": "/browser <task>",
+     "html": "<code>/browser &lt;task&gt;</code> (<code>card-slash-tools</code>) — fixed the built-in <code>browser</code> agent being listed among the agents you can start a conversation with; it still runs only as a subagent"
+    },
+    {
+     "tag": "FIX",
+     "item": "/copy [n|btw]",
+     "html": "<code>/copy [n|btw]</code> (<code>card-slash-tools</code>) — fixed copy-on-select and this command inside GNU screen, so copied text reaches the clipboard and long selections no longer leave stray characters"
+    }
+   ]
+  },
+  {
+   "version": "v1.5.0",
+   "label": "Antigravity CLI v1.5.0",
+   "date": "2026-11-04",
+   "id": "rel-1-5-0",
+   "entries": [
+    {
+     "tag": "ADD",
+     "item": "agy acp [flags]",
+     "html": "<code>agy acp [flags]</code> (<code>card-cli</code>) — new subcommand that runs the CLI as an Agent Client Protocol server for editors such as Zed, JetBrains IDEs, Android Studio, and Xcode"
+    },
+    {
+     "tag": "ADD",
+     "item": "--remote-agent",
+     "html": "<code>--remote-agent</code> (<code>card-cli</code>) — new flag that runs the session's conversations on Remote Agents instead of this machine"
+    },
+    {
+     "tag": "ADD",
+     "item": "/projects",
+     "html": "<code>/projects</code> (<code>card-slash-tools</code>) — new slash command to list, create, rename, and switch between local projects; unverified, absent from the current <code>cli/reference</code> core slash command table"
+    },
+    {
+     "tag": "CHG",
+     "item": "/plugin",
+     "html": "<code>/plugin</code> / <code>/plugins</code> (<code>card-slash-tools</code>) — noted a new sign-in flow for a partner plugin's MCP servers, with a <code>Connect &lt;plugin&gt;</code> screen and a <code>⚠ needs sign-in</code> marker"
+    },
+    {
+     "tag": "CHG",
+     "item": "--print-timeout <dur>",
+     "html": "<code>--print-timeout &lt;dur&gt;</code> (<code>card-cli</code>) — noted headless runs without this flag now waiting for background tasks to finish instead of stopping them after a hidden 30-minute limit; a timeout now exits with code <code>3</code> and an <code>AGY_ERROR</code> line"
+    },
+    {
+     "tag": "CHG",
+     "item": "/btw <query>",
+     "html": "<code>/btw &lt;query&gt;</code> (<code>card-slash-tools</code>) — noted side questions can now call tools, shown live with a <code>Called N tools</code> summary"
+    },
+    {
+     "tag": "CHG",
+     "item": "altScreenMode",
+     "html": "<code>altScreenMode</code> (<code>card-settings</code>) — noted the <code>always</code> option's <code>/config</code> label renamed from <code>no flickering (altscreen)</code> to <code>full screen (altscreen)</code>; the saved setting is unchanged"
+    },
+    {
+     "tag": "CHG",
+     "item": "/mcp",
+     "html": "<code>/mcp</code> (<code>card-slash-tools</code>) — noted a clearer error for a stdio server command that isn't installed, naming the command instead of a raw <code>executable file not found</code> error"
+    },
+    {
+     "tag": "CHG",
+     "item": "--mode <mode>",
+     "html": "<code>--mode &lt;mode&gt;</code> (<code>card-cli</code>) — noted Auto mode's sandbox-escape review timing out and asking less often on more safe commands"
+    },
+    {
+     "tag": "FIX",
+     "item": "/diff",
+     "html": "<code>/diff</code> (<code>card-slash-tools</code>) — fixed an empty <code>↕ ···</code> fold divider drawn at the top of new files and of edits starting at line 1, where nothing was folded away"
+    },
+    {
+     "tag": "FIX",
+     "item": "Ctrl+Z",
+     "html": "<code>Ctrl+Z</code> / <code>Ctrl+Shift+Z</code> (<code>card-keys</code>) — fixed undo in the main prompt bringing back an already-sent message, and undo in <code>!</code> shell or <code>:</code> search mode bringing back text <code>Enter</code> would then run"
+    },
+    {
+     "tag": "FIX",
+     "item": "GEMINI_API_KEY",
+     "html": "<code>GEMINI_API_KEY</code> (<code>card-env</code>) — fixed conversations re-sending a prompt forever when the safety filter blocks it, and fixed the <code>pro</code>/<code>flash</code> subagents on this connection running models two generations older than intended"
+    },
+    {
+     "tag": "FIX",
+     "item": "agy",
+     "html": "<code>agy</code> (<code>card-cli</code>) — fixed certain models failing a turn on rate-limit or server errors instead of retrying, now honoring the server's <code>Retry-After</code> header"
+    },
+    {
+     "tag": "FIX",
+     "item": "agy plugin <cmd>",
+     "html": "<code>agy plugin &lt;cmd&gt;</code> (<code>card-cli</code>) — fixed auto-upgrades of a renamed plugin writing to a new folder and retrying on every startup instead of updating the existing folder in place"
+    }
+   ]
+  },
   {
    "version": "v1.4.12",
    "label": "Antigravity CLI v1.4.12",

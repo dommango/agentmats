@@ -15,6 +15,7 @@
     "index": "https://antigravity.google/docs",
     "cli_features": "https://antigravity.google/docs/cli/features",
     "cli_reference": "https://antigravity.google/docs/cli/reference",
+    "cli_acp": "https://antigravity.google/docs/cli/acp/",
     "cli_settings": "https://antigravity.google/docs/settings?tab=cli",
     "cli_best_practices": "https://antigravity.google/docs/cli/best-practices",
     "skills": "https://antigravity.google/docs/skills",
@@ -38,7 +39,7 @@
   ],
   "inventory": {
     "source": "https://antigravity.google/docs/cli/reference (slash commands); https://antigravity.google/docs/settings?tab=cli (settings keys); https://antigravity.google/docs/hooks (hook events)",
-    "fetched": "2026-11-04",
+    "fetched": "2026-11-06",
     "slash": [
       "/add-dir", "/agents", "/boost", "/artifact", "/browser", "/btw",
       "/changelog", "/clear", "/new", "/codesearch", "/cs", "/search",
@@ -55,7 +56,7 @@
       "colorScheme", "altScreenMode", "toolPermission", "artifactReviewPolicy",
       "notifications", "showTips", "showFeedbackSurvey", "editor", "editorMode",
       "vimInsertFirst", "allowNonWorkspaceAccess", "enableTerminalSandbox",
-      "useG1Credits", "enableTelemetry", "verbosity", "runningLightSpeed",
+      "useG1Credits", "verbosity", "runningLightSpeed",
       "agentMode", "queuedMessages", "hideActiveItems", "copyOnSelect",
       "pickerGrouping", "clearScrollbackOnResize", "disableSlashCommands",
       "historySize", "model", "modelProvider", "trustedWorkspaces",
