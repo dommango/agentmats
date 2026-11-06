@@ -1,7 +1,33 @@
 {
- "generated": "2026-11-04",
- "latest": "v2.5.0",
+ "generated": "2026-11-06",
+ "latest": "v2.5.2",
  "releases": [
+  {
+   "version": "v2.5.2",
+   "label": "Kimi Code v2.5.2",
+   "date": "2026-11-06",
+   "id": "rel-2-5-2",
+   "entries": [
+    {
+     "tag": "FIX",
+     "item": "[mcp] default_deferred",
+     "html": "<code>[mcp] default_deferred</code> &mdash; fixed duplicate tool declaration errors in <code>select_tools</code> when MCP tool definitions change"
+    }
+   ]
+  },
+  {
+   "version": "v2.5.1",
+   "label": "Kimi Code v2.5.1",
+   "date": "2026-11-05",
+   "id": "rel-2-5-1",
+   "entries": [
+    {
+     "tag": "FIX",
+     "item": "/sessions",
+     "html": "<code>/sessions</code> &mdash; sessions belonging to deleted workspaces no longer appear in the list"
+    }
+   ]
+  },
   {
    "version": "v2.5.0",
    "label": "Kimi Code v2.5.0",
