@@ -1,7 +1,80 @@
 {
- "generated": "2026-11-04",
- "latest": "v2.1.318",
+ "generated": "2026-11-06",
+ "latest": "v2.1.319",
  "releases": [
+  {
+   "version": "v2.1.319",
+   "label": "CC v2.1.319",
+   "date": "2026-11-06",
+   "id": "rel-2-1-319",
+   "entries": [
+    {
+     "tag": "ADD",
+     "item": "/tasks",
+     "html": "<code>/tasks</code> — given its first placemat row: view and manage background work in the current session, including subagents that have finished; also available as <code>/bashes</code>"
+    },
+    {
+     "tag": "ADD",
+     "item": "/tasks",
+     "html": "<code>/tasks</code> gets an \"Earlier in this session\" row listing finished subagents, so you can reopen one and message it even after it leaves the list or you restart; noted on the new row"
+    },
+    {
+     "tag": "ADD",
+     "item": "CLAUDE_CODE_DISABLE_MCP_TASK_BACKGROUND",
+     "html": "<code>CLAUDE_CODE_DISABLE_MCP_TASK_BACKGROUND</code> env var — given its first placemat row: wait for an MCP task's result in an interactive session instead of backgrounding it right away"
+    },
+    {
+     "tag": "ADD",
+     "item": "CLAUDE_CODE_DISABLE_MCP_TASKS",
+     "html": "<code>CLAUDE_CODE_DISABLE_MCP_TASKS</code> env var — given its first placemat row: turns off MCP tasks in the terminal entirely"
+    },
+    {
+     "tag": "ADD",
+     "item": "CLAUDE_CODE_DISABLE_FEATURE_FLAGS",
+     "html": "<code>CLAUDE_CODE_DISABLE_FEATURE_FLAGS</code> env var — given its first placemat row: stops feature-flag fetching without turning off telemetry"
+    },
+    {
+     "tag": "ADD",
+     "item": "CLAUDE_CODE_LOOP_KEEPALIVE",
+     "html": "<code>CLAUDE_CODE_LOOP_KEEPALIVE</code> env var — given its first placemat row: keeps a self-paced <code>/loop</code> scheduling a fallback wakeup after each turn"
+    },
+    {
+     "tag": "ADD",
+     "item": "permissions.denyInsteadOfPrompting",
+     "html": "<code>permissions.denyInsteadOfPrompting</code> — given its first placemat row: denies a tool call that would wait on a permission prompt and continues the turn, in terminal sessions, subagents and teammates"
+    },
+    {
+     "tag": "CHG",
+     "item": "/claude-api",
+     "html": "<code>/claude-api</code> — gains a <code>latency-optimize</code> subcommand that finds where your Claude API code makes people wait and tries faster settings against your eval; noted on the existing row"
+    },
+    {
+     "tag": "CHG",
+     "item": "/claude-api",
+     "html": "<code>/claude-api</code> — <code>managed-agents-onboard</code> templates were updated to match the Claude Console (removed Performance tuner, renamed two, turned off web search/fetch in five); noted on the existing row"
+    },
+    {
+     "tag": "CHG",
+     "item": "/usage",
+     "html": "<code>/usage</code> — shows spend for today, this week and this month for developers behind a Claude apps gateway with no spend limit, on a gateway running this version or later; noted on the existing row"
+    },
+    {
+     "tag": "CHG",
+     "item": "/loop",
+     "html": "<code>/loop</code> — a self-paced run now ends when a turn finishes instead of scheduling a fallback wakeup; set <code>CLAUDE_CODE_LOOP_KEEPALIVE=1</code> to keep the old behavior; noted on the existing row"
+    },
+    {
+     "tag": "CHG",
+     "item": "/add-dir",
+     "html": "<code>/add-dir</code> — registers plugin marketplaces for the new directory only once its own trust dialog is accepted; noted on the existing row"
+    },
+    {
+     "tag": "CHG",
+     "item": "PostToolUse",
+     "html": "<code>PostToolUse</code> hooks now run, with up to 10 seconds to finish, on tool calls that finish after a new message interrupts the turn; noted on the existing row"
+    }
+   ]
+  },
   {
    "version": "v2.1.318",
    "label": "CC v2.1.318",
