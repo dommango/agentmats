@@ -163,8 +163,26 @@
                 <h3>Content / CC Release Updates</h3>
                 <!-- November 2026 -->
                 <details class="month-group" open>
-                    <summary>November 2026 <span class="version-date">v2.1.317 – v2.1.319</span> <span class="month-count">3 releases</span></summary>
+                    <summary>November 2026 <span class="version-date">v2.1.317 – v2.1.322</span> <span class="month-count">5 releases</span></summary>
                     <div class="month-content">
+
+                        <div class="change-section">
+                            <h3 id="rel-2-1-322">CC v2.1.322 <span class="version-date">2026-11-10</span></h3>
+                            <ul class="change-list">
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>/fast</code> — added fast mode on Vertex in the global, us and eu regions, falling back to standard speed if Vertex refuses it; noted on the existing row</span></li>
+                            </ul>
+                        </div>
+
+                        <div class="change-section">
+                            <h3 id="rel-2-1-321">CC v2.1.321 <span class="version-date">2026-11-09</span></h3>
+                            <ul class="change-list">
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>claude remote-control --settings &lt;file&gt;</code> — given its first placemat row: applies a settings file to every session the server starts; if the file changes, no new session starts until you restart <code>claude remote-control</code></span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>claude plugin restore-set-aside</code> — given its first placemat row: recovers a plugin's set-aside options and secrets after a managed <code>extraKnownMarketplaces</code> take-over from an undeclared source</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>CLAUDE_CODE_PLUGIN_DIR_WATCH</code> — given its first placemat row (real since v2.1.287): controls mod hot-reload on file changes; now also covers headless sessions reloading mods in <code>.claude/skills</code></span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>cleanupPeriodDays</code> — also sets how long a managed <code>extraKnownMarketplaces</code> take-over from an undeclared source keeps the replaced marketplace's data set aside for <code>claude plugin restore-set-aside</code>; noted on the existing row</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>.claude/skills/&lt;name&gt;/</code> — a nested <code>.claude/skills/</code> folder inside <code>~/.claude/plugins</code> no longer loads the way other nested skill folders do; noted on the existing row</span></li>
+                            </ul>
+                        </div>
 
                         <div class="change-section">
                             <h3 id="rel-2-1-319">CC v2.1.319 <span class="version-date">2026-11-06</span></h3>
@@ -1809,7 +1827,7 @@
         </div>
 
         <footer class="global-footer">
-            Template v1.2 · Content synced 2026-11-06<br>
+            Template v1.2 · Content synced 2026-11-10<br>
             <span class="disclaimer">Unofficial community reference — not affiliated with or endorsed by Anthropic.
             Condensed from the official docs; always confirm against
             <a href="https://code.claude.com/docs" target="_blank" rel="noopener noreferrer">code.claude.com/docs</a>.</span><br>

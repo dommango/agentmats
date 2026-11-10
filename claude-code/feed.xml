@@ -4,7 +4,21 @@
   <link href="https://dommango.github.io/agentmats/claude-code/"/>
   <link rel="self" href="https://dommango.github.io/agentmats/claude-code/feed.xml"/>
   <id>https://dommango.github.io/agentmats/claude-code/</id>
-  <updated>2026-11-06T09:00:00Z</updated>
+  <updated>2026-11-10T09:00:00Z</updated>
+  <entry>
+    <title>CC v2.1.322 — 1 placemat change</title>
+    <id>https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-322</id>
+    <link href="https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-322"/>
+    <updated>2026-11-10T09:00:00Z</updated>
+    <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;/fast&lt;/code&gt; — added fast mode on Vertex in the global, us and eu regions, falling back to standard speed if Vertex refuses it; noted on the existing row&lt;/li&gt;&lt;/ul&gt;</content>
+  </entry>
+  <entry>
+    <title>CC v2.1.321 — 5 placemat changes</title>
+    <id>https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-321</id>
+    <link href="https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-321"/>
+    <updated>2026-11-09T09:00:00Z</updated>
+    <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;claude remote-control --settings &amp;lt;file&amp;gt;&lt;/code&gt; — given its first placemat row: applies a settings file to every session the server starts; if the file changes, no new session starts until you restart &lt;code&gt;claude remote-control&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;claude plugin restore-set-aside&lt;/code&gt; — given its first placemat row: recovers a plugin's set-aside options and secrets after a managed &lt;code&gt;extraKnownMarketplaces&lt;/code&gt; take-over from an undeclared source&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;CLAUDE_CODE_PLUGIN_DIR_WATCH&lt;/code&gt; — given its first placemat row (real since v2.1.287): controls mod hot-reload on file changes; now also covers headless sessions reloading mods in &lt;code&gt;.claude/skills&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;cleanupPeriodDays&lt;/code&gt; — also sets how long a managed &lt;code&gt;extraKnownMarketplaces&lt;/code&gt; take-over from an undeclared source keeps the replaced marketplace's data set aside for &lt;code&gt;claude plugin restore-set-aside&lt;/code&gt;; noted on the existing row&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;.claude/skills/&amp;lt;name&amp;gt;/&lt;/code&gt; — a nested &lt;code&gt;.claude/skills/&lt;/code&gt; folder inside &lt;code&gt;~/.claude/plugins&lt;/code&gt; no longer loads the way other nested skill folders do; noted on the existing row&lt;/li&gt;&lt;/ul&gt;</content>
+  </entry>
   <entry>
     <title>CC v2.1.319 — 13 placemat changes</title>
     <id>https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-319</id>
@@ -130,19 +144,5 @@
     <link href="https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-295"/>
     <updated>2026-10-08T09:00:00Z</updated>
     <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;onFailure: "block"&lt;/code&gt; hook field — a command or HTTP hook that can't start, times out, or exits unexpectedly now blocks the action instead of letting it through&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;CLAUDE_CODE_RETRY_WATCHDOG_MAX_WAIT_MS&lt;/code&gt; env var — caps how long &lt;code&gt;CLAUDE_CODE_RETRY_WATCHDOG&lt;/code&gt; waits out &lt;code&gt;429&lt;/code&gt;/&lt;code&gt;529&lt;/code&gt; errors before giving up&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;forceLoginMethod: "gateway"&lt;/code&gt; / &lt;code&gt;forceLoginGatewayUrl&lt;/code&gt; — now also work as your own user settings on machines with no managed settings&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;/copy&lt;/code&gt; picker — quoted text in a response now copies without its leading &lt;code&gt;&amp;gt;&lt;/code&gt; markers&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;claude plugin validate&lt;/code&gt; — prints the install line to paste when a plugin's README has none; never fails &lt;code&gt;--strict&lt;/code&gt; over it&lt;/li&gt;&lt;/ul&gt;</content>
-  </entry>
-  <entry>
-    <title>CC v2.1.293 — 1 placemat change</title>
-    <id>https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-293</id>
-    <link href="https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-293"/>
-    <updated>2026-10-07T09:00:00Z</updated>
-    <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;agentType&lt;/code&gt; &lt;code&gt;subagentStatusLine&lt;/code&gt; task field — the subagent's type, the same value hooks get as &lt;code&gt;agent_type&lt;/code&gt; on &lt;code&gt;SubagentStart&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt;</content>
-  </entry>
-  <entry>
-    <title>CC v2.1.292 — 3 placemat changes</title>
-    <id>https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-292</id>
-    <link href="https://dommango.github.io/agentmats/claude-code/changelog.html#rel-2-1-292"/>
-    <updated>2026-10-06T09:00:00Z</updated>
-    <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;claude plugin install --marketplace &amp;lt;source&amp;gt;&lt;/code&gt; — adds the marketplace if needed, under the same checks as &lt;code&gt;claude plugin marketplace add&lt;/code&gt;, then installs the plugin from it&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;CLAUDE_CODE_OVERLOADED_RETRY_BASE_DELAY_MS&lt;/code&gt; env var — sets a longer base delay for the backoff when retrying an overloaded (529) request&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;MCP_PROTOCOL_NEGOTIATION=legacy&lt;/code&gt; — local (stdio) MCP server connections now negotiate protocol version 2026-07-28 by default on every install, Bedrock/Vertex/Foundry included; this opts back out&lt;/li&gt;&lt;/ul&gt;</content>
   </entry>
 </feed>
