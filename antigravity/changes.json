@@ -1,7 +1,168 @@
 {
- "generated": "2026-11-05",
- "latest": "v1.5.1",
+ "generated": "2026-11-07",
+ "latest": "v1.5.3",
  "releases": [
+  {
+   "version": "v1.5.3",
+   "label": "Antigravity CLI v1.5.3",
+   "date": "2026-11-07",
+   "id": "rel-1-5-3",
+   "entries": [
+    {
+     "tag": "CHG",
+     "item": "/agents",
+     "html": "<code>/agents</code> (<code>card-slash-tools</code>) — noted each subagent's model now shown next to its name, with a single <code>Tip: Press enter on a subagent to view details.</code> line instead of repeating <code>[view details]</code>"
+    },
+    {
+     "tag": "CHG",
+     "item": "/statusline",
+     "html": "<code>/statusline</code> (<code>card-slash-core</code>) — noted a new <code>model</code> field on each <code>subagents</code> entry in the status line JSON"
+    },
+    {
+     "tag": "CHG",
+     "item": "hooks.json",
+     "html": "<code>hooks.json</code> (<code>card-hooks</code>) — noted <code>PLUGIN_ROOT</code> and <code>PLUGIN_DATA</code> environment variables now added to hook commands that come from a plugin"
+    },
+    {
+     "tag": "CHG",
+     "item": "/plugin",
+     "html": "<code>/plugin</code> / <code>/plugins</code> (<code>card-slash-tools</code>) — noted plugin sign-in screen formatting improvements and the plugin's display name now used instead of its slug"
+    },
+    {
+     "tag": "FIX",
+     "item": "agy plugin <cmd>",
+     "html": "<code>agy plugin &lt;cmd&gt;</code> (<code>card-cli</code>) — fixed <code>uninstall</code>, <code>enable</code>, <code>disable</code>, and <code>list</code> failing for symlinked plugins or names containing spaces or symbols such as <code>c++-tools</code>"
+    },
+    {
+     "tag": "FIX",
+     "item": "agy",
+     "html": "<code>agy</code> (<code>card-cli</code>) — fixed agent turns failing with an <code>http2: timeout awaiting response headers</code> error, which are now retried, and a 404 when an enterprise model gateway URL ended in <code>/v1beta</code>"
+    },
+    {
+     "tag": "FIX",
+     "item": "/plugin",
+     "html": "<code>/plugin</code> / <code>/plugins</code> (<code>card-slash-tools</code>) — fixed the agent's requests to sign in to a plugin being dropped from the conversation"
+    },
+    {
+     "tag": "FIX",
+     "item": "queuedMessages",
+     "html": "<code>queuedMessages</code> (<code>card-settings</code>) — fixed a message sent in <code>Send Immediately</code> mode briefly disappearing from the conversation when it arrived just as the turn ended"
+    },
+    {
+     "tag": "FIX",
+     "item": "hooks.json",
+     "html": "<code>hooks.json</code> (<code>card-hooks</code>) — fixed hooks receiving a placeholder or empty model name when the session uses a custom model"
+    },
+    {
+     "tag": "FIX",
+     "item": "--remote-agent",
+     "html": "<code>--remote-agent</code> (<code>card-cli</code>) — fixed files larger than the remote read limit being silently cut off, now loading in full up to 20 MiB"
+    },
+    {
+     "tag": "FIX",
+     "item": "agy acp [flags]",
+     "html": "<code>agy acp [flags]</code> (<code>card-cli</code>) — fixed these sessions exiting before the agent backend finished shutting down, which could interrupt saving conversation data"
+    },
+    {
+     "tag": "FIX",
+     "item": "enableTerminalSandbox",
+     "html": "<code>enableTerminalSandbox</code> (<code>card-settings</code>) — fixed a security issue where a sandboxed command could change environment state loaded by persistent terminal commands run outside the sandbox, and hardened persistent terminal IDs against path traversal"
+    },
+    {
+     "tag": "FIX",
+     "item": "/context",
+     "html": "<code>/context</code> (<code>card-slash-tools</code>) — fixed paths sharing a prefix with your home directory showing a mangled <code>~</code> prefix here and in the keybindings reset hint"
+    }
+   ]
+  },
+  {
+   "version": "v1.5.2",
+   "label": "Antigravity CLI v1.5.2",
+   "date": "2026-11-06",
+   "id": "rel-1-5-2",
+   "entries": [
+    {
+     "tag": "ADD",
+     "item": "AGY_CLI_MAC_OPTION_AS_ALT",
+     "html": "<code>AGY_CLI_MAC_OPTION_AS_ALT</code> (<code>card-env</code>) — new env var that restores the pre-1.5.2 behavior where macOS Option-key shortcuts need terminal setup; unverified, named only in the release notes"
+    },
+    {
+     "tag": "CHG",
+     "item": "/skills",
+     "html": "<code>/skills</code> (<code>card-slash-tools</code>) — noted cloud plugin skills now reaching <code>--remote-agent</code> sessions, grouped under <code>Remote agent skills</code>"
+    },
+    {
+     "tag": "CHG",
+     "item": "Alt+M",
+     "html": "<code>Alt+M</code> (<code>card-keys</code>) — noted macOS Option-key shortcuts now work out of the box without terminal configuration"
+    },
+    {
+     "tag": "CHG",
+     "item": "--dangerously-skip-permissions",
+     "html": "<code>--dangerously-skip-permissions</code> (<code>card-cli</code>) — noted protected commands and Gemini Enterprise admin review requirements are no longer bypassed by this flag or auto-allow plugin agents"
+    },
+    {
+     "tag": "CHG",
+     "item": "allowNonWorkspaceAccess",
+     "html": "<code>allowNonWorkspaceAccess</code> (<code>card-settings</code>) — noted the outside-workspace file-access prompt reworded to scope an allow/deny to a single path instead of turning this setting on globally"
+    },
+    {
+     "tag": "CHG",
+     "item": "-p",
+     "html": "<code>-p</code> / <code>--print</code> / <code>--prompt</code> (<code>card-cli</code>) — noted these runs no longer make a background model request to generate a conversation title print mode never shows"
+    },
+    {
+     "tag": "CHG",
+     "item": "/remote-control [on/off]",
+     "html": "<code>/remote-control [on/off]</code> (<code>card-slash-tools</code>) — noted Remote Control connections now retry a brief network or server error instead of dropping it"
+    },
+    {
+     "tag": "CHG",
+     "item": "agy plugin <cmd>",
+     "html": "<code>agy plugin &lt;cmd&gt;</code> (<code>card-cli</code>) — noted hardening against malicious plugins: unsafe plugin names are rejected, and writes outside the plugins folder or through symbolic links are refused"
+    },
+    {
+     "tag": "CHG",
+     "item": ".agents/skills/<name>/SKILL.md",
+     "html": "<code>.agents/skills/&lt;name&gt;/SKILL.md</code> (<code>card-skills</code>) — noted workspace <code>.agents/plugins.json</code> and <code>.agents/skills.json</code> entries now restricted to the workspace or repository root"
+    },
+    {
+     "tag": "FIX",
+     "item": "--dangerously-skip-permissions",
+     "html": "<code>--dangerously-skip-permissions</code> (<code>card-cli</code>) — fixed subagents stalling about 60 seconds on file permissions; reads and writes outside the workspace now go through without a prompt"
+    },
+    {
+     "tag": "FIX",
+     "item": "/mcp",
+     "html": "<code>/mcp</code> (<code>card-slash-tools</code>) — fixed OAuth sign-in failing with <code>Invalid PKCE code_verifier</code> when the server reconnected during sign-in"
+    },
+    {
+     "tag": "FIX",
+     "item": "mcp_config.json",
+     "html": "<code>mcp_config.json</code> (<code>card-hooks</code>) — fixed MCP tools declaring their own <code>explanation</code>, <code>toolSummary</code>, <code>toolAction</code>, or <code>waitForPreviousTools</code> parameter not receiving that argument"
+    },
+    {
+     "tag": "FIX",
+     "item": "queuedMessages",
+     "html": "<code>queuedMessages</code> (<code>card-settings</code>) — fixed the agent re-running a failed turn in a rapid loop when messages were queued at the moment it hit an error"
+    },
+    {
+     "tag": "FIX",
+     "item": "agy acp [flags]",
+     "html": "<code>agy acp [flags]</code> (<code>card-cli</code>) — fixed the <code>/</code> menu listing a default agent's commands instead of the session's actual agent"
+    },
+    {
+     "tag": "FIX",
+     "item": "/projects",
+     "html": "<code>/projects</code> (<code>card-slash-tools</code>) — fixed adding PDFs, other binary files, or files larger than about 8 MB to a remote project, which now upload successfully"
+    },
+    {
+     "tag": "FIX",
+     "item": "/voice",
+     "html": "<code>/voice</code> / <code>/record</code> (<code>card-slash-tools</code>) — fixed voice dictation in Chinese and Japanese showing a space between every character in the live draft"
+    }
+   ]
+  },
   {
    "version": "v1.5.1",
    "label": "Antigravity CLI v1.5.1",
