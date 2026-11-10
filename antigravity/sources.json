@@ -39,7 +39,7 @@
   ],
   "inventory": {
     "source": "https://antigravity.google/docs/cli/reference (slash commands); https://antigravity.google/docs/settings?tab=cli (settings keys); https://antigravity.google/docs/hooks (hook events)",
-    "fetched": "2026-11-06",
+    "fetched": "2026-11-10",
     "slash": [
       "/add-dir", "/agents", "/boost", "/artifact", "/browser", "/btw",
       "/changelog", "/clear", "/new", "/codesearch", "/cs", "/search",
