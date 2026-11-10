@@ -1,7 +1,53 @@
 {
- "generated": "2026-11-06",
- "latest": "v2.1.319",
+ "generated": "2026-11-10",
+ "latest": "v2.1.322",
  "releases": [
+  {
+   "version": "v2.1.322",
+   "label": "CC v2.1.322",
+   "date": "2026-11-10",
+   "id": "rel-2-1-322",
+   "entries": [
+    {
+     "tag": "CHG",
+     "item": "/fast",
+     "html": "<code>/fast</code> — added fast mode on Vertex in the global, us and eu regions, falling back to standard speed if Vertex refuses it; noted on the existing row"
+    }
+   ]
+  },
+  {
+   "version": "v2.1.321",
+   "label": "CC v2.1.321",
+   "date": "2026-11-09",
+   "id": "rel-2-1-321",
+   "entries": [
+    {
+     "tag": "ADD",
+     "item": "claude remote-control --settings <file>",
+     "html": "<code>claude remote-control --settings &lt;file&gt;</code> — given its first placemat row: applies a settings file to every session the server starts; if the file changes, no new session starts until you restart <code>claude remote-control</code>"
+    },
+    {
+     "tag": "ADD",
+     "item": "claude plugin restore-set-aside",
+     "html": "<code>claude plugin restore-set-aside</code> — given its first placemat row: recovers a plugin's set-aside options and secrets after a managed <code>extraKnownMarketplaces</code> take-over from an undeclared source"
+    },
+    {
+     "tag": "ADD",
+     "item": "CLAUDE_CODE_PLUGIN_DIR_WATCH",
+     "html": "<code>CLAUDE_CODE_PLUGIN_DIR_WATCH</code> — given its first placemat row (real since v2.1.287): controls mod hot-reload on file changes; now also covers headless sessions reloading mods in <code>.claude/skills</code>"
+    },
+    {
+     "tag": "CHG",
+     "item": "cleanupPeriodDays",
+     "html": "<code>cleanupPeriodDays</code> — also sets how long a managed <code>extraKnownMarketplaces</code> take-over from an undeclared source keeps the replaced marketplace's data set aside for <code>claude plugin restore-set-aside</code>; noted on the existing row"
+    },
+    {
+     "tag": "CHG",
+     "item": ".claude/skills/<name>/",
+     "html": "<code>.claude/skills/&lt;name&gt;/</code> — a nested <code>.claude/skills/</code> folder inside <code>~/.claude/plugins</code> no longer loads the way other nested skill folders do; noted on the existing row"
+    }
+   ]
+  },
   {
    "version": "v2.1.319",
    "label": "CC v2.1.319",
