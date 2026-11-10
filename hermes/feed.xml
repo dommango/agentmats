@@ -4,7 +4,14 @@
   <link href="https://dommango.github.io/agentmats/hermes/"/>
   <link rel="self" href="https://dommango.github.io/agentmats/hermes/feed.xml"/>
   <id>https://dommango.github.io/agentmats/hermes/</id>
-  <updated>2026-11-05T09:00:00Z</updated>
+  <updated>2026-11-09T09:00:00Z</updated>
+  <entry>
+    <title>Hermes Agent v0.23.1 — 2 placemat changes</title>
+    <id>https://dommango.github.io/agentmats/hermes/changelog.html#rel-0-23-1</id>
+    <link href="https://dommango.github.io/agentmats/hermes/changelog.html#rel-0-23-1"/>
+    <updated>2026-11-09T09:00:00Z</updated>
+    <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;FIX&lt;/b&gt; The plugin catalog's client-side size cap is raised from 2 MiB to 16 MiB, fixing installs that silently fell back to the bundled catalog once the published catalog file grew past the old limit&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; v0.23.1 is a rollup patch release covering ~618 PRs since v0.23.0; curated notes for the rest of this window ship with v0.24.0&lt;/li&gt;&lt;/ul&gt;</content>
+  </entry>
   <entry>
     <title>Hermes Agent v0.23.0 — The Hearth Release — 12 placemat changes</title>
     <id>https://dommango.github.io/agentmats/hermes/changelog.html#rel-0-23-0</id>
