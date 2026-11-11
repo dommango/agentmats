@@ -48,7 +48,7 @@
             <span class="header-tagline">Unofficial · auto-updated reference</span>
         </div>
         <div class="global-controls">
-            <span class="release-tag">As of release: v2.5.2</span>
+            <span class="release-tag">As of release: v2.5.3</span>
             <a href="changelog.html" class="header-link">Changelog →</a>
             <a href="feed.xml" class="header-link" title="Subscribe to placemat changes (RSS)">RSS</a>
             <button type="button" class="header-link print-btn" id="printBtn" title="Print or save as PDF (Ctrl P)">⎙ Print</button>
@@ -85,7 +85,7 @@
 
         <div class="print-head" aria-hidden="true">
             <span class="print-head-title">Kimi Code <b>PLACEMAT</b></span>
-            <span>As of release v2.5.2</span>
+            <span>As of release v2.5.3</span>
             <span>■ = new &nbsp; □ = unverified</span>
             <span>dommango.github.io/agentmats/kimi-code</span>
         </div>
@@ -155,7 +155,7 @@
                 <summary><h3>During streaming</h3><span class="group-count"></span></summary>
                 <table>
                     <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
-                    <tr class="search-item" id="i-ctrl-s"><td><a class="row-link" href="#i-ctrl-s" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>Ctrl-S</code></td><td class="desc"><span class="summary">Steer: inject the current input into the running turn</span> <button type="button" class="notes-btn" aria-expanded="false">+4</button><ul class="notes" hidden><li>The model sees your message at the next interruptible point, without waiting for the turn to finish.</li><li>Also promotes a queued external skill command into the running turn.</li><li>Since 0.43.0 a steering message can also interrupt a wait for a background task.</li><li>Since 2.2.0, it also sends a highlighted skill prompt — the skill suggestion cards it replaced are gone.</li></ul></td></tr>
+                    <tr class="search-item" id="i-ctrl-s"><td><a class="row-link" href="#i-ctrl-s" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>Ctrl-S</code></td><td class="desc"><span class="summary">Steer: inject the current input into the running turn</span> <button type="button" class="notes-btn" aria-expanded="false">+4</button><ul class="notes" hidden><li>Since 2.5.3, it interrupts an active model request immediately and continues in the same turn, instead of waiting for the next interruptible point.</li><li>Also promotes a queued external skill command into the running turn.</li><li>Since 0.43.0 a steering message can also interrupt a wait for a background task.</li><li>Since 2.2.0, it also sends a highlighted skill prompt — the skill suggestion cards it replaced are gone.</li></ul></td></tr>
                 </table>
             </details>
 
@@ -602,7 +602,7 @@
                 <summary><h3>MCP</h3><span class="group-count"></span></summary>
                 <table>
                     <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
-                    <tr class="search-item" id="i-mcp-json"><td><a class="row-link" href="#i-mcp-json" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>mcp.json</code></td><td class="desc"><span class="summary">MCP server configuration, at user and project level</span> <button type="button" class="notes-btn" aria-expanded="false">+2</button><ul class="notes" hidden><li>User level <code>$KIMI_CODE_HOME/mcp.json</code>; project level <code>.kimi-code/mcp.json</code>, which wins on a name clash.</li><li>Transports: stdio (<code>command</code> + <code>args</code>), HTTP (<code>url</code>), and legacy <code>transport: "sse"</code>.</li></ul></td></tr>
+                    <tr class="search-item" id="i-mcp-json"><td><a class="row-link" href="#i-mcp-json" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>mcp.json</code></td><td class="desc"><span class="summary">MCP server configuration, at user and project level</span> <button type="button" class="notes-btn" aria-expanded="false">+3</button><ul class="notes" hidden><li>User level <code>$KIMI_CODE_HOME/mcp.json</code>; project level <code>.kimi-code/mcp.json</code>, which wins on a name clash.</li><li>Transports: stdio (<code>command</code> + <code>args</code>), HTTP (<code>url</code>), and legacy <code>transport: "sse"</code>.</li><li>Since 2.5.3, fixed stdio servers configured with script commands such as <code>npx</code> failing to start on Windows.</li></ul></td></tr>
                     <tr class="search-item" id="i-mcp-server-tool"><td><a class="row-link" href="#i-mcp-server-tool" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>mcp__&lt;server&gt;__&lt;tool&gt;</code></td><td class="desc"><span class="summary">How MCP tools are named for permission rules</span> <button type="button" class="notes-btn" aria-expanded="false">+3</button><ul class="notes" hidden><li>Rules support <code>*</code> and <code>**</code> wildcards; tool parameters are not part of the match.</li><li>Unmatched calls raise an approval request; "Approve for this session" allows the same kind for the rest of the session.</li><li>In Ask When Needed mode MCP calls are auto-approved — only use it when you trust every connected server.</li></ul></td></tr>
                     <tr class="search-item" id="i-mcp-startup-timeout-ms"><td><a class="row-link" href="#i-mcp-startup-timeout-ms" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>[mcp] startup_timeout_ms</code> / <code>[mcp] tool_timeout_ms</code></td><td class="desc"><span class="summary">Global MCP connection timeout, default 30000 ms</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>A per-server <code>startupTimeoutMs</code> / <code>toolTimeoutMs</code> in <code>mcp.json</code> wins over both the config and the env vars.</li></ul></td></tr>
                     <tr class="search-item" id="i-mcp-reconnect-initial-delay-ms"><td><a class="row-link" href="#i-mcp-reconnect-initial-delay-ms" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>[mcp] reconnect_initial_delay_ms</code> / <code>[mcp] reconnect_max_delay_ms</code></td><td class="desc"><span class="summary">Backoff delay before a dropped workspace MCP server auto-reconnects</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Doubles after each failed attempt, from a 5-second initial delay up to a 5-minute cap by default; added in 2.4.0.</li></ul></td></tr>
@@ -616,7 +616,7 @@
         <div class="no-results search-exclude" id="noResults">No matches — clear search to see everything.</div>
 
         <footer class="global-footer">
-            Template v1.0 · Content synced 2026-11-06<br>
+            Template v1.0 · Content synced 2026-11-10<br>
             <span class="disclaimer">Unofficial community reference — not affiliated with or endorsed by Moonshot AI.
             Condensed from the official docs; always confirm against
             <a href="https://moonshotai.github.io/kimi-code/" target="_blank" rel="noopener noreferrer">moonshotai.github.io/kimi-code</a>.</span><br>
