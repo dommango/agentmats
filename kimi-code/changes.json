@@ -1,7 +1,25 @@
 {
- "generated": "2026-11-06",
- "latest": "v2.5.2",
+ "generated": "2026-11-10",
+ "latest": "v2.5.3",
  "releases": [
+  {
+   "version": "v2.5.3",
+   "label": "Kimi Code v2.5.3",
+   "date": "2026-11-10",
+   "id": "rel-2-5-3",
+   "entries": [
+    {
+     "tag": "CHG",
+     "item": "Ctrl-S",
+     "html": "<code>Ctrl-S</code> &mdash; steering now interrupts an active model request immediately and continues in the same turn, instead of waiting for the next interruptible point"
+    },
+    {
+     "tag": "FIX",
+     "item": "mcp.json",
+     "html": "<code>mcp.json</code> &mdash; fixed stdio servers configured with script commands such as <code>npx</code> failing to start on Windows"
+    }
+   ]
+  },
   {
    "version": "v2.5.2",
    "label": "Kimi Code v2.5.2",
