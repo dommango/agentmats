@@ -162,9 +162,42 @@
                 <h3>Content / Antigravity CLI Releases</h3>
                 <!-- November 2026 -->
                 <details class="month-group" open>
-                    <summary>November 2026 <span class="version-date">v1.5.0 – v1.5.3</span> <span class="month-count">4 releases</span></summary>
+                    <summary>November 2026 <span class="version-date">v1.5.0 – v1.5.5</span> <span class="month-count">6 releases</span></summary>
                     <div class="month-content">
 
+                        <div class="change-section">
+                            <h3 id="rel-1-5-5">Antigravity CLI v1.5.5 <span class="version-date">2026-11-10</span></h3>
+                            <ul class="change-list">
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>/swarm &lt;task&gt;</code> (<code>card-slash-tools</code>) — new preview command that starts a swarm of worker agents coordinating on a shared message board</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>/swarm board</code> (<code>card-slash-tools</code>) — new full-screen live view of the current swarm, also opened with <code>Alt+S</code></span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>Alt+S</code> (<code>card-keys</code>) — new keybinding that opens <code>/swarm board</code> (<code>swarm.board</code>)</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>Alt+X</code> (<code>card-keys</code>) — new keybinding that dismisses a finished swarm's status row (<code>swarm.dismiss</code>)</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>ANTIGRAVITY_DISABLE_EMBEDDED_RIPGREP</code> (<code>card-env</code>) — new env var that stops the CLI from extracting and running its bundled <code>ripgrep</code></span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>AGY_ADC_AUTH</code> (<code>card-env</code>) — noted Gemini 4 Carbon (Low, Medium, High) now available in <code>/model</code> and <code>--model</code> under this sign-in method</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>agy</code> (<code>card-cli</code>) — noted enterprise model gateway URLs now required to use <code>https://</code> unless the gateway runs on the same machine</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>agy</code> (<code>card-cli</code>) — fixed enterprise model gateways that validate request format rejecting every request over a non-standard <code>sessionId</code> field</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>agy plugin &lt;cmd&gt;</code> (<code>card-cli</code>) — fixed <code>import</code> turning Claude Code plugin commands into skills that did not load or were all named <code>SKILL</code></span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>agy plugin &lt;cmd&gt;</code> (<code>card-cli</code>) — fixed <code>import</code> copying some plugins' <code>hooks/hooks.json</code> unchanged, which skipped the plugin's hooks</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>-p</code> / <code>--print</code> / <code>--prompt</code> (<code>card-cli</code>) — fixed headless runs sometimes never exiting after printing their result when a background task got stuck</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>/teamwork</code> / <code>/teamwork-preview</code> (<code>card-slash-tools</code>) — fixed two runs in the same workspace sharing <code>.agents/teamwork/</code> and overwriting each other's run state</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>/agents</code> (<code>card-slash-tools</code>) — fixed subagents and swarm workers losing uncommitted work when given their own copy of a Git repository</span></li>
+                            </ul>
+                        </div>
+                        <div class="change-section">
+                            <h3 id="rel-1-5-4">Antigravity CLI v1.5.4 <span class="version-date">2026-11-10</span></h3>
+                            <ul class="change-list">
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>agy acp [flags]</code> (<code>card-cli</code>) — noted Auto mode support added for ACP editor sessions</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>hooks.json</code> (<code>card-hooks</code>) — noted <code>hookEventName</code>, <code>cwd</code>, and <code>toolCall.id</code> added to the JSON input hooks receive</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>--mode &lt;mode&gt;</code> (<code>card-cli</code>) — noted Auto mode's sandbox-escape review now uses a lighter-thinking Gemini Flash model to decide faster</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>agy acp [flags]</code> (<code>card-cli</code>) — fixed sessions dropping back to the default mode when an editor reloaded or resumed an open session</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>agy acp [flags]</code> (<code>card-cli</code>) — fixed turns hanging when a tool call needed a second permission approval</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>/agents</code> (<code>card-slash-tools</code>) — fixed crashes and freezes with subagents in narrow terminals and while answering their questions</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>PgUp</code> / <code>PgDn</code> (<code>card-keys</code>) — fixed paging skipping text at message boundaries and under the pinned prompt header in full-screen mode</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>Ctrl+O</code> (<code>card-keys</code>) — fixed a thought indented as if part of the tool call it follows in the expanded view</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>agy remote-control</code> (<code>card-cli</code>) — fixed the background service staying disconnected for good when it started before the network was up</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>--remote-agent</code> (<code>card-cli</code>) — fixed the <code>Sign-in update needed</code> warning not appearing in these sessions</span></li>
+                            </ul>
+                        </div>
                         <div class="change-section">
                             <h3 id="rel-1-5-3">Antigravity CLI v1.5.3 <span class="version-date">2026-11-07</span></h3>
                             <ul class="change-list">
