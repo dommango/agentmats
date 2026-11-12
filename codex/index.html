@@ -48,7 +48,7 @@
             <span class="header-tagline">Unofficial · auto-updated reference</span>
         </div>
         <div class="global-controls">
-            <span class="release-tag">As of release: v0.167.1</span>
+            <span class="release-tag">As of release: v0.167.2</span>
             <a href="changelog.html" class="header-link">Changelog →</a>
             <a href="feed.xml" class="header-link" title="Subscribe to placemat changes (RSS)">RSS</a>
             <button type="button" class="header-link print-btn" id="printBtn" title="Print or save as PDF (Ctrl P)">⎙ Print</button>
@@ -85,7 +85,7 @@
 
         <div class="print-head" aria-hidden="true">
             <span class="print-head-title">Codex CLI <b>PLACEMAT</b></span>
-            <span>As of release v0.167.1</span>
+            <span>As of release v0.167.2</span>
             <span>■ = new &nbsp; □ = unverified</span>
             <span>dommango.github.io/agentmats/codex</span>
         </div>
@@ -390,7 +390,7 @@
                     <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
                     <tr class="search-item" id="i-model-2"><td><a class="row-link" href="#i-model-2" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>model</code></td><td class="desc">Model to use</td></tr>
                     <tr class="search-item" id="i-review-model"><td><a class="row-link" href="#i-review-model" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>review_model</code></td><td class="desc">Model override used by <code>/review</code>; defaults to the session model</td></tr>
-                    <tr class="search-item" id="i-model-provider"><td><a class="row-link" href="#i-model-provider" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>model_provider</code></td><td class="desc"><span class="summary">Provider id from <code>model_providers</code>; defaults to <code>openai</code></span> <button type="button" class="notes-btn" aria-expanded="false">+2</button><ul class="notes" hidden><li>v0.165.0 adds a built-in <code>gcp</code> provider for Google Cloud Vertex AI.</li><li>v0.167.0 adds a <code>gcp_setup_wizard</code> flag that configures Vertex AI credentials interactively.</li></ul></td></tr>
+                    <tr class="search-item" id="i-model-provider"><td><a class="row-link" href="#i-model-provider" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>model_provider</code></td><td class="desc"><span class="summary">Provider id from <code>model_providers</code>; defaults to <code>openai</code></span> <button type="button" class="notes-btn" aria-expanded="false">+3</button><ul class="notes" hidden><li>v0.165.0 adds a built-in <code>gcp</code> provider for Google Cloud Vertex AI.</li><li>v0.167.0 adds a <code>gcp_setup_wizard</code> flag that configures Vertex AI credentials interactively.</li><li>v0.167.2 sends tool updates to the <code>gcp</code> provider incrementally by default; set <code class="unverified">features.incremental_tools_legacy_gcp</code> to <code>false</code> to opt out.</li></ul></td></tr>
                     <tr class="search-item" id="i-model-reasoning-effort"><td><a class="row-link" href="#i-model-reasoning-effort" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>model_reasoning_effort</code></td><td class="desc"><span class="summary">Reasoning effort: <code>minimal</code>, <code>low</code>, <code>medium</code>, <code>high</code>, <code>xhigh</code></span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Responses API only; <code>xhigh</code> is model-dependent.</li></ul></td></tr>
                     <tr class="search-item" id="i-plan-mode-reasoning-effort"><td><a class="row-link" href="#i-plan-mode-reasoning-effort" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>plan_mode_reasoning_effort</code></td><td class="desc">Reasoning effort used while in plan mode</td></tr>
                     <tr class="search-item" id="i-model-reasoning-summary"><td><a class="row-link" href="#i-model-reasoning-summary" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>model_reasoning_summary</code></td><td class="desc"><span class="summary">Summary detail: <code>auto</code>, <code>concise</code>, <code>detailed</code>, <code>none</code></span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>New local TUI sessions leave summaries disabled by default so providers without support don&rsquo;t reject the request; an explicit value here is still respected.</li></ul></td></tr>
@@ -630,7 +630,7 @@
         <div class="no-results search-exclude" id="noResults">No matches — clear search to see everything.</div>
 
         <footer class="global-footer">
-            Template v1.0 · Content synced 2026-11-06<br>
+            Template v1.0 · Content synced 2026-11-11<br>
             <span class="disclaimer">Unofficial community reference — not affiliated with or endorsed by OpenAI.
             Condensed from the official docs; always confirm against
             <a href="https://developers.openai.com/codex" target="_blank" rel="noopener noreferrer">developers.openai.com/codex</a>.</span><br>

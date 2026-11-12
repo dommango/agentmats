@@ -1,7 +1,20 @@
 {
- "generated": "2026-11-06",
- "latest": "v0.167.0",
+ "generated": "2026-11-11",
+ "latest": "v0.167.2",
  "releases": [
+  {
+   "version": "v0.167.2",
+   "label": "Codex CLI v0.167.2",
+   "date": "2026-11-11",
+   "id": "rel-0-167-2",
+   "entries": [
+    {
+     "tag": "CHG",
+     "item": "model_provider",
+     "html": "<code>model_provider</code> (<code>card-settings</code>) — tool updates to the <code>gcp</code> provider now stream incrementally by default; opt out with <code>features.incremental_tools_legacy_gcp</code>, unverified"
+    }
+   ]
+  },
   {
    "version": "v0.167.0",
    "label": "Codex CLI v0.167.0",
