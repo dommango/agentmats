@@ -1,7 +1,85 @@
 {
- "generated": "2026-11-11",
- "latest": "v0.167.2",
+ "generated": "2026-11-13",
+ "latest": "v0.169.0",
  "releases": [
+  {
+   "version": "v0.169.0",
+   "label": "Codex CLI v0.168.0–v0.169.0",
+   "date": "2026-11-13",
+   "id": "rel-0-169-0",
+   "entries": [
+    {
+     "tag": "ADD",
+     "item": "features.tui_workspace",
+     "html": "<code>features.tui_workspace</code> (<code>card-settings</code>) — opt-in resizable side-chat pane beside the main conversation, with multiple tabs and session restore"
+    },
+    {
+     "tag": "ADD",
+     "item": "features.image_generation_animation",
+     "html": "<code>features.image_generation_animation</code> (<code>card-settings</code>) — opt-in animated GIF generation and editing with image-capable models"
+    },
+    {
+     "tag": "ADD",
+     "item": "--trust",
+     "html": "<code>--trust</code> (<code>card-cli</code>, <code>codex exec</code>) — save project trust for this and future chats, including MCP commands outside the sandbox"
+    },
+    {
+     "tag": "CHG",
+     "item": "agents.enabled",
+     "html": "<code>agents.enabled</code> (<code>card-settings</code>) — Codex now warns when <code>features.multi_agent</code> is explicitly configured and points here instead"
+    },
+    {
+     "tag": "CHG",
+     "item": "tui.notification_method",
+     "html": "<code>tui.notification_method</code> (<code>card-settings</code>) — adds an <code>osc777</code> value and lengthens approval previews"
+    },
+    {
+     "tag": "CHG",
+     "item": "model_provider",
+     "html": "<code>model_provider</code> (<code>card-settings</code>) — adds browsing model providers under Sessions and choosing a default for new chats"
+    },
+    {
+     "tag": "CHG",
+     "item": "codex resume",
+     "html": "<code>codex resume</code> (<code>card-cli</code>) — local history and resume pickers now filter to threads under the signed-in ChatGPT account"
+    },
+    {
+     "tag": "CHG",
+     "item": "@",
+     "html": "<code>@</code> (<code>card-keys</code>) — fuzzy file search now weighs filename matches more heavily"
+    },
+    {
+     "tag": "CHG",
+     "item": "/pets",
+     "html": "<code>/pets</code> (<code>card-slash-tools</code>) — adds image previews and pet rendering in tmux on Ghostty and Kitty"
+    },
+    {
+     "tag": "CHG",
+     "item": "codex login",
+     "html": "<code>codex login</code> (<code>card-cli</code>) — custom model providers can now be added or edited from the terminal, including during sign-in with device-code authorization"
+    },
+    {
+     "tag": "CHG",
+     "item": "codex cloud",
+     "html": "<code>codex cloud</code> (<code>card-cli</code>) — the opt-in macOS/Linux Cloud connection can send images, choose a model and reasoning effort, and archive or restore conversations"
+    },
+    {
+     "tag": "CHG",
+     "item": "codex agents",
+     "html": "<code>codex agents</code> (<code>card-cli</code>) — adds searching older tasks by name, prompt preview or working directory"
+    },
+    {
+     "tag": "CHG",
+     "item": "/tui",
+     "html": "<code>/tui</code> (<code>card-keys</code>) — adds a Collapse turn details option that folds completed activity under each prompt"
+    },
+    {
+     "tag": "CHG",
+     "item": "/feedback",
+     "html": "<code>/feedback</code> (<code>card-slash-tools</code>) — adds pressing <code>Ctrl+S</code> in the report editor to save a diagnostic ZIP locally"
+    }
+   ]
+  },
   {
    "version": "v0.167.2",
    "label": "Codex CLI v0.167.2",
