@@ -163,8 +163,28 @@
                 <h3>Content / Codex CLI Releases</h3>
                 <!-- November 2026 -->
                 <details class="month-group" open>
-                    <summary>November 2026 <span class="version-date">v0.167.2</span> <span class="month-count">2 releases</span></summary>
+                    <summary>November 2026 <span class="version-date">v0.169.0</span> <span class="month-count">4 releases</span></summary>
                     <div class="month-content">
+
+                        <div class="change-section">
+                            <h3 id="rel-0-169-0">Codex CLI v0.168.0–v0.169.0 <span class="version-date">2026-11-13</span></h3>
+                            <ul class="change-list">
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>features.tui_workspace</code> (<code>card-settings</code>) — opt-in resizable side-chat pane beside the main conversation, with multiple tabs and session restore</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>features.image_generation_animation</code> (<code>card-settings</code>) — opt-in animated GIF generation and editing with image-capable models</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>--trust</code> (<code>card-cli</code>, <code>codex exec</code>) — save project trust for this and future chats, including MCP commands outside the sandbox</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>agents.enabled</code> (<code>card-settings</code>) — Codex now warns when <code>features.multi_agent</code> is explicitly configured and points here instead</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>tui.notification_method</code> (<code>card-settings</code>) — adds an <code>osc777</code> value and lengthens approval previews</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>model_provider</code> (<code>card-settings</code>) — adds browsing model providers under Sessions and choosing a default for new chats</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>codex resume</code> (<code>card-cli</code>) — local history and resume pickers now filter to threads under the signed-in ChatGPT account</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>@</code> (<code>card-keys</code>) — fuzzy file search now weighs filename matches more heavily</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>/pets</code> (<code>card-slash-tools</code>) — adds image previews and pet rendering in tmux on Ghostty and Kitty</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>codex login</code> (<code>card-cli</code>) — custom model providers can now be added or edited from the terminal, including during sign-in with device-code authorization</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>codex cloud</code> (<code>card-cli</code>) — the opt-in macOS/Linux Cloud connection can send images, choose a model and reasoning effort, and archive or restore conversations</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>codex agents</code> (<code>card-cli</code>) — adds searching older tasks by name, prompt preview or working directory</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>/tui</code> (<code>card-keys</code>) — adds a Collapse turn details option that folds completed activity under each prompt</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>/feedback</code> (<code>card-slash-tools</code>) — adds pressing <code>Ctrl+S</code> in the report editor to save a diagnostic ZIP locally</span></li>
+                            </ul>
+                        </div>
 
                         <div class="change-section">
                             <h3 id="rel-0-167-2">Codex CLI v0.167.2 <span class="version-date">2026-11-11</span></h3>
@@ -362,7 +382,7 @@
         </div>
 
         <footer class="global-footer">
-            Template v1.0 · Content synced 2026-11-11<br>
+            Template v1.0 · Content synced 2026-11-13<br>
             <span class="disclaimer">Unofficial community reference — not affiliated with or endorsed by OpenAI.
             Condensed from the official docs; always confirm against
             <a href="https://developers.openai.com/codex" target="_blank" rel="noopener noreferrer">developers.openai.com/codex</a>.</span><br>
