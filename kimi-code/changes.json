@@ -1,7 +1,98 @@
 {
- "generated": "2026-11-10",
- "latest": "v2.5.3",
+ "generated": "2026-11-13",
+ "latest": "v2.6.1",
  "releases": [
+  {
+   "version": "v2.6.1",
+   "label": "Kimi Code v2.6.1",
+   "date": "2026-11-13",
+   "id": "rel-2-6-1",
+   "entries": [
+    {
+     "tag": "FIX",
+     "item": "/sessions",
+     "html": "<code>/sessions</code> &mdash; fixed multi-second loading delays when reopening long sessions"
+    },
+    {
+     "tag": "FIX",
+     "item": "/compact",
+     "html": "<code>/compact</code> &mdash; fixed long sessions stalling with empty replies instead of auto-compacting when tool results carry notes, errors or timing headers"
+    }
+   ]
+  },
+  {
+   "version": "v2.6.0",
+   "label": "Kimi Code v2.6.0",
+   "date": "2026-11-12",
+   "id": "rel-2-6-0",
+   "entries": [
+    {
+     "tag": "CHG",
+     "item": "@",
+     "html": "<code>@</code> file-path completion &mdash; now includes hidden and <code>.gitignore</code>-ignored paths by default, ranking non-ignored matches first at equal match quality"
+    },
+    {
+     "tag": "ADD",
+     "item": "copy_on_select",
+     "html": "<code>copy_on_select</code> &mdash; fullscreen mode copies selected text to the clipboard as soon as you select it; also copy with <code>Ctrl-C</code> / <code>Cmd-C</code>"
+    },
+    {
+     "tag": "ADD",
+     "item": "[transcript].tool_call_density",
+     "html": "<code>[transcript].tool_call_density</code> / <code>[transcript].thinking</code> &mdash; fold consecutive tool calls and thinking into summary lines in fullscreen mode; also hides Activated-skill cards for model-loaded skills"
+    },
+    {
+     "tag": "CHG",
+     "item": "extra_skill_dirs",
+     "html": "<code>extra_skill_dirs</code> &mdash; same-name Skills from different source directories stay selectable as separate variants in a dedicated TUI Skills group, each labelled by directory, global, or built-in"
+    },
+    {
+     "tag": "ADD",
+     "item": "[[permission.rules]]",
+     "html": "<code>[[permission.rules]]</code> &mdash; persist to the user <code>config.toml</code> and, when the workspace is trusted, to project-scoped rules in <code>.kimi-code/local.toml</code>, applied with <code>deny</code> &gt; <code>ask</code> &gt; <code>allow</code> precedence at session start"
+    },
+    {
+     "tag": "ADD",
+     "item": ".kimi-code/local.toml",
+     "html": "<code>.kimi-code/local.toml</code> &mdash; carries project-scoped permission rules, read only when the workspace is trusted and applied from the next session"
+    },
+    {
+     "tag": "ADD",
+     "item": null,
+     "html": "Tower (experimental) &mdash; artifact missions require your explicit acceptance of the committed deliverables instead of an independent review; mission kinds now show in status and mission views"
+    },
+    {
+     "tag": "ADD",
+     "item": "KIMI_CODE_CLIPBOARD_OSC52",
+     "html": "<code>KIMI_CODE_CLIPBOARD_OSC52</code> &mdash; set to <code>1</code> to send OSC 52 through the terminal, for when copying does not work over a remote connection"
+    },
+    {
+     "tag": "CHG",
+     "item": null,
+     "html": "Copying outside SSH and mosh reaches the system clipboard only, instead of also sending OSC 52 through the terminal"
+    },
+    {
+     "tag": "CHG",
+     "item": "[secondary_model]",
+     "html": "<code>[secondary_model]</code> &mdash; naming a pool entry <code>primary</code> is allowed again as an ordinary alias; Tower reviewers use the pool default instead of the primary model unless one is selected explicitly"
+    },
+    {
+     "tag": "ADD",
+     "item": "KIMI_CODE_TUI_ANIMATION_FPS",
+     "html": "<code>KIMI_CODE_TUI_ANIMATION_FPS</code> &mdash; integer from <code>1</code> to <code>60</code>, adjusts the frame rate of in-progress title shimmer animations"
+    },
+    {
+     "tag": "FIX",
+     "item": "[[permission.rules]]",
+     "html": "<code>[[permission.rules]]</code> &mdash; now applied from <code>config.toml</code> at session start in print mode (<code>kimi -p</code>) too, not just the interactive TUI"
+    },
+    {
+     "tag": "FIX",
+     "item": "--environment",
+     "html": "<code>--environment</code> / <code>[environments]</code> &mdash; the default local workdir now follows the current primary directory after a primary swap, keeping tools, project configuration and session indexes in sync; pass an explicit <code>--environment-cwd</code> to keep the old pinned-directory behavior"
+    }
+   ]
+  },
   {
    "version": "v2.5.3",
    "label": "Kimi Code v2.5.3",

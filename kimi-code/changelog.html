@@ -163,8 +163,35 @@
                 <h3>Content / Kimi Code Releases</h3>
                 <!-- November 2026 -->
                 <details class="month-group" open>
-                    <summary>November 2026 <span class="version-date">v2.5.0 – v2.5.3</span> <span class="month-count">4 releases</span></summary>
+                    <summary>November 2026 <span class="version-date">v2.5.0 – v2.6.1</span> <span class="month-count">6 releases</span></summary>
                     <div class="month-content">
+
+                        <div class="change-section">
+                            <h3 id="rel-2-6-1">Kimi Code v2.6.1 <span class="version-date">2026-11-13</span></h3>
+                            <ul class="change-list">
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>/sessions</code> &mdash; fixed multi-second loading delays when reopening long sessions</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>/compact</code> &mdash; fixed long sessions stalling with empty replies instead of auto-compacting when tool results carry notes, errors or timing headers</span></li>
+                            </ul>
+                        </div>
+
+                        <div class="change-section">
+                            <h3 id="rel-2-6-0">Kimi Code v2.6.0 <span class="version-date">2026-11-12</span></h3>
+                            <ul class="change-list">
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>@</code> file-path completion &mdash; now includes hidden and <code>.gitignore</code>-ignored paths by default, ranking non-ignored matches first at equal match quality</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>copy_on_select</code> &mdash; fullscreen mode copies selected text to the clipboard as soon as you select it; also copy with <code>Ctrl-C</code> / <code>Cmd-C</code></span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>[transcript].tool_call_density</code> / <code>[transcript].thinking</code> &mdash; fold consecutive tool calls and thinking into summary lines in fullscreen mode; also hides Activated-skill cards for model-loaded skills</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>extra_skill_dirs</code> &mdash; same-name Skills from different source directories stay selectable as separate variants in a dedicated TUI Skills group, each labelled by directory, global, or built-in</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>[[permission.rules]]</code> &mdash; persist to the user <code>config.toml</code> and, when the workspace is trusted, to project-scoped rules in <code>.kimi-code/local.toml</code>, applied with <code>deny</code> &gt; <code>ask</code> &gt; <code>allow</code> precedence at session start</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>.kimi-code/local.toml</code> &mdash; carries project-scoped permission rules, read only when the workspace is trusted and applied from the next session</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry">Tower (experimental) &mdash; artifact missions require your explicit acceptance of the committed deliverables instead of an independent review; mission kinds now show in status and mission views</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>KIMI_CODE_CLIPBOARD_OSC52</code> &mdash; set to <code>1</code> to send OSC 52 through the terminal, for when copying does not work over a remote connection</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry">Copying outside SSH and mosh reaches the system clipboard only, instead of also sending OSC 52 through the terminal</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>[secondary_model]</code> &mdash; naming a pool entry <code>primary</code> is allowed again as an ordinary alias; Tower reviewers use the pool default instead of the primary model unless one is selected explicitly</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>KIMI_CODE_TUI_ANIMATION_FPS</code> &mdash; integer from <code>1</code> to <code>60</code>, adjusts the frame rate of in-progress title shimmer animations</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>[[permission.rules]]</code> &mdash; now applied from <code>config.toml</code> at session start in print mode (<code>kimi -p</code>) too, not just the interactive TUI</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>--environment</code> / <code>[environments]</code> &mdash; the default local workdir now follows the current primary directory after a primary swap, keeping tools, project configuration and session indexes in sync; pass an explicit <code>--environment-cwd</code> to keep the old pinned-directory behavior</span></li>
+                            </ul>
+                        </div>
 
                         <div class="change-section">
                             <h3 id="rel-2-5-3">Kimi Code v2.5.3 <span class="version-date">2026-11-10</span></h3>
@@ -391,12 +418,13 @@
                 <ul class="change-list">
                     <li><span class="tag tag-add">ADD</span><span class="entry">v1.0 — template derived from <code>claude-code-placemat</code> v1.2</span></li>
                     <li><span class="tag tag-change">CHG</span><span class="entry">Per-agent <code>localStorage</code> keys (<code>pm-kimi-code-seen-version</code>, <code>pm-kimi-code-collapsed</code>); theme and density stay shared across every placemat on this origin</span></li>
+                    <li><span class="tag tag-fix">FIX</span><span class="entry">Corrected the <code>.kimi-code/local.toml</code>, <code>/add-dir</code> and <code>[workspace].additional_dir</code> rows: the config reference documents <code>additional_dir</code> as a read-only legacy field, with current versions remembering directories in the <code>~/.kimi-code/projects.json</code> workspace registry. The vendor gives no release for that switch, so the rows carry no version marker</span></li>
                 </ul>
             </div>
         </div>
 
         <footer class="global-footer">
-            Template v1.0 · Content synced 2026-11-06<br>
+            Template v1.0 · Content synced 2026-11-13<br>
             <span class="disclaimer">Unofficial community reference — not affiliated with or endorsed by Moonshot AI.
             Condensed from the official docs; always confirm against
             <a href="https://moonshotai.github.io/kimi-code/" target="_blank" rel="noopener noreferrer">moonshotai.github.io/kimi-code</a>.</span><br>
