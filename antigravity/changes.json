@@ -1,7 +1,143 @@
 {
- "generated": "2026-11-10",
- "latest": "v1.5.5",
+ "generated": "2026-11-12",
+ "latest": "v1.5.7",
  "releases": [
+  {
+   "version": "v1.5.7",
+   "label": "Antigravity CLI v1.5.7",
+   "date": "2026-11-12",
+   "id": "rel-1-5-7",
+   "entries": [
+    {
+     "tag": "CHG",
+     "item": "agentMode",
+     "html": "<code>agentMode</code> (<code>card-settings</code>) — noted sessions with no saved mode, including headless <code>-p</code> runs, now starting in <code>auto</code> wherever it is available and <code>default</code> elsewhere"
+    },
+    {
+     "tag": "CHG",
+     "item": "toolPermission",
+     "html": "<code>toolPermission</code> (<code>card-settings</code>) — noted <code>strict</code> now taking precedence over <code>auto</code> and <code>accept-edits</code> modes, so file edits still ask for approval"
+    },
+    {
+     "tag": "FIX",
+     "item": "PreToolUse",
+     "html": "<code>PreToolUse</code> (<code>card-hooks</code>) — fixed a hook returning <code>auto_approve</code>, or a wildcard <code>command(*)</code> allow rule, bypassing an organization's admin-enforced review"
+    },
+    {
+     "tag": "FIX",
+     "item": "/permissions",
+     "html": "<code>/permissions</code> (<code>card-slash-core</code>) — fixed saved command allow and deny rules being ignored when an admin policy requires the terminal sandbox but the machine has no OS sandbox"
+    },
+    {
+     "tag": "FIX",
+     "item": "agy",
+     "html": "<code>agy</code> (<code>card-cli</code>) — fixed Gemini 4 Carbon requests through an enterprise model gateway failing with an HTTP 400 <code>Thinking budget is not supported for this model</code> error"
+    },
+    {
+     "tag": "FIX",
+     "item": "verbosity",
+     "html": "<code>verbosity</code> (<code>card-settings</code>) — fixed agent replies stalling 20 seconds or more while a group of tool calls with long output was still animating its token counts"
+    },
+    {
+     "tag": "FIX",
+     "item": "/tasks",
+     "html": "<code>/tasks</code> (<code>card-slash-tools</code>) — fixed the agent not noticing a backgrounded command was waiting for input, such as a password or <code>y/n</code> prompt"
+    },
+    {
+     "tag": "FIX",
+     "item": "/tasks",
+     "html": "<code>/tasks</code> (<code>card-slash-tools</code>) — fixed background task details from <code>manage_task</code> losing their formatting when output contained Markdown code blocks or runs of backticks"
+    },
+    {
+     "tag": "FIX",
+     "item": "/remote-control [on/off]",
+     "html": "<code>/remote-control [on/off]</code> (<code>card-slash-tools</code>) — fixed Remote Control showing a link that could not be opened, such as the swarm coordinator's link to the swarm UI"
+    }
+   ]
+  },
+  {
+   "version": "v1.5.6",
+   "label": "Antigravity CLI v1.5.6",
+   "date": "2026-11-11",
+   "id": "rel-1-5-6",
+   "entries": [
+    {
+     "tag": "CHG",
+     "item": "Stop",
+     "html": "<code>Stop</code> (<code>card-hooks</code>) — noted a new <code>continuation_active</code> field in this hook's JSON input, <code>true</code> while the agent works on a continuation an earlier Stop hook requested"
+    },
+    {
+     "tag": "CHG",
+     "item": "/swarm board",
+     "html": "<code>/swarm board</code> (<code>card-slash-tools</code>) — noted bee visuals added to the board header and <code>Roster</code>, with animated bee cards on Kitty-graphics terminals and pixel art elsewhere"
+    },
+    {
+     "tag": "CHG",
+     "item": "--mode <mode>",
+     "html": "<code>--mode &lt;mode&gt;</code> (<code>card-cli</code>) — noted Auto mode's sandbox-escape review asking less often on safe reads such as GitHub API reads and single-file downloads, and no longer treating SSH config or public keys as secrets"
+    },
+    {
+     "tag": "CHG",
+     "item": "agy plugin <cmd>",
+     "html": "<code>agy plugin &lt;cmd&gt;</code> (<code>card-cli</code>) — noted <code>validate</code> now warning when a plugin hook command uses <code>${PLUGIN_ROOT}</code> or <code>$PLUGIN_ROOT</code>, which older CLI versions do not set"
+    },
+    {
+     "tag": "CHG",
+     "item": "AGY_ADC_AUTH",
+     "html": "<code>AGY_ADC_AUTH</code> (<code>card-env</code>) — noted pay-as-you-go Google Cloud accounts signing in this way now using the same permission settings as other pay-as-you-go accounts, which makes Auto mode available"
+    },
+    {
+     "tag": "FIX",
+     "item": "agy",
+     "html": "<code>agy</code> (<code>card-cli</code>) — fixed some models served through an enterprise model gateway being sent requests without native tool declarations, which kept the agent from calling tools reliably"
+    },
+    {
+     "tag": "FIX",
+     "item": "agy",
+     "html": "<code>agy</code> (<code>card-cli</code>) — fixed custom Gemini models behind an enterprise model gateway or admin model list cutting off long edits and file writes at 8,192 output tokens"
+    },
+    {
+     "tag": "FIX",
+     "item": "agy plugin <cmd>",
+     "html": "<code>agy plugin &lt;cmd&gt;</code> (<code>card-cli</code>) — fixed <code>install</code> and <code>import</code> leaving a half-copied plugin that still loaded as enabled when an install failed partway"
+    },
+    {
+     "tag": "FIX",
+     "item": "agy plugin <cmd>",
+     "html": "<code>agy plugin &lt;cmd&gt;</code> (<code>card-cli</code>) — fixed <code>install</code> ignoring the skill folders a Claude Code plugin lists in the <code>\"skills\"</code> field of its manifest"
+    },
+    {
+     "tag": "FIX",
+     "item": "enableTerminalSandbox",
+     "html": "<code>enableTerminalSandbox</code> (<code>card-settings</code>) — fixed duplicate approval prompts and sandbox errors for organizations enforcing sandbox mode on machines without an OS sandbox"
+    },
+    {
+     "tag": "FIX",
+     "item": "/permissions",
+     "html": "<code>/permissions</code> (<code>card-slash-core</code>) — fixed editing project rules here clearing the marker that records the project's permission rules as already migrated"
+    },
+    {
+     "tag": "FIX",
+     "item": "/swarm <task>",
+     "html": "<code>/swarm &lt;task&gt;</code> (<code>card-slash-tools</code>) — fixed the coordinator ending a turn with a one-line filler reply after being sent back to re-read board posts it had already read"
+    },
+    {
+     "tag": "FIX",
+     "item": "/swarm <task>",
+     "html": "<code>/swarm &lt;task&gt;</code> (<code>card-slash-tools</code>) — fixed the coordinator offering a <code>sidecar://</code> board link the CLI cannot open, and <code>agy -p</code> runs pointing to <code>/swarm board</code>, which headless runs cannot open"
+    },
+    {
+     "tag": "FIX",
+     "item": "/swarm board",
+     "html": "<code>/swarm board</code> (<code>card-slash-tools</code>) — fixed <code>Esc</code> in a member's conversation opened with <code>o</code> dropping back to the prompt instead of returning to the board"
+    },
+    {
+     "tag": "FIX",
+     "item": "Ctrl+Z",
+     "html": "<code>Ctrl+Z</code> / <code>Ctrl+Shift+Z</code> (<code>card-keys</code>) — fixed undo and redo, including <code>u</code> in Vim mode, moving the cursor to the end of the input"
+    }
+   ]
+  },
   {
    "version": "v1.5.5",
    "label": "Antigravity CLI v1.5.5",
