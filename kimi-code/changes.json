@@ -43,8 +43,8 @@
     },
     {
      "tag": "CHG",
-     "item": "extra_skill_dirs",
-     "html": "<code>extra_skill_dirs</code> &mdash; same-name Skills from different source directories stay selectable as separate variants in a dedicated TUI Skills group, each labelled by directory, global, or built-in"
+     "item": null,
+     "html": "Same-name Skills from different source directories stay selectable as separate variants in a dedicated TUI Skills group, each labelled by directory, global, or built-in"
     },
     {
      "tag": "ADD",
@@ -53,13 +53,18 @@
     },
     {
      "tag": "ADD",
+     "item": ".kimi-code/local.toml",
+     "html": "<code>.kimi-code/local.toml</code> &mdash; carries project-scoped permission rules, read only when the workspace is trusted and applied from the next session"
+    },
+    {
+     "tag": "ADD",
      "item": null,
      "html": "Tower (experimental) &mdash; artifact missions require your explicit acceptance of the committed deliverables instead of an independent review; mission kinds now show in status and mission views"
     },
     {
      "tag": "CHG",
-     "item": "KIMI_CODE_CLIPBOARD_OSC52=1",
-     "html": "clipboard copy &mdash; outside SSH and mosh, copies to the system clipboard only; set <code>KIMI_CODE_CLIPBOARD_OSC52=1</code> to also send OSC 52 through the terminal"
+     "item": "KIMI_CODE_CLIPBOARD_OSC52",
+     "html": "<code>KIMI_CODE_CLIPBOARD_OSC52</code> &mdash; copying outside SSH and mosh reaches the system clipboard only; set it to <code>1</code> to send OSC 52 through the terminal as before"
     },
     {
      "tag": "CHG",
