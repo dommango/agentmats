@@ -163,8 +163,28 @@
                 <h3>Content / CC Release Updates</h3>
                 <!-- November 2026 -->
                 <details class="month-group" open>
-                    <summary>November 2026 <span class="version-date">v2.1.317 – v2.1.322</span> <span class="month-count">5 releases</span></summary>
+                    <summary>November 2026 <span class="version-date">v2.1.317 – v2.1.323</span> <span class="month-count">6 releases</span></summary>
                     <div class="month-content">
+
+                        <div class="change-section">
+                            <h3 id="rel-2-1-323">CC v2.1.323 <span class="version-date">2026-11-12</span></h3>
+                            <ul class="change-list">
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>/logout</code> — given its first placemat row: sign out from your Anthropic account; in a background session, now signs out every session on the computer, deletes stored MCP logins and plugin secrets, and ends the session, as in a terminal</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>policyHelper</code> / <code>policyHelper.path</code> / <code>policyHelper.refreshIntervalMs</code> / <code>policyHelper.timeoutMs</code> — given its first placemat row: managed setting that runs an executable at startup to compute managed settings; no longer takes environment variables from user or <code>--settings</code> files</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>engines["claude-code"]</code> (plugin manifest) — given its first placemat row: plugins outside this version range aren't installed, updated or loaded; install and update pick the newest version that fits</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>CLAUDE_CODE_DISABLE_1M_CONTEXT</code> / <code>CLAUDE_CODE_DISABLE_UNKNOWN_MODEL_WINDOW_ENFORCEMENT=1</code> — the context window assumed for an unrecognized model ID rose from 200K to 1M; a session on a smaller-window third-party model can now fail every turn once full, until <code>/clear</code>; noted on both existing rows</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>MCP_SDK_GENERATION=v1</code> — the v1 MCP client is fully removed; setting this now runs the v2 client in a compatibility mode (earlier handshake, relaxed OAuth sign-in checks) instead; noted on the existing row</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>CLAUDE_CODE_OVERLOADED_RETRY_MAX_DELAY_MS</code> — the maximum it accepts rose from 64,000ms to 300,000ms; noted on the existing row</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>.mcp.json</code> — a server's approval now matches its exact name; an entry approved under another spelling asks again; noted on the existing row</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>PreToolUse</code> — when a tool's permission check fails with an error after a <code>PreToolUse</code> hook returned <code>allow</code>, Claude Code now decides the call as if no hook had answered; noted on the existing row</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>PermissionRequest</code> — when a tool's permission check fails on input a <code>PermissionRequest</code> hook rewrote, Claude Code now asks again, or refuses the call where nobody can answer; noted on the existing row</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>/security-review</code> — now asks before Claude runs it, outside auto mode and bypass; noted on the existing row</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>-w</code> / <code>--worktree</code> — worktree creation now refuses checkouts whose <code>.git</code> folders are links or hold hard links, such as git-new-workdir layouts and <code>cp -al</code> copies; noted on the existing row</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>claude plugin validate</code> — type-checks a plugin's TypeScript hooks module under <code>--strict</code>, shows the <code>$</code> nouns a mod's <code>engine.create</code> hook touches, and fails a mod whose <code>engine.create</code> hook isn't in the one accepted form; noted on the existing row</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>claude plugin install &lt;plugin&gt;</code> — shows a warning instead of success when the plugin's install command writes to stderr; noted on the existing row</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>agentType</code> — the <code>subagentStatusLine</code> setting this field belonged to was removed; subagent rows always use the default look now, and settings files that still hold the key load as before; noted on the existing row</span></li>
+                            </ul>
+                        </div>
 
                         <div class="change-section">
                             <h3 id="rel-2-1-322">CC v2.1.322 <span class="version-date">2026-11-10</span></h3>
@@ -1827,7 +1847,7 @@
         </div>
 
         <footer class="global-footer">
-            Template v1.2 · Content synced 2026-11-10<br>
+            Template v1.2 · Content synced 2026-11-12<br>
             <span class="disclaimer">Unofficial community reference — not affiliated with or endorsed by Anthropic.
             Condensed from the official docs; always confirm against
             <a href="https://code.claude.com/docs" target="_blank" rel="noopener noreferrer">code.claude.com/docs</a>.</span><br>
