@@ -163,8 +163,21 @@
                 <h3>Content / CC Release Updates</h3>
                 <!-- November 2026 -->
                 <details class="month-group" open>
-                    <summary>November 2026 <span class="version-date">v2.1.317 – v2.1.323</span> <span class="month-count">6 releases</span></summary>
+                    <summary>November 2026 <span class="version-date">v2.1.317 – v2.1.325</span> <span class="month-count">7 releases</span></summary>
                     <div class="month-content">
+
+                        <div class="change-section">
+                            <h3 id="rel-2-1-325">CC v2.1.325 <span class="version-date">2026-11-13</span></h3>
+                            <ul class="change-list">
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>sandbox.autoAllowBashIfSandboxed</code> — given its first placemat row: skip the permission prompt for sandboxed Bash commands; <code>deny</code> rules and content-scoped <code>ask</code> rules such as <code>Bash(git push *)</code> still apply</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>sandbox.failIfUnavailable</code> — given its first placemat row: exit at startup instead of running unsandboxed when the sandbox can't start; real and already documented, but missed by earlier passes</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>disableRemotePreviewScripts</code> — given its first placemat row: managed setting that turns off scripts in the desktop app's HTML previews over SSH and WSL; real and already documented, but missed by earlier passes</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>CLAUDE_CODE_MAX_CONTEXT_TOKENS</code> env var — given its first placemat row: overrides the context window Claude Code assumes for the active model; now also sets the window for unrecognized model IDs that start with <code>claude-</code></span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>sandbox.autoAllowBashIfSandboxed</code> default changed to <code>false</code> in v2.1.324; before that, sandboxed Bash commands ran without a permission prompt by default</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>prependPlugins</code> / <code>appendPlugins</code> — a remote marketplace's plugins that managed settings declare, enable and list here now count as the organization's; <code>pluginDigests</code> is deprecated and ignored; noted on both existing rows</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>WorktreeCreate</code> — now refuses a hook path that goes through a symlink inside the project; have the hook print the real path instead; noted on the existing row</span></li>
+                            </ul>
+                        </div>
 
                         <div class="change-section">
                             <h3 id="rel-2-1-323">CC v2.1.323 <span class="version-date">2026-11-12</span></h3>
@@ -1847,7 +1860,7 @@
         </div>
 
         <footer class="global-footer">
-            Template v1.2 · Content synced 2026-11-12<br>
+            Template v1.2 · Content synced 2026-11-13<br>
             <span class="disclaimer">Unofficial community reference — not affiliated with or endorsed by Anthropic.
             Condensed from the official docs; always confirm against
             <a href="https://code.claude.com/docs" target="_blank" rel="noopener noreferrer">code.claude.com/docs</a>.</span><br>
