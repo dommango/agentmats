@@ -39,8 +39,8 @@
     "config-files.md documents nested TOML tables ([models.\"<alias>\"], [[hooks]], [[permission.rules]], etc.) whose leaf keys only ever appear dotted under their table in this inventory; a bare leaf name (e.g. \"command\") is only valid in that dotted form"
   ],
   "inventory": {
-    "source": "https://moonshotai.github.io/kimi-code/en/reference/slash-commands.md, https://moonshotai.github.io/kimi-code/en/reference/kimi-command.md, https://moonshotai.github.io/kimi-code/en/configuration/config-files.md, https://moonshotai.github.io/kimi-code/en/configuration/env-vars.md, https://moonshotai.github.io/kimi-code/en/customization/hooks.md, https://moonshotai.github.io/kimi-code/en/customization/skills.md, https://moonshotai.github.io/kimi-code/en/guides/remote-environment.md",
-    "fetched": "2026-11-05",
+    "source": "https://moonshotai.github.io/kimi-code/en/reference/slash-commands.md, https://moonshotai.github.io/kimi-code/en/reference/kimi-command.md, https://moonshotai.github.io/kimi-code/en/configuration/config-files.md, https://moonshotai.github.io/kimi-code/en/configuration/env-vars.md, https://moonshotai.github.io/kimi-code/en/customization/hooks.md, https://moonshotai.github.io/kimi-code/en/customization/skills.md, https://moonshotai.github.io/kimi-code/en/guides/remote-environment.md, https://moonshotai.github.io/kimi-code/en/guides/interaction.md",
+    "fetched": "2026-11-14",
     "note": "Extracted from the vendor's own reference/configuration/customization docs (raw .md). release-notes/changelog.md was used only to confirm the current release, never as a source of surface facts.",
     "slash": [
       "/login", "/logout", "/provider", "/model", "/secondary-model", "/subagent-model",
@@ -104,6 +104,7 @@
       "permission.rules.reason", "permission.dangerous_command_guard",
       "hooks.event", "hooks.matcher", "hooks.command", "hooks.timeout",
       "theme", "render_latex", "disable_paste_burst", "cache_expiry_hint",
+      "transcript.tool_call_density", "transcript.thinking",
       "disable_feedback_survey",
       "editor.command", "notifications.enabled", "notifications.notification_condition",
       "upgrade.auto_install", "status_line.items", "status_line.command",
