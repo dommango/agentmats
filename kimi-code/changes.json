@@ -1,7 +1,116 @@
 {
- "generated": "2026-11-10",
- "latest": "v2.5.3",
+ "generated": "2026-11-14",
+ "latest": "v2.6.2",
  "releases": [
+  {
+   "version": "v2.6.2",
+   "label": "Kimi Code v2.6.2",
+   "date": "2026-11-14",
+   "id": "rel-2-6-2",
+   "entries": [
+    {
+     "tag": "ADD",
+     "item": "[providers.\"<id>\"]",
+     "html": "<code>[providers.\"&lt;id&gt;\"]</code> &mdash; a custom-registry (<code>api.json</code>) entry can declare optional <code>search_url</code> / <code>feedback_url</code> fields for <code>WebSearch</code> and <code>/feedback</code>"
+    },
+    {
+     "tag": "CHG",
+     "item": "/feedback",
+     "html": "<code>/feedback</code> &mdash; the text-only &ldquo;No attachment&rdquo; option is gone; it now shows the session&rsquo;s files before confirmation and includes the session&rsquo;s <code>request_id</code>"
+    },
+    {
+     "tag": "FIX",
+     "item": null,
+     "html": "Multi-second loading delays reopening long sessions, extending the 2.6.1 fix to sessions with many tool calls"
+    },
+    {
+     "tag": "FIX",
+     "item": "Ctrl-V",
+     "html": "<code>Ctrl-V</code> &mdash; a failed or unfinished Kimi media upload is now rejected instead of being cached as an unusable file reference"
+    },
+    {
+     "tag": "FIX",
+     "item": "/swarm",
+     "html": "<code>/swarm</code> &mdash; fixed the panel missing live subagent updates during execution"
+    }
+   ]
+  },
+  {
+   "version": "v2.6.1",
+   "label": "Kimi Code v2.6.1",
+   "date": "2026-11-13",
+   "id": "rel-2-6-1",
+   "entries": [
+    {
+     "tag": "FIX",
+     "item": null,
+     "html": "Multi-second loading delays reopening long sessions"
+    },
+    {
+     "tag": "FIX",
+     "item": "/compact",
+     "html": "<code>/compact</code> &mdash; long sessions no longer stall with an empty reply instead of auto-compacting when tool results carry notes, errors, or timing headers"
+    }
+   ]
+  },
+  {
+   "version": "v2.6.0",
+   "label": "Kimi Code v2.6.0",
+   "date": "2026-11-12",
+   "id": "rel-2-6-0",
+   "entries": [
+    {
+     "tag": "ADD",
+     "item": "[transcript].tool_call_density",
+     "html": "<code>[transcript].tool_call_density</code> / <code>[transcript].thinking</code> &mdash; fullscreen mode folds consecutive tool calls and thinking into summary lines by default and hides Activated skill cards for model-loaded skills; set either to <code>\"ungrouped\"</code>, or adjust folding in <code>/settings</code>, to keep the previous layout"
+    },
+    {
+     "tag": "ADD",
+     "item": "@",
+     "html": "<code>@</code> file-path completion now includes hidden and <code>.gitignore</code>-ignored paths by default, ranking non-ignored matches first at equal match quality"
+    },
+    {
+     "tag": "ADD",
+     "item": null,
+     "html": "Same-name workspace Skills now stay individually selectable in a dedicated picker group, labelled by directory, global, or built-in source"
+    },
+    {
+     "tag": "ADD",
+     "item": "Ctrl-C",
+     "html": "Fullscreen mode &mdash; <code>Ctrl-C</code> / <code>Cmd-C</code> copies selected text; toggle with Copy on select in <code>/settings</code>"
+    },
+    {
+     "tag": "CHG",
+     "item": "[[permission.rules]]",
+     "html": "<code>[[permission.rules]]</code> &mdash; user and trusted project rules are now persisted and reapplied automatically whenever a session starts, including in print mode, with <code>deny</code> still taking precedence over <code>ask</code> and <code>allow</code>"
+    },
+    {
+     "tag": "ADD",
+     "item": "[background]",
+     "html": "<code>[background]</code> &mdash; Tower now tracks artifact missions with key-deliverable review and human acceptance, shown in status and mission views"
+    },
+    {
+     "tag": "CHG",
+     "item": "[secondary_model]",
+     "html": "<code>[secondary_model]</code> &mdash; <code>primary</code> can be listed again as an ordinary pool alias; Tower reviewers now use the pool default instead of the main model"
+    },
+    {
+     "tag": "ADD",
+     "item": "KIMI_CODE_CLIPBOARD_OSC52",
+     "html": "<code>KIMI_CODE_CLIPBOARD_OSC52</code> &mdash; outside SSH and mosh, only the system clipboard is used by default; set to <code>1</code> to also send OSC 52"
+    },
+    {
+     "tag": "ADD",
+     "item": "KIMI_CODE_TUI_ANIMATION_FPS",
+     "html": "<code>KIMI_CODE_TUI_ANIMATION_FPS</code> &mdash; adjust the frame rate of in-progress title shimmer animations"
+    },
+    {
+     "tag": "FIX",
+     "item": "--environment <id>",
+     "html": "<code>--environment &lt;id&gt;</code> &mdash; the <code>local</code> environment&rsquo;s default workdir now follows the current primary directory after a primary swap; pass an explicit <code>--environment-cwd</code> to keep the previous pinned-directory behavior"
+    }
+   ]
+  },
   {
    "version": "v2.5.3",
    "label": "Kimi Code v2.5.3",
