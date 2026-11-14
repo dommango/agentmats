@@ -39,9 +39,10 @@
   ],
   "inventory": {
     "source": "https://antigravity.google/docs/cli/reference (slash commands); https://antigravity.google/docs/settings?tab=cli (settings keys); https://antigravity.google/docs/hooks (hook events)",
-    "fetched": "2026-11-12",
+    "fetched": "2026-11-13",
     "slash": [
-      "/add-dir", "/agents", "/boost", "/artifact", "/browser", "/btw",
+      "/add-dir", "/agents", "/agy-customizations", "/antigravity-guide",
+      "/boost", "/artifact", "/browser", "/btw",
       "/changelog", "/clear", "/new", "/codesearch", "/cs", "/search",
       "/config", "/settings", "/context", "/copy", "/credits", "/diff",
       "/effort", "/exit", "/quit", "/feedback", "/fork", "/branch", "/goal",
