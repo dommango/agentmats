@@ -1,7 +1,175 @@
 {
- "generated": "2026-11-12",
- "latest": "v1.5.7",
+ "generated": "2026-11-13",
+ "latest": "v1.5.8",
  "releases": [
+  {
+   "version": "v1.5.8",
+   "label": "Antigravity CLI v1.5.8",
+   "date": "2026-11-13",
+   "id": "rel-1-5-8",
+   "entries": [
+    {
+     "tag": "ADD",
+     "item": "/agy-customizations [request]",
+     "html": "<code>/agy-customizations [request]</code> (<code>card-slash-tools</code>) — new row: loads the customization reference so the agent can build or explain rules, skills, plugins, hooks, and MCP servers"
+    },
+    {
+     "tag": "ADD",
+     "item": "/antigravity-guide [question]",
+     "html": "<code>/antigravity-guide [question]</code> (<code>card-slash-tools</code>) — new row: answers how to use or configure Antigravity from the official docs"
+    },
+    {
+     "tag": "ADD",
+     "item": "gateway.routeWebFetch",
+     "html": "<code>gateway.routeWebFetch</code> (<code>card-settings</code>) — new unverified row for the admin setting that disables URL reading through an enterprise model gateway unless a proxy address is set"
+    },
+    {
+     "tag": "ADD",
+     "item": "featureControls.remoteControlEnabled",
+     "html": "<code>featureControls.remoteControlEnabled</code> (<code>card-settings</code>) — new unverified row for the admin setting letting an organization turn off Remote Control"
+    },
+    {
+     "tag": "CHG",
+     "item": "Ctrl+O",
+     "html": "<code>Ctrl+O</code> (<code>card-keys</code>) — noted click-to-expand added in full screen (altscreen) mode for tool groups, thoughts, images, and multi-line command output"
+    },
+    {
+     "tag": "CHG",
+     "item": "agy acp [flags]",
+     "html": "<code>agy acp [flags]</code> (<code>card-cli</code>) — noted context window usage updates now sent to ACP editors on session start, model calls, and level changes"
+    },
+    {
+     "tag": "CHG",
+     "item": "--remote-agent",
+     "html": "<code>--remote-agent</code> (<code>card-cli</code>) — noted the first message of a conversation no longer waiting for its remote environment to start or resume"
+    },
+    {
+     "tag": "CHG",
+     "item": "GEMINI_API_KEY",
+     "html": "<code>GEMINI_API_KEY</code> (<code>card-env</code>) — noted Gemini 4 Hydrogen (Low/Medium/High/XHigh) and Gemini 4 Carbon (Low/Medium/High) now available in <code>/model</code> and <code>--model</code> with this key"
+    },
+    {
+     "tag": "CHG",
+     "item": "AGY_ADC_AUTH",
+     "html": "<code>AGY_ADC_AUTH</code> (<code>card-env</code>) — noted Gemini 4 Hydrogen (Low/Medium/High/XHigh) now available under this sign-in method"
+    },
+    {
+     "tag": "CHG",
+     "item": "agy",
+     "html": "<code>agy</code> (<code>card-cli</code>) — noted Gemini 4 Hydrogen support through an enterprise model gateway, and web page reads now going directly from your machine instead of through Google's fetch service unless an admin disables it"
+    },
+    {
+     "tag": "FIX",
+     "item": "enableTerminalSandbox",
+     "html": "<code>enableTerminalSandbox</code> (<code>card-settings</code>) — fixed a security issue letting a command bypass path-based network rules with percent-encoded slashes, backslashes, or <code>..</code> segments in a URL path"
+    },
+    {
+     "tag": "FIX",
+     "item": "/permissions",
+     "html": "<code>/permissions</code> (<code>card-slash-core</code>) — fixed \"Always allow\" command rules on Windows being bypassable via <code>cmd</code>/<code>powershell.exe</code> quoting differences"
+    },
+    {
+     "tag": "FIX",
+     "item": "/mcp",
+     "html": "<code>/mcp</code> (<code>card-slash-tools</code>) — fixed permission rules being ignored for eager-loaded MCP tools and the <code>/browser</code> subagent's Chrome DevTools tools"
+    },
+    {
+     "tag": "FIX",
+     "item": "/mcp",
+     "html": "<code>/mcp</code> (<code>card-slash-tools</code>) — fixed remote MCP servers that sign in with OAuth without a client secret signing you out when the access token expired"
+    },
+    {
+     "tag": "FIX",
+     "item": "/mcp",
+     "html": "<code>/mcp</code> (<code>card-slash-tools</code>) — fixed the agent telling you to click a Sign in button or Accounts tab instead of pointing to <code>/plugin</code> sign-in guidance"
+    },
+    {
+     "tag": "FIX",
+     "item": "/plugin",
+     "html": "<code>/plugin</code> (<code>card-slash-tools</code>) — fixed this, <code>agy plugin</code>, and headless <code>-p</code> runs ignoring an organization's Gemini Enterprise admin controls for plugins"
+    },
+    {
+     "tag": "FIX",
+     "item": "agy plugin <cmd>",
+     "html": "<code>agy plugin &lt;cmd&gt;</code> (<code>card-cli</code>) — same admin-controls fix, cited on this row"
+    },
+    {
+     "tag": "FIX",
+     "item": "-p",
+     "html": "<code>-p</code> / <code>--print</code> / <code>--prompt</code> (<code>card-cli</code>) — same admin-controls fix, cited on this row"
+    },
+    {
+     "tag": "FIX",
+     "item": "hooks.json",
+     "html": "<code>hooks.json</code> (<code>card-hooks</code>) — fixed hook commands on Windows containing double quotes failing and being silently skipped, which could let a <code>PreInvocation</code>/<code>PreToolUse</code> hook go unenforced"
+    },
+    {
+     "tag": "FIX",
+     "item": "hooks.json",
+     "html": "<code>hooks.json</code> (<code>card-hooks</code>) — fixed a file saved with a UTF-8 byte order mark leaving <code>/hooks</code> empty with none of its hooks running"
+    },
+    {
+     "tag": "FIX",
+     "item": "/agents",
+     "html": "<code>/agents</code> (<code>card-slash-tools</code>) — fixed custom agent and rule files saved with a UTF-8 byte order mark going missing from here and the agent picker, or losing their frontmatter trigger"
+    },
+    {
+     "tag": "FIX",
+     "item": "Ctrl+G",
+     "html": "<code>Ctrl+G</code> (<code>card-keys</code>) — fixed opening your external editor on Windows when <code>EDITOR</code> or <code>editor</code> is a normal Windows path, which also broke <code>/open</code>, <code>/keybindings</code>, and artifact review"
+    },
+    {
+     "tag": "FIX",
+     "item": "queuedMessages",
+     "html": "<code>queuedMessages</code> (<code>card-settings</code>) — fixed a single empty or corrupted queued message file blocking every later message to the agent"
+    },
+    {
+     "tag": "FIX",
+     "item": "/btw <query>",
+     "html": "<code>/btw &lt;query&gt;</code> (<code>card-slash-tools</code>) — fixed side questions, and <code>/help</code>'s, failing with <code>stream timed out after 5m0s</code> while still working"
+    },
+    {
+     "tag": "FIX",
+     "item": "/help",
+     "html": "<code>/help</code> (<code>card-slash-core</code>) — same side-question timeout fix, cited on this row"
+    },
+    {
+     "tag": "FIX",
+     "item": "/learn [instruction]",
+     "html": "<code>/learn [instruction]</code> (<code>card-slash-tools</code>) — fixed this repeatedly appending to rule files until they grew past the documented size limit and silently lost their endings"
+    },
+    {
+     "tag": "FIX",
+     "item": "--json-schema <schema>",
+     "html": "<code>--json-schema &lt;schema&gt;</code> (<code>card-cli</code>) — fixed follow-up turns in a conversation resumed with <code>--conversation</code> ending on plain text instead of structured output"
+    },
+    {
+     "tag": "FIX",
+     "item": "--conversation <id>",
+     "html": "<code>--conversation &lt;id&gt;</code> (<code>card-cli</code>) — same structured-output regression fix, cited on this row"
+    },
+    {
+     "tag": "FIX",
+     "item": "/rewind",
+     "html": "<code>/rewind</code> / <code>/undo</code> (<code>card-slash-core</code>) — fixed this failing with a <code>step_index out of bounds</code> error after pressing <code>Esc</code> while a turn was still starting"
+    },
+    {
+     "tag": "FIX",
+     "item": "/diff",
+     "html": "<code>/diff</code> (<code>card-slash-tools</code>) — fixed this showing a made-up change at the end of a diff for files larger than 500 KB when an earlier edit changed the file's length"
+    },
+    {
+     "tag": "FIX",
+     "item": "/artifact",
+     "html": "<code>/artifact</code> (<code>card-slash-tools</code>) — fixed <code>/</code> search here missing text split across different styles and leaving the rest of a line unstyled after a highlighted match"
+    },
+    {
+     "tag": "FIX",
+     "item": "/statusline",
+     "html": "<code>/statusline</code> (<code>card-slash-core</code>) — fixed status and error messages never appearing when using a custom status line"
+    }
+   ]
+  },
   {
    "version": "v1.5.7",
    "label": "Antigravity CLI v1.5.7",
