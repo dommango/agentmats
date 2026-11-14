@@ -10,8 +10,8 @@
    "entries": [
     {
      "tag": "ADD",
-     "item": "api.json",
-     "html": "Custom-registry (<code>api.json</code>) providers can declare optional <code>search_url</code> / <code>feedback_url</code> fields for <code>WebSearch</code> and <code>/feedback</code>"
+     "item": "[providers.\"<id>\"]",
+     "html": "<code>[providers.\"&lt;id&gt;\"]</code> &mdash; a custom-registry (<code>api.json</code>) entry can declare optional <code>search_url</code> / <code>feedback_url</code> fields for <code>WebSearch</code> and <code>/feedback</code>"
     },
     {
      "tag": "CHG",
@@ -25,13 +25,13 @@
     },
     {
      "tag": "FIX",
-     "item": null,
-     "html": "A failed or unfinished Kimi media upload is now rejected instead of being cached as an unusable file reference"
+     "item": "Ctrl-V",
+     "html": "<code>Ctrl-V</code> &mdash; a failed or unfinished Kimi media upload is now rejected instead of being cached as an unusable file reference"
     },
     {
      "tag": "FIX",
-     "item": null,
-     "html": "Swarm panel &mdash; fixed missing live subagent updates during execution"
+     "item": "/swarm",
+     "html": "<code>/swarm</code> &mdash; fixed the panel missing live subagent updates during execution"
     }
    ]
   },
@@ -61,8 +61,8 @@
    "entries": [
     {
      "tag": "ADD",
-     "item": "[transcript] tool_call_density",
-     "html": "Fullscreen mode folds consecutive tool calls and thinking into summary lines by default and hides Activated skill cards for model-loaded skills; set <code>[transcript] tool_call_density</code> / <code>thinking</code> to <code>\"ungrouped\"</code>, or adjust folding in <code>/settings</code>, to keep the previous layout"
+     "item": "[transcript].tool_call_density",
+     "html": "<code>[transcript].tool_call_density</code> / <code>[transcript].thinking</code> &mdash; fullscreen mode folds consecutive tool calls and thinking into summary lines by default and hides Activated skill cards for model-loaded skills; set either to <code>\"ungrouped\"</code>, or adjust folding in <code>/settings</code>, to keep the previous layout"
     },
     {
      "tag": "ADD",
@@ -72,7 +72,7 @@
     {
      "tag": "ADD",
      "item": null,
-     "html": "Same-name workspace Skills stay individually selectable in a dedicated picker group, labelled by directory, global, or built-in source"
+     "html": "Same-name workspace Skills now stay individually selectable in a dedicated picker group, labelled by directory, global, or built-in source"
     },
     {
      "tag": "ADD",
@@ -86,8 +86,8 @@
     },
     {
      "tag": "ADD",
-     "item": null,
-     "html": "Tower &mdash; artifact missions with key-deliverable review and human acceptance, shown in status and mission views"
+     "item": "[background]",
+     "html": "<code>[background]</code> &mdash; Tower now tracks artifact missions with key-deliverable review and human acceptance, shown in status and mission views"
     },
     {
      "tag": "CHG",
@@ -106,8 +106,8 @@
     },
     {
      "tag": "FIX",
-     "item": "--environment-cwd",
-     "html": "<code>--environment-cwd</code> &mdash; the <code>local</code> environment&rsquo;s default workdir now follows the current primary directory after a primary swap; pass an explicit value to keep the previous pinned-directory behavior"
+     "item": "--environment <id>",
+     "html": "<code>--environment &lt;id&gt;</code> &mdash; the <code>local</code> environment&rsquo;s default workdir now follows the current primary directory after a primary swap; pass an explicit <code>--environment-cwd</code> to keep the previous pinned-directory behavior"
     }
    ]
   },
