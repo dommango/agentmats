@@ -1,7 +1,50 @@
 {
- "generated": "2026-11-12",
- "latest": "v2.1.323",
+ "generated": "2026-11-13",
+ "latest": "v2.1.325",
  "releases": [
+  {
+   "version": "v2.1.325",
+   "label": "CC v2.1.325",
+   "date": "2026-11-13",
+   "id": "rel-2-1-325",
+   "entries": [
+    {
+     "tag": "ADD",
+     "item": "sandbox.autoAllowBashIfSandboxed",
+     "html": "<code>sandbox.autoAllowBashIfSandboxed</code> — given its first placemat row: skip the permission prompt for sandboxed Bash commands; <code>deny</code> rules and content-scoped <code>ask</code> rules such as <code>Bash(git push *)</code> still apply"
+    },
+    {
+     "tag": "ADD",
+     "item": "sandbox.failIfUnavailable",
+     "html": "<code>sandbox.failIfUnavailable</code> — given its first placemat row: exit at startup instead of running unsandboxed when the sandbox can't start; real and already documented, but missed by earlier passes"
+    },
+    {
+     "tag": "ADD",
+     "item": "disableRemotePreviewScripts",
+     "html": "<code>disableRemotePreviewScripts</code> — given its first placemat row: managed setting that turns off scripts in the desktop app's HTML previews over SSH and WSL; real and already documented, but missed by earlier passes"
+    },
+    {
+     "tag": "ADD",
+     "item": "CLAUDE_CODE_MAX_CONTEXT_TOKENS",
+     "html": "<code>CLAUDE_CODE_MAX_CONTEXT_TOKENS</code> env var — given its first placemat row: overrides the context window Claude Code assumes for the active model; now also sets the window for unrecognized model IDs that start with <code>claude-</code>"
+    },
+    {
+     "tag": "CHG",
+     "item": "sandbox.autoAllowBashIfSandboxed",
+     "html": "<code>sandbox.autoAllowBashIfSandboxed</code> default changed to <code>false</code> in v2.1.324; before that, sandboxed Bash commands ran without a permission prompt by default"
+    },
+    {
+     "tag": "CHG",
+     "item": "prependPlugins",
+     "html": "<code>prependPlugins</code> / <code>appendPlugins</code> — a remote marketplace's plugins that managed settings declare, enable and list here now count as the organization's; <code>pluginDigests</code> is deprecated and ignored; noted on both existing rows"
+    },
+    {
+     "tag": "CHG",
+     "item": "WorktreeCreate",
+     "html": "<code>WorktreeCreate</code> — now refuses a hook path that goes through a symlink inside the project; have the hook print the real path instead; noted on the existing row"
+    }
+   ]
+  },
   {
    "version": "v2.1.323",
    "label": "CC v2.1.323",
