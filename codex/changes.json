@@ -21,7 +21,8 @@
     {
      "tag": "ADD",
      "item": "--trust",
-     "html": "<code>--trust</code> (<code>card-cli</code>, <code>codex exec</code>) — save project trust for this and future chats, including MCP commands outside the sandbox"
+     "html": "<code>--trust</code> (<code>card-cli</code>, <code>codex exec</code>) — save project trust for this and future chats, including MCP commands outside the sandbox",
+     "row": "i-codex-exec"
     },
     {
      "tag": "CHG",
@@ -30,8 +31,8 @@
     },
     {
      "tag": "CHG",
-     "item": "tui.notification_method",
-     "html": "<code>tui.notification_method</code> (<code>card-settings</code>) — adds an <code>osc777</code> value and lengthens approval previews"
+     "item": "tui.notifications",
+     "html": "<code>tui.notifications</code> (<code>card-settings</code>) — adds an <code>osc777</code> value and lengthens approval previews"
     },
     {
      "tag": "CHG",
@@ -66,7 +67,8 @@
     {
      "tag": "CHG",
      "item": "codex agents",
-     "html": "<code>codex agents</code> (<code>card-cli</code>) — adds searching older tasks by name, prompt preview or working directory"
+     "html": "<code>codex agents</code> (<code>card-cli</code>) — adds searching older tasks by name, prompt preview or working directory",
+     "row": "i-codex-agents"
     },
     {
      "tag": "CHG",
@@ -107,7 +109,8 @@
     {
      "tag": "CHG",
      "item": "codex agents",
-     "html": "<code>codex agents</code> (<code>card-cli</code>) — the command center and session picker now mark unread results"
+     "html": "<code>codex agents</code> (<code>card-cli</code>) — the command center and session picker now mark unread results",
+     "row": "i-codex-agents"
     },
     {
      "tag": "CHG",
@@ -165,7 +168,8 @@
     {
      "tag": "FIX",
      "item": "codex app-server",
-     "html": "<code>codex app-server</code> (<code>card-cli</code>) — fixes thread startup and shutdown races, releasing completed runtimes promptly"
+     "html": "<code>codex app-server</code> (<code>card-cli</code>) — fixes thread startup and shutdown races, releasing completed runtimes promptly",
+     "row": "i-codex-app-server"
     },
     {
      "tag": "FIX",
@@ -208,7 +212,8 @@
     {
      "tag": "CHG",
      "item": "codex app-server",
-     "html": "<code>codex app-server</code> (<code>card-cli</code>) — adds experimental attached thread forks to the app-server API"
+     "html": "<code>codex app-server</code> (<code>card-cli</code>) — adds experimental attached thread forks to the app-server API",
+     "row": "i-codex-app-server"
     },
     {
      "tag": "CHG",
@@ -307,7 +312,8 @@
     {
      "tag": "FIX",
      "item": "codex app-server",
-     "html": "<code>codex app-server</code> (<code>card-cli</code>) — startup compatibility checks now apply only to explicit command-line feature overrides, fixing false-positive failures from drift between a running background server's feature settings and CLI defaults"
+     "html": "<code>codex app-server</code> (<code>card-cli</code>) — startup compatibility checks now apply only to explicit command-line feature overrides, fixing false-positive failures from drift between a running background server's feature settings and CLI defaults",
+     "row": "i-codex-app-server"
     },
     {
      "tag": "FIX",
@@ -330,7 +336,8 @@
     {
      "tag": "CHG",
      "item": "codex agents",
-     "html": "<code>codex agents</code> (<code>card-cli</code>) — release notes add task pinning in the Command Center with <code>p</code>, kept in a shared Pinned group when the server supports it"
+     "html": "<code>codex agents</code> (<code>card-cli</code>) — release notes add task pinning in the Command Center with <code>p</code>, kept in a shared Pinned group when the server supports it",
+     "row": "i-codex-agents"
     },
     {
      "tag": "CHG",
@@ -384,7 +391,8 @@
     {
      "tag": "CHG",
      "item": "codex app-server",
-     "html": "<code>codex app-server</code> (<code>card-hooks</code>) — adds pagination for thread-history queries from a specific item"
+     "html": "<code>codex app-server</code> (<code>card-hooks</code>) — adds pagination for thread-history queries from a specific item",
+     "row": "i-codex-app-server-2"
     }
    ]
   },
@@ -397,12 +405,14 @@
     {
      "tag": "ADD",
      "item": "codex mcp add --oauth-client-secret",
-     "html": "<code>codex mcp add --oauth-client-secret</code> (<code>card-hooks</code>) — connects to MCP servers that require a pre-registered OAuth client secret"
+     "html": "<code>codex mcp add --oauth-client-secret</code> (<code>card-hooks</code>) — connects to MCP servers that require a pre-registered OAuth client secret",
+     "row": "i-codex-mcp-add"
     },
     {
      "tag": "ADD",
      "item": "codex exec-server --ws-auth",
-     "html": "<code>codex exec-server --ws-auth</code> (<code>card-cli</code>) — secures direct WebSocket connections with bearer tokens, matching what <code>codex app-server</code> already supported"
+     "html": "<code>codex exec-server --ws-auth</code> (<code>card-cli</code>) — secures direct WebSocket connections with bearer tokens, matching what <code>codex app-server</code> already supported",
+     "row": "i-codex-exec-server"
     },
     {
      "tag": "CHG",
@@ -430,7 +440,8 @@
     {
      "tag": "CHG",
      "item": "codex app-server",
-     "html": "<code>codex app-server</code> (<code>card-cli</code>) — can now start automatically for qualifying interactive sessions, with a recovery prompt when existing settings are incompatible"
+     "html": "<code>codex app-server</code> (<code>card-cli</code>) — can now start automatically for qualifying interactive sessions, with a recovery prompt when existing settings are incompatible",
+     "row": "i-codex-app-server"
     }
    ]
   },
@@ -476,7 +487,8 @@
     {
      "tag": "ADD",
      "item": "codex app-server",
-     "html": "<code>codex app-server</code> (<code>card-cli</code>) — noted the <code>daemon</code> subcommand tree, including the new <code>daemon update</code> for restarting a standalone install&rsquo;s managed daemon on a configurable schedule"
+     "html": "<code>codex app-server</code> (<code>card-cli</code>) — noted the <code>daemon</code> subcommand tree, including the new <code>daemon update</code> for restarting a standalone install&rsquo;s managed daemon on a configurable schedule",
+     "row": "i-codex-app-server"
     },
     {
      "tag": "FIX",
@@ -494,42 +506,50 @@
     {
      "tag": "ADD",
      "item": "card-keys",
-     "html": "<code>card-keys</code> — initial reference: composer shortcuts, working-turn keys, <code>/keymap</code> and TUI appearance (19 rows)"
+     "html": "<code>card-keys</code> — initial reference: composer shortcuts, working-turn keys, <code>/keymap</code> and TUI appearance (19 rows)",
+     "row": "i-at-file-search"
     },
     {
      "tag": "ADD",
      "item": "card-slash-core",
-     "html": "<code>card-slash-core</code> — initial reference: model, permissions, session lifecycle, context and background terminals (26 rows)"
+     "html": "<code>card-slash-core</code> — initial reference: model, permissions, session lifecycle, context and background terminals (26 rows)",
+     "row": "i-model"
     },
     {
      "tag": "ADD",
      "item": "card-slash-tools",
-     "html": "<code>card-slash-tools</code> — initial reference: extensibility commands, Windows sandbox helpers, account and diagnostics (17 rows)"
+     "html": "<code>card-slash-tools</code> — initial reference: extensibility commands, Windows sandbox helpers, account and diagnostics (17 rows)",
+     "row": "i-skills"
     },
     {
      "tag": "ADD",
      "item": "card-cli",
-     "html": "<code>card-cli</code> — initial reference: global flags plus every documented subcommand (47 rows)"
+     "html": "<code>card-cli</code> — initial reference: global flags plus every documented subcommand (47 rows)",
+     "row": "i-m-model-model"
     },
     {
      "tag": "ADD",
      "item": "card-settings",
-     "html": "<code>card-settings</code> — initial reference: 63 curated <code>config.toml</code> keys across model, approvals, sandbox, MCP, providers, TUI and features"
+     "html": "<code>card-settings</code> — initial reference: 63 curated <code>config.toml</code> keys across model, approvals, sandbox, MCP, providers, TUI and features",
+     "row": "i-codex-config-toml"
     },
     {
      "tag": "ADD",
      "item": "card-env",
-     "html": "<code>card-env</code> — initial reference: the complete stable public environment-variable set, including <code>CODEX_HOME</code> (12 rows)"
+     "html": "<code>card-env</code> — initial reference: the complete stable public environment-variable set, including <code>CODEX_HOME</code> (12 rows)",
+     "row": "i-codex-home"
     },
     {
      "tag": "ADD",
      "item": "card-skills",
-     "html": "<code>card-skills</code> — initial reference: skill scopes, plugins and marketplaces, <code>AGENTS.md</code> merge order, subagents (19 rows)"
+     "html": "<code>card-skills</code> — initial reference: skill scopes, plugins and marketplaces, <code>AGENTS.md</code> merge order, subagents (19 rows)",
+     "row": "i-skills-2"
     },
     {
      "tag": "ADD",
      "item": "card-hooks",
-     "html": "<code>card-hooks</code> — initial reference: 12 lifecycle events, hook trust, MCP client config, sandbox modes and execpolicy (17 rows)"
+     "html": "<code>card-hooks</code> — initial reference: 12 lifecycle events, hook trust, MCP client config, sandbox modes and execpolicy (17 rows)",
+     "row": "i-hooks-2"
     }
    ]
   }

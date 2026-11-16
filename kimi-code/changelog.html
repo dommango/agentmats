@@ -191,7 +191,7 @@
                                 <li><span class="tag tag-add">ADD</span><span class="entry"><code>[transcript].tool_call_density</code> / <code>[transcript].thinking</code> &mdash; fullscreen mode folds consecutive tool calls and thinking into summary lines by default and hides Activated skill cards for model-loaded skills; set either to <code>"ungrouped"</code>, or adjust folding in <code>/settings</code>, to keep the previous layout</span></li>
                                 <li><span class="tag tag-add">ADD</span><span class="entry"><code>@</code> file-path completion now includes hidden and <code>.gitignore</code>-ignored paths by default, ranking non-ignored matches first at equal match quality</span></li>
                                 <li><span class="tag tag-add">ADD</span><span class="entry">Same-name workspace Skills now stay individually selectable in a dedicated picker group, labelled by directory, global, or built-in source</span></li>
-                                <li><span class="tag tag-add">ADD</span><span class="entry">Fullscreen mode &mdash; <code>Ctrl-C</code> / <code>Cmd-C</code> copies selected text; toggle with Copy on select in <code>/settings</code></span></li>
+                                <li data-row="i-ctrl-c"><span class="tag tag-add">ADD</span><span class="entry">Fullscreen mode &mdash; <code>Ctrl-C</code> / <code>Cmd-C</code> copies selected text; toggle with Copy on select in <code>/settings</code></span></li>
                                 <li><span class="tag tag-change">CHG</span><span class="entry"><code>[[permission.rules]]</code> &mdash; user and trusted project rules are now persisted and reapplied automatically whenever a session starts, including in print mode, with <code>deny</code> still taking precedence over <code>ask</code> and <code>allow</code></span></li>
                                 <li><span class="tag tag-add">ADD</span><span class="entry"><code>[background]</code> &mdash; Tower now tracks artifact missions with key-deliverable review and human acceptance, shown in status and mission views</span></li>
                                 <li><span class="tag tag-change">CHG</span><span class="entry"><code>[secondary_model]</code> &mdash; <code>primary</code> can be listed again as an ordinary pool alias; Tower reviewers now use the pool default instead of the main model</span></li>
@@ -229,9 +229,9 @@
                                 <li><span class="tag tag-add">ADD</span><span class="entry">Switching the model while the agent is working &mdash; the change applies from the next turn; a turn that already started calling the model keeps its own settings</span></li>
                                 <li><span class="tag tag-add">ADD</span><span class="entry"><code>[environments]</code> / <code>--environment &lt;id&gt;</code> / <code>--environment-cwd &lt;path&gt;</code> &mdash; create sessions whose tools run on a configured SSH, Docker, or custom-launcher remote environment</span></li>
                                 <li><span class="tag tag-add">ADD</span><span class="entry">Project-level Skills now merge across every configured source directory instead of only the primary one; the primary directory still wins name conflicts</span></li>
-                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>[workspace] require_trust</code> &mdash; set to <code>false</code> to treat every workspace as trusted and skip the startup trust prompt; takes effect on <code>/reload</code></span></li>
-                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>[secondary_model] force</code> &mdash; now ignored with a warning; a lone <code>default_model</code> already pins every subagent to it, and the pool no longer offers an implicit <code>primary</code> choice &mdash; list the main model explicitly to use it</span></li>
-                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>[database] global_search</code> &mdash; now defaults to <code>false</code>; the full-text search index does not build and <code>POST /api/v1/search</code> reports it unavailable until enabled (<code>KIMI_CODE_GLOBAL_SEARCH</code>)</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>[workspace].require_trust</code> &mdash; set to <code>false</code> to treat every workspace as trusted and skip the startup trust prompt; takes effect on <code>/reload</code></span></li>
+                                <li data-row="i-secondary-model-2"><span class="tag tag-change">CHG</span><span class="entry"><code>[secondary_model] force</code> &mdash; now ignored with a warning; a lone <code>default_model</code> already pins every subagent to it, and the pool no longer offers an implicit <code>primary</code> choice &mdash; list the main model explicitly to use it</span></li>
+                                <li data-row="i-database"><span class="tag tag-change">CHG</span><span class="entry"><code>[database] global_search</code> &mdash; now defaults to <code>false</code>; the full-text search index does not build and <code>POST /api/v1/search</code> reports it unavailable until enabled (<code>KIMI_CODE_GLOBAL_SEARCH</code>)</span></li>
                                 <li><span class="tag tag-add">ADD</span><span class="entry"><code>/fork</code> &mdash; can now fork a still-running session, and fork from a selected historical turn instead of only the latest</span></li>
                             </ul>
                         </div>
@@ -247,7 +247,7 @@
                         <div class="change-section">
                             <h3 id="rel-2-4-1">Kimi Code v2.4.1 <span class="version-date">2026-10-30</span></h3>
                             <ul class="change-list">
-                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>[read] max_chars</code> &mdash; a single file read now returns at most 100,000 characters (~25,000 tokens) by default, down from 500,000; raise both limits here</span></li>
+                                <li data-row="i-read"><span class="tag tag-change">CHG</span><span class="entry"><code>[read] max_chars</code> &mdash; a single file read now returns at most 100,000 characters (~25,000 tokens) by default, down from 500,000; raise both limits here</span></li>
                                 <li><span class="tag tag-change">CHG</span><span class="entry">Shrank built-in tool and subagent prompts, including repeated goal and plan-mode reminders</span></li>
                             </ul>
                         </div>
@@ -256,10 +256,10 @@
                             <h3 id="rel-2-4-0">Kimi Code v2.4.0 <span class="version-date">2026-10-28</span></h3>
                             <ul class="change-list">
                                 <li><span class="tag tag-add">ADD</span><span class="entry"><code>/import-sessions</code> / <code>kimi import-sessions</code> &mdash; import Claude Code and Codex sessions from the last 15 or 30 days</span></li>
-                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>/provider refresh [providerId]</code> &mdash; re-fetches one provider&rsquo;s model list, or every provider&rsquo;s with no argument</span></li>
+                                <li data-row="i-provider"><span class="tag tag-add">ADD</span><span class="entry"><code>/provider refresh [providerId]</code> &mdash; re-fetches one provider&rsquo;s model list, or every provider&rsquo;s with no argument</span></li>
                                 <li><span class="tag tag-change">CHG</span><span class="entry"><code>Ctrl-O</code> &mdash; also expands or collapses streaming thinking output</span></li>
                                 <li><span class="tag tag-add">ADD</span><span class="entry">main-session and subagent status reporting to compatible terminals via OSC 7501, including pending interactions and retained results</span></li>
-                                <li><span class="tag tag-change">CHG</span><span class="entry">Tower (experimental) &mdash; supports per-task model selection and reuses <code>max_running_tasks</code> as a combined worker/reviewer cap; raises the default agent concurrency from 16 to 256</span></li>
+                                <li data-row="i-kimi-code-background-max-running-tasks"><span class="tag tag-change">CHG</span><span class="entry">Tower (experimental) &mdash; supports per-task model selection and reuses <code>max_running_tasks</code> as a combined worker/reviewer cap; raises the default agent concurrency from 16 to 256</span></li>
                                 <li><span class="tag tag-add">ADD</span><span class="entry"><code>[mcp] reconnect_initial_delay_ms</code> / <code>reconnect_max_delay_ms</code> (and the matching <code>KIMI_MCP_RECONNECT_INITIAL_DELAY_MS</code> / <code>KIMI_MCP_RECONNECT_MAX_DELAY_MS</code> env vars) &mdash; workspace MCP servers now reconnect automatically with backoff after a dropped or failed connection</span></li>
                                 <li><span class="tag tag-change">CHG</span><span class="entry">Plan mode can now only be enabled by the user, not entered automatically by the agent; every plan requires review</span></li>
                                 <li><span class="tag tag-change">CHG</span><span class="entry">Never Ask &mdash; no longer auto-approves plans</span></li>
@@ -274,7 +274,7 @@
                             <h3 id="rel-2-3-3">Kimi Code v2.3.3 <span class="version-date">2026-10-26</span></h3>
                             <ul class="change-list">
                                 <li><span class="tag tag-change">CHG</span><span class="entry"><code>/swarm</code> &mdash; turning swarm mode on now shows a high-usage warning</span></li>
-                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>AgentSwarm</code> &mdash; rejecting a call before any subagent starts (such as while swarm mode is off) no longer shows as a failed swarm; the agent now points to <code>/swarm</code> instead</span></li>
+                                <li data-row="i-subagent"><span class="tag tag-fix">FIX</span><span class="entry"><code>AgentSwarm</code> &mdash; rejecting a call before any subagent starts (such as while swarm mode is off) no longer shows as a failed swarm; the agent now points to <code>/swarm</code> instead</span></li>
                                 <li><span class="tag tag-change">CHG</span><span class="entry"><code>/model</code> &mdash; reworded the model switch confirmation prompts</span></li>
                                 <li><span class="tag tag-change">CHG</span><span class="entry">swarm/goal start confirmation &mdash; merged the two repeated permission-mode notice lines into one sentence each</span></li>
                             </ul>
@@ -284,7 +284,7 @@
                             <h3 id="rel-2-3-2">Kimi Code v2.3.2 <span class="version-date">2026-10-25</span></h3>
                             <ul class="change-list">
                                 <li><span class="tag tag-change">CHG</span><span class="entry"><code>Agent</code> — handles tasks directly by default instead of proactively launching subagents; delegation now needs an explicit request in your message, <code>AGENTS.md</code>, a skill, or an enabled multi-agent mode</span></li>
-                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>AgentSwarm</code> — the agent can no longer launch it on its own; swarms now start only when swarm mode is turned on, so they&rsquo;re unavailable in <code>kimi -p</code> or ACP clients such as Zed</span></li>
+                                <li data-row="i-subagent"><span class="tag tag-change">CHG</span><span class="entry"><code>AgentSwarm</code> — the agent can no longer launch it on its own; swarms now start only when swarm mode is turned on, so they&rsquo;re unavailable in <code>kimi -p</code> or ACP clients such as Zed</span></li>
                             </ul>
                         </div>
 
@@ -301,14 +301,14 @@
                         <div class="change-section">
                             <h3 id="rel-2-3-0">Kimi Code v2.3.0 <span class="version-date">2026-10-21</span></h3>
                             <ul class="change-list">
-                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>auto_session_title</code> &mdash; auto-generates a session title after the first turn and shows it as the terminal window title; a global <code>config.toml</code> gate and an independent <code>tui.toml</code> opt-out</span></li>
+                                <li data-row="i-auto-session-title"><span class="tag tag-add">ADD</span><span class="entry"><code>auto_session_title</code> &mdash; auto-generates a session title after the first turn and shows it as the terminal window title; a global <code>config.toml</code> gate and an independent <code>tui.toml</code> opt-out</span></li>
                                 <li><span class="tag tag-add">ADD</span><span class="entry"><code>[mcp] default_deferred</code> &mdash; defaults every MCP server&rsquo;s tools to on-demand loading when the experimental <code>tool-select</code> flag is on</span></li>
                                 <li><span class="tag tag-change">CHG</span><span class="entry"><code>/model</code> &mdash; switching models mid-session with history can show a confirmation dialog, gated by cloud configuration</span></li>
                                 <li><span class="tag tag-change">CHG</span><span class="entry"><code>/compact</code> &mdash; now queues while the agent is busy instead of failing with an error</span></li>
                                 <li><span class="tag tag-change">CHG</span><span class="entry"><code>/skill:&lt;name&gt;</code> &mdash; plugin skills are listed and invoked only under their qualified <code>plugin-id:skill-name</code> form; a bare plugin-skill name no longer resolves</span></li>
                                 <li><span class="tag tag-change">CHG</span><span class="entry"><code>disable_feedback_survey</code> &mdash; moved from <code>tui.toml</code> to <code>config.toml</code></span></li>
                                 <li><span class="tag tag-change">CHG</span><span class="entry"><code>[permission].dangerous_command_guard</code> &mdash; set to <code>false</code> now disables every built-in guard, not only the dangerous-command check</span></li>
-                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>[[hooks]]</code> &mdash; hook commands now run in the session&rsquo;s project directory instead of the server&rsquo;s startup directory</span></li>
+                                <li data-row="i-hooks-2"><span class="tag tag-fix">FIX</span><span class="entry"><code>[[hooks]]</code> &mdash; hook commands now run in the session&rsquo;s project directory instead of the server&rsquo;s startup directory</span></li>
                             </ul>
                         </div>
 
@@ -321,10 +321,10 @@
                                 <li><span class="tag tag-change">CHG</span><span class="entry"><code>Ctrl-S</code> &mdash; also sends a highlighted skill prompt, replacing the old skill-suggestion cards</span></li>
                                 <li><span class="tag tag-change">CHG</span><span class="entry"><code>tui_mode</code> fullscreen &mdash; a scrolled-out user message gets a sticky one-line summary; clicking it jumps back to the original message</span></li>
                                 <li><span class="tag tag-change">CHG</span><span class="entry"><code>[background]</code> &mdash; the agent&rsquo;s in-turn wait for a task is capped at 90 seconds and discourages repeated waits; a new message ends the wait early</span></li>
-                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>Ctrl-C</code> &mdash; forces an immediate exit during shutdown hooks instead of waiting for the hook timeout; a &ldquo;Shutting down&rdquo; hint shows meanwhile</span></li>
+                                <li data-row="i-ctrl-c"><span class="tag tag-change">CHG</span><span class="entry"><code>Ctrl-C</code> &mdash; forces an immediate exit during shutdown hooks instead of waiting for the hook timeout; a &ldquo;Shutting down&rdquo; hint shows meanwhile</span></li>
                                 <li><span class="tag tag-fix">FIX</span><span class="entry"><code>UserPromptSubmit</code> hook &mdash; fixed turn ordering and rendering when the hook injects text; hook JSON without a <code>message</code> field is no longer added to the conversation</span></li>
                                 <li><span class="tag tag-fix">FIX</span><span class="entry">forked sessions &mdash; cron tasks from the source session no longer fire inside a fork</span></li>
-                                <li><span class="tag tag-remove">DEL</span><span class="entry"><code>executor = "kaos"</code> &mdash; removed from MCP stdio configuration (never implemented); configs using it now fail validation at load time</span></li>
+                                <li data-row="i-mcp-json"><span class="tag tag-remove">DEL</span><span class="entry"><code>executor = "kaos"</code> &mdash; removed from MCP stdio configuration (never implemented); configs using it now fail validation at load time</span></li>
                             </ul>
                         </div>
 
@@ -366,7 +366,7 @@
                                 <li><span class="tag tag-change">CHG</span><span class="entry"><code>[providers."&lt;id&gt;"]</code> — <code>api_key_env</code> names an environment variable to read the API key from, as an alternative to <code>api_key</code></span></li>
                                 <li><span class="tag tag-add">ADD</span><span class="entry"><code>[database]</code> — <code>searchSyncSessionCap</code> / <code>searchSyncDebounceMs</code> tune the incremental background search-sync pass (marked <code>unverified</code> — not yet in the config reference)</span></li>
                                 <li><span class="tag tag-change">CHG</span><span class="entry"><code>/yolo</code> / <code>-y, --yolo</code> — Ask When Needed no longer prompts for a <code>Bash</code> command that cannot be statically analyzed</span></li>
-                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>kimi install-app</code> — renamed to <code>kimi install-desktop</code>; the old name keeps working as a hidden alias</span></li>
+                                <li data-row="i-kimi-install-desktop"><span class="tag tag-change">CHG</span><span class="entry"><code>kimi install-app</code> — renamed to <code>kimi install-desktop</code>; the old name keeps working as a hidden alias</span></li>
                             </ul>
                         </div>
 
@@ -374,7 +374,7 @@
                             <h3 id="rel-2-0-0">Kimi Code v2.0.0 <span class="version-date">2026-09-17</span></h3>
                             <ul class="change-list">
                                 <li><span class="tag tag-add">ADD</span><span class="entry"><code>/desktop</code> / <code>/install-desktop</code> — opens the Kimi Code desktop app page in your browser</span></li>
-                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>kimi install-app</code> — prints and opens the desktop app page (renamed to <code>kimi install-desktop</code> in 2.0.1)</span></li>
+                                <li data-row="i-kimi-install-desktop"><span class="tag tag-add">ADD</span><span class="entry"><code>kimi install-app</code> — prints and opens the desktop app page (renamed to <code>kimi install-desktop</code> in 2.0.1)</span></li>
                                 <li><span class="tag tag-add">ADD</span><span class="entry"><code>[markdown].mermaid</code> — renders fenced mermaid code blocks in the terminal as diagrams (marked <code>unverified</code> — not yet in the config reference)</span></li>
                             </ul>
                         </div>
@@ -383,7 +383,7 @@
                             <h3 id="rel-0-43-1">Kimi Code v0.43.1 <span class="version-date">2026-09-15</span></h3>
                             <ul class="change-list">
                                 <li><span class="tag tag-change">CHG</span><span class="entry"><code>/copy</code> — native clipboard write path for Linux X11 sessions</span></li>
-                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>Ctrl-C</code> while subagents are running now interrupts only the subagents, instead of exiting the whole CLI</span></li>
+                                <li data-row="i-ctrl-c"><span class="tag tag-fix">FIX</span><span class="entry"><code>Ctrl-C</code> while subagents are running now interrupts only the subagents, instead of exiting the whole CLI</span></li>
                             </ul>
                         </div>
 
@@ -392,7 +392,7 @@
                             <ul class="change-list">
                                 <li><span class="tag tag-add">ADD</span><span class="entry"><code>/sessions</code> — <code>Ctrl-X</code> then <code>y</code> deletes the selected session from the picker</span></li>
                                 <li><span class="tag tag-add">ADD</span><span class="entry"><code>kimi upgrade</code> / <code>kimi update</code> — <code>-y, --yes</code> skips the confirmation prompt and installs directly</span></li>
-                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>loop_control.compaction_max_attempts</code> — caps total attempts for a failing compaction request; default 5</span></li>
+                                <li data-row="i-loop-control"><span class="tag tag-add">ADD</span><span class="entry"><code>loop_control.compaction_max_attempts</code> — caps total attempts for a failing compaction request; default 5</span></li>
                                 <li><span class="tag tag-add">ADD</span><span class="entry"><code>KIMI_CODE_PERMISSION_MODE_REMINDER</code> env var — set to <code>0</code> to stop injecting auto permission-mode reminders into the model context</span></li>
                                 <li><span class="tag tag-change">CHG</span><span class="entry"><code>Ctrl-S</code> — a steering message can now interrupt a wait for a background task</span></li>
                                 <li><span class="tag tag-change">CHG</span><span class="entry"><code>/goal</code> — the time budget no longer counts time spent with the session closed, and the 24-hour limit is removed</span></li>
@@ -402,15 +402,15 @@
                         <div class="change-section">
                             <h3 id="rel-0-42-0">Kimi Code v0.42.0 <span class="version-date">2026-09-09</span></h3>
                             <ul class="change-list">
-                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>card-keys</code> — initial reference: the seven keyboard-shortcut contexts, from general input to the approval panel (19 rows)</span></li>
-                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>card-slash-core</code> — initial reference: account, session, mode and status commands with their aliases (33 rows)</span></li>
-                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>card-slash-tools</code> — initial reference: swarm and goal control, extensibility, and the built-in skill commands (16 rows)</span></li>
-                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>card-cli</code> — initial reference: all 14 top-level flags and all 12 subcommands (25 rows)</span></li>
-                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>card-settings</code> — initial reference: <code>config.toml</code>, <code>tui.toml</code> and <code>.kimi-code/local.toml</code> (37 rows)</span></li>
-                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>card-env</code> — initial reference: core paths, model overrides, runtime switches and diagnostics (22 rows)</span></li>
-                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>card-skills</code> — initial reference: skill and agent directories, the four <code>AGENTS.md</code> locations, plugins (18 rows)</span></li>
-                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>card-hooks</code> — initial reference: 18 hook events, hook exit codes, <code>mcp.json</code> and MCP permissions (20 rows)</span></li>
-                                <li><span class="tag tag-remove">DEL</span><span class="entry"><code>KIMI_CODE_EXPERIMENTAL_REMOTE_CONTROL</code> and <code>KIMI_CODE_EXPERIMENTAL_SECONDARY_MODEL</code> — Remote Control and the subagent model pool are always on in 0.42.0, so both flags were removed</span></li>
+                                <li data-row="i-enter"><span class="tag tag-add">ADD</span><span class="entry"><code>card-keys</code> — initial reference: the seven keyboard-shortcut contexts, from general input to the approval panel (19 rows)</span></li>
+                                <li data-row="i-login"><span class="tag tag-add">ADD</span><span class="entry"><code>card-slash-core</code> — initial reference: account, session, mode and status commands with their aliases (33 rows)</span></li>
+                                <li data-row="i-swarm-on"><span class="tag tag-add">ADD</span><span class="entry"><code>card-slash-tools</code> — initial reference: swarm and goal control, extensibility, and the built-in skill commands (16 rows)</span></li>
+                                <li data-row="i-v-version"><span class="tag tag-add">ADD</span><span class="entry"><code>card-cli</code> — initial reference: all 14 top-level flags and all 12 subcommands (25 rows)</span></li>
+                                <li data-row="i-kimi-code-config-toml"><span class="tag tag-add">ADD</span><span class="entry"><code>card-settings</code> — initial reference: <code>config.toml</code>, <code>tui.toml</code> and <code>.kimi-code/local.toml</code> (37 rows)</span></li>
+                                <li data-row="i-kimi-code-home"><span class="tag tag-add">ADD</span><span class="entry"><code>card-env</code> — initial reference: core paths, model overrides, runtime switches and diagnostics (22 rows)</span></li>
+                                <li data-row="i-skill-md"><span class="tag tag-add">ADD</span><span class="entry"><code>card-skills</code> — initial reference: skill and agent directories, the four <code>AGENTS.md</code> locations, plugins (18 rows)</span></li>
+                                <li data-row="i-hooks-2"><span class="tag tag-add">ADD</span><span class="entry"><code>card-hooks</code> — initial reference: 18 hook events, hook exit codes, <code>mcp.json</code> and MCP permissions (20 rows)</span></li>
+                                <li data-row="i-kimi-code-experimental-flag"><span class="tag tag-remove">DEL</span><span class="entry"><code>KIMI_CODE_EXPERIMENTAL_REMOTE_CONTROL</code> and <code>KIMI_CODE_EXPERIMENTAL_SECONDARY_MODEL</code> — Remote Control and the subagent model pool are always on in 0.42.0, so both flags were removed</span></li>
                                 <li><span class="tag tag-change">CHG</span><span class="entry"><code>[database]</code> replaces the experimental minidb flags; the read model and search worker are now controlled by <code>KIMI_CODE_PERSISTENCE_MINIDB_READMODEL</code> and <code>KIMI_CODE_SEARCH_WORKER</code></span></li>
                                 <li><span class="tag tag-add">ADD</span><span class="entry"><code>[read]</code> — configurable character limits and resumable long-line file reads, replacing repeated output truncation</span></li>
                                 <li><span class="tag tag-change">CHG</span><span class="entry"><code>Ctrl-O</code> — finished tool calls collapse to a header plus one outcome row; hidden output is counted and revealed here</span></li>

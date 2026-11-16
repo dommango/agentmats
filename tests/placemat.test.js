@@ -512,6 +512,59 @@ for (const agent of targets) {
     data.releases.forEach((r) => r.entries.forEach((e) => assert.ok(['ADD', 'CHG', 'DEL', 'FIX'].includes(e.tag), `bad tag ${e.tag}`)));
   });
 
+  // Mirrors shared/placemat.js's findRow (~357-372): a first-wins map of each
+  // row's first-cell <code> text, then an exact match, then a item+' '/item+'='
+  // prefix match, then a substring match. An item that resolves to nothing
+  // there silently drops out of the "since your last visit" highlight; an
+  // item whose text exactly matches more than one row's chip is resolved only
+  // by DOM order there, which is not something to depend on, so it must carry
+  // an explicit `row:` pin (read by findRow before any matching) instead.
+  test(`${agent}: every changes.json item with an item resolves to exactly one placemat row`, () => {
+    const decodeEntities = (s) => s.replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"').replace(/&amp;/g, '&');
+    const rowIds = new Set();
+    const firstWins = new Map();
+    const exactRows = new Map();
+    const rowRe = /<tr class="search-item" id="(i-[a-z0-9-]+)"><td>([\s\S]*?)<\/td>/g;
+    let m;
+    while ((m = rowRe.exec(html))) {
+      const [, id, td] = m;
+      rowIds.add(id);
+      const codes = [...td.matchAll(/<code[^>]*>([\s\S]*?)<\/code>/g)]
+        .map((c) => decodeEntities(c[1].replace(/<[^>]+>/g, '')).trim());
+      codes.forEach((code) => {
+        if (!firstWins.has(code)) firstWins.set(code, id);
+        if (!exactRows.has(code)) exactRows.set(code, []);
+        exactRows.get(code).push(id);
+      });
+    }
+    const findRow = (item) => {
+      if (firstWins.has(item)) return firstWins.get(item);
+      for (const [key, row] of firstWins) if (key.startsWith(item + ' ') || key.startsWith(item + '=')) return row;
+      for (const [key, row] of firstWins) if (key.includes(item)) return row;
+      return null;
+    };
+    const data = JSON.parse(read(CHANGES));
+    const badPin = [];
+    const ambiguous = [];
+    const unresolved = [];
+    data.releases.forEach((rel) => rel.entries.forEach((entry) => {
+      if (!entry.item) return;
+      if (entry.row) {
+        if (!rowIds.has(entry.row)) badPin.push(`${rel.version} "${entry.item}" -> row:${entry.row} (no such row id)`);
+        return;
+      }
+      const dupes = exactRows.get(entry.item);
+      if (dupes && dupes.length > 1) {
+        ambiguous.push(`${rel.version} "${entry.item}" exactly matches ${dupes.join(', ')} — pin one with row:`);
+        return;
+      }
+      if (!findRow(entry.item)) unresolved.push(`${rel.version} "${entry.item}"`);
+    }));
+    assert.deepStrictEqual(badPin, [], `entries pin a row: id that does not exist on the page:\n  ${badPin.join('\n  ')}`);
+    assert.deepStrictEqual(ambiguous, [], `entries whose item exactly matches more than one row's chip:\n  ${ambiguous.join('\n  ')}`);
+    assert.deepStrictEqual(unresolved, [], `changes.json items that never resolve to a placemat row (the "new since last visit" highlight silently drops these):\n  ${unresolved.join('\n  ')}`);
+  });
+
   test(`${agent}: feed.xml is Atom with a self link and at least one entry`, () => {
     const xml = read(FEED);
     assert.ok(xml.startsWith('<?xml version="1.0" encoding="utf-8"?>'));

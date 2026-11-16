@@ -54,7 +54,8 @@
     {
      "tag": "CHG",
      "item": "tool_costs",
-     "html": "MCP server entries can declare <code>tool_costs</code>, <code>spend_limit</code> and <code>cost_unit</code>; a costed call that would cross the per-chat budget asks first even under <code>trust: full</code> or YOLO mode"
+     "html": "MCP server entries can declare <code>tool_costs</code>, <code>spend_limit</code> and <code>cost_unit</code>; a costed call that would cross the per-chat budget asks first even under <code>trust: full</code> or YOLO mode",
+     "row": "i-mcp-discovery-concurrency"
     },
     {
      "tag": "CHG",
@@ -69,12 +70,14 @@
     {
      "tag": "CHG",
      "item": "browser_exec",
-     "html": "Built-in browser-automation tools were replaced by a single <code>browser_exec</code> tool"
+     "html": "Built-in browser-automation tools were replaced by a single <code>browser_exec</code> tool",
+     "row": "i-browser"
     },
     {
      "tag": "CHG",
      "item": "microsoft-office",
-     "html": "Built-in skills dropped from 58 to 44 as the Word, PowerPoint and Excel skills merged into one <code>microsoft-office</code> skill"
+     "html": "Built-in skills dropped from 58 to 44 as the Word, PowerPoint and Excel skills merged into one <code>microsoft-office</code> skill",
+     "row": "i-hermes-skills"
     },
     {
      "tag": "CHG",
@@ -135,7 +138,8 @@
     {
      "tag": "CHG",
      "item": "pre_llm_call",
-     "html": "The <code>pre_llm_call</code> plugin hook can now return a block action that ends the turn before any inference request, not just inject context"
+     "html": "The <code>pre_llm_call</code> plugin hook can now return a block action that ends the turn before any inference request, not just inject context",
+     "row": "i-hermes-hooks"
     },
     {
      "tag": "CHG",
@@ -318,7 +322,8 @@
     {
      "tag": "CHG",
      "item": "todo",
-     "html": "Built-in tool names — <code>todo</code>, <code>cronjob</code> and <code>process</code> renamed to <code>todo_list</code>, <code>cronjob_manage</code> and <code>process_manage</code>; the old names still work"
+     "html": "Built-in tool names — <code>todo</code>, <code>cronjob</code> and <code>process</code> renamed to <code>todo_list</code>, <code>cronjob_manage</code> and <code>process_manage</code>; the old names still work",
+     "row": "i-agents"
     },
     {
      "tag": "FIX",
@@ -383,8 +388,8 @@
    "entries": [
     {
      "tag": "CHG",
-     "item": "v0.21.6",
-     "html": "v0.21.6 is the first release cut by Hermes's new stable-release pipeline; it ships a plain semver tag (<code>v0.21.6</code>) with no separate date tag, unlike earlier releases"
+     "item": null,
+     "html": "v0.21.6 is the first release cut by Hermes's new stable-release pipeline; it ships a plain semver tag (v0.21.6) with no separate date tag, unlike earlier releases"
     },
     {
      "tag": "CHG",
@@ -409,7 +414,8 @@
     {
      "tag": "CHG",
      "item": "hermes kanban list",
-     "html": "<code>hermes kanban list</code> — adds <code>--workflow-template-id</code> and <code>--current-step-key</code> filters on two columns v1 stores but doesn't act on; routing logic ships later"
+     "html": "<code>hermes kanban list</code> — adds <code>--workflow-template-id</code> and <code>--current-step-key</code> filters on two columns v1 stores but doesn't act on; routing logic ships later",
+     "row": "i-hermes-kanban"
     },
     {
      "tag": "ADD",
@@ -419,7 +425,8 @@
     {
      "tag": "FIX",
      "item": "hermes -w",
-     "html": "Automatic git calls (session workspace snapshot, subagent worktrees, kanban, worktree cleanup, <code>hermes -w</code>) could run <code>clean</code>/<code>smudge</code>/<code>process</code> filter programs defined by an untrusted repository's own config before the first prompt"
+     "html": "Automatic git calls (session workspace snapshot, subagent worktrees, kanban, worktree cleanup, <code>hermes -w</code>) could run <code>clean</code>/<code>smudge</code>/<code>process</code> filter programs defined by an untrusted repository's own config before the first prompt",
+     "row": "i-worktree"
     },
     {
      "tag": "CHG",
@@ -447,7 +454,8 @@
     {
      "tag": "ADD",
      "item": "hermes sessions set-journal-mode",
-     "html": "<code>hermes sessions set-journal-mode</code> — convert <code>state.db</code>'s SQLite journal mode after every Hermes process for the profile stops"
+     "html": "<code>hermes sessions set-journal-mode</code> — convert <code>state.db</code>'s SQLite journal mode after every Hermes process for the profile stops",
+     "row": "i-hermes-sessions"
     },
     {
      "tag": "ADD",
@@ -503,42 +511,50 @@
     {
      "tag": "ADD",
      "item": "card-keys",
-     "html": "<code>card-keys</code> — initial reference: TUI keybindings plus the transcript, status-bar and overlay symbol glossary (17 rows)"
+     "html": "<code>card-keys</code> — initial reference: TUI keybindings plus the transcript, status-bar and overlay symbol glossary (17 rows)",
+     "row": "i-ctrl-p"
     },
     {
      "tag": "ADD",
      "item": "card-slash-core",
-     "html": "<code>card-slash-core</code> — initial reference: session, context, coding-workflow and run-control commands (29 rows)"
+     "html": "<code>card-slash-core</code> — initial reference: session, context, coding-workflow and run-control commands (29 rows)",
+     "row": "i-new"
     },
     {
      "tag": "ADD",
      "item": "card-slash-tools",
-     "html": "<code>card-slash-tools</code> — initial reference: model and reasoning control, tools, skills and profile commands (28 rows)"
+     "html": "<code>card-slash-tools</code> — initial reference: model and reasoning control, tools, skills and profile commands (28 rows)",
+     "row": "i-model"
     },
     {
      "tag": "ADD",
      "item": "card-cli",
-     "html": "<code>card-cli</code> — initial reference: global options and every in-scope subcommand (45 rows)"
+     "html": "<code>card-cli</code> — initial reference: global options and every in-scope subcommand (45 rows)",
+     "row": "i-version-v"
     },
     {
      "tag": "ADD",
      "item": "card-settings",
-     "html": "<code>card-settings</code> — initial reference: <code>config.yaml</code> precedence, the seven terminal backends, agent behaviour and limits (22 rows)"
+     "html": "<code>card-settings</code> — initial reference: <code>config.yaml</code> precedence, the seven terminal backends, agent behaviour and limits (22 rows)",
+     "row": "i-hermes-config-yaml"
     },
     {
      "tag": "ADD",
      "item": "card-env",
-     "html": "<code>card-env</code> — initial reference: <code>HERMES_HOME</code>, secrets handling and backend variables (6 rows)"
+     "html": "<code>card-env</code> — initial reference: <code>HERMES_HOME</code>, secrets handling and backend variables (6 rows)",
+     "row": "i-hermes-home"
     },
     {
      "tag": "ADD",
      "item": "card-skills",
-     "html": "<code>card-skills</code> — initial reference: the context-file precedence chain, memory, skills and subagent delegation (15 rows)"
+     "html": "<code>card-skills</code> — initial reference: the context-file precedence chain, memory, skills and subagent delegation (15 rows)",
+     "row": "i-hermes-md"
     },
     {
      "tag": "ADD",
      "item": "card-hooks",
-     "html": "<code>card-hooks</code> — initial reference: cron, heartbeats, goals, suggestions, blueprints, kanban and MCP (8 rows)"
+     "html": "<code>card-hooks</code> — initial reference: cron, heartbeats, goals, suggestions, blueprints, kanban and MCP (8 rows)",
+     "row": "i-cron"
     }
    ]
   }

@@ -367,7 +367,8 @@
     {
      "tag": "CHG",
      "item": "autoMode.allow",
-     "html": "An <code>autoMode.allow</code> list without <code>\"$defaults\"</code> no longer removes the built-in rule on scheduled-task prompts; noted on the existing <code>\"$defaults\"</code> (autoMode) row"
+     "html": "An <code>autoMode.allow</code> list without <code>\"$defaults\"</code> no longer removes the built-in rule on scheduled-task prompts; noted on the existing <code>\"$defaults\"</code> (autoMode) row",
+     "row": "i-defaults"
     },
     {
      "tag": "CHG",
@@ -526,7 +527,8 @@
     {
      "tag": "CHG",
      "item": "Ctrl D",
-     "html": "<code>Ctrl D</code> — in <code>claude agents</code>, also now needs two presses on an empty input to exit, matching the main prompt"
+     "html": "<code>Ctrl D</code> — in <code>claude agents</code>, also now needs two presses on an empty input to exit, matching the main prompt",
+     "row": "i-ctrl-c"
     },
     {
      "tag": "CHG",
@@ -635,7 +637,8 @@
     {
      "tag": "ADD",
      "item": "/claude-api api-version",
-     "html": "<code>/claude-api api-version</code> subcommand — migrates your code to a newer API version and repoints requests at it; noted on the existing <code>/claude-api</code> row"
+     "html": "<code>/claude-api api-version</code> subcommand — migrates your code to a newer API version and repoints requests at it; noted on the existing <code>/claude-api</code> row",
+     "row": "i-claude-api"
     },
     {
      "tag": "ADD",
@@ -673,7 +676,8 @@
     {
      "tag": "CHG",
      "item": "allowedMcpServers",
-     "html": "<code>allowedMcpServers</code> — a <code>managed-mcp.json</code> stdio server using <code>${VAR}</code> expansion only in <code>env</code> is now exempt from its filtering too (one using <code>${VAR}</code> elsewhere is still filtered), noted on the existing <code>deniedMcpServers</code> row"
+     "html": "<code>allowedMcpServers</code> — a <code>managed-mcp.json</code> stdio server using <code>${VAR}</code> expansion only in <code>env</code> is now exempt from its filtering too (one using <code>${VAR}</code> elsewhere is still filtered), noted on the existing <code>deniedMcpServers</code> row",
+     "row": "i-deniedmcpservers"
     },
     {
      "tag": "CHG",
@@ -721,7 +725,8 @@
     {
      "tag": "ADD",
      "item": "/claude-api managed-agents-secure",
-     "html": "<code>/claude-api managed-agents-secure</code> subcommand — compares a Managed Agents agent's settings against Anthropic's security guide without changing anything; real and verified via the changelog, not yet in the commands reference table"
+     "html": "<code>/claude-api managed-agents-secure</code> subcommand — compares a Managed Agents agent's settings against Anthropic's security guide without changing anything; real and verified via the changelog, not yet in the commands reference table",
+     "row": "i-claude-api"
     },
     {
      "tag": "CHG",
@@ -774,7 +779,8 @@
     {
      "tag": "ADD",
      "item": "additionalMarketplaces",
-     "html": "<code>additionalMarketplaces</code> — version-gated alias (v2.1.232+) of <code>extraKnownMarketplaces</code>, noted on its existing row alongside <code>allowedMarketplaces</code>'s matching alias of <code>strictKnownMarketplaces</code>"
+     "html": "<code>additionalMarketplaces</code> — version-gated alias (v2.1.232+) of <code>extraKnownMarketplaces</code>, noted on its existing row alongside <code>allowedMarketplaces</code>'s matching alias of <code>strictKnownMarketplaces</code>",
+     "row": "i-additionalmarketplaces"
     }
    ]
   },
@@ -949,7 +955,8 @@
     {
      "tag": "ADD",
      "item": "forceLoginMethod: \"gateway\"",
-     "html": "<code>forceLoginMethod: \"gateway\"</code> / <code>forceLoginGatewayUrl</code> — now also work as your own user settings on machines with no managed settings"
+     "html": "<code>forceLoginMethod: \"gateway\"</code> / <code>forceLoginGatewayUrl</code> — now also work as your own user settings on machines with no managed settings",
+     "row": "i-forcelogingatewayurl"
     },
     {
      "tag": "ADD",
@@ -985,7 +992,8 @@
     {
      "tag": "ADD",
      "item": "claude plugin install --marketplace <source>",
-     "html": "<code>claude plugin install --marketplace &lt;source&gt;</code> — adds the marketplace if needed, under the same checks as <code>claude plugin marketplace add</code>, then installs the plugin from it"
+     "html": "<code>claude plugin install --marketplace &lt;source&gt;</code> — adds the marketplace if needed, under the same checks as <code>claude plugin marketplace add</code>, then installs the plugin from it",
+     "row": "i-claude-plugin-install-plugin"
     },
     {
      "tag": "ADD",
@@ -1031,7 +1039,8 @@
     {
      "tag": "ADD",
      "item": "/code-review --max-findings <n>|all",
-     "html": "<code>/code-review --max-findings &lt;n&gt;|all</code> — report more or fewer findings than the usual limit; sticks until you pass <code>--max-findings default</code>"
+     "html": "<code>/code-review --max-findings &lt;n&gt;|all</code> — report more or fewer findings than the usual limit; sticks until you pass <code>--max-findings default</code>",
+     "row": "i-code-review-level-pr"
     },
     {
      "tag": "ADD",
@@ -1051,7 +1060,8 @@
     {
      "tag": "CHG",
      "item": "claude project purge",
-     "html": "<code>claude project purge</code> renamed to <code>claude purge</code>; the old form still works and prints a notice"
+     "html": "<code>claude project purge</code> renamed to <code>claude purge</code>; the old form still works and prints a notice",
+     "row": "i-claude-project-purge-path"
     }
    ]
   },
@@ -1074,7 +1084,8 @@
     {
      "tag": "ADD",
      "item": "\"bareElicitationCapability\": true",
-     "html": "<code>\"bareElicitationCapability\": true</code> MCP server config field — needed for a server on the MCP 2025-11-25 protocol that sends URL elicitation prompts and stopped connecting after this update"
+     "html": "<code>\"bareElicitationCapability\": true</code> MCP server config field — needed for a server on the MCP 2025-11-25 protocol that sends URL elicitation prompts and stopped connecting after this update",
+     "row": "i-bareelicitationcapability"
     },
     {
      "tag": "ADD",
@@ -1140,7 +1151,8 @@
     {
      "tag": "ADD",
      "item": "claude plugin install --config <server>.<key>=<value>",
-     "html": "<code>claude plugin install --config &lt;server&gt;.&lt;key&gt;=&lt;value&gt;</code> — set a bundled <code>.mcpb</code> MCP server's own settings at install time, so it starts without a visit to <code>/plugin</code> → Configure"
+     "html": "<code>claude plugin install --config &lt;server&gt;.&lt;key&gt;=&lt;value&gt;</code> — set a bundled <code>.mcpb</code> MCP server's own settings at install time, so it starts without a visit to <code>/plugin</code> → Configure",
+     "row": "i-claude-plugin-configure-plugin"
     },
     {
      "tag": "ADD",
@@ -1155,7 +1167,8 @@
     {
      "tag": "CHG",
      "item": "claude mcp get",
-     "html": "<code>claude mcp get</code> — hides the command, arguments, and environment values of stdio MCP servers provided by plugins; variable names are still shown"
+     "html": "<code>claude mcp get</code> — hides the command, arguments, and environment values of stdio MCP servers provided by plugins; variable names are still shown",
+     "row": "i-claude-mcp-list-add-remove"
     },
     {
      "tag": "CHG",
@@ -1183,12 +1196,14 @@
     {
      "tag": "CHG",
      "item": "/effort ultracode [on|off]",
-     "html": "<code>/effort ultracode [on|off]</code> (also Tab in the interactive slider) — toggles Ultracode independently of effort level; no longer forces xhigh, and stays on at any effort level once enabled"
+     "html": "<code>/effort ultracode [on|off]</code> (also Tab in the interactive slider) — toggles Ultracode independently of effort level; no longer forces xhigh, and stays on at any effort level once enabled",
+     "row": "i-effort-level"
     },
     {
      "tag": "CHG",
      "item": "/mcp reconnect all",
-     "html": "<code>/mcp reconnect all</code> — retries every server that failed to connect or needs authentication, in one pass"
+     "html": "<code>/mcp reconnect all</code> — retries every server that failed to connect or needs authentication, in one pass",
+     "row": "i-mcp"
     },
     {
      "tag": "CHG",
@@ -1203,7 +1218,8 @@
     {
      "tag": "CHG",
      "item": "CLAUDE_CODE_MCP_STARTUP_WAIT_MS=0",
-     "html": "<code>CLAUDE_CODE_MCP_STARTUP_WAIT_MS=0</code> — servers named by <code>--allowedTools</code> or an <code>mcp_tool</code> hook still get up to 2s to connect on the first non-interactive turn"
+     "html": "<code>CLAUDE_CODE_MCP_STARTUP_WAIT_MS=0</code> — servers named by <code>--allowedTools</code> or an <code>mcp_tool</code> hook still get up to 2s to connect on the first non-interactive turn",
+     "row": "i-claude-code-mcp-startup-wait-ms"
     }
    ]
   },
@@ -1216,7 +1232,8 @@
     {
      "tag": "ADD",
      "item": "/doctor prompt-audit",
-     "html": "<code>/doctor prompt-audit</code> (also <code>/checkup prompt-audit</code>) — audits CLAUDE.md files, skills, agents and commands for prompting patterns written for older models"
+     "html": "<code>/doctor prompt-audit</code> (also <code>/checkup prompt-audit</code>) — audits CLAUDE.md files, skills, agents and commands for prompting patterns written for older models",
+     "row": "i-doctor"
     },
     {
      "tag": "ADD",
@@ -1870,12 +1887,14 @@
     {
      "tag": "ADD",
      "item": "claude plugin enable/disable <name>@synced",
-     "html": "<code>claude plugin enable/disable &lt;name&gt;@synced</code> — cloud-synced plugins from claude.ai appear as <code>name@synced</code>; managed with <code>enable/disable &lt;name&gt;@synced</code>; never override a locally installed same-named plugin"
+     "html": "<code>claude plugin enable/disable &lt;name&gt;@synced</code> — cloud-synced plugins from claude.ai appear as <code>name@synced</code>; managed with <code>enable/disable &lt;name&gt;@synced</code>; never override a locally installed same-named plugin",
+     "row": "i-claude-plugin-enable-disable-name"
     },
     {
      "tag": "ADD",
      "item": "/claude-api upgrade",
-     "html": "<code>/claude-api upgrade</code> — new subcommand; migrates Python projects from <code>anthropic</code> 0.x to 1.x (timeouts use <code>anthropic.Timeout</code>, not <code>httpx.Timeout</code>)"
+     "html": "<code>/claude-api upgrade</code> — new subcommand; migrates Python projects from <code>anthropic</code> 0.x to 1.x (timeouts use <code>anthropic.Timeout</code>, not <code>httpx.Timeout</code>)",
+     "row": "i-claude-api"
     },
     {
      "tag": "CHG",
@@ -1885,12 +1904,14 @@
     {
      "tag": "CHG",
      "item": "keybindingFlavor: \"readline\"",
-     "html": "<code>keybindingFlavor: \"readline\"</code> — extended with word-motion keys: Alt+F and Ctrl/Option+→ stop at end of word, Alt+D deletes to it (Ctrl+Y pastes back), punctuation separates words"
+     "html": "<code>keybindingFlavor: \"readline\"</code> — extended with word-motion keys: Alt+F and Ctrl/Option+→ stop at end of word, Alt+D deletes to it (Ctrl+Y pastes back), punctuation separates words",
+     "row": "i-keybindingflavor"
     },
     {
      "tag": "CHG",
      "item": "ListAgents",
-     "html": "<code>ListAgents</code> / <code>SendMessage</code> — <code>ListAgents</code> now reports the session's own name (the identifier peers use to message it) and includes live teammates in its listing"
+     "html": "<code>ListAgents</code> / <code>SendMessage</code> — <code>ListAgents</code> now reports the session's own name (the identifier peers use to message it) and includes live teammates in its listing",
+     "row": "i-sendmessage"
     },
     {
      "tag": "CHG",
@@ -2061,7 +2082,8 @@
     {
      "tag": "ADD",
      "item": "additionalMarketplaces",
-     "html": "<code>additionalMarketplaces</code> JSON setting — friendlier alias for <code>extraKnownMarketplaces</code>; add plugin marketplace repos beyond the built-in list"
+     "html": "<code>additionalMarketplaces</code> JSON setting — friendlier alias for <code>extraKnownMarketplaces</code>; add plugin marketplace repos beyond the built-in list",
+     "row": "i-additionalmarketplaces"
     },
     {
      "tag": "CHG",
@@ -2550,7 +2572,8 @@
     {
      "tag": "CHG",
      "item": "EnterWorktree",
-     "html": "<code>EnterWorktree</code> hook — now asks for confirmation before entering a git worktree outside the project's <code>.claude/worktrees/</code> directory"
+     "html": "<code>EnterWorktree</code> hook — now asks for confirmation before entering a git worktree outside the project's <code>.claude/worktrees/</code> directory",
+     "row": "i-enterworktree"
     }
    ]
   },
@@ -2599,7 +2622,8 @@
     {
      "tag": "ADD",
      "item": "dynamicWorkflowSize",
-     "html": "<code>dynamicWorkflowSize</code> JSON setting — controls how large Claude makes dynamic workflows (small/medium/large agent counts); advisory guideline, not a hard cap"
+     "html": "<code>dynamicWorkflowSize</code> JSON setting — controls how large Claude makes dynamic workflows (small/medium/large agent counts); advisory guideline, not a hard cap",
+     "row": "i-workflowsizeguideline"
     }
    ]
   },
@@ -2668,7 +2692,8 @@
     {
      "tag": "DEL",
      "item": "/agents",
-     "html": "<code>/agents</code> slash-command wizard removed — create or manage subagents by asking Claude or editing <code>.claude/agents/</code> directly"
+     "html": "<code>/agents</code> slash-command wizard removed — create or manage subagents by asking Claude or editing <code>.claude/agents/</code> directly",
+     "row": "i-subtask"
     }
    ]
   },
@@ -2998,7 +3023,8 @@
     {
      "tag": "CHG",
      "item": "claude agents --json",
-     "html": "<code>claude agents --json</code> — now includes <code>id</code> and <code>state</code> fields; new <code>--all</code> flag includes completed sessions"
+     "html": "<code>claude agents --json</code> — now includes <code>id</code> and <code>state</code> fields; new <code>--all</code> flag includes completed sessions",
+     "row": "i-claude-agents"
     }
    ]
   },
@@ -3082,7 +3108,8 @@
     {
      "tag": "CHG",
      "item": "claude agents --json",
-     "html": "<code>claude agents --json</code> — output now includes <code>waitingFor</code> field showing what a waiting session is blocked on"
+     "html": "<code>claude agents --json</code> — output now includes <code>waitingFor</code> field showing what a waiting session is blocked on",
+     "row": "i-claude-agents"
     },
     {
      "tag": "CHG",
@@ -3149,7 +3176,8 @@
     {
      "tag": "ADD",
      "item": "EnterWorktree",
-     "html": "<code>EnterWorktree</code> hook event — fires on worktree entry; can now switch between Claude-managed worktrees mid-session"
+     "html": "<code>EnterWorktree</code> hook event — fires on worktree entry; can now switch between Claude-managed worktrees mid-session",
+     "row": "i-enterworktree"
     },
     {
      "tag": "CHG",
@@ -3207,7 +3235,8 @@
     {
      "tag": "DEL",
      "item": "CLAUDE_CODE_OPUS_4_6_FAST_MODE_OVERRIDE",
-     "html": "<code>CLAUDE_CODE_OPUS_4_6_FAST_MODE_OVERRIDE</code> — deprecated; use <code>/model claude-opus-4-6[1m]</code> then <code>/fast on</code> for Opus 4.6 fast mode"
+     "html": "<code>CLAUDE_CODE_OPUS_4_6_FAST_MODE_OVERRIDE</code> — deprecated; use <code>/model claude-opus-4-6[1m]</code> then <code>/fast on</code> for Opus 4.6 fast mode",
+     "row": "i-fast-on-off"
     },
     {
      "tag": "ADD",
@@ -3293,7 +3322,8 @@
     {
      "tag": "CHG",
      "item": "Ctrl+O",
-     "html": "<code>Ctrl+O</code> — in a collapsed thinking group, shows the full thinking"
+     "html": "<code>Ctrl+O</code> — in a collapsed thinking group, shows the full thinking",
+     "row": "i-ctrl-o"
     },
     {
      "tag": "ADD",
@@ -3365,7 +3395,8 @@
     {
      "tag": "ADD",
      "item": "claude agents --json",
-     "html": "<code>claude agents --json</code> — list live sessions as JSON for scripting (tmux-resurrect, status bars, session pickers)"
+     "html": "<code>claude agents --json</code> — list live sessions as JSON for scripting (tmux-resurrect, status bars, session pickers)",
+     "row": "i-claude-agents"
     },
     {
      "tag": "CHG",
@@ -3383,7 +3414,8 @@
     {
      "tag": "CHG",
      "item": "/extra-usage",
-     "html": "<code>/extra-usage</code> renamed to <code>/usage-credits</code>; old name still works"
+     "html": "<code>/extra-usage</code> renamed to <code>/usage-credits</code>; old name still works",
+     "row": "i-usage-credits"
     },
     {
      "tag": "CHG",
@@ -3424,7 +3456,8 @@
     {
      "tag": "ADD",
      "item": "CLAUDE_CODE_OPUS_4_6_FAST_MODE_OVERRIDE=1",
-     "html": "<code>CLAUDE_CODE_OPUS_4_6_FAST_MODE_OVERRIDE=1</code> env var — pin Fast mode to Opus 4.6; fast mode now defaults to Opus 4.7"
+     "html": "<code>CLAUDE_CODE_OPUS_4_6_FAST_MODE_OVERRIDE=1</code> env var — pin Fast mode to Opus 4.6; fast mode now defaults to Opus 4.7",
+     "row": "i-fast-on-off"
     }
    ]
   },
@@ -3658,7 +3691,8 @@
     {
      "tag": "ADD",
      "item": "claude project purge [path]",
-     "html": "<code>claude project purge [path]</code> CLI subcommand — Delete all Claude Code state for a project (transcripts, tasks, file history, config entry); supports <code>--dry-run</code>, <code>-y/--yes</code>, <code>-i/--interactive</code>, and <code>--all</code>"
+     "html": "<code>claude project purge [path]</code> CLI subcommand — Delete all Claude Code state for a project (transcripts, tasks, file history, config entry); supports <code>--dry-run</code>, <code>-y/--yes</code>, <code>-i/--interactive</code>, and <code>--all</code>",
+     "row": "i-claude-project-purge-path"
     },
     {
      "tag": "CHG",
@@ -3800,7 +3834,8 @@
     {
      "tag": "ADD",
      "item": "v",
-     "html": "Vim Mode section in Keys &amp; Shortcuts — <code>v</code> / <code>V</code> enter visual / visual-line selection mode in NORMAL mode"
+     "html": "Vim Mode section in Keys &amp; Shortcuts — <code>v</code> / <code>V</code> enter visual / visual-line selection mode in NORMAL mode",
+     "row": "i-v-3"
     },
     {
      "tag": "ADD",
@@ -3909,7 +3944,8 @@
     {
      "tag": "ADD",
      "item": "Ctrl A",
-     "html": "<code>Ctrl A</code> / <code>Ctrl E</code> (multiline input) — Move to start/end of current logical line, matching readline behavior"
+     "html": "<code>Ctrl A</code> / <code>Ctrl E</code> (multiline input) — Move to start/end of current logical line, matching readline behavior",
+     "row": "i-ctrl-a"
     },
     {
      "tag": "ADD",
@@ -3919,7 +3955,8 @@
     {
      "tag": "ADD",
      "item": "/extra-usage",
-     "html": "<code>/extra-usage</code> slash command — Request extra usage allowance; now also available from Remote Control clients"
+     "html": "<code>/extra-usage</code> slash command — Request extra usage allowance; now also available from Remote Control clients",
+     "row": "i-usage-credits"
     }
    ]
   },
@@ -3972,7 +4009,8 @@
     {
      "tag": "ADD",
      "item": "/less-permission-prompts",
-     "html": "<code>/less-permission-prompts</code> skill — Scan transcripts for read-only Bash/MCP calls; propose settings.json allowlist"
+     "html": "<code>/less-permission-prompts</code> skill — Scan transcripts for read-only Bash/MCP calls; propose settings.json allowlist",
+     "row": "i-less-permission-prompts"
     },
     {
      "tag": "ADD",
@@ -4030,7 +4068,8 @@
     {
      "tag": "ADD",
      "item": "Ctrl A",
-     "html": "<code>Ctrl A</code> session picker key — Show all projects (picker now defaults to current directory)"
+     "html": "<code>Ctrl A</code> session picker key — Show all projects (picker now defaults to current directory)",
+     "row": "i-ctrl-a-2"
     },
     {
      "tag": "ADD",
@@ -4203,12 +4242,14 @@
     {
      "tag": "CHG",
      "item": "/cost",
-     "html": "<code>/cost</code> — Description updated to reflect per-model and cache-hit breakdown"
+     "html": "<code>/cost</code> — Description updated to reflect per-model and cache-hit breakdown",
+     "row": "i-usage"
     },
     {
      "tag": "DEL",
      "item": "/vim",
-     "html": "<code>/vim</code> slash command removed — toggle vim mode via <code>/config</code> &rarr; Editor mode"
+     "html": "<code>/vim</code> slash command removed — toggle vim mode via <code>/config</code> &rarr; Editor mode",
+     "row": "i-config"
     }
    ]
   },
@@ -4343,7 +4384,8 @@
     {
      "tag": "FIX",
      "item": "SubAgentStart",
-     "html": "Fixed <code>SubAgentStart</code> &rarr; <code>SubagentStart</code> casing"
+     "html": "Fixed <code>SubAgentStart</code> &rarr; <code>SubagentStart</code> casing",
+     "row": "i-subagentstart"
     }
    ]
   }

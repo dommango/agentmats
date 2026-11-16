@@ -23,12 +23,19 @@ function parseChangelog(html) {
     const [, id, rawLabel, date, body] = section;
     const label = rawLabel.trim();
     const entries = [];
-    const liRe = /<li><span class="tag (tag-\w+)">\w+<\/span>([\s\S]*?)<\/li>/g;
+    const liRe = /<li(?: data-row="([\w-]+)")?><span class="tag (tag-\w+)">\w+<\/span>([\s\S]*?)<\/li>/g;
     let li;
     while ((li = liRe.exec(body))) {
-      const inner = li[2].replace(/<span class="entry">([\s\S]*)<\/span>/, '$1').trim();
-      const code = (inner.match(/<code>(.*?)<\/code>/) || [])[1];
-      entries.push({ tag: TAGS[li[1]] || 'ADD', item: code ? decode(code) : null, html: inner });
+      const [, row, tag, rawInner] = li;
+      const inner = rawInner.replace(/<span class="entry">([\s\S]*)<\/span>/, '$1').trim();
+      // Two-tier entries put their notes <ul> after a notes-btn <button> inside the
+      // same <li>; a <code> there belongs to a note, not the entry's subject, so it
+      // must never be read as this entry's item.
+      const head = inner.split('<button type="button" class="notes-btn"')[0];
+      const code = (head.match(/<code>(.*?)<\/code>/) || [])[1];
+      const entry = { tag: TAGS[tag] || 'ADD', item: code ? decode(code) : null, html: inner };
+      if (row) entry.row = row;
+      entries.push(entry);
     }
     const versions = label.match(/v\d[\w.]*/g);
     const version = versions ? versions[versions.length - 1] : label.split(/\s+/).pop();
