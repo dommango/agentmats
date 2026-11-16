@@ -49,10 +49,19 @@ Machine-readable sources live in `sources.json`; this file is the procedure.
     both CI checks are green (`get_check_runs`), then merge via the GitHub MCP
     `merge_pull_request` (`gh` is not available in the sandbox) and delete the
     branch explicitly afterward, since the MCP merge has no `--delete-branch`
-    equivalent. Any CRITICAL/HIGH finding → fix it and request exactly one
-    re-review; if a CRITICAL/HIGH finding still stands after that, stop — leave
-    the PR open with the findings already posted as a comment, and do not merge.
-11. **Close-on-success.** Once Step 2 has reached a source (primary or a
+    equivalent. Any CRITICAL/HIGH finding → fix it, then run exactly one
+    re-check: either the `code-review` skill again or a scripted/structural
+    check that demonstrates each prior finding is resolved. Post that
+    re-check's verdict as a PR comment before merging either way, same as the
+    first pass. If it passes and both CI checks are green, merge as above. If
+    any CRITICAL/HIGH finding still stands after that one re-check, stop —
+    leave the PR open with the findings already posted as a comment, and do
+    not merge.
+11. **Close superseded PR.** If an open PR from an older
+    `claude/<agent>-update-v*` branch exists for this agent, close it via the
+    GitHub MCP with a comment linking this PR as superseding it, and delete
+    its branch.
+12. **Close-on-success.** Once Step 2 has reached a source (primary or a
     declared fallback) this run, check whether a GitHub issue titled
     `sync blocked: <agent>` is open (via the GitHub MCP) and, if so, close it
     with a comment explaining why: cite this PR when Steps 4-10 shipped one,
@@ -70,7 +79,7 @@ addition to the usual push notification: open a GitHub issue titled
 title) via the GitHub MCP, describing what was tried and why it failed. This
 keeps a genuine block distinguishable from the correct silent no-op in
 Step 3 — a routine `status = SUCCEEDED` does not by itself mean content
-shipped. Step 11 closes this issue once a later run reaches a source again.
+shipped. Step 12 closes this issue once a later run reaches a source again.
 
 ## Kimi-specific traps
 
