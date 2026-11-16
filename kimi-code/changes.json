@@ -77,7 +77,8 @@
     {
      "tag": "ADD",
      "item": "Ctrl-C",
-     "html": "Fullscreen mode &mdash; <code>Ctrl-C</code> / <code>Cmd-C</code> copies selected text; toggle with Copy on select in <code>/settings</code>"
+     "html": "Fullscreen mode &mdash; <code>Ctrl-C</code> / <code>Cmd-C</code> copies selected text; toggle with Copy on select in <code>/settings</code>",
+     "row": "i-ctrl-c"
     },
     {
      "tag": "CHG",
@@ -178,18 +179,20 @@
     },
     {
      "tag": "ADD",
-     "item": "[workspace] require_trust",
-     "html": "<code>[workspace] require_trust</code> &mdash; set to <code>false</code> to treat every workspace as trusted and skip the startup trust prompt; takes effect on <code>/reload</code>"
+     "item": "[workspace].require_trust",
+     "html": "<code>[workspace].require_trust</code> &mdash; set to <code>false</code> to treat every workspace as trusted and skip the startup trust prompt; takes effect on <code>/reload</code>"
     },
     {
      "tag": "CHG",
      "item": "[secondary_model] force",
-     "html": "<code>[secondary_model] force</code> &mdash; now ignored with a warning; a lone <code>default_model</code> already pins every subagent to it, and the pool no longer offers an implicit <code>primary</code> choice &mdash; list the main model explicitly to use it"
+     "html": "<code>[secondary_model] force</code> &mdash; now ignored with a warning; a lone <code>default_model</code> already pins every subagent to it, and the pool no longer offers an implicit <code>primary</code> choice &mdash; list the main model explicitly to use it",
+     "row": "i-secondary-model-2"
     },
     {
      "tag": "CHG",
      "item": "[database] global_search",
-     "html": "<code>[database] global_search</code> &mdash; now defaults to <code>false</code>; the full-text search index does not build and <code>POST /api/v1/search</code> reports it unavailable until enabled (<code>KIMI_CODE_GLOBAL_SEARCH</code>)"
+     "html": "<code>[database] global_search</code> &mdash; now defaults to <code>false</code>; the full-text search index does not build and <code>POST /api/v1/search</code> reports it unavailable until enabled (<code>KIMI_CODE_GLOBAL_SEARCH</code>)",
+     "row": "i-database"
     },
     {
      "tag": "ADD",
@@ -207,7 +210,8 @@
     {
      "tag": "CHG",
      "item": "[read] max_chars",
-     "html": "<code>[read] max_chars</code> &mdash; a single file read now returns at most 100,000 characters (~25,000 tokens) by default, down from 500,000; raise both limits here"
+     "html": "<code>[read] max_chars</code> &mdash; a single file read now returns at most 100,000 characters (~25,000 tokens) by default, down from 500,000; raise both limits here",
+     "row": "i-read"
     },
     {
      "tag": "CHG",
@@ -230,7 +234,8 @@
     {
      "tag": "ADD",
      "item": "/provider refresh [providerId]",
-     "html": "<code>/provider refresh [providerId]</code> &mdash; re-fetches one provider&rsquo;s model list, or every provider&rsquo;s with no argument"
+     "html": "<code>/provider refresh [providerId]</code> &mdash; re-fetches one provider&rsquo;s model list, or every provider&rsquo;s with no argument",
+     "row": "i-provider"
     },
     {
      "tag": "CHG",
@@ -245,7 +250,8 @@
     {
      "tag": "CHG",
      "item": "max_running_tasks",
-     "html": "Tower (experimental) &mdash; supports per-task model selection and reuses <code>max_running_tasks</code> as a combined worker/reviewer cap; raises the default agent concurrency from 16 to 256"
+     "html": "Tower (experimental) &mdash; supports per-task model selection and reuses <code>max_running_tasks</code> as a combined worker/reviewer cap; raises the default agent concurrency from 16 to 256",
+     "row": "i-kimi-code-background-max-running-tasks"
     },
     {
      "tag": "ADD",
@@ -298,7 +304,8 @@
     {
      "tag": "FIX",
      "item": "AgentSwarm",
-     "html": "<code>AgentSwarm</code> &mdash; rejecting a call before any subagent starts (such as while swarm mode is off) no longer shows as a failed swarm; the agent now points to <code>/swarm</code> instead"
+     "html": "<code>AgentSwarm</code> &mdash; rejecting a call before any subagent starts (such as while swarm mode is off) no longer shows as a failed swarm; the agent now points to <code>/swarm</code> instead",
+     "row": "i-subagent"
     },
     {
      "tag": "CHG",
@@ -326,7 +333,8 @@
     {
      "tag": "CHG",
      "item": "AgentSwarm",
-     "html": "<code>AgentSwarm</code> — the agent can no longer launch it on its own; swarms now start only when swarm mode is turned on, so they&rsquo;re unavailable in <code>kimi -p</code> or ACP clients such as Zed"
+     "html": "<code>AgentSwarm</code> — the agent can no longer launch it on its own; swarms now start only when swarm mode is turned on, so they&rsquo;re unavailable in <code>kimi -p</code> or ACP clients such as Zed",
+     "row": "i-subagent"
     }
    ]
   },
@@ -367,7 +375,8 @@
     {
      "tag": "ADD",
      "item": "auto_session_title",
-     "html": "<code>auto_session_title</code> &mdash; auto-generates a session title after the first turn and shows it as the terminal window title; a global <code>config.toml</code> gate and an independent <code>tui.toml</code> opt-out"
+     "html": "<code>auto_session_title</code> &mdash; auto-generates a session title after the first turn and shows it as the terminal window title; a global <code>config.toml</code> gate and an independent <code>tui.toml</code> opt-out",
+     "row": "i-auto-session-title"
     },
     {
      "tag": "ADD",
@@ -402,7 +411,8 @@
     {
      "tag": "FIX",
      "item": "[[hooks]]",
-     "html": "<code>[[hooks]]</code> &mdash; hook commands now run in the session&rsquo;s project directory instead of the server&rsquo;s startup directory"
+     "html": "<code>[[hooks]]</code> &mdash; hook commands now run in the session&rsquo;s project directory instead of the server&rsquo;s startup directory",
+     "row": "i-hooks-2"
     }
    ]
   },
@@ -445,7 +455,8 @@
     {
      "tag": "CHG",
      "item": "Ctrl-C",
-     "html": "<code>Ctrl-C</code> &mdash; forces an immediate exit during shutdown hooks instead of waiting for the hook timeout; a &ldquo;Shutting down&rdquo; hint shows meanwhile"
+     "html": "<code>Ctrl-C</code> &mdash; forces an immediate exit during shutdown hooks instead of waiting for the hook timeout; a &ldquo;Shutting down&rdquo; hint shows meanwhile",
+     "row": "i-ctrl-c"
     },
     {
      "tag": "FIX",
@@ -460,7 +471,8 @@
     {
      "tag": "DEL",
      "item": "executor = \"kaos\"",
-     "html": "<code>executor = \"kaos\"</code> &mdash; removed from MCP stdio configuration (never implemented); configs using it now fail validation at load time"
+     "html": "<code>executor = \"kaos\"</code> &mdash; removed from MCP stdio configuration (never implemented); configs using it now fail validation at load time",
+     "row": "i-mcp-json"
     }
    ]
   },
@@ -564,7 +576,8 @@
     {
      "tag": "CHG",
      "item": "kimi install-app",
-     "html": "<code>kimi install-app</code> — renamed to <code>kimi install-desktop</code>; the old name keeps working as a hidden alias"
+     "html": "<code>kimi install-app</code> — renamed to <code>kimi install-desktop</code>; the old name keeps working as a hidden alias",
+     "row": "i-kimi-install-desktop"
     }
    ]
   },
@@ -582,7 +595,8 @@
     {
      "tag": "ADD",
      "item": "kimi install-app",
-     "html": "<code>kimi install-app</code> — prints and opens the desktop app page (renamed to <code>kimi install-desktop</code> in 2.0.1)"
+     "html": "<code>kimi install-app</code> — prints and opens the desktop app page (renamed to <code>kimi install-desktop</code> in 2.0.1)",
+     "row": "i-kimi-install-desktop"
     },
     {
      "tag": "ADD",
@@ -605,7 +619,8 @@
     {
      "tag": "FIX",
      "item": "Ctrl-C",
-     "html": "<code>Ctrl-C</code> while subagents are running now interrupts only the subagents, instead of exiting the whole CLI"
+     "html": "<code>Ctrl-C</code> while subagents are running now interrupts only the subagents, instead of exiting the whole CLI",
+     "row": "i-ctrl-c"
     }
    ]
   },
@@ -628,7 +643,8 @@
     {
      "tag": "ADD",
      "item": "loop_control.compaction_max_attempts",
-     "html": "<code>loop_control.compaction_max_attempts</code> — caps total attempts for a failing compaction request; default 5"
+     "html": "<code>loop_control.compaction_max_attempts</code> — caps total attempts for a failing compaction request; default 5",
+     "row": "i-loop-control"
     },
     {
      "tag": "ADD",
@@ -656,47 +672,56 @@
     {
      "tag": "ADD",
      "item": "card-keys",
-     "html": "<code>card-keys</code> — initial reference: the seven keyboard-shortcut contexts, from general input to the approval panel (19 rows)"
+     "html": "<code>card-keys</code> — initial reference: the seven keyboard-shortcut contexts, from general input to the approval panel (19 rows)",
+     "row": "i-enter"
     },
     {
      "tag": "ADD",
      "item": "card-slash-core",
-     "html": "<code>card-slash-core</code> — initial reference: account, session, mode and status commands with their aliases (33 rows)"
+     "html": "<code>card-slash-core</code> — initial reference: account, session, mode and status commands with their aliases (33 rows)",
+     "row": "i-login"
     },
     {
      "tag": "ADD",
      "item": "card-slash-tools",
-     "html": "<code>card-slash-tools</code> — initial reference: swarm and goal control, extensibility, and the built-in skill commands (16 rows)"
+     "html": "<code>card-slash-tools</code> — initial reference: swarm and goal control, extensibility, and the built-in skill commands (16 rows)",
+     "row": "i-swarm-on"
     },
     {
      "tag": "ADD",
      "item": "card-cli",
-     "html": "<code>card-cli</code> — initial reference: all 14 top-level flags and all 12 subcommands (25 rows)"
+     "html": "<code>card-cli</code> — initial reference: all 14 top-level flags and all 12 subcommands (25 rows)",
+     "row": "i-v-version"
     },
     {
      "tag": "ADD",
      "item": "card-settings",
-     "html": "<code>card-settings</code> — initial reference: <code>config.toml</code>, <code>tui.toml</code> and <code>.kimi-code/local.toml</code> (37 rows)"
+     "html": "<code>card-settings</code> — initial reference: <code>config.toml</code>, <code>tui.toml</code> and <code>.kimi-code/local.toml</code> (37 rows)",
+     "row": "i-kimi-code-config-toml"
     },
     {
      "tag": "ADD",
      "item": "card-env",
-     "html": "<code>card-env</code> — initial reference: core paths, model overrides, runtime switches and diagnostics (22 rows)"
+     "html": "<code>card-env</code> — initial reference: core paths, model overrides, runtime switches and diagnostics (22 rows)",
+     "row": "i-kimi-code-home"
     },
     {
      "tag": "ADD",
      "item": "card-skills",
-     "html": "<code>card-skills</code> — initial reference: skill and agent directories, the four <code>AGENTS.md</code> locations, plugins (18 rows)"
+     "html": "<code>card-skills</code> — initial reference: skill and agent directories, the four <code>AGENTS.md</code> locations, plugins (18 rows)",
+     "row": "i-skill-md"
     },
     {
      "tag": "ADD",
      "item": "card-hooks",
-     "html": "<code>card-hooks</code> — initial reference: 18 hook events, hook exit codes, <code>mcp.json</code> and MCP permissions (20 rows)"
+     "html": "<code>card-hooks</code> — initial reference: 18 hook events, hook exit codes, <code>mcp.json</code> and MCP permissions (20 rows)",
+     "row": "i-hooks-2"
     },
     {
      "tag": "DEL",
      "item": "KIMI_CODE_EXPERIMENTAL_REMOTE_CONTROL",
-     "html": "<code>KIMI_CODE_EXPERIMENTAL_REMOTE_CONTROL</code> and <code>KIMI_CODE_EXPERIMENTAL_SECONDARY_MODEL</code> — Remote Control and the subagent model pool are always on in 0.42.0, so both flags were removed"
+     "html": "<code>KIMI_CODE_EXPERIMENTAL_REMOTE_CONTROL</code> and <code>KIMI_CODE_EXPERIMENTAL_SECONDARY_MODEL</code> — Remote Control and the subagent model pool are always on in 0.42.0, so both flags were removed",
+     "row": "i-kimi-code-experimental-flag"
     },
     {
      "tag": "CHG",

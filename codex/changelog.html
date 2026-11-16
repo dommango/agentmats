@@ -171,16 +171,16 @@
                             <ul class="change-list">
                                 <li><span class="tag tag-add">ADD</span><span class="entry"><code>features.tui_workspace</code> (<code>card-settings</code>) — opt-in resizable side-chat pane beside the main conversation, with multiple tabs and session restore</span></li>
                                 <li><span class="tag tag-add">ADD</span><span class="entry"><code>features.image_generation_animation</code> (<code>card-settings</code>) — opt-in animated GIF generation and editing with image-capable models</span></li>
-                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>--trust</code> (<code>card-cli</code>, <code>codex exec</code>) — save project trust for this and future chats, including MCP commands outside the sandbox</span></li>
+                                <li data-row="i-codex-exec"><span class="tag tag-add">ADD</span><span class="entry"><code>--trust</code> (<code>card-cli</code>, <code>codex exec</code>) — save project trust for this and future chats, including MCP commands outside the sandbox</span></li>
                                 <li><span class="tag tag-change">CHG</span><span class="entry"><code>agents.enabled</code> (<code>card-settings</code>) — Codex now warns when <code>features.multi_agent</code> is explicitly configured and points here instead</span></li>
-                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>tui.notification_method</code> (<code>card-settings</code>) — adds an <code>osc777</code> value and lengthens approval previews</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>tui.notifications</code> (<code>card-settings</code>) — adds an <code>osc777</code> value and lengthens approval previews</span></li>
                                 <li><span class="tag tag-change">CHG</span><span class="entry"><code>model_provider</code> (<code>card-settings</code>) — adds browsing model providers under Sessions and choosing a default for new chats</span></li>
                                 <li><span class="tag tag-change">CHG</span><span class="entry"><code>codex resume</code> (<code>card-cli</code>) — local history and resume pickers now filter to threads under the signed-in ChatGPT account</span></li>
                                 <li><span class="tag tag-change">CHG</span><span class="entry"><code>@</code> (<code>card-keys</code>) — fuzzy file search now weighs filename matches more heavily</span></li>
                                 <li><span class="tag tag-change">CHG</span><span class="entry"><code>/pets</code> (<code>card-slash-tools</code>) — adds image previews and pet rendering in tmux on Ghostty and Kitty</span></li>
                                 <li><span class="tag tag-change">CHG</span><span class="entry"><code>codex login</code> (<code>card-cli</code>) — custom model providers can now be added or edited from the terminal, including during sign-in with device-code authorization</span></li>
                                 <li><span class="tag tag-change">CHG</span><span class="entry"><code>codex cloud</code> (<code>card-cli</code>) — the opt-in macOS/Linux Cloud connection can send images, choose a model and reasoning effort, and archive or restore conversations</span></li>
-                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>codex agents</code> (<code>card-cli</code>) — adds searching older tasks by name, prompt preview or working directory</span></li>
+                                <li data-row="i-codex-agents"><span class="tag tag-change">CHG</span><span class="entry"><code>codex agents</code> (<code>card-cli</code>) — adds searching older tasks by name, prompt preview or working directory</span></li>
                                 <li><span class="tag tag-change">CHG</span><span class="entry"><code>/tui</code> (<code>card-keys</code>) — adds a Collapse turn details option that folds completed activity under each prompt</span></li>
                                 <li><span class="tag tag-change">CHG</span><span class="entry"><code>/feedback</code> (<code>card-slash-tools</code>) — adds pressing <code>Ctrl+S</code> in the report editor to save a diagnostic ZIP locally</span></li>
                             </ul>
@@ -197,7 +197,7 @@
                             <h3 id="rel-0-167-0">Codex CLI v0.167.0 <span class="version-date">2026-11-06</span></h3>
                             <ul class="change-list">
                                 <li><span class="tag tag-add">ADD</span><span class="entry"><code>Ctrl L</code> / <code>Ctrl T</code> (<code>card-keys</code>) — clear the terminal display, then bring back messages hidden by it</span></li>
-                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>codex agents</code> (<code>card-cli</code>) — the command center and session picker now mark unread results</span></li>
+                                <li data-row="i-codex-agents"><span class="tag tag-change">CHG</span><span class="entry"><code>codex agents</code> (<code>card-cli</code>) — the command center and session picker now mark unread results</span></li>
                                 <li><span class="tag tag-change">CHG</span><span class="entry"><code>/experimental</code> (<code>card-slash-tools</code>) — adds opting into the OS-level (macOS or Windows) system proxy</span></li>
                                 <li><span class="tag tag-change">CHG</span><span class="entry"><code>model_provider</code> (<code>card-settings</code>) — adds a <code>gcp_setup_wizard</code> flag that configures Vertex AI credentials interactively</span></li>
                                 <li><span class="tag tag-fix">FIX</span><span class="entry"><code>model_auto_compact_token_limit</code> (<code>card-settings</code>) — now counts retained output from failed responses and responses missing token-usage data</span></li>
@@ -220,7 +220,7 @@
                                 <li><span class="tag tag-change">CHG</span><span class="entry"><code>codex doctor</code> (<code>card-cli</code>) — adds <code>--network-only</code> for focused configuration, connectivity and WebSocket diagnostics</span></li>
                                 <li><span class="tag tag-fix">FIX</span><span class="entry"><code>approval_policy</code> (<code>card-settings</code>) — acknowledged approval and permission settings are now kept when resuming or forking threads</span></li>
                                 <li><span class="tag tag-fix">FIX</span><span class="entry"><code>/archive</code> (<code>card-slash-core</code>) — spawned descendant threads are now restored when their parent is unarchived</span></li>
-                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>codex app-server</code> (<code>card-cli</code>) — fixes thread startup and shutdown races, releasing completed runtimes promptly</span></li>
+                                <li data-row="i-codex-app-server"><span class="tag tag-fix">FIX</span><span class="entry"><code>codex app-server</code> (<code>card-cli</code>) — fixes thread startup and shutdown races, releasing completed runtimes promptly</span></li>
                                 <li><span class="tag tag-fix">FIX</span><span class="entry"><code>model_auto_compact_token_limit</code> (<code>card-settings</code>) — reasoning-token accounting is now preserved across resume and fork, avoiding premature compaction</span></li>
                                 <li><span class="tag tag-change">CHG</span><span class="entry">TUI — Markdown now renders consistently in async questions, choices, answers and transcript replies</span></li>
                                 <li><span class="tag tag-change">CHG</span><span class="entry">TUI — adds clearer safety-block explanations and selectable safer follow-up prompts</span></li>
@@ -233,7 +233,7 @@
                             <ul class="change-list">
                                 <li><span class="tag tag-change">CHG</span><span class="entry"><code>model_provider</code> (<code>card-settings</code>) — adds a built-in <code>gcp</code> provider for Google Cloud Vertex AI</span></li>
                                 <li><span class="tag tag-change">CHG</span><span class="entry"><code>--worktree</code> (<code>card-cli</code>) — adds a repository filter to the session picker and directory grouping in the agent command center for linked worktrees</span></li>
-                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>codex app-server</code> (<code>card-cli</code>) — adds experimental attached thread forks to the app-server API</span></li>
+                                <li data-row="i-codex-app-server"><span class="tag tag-change">CHG</span><span class="entry"><code>codex app-server</code> (<code>card-cli</code>) — adds experimental attached thread forks to the app-server API</span></li>
                                 <li><span class="tag tag-change">CHG</span><span class="entry"><code>/model</code> (<code>card-slash-core</code>) — reasoning effort can now be changed mid-conversation by default for supported models</span></li>
                                 <li><span class="tag tag-change">CHG</span><span class="entry"><code>memories.use_memories</code> (<code>card-settings</code>) — memory v2 is now the default for fresh profiles</span></li>
                                 <li><span class="tag tag-change">CHG</span><span class="entry"><code>/memories</code> (<code>card-slash-tools</code>) — adds support for importing memories generated by other coding agents</span></li>
@@ -266,7 +266,7 @@
                         <div class="change-section">
                             <h3 id="rel-0-162-1">Codex CLI v0.162.1 <span class="version-date">2026-10-09</span></h3>
                             <ul class="change-list">
-                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>codex app-server</code> (<code>card-cli</code>) — startup compatibility checks now apply only to explicit command-line feature overrides, fixing false-positive failures from drift between a running background server's feature settings and CLI defaults</span></li>
+                                <li data-row="i-codex-app-server"><span class="tag tag-fix">FIX</span><span class="entry"><code>codex app-server</code> (<code>card-cli</code>) — startup compatibility checks now apply only to explicit command-line feature overrides, fixing false-positive failures from drift between a running background server's feature settings and CLI defaults</span></li>
                                 <li><span class="tag tag-fix">FIX</span><span class="entry">TUI — fixed a crash when asynchronous questions contain multiple lines; line breaks and full hyperlink destinations are now preserved</span></li>
                             </ul>
                         </div>
@@ -275,7 +275,7 @@
                             <h3 id="rel-0-162-0">Codex CLI v0.162.0 <span class="version-date">2026-10-08</span></h3>
                             <ul class="change-list">
                                 <li><span class="tag tag-change">CHG</span><span class="entry"><code>/tui</code> (<code>card-keys</code>) — release notes add transcript-block navigation and copying via <code>/copy</code>, a <code>Ctrl+Insert</code> selection-copy shortcut, and adjustable mouse-wheel scroll speed; still <code>unverified</code></span></li>
-                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>codex agents</code> (<code>card-cli</code>) — release notes add task pinning in the Command Center with <code>p</code>, kept in a shared Pinned group when the server supports it</span></li>
+                                <li data-row="i-codex-agents"><span class="tag tag-change">CHG</span><span class="entry"><code>codex agents</code> (<code>card-cli</code>) — release notes add task pinning in the Command Center with <code>p</code>, kept in a shared Pinned group when the server supports it</span></li>
                                 <li><span class="tag tag-change">CHG</span><span class="entry"><code>--worktree</code> (<code>card-cli</code>) — adds tools to create and list managed worktrees for trusted local projects when the worktrees feature is enabled</span></li>
                             </ul>
                         </div>
@@ -307,15 +307,15 @@
                             <ul class="change-list">
                                 <li><span class="tag tag-add">ADD</span><span class="entry"><code>instant_interrupt</code> (<code>card-settings</code>) — opt-in setting to steer Codex mid-response or during extended code-mode runs; <code>unverified</code></span></li>
                                 <li><span class="tag tag-change">CHG</span><span class="entry"><code>/tui</code> (<code>card-keys</code>) — release notes add Markdown table and whitespace preservation on copy, plus automatic copy-on-select in more terminals; still <code>unverified</code></span></li>
-                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>codex app-server</code> (<code>card-hooks</code>) — adds pagination for thread-history queries from a specific item</span></li>
+                                <li data-row="i-codex-app-server-2"><span class="tag tag-change">CHG</span><span class="entry"><code>codex app-server</code> (<code>card-hooks</code>) — adds pagination for thread-history queries from a specific item</span></li>
                             </ul>
                         </div>
 
                         <div class="change-section">
                             <h3 id="rel-0-158-0">Codex CLI v0.158.0 <span class="version-date">2026-09-28</span></h3>
                             <ul class="change-list">
-                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>codex mcp add --oauth-client-secret</code> (<code>card-hooks</code>) — connects to MCP servers that require a pre-registered OAuth client secret</span></li>
-                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>codex exec-server --ws-auth</code> (<code>card-cli</code>) — secures direct WebSocket connections with bearer tokens, matching what <code>codex app-server</code> already supported</span></li>
+                                <li data-row="i-codex-mcp-add"><span class="tag tag-add">ADD</span><span class="entry"><code>codex mcp add --oauth-client-secret</code> (<code>card-hooks</code>) — connects to MCP servers that require a pre-registered OAuth client secret</span></li>
+                                <li data-row="i-codex-exec-server"><span class="tag tag-add">ADD</span><span class="entry"><code>codex exec-server --ws-auth</code> (<code>card-cli</code>) — secures direct WebSocket connections with bearer tokens, matching what <code>codex app-server</code> already supported</span></li>
                                 <li><span class="tag tag-change">CHG</span><span class="entry"><code>/tui</code> (<code>card-keys</code>) — release notes add configurable copy-on-select and right-click paste, preserving Markdown formatting in copied selections; still <code>unverified</code></span></li>
                                 <li><span class="tag tag-fix">FIX</span><span class="entry"><code>--no-daemon</code> (<code>card-cli</code>) — promoted from <code>unverified</code>, now confirmed in <code>codex --help</code></span></li>
                             </ul>
@@ -325,7 +325,7 @@
                             <h3 id="rel-0-157-0">Codex CLI v0.157.0 <span class="version-date">2026-09-25</span></h3>
                             <ul class="change-list">
                                 <li><span class="tag tag-change">CHG</span><span class="entry"><code>/import</code> (<code>card-slash-tools</code>) — now works in remote and local background-server sessions, not just plain interactive ones</span></li>
-                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>codex app-server</code> (<code>card-cli</code>) — can now start automatically for qualifying interactive sessions, with a recovery prompt when existing settings are incompatible</span></li>
+                                <li data-row="i-codex-app-server"><span class="tag tag-change">CHG</span><span class="entry"><code>codex app-server</code> (<code>card-cli</code>) — can now start automatically for qualifying interactive sessions, with a recovery prompt when existing settings are incompatible</span></li>
                             </ul>
                         </div>
 
@@ -343,7 +343,7 @@
                         <div class="change-section">
                             <h3 id="rel-0-155-1">Codex CLI v0.155.0–v0.155.1 <span class="version-date">2026-09-18</span></h3>
                             <ul class="change-list">
-                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>codex app-server</code> (<code>card-cli</code>) — noted the <code>daemon</code> subcommand tree, including the new <code>daemon update</code> for restarting a standalone install&rsquo;s managed daemon on a configurable schedule</span></li>
+                                <li data-row="i-codex-app-server"><span class="tag tag-add">ADD</span><span class="entry"><code>codex app-server</code> (<code>card-cli</code>) — noted the <code>daemon</code> subcommand tree, including the new <code>daemon update</code> for restarting a standalone install&rsquo;s managed daemon on a configurable schedule</span></li>
                                 <li><span class="tag tag-fix">FIX</span><span class="entry"><code>model_reasoning_summary</code> (<code>card-settings</code>) — noted that new local TUI sessions now default to summaries disabled, so providers that reject the field no longer fail requests; an explicit value is still respected</span></li>
                             </ul>
                         </div>
@@ -351,14 +351,14 @@
                         <div class="change-section">
                             <h3 id="rel-0-154-0">Codex CLI v0.154.0 <span class="version-date">2026-09-09</span></h3>
                             <ul class="change-list">
-                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>card-keys</code> — initial reference: composer shortcuts, working-turn keys, <code>/keymap</code> and TUI appearance (19 rows)</span></li>
-                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>card-slash-core</code> — initial reference: model, permissions, session lifecycle, context and background terminals (26 rows)</span></li>
-                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>card-slash-tools</code> — initial reference: extensibility commands, Windows sandbox helpers, account and diagnostics (17 rows)</span></li>
-                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>card-cli</code> — initial reference: global flags plus every documented subcommand (47 rows)</span></li>
-                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>card-settings</code> — initial reference: 63 curated <code>config.toml</code> keys across model, approvals, sandbox, MCP, providers, TUI and features</span></li>
-                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>card-env</code> — initial reference: the complete stable public environment-variable set, including <code>CODEX_HOME</code> (12 rows)</span></li>
-                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>card-skills</code> — initial reference: skill scopes, plugins and marketplaces, <code>AGENTS.md</code> merge order, subagents (19 rows)</span></li>
-                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>card-hooks</code> — initial reference: 12 lifecycle events, hook trust, MCP client config, sandbox modes and execpolicy (17 rows)</span></li>
+                                <li data-row="i-at-file-search"><span class="tag tag-add">ADD</span><span class="entry"><code>card-keys</code> — initial reference: composer shortcuts, working-turn keys, <code>/keymap</code> and TUI appearance (19 rows)</span></li>
+                                <li data-row="i-model"><span class="tag tag-add">ADD</span><span class="entry"><code>card-slash-core</code> — initial reference: model, permissions, session lifecycle, context and background terminals (26 rows)</span></li>
+                                <li data-row="i-skills"><span class="tag tag-add">ADD</span><span class="entry"><code>card-slash-tools</code> — initial reference: extensibility commands, Windows sandbox helpers, account and diagnostics (17 rows)</span></li>
+                                <li data-row="i-m-model-model"><span class="tag tag-add">ADD</span><span class="entry"><code>card-cli</code> — initial reference: global flags plus every documented subcommand (47 rows)</span></li>
+                                <li data-row="i-codex-config-toml"><span class="tag tag-add">ADD</span><span class="entry"><code>card-settings</code> — initial reference: 63 curated <code>config.toml</code> keys across model, approvals, sandbox, MCP, providers, TUI and features</span></li>
+                                <li data-row="i-codex-home"><span class="tag tag-add">ADD</span><span class="entry"><code>card-env</code> — initial reference: the complete stable public environment-variable set, including <code>CODEX_HOME</code> (12 rows)</span></li>
+                                <li data-row="i-skills-2"><span class="tag tag-add">ADD</span><span class="entry"><code>card-skills</code> — initial reference: skill scopes, plugins and marketplaces, <code>AGENTS.md</code> merge order, subagents (19 rows)</span></li>
+                                <li data-row="i-hooks-2"><span class="tag tag-add">ADD</span><span class="entry"><code>card-hooks</code> — initial reference: 12 lifecycle events, hook trust, MCP client config, sandbox modes and execpolicy (17 rows)</span></li>
                             </ul>
                         </div>
 

@@ -278,7 +278,7 @@
                                 <li><span class="tag tag-add">ADD</span><span class="entry"><code>CLAUDE_CODE_DISABLE_LOOPED_CROSS_CERT_DROP</code> env var — given its first placemat row: keeps system cross-certificates that certify each other in a loop, for a private CA that needs one</span></li>
                                 <li><span class="tag tag-add">ADD</span><span class="entry"><code>CLAUDE_CODE_SUBAGENT_EFFORT</code> env var — given its first placemat row: sets the effort level subagents run at when nothing else names one</span></li>
                                 <li><span class="tag tag-change">CHG</span><span class="entry">Fast mode for Opus 4.8 is deprecated as of 2026-10-30 and removes on 2026-11-30; migrate to Opus 5.5 to keep the speedup; noted on the existing <code>/fast [on/off]</code> row</span></li>
-                                <li><span class="tag tag-change">CHG</span><span class="entry">An <code>autoMode.allow</code> list without <code>"$defaults"</code> no longer removes the built-in rule on scheduled-task prompts; noted on the existing <code>"$defaults"</code> (autoMode) row</span></li>
+                                <li data-row="i-defaults"><span class="tag tag-change">CHG</span><span class="entry">An <code>autoMode.allow</code> list without <code>"$defaults"</code> no longer removes the built-in rule on scheduled-task prompts; noted on the existing <code>"$defaults"</code> (autoMode) row</span></li>
                                 <li><span class="tag tag-change">CHG</span><span class="entry"><code>/ultrareview [PR#]</code> — when it finds no GitHub remote, now says to create one at github.com/new instead of suggesting a <code>gh</code> command that <code>gh</code> rejects; noted on the existing row</span></li>
                                 <li><span class="tag tag-fix">FIX</span><span class="entry"><code>claude auth login/logout</code> — where managed settings require a Claude apps gateway, a terminal run now shows the gateway sign-in instead of refusing; noted on the existing row</span></li>
                                 <li><span class="tag tag-add">ADD</span><span class="entry"><code>/restart</code> / <code>/update</code> — given its first placemat row: restarts Claude Code and resumes the session to apply an installed update; real and already documented since v2.1.288, but missed by earlier passes</span></li>
@@ -323,7 +323,7 @@
                                 <li><span class="tag tag-add">ADD</span><span class="entry"><code>CLAUDE_CODE_MODEL_CATALOG</code> env var — given its first placemat row: set to <code>off</code> to skip loading Bedrock/Mantle/Vertex/Foundry model settings from Anthropic's signed catalog</span></li>
                                 <li><span class="tag tag-add">ADD</span><span class="entry"><code>CLAUDE_CODE_SYNC_SKILLS</code> env var — given its first placemat row: in <code>-p</code> mode, waits for claude.ai's enabled-skills list before the first query; with feature-flag fetching off, now reuses another session's list on the same machine if it's under 10 minutes old</span></li>
                                 <li><span class="tag tag-change">CHG</span><span class="entry"><code>/model</code> — model names and IDs now drop the <code>[1m]</code> suffix and its label where the suffix has no effect; the suffix is still accepted</span></li>
-                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>Ctrl D</code> — in <code>claude agents</code>, also now needs two presses on an empty input to exit, matching the main prompt</span></li>
+                                <li data-row="i-ctrl-c"><span class="tag tag-change">CHG</span><span class="entry"><code>Ctrl D</code> — in <code>claude agents</code>, also now needs two presses on an empty input to exit, matching the main prompt</span></li>
                                 <li><span class="tag tag-change">CHG</span><span class="entry"><code>--output-format json</code> / <code>stream-json</code> — DEL, C1 control and Unicode format characters inside strings are now escaped as <code>\uXXXX</code>; parsed values are unaffected</span></li>
                                 <li><span class="tag tag-change">CHG</span><span class="entry"><code>claude --teleport</code> / <code>/teleport</code> — now warns when a compacted cloud session loads from its last compaction, since the summarized messages aren't in the local copy</span></li>
                                 <li><span class="tag tag-change">CHG</span><span class="entry"><code>claude purge</code> — now says it deletes data only on this computer, not anything Anthropic stores</span></li>
@@ -358,7 +358,7 @@
                         <div class="change-section">
                             <h3 id="rel-2-1-307">CC v2.1.307 <span class="version-date">2026-10-21</span></h3>
                             <ul class="change-list">
-                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>/claude-api api-version</code> subcommand — migrates your code to a newer API version and repoints requests at it; noted on the existing <code>/claude-api</code> row</span></li>
+                                <li data-row="i-claude-api"><span class="tag tag-add">ADD</span><span class="entry"><code>/claude-api api-version</code> subcommand — migrates your code to a newer API version and repoints requests at it; noted on the existing <code>/claude-api</code> row</span></li>
                                 <li><span class="tag tag-add">ADD</span><span class="entry"><code>claude self-hosted-runner --checkout-hook-timeout-min &lt;n&gt;</code> CLI flag — given its first placemat row: stops a session's checkout hook after N minutes (default 30), failing its setup; <code>0</code> disables</span></li>
                                 <li><span class="tag tag-change">CHG</span><span class="entry"><code>axScreenReader</code> / <code>CLAUDE_AX_SCREEN_READER</code> (in a settings <code>env</code> block) — now apply only from user, managed, or <code>--settings</code> settings, not project settings (since v2.1.305); noted on both existing rows</span></li>
                                 <li><span class="tag tag-change">CHG</span><span class="entry"><code>CLAUDE_CODE_MAX_WEB_SEARCHES_PER_SESSION</code> — the notice Claude gets once this budget is spent now also tells it not to query search engines through a browser or computer use; noted on the existing row</span></li>
@@ -370,7 +370,7 @@
                             <ul class="change-list">
                                 <li><span class="tag tag-add">ADD</span><span class="entry"><code>sandbox.allowNestedUserNamespaces</code> setting — given its first placemat row: Linux opt-in letting sandboxed commands create user namespaces (Chromium, rootless podman), loosening the sandbox's file protections</span></li>
                                 <li><span class="tag tag-add">ADD</span><span class="entry"><code>CLAUDE_CODE_RETRY_WATCHDOG_USAGE_LIMIT_RECHECK_MS</code> env var — given its first placemat row: sets the minimum interval <code>CLAUDE_CODE_RETRY_WATCHDOG</code> waits between checks of whether a usage limit already lifted</span></li>
-                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>allowedMcpServers</code> — a <code>managed-mcp.json</code> stdio server using <code>${VAR}</code> expansion only in <code>env</code> is now exempt from its filtering too (one using <code>${VAR}</code> elsewhere is still filtered), noted on the existing <code>deniedMcpServers</code> row</span></li>
+                                <li data-row="i-deniedmcpservers"><span class="tag tag-change">CHG</span><span class="entry"><code>allowedMcpServers</code> — a <code>managed-mcp.json</code> stdio server using <code>${VAR}</code> expansion only in <code>env</code> is now exempt from its filtering too (one using <code>${VAR}</code> elsewhere is still filtered), noted on the existing <code>deniedMcpServers</code> row</span></li>
                                 <li><span class="tag tag-change">CHG</span><span class="entry"><code>/artifacts</code> delete confirmation — <code>y</code>/<code>n</code> no longer answer it; only <code>1</code>/Enter (keep), <code>2</code> (delete), and Esc (cancel) do now</span></li>
                                 <li><span class="tag tag-change">CHG</span><span class="entry"><code>/usage</code> — each warning is now a one-line fix naming its source; press <code>f</code> to apply, and the same fixes surface in <code>/doctor</code></span></li>
                                 <li><span class="tag tag-change">CHG</span><span class="entry"><code>/remote-control</code> — pressing <code>w</code> during spawn-mode setup now says the chosen mode is saved for the folder, and a later start using that saved mode says where it came from</span></li>
@@ -384,7 +384,7 @@
                                 <li><span class="tag tag-add">ADD</span><span class="entry"><code>/artifacts</code> — given its first placemat row: lists, attaches, opens, or copies the link of artifacts you own or that are shared with you; delete confirmation now uses numbered choices</span></li>
                                 <li><span class="tag tag-add">ADD</span><span class="entry"><code>CLAUDE_CODE_TRANSCRIPT_LOCAL_GC</code> env var — given its first placemat row: trims pre-compaction history from a long <code>-p</code>/SDK session's transcript file once it passes 5MB</span></li>
                                 <li><span class="tag tag-add">ADD</span><span class="entry"><code>CLAUDE_CODE_AUTO_COMPACT_WINDOW</code> env var — given its first placemat row: sets the auto-compact window in tokens; now accepts <code>k</code>/<code>M</code> suffixes like <code>200k</code>, with a warning on out-of-range or ignored values</span></li>
-                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>/claude-api managed-agents-secure</code> subcommand — compares a Managed Agents agent's settings against Anthropic's security guide without changing anything; real and verified via the changelog, not yet in the commands reference table</span></li>
+                                <li data-row="i-claude-api"><span class="tag tag-add">ADD</span><span class="entry"><code>/claude-api managed-agents-secure</code> subcommand — compares a Managed Agents agent's settings against Anthropic's security guide without changing anything; real and verified via the changelog, not yet in the commands reference table</span></li>
                                 <li><span class="tag tag-change">CHG</span><span class="entry"><code>/reload-skills</code> — compaction now resends the full skill list automatically, so this command itself sends only new or changed skills</span></li>
                                 <li><span class="tag tag-change">CHG</span><span class="entry"><code>-w</code> / <code>--worktree</code> — asks before removing the worktree and branch at exit when HEAD is detached or on another branch, so commits aren't lost</span></li>
                                 <li><span class="tag tag-change">CHG</span><span class="entry"><code>alwaysLoad</code> (MCP server config) — cloud sessions: a new conversation's first turn no longer waits on stdio MCP servers of claude.ai-synced plugins unless this is set</span></li>
@@ -399,7 +399,7 @@
                                 <li><span class="tag tag-change">CHG</span><span class="entry"><code>permissions.defaultMode</code> — when unset, <code>claude -p</code> and Agent SDK sessions now start in manual mode instead on third-party providers, with telemetry off, or on a fresh install; <code>--permission-mode auto</code> still keeps auto</span></li>
                                 <li><span class="tag tag-change">CHG</span><span class="entry"><code>idleCompaction</code> — <code>/config</code> now has its own <code>Idle compaction</code> row, and the notice shown after an idle compaction says how to turn it off</span></li>
                                 <li><span class="tag tag-add">ADD</span><span class="entry"><code>proxyAuthHelper</code> managed setting — read from only the highest-priority admin source, alongside <code>apiKeyHelper</code> and the other auth-refresh helpers; real and verified but otherwise undocumented on the reference page, so marked unverified</span></li>
-                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>additionalMarketplaces</code> — version-gated alias (v2.1.232+) of <code>extraKnownMarketplaces</code>, noted on its existing row alongside <code>allowedMarketplaces</code>'s matching alias of <code>strictKnownMarketplaces</code></span></li>
+                                <li data-row="i-additionalmarketplaces"><span class="tag tag-add">ADD</span><span class="entry"><code>additionalMarketplaces</code> — version-gated alias (v2.1.232+) of <code>extraKnownMarketplaces</code>, noted on its existing row alongside <code>allowedMarketplaces</code>'s matching alias of <code>strictKnownMarketplaces</code></span></li>
                             </ul>
                         </div>
 
@@ -456,7 +456,7 @@
                             <ul class="change-list">
                                 <li><span class="tag tag-add">ADD</span><span class="entry"><code>onFailure: "block"</code> hook field — a command or HTTP hook that can't start, times out, or exits unexpectedly now blocks the action instead of letting it through</span></li>
                                 <li><span class="tag tag-add">ADD</span><span class="entry"><code>CLAUDE_CODE_RETRY_WATCHDOG_MAX_WAIT_MS</code> env var — caps how long <code>CLAUDE_CODE_RETRY_WATCHDOG</code> waits out <code>429</code>/<code>529</code> errors before giving up</span></li>
-                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>forceLoginMethod: "gateway"</code> / <code>forceLoginGatewayUrl</code> — now also work as your own user settings on machines with no managed settings</span></li>
+                                <li data-row="i-forcelogingatewayurl"><span class="tag tag-add">ADD</span><span class="entry"><code>forceLoginMethod: "gateway"</code> / <code>forceLoginGatewayUrl</code> — now also work as your own user settings on machines with no managed settings</span></li>
                                 <li><span class="tag tag-add">ADD</span><span class="entry"><code>/copy</code> picker — quoted text in a response now copies without its leading <code>&gt;</code> markers</span></li>
                                 <li><span class="tag tag-add">ADD</span><span class="entry"><code>claude plugin validate</code> — prints the install line to paste when a plugin's README has none; never fails <code>--strict</code> over it</span></li>
                             </ul>
@@ -472,7 +472,7 @@
                         <div class="change-section">
                             <h3 id="rel-2-1-292">CC v2.1.292 <span class="version-date">2026-10-06</span></h3>
                             <ul class="change-list">
-                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>claude plugin install --marketplace &lt;source&gt;</code> — adds the marketplace if needed, under the same checks as <code>claude plugin marketplace add</code>, then installs the plugin from it</span></li>
+                                <li data-row="i-claude-plugin-install-plugin"><span class="tag tag-add">ADD</span><span class="entry"><code>claude plugin install --marketplace &lt;source&gt;</code> — adds the marketplace if needed, under the same checks as <code>claude plugin marketplace add</code>, then installs the plugin from it</span></li>
                                 <li><span class="tag tag-add">ADD</span><span class="entry"><code>CLAUDE_CODE_OVERLOADED_RETRY_BASE_DELAY_MS</code> env var — sets a longer base delay for the backoff when retrying an overloaded (529) request</span></li>
                                 <li><span class="tag tag-change">CHG</span><span class="entry"><code>MCP_PROTOCOL_NEGOTIATION=legacy</code> — local (stdio) MCP server connections now negotiate protocol version 2026-07-28 by default on every install, Bedrock/Vertex/Foundry included; this opts back out</span></li>
                             </ul>
@@ -490,11 +490,11 @@
                         <div class="change-section">
                             <h3 id="rel-2-1-288">CC v2.1.288 <span class="version-date">2026-10-02</span></h3>
                             <ul class="change-list">
-                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>/code-review --max-findings &lt;n&gt;|all</code> — report more or fewer findings than the usual limit; sticks until you pass <code>--max-findings default</code></span></li>
+                                <li data-row="i-code-review-level-pr"><span class="tag tag-add">ADD</span><span class="entry"><code>/code-review --max-findings &lt;n&gt;|all</code> — report more or fewer findings than the usual limit; sticks until you pass <code>--max-findings default</code></span></li>
                                 <li><span class="tag tag-add">ADD</span><span class="entry"><code>Ctrl F</code> keybinding — find a session by name in <code>claude agents</code></span></li>
                                 <li><span class="tag tag-add">ADD</span><span class="entry"><code>Alt ↑</code> / <code>Alt ↓</code> keybindings — jump between groups in <code>claude agents</code></span></li>
                                 <li><span class="tag tag-add">ADD</span><span class="entry"><code>CLAUDE_CODE_DISABLE_STRUCTURED_OUTPUTS</code> env var — turns off structured outputs on Mantle or gateways that reject them, fixing session titles, memory recall and prompt hooks</span></li>
-                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>claude project purge</code> renamed to <code>claude purge</code>; the old form still works and prints a notice</span></li>
+                                <li data-row="i-claude-project-purge-path"><span class="tag tag-change">CHG</span><span class="entry"><code>claude project purge</code> renamed to <code>claude purge</code>; the old form still works and prints a notice</span></li>
                             </ul>
                         </div>
 
@@ -503,7 +503,7 @@
                             <ul class="change-list">
                                 <li><span class="tag tag-add">ADD</span><span class="entry"><code>/plugin-authoring</code> — load Claude's reference for writing a mod, a plugin whose JS/TS hooks can draw UI and intercept tool calls</span></li>
                                 <li><span class="tag tag-add">ADD</span><span class="entry"><code>allowManagedModsOnly</code> managed setting — stops a user-installed mod from loading, leaving the rest of its plugin in place</span></li>
-                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>"bareElicitationCapability": true</code> MCP server config field — needed for a server on the MCP 2025-11-25 protocol that sends URL elicitation prompts and stopped connecting after this update</span></li>
+                                <li data-row="i-bareelicitationcapability"><span class="tag tag-add">ADD</span><span class="entry"><code>"bareElicitationCapability": true</code> MCP server config field — needed for a server on the MCP 2025-11-25 protocol that sends URL elicitation prompts and stopped connecting after this update</span></li>
                                 <li><span class="tag tag-add">ADD</span><span class="entry"><code>CLAUDE_AX_PREPARK_MS=50</code> env var — restores screen reader mode's old pause before writing a new or changed line</span></li>
                                 <li><span class="tag tag-change">CHG</span><span class="entry"><code>CLAUDE_CODE_DISABLE_1M_CONTEXT</code> — Opus 4.7+ and Fable now default to a 1M context window with no <code>[1m]</code> model-id suffix on Bedrock, Vertex, Foundry and the Claude apps gateway; this env var keeps 200K</span></li>
                                 <li><span class="tag tag-change">CHG</span><span class="entry"><code>alwaysLoad</code> MCP server config — set explicitly to <code>false</code> to defer all of that server's tools behind tool search</span></li>
@@ -532,10 +532,10 @@
                                 <li><span class="tag tag-add">ADD</span><span class="entry"><code>CLAUDE_CODE_DISABLE_WEB_FETCH</code> env var — turn off the WebFetch tool</span></li>
                                 <li><span class="tag tag-add">ADD</span><span class="entry"><code>claude --desktop</code> CLI flag — open the Claude desktop app on the current directory, or on a session with <code>--continue</code> / <code>--resume &lt;id&gt;</code></span></li>
                                 <li><span class="tag tag-add">ADD</span><span class="entry"><code>claude plugin configure &lt;plugin&gt;</code> CLI command — show a plugin's options and which are unset, or save new values read from stdin with <code>--values-stdin</code></span></li>
-                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>claude plugin install --config &lt;server&gt;.&lt;key&gt;=&lt;value&gt;</code> — set a bundled <code>.mcpb</code> MCP server's own settings at install time, so it starts without a visit to <code>/plugin</code> → Configure</span></li>
+                                <li data-row="i-claude-plugin-configure-plugin"><span class="tag tag-add">ADD</span><span class="entry"><code>claude plugin install --config &lt;server&gt;.&lt;key&gt;=&lt;value&gt;</code> — set a bundled <code>.mcpb</code> MCP server's own settings at install time, so it starts without a visit to <code>/plugin</code> → Configure</span></li>
                                 <li><span class="tag tag-add">ADD</span><span class="entry"><code>allowedProviders</code> managed setting — limit which API providers a machine may use (Anthropic API, a custom endpoint, Bedrock, Mantle, Vertex AI, Foundry, Claude Platform on AWS, or a Cloud gateway)</span></li>
                                 <li><span class="tag tag-add">ADD</span><span class="entry"><code>CLAUDE_CODE_NONSTREAMING_TIMEOUT_RETRIES</code> env var — cap re-sends of a non-streaming fallback request that timed out</span></li>
-                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>claude mcp get</code> — hides the command, arguments, and environment values of stdio MCP servers provided by plugins; variable names are still shown</span></li>
+                                <li data-row="i-claude-mcp-list-add-remove"><span class="tag tag-change">CHG</span><span class="entry"><code>claude mcp get</code> — hides the command, arguments, and environment values of stdio MCP servers provided by plugins; variable names are still shown</span></li>
                                 <li><span class="tag tag-change">CHG</span><span class="entry"><code>alwaysLoad</code> (MCP server config) — a tool that sets its own <code>_meta['anthropic/alwaysLoad']</code> to <code>false</code> now stays deferred even when its server is set to <code>alwaysLoad</code></span></li>
                             </ul>
                         </div>
@@ -545,18 +545,18 @@
                             <ul class="change-list">
                                 <li><span class="tag tag-add">ADD</span><span class="entry"><code>effortSlider:decreaseEffort</code> / <code>increaseEffort</code> / <code>toggleUltracode</code> keybinding actions — rebind the <code>/effort</code> interactive slider's step and Ultracode-toggle keys in <code>keybindings.json</code></span></li>
                                 <li><span class="tag tag-add">ADD</span><span class="entry"><code>/rate-limit-options</code> — added to <code>/help</code> and the command menu for claude.ai subscribers, so usage-limit notices that mention it point to a findable command</span></li>
-                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>/effort ultracode [on|off]</code> (also Tab in the interactive slider) — toggles Ultracode independently of effort level; no longer forces xhigh, and stays on at any effort level once enabled</span></li>
-                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>/mcp reconnect all</code> — retries every server that failed to connect or needs authentication, in one pass</span></li>
+                                <li data-row="i-effort-level"><span class="tag tag-change">CHG</span><span class="entry"><code>/effort ultracode [on|off]</code> (also Tab in the interactive slider) — toggles Ultracode independently of effort level; no longer forces xhigh, and stays on at any effort level once enabled</span></li>
+                                <li data-row="i-mcp"><span class="tag tag-change">CHG</span><span class="entry"><code>/mcp reconnect all</code> — retries every server that failed to connect or needs authentication, in one pass</span></li>
                                 <li><span class="tag tag-change">CHG</span><span class="entry"><code>permissions.defaultMode</code> — when unset, interactive terminal and VS Code sessions now start in auto mode on every plan and provider; this setting still overrides that default</span></li>
                                 <li><span class="tag tag-change">CHG</span><span class="entry"><code>/recap</code> — declines with a short notice when relayed from a chat thread, a routine, or a webhook; typed in the terminal, Claude apps, Remote Control, <code>-p</code>, or an SDK host, it runs as usual</span></li>
-                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>CLAUDE_CODE_MCP_STARTUP_WAIT_MS=0</code> — servers named by <code>--allowedTools</code> or an <code>mcp_tool</code> hook still get up to 2s to connect on the first non-interactive turn</span></li>
+                                <li data-row="i-claude-code-mcp-startup-wait-ms"><span class="tag tag-change">CHG</span><span class="entry"><code>CLAUDE_CODE_MCP_STARTUP_WAIT_MS=0</code> — servers named by <code>--allowedTools</code> or an <code>mcp_tool</code> hook still get up to 2s to connect on the first non-interactive turn</span></li>
                             </ul>
                         </div>
 
                         <div class="change-section">
                             <h3 id="rel-2-1-283">CC v2.1.283 <span class="version-date">2026-09-25</span></h3>
                             <ul class="change-list">
-                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>/doctor prompt-audit</code> (also <code>/checkup prompt-audit</code>) — audits CLAUDE.md files, skills, agents and commands for prompting patterns written for older models</span></li>
+                                <li data-row="i-doctor"><span class="tag tag-add">ADD</span><span class="entry"><code>/doctor prompt-audit</code> (also <code>/checkup prompt-audit</code>) — audits CLAUDE.md files, skills, agents and commands for prompting patterns written for older models</span></li>
                                 <li><span class="tag tag-add">ADD</span><span class="entry"><code>availableModelsMatch</code> managed setting — an <code>exact</code> value restricts an <code>availableModels</code> entry to that named version, so new releases of it stay blocked until listed</span></li>
                                 <li><span class="tag tag-add">ADD</span><span class="entry"><code>deniedModels</code> managed setting — blocks specific models even when <code>availableModels</code> allows them</span></li>
                                 <li><span class="tag tag-change">CHG</span><span class="entry"><code>CLAUDE_CODE_GATEWAY_HINT_HEADERS=1</code> — also sends an <code>x-claude-code-prompt-id</code> header so gateways can group the requests serving one user prompt</span></li>
@@ -838,11 +838,11 @@
                     <div class="change-section">
                         <h3 id="rel-2-1-239">CC v2.1.239 <span class="version-date">2026-08-21</span></h3>
                         <ul class="change-list">
-                            <li><span class="tag tag-add">ADD</span><span class="entry"><code>claude plugin enable/disable &lt;name&gt;@synced</code> — cloud-synced plugins from claude.ai appear as <code>name@synced</code>; managed with <code>enable/disable &lt;name&gt;@synced</code>; never override a locally installed same-named plugin</span></li>
-                            <li><span class="tag tag-add">ADD</span><span class="entry"><code>/claude-api upgrade</code> — new subcommand; migrates Python projects from <code>anthropic</code> 0.x to 1.x (timeouts use <code>anthropic.Timeout</code>, not <code>httpx.Timeout</code>)</span></li>
+                            <li data-row="i-claude-plugin-enable-disable-name"><span class="tag tag-add">ADD</span><span class="entry"><code>claude plugin enable/disable &lt;name&gt;@synced</code> — cloud-synced plugins from claude.ai appear as <code>name@synced</code>; managed with <code>enable/disable &lt;name&gt;@synced</code>; never override a locally installed same-named plugin</span></li>
+                            <li data-row="i-claude-api"><span class="tag tag-add">ADD</span><span class="entry"><code>/claude-api upgrade</code> — new subcommand; migrates Python projects from <code>anthropic</code> 0.x to 1.x (timeouts use <code>anthropic.Timeout</code>, not <code>httpx.Timeout</code>)</span></li>
                             <li><span class="tag tag-change">CHG</span><span class="entry"><code>/goal</code> — check-ins back off (30 min → 1 h → 2 h) instead of repeating every 30 min; resuming via <code>claude --resume</code> now restores the active goal</span></li>
-                            <li><span class="tag tag-change">CHG</span><span class="entry"><code>keybindingFlavor: "readline"</code> — extended with word-motion keys: Alt+F and Ctrl/Option+→ stop at end of word, Alt+D deletes to it (Ctrl+Y pastes back), punctuation separates words</span></li>
-                            <li><span class="tag tag-change">CHG</span><span class="entry"><code>ListAgents</code> / <code>SendMessage</code> — <code>ListAgents</code> now reports the session's own name (the identifier peers use to message it) and includes live teammates in its listing</span></li>
+                            <li data-row="i-keybindingflavor"><span class="tag tag-change">CHG</span><span class="entry"><code>keybindingFlavor: "readline"</code> — extended with word-motion keys: Alt+F and Ctrl/Option+→ stop at end of word, Alt+D deletes to it (Ctrl+Y pastes back), punctuation separates words</span></li>
+                            <li data-row="i-sendmessage"><span class="tag tag-change">CHG</span><span class="entry"><code>ListAgents</code> / <code>SendMessage</code> — <code>ListAgents</code> now reports the session's own name (the identifier peers use to message it) and includes live teammates in its listing</span></li>
                             <li><span class="tag tag-change">CHG</span><span class="entry"><code>CLAUDE_CODE_RETRY_WATCHDOG</code> — now fails immediately on organization spend-limit and out-of-credits errors instead of waiting indefinitely</span></li>
                         </ul>
                     </div>
@@ -907,7 +907,7 @@
                         <h3 id="rel-2-1-232">CC v2.1.232 <span class="version-date">2026-08-13</span></h3>
                         <ul class="change-list">
                             <li><span class="tag tag-add">ADD</span><span class="entry"><code>/advisor</code> slash command — AI advisor mode; Fable 5 available for organizations with Fable access (enable via <code>/model fable</code>)</span></li>
-                            <li><span class="tag tag-add">ADD</span><span class="entry"><code>additionalMarketplaces</code> JSON setting — friendlier alias for <code>extraKnownMarketplaces</code>; add plugin marketplace repos beyond the built-in list</span></li>
+                            <li data-row="i-additionalmarketplaces"><span class="tag tag-add">ADD</span><span class="entry"><code>additionalMarketplaces</code> JSON setting — friendlier alias for <code>extraKnownMarketplaces</code>; add plugin marketplace repos beyond the built-in list</span></li>
                             <li><span class="tag tag-change">CHG</span><span class="entry"><code>strictKnownMarketplaces</code> — now also accepted as <code>allowedMarketplaces</code></span></li>
                         </ul>
                     </div>
@@ -1092,7 +1092,7 @@
                             <li><span class="tag tag-add">ADD</span><span class="entry"><code>Ctrl X</code> (Keys &amp; Shortcuts) — in <code>claude agents</code>: permanently removes a completed session; deleted background jobs stay deleted</span></li>
                             <li><span class="tag tag-change">CHG</span><span class="entry"><code>/cd</code> — now supports directory path suggestions, matching <code>/add-dir</code> behavior</span></li>
                             <li><span class="tag tag-change">CHG</span><span class="entry"><code>/doctor</code> — now proposes trimming checked-in <code>CLAUDE.md</code> files by cutting content Claude could derive from the codebase</span></li>
-                            <li><span class="tag tag-change">CHG</span><span class="entry"><code>EnterWorktree</code> hook — now asks for confirmation before entering a git worktree outside the project's <code>.claude/worktrees/</code> directory</span></li>
+                            <li data-row="i-enterworktree"><span class="tag tag-change">CHG</span><span class="entry"><code>EnterWorktree</code> hook — now asks for confirmation before entering a git worktree outside the project's <code>.claude/worktrees/</code> directory</span></li>
                         </ul>
                     </div>
 
@@ -1115,7 +1115,7 @@
                     <div class="change-section">
                         <h3 id="rel-2-1-202">CC v2.1.202 <span class="version-date">2026-07-06</span></h3>
                         <ul class="change-list">
-                            <li><span class="tag tag-add">ADD</span><span class="entry"><code>dynamicWorkflowSize</code> JSON setting — controls how large Claude makes dynamic workflows (small/medium/large agent counts); advisory guideline, not a hard cap</span></li>
+                            <li data-row="i-workflowsizeguideline"><span class="tag tag-add">ADD</span><span class="entry"><code>dynamicWorkflowSize</code> JSON setting — controls how large Claude makes dynamic workflows (small/medium/large agent counts); advisory guideline, not a hard cap</span></li>
                         </ul>
                     </div>
 
@@ -1142,7 +1142,7 @@
                         <ul class="change-list">
                             <li><span class="tag tag-add">ADD</span><span class="entry"><code>Notification</code> hook — fires when a background agent session needs input or finishes; events: <code>agent_needs_input</code> / <code>agent_completed</code></span></li>
                             <li><span class="tag tag-add">ADD</span><span class="entry"><code>/dataviz</code> skill — chart and dashboard design guidance with a runnable color-palette validator</span></li>
-                            <li><span class="tag tag-remove">DEL</span><span class="entry"><code>/agents</code> slash-command wizard removed — create or manage subagents by asking Claude or editing <code>.claude/agents/</code> directly</span></li>
+                            <li data-row="i-subtask"><span class="tag tag-remove">DEL</span><span class="entry"><code>/agents</code> slash-command wizard removed — create or manage subagents by asking Claude or editing <code>.claude/agents/</code> directly</span></li>
                         </ul>
                     </div>
 
@@ -1282,7 +1282,7 @@
                             <li><span class="tag tag-add">ADD</span><span class="entry"><code>disableBundledSkills</code> JSON setting — hide bundled skills, workflows, and built-in slash commands from the model; paired with <code>CLAUDE_CODE_DISABLE_BUNDLED_SKILLS</code> env var</span></li>
                             <li><span class="tag tag-add">ADD</span><span class="entry"><code>CLAUDE_CODE_DISABLE_BUNDLED_SKILLS</code> env var — hide bundled skills, workflows, and built-in slash commands from the model; paired with <code>disableBundledSkills</code> JSON setting</span></li>
                             <li><span class="tag tag-add">ADD</span><span class="entry"><code>API_FORCE_IDLE_TIMEOUT=0</code> env var — opt out of the default 5-minute idle timeout on Vertex/Foundry</span></li>
-                            <li><span class="tag tag-change">CHG</span><span class="entry"><code>claude agents --json</code> — now includes <code>id</code> and <code>state</code> fields; new <code>--all</code> flag includes completed sessions</span></li>
+                            <li data-row="i-claude-agents"><span class="tag tag-change">CHG</span><span class="entry"><code>claude agents --json</code> — now includes <code>id</code> and <code>state</code> fields; new <code>--all</code> flag includes completed sessions</span></li>
                         </ul>
                     </div>
 
@@ -1312,7 +1312,7 @@
                         <h3 id="rel-2-1-162">CC v2.1.162 <span class="version-date">2026-06-03</span></h3>
                         <ul class="change-list">
                             <li><span class="tag tag-change">CHG</span><span class="entry"><code>/terminal-setup</code> — renamed Windsurf to Devin Desktop following the editor's rebrand</span></li>
-                            <li><span class="tag tag-change">CHG</span><span class="entry"><code>claude agents --json</code> — output now includes <code>waitingFor</code> field showing what a waiting session is blocked on</span></li>
+                            <li data-row="i-claude-agents"><span class="tag tag-change">CHG</span><span class="entry"><code>claude agents --json</code> — output now includes <code>waitingFor</code> field showing what a waiting session is blocked on</span></li>
                             <li><span class="tag tag-change">CHG</span><span class="entry"><code>/effort</code> — now confirms when your chosen level will persist as the default for new sessions</span></li>
                         </ul>
                     </div>
@@ -1351,7 +1351,7 @@
                         <ul class="change-list">
                             <li><span class="tag tag-add">ADD</span><span class="entry"><code>claude plugin init &lt;name&gt;</code> CLI command — scaffold a new plugin in <code>.claude/skills</code></span></li>
                             <li><span class="tag tag-add">ADD</span><span class="entry"><code>agent</code> JSON setting — default agent name honored for dispatched sessions in <code>claude agents</code>; override per-session with <code>--agent &lt;name&gt;</code></span></li>
-                            <li><span class="tag tag-add">ADD</span><span class="entry"><code>EnterWorktree</code> hook event — fires on worktree entry; can now switch between Claude-managed worktrees mid-session</span></li>
+                            <li data-row="i-enterworktree"><span class="tag tag-add">ADD</span><span class="entry"><code>EnterWorktree</code> hook event — fires on worktree entry; can now switch between Claude-managed worktrees mid-session</span></li>
                             <li><span class="tag tag-change">CHG</span><span class="entry"><code>claude agents</code> — dispatch flags now include <code>--agent &lt;name&gt;</code></span></li>
                             <li><span class="tag tag-change">CHG</span><span class="entry"><code>.claude/skills/&lt;name&gt;/</code> — plugins in <code>.claude/skills</code> directories now auto-loaded, no marketplace required</span></li>
                             <li><span class="tag tag-change">CHG</span><span class="entry"><code>/terminal-setup</code> — now also disables GPU acceleration in VS Code, Cursor, and Windsurf to prevent garbled-text rendering</span></li>
@@ -1367,7 +1367,7 @@
                             <li><span class="tag tag-change">CHG</span><span class="entry"><code>/effort</code> / <code>--effort</code> — interactive slider labels renamed from Speed/Intelligence to Faster/Smarter; xhigh now Opus 4.8 only (was 4.7)</span></li>
                             <li><span class="tag tag-change">CHG</span><span class="entry"><code>CLAUDE_CODE_SESSION_ID</code> / <code>CLAUDECODE</code> — now also injected into stdio MCP server subprocess environments</span></li>
                             <li><span class="tag tag-change">CHG</span><span class="entry"><code>claude mcp list</code>/<code>get</code> — unapproved <code>.mcp.json</code> servers now shown as <code>⏸ Pending approval</code> instead of auto-connecting</span></li>
-                            <li><span class="tag tag-remove">DEL</span><span class="entry"><code>CLAUDE_CODE_OPUS_4_6_FAST_MODE_OVERRIDE</code> — deprecated; use <code>/model claude-opus-4-6[1m]</code> then <code>/fast on</code> for Opus 4.6 fast mode</span></li>
+                            <li data-row="i-fast-on-off"><span class="tag tag-remove">DEL</span><span class="entry"><code>CLAUDE_CODE_OPUS_4_6_FAST_MODE_OVERRIDE</code> — deprecated; use <code>/model claude-opus-4-6[1m]</code> then <code>/fast on</code> for Opus 4.6 fast mode</span></li>
                             <li><span class="tag tag-add">ADD</span><span class="entry"><code>defaultEnabled: false</code> plugin manifest field (<code>plugin.json</code>) — plugin starts disabled; enable with <code>/plugin</code> or <code>claude plugin enable</code></span></li>
                             <li><span class="tag tag-change">CHG</span><span class="entry"><code>/chrome</code> — now shows browser selector to pick which connected browser to use when multiple are connected</span></li>
                         </ul>
@@ -1393,7 +1393,7 @@
                             <li><span class="tag tag-add">ADD</span><span class="entry"><code>MessageDisplay</code> hook event — transform or hide assistant message text as it is displayed</span></li>
                             <li><span class="tag tag-add">ADD</span><span class="entry"><code>pluginSuggestionMarketplaces</code> managed setting — allowlist org marketplaces whose plugins may be suggested via context-aware tips</span></li>
                             <li><span class="tag tag-change">CHG</span><span class="entry"><code>--fallback-model</code> — now activates for the rest of the session when the primary model is not found, not just overloaded</span></li>
-                            <li><span class="tag tag-change">CHG</span><span class="entry"><code>Ctrl+O</code> — in a collapsed thinking group, shows the full thinking</span></li>
+                            <li data-row="i-ctrl-o"><span class="tag tag-change">CHG</span><span class="entry"><code>Ctrl+O</code> — in a collapsed thinking group, shows the full thinking</span></li>
                             <li><span class="tag tag-add">ADD</span><span class="entry">Vim NORMAL mode <code>/</code> key — opens reverse history search (like Ctrl+R), matching bash/zsh vi-mode</span></li>
                             <li><span class="tag tag-add">ADD</span><span class="entry"><code>OTEL_METRICS_INCLUDE_ENTRYPOINT=true</code> env var — opt in to <code>app.entrypoint</code> as an OpenTelemetry metric attribute</span></li>
                         </ul>
@@ -1425,7 +1425,7 @@
                     <div class="change-section">
                         <h3 id="rel-2-1-145">CC v2.1.145 <span class="version-date">2026-05-19</span></h3>
                         <ul class="change-list">
-                            <li><span class="tag tag-add">ADD</span><span class="entry"><code>claude agents --json</code> — list live sessions as JSON for scripting (tmux-resurrect, status bars, session pickers)</span></li>
+                            <li data-row="i-claude-agents"><span class="tag tag-add">ADD</span><span class="entry"><code>claude agents --json</code> — list live sessions as JSON for scripting (tmux-resurrect, status bars, session pickers)</span></li>
                             <li><span class="tag tag-change">CHG</span><span class="entry"><code>Stop</code> / <code>SubagentStop</code> hook input — now includes <code>background_tasks</code> and <code>session_crons</code> fields</span></li>
                         </ul>
                     </div>
@@ -1433,7 +1433,7 @@
                     <div class="change-section">
                         <h3 id="rel-2-1-144">CC v2.1.144 <span class="version-date">2026-05-19</span></h3>
                         <ul class="change-list">
-                            <li><span class="tag tag-change">CHG</span><span class="entry"><code>/extra-usage</code> renamed to <code>/usage-credits</code>; old name still works</span></li>
+                            <li data-row="i-usage-credits"><span class="tag tag-change">CHG</span><span class="entry"><code>/extra-usage</code> renamed to <code>/usage-credits</code>; old name still works</span></li>
                             <li><span class="tag tag-change">CHG</span><span class="entry"><code>/model</code> — now changes model for current session only; press <code>d</code> in the picker to set a default for new sessions</span></li>
                             <li><span class="tag tag-change">CHG</span><span class="entry"><code>/resume</code> — background sessions (from <code>--bg</code> or agent view) now appear alongside interactive sessions in the picker, marked with <code>bg</code></span></li>
                         </ul>
@@ -1450,7 +1450,7 @@
                         <h3 id="rel-2-1-142">CC v2.1.142 <span class="version-date">2026-05-14</span></h3>
                         <ul class="change-list">
                             <li><span class="tag tag-change">CHG</span><span class="entry"><code>claude agents</code> — new dispatch flags for configuring background sessions: <code>--add-dir</code>, <code>--settings</code>, <code>--mcp-config</code>, <code>--plugin-dir</code>, <code>--permission-mode</code>, <code>--model</code>, <code>--effort</code>, <code>--dangerously-skip-permissions</code></span></li>
-                            <li><span class="tag tag-add">ADD</span><span class="entry"><code>CLAUDE_CODE_OPUS_4_6_FAST_MODE_OVERRIDE=1</code> env var — pin Fast mode to Opus 4.6; fast mode now defaults to Opus 4.7</span></li>
+                            <li data-row="i-fast-on-off"><span class="tag tag-add">ADD</span><span class="entry"><code>CLAUDE_CODE_OPUS_4_6_FAST_MODE_OVERRIDE=1</code> env var — pin Fast mode to Opus 4.6; fast mode now defaults to Opus 4.7</span></li>
                         </ul>
                     </div>
 
@@ -1532,7 +1532,7 @@
                     <div class="change-section">
                         <h3 id="rel-2-1-126">CC v2.1.126 <span class="version-date">2026-05-01</span></h3>
                         <ul class="change-list">
-                            <li><span class="tag tag-add">ADD</span><span class="entry"><code>claude project purge [path]</code> CLI subcommand — Delete all Claude Code state for a project (transcripts, tasks, file history, config entry); supports <code>--dry-run</code>, <code>-y/--yes</code>, <code>-i/--interactive</code>, and <code>--all</code></span></li>
+                            <li data-row="i-claude-project-purge-path"><span class="tag tag-add">ADD</span><span class="entry"><code>claude project purge [path]</code> CLI subcommand — Delete all Claude Code state for a project (transcripts, tasks, file history, config entry); supports <code>--dry-run</code>, <code>-y/--yes</code>, <code>-i/--interactive</code>, and <code>--all</code></span></li>
                             <li><span class="tag tag-change">CHG</span><span class="entry"><code>--dangerously-skip-permissions</code> — Now bypasses prompts for writes to <code>.claude/</code>, <code>.git/</code>, <code>.vscode/</code>, shell config files, and other protected paths (catastrophic removal commands still prompt)</span></li>
                             <li><span class="tag tag-change">CHG</span><span class="entry"><code>/model</code> — Picker lists models from gateway's <code>/v1/models</code> endpoint when <code>ANTHROPIC_BASE_URL</code> points at a compatible gateway</span></li>
                             <li><span class="tag tag-change">CHG</span><span class="entry"><code>claude auth login</code> — Accepts OAuth code pasted in terminal when browser callback can't reach localhost (WSL2, SSH, containers)</span></li>
@@ -1586,7 +1586,7 @@
                         <ul class="change-list">
                             <li><span class="tag tag-add">ADD</span><span class="entry"><code>/usage</code> slash command — Unified usage view (cost + stats tabs); <code>/cost</code> and <code>/stats</code> become shortcuts that open the relevant tab</span></li>
                             <li><span class="tag tag-change">CHG</span><span class="entry"><code>/stats</code> — Description updated to note it is now a shortcut to the /usage stats tab</span></li>
-                            <li><span class="tag tag-add">ADD</span><span class="entry">Vim Mode section in Keys &amp; Shortcuts — <code>v</code> / <code>V</code> enter visual / visual-line selection mode in NORMAL mode</span></li>
+                            <li data-row="i-v-3"><span class="tag tag-add">ADD</span><span class="entry">Vim Mode section in Keys &amp; Shortcuts — <code>v</code> / <code>V</code> enter visual / visual-line selection mode in NORMAL mode</span></li>
                             <li><span class="tag tag-add">ADD</span><span class="entry"><code>type: "mcp_tool"</code> hook type — Hooks can now directly invoke MCP tools</span></li>
                             <li><span class="tag tag-add">ADD</span><span class="entry"><code>DISABLE_UPDATES</code> env var — Block all update paths including manual <code>claude update</code>; stricter than <code>DISABLE_AUTOUPDATER</code></span></li>
                             <li><span class="tag tag-add">ADD</span><span class="entry"><code>wslInheritsWindowsSettings</code> JSON setting (policy key) — WSL sessions inherit Windows-side managed settings</span></li>
@@ -1621,9 +1621,9 @@
                         <h3 id="rel-2-1-113">CC v2.1.113 <span class="version-date">2026-04-17</span></h3>
                         <ul class="change-list">
                             <li><span class="tag tag-add">ADD</span><span class="entry"><code>sandbox.network.deniedDomains</code> JSON setting — Block specific domains even when a broader <code>allowedDomains</code> wildcard would otherwise permit them</span></li>
-                            <li><span class="tag tag-add">ADD</span><span class="entry"><code>Ctrl A</code> / <code>Ctrl E</code> (multiline input) — Move to start/end of current logical line, matching readline behavior</span></li>
+                            <li data-row="i-ctrl-a"><span class="tag tag-add">ADD</span><span class="entry"><code>Ctrl A</code> / <code>Ctrl E</code> (multiline input) — Move to start/end of current logical line, matching readline behavior</span></li>
                             <li><span class="tag tag-add">ADD</span><span class="entry"><code>Ctrl Backspace</code> (Windows) — Delete previous word</span></li>
-                            <li><span class="tag tag-add">ADD</span><span class="entry"><code>/extra-usage</code> slash command — Request extra usage allowance; now also available from Remote Control clients</span></li>
+                            <li data-row="i-usage-credits"><span class="tag tag-add">ADD</span><span class="entry"><code>/extra-usage</code> slash command — Request extra usage allowance; now also available from Remote Control clients</span></li>
                         </ul>
                     </div>
 
@@ -1638,7 +1638,7 @@
                             <li><span class="tag tag-add">ADD</span><span class="entry"><code>TRACEPARENT</code> / <code>TRACESTATE</code> env vars — Distributed trace context for SDK/headless sessions</span></li>
                             <li><span class="tag tag-change">CHG</span><span class="entry"><code>/effort [level]</code> — Added <code>xhigh</code> level (Opus 4.7 only); no-arg invocation opens interactive slider</span></li>
                             <li><span class="tag tag-change">CHG</span><span class="entry"><code>--effort</code> — Updated to include <code>xhigh</code> level (Opus 4.7 only)</span></li>
-                            <li><span class="tag tag-add">ADD</span><span class="entry"><code>/less-permission-prompts</code> skill — Scan transcripts for read-only Bash/MCP calls; propose settings.json allowlist</span></li>
+                            <li data-row="i-less-permission-prompts"><span class="tag tag-add">ADD</span><span class="entry"><code>/less-permission-prompts</code> skill — Scan transcripts for read-only Bash/MCP calls; propose settings.json allowlist</span></li>
                             <li><span class="tag tag-add">ADD</span><span class="entry"><code>/ultrareview [PR#]</code> skill — Cloud code review via parallel agents; no args for current branch, PR# for specific PR</span></li>
                             <li><span class="tag tag-add">ADD</span><span class="entry"><code>Ctrl U</code> key — Clear entire input buffer</span></li>
                             <li><span class="tag tag-add">ADD</span><span class="entry"><code>Ctrl Y</code> key — Restore input buffer cleared by Ctrl+U</span></li>
@@ -1654,7 +1654,7 @@
                         <ul class="change-list">
                             <li><span class="tag tag-add">ADD</span><span class="entry"><code>/recap</code> slash command — Summarize away context; auto-triggered on return or invoke manually</span></li>
                             <li><span class="tag tag-add">ADD</span><span class="entry"><code>/rewind</code> / <code>/undo</code> slash commands — Rewind conversation; <code>/undo</code> is new alias for <code>/rewind</code></span></li>
-                            <li><span class="tag tag-add">ADD</span><span class="entry"><code>Ctrl A</code> session picker key — Show all projects (picker now defaults to current directory)</span></li>
+                            <li data-row="i-ctrl-a-2"><span class="tag tag-add">ADD</span><span class="entry"><code>Ctrl A</code> session picker key — Show all projects (picker now defaults to current directory)</span></li>
                             <li><span class="tag tag-add">ADD</span><span class="entry"><code>ENABLE_PROMPT_CACHING_1H</code> env var — Opt into 1-hour prompt cache TTL (API key, Bedrock, Vertex, Foundry)</span></li>
                             <li><span class="tag tag-add">ADD</span><span class="entry"><code>FORCE_PROMPT_CACHING_5M</code> env var — Force 5-minute prompt cache TTL</span></li>
                             <li><span class="tag tag-add">ADD</span><span class="entry"><code>CLAUDE_CODE_ENABLE_AWAY_SUMMARY</code> env var — Force-enable recap/away summary when telemetry disabled</span></li>
@@ -1715,8 +1715,8 @@
                             <li><span class="tag tag-add">ADD</span><span class="entry"><code>forceRemoteSettingsRefresh</code> JSON setting — Block startup until remote managed settings are freshly fetched; fail-closed on fetch failure</span></li>
                             <li><span class="tag tag-add">ADD</span><span class="entry"><code>/release-notes</code> slash command — Interactive version picker for release notes</span></li>
                             <li><span class="tag tag-add">ADD</span><span class="entry"><code>--remote-control-session-name-prefix</code> CLI flag — Custom hostname prefix for Remote Control session names</span></li>
-                            <li><span class="tag tag-change">CHG</span><span class="entry"><code>/cost</code> — Description updated to reflect per-model and cache-hit breakdown</span></li>
-                            <li><span class="tag tag-remove">DEL</span><span class="entry"><code>/vim</code> slash command removed — toggle vim mode via <code>/config</code> &rarr; Editor mode</span></li>
+                            <li data-row="i-usage"><span class="tag tag-change">CHG</span><span class="entry"><code>/cost</code> — Description updated to reflect per-model and cache-hit breakdown</span></li>
+                            <li data-row="i-config"><span class="tag tag-remove">DEL</span><span class="entry"><code>/vim</code> slash command removed — toggle vim mode via <code>/config</code> &rarr; Editor mode</span></li>
                         </ul>
                     </div>
 
@@ -1773,7 +1773,7 @@
                             <li><span class="tag tag-add">ADD</span><span class="entry"><code>TaskCreated</code> hook event (v2.1.84)</span></li>
                             <li><span class="tag tag-add">ADD</span><span class="entry"><code>if:</code> conditional field for hooks (v2.1.85)</span></li>
                             <li><span class="tag tag-add">ADD</span><span class="entry"><code>CLAUDE_CODE_SUBPROCESS_ENV_SCRUB</code> env var (v2.1.83)</span></li>
-                            <li><span class="tag tag-fix">FIX</span><span class="entry">Fixed <code>SubAgentStart</code> &rarr; <code>SubagentStart</code> casing</span></li>
+                            <li data-row="i-subagentstart"><span class="tag tag-fix">FIX</span><span class="entry">Fixed <code>SubAgentStart</code> &rarr; <code>SubagentStart</code> casing</span></li>
                         </ul>
                     </div>
 

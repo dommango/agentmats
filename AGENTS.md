@@ -198,6 +198,14 @@ So, when building a new agent:
 - Each page separates **Template/Structure** changes from **Content/Release** changes
 - After editing a changelog, run `node scripts/build-changes.js <agent>`; CI
   fails if the generated files are stale
+- A Content/Release entry's first `<code>` chip is read back as its
+  `changes.json` `item` and must resolve, via `shared/placemat.js`'s
+  `findRow`, to exactly one existing row — `tests/placemat.test.js` replays
+  that resolution for every release. When the chip text is a near-miss of an
+  existing row's chip, fix the chip text instead of the row. When it names a
+  real feature with no row of its own, or exactly matches more than one
+  row's chip, pin it explicitly by adding `data-row="<row id>"` to the `<li>`
+  (`<li data-row="i-codex-exec"><span class="tag …">`)
 
 ## Per-page parity
 

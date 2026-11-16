@@ -1307,7 +1307,8 @@
     {
      "tag": "ADD",
      "item": "cli/reference",
-     "html": "<span class=\"summary\">Re-extracted the slash command inventory from <code>cli/reference</code> and added five newly-documented commands</span> <button type=\"button\" class=\"notes-btn\" aria-expanded=\"false\">+1</button><ul class=\"notes\" hidden><li><code>/browser &lt;task&gt;</code>, <code>/goal &lt;objective&gt;</code>, and <code>/learn [instruction]</code> (<code>card-slash-tools</code>, Tools &amp; tasks/Reasoning), and <code>/schedule &lt;when&gt; &lt;task&gt;</code> and <code>/changelog</code> (<code>card-slash-tools</code>) are confirmed on the current core slash command table. <code>/browser</code>, <code>/goal</code>, <code>/learn</code>, and <code>/schedule</code> were explicitly removed as phantom commands from the first draft (v1.2.2) for not existing on that table at the time; they're real now."
+     "html": "<span class=\"summary\">Re-extracted the slash command inventory from <code>cli/reference</code> and added five newly-documented commands</span> <button type=\"button\" class=\"notes-btn\" aria-expanded=\"false\">+1</button><ul class=\"notes\" hidden><li><code>/browser &lt;task&gt;</code>, <code>/goal &lt;objective&gt;</code>, and <code>/learn [instruction]</code> (<code>card-slash-tools</code>, Tools &amp; tasks/Reasoning), and <code>/schedule &lt;when&gt; &lt;task&gt;</code> and <code>/changelog</code> (<code>card-slash-tools</code>) are confirmed on the current core slash command table. <code>/browser</code>, <code>/goal</code>, <code>/learn</code>, and <code>/schedule</code> were explicitly removed as phantom commands from the first draft (v1.2.2) for not existing on that table at the time; they're real now.",
+     "row": "i-browser"
     }
    ]
   },
@@ -1320,7 +1321,8 @@
     {
      "tag": "ADD",
      "item": "auto",
-     "html": "<code>auto</code> value on <code>--mode &lt;mode&gt;</code> (<code>card-cli</code>) — unverified Auto mode: autonomous approval of file edits and safe commands with sandbox-escape review by a separate agent; Linux/macOS only; absent from any <code>agy --help</code> this card was verified against"
+     "html": "<code>auto</code> value on <code>--mode &lt;mode&gt;</code> (<code>card-cli</code>) — unverified Auto mode: autonomous approval of file edits and safe commands with sandbox-escape review by a separate agent; Linux/macOS only; absent from any <code>agy --help</code> this card was verified against",
+     "row": "i-mode-flag"
     },
     {
      "tag": "ADD",
@@ -2038,46 +2040,54 @@
     {
      "tag": "ADD",
      "item": "card-keys",
-     "html": "<code>card-keys</code> — keybindings for global controls, prompt focus, navigation and tool confirmations, from <code>cli/reference</code>"
+     "html": "<code>card-keys</code> — keybindings for global controls, prompt focus, navigation and tool confirmations, from <code>cli/reference</code>",
+     "row": "i-key-esc"
     },
     {
      "tag": "ADD",
      "item": "card-slash-core",
-     "html": "<code>card-slash-core</code> — session lifecycle and configuration/account slash commands, from <code>cli/reference</code>"
+     "html": "<code>card-slash-core</code> — session lifecycle and configuration/account slash commands, from <code>cli/reference</code>",
+     "row": "i-help"
     },
     {
      "tag": "ADD",
      "item": "card-slash-tools",
-     "html": "<code>card-slash-tools</code> — tools &amp; tasks, reasoning/collaboration and utility slash commands, from <code>cli/reference</code>"
+     "html": "<code>card-slash-tools</code> — tools &amp; tasks, reasoning/collaboration and utility slash commands, from <code>cli/reference</code>",
+     "row": "i-agents"
     },
     {
      "tag": "ADD",
      "item": "card-cli",
-     "html": "<code>card-cli</code> — <code>agy</code> flags and subcommands, verified against the installed 1.2.2 binary's <code>--help</code>"
+     "html": "<code>card-cli</code> — <code>agy</code> flags and subcommands, verified against the installed 1.2.2 binary's <code>--help</code>",
+     "row": "i-agy"
     },
     {
      "tag": "ADD",
      "item": "card-settings",
-     "html": "<code>card-settings</code> — the 16 real <code>settings.json</code> keys, grouped by appearance, safety and account"
+     "html": "<code>card-settings</code> — the 16 real <code>settings.json</code> keys, grouped by appearance, safety and account",
+     "row": "i-cfg-color-scheme"
     },
     {
      "tag": "ADD",
      "item": "card-env",
-     "html": "<code>card-env</code> — <code>GEMINI_API_KEY</code> and <code>GOOGLE_GEMINI_BASE_URL</code>, from the install/auth docs"
+     "html": "<code>card-env</code> — <code>GEMINI_API_KEY</code> and <code>GOOGLE_GEMINI_BASE_URL</code>, from the install/auth docs",
+     "row": "i-env-gemini-key"
     },
     {
      "tag": "ADD",
      "item": "card-skills",
-     "html": "<code>card-skills</code> — the <code>GEMINI.md</code>/<code>.agents/rules</code> tiers and Agent Skills discovery, from the rules and skills docs"
+     "html": "<code>card-skills</code> — the <code>GEMINI.md</code>/<code>.agents/rules</code> tiers and Agent Skills discovery, from the rules and skills docs",
+     "row": "i-rule-global"
     },
     {
      "tag": "ADD",
      "item": "card-hooks",
-     "html": "<code>card-hooks</code> — <code>hooks.json</code> lifecycle events, plugin manifests and MCP server config"
+     "html": "<code>card-hooks</code> — <code>hooks.json</code> lifecycle events, plugin manifests and MCP server config",
+     "row": "i-hook-config"
     },
     {
      "tag": "DEL",
-     "item": "/init",
+     "item": null,
      "html": "<span class=\"summary\">Removed 12 phantom slash commands absent from the vendor reference</span> <button type=\"button\" class=\"notes-btn\" aria-expanded=\"false\">+1</button><ul class=\"notes\" hidden><li><code>/init</code>, <code>/compact</code>, <code>/plan</code>, <code>/status</code>, <code>/history</code>, <code>/mode</code>, <code>/effort</code>, <code>/reset</code>, <code>/goal</code>, <code>/learn</code>, <code>/browser</code>, <code>/schedule</code>, <code>/grill-me</code> — a review of the prior draft found these did not exist on <code>cli/reference</code>."
     }
    ]
