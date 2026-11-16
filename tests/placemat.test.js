@@ -148,6 +148,122 @@ function extractScripts(html) {
   });
 }
 
+// --- hub Rosetta table ---
+// The Rosetta table (index.html, "Rosetta" search-group) claims each agent's
+// command/path for a shared concept. Nobody owned or tested it, and it drifted:
+// a stale `/agent` and `/planning` cell both shipped for months. Each agent's
+// own placemat is the source of truth for whether its cell is real, so every
+// Rosetta chip has to exist as a *primary* row chip there (not an incidental
+// mention buried in a changelog-style .notes <li>, and not class="unverified").
+{
+  const ROSETTA_AGENTS = ['claude-code', 'codex', 'kimi-code', 'hermes', 'antigravity'];
+  const BINARY = { 'claude-code': 'claude', codex: 'codex', 'kimi-code': 'kimi', hermes: 'hermes', antigravity: 'agy' };
+
+  // Small, explicit, dated exemptions for cells that are correct but describe
+  // something not (yet) catalogued as its own primary chip on that agent's
+  // placemat. Keep this list tiny -- a growing list means the test, not the
+  // table, has the wrong idea of what "verified" means.
+  const EXEMPT = new Set([
+    // CLAUDE.md is claude-code's whole premise; it's mentioned inside several
+    // rows' descriptions (/init, /memory) but never catalogued as its own chip.
+    'claude-code:CLAUDE.md',
+    // Real Claude Code feature (custom subagent definitions); claude-code's own
+    // placemat has no dedicated row for the directory.
+    'claude-code:.claude/agents/',
+    // developer-commands.md documents /agents superseding /agent (confirmed
+    // directly against the vendor reference on 2026-11-16); codex's own
+    // placemat still shows the old singular /agent (see codex/sources.json's
+    // inventory note, 2026-10-16) and reconciling it is a future sync's job.
+    'codex:/agents',
+    // /compact is real (Antigravity CLI changelog rel-cli-1.3.5) but is itself
+    // marked unverified on antigravity's placemat pending confirmation in the
+    // vendor's core slash-command table, per that placemat's own sourcing bar.
+    'antigravity:/compact',
+  ]);
+
+  const haveAllAgents = ROSETTA_AGENTS.every((a) => fs.existsSync(path.join(ROOT, a, 'index.html')));
+
+  if (haveAllAgents) {
+    const hub = read('index.html');
+    const rosettaBlock = hub.split('data-group="Rosetta"')[1];
+    assert.ok(rosettaBlock, 'hub index.html: "Rosetta" search-group not found');
+    const tableBlock = rosettaBlock.split('</table>')[0];
+    const rows = [...tableBlock.matchAll(/<tr><td>([^<]+)<\/td>([\s\S]*?)<\/tr>/g)];
+
+    test('hub index.html: Rosetta table rows were found and have one cell per agent', () => {
+      assert.ok(rows.length > 10, 'Rosetta rows not found, or the row markup changed shape');
+      rows.forEach(([, concept, rest]) => {
+        const cells = [...rest.matchAll(/<td>([\s\S]*?)<\/td>/g)];
+        assert.strictEqual(cells.length, ROSETTA_AGENTS.length,
+          `Rosetta row "${concept}" has ${cells.length} cells, expected ${ROSETTA_AGENTS.length}`);
+      });
+    });
+
+    // Build each agent's set of verified primary chips: the <code> chip(s)
+    // immediately after a row's "#" anchor link, up to its description cell.
+    // Alternates written as "a / b" or "a, b" each count on their own, and so
+    // does the leading command/flag word of a bracketed chip like "/plan [task]".
+    const chipSetFor = (agent) => {
+      const html = read(`${agent}/index.html`);
+      const set = new Set();
+      const re = /<a class="row-link"[\s\S]*?<\/a>([\s\S]*?)<\/td>\s*<td class="desc">/g;
+      let m;
+      while ((m = re.exec(html))) {
+        for (const c of m[1].matchAll(/<code([^>]*)>([\s\S]*?)<\/code>/g)) {
+          if (/unverified/.test(c[1])) continue;
+          const text = c[2].trim();
+          if (!text) continue;
+          const parts = new Set([text]);
+          text.split(/\s*\/\s*|,\s*/).forEach((p) => { p = p.trim(); if (p) parts.add(p); });
+          for (const p of [...parts]) {
+            const word = p.split(/\s+/)[0];
+            if (word) parts.add(word);
+          }
+          for (const p of parts) set.add(p);
+        }
+      }
+      return set;
+    };
+    const chipSets = {};
+    ROSETTA_AGENTS.forEach((a) => { chipSets[a] = chipSetFor(a); });
+
+    const offenders = [];
+    for (const [, concept, rest] of rows) {
+      const cells = [...rest.matchAll(/<td>([\s\S]*?)<\/td>/g)].map((m2) => m2[1]);
+      cells.forEach((td, i) => {
+        const agent = ROSETTA_AGENTS[i];
+        if (!agent || td.trim() === '—') return; // — (em dash): no equivalent, exempt
+        const chips = [...td.matchAll(/<code[^>]*>([\s\S]*?)<\/code>/g)].map((m2) => m2[1].trim());
+        const bin = BINARY[agent];
+        const known = chipSets[agent];
+        for (const chip of chips) {
+          if (EXEMPT.has(`${agent}:${chip}`)) continue;
+          if (chip === bin) continue; // the bare binary name always "exists"
+          const candidates = new Set([chip]);
+          if (bin && chip.startsWith(`${bin} `)) candidates.add(chip.slice(bin.length + 1));
+          let found = [...candidates].some((c) => known.has(c));
+          if (!found && !chip.startsWith('/')) {
+            // Slash commands must match a verified chip exactly -- that's the
+            // precise, high-signal category this test exists to police. Paths
+            // and "<binary> <subcommand>" fragments may legitimately be a
+            // shorter or longer form of the real chip (a directory prefix, a
+            // bare filename, a subcommand missing its own trailing argument).
+            found = [...candidates].some((c) => [...known].some((k) => k.includes(c) || c.includes(k)));
+          }
+          if (!found) offenders.push(`${concept} / ${agent}: "${chip}"`);
+        }
+      });
+    }
+
+    test("hub index.html: every Rosetta chip exists as a verified chip on that agent's own placemat", () => {
+      assert.deepStrictEqual(offenders, [],
+        `Rosetta cells with no matching verified chip on the agent's own placemat (fix the cell, or add a dated, reasoned entry to EXEMPT):\n  ${offenders.join('\n  ')}`);
+    });
+  } else {
+    console.warn('skip hub Rosetta table check: not every agent is built yet');
+  }
+}
+
 // --- per-agent pages ---
 for (const agent of targets) {
   const INDEX = `${agent}/index.html`;
