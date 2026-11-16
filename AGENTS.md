@@ -227,13 +227,20 @@ independent of the pipeline's Step 8 self-review, and posted as a PR comment
 before merging either way, clean or not — and only merges on a clean result
 with both CI checks green. No CRITICAL/HIGH finding → merge via the GitHub MCP
 and delete the branch explicitly, no human involved. Any CRITICAL/HIGH finding
-→ one fix-and-re-review pass; if the finding still stands, the PR stays open
-with the findings posted as a comment and nothing merges. This formalizes the
-review pass that caught three runtime-breaking defects in the Antigravity
-rebuild (PR #11) before they reached `main` — the same check now runs on every
-sync instead of depending on someone doing it by hand. (The routine sandbox
-has neither the `Task`/Agent tool nor `gh`, which is why this is a skill
-invocation and an MCP merge rather than a spawned subagent and `gh pr merge`.)
+→ fix it, then run exactly one re-check: either the `code-review` skill again
+or a scripted/structural check that demonstrates each prior finding is
+resolved. That re-check's verdict is posted as a PR comment before merging
+either way, same as the first pass. If it passes and both CI checks are
+green, merge as above. If any CRITICAL/HIGH finding still stands after that
+one re-check, stop — leave the PR open with the findings posted as a comment,
+and do not merge. This formalizes the review pass that caught three
+runtime-breaking defects in the Antigravity rebuild (PR #11) before they
+reached `main` — the same check now runs on every sync instead of depending
+on someone doing it by hand. (The routine sandbox has neither the `Task`/Agent
+tool nor `gh`, which is why this is a skill invocation and an MCP merge rather
+than a spawned subagent and `gh pr merge`.) After a merge, the pipeline also
+closes any older open `claude/<agent>-update-v*` PR for the same agent,
+commenting that the new PR supersedes it, and deletes its branch.
 
 **If there is no release newer than the placemat's current "As of release"
 version, the run exits silently — no commits, no PR, no output.** A routine
