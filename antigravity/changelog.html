@@ -162,9 +162,32 @@
                 <h3>Content / Antigravity CLI Releases</h3>
                 <!-- November 2026 -->
                 <details class="month-group" open>
-                    <summary>November 2026 <span class="version-date">v1.5.0 – v1.5.8</span> <span class="month-count">9 releases</span></summary>
+                    <summary>November 2026 <span class="version-date">v1.5.0 – v1.5.9</span> <span class="month-count">10 releases</span></summary>
                     <div class="month-content">
 
+                        <div class="change-section">
+                            <h3 id="rel-1-5-9">Antigravity CLI v1.5.9 <span class="version-date">2026-11-14</span></h3>
+                            <ul class="change-list">
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>/run-workflow</code> (<code>card-slash-tools</code>) — new row for Dynamic Workflows: the agent writes and runs a Python script that coordinates many subagents in parallel or staged phases</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>pluginControls.pluginsDisabled</code> (<code>card-settings</code>) — new unverified row for the admin setting that stops all plugins, including built-in ones, from loading</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>pluginControls.marketplaceDisabled</code> (<code>card-settings</code>) — new unverified row for the admin setting that turns off the plugin marketplace but keeps installed plugins working</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>/resume</code> / <code>/switch</code> / <code>/conversation</code> (<code>card-slash-core</code>) — noted the picker no longer loading every open conversation's full history first, and <code>/resume &lt;id&gt;</code> now accepting any ID prefix that matches exactly one conversation</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>/browser &lt;task&gt;</code> (<code>card-slash-tools</code>) — noted session recordings switching from <code>.webm</code> to <code>.mp4</code></span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>--mode &lt;mode&gt;</code> (<code>card-cli</code>) — noted the sandbox-escape review deciding faster by searching the conversation and listing or searching files directly instead of starting a sandboxed command per check</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>mcp_config.json</code> (<code>card-hooks</code>) — fixed a security issue where custom HTTP MCP server headers, such as API keys, could be forwarded to a different host on redirect</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>/mcp</code> (<code>card-slash-tools</code>) — fixed a race that could launch duplicate MCP server processes while several subagents were starting</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>/mcp</code> (<code>card-slash-tools</code>) — fixed OAuth sign-in failing on machines without an IPv4 loopback address, such as IPv6-only VMs</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>agy acp [flags]</code> (<code>card-cli</code>) — fixed <code>Authentication required</code> after <code>agy acp --login</code> by falling back to your saved login, MCP server names with spaces failing prompts, generic turn-failure errors, an extra trailing newline in sent diffs, and a BOM-saved <code>settings.json</code> falling back to defaults</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>-i</code> / <code>--prompt-interactive</code> (<code>card-cli</code>) — fixed this together with <code>--remote-agent</code> and <code>--conversation</code> or <code>--continue</code> starting a new conversation instead of sending the prompt to the resumed one</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>agy plugin &lt;cmd&gt;</code> (<code>card-cli</code>) — fixed <code>validate</code> blaming a UTF-8 BOM for a <code>hooks.json</code> syntax error instead of reporting the real error and line</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>/copy [n|btw]</code> (<code>card-slash-tools</code>) — fixed clipboard actions on Windows over SSH not reaching the local clipboard, and logging the copied text to the CLI log file</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>/plugin</code> / <code>/plugins</code> (<code>card-slash-tools</code>) — fixed sign-in from here sometimes reporting it didn't finish when it had just succeeded</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>Ctrl+O</code> (<code>card-keys</code>) — fixed tool groups jumping around when expanded, and the token summary line disappearing in low verbosity</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>/remote-control [on/off]</code> (<code>card-slash-tools</code>) — fixed the Remote Control browser view's model selector not scrolling by touch past the first screen on phones</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>/schedule &lt;when&gt; &lt;task&gt;</code> (<code>card-slash-tools</code>) — fixed scheduled automations on Windows receiving only the first line of a multi-line prompt</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>/tasks</code> (<code>card-slash-tools</code>) — fixed quitting the CLI or killing a task here leaving its started programs running</span></li>
+                            </ul>
+                        </div>
                         <div class="change-section">
                             <h3 id="rel-1-5-8">Antigravity CLI v1.5.8 <span class="version-date">2026-11-13</span></h3>
                             <ul class="change-list">

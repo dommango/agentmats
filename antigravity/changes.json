@@ -1,7 +1,105 @@
 {
- "generated": "2026-11-13",
- "latest": "v1.5.8",
+ "generated": "2026-11-14",
+ "latest": "v1.5.9",
  "releases": [
+  {
+   "version": "v1.5.9",
+   "label": "Antigravity CLI v1.5.9",
+   "date": "2026-11-14",
+   "id": "rel-1-5-9",
+   "entries": [
+    {
+     "tag": "ADD",
+     "item": "/run-workflow",
+     "html": "<code>/run-workflow</code> (<code>card-slash-tools</code>) — new row for Dynamic Workflows: the agent writes and runs a Python script that coordinates many subagents in parallel or staged phases"
+    },
+    {
+     "tag": "ADD",
+     "item": "pluginControls.pluginsDisabled",
+     "html": "<code>pluginControls.pluginsDisabled</code> (<code>card-settings</code>) — new unverified row for the admin setting that stops all plugins, including built-in ones, from loading"
+    },
+    {
+     "tag": "ADD",
+     "item": "pluginControls.marketplaceDisabled",
+     "html": "<code>pluginControls.marketplaceDisabled</code> (<code>card-settings</code>) — new unverified row for the admin setting that turns off the plugin marketplace but keeps installed plugins working"
+    },
+    {
+     "tag": "CHG",
+     "item": "/resume",
+     "html": "<code>/resume</code> / <code>/switch</code> / <code>/conversation</code> (<code>card-slash-core</code>) — noted the picker no longer loading every open conversation's full history first, and <code>/resume &lt;id&gt;</code> now accepting any ID prefix that matches exactly one conversation"
+    },
+    {
+     "tag": "CHG",
+     "item": "/browser <task>",
+     "html": "<code>/browser &lt;task&gt;</code> (<code>card-slash-tools</code>) — noted session recordings switching from <code>.webm</code> to <code>.mp4</code>"
+    },
+    {
+     "tag": "CHG",
+     "item": "--mode <mode>",
+     "html": "<code>--mode &lt;mode&gt;</code> (<code>card-cli</code>) — noted the sandbox-escape review deciding faster by searching the conversation and listing or searching files directly instead of starting a sandboxed command per check"
+    },
+    {
+     "tag": "FIX",
+     "item": "mcp_config.json",
+     "html": "<code>mcp_config.json</code> (<code>card-hooks</code>) — fixed a security issue where custom HTTP MCP server headers, such as API keys, could be forwarded to a different host on redirect"
+    },
+    {
+     "tag": "FIX",
+     "item": "/mcp",
+     "html": "<code>/mcp</code> (<code>card-slash-tools</code>) — fixed a race that could launch duplicate MCP server processes while several subagents were starting"
+    },
+    {
+     "tag": "FIX",
+     "item": "/mcp",
+     "html": "<code>/mcp</code> (<code>card-slash-tools</code>) — fixed OAuth sign-in failing on machines without an IPv4 loopback address, such as IPv6-only VMs"
+    },
+    {
+     "tag": "FIX",
+     "item": "agy acp [flags]",
+     "html": "<code>agy acp [flags]</code> (<code>card-cli</code>) — fixed <code>Authentication required</code> after <code>agy acp --login</code> by falling back to your saved login, MCP server names with spaces failing prompts, generic turn-failure errors, an extra trailing newline in sent diffs, and a BOM-saved <code>settings.json</code> falling back to defaults"
+    },
+    {
+     "tag": "FIX",
+     "item": "-i",
+     "html": "<code>-i</code> / <code>--prompt-interactive</code> (<code>card-cli</code>) — fixed this together with <code>--remote-agent</code> and <code>--conversation</code> or <code>--continue</code> starting a new conversation instead of sending the prompt to the resumed one"
+    },
+    {
+     "tag": "FIX",
+     "item": "agy plugin <cmd>",
+     "html": "<code>agy plugin &lt;cmd&gt;</code> (<code>card-cli</code>) — fixed <code>validate</code> blaming a UTF-8 BOM for a <code>hooks.json</code> syntax error instead of reporting the real error and line"
+    },
+    {
+     "tag": "FIX",
+     "item": "/copy [n|btw]",
+     "html": "<code>/copy [n|btw]</code> (<code>card-slash-tools</code>) — fixed clipboard actions on Windows over SSH not reaching the local clipboard, and logging the copied text to the CLI log file"
+    },
+    {
+     "tag": "FIX",
+     "item": "/plugin",
+     "html": "<code>/plugin</code> / <code>/plugins</code> (<code>card-slash-tools</code>) — fixed sign-in from here sometimes reporting it didn't finish when it had just succeeded"
+    },
+    {
+     "tag": "FIX",
+     "item": "Ctrl+O",
+     "html": "<code>Ctrl+O</code> (<code>card-keys</code>) — fixed tool groups jumping around when expanded, and the token summary line disappearing in low verbosity"
+    },
+    {
+     "tag": "FIX",
+     "item": "/remote-control [on/off]",
+     "html": "<code>/remote-control [on/off]</code> (<code>card-slash-tools</code>) — fixed the Remote Control browser view's model selector not scrolling by touch past the first screen on phones"
+    },
+    {
+     "tag": "FIX",
+     "item": "/schedule <when> <task>",
+     "html": "<code>/schedule &lt;when&gt; &lt;task&gt;</code> (<code>card-slash-tools</code>) — fixed scheduled automations on Windows receiving only the first line of a multi-line prompt"
+    },
+    {
+     "tag": "FIX",
+     "item": "/tasks",
+     "html": "<code>/tasks</code> (<code>card-slash-tools</code>) — fixed quitting the CLI or killing a task here leaving its started programs running"
+    }
+   ]
+  },
   {
    "version": "v1.5.8",
    "label": "Antigravity CLI v1.5.8",
