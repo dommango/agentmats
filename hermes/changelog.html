@@ -163,8 +163,17 @@
                 <h3>Content / Hermes Agent Releases</h3>
                 <!-- November 2026 -->
                 <details class="month-group" open>
-                    <summary>November 2026 <span class="version-date">v0.22.6 – v0.23.1</span> <span class="month-count">4 releases</span></summary>
+                    <summary>November 2026 <span class="version-date">v0.22.6 – v0.23.2</span> <span class="month-count">5 releases</span></summary>
                     <div class="month-content">
+
+                        <div class="change-section">
+                            <h3 id="rel-0-23-2">Hermes Agent v0.23.2 <span class="version-date">2026-11-16</span></h3>
+                            <ul class="change-list">
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>hermes fallback</code> — <code>check [--live] [--json]</code> verifies each entry resolves with usable credentials; <code>--live</code> sends one request per entry and exits 1 if any isn't ready</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>hermes update</code> — <code>--force</code> stops every gateway the update owns at once instead of draining in-flight work (Windows: only lets the update proceed past another running <code>hermes.exe</code>)</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry">v0.23.2 is a rollup patch release covering ~1,989 PRs since v0.23.1; curated notes for the rest of this window ship with v0.24.0</span></li>
+                            </ul>
+                        </div>
 
                         <div class="change-section">
                             <h3 id="rel-0-23-1">Hermes Agent v0.23.1 <span class="version-date">2026-11-09</span></h3>
@@ -371,7 +380,7 @@
         </div>
 
         <footer class="global-footer">
-            Template v1.0 · Content synced 2026-10-21<br>
+            Template v1.0 · Content synced 2026-11-16<br>
             <span class="disclaimer">Unofficial community reference — not affiliated with or endorsed by Nous Research.
             Condensed from the official docs; always confirm against
             <a href="https://hermes-agent.nousresearch.com/docs/" target="_blank" rel="noopener noreferrer">hermes-agent.nousresearch.com/docs</a>.</span><br>
