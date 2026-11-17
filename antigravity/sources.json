@@ -39,7 +39,7 @@
   ],
   "inventory": {
     "source": "https://antigravity.google/docs/cli/reference (slash commands); https://antigravity.google/docs/settings?tab=cli (settings keys); https://antigravity.google/docs/hooks (hook events)",
-    "fetched": "2026-11-13",
+    "fetched": "2026-11-14",
     "slash": [
       "/add-dir", "/agents", "/agy-customizations", "/antigravity-guide",
       "/boost", "/artifact", "/browser", "/btw",
@@ -48,10 +48,10 @@
       "/effort", "/exit", "/quit", "/feedback", "/fork", "/branch", "/goal",
       "/grill-me", "/help", "/hooks", "/keybindings", "/learn", "/logout",
       "/mcp", "/model", "/open", "/permissions", "/plan", "/plugin",
-      "/plugins", "/remote-control", "/rename", "/resume", "/swarm",
-      "/switch", "/conversation", "/rewind", "/undo", "/schedule", "/skills",
-      "/statusline", "/tasks", "/teamwork", "/title", "/usage", "/quota",
-      "/voice", "/record"
+      "/plugins", "/remote-control", "/rename", "/resume", "/run-workflow",
+      "/swarm", "/switch", "/conversation", "/rewind", "/undo", "/schedule",
+      "/skills", "/statusline", "/tasks", "/teamwork", "/title", "/usage",
+      "/quota", "/voice", "/record"
     ],
     "settings": [
       "colorScheme", "altScreenMode", "toolPermission", "artifactReviewPolicy",
