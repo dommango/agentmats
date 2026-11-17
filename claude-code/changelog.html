@@ -163,8 +163,22 @@
                 <h3>Content / CC Release Updates</h3>
                 <!-- November 2026 -->
                 <details class="month-group" open>
-                    <summary>November 2026 <span class="version-date">v2.1.317 – v2.1.325</span> <span class="month-count">7 releases</span></summary>
+                    <summary>November 2026 <span class="version-date">v2.1.317 – v2.1.326</span> <span class="month-count">8 releases</span></summary>
                     <div class="month-content">
+
+                        <div class="change-section">
+                            <h3 id="rel-2-1-326">CC v2.1.326 <span class="version-date">2026-11-16</span></h3>
+                            <ul class="change-list">
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>OTEL_RESOURCE_INCLUDE_HOST</code> env var — given its first placemat row: adds <code>host.name</code> and <code>host.id</code> to OpenTelemetry resource attributes; off by default</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>sandbox.filesystem.allowWrite</code> — given its first placemat row: adds paths sandboxed commands can write to, beyond the default write-list; real and already documented, but missed by earlier passes</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>allowedHttpHookUrls</code> — given its first placemat row: limits which URLs HTTP hooks can target, with an empty array blocking every HTTP hook; real and already documented, but missed by earlier passes</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>httpHookAllowedEnvVars</code> — given its first placemat row: caps which env vars any HTTP hook may put into a request header, on top of each hook's own <code>allowedEnvVars</code>; real and already documented, but missed by earlier passes</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>dangerouslyDisableSandbox: true</code> (<code>PermissionRequest</code> field) — given its first placemat row: lets an approving hook or SDK host that rewrote a command's input drop it from the sandbox the original was checked under; confirmed only via this changelog entry, not yet in hooks.md as of the 2026-11-17 fetch</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>claude self-hosted-runner --use-anthropic-gh false</code> — given its first placemat row: opts out of the built-in Anthropic-run <code>gh api</code> that Linux and macOS runner sessions with no <code>gh</code> installed now get by default</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>Ctrl O</code> — also shows hidden startup notices; noted on the existing row</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>disableAutoMode</code> — terminal and VS Code sessions in organizations with the Claude Code + Cowork HIPAA configuration now also start in auto mode by default; this setting turns it off; noted on the existing row</span></li>
+                            </ul>
+                        </div>
 
                         <div class="change-section">
                             <h3 id="rel-2-1-325">CC v2.1.325 <span class="version-date">2026-11-13</span></h3>
@@ -1860,7 +1874,7 @@
         </div>
 
         <footer class="global-footer">
-            Template v1.2 · Content synced 2026-11-13<br>
+            Template v1.2 · Content synced 2026-11-16<br>
             <span class="disclaimer">Unofficial community reference — not affiliated with or endorsed by Anthropic.
             Condensed from the official docs; always confirm against
             <a href="https://code.claude.com/docs" target="_blank" rel="noopener noreferrer">code.claude.com/docs</a>.</span><br>
