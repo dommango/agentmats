@@ -1,7 +1,30 @@
 {
- "generated": "2026-11-09",
- "latest": "v0.23.1",
+ "generated": "2026-11-16",
+ "latest": "v0.23.2",
  "releases": [
+  {
+   "version": "v0.23.2",
+   "label": "Hermes Agent v0.23.2",
+   "date": "2026-11-16",
+   "id": "rel-0-23-2",
+   "entries": [
+    {
+     "tag": "ADD",
+     "item": "hermes fallback",
+     "html": "<code>hermes fallback</code> — <code>check [--live] [--json]</code> verifies each entry resolves with usable credentials; <code>--live</code> sends one request per entry and exits 1 if any isn't ready"
+    },
+    {
+     "tag": "ADD",
+     "item": "hermes update",
+     "html": "<code>hermes update</code> — <code>--force</code> stops every gateway the update owns at once instead of draining in-flight work (Windows: only lets the update proceed past another running <code>hermes.exe</code>)"
+    },
+    {
+     "tag": "CHG",
+     "item": null,
+     "html": "v0.23.2 is a rollup patch release covering ~1,989 PRs since v0.23.1; curated notes for the rest of this window ship with v0.24.0"
+    }
+   ]
+  },
   {
    "version": "v0.23.1",
    "label": "Hermes Agent v0.23.1",
