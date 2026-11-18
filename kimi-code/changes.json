@@ -1,7 +1,40 @@
 {
- "generated": "2026-11-14",
- "latest": "v2.6.2",
+ "generated": "2026-11-17",
+ "latest": "v2.6.3",
  "releases": [
+  {
+   "version": "v2.6.3",
+   "label": "Kimi Code v2.6.3",
+   "date": "2026-11-17",
+   "id": "rel-2-6-3",
+   "entries": [
+    {
+     "tag": "FIX",
+     "item": "!",
+     "html": "<code>!</code> &mdash; fixed duplicate output and a lingering loading spinner after a shell command finished in the foreground"
+    },
+    {
+     "tag": "FIX",
+     "item": "Stop",
+     "html": "<code>Stop</code> &mdash; fixed external hooks not firing after every completed turn"
+    },
+    {
+     "tag": "FIX",
+     "item": "[background]",
+     "html": "<code>[background]</code> &mdash; fixed background notifications incorrectly stopping Tower tasks"
+    },
+    {
+     "tag": "FIX",
+     "item": "[background]",
+     "html": "<code>[background]</code> &mdash; restored background task notifications no longer start a new model request when a session is resumed or forked"
+    },
+    {
+     "tag": "FIX",
+     "item": null,
+     "html": "Fixed Windows WebBridge updates failing while its daemon is running"
+    }
+   ]
+  },
   {
    "version": "v2.6.2",
    "label": "Kimi Code v2.6.2",
