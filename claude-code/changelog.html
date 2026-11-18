@@ -163,8 +163,29 @@
                 <h3>Content / CC Release Updates</h3>
                 <!-- November 2026 -->
                 <details class="month-group" open>
-                    <summary>November 2026 <span class="version-date">v2.1.317 – v2.1.326</span> <span class="month-count">8 releases</span></summary>
+                    <summary>November 2026 <span class="version-date">v2.1.317 – v2.1.327</span> <span class="month-count">9 releases</span></summary>
                     <div class="month-content">
+
+                        <div class="change-section">
+                            <h3 id="rel-2-1-327">CC v2.1.327 <span class="version-date">2026-11-17</span></h3>
+                            <ul class="change-list">
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>attributionProject</code> — names a session's billing group, for Claude apps gateways that set <code>admin.billing_group_tag</code>; confirmed only via this changelog entry, not yet in settings-reference.md as of the 2026-11-18 fetch</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>CLAUDE_CODE_DISABLE_SHELL_HEAD_START=1</code> env var — given its first placemat row: stops a session's first Bash command's shell start-up files from running before the command is approved; confirmed only via this changelog entry, not yet in env-vars.md</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC</code> env var — given its first placemat row: disables auto-updates, telemetry, error reporting, release notes and other nonessential network traffic; real and already documented in env-vars.md, but missed by earlier passes</span></li>
+                                <li data-row="i-claude-mcp-list-add-remove"><span class="tag tag-change">CHG</span><span class="entry"><code>claude mcp add-json &lt;name&gt; -</code> — reads the server's JSON from stdin instead of the command line, so tokens can stay off it; not available inside a Claude Code session; noted on the existing <code>claude mcp list/add/remove</code> row</span></li>
+                                <li data-row="i-claude-mcp-list-add-remove"><span class="tag tag-change">CHG</span><span class="entry"><code>claude mcp add --scope project</code> — now stops, instead of overwriting the file, when <code>.mcp.json</code> lists its servers at the top level with no <code>mcpServers</code> key; noted on the existing row</span></li>
+                                <li data-row="i-tui-fullscreen"><span class="tag tag-change">CHG</span><span class="entry"><code>/tui classic</code> — new name for <code>/tui</code>'s non-fullscreen renderer; <code>/tui default</code> still works; noted on the existing row, whose visible command text was also corrected to commands.md's own <code>/tui [default|fullscreen]</code> form</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>/install-github-app</code> — now asks for confirmation before it changes a repository, and its repository, secret and API key steps use the standard list and keys, with shorter messages, a spinner and clearer errors; noted on the existing row</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>/export</code> — the dialog now asks before overwriting an existing file; <code>/export &lt;name&gt;</code> keeps the file instead and says to run <code>/export</code>; noted on the existing row</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>permissions.blockReadsOutsideWorkingDirectories</code> — now asks about more Bash commands in bypass and auto modes and denies some in auto mode, and refuses more that name a path under a Read or Edit deny rule, where it used to ask; noted on the existing row</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>CLAUDE_CODE_AUTO_MODE_SERVER=0</code> — the billed-local-classifier fallback warning now says an upcoming release removes the fallback; each action it would have checked will be asked about or denied instead; noted on the existing row</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>--worktree</code> — the <code>ExitWorktree</code> tool now asks before removing a worktree that may hold unsaved work, and is refused in don't-ask mode or with nobody to answer, unless an allow rule, auto, or bypass permissions mode allows it; noted on the existing row</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>claude plugin eval</code> — now keeps its own deny rules over a plugin's permission hook, and flags calls the hook let through; noted on the existing row</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>CLAUDE_CODE_GATEWAY_HINT_HEADERS=1</code> — now also sends an <code>x-claude-code-managed-settings-checksum</code> header; noted on the existing row</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>/config</code> — now notes when another setting overrides a row; noted on the existing row</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>/status</code> — gained a list of broken agent, skill, command and output style files, keybinding errors, an unavailable sandbox, ignored permission settings and hook matchers that never match; noted on the existing row</span></li>
+                            </ul>
+                        </div>
 
                         <div class="change-section">
                             <h3 id="rel-2-1-326">CC v2.1.326 <span class="version-date">2026-11-16</span></h3>
@@ -1644,7 +1665,7 @@
                     <div class="change-section">
                         <h3 id="rel-2-1-112">CC v2.1.110–v2.1.112 <span class="version-date">2026-04-16</span></h3>
                         <ul class="change-list">
-                            <li><span class="tag tag-add">ADD</span><span class="entry"><code>/tui [fullscreen]</code> slash command — Switch to flicker-free fullscreen TUI rendering in same conversation</span></li>
+                            <li data-row="i-tui-fullscreen"><span class="tag tag-add">ADD</span><span class="entry"><code>/tui [fullscreen]</code> slash command — Switch to flicker-free fullscreen TUI rendering in same conversation</span></li>
                             <li><span class="tag tag-add">ADD</span><span class="entry"><code>/focus</code> slash command — Toggle focus view in fullscreen/TUI mode</span></li>
                             <li><span class="tag tag-change">CHG</span><span class="entry"><code>Ctrl O</code> — Now toggles between normal and verbose transcript only; focus view moved to <code>/focus</code></span></li>
                             <li><span class="tag tag-add">ADD</span><span class="entry"><code>autoScrollEnabled</code> JSON setting — Disable conversation auto-scroll in fullscreen mode</span></li>
@@ -1874,7 +1895,7 @@
         </div>
 
         <footer class="global-footer">
-            Template v1.2 · Content synced 2026-11-16<br>
+            Template v1.2 · Content synced 2026-11-17<br>
             <span class="disclaimer">Unofficial community reference — not affiliated with or endorsed by Anthropic.
             Condensed from the official docs; always confirm against
             <a href="https://code.claude.com/docs" target="_blank" rel="noopener noreferrer">code.claude.com/docs</a>.</span><br>
