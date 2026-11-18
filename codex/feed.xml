@@ -4,7 +4,14 @@
   <link href="https://dommango.github.io/agentmats/codex/"/>
   <link rel="self" href="https://dommango.github.io/agentmats/codex/feed.xml"/>
   <id>https://dommango.github.io/agentmats/codex/</id>
-  <updated>2026-11-13T09:00:00Z</updated>
+  <updated>2026-11-18T09:00:00Z</updated>
+  <entry>
+    <title>Codex CLI v0.169.1–v0.170.0 — 7 placemat changes</title>
+    <id>https://dommango.github.io/agentmats/codex/changelog.html#rel-0-170-0</id>
+    <link href="https://dommango.github.io/agentmats/codex/changelog.html#rel-0-170-0"/>
+    <updated>2026-11-18T09:00:00Z</updated>
+    <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; &lt;code&gt;codex cloud&lt;/code&gt; (&lt;code&gt;card-cli&lt;/code&gt;) — improves automatic reconnection and preserves active recovery turns when clients reconnect&lt;/li&gt;&lt;li&gt;&lt;b&gt;FIX&lt;/b&gt; &lt;code&gt;default_permissions&lt;/code&gt; (&lt;code&gt;card-settings&lt;/code&gt;) — permission updates and child threads no longer lose existing sandbox restrictions&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; TUI — realtime voice calls now negotiate over WebRTC&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; MCP — adds experimental support for identically named servers across different environments&lt;/li&gt;&lt;li&gt;&lt;b&gt;FIX&lt;/b&gt; MCP — fixes OAuth credential races during cancellation, login and logout&lt;/li&gt;&lt;li&gt;&lt;b&gt;FIX&lt;/b&gt; Windows — fixes file replacement, sandbox permission preservation and runtime registration recovery&lt;/li&gt;&lt;li&gt;&lt;b&gt;FIX&lt;/b&gt; TUI — removes duplicate file search results and fixes thread search snippets for queries containing whitespace&lt;/li&gt;&lt;/ul&gt;</content>
+  </entry>
   <entry>
     <title>Codex CLI v0.168.0–v0.169.0 — 14 placemat changes</title>
     <id>https://dommango.github.io/agentmats/codex/changelog.html#rel-0-169-0</id>
