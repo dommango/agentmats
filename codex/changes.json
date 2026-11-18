@@ -1,7 +1,50 @@
 {
- "generated": "2026-11-13",
- "latest": "v0.169.0",
+ "generated": "2026-11-18",
+ "latest": "v0.170.0",
  "releases": [
+  {
+   "version": "v0.170.0",
+   "label": "Codex CLI v0.169.1–v0.170.0",
+   "date": "2026-11-18",
+   "id": "rel-0-170-0",
+   "entries": [
+    {
+     "tag": "CHG",
+     "item": "codex cloud",
+     "html": "<code>codex cloud</code> (<code>card-cli</code>) — improves automatic reconnection and preserves active recovery turns when clients reconnect"
+    },
+    {
+     "tag": "FIX",
+     "item": "default_permissions",
+     "html": "<code>default_permissions</code> (<code>card-settings</code>) — permission updates and child threads no longer lose existing sandbox restrictions"
+    },
+    {
+     "tag": "CHG",
+     "item": null,
+     "html": "TUI — realtime voice calls now negotiate over WebRTC"
+    },
+    {
+     "tag": "CHG",
+     "item": null,
+     "html": "MCP — adds experimental support for identically named servers across different environments"
+    },
+    {
+     "tag": "FIX",
+     "item": null,
+     "html": "MCP — fixes OAuth credential races during cancellation, login and logout"
+    },
+    {
+     "tag": "FIX",
+     "item": null,
+     "html": "Windows — fixes file replacement, sandbox permission preservation and runtime registration recovery"
+    },
+    {
+     "tag": "FIX",
+     "item": null,
+     "html": "TUI — removes duplicate file search results and fixes thread search snippets for queries containing whitespace"
+    }
+   ]
+  },
   {
    "version": "v0.169.0",
    "label": "Codex CLI v0.168.0–v0.169.0",
