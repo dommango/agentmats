@@ -1,7 +1,93 @@
 {
- "generated": "2026-11-16",
- "latest": "v2.1.326",
+ "generated": "2026-11-17",
+ "latest": "v2.1.327",
  "releases": [
+  {
+   "version": "v2.1.327",
+   "label": "CC v2.1.327",
+   "date": "2026-11-17",
+   "id": "rel-2-1-327",
+   "entries": [
+    {
+     "tag": "ADD",
+     "item": "attributionProject",
+     "html": "<code>attributionProject</code> — names a session's billing group, for Claude apps gateways that set <code>admin.billing_group_tag</code>; confirmed only via this changelog entry, not yet in settings-reference.md as of the 2026-11-18 fetch"
+    },
+    {
+     "tag": "ADD",
+     "item": "CLAUDE_CODE_DISABLE_SHELL_HEAD_START=1",
+     "html": "<code>CLAUDE_CODE_DISABLE_SHELL_HEAD_START=1</code> env var — given its first placemat row: stops a session's first Bash command's shell start-up files from running before the command is approved; confirmed only via this changelog entry, not yet in env-vars.md"
+    },
+    {
+     "tag": "ADD",
+     "item": "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC",
+     "html": "<code>CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC</code> env var — given its first placemat row: disables auto-updates, telemetry, error reporting, release notes and other nonessential network traffic; real and already documented in env-vars.md, but missed by earlier passes"
+    },
+    {
+     "tag": "CHG",
+     "item": "claude mcp add-json <name> -",
+     "html": "<code>claude mcp add-json &lt;name&gt; -</code> — reads the server's JSON from stdin instead of the command line, so tokens can stay off it; not available inside a Claude Code session; noted on the existing <code>claude mcp list/add/remove</code> row",
+     "row": "i-claude-mcp-list-add-remove"
+    },
+    {
+     "tag": "CHG",
+     "item": "claude mcp add --scope project",
+     "html": "<code>claude mcp add --scope project</code> — now stops, instead of overwriting the file, when <code>.mcp.json</code> lists its servers at the top level with no <code>mcpServers</code> key; noted on the existing row",
+     "row": "i-claude-mcp-list-add-remove"
+    },
+    {
+     "tag": "CHG",
+     "item": "/tui classic",
+     "html": "<code>/tui classic</code> — new name for <code>/tui</code>'s non-fullscreen renderer; <code>/tui default</code> still works; noted on the existing row, whose visible command text was also corrected to commands.md's own <code>/tui [default|fullscreen]</code> form",
+     "row": "i-tui-fullscreen"
+    },
+    {
+     "tag": "CHG",
+     "item": "/install-github-app",
+     "html": "<code>/install-github-app</code> — now asks for confirmation before it changes a repository, and its repository, secret and API key steps use the standard list and keys, with shorter messages, a spinner and clearer errors; noted on the existing row"
+    },
+    {
+     "tag": "CHG",
+     "item": "/export",
+     "html": "<code>/export</code> — the dialog now asks before overwriting an existing file; <code>/export &lt;name&gt;</code> keeps the file instead and says to run <code>/export</code>; noted on the existing row"
+    },
+    {
+     "tag": "CHG",
+     "item": "permissions.blockReadsOutsideWorkingDirectories",
+     "html": "<code>permissions.blockReadsOutsideWorkingDirectories</code> — now asks about more Bash commands in bypass and auto modes and denies some in auto mode, and refuses more that name a path under a Read or Edit deny rule, where it used to ask; noted on the existing row"
+    },
+    {
+     "tag": "CHG",
+     "item": "CLAUDE_CODE_AUTO_MODE_SERVER=0",
+     "html": "<code>CLAUDE_CODE_AUTO_MODE_SERVER=0</code> — the billed-local-classifier fallback warning now says an upcoming release removes the fallback; each action it would have checked will be asked about or denied instead; noted on the existing row"
+    },
+    {
+     "tag": "CHG",
+     "item": "--worktree",
+     "html": "<code>--worktree</code> — the <code>ExitWorktree</code> tool now asks before removing a worktree that may hold unsaved work, and is refused in don't-ask mode or with nobody to answer, unless an allow rule, auto, or bypass permissions mode allows it; noted on the existing row"
+    },
+    {
+     "tag": "CHG",
+     "item": "claude plugin eval",
+     "html": "<code>claude plugin eval</code> — now keeps its own deny rules over a plugin's permission hook, and flags calls the hook let through; noted on the existing row"
+    },
+    {
+     "tag": "CHG",
+     "item": "CLAUDE_CODE_GATEWAY_HINT_HEADERS=1",
+     "html": "<code>CLAUDE_CODE_GATEWAY_HINT_HEADERS=1</code> — now also sends an <code>x-claude-code-managed-settings-checksum</code> header; noted on the existing row"
+    },
+    {
+     "tag": "CHG",
+     "item": "/config",
+     "html": "<code>/config</code> — now notes when another setting overrides a row; noted on the existing row"
+    },
+    {
+     "tag": "CHG",
+     "item": "/status",
+     "html": "<code>/status</code> — gained a list of broken agent, skill, command and output style files, keybinding errors, an unavailable sandbox, ignored permission settings and hook matchers that never match; noted on the existing row"
+    }
+   ]
+  },
   {
    "version": "v2.1.326",
    "label": "CC v2.1.326",
@@ -4017,7 +4103,8 @@
     {
      "tag": "ADD",
      "item": "/tui [fullscreen]",
-     "html": "<code>/tui [fullscreen]</code> slash command — Switch to flicker-free fullscreen TUI rendering in same conversation"
+     "html": "<code>/tui [fullscreen]</code> slash command — Switch to flicker-free fullscreen TUI rendering in same conversation",
+     "row": "i-tui-fullscreen"
     },
     {
      "tag": "ADD",
