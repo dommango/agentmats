@@ -1,7 +1,153 @@
 {
- "generated": "2026-11-14",
- "latest": "v1.5.9",
+ "generated": "2026-11-18",
+ "latest": "v1.5.11",
  "releases": [
+  {
+   "version": "v1.5.11",
+   "label": "Antigravity CLI v1.5.11",
+   "date": "2026-11-18",
+   "id": "rel-1-5-11",
+   "entries": [
+    {
+     "tag": "CHG",
+     "item": "/remote-control [on/off]",
+     "html": "<code>/remote-control [on/off]</code> (<code>card-slash-tools</code>) — noted dragging a subagent's tab into the message box to @-mention it, and the fixed upload limit for large attachments, in the Remote Control browser view"
+    },
+    {
+     "tag": "CHG",
+     "item": "Ctrl+Z",
+     "html": "<code>Ctrl+Z</code> / <code>Ctrl+Shift+Z</code> (<code>card-keys</code>) — noted Vim mode undo (<code>u</code>) now undoing one command at a time instead of grouping nearby edits"
+    },
+    {
+     "tag": "CHG",
+     "item": "agy plugin <cmd>",
+     "html": "<code>agy plugin &lt;cmd&gt;</code> (<code>card-cli</code>) — noted <code>validate</code> now accepting a plugin <code>.zip</code> file, an <code>https://</code> link, or a GitHub repository URL, not just a local folder"
+    },
+    {
+     "tag": "FIX",
+     "item": "/usage",
+     "html": "<code>/usage</code> / <code>/quota</code> (<code>card-slash-tools</code>) — fixed loading forever or showing an empty quota with a <code>GEMINI_API_KEY</code>, which has no account quota to show; left out of autocomplete and <code>/help</code>, and exits with code 2 in <code>-p</code> runs"
+    },
+    {
+     "tag": "FIX",
+     "item": "/credits",
+     "html": "<code>/credits</code> (<code>card-slash-tools</code>) — same <code>GEMINI_API_KEY</code> quota fix, cited on this row"
+    },
+    {
+     "tag": "FIX",
+     "item": "/plugin",
+     "html": "<code>/plugin</code> / <code>/plugins</code> (<code>card-slash-tools</code>) — fixed <code>plugin.json</code> starting with a UTF-8 byte order mark (BOM) not loading despite <code>agy plugin install</code> reporting success"
+    },
+    {
+     "tag": "FIX",
+     "item": "agy install",
+     "html": "<code>agy install</code> (<code>card-cli</code>) — fixed install printing <code>ERROR: logging before google.Init</code> lines that made a successful install look like it had failed"
+    }
+   ]
+  },
+  {
+   "version": "v1.5.10",
+   "label": "Antigravity CLI v1.5.10",
+   "date": "2026-11-17",
+   "id": "rel-1-5-10",
+   "entries": [
+    {
+     "tag": "CHG",
+     "item": "--remote-agent",
+     "html": "<code>--remote-agent</code> (<code>card-cli</code>) — noted <code>accept-edits</code> mode added to these sessions, switched with <code>Shift+Tab</code>"
+    },
+    {
+     "tag": "CHG",
+     "item": "Shift+Tab",
+     "html": "<code>Shift+Tab</code> (<code>card-keys</code>) — same remote-agent <code>accept-edits</code> mode, cited on this row"
+    },
+    {
+     "tag": "CHG",
+     "item": "/model",
+     "html": "<code>/model</code> (<code>card-slash-core</code>) — noted the Orchestrator model for Gemini Enterprise/ADC accounts, and the Carbon/Argon rows merging into one <code>Orchestrator</code> row with a Planner choice"
+    },
+    {
+     "tag": "CHG",
+     "item": "AGY_ADC_AUTH",
+     "html": "<code>AGY_ADC_AUTH</code> (<code>card-env</code>) — noted the Orchestrator model now available in <code>/model</code> and <code>--model</code> under this sign-in method"
+    },
+    {
+     "tag": "CHG",
+     "item": "/tasks",
+     "html": "<code>/tasks</code> (<code>card-slash-tools</code>) — noted a countdown added to timers the agent sets, such as <code>59m left</code>"
+    },
+    {
+     "tag": "CHG",
+     "item": "agy",
+     "html": "<code>agy</code> (<code>card-cli</code>) — noted rate-limit retries now waiting up to 4 minutes, and long high-effort responses no longer canceled after 5 minutes of model silence"
+    },
+    {
+     "tag": "CHG",
+     "item": "/resume",
+     "html": "<code>/resume</code> / <code>/switch</code> / <code>/conversation</code> (<code>card-slash-core</code>) — noted switching to an already-open conversation, including after <code>/fork</code>, no longer reloading its whole history first"
+    },
+    {
+     "tag": "FIX",
+     "item": "/resume",
+     "html": "<code>/resume</code> / <code>/switch</code> / <code>/conversation</code> (<code>card-slash-core</code>) — fixed a rare race that could leave a new conversation unusable, with every message failing <code>trajectory not found</code>"
+    },
+    {
+     "tag": "CHG",
+     "item": "Ctrl+O",
+     "html": "<code>Ctrl+O</code> (<code>card-keys</code>) — noted hover highlighting added for clickable items in full screen (altscreen) rendering mode"
+    },
+    {
+     "tag": "CHG",
+     "item": "enableTerminalSandbox",
+     "html": "<code>enableTerminalSandbox</code> (<code>card-settings</code>) — noted <code>~/.config</code>/<code>XDG_CONFIG_HOME</code>, Windows <code>AppData\\Roaming</code>, and <code>~/.git-credentials</code> now blocked by default"
+    },
+    {
+     "tag": "FIX",
+     "item": "allowNonWorkspaceAccess",
+     "html": "<code>allowNonWorkspaceAccess</code> (<code>card-settings</code>) — fixed Auto mode asking for approval to read files outside the workspace even when this setting is on"
+    },
+    {
+     "tag": "FIX",
+     "item": "/context",
+     "html": "<code>/context</code> (<code>card-slash-tools</code>) — fixed turns failing or compacting too early after the agent read very large files before the conversation's first compaction"
+    },
+    {
+     "tag": "FIX",
+     "item": "agy acp [flags]",
+     "html": "<code>agy acp [flags]</code> (<code>card-cli</code>) — fixed background task/subagent results reaching the editor only at your next prompt, and subagents/background tasks not stopping when a prompt is canceled or the session closes"
+    },
+    {
+     "tag": "FIX",
+     "item": "/plugin",
+     "html": "<code>/plugin</code> / <code>/plugins</code> (<code>card-slash-tools</code>) — fixed pasting a plugin sign-in code right after install sometimes failing with a stale-link error"
+    },
+    {
+     "tag": "FIX",
+     "item": "pluginControls.pluginsDisabled",
+     "html": "<code>pluginControls.pluginsDisabled</code> (<code>card-settings</code>) — fixed plugin MCP servers and processes starting or continuing after an administrator turned plugins off"
+    },
+    {
+     "tag": "FIX",
+     "item": ".agents/skills/<name>/SKILL.md",
+     "html": "<code>.agents/skills/&lt;name&gt;/SKILL.md</code> (<code>card-skills</code>) — fixed skills with no <code>name</code> in their frontmatter all loading as <code>SKILL</code>, dropping every skill but the first"
+    },
+    {
+     "tag": "FIX",
+     "item": "AGY_CLI_OSC7501",
+     "html": "<code>AGY_CLI_OSC7501</code> (<code>card-env</code>) — fixed this terminal status showing the session as done while paused waiting for background subagents or tasks"
+    },
+    {
+     "tag": "FIX",
+     "item": "/permissions",
+     "html": "<code>/permissions</code> (<code>card-slash-core</code>) — fixed the keyboard letting an unavailable \"always allow\" option be selected when a rule or hook requires confirming each time"
+    },
+    {
+     "tag": "CHG",
+     "item": "/remote-control [on/off]",
+     "html": "<code>/remote-control [on/off]</code> (<code>card-slash-tools</code>) — noted a conversation navigator rail, a <code>Quote</code> button, clickable links, and a new Overview Panel added to the Remote Control browser view"
+    }
+   ]
+  },
   {
    "version": "v1.5.9",
    "label": "Antigravity CLI v1.5.9",
