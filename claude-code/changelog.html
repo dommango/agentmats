@@ -163,8 +163,33 @@
                 <h3>Content / CC Release Updates</h3>
                 <!-- November 2026 -->
                 <details class="month-group" open>
-                    <summary>November 2026 <span class="version-date">v2.1.317 – v2.1.327</span> <span class="month-count">9 releases</span></summary>
+                    <summary>November 2026 <span class="version-date">v2.1.317 – v2.1.328</span> <span class="month-count">10 releases</span></summary>
                     <div class="month-content">
+
+                        <div class="change-section">
+                            <h3 id="rel-2-1-328">CC v2.1.328 <span class="version-date">2026-11-19</span></h3>
+                            <ul class="change-list">
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>CLAUDE_CODE_DISABLE_DEFERRED_TOOL_RESUME</code> env var — given its first placemat row: stops <code>claude -p --resume</code>/<code>--continue</code> from running a tool call that a hook deferred; confirmed only via this changelog entry, not yet in env-vars.md as of the 2026-11-19 fetch</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>CLAUDE_CODE_PRINT_BG_WAIT_CEILING_MS</code> env var — given its first placemat row: caps idle time <code>-p</code> mode waits on background work after the final turn, default 600000ms; real and already documented in env-vars.md since v2.1.182, but missed by earlier passes</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>claude self-hosted-runner --repository-folder &lt;path&gt;</code> — given its first placemat row: names the folder sessions use for a repository at <code>--capacity 1</code>, in place of its path under the base directory, which can't be a symbolic link</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>claude --environment &lt;id&gt; --metadata key=value</code> — given its first placemat row: labels a session dispatched to a self-hosted environment, for the <code>spawn-runner</code> hook</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>/bug [report]</code> — given its first placemat row: reports a bug or shares your conversation, with a consent screen before anything is sent; real and already documented in commands.md, but missed by earlier passes</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>/list-agents</code> — given its first placemat row: lists the subagents, agent team teammates, and other sessions Claude can message; real and already documented in commands.md, but missed by earlier passes</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>claude self-hosted-runner orchestrator</code> — <code>--hook-label &lt;label&gt;</code> hands the orchestrator's chosen session labels to the <code>spawn-runner</code> hook; noted on the existing row</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>onFailure: "block"</code> (hook field) — now also applies to <code>mcp_tool</code> hooks, not just command/HTTP hooks; noted on the existing row</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>deniedMcpServers</code> — an entry shaped like <code>claude.ai &lt;name&gt;</code> now also blocks that connector in cloud and self-hosted runner sessions, not just locally; noted on the existing row</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>CLAUDE_CODE_FORK_SUBAGENT=0</code> — subagents in <code>claude -p</code>, the Agent SDK, desktop and VS Code now wait for their own subagents by default instead of running them in the background; noted on the existing row</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>disableAutoMode</code> — also turns off auto mode's newer default for Opus 4.6 and Sonnet 4.6 at the plan-mode and Bash prompts on third-party providers; noted on the existing row</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>maxEffortLevel</code> — the Claude apps gateway now warns at startup when this policy value isn't a valid effort level; noted on the existing row</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>sandbox.failIfUnavailable</code> — left unset, a sandbox that fails to start now refuses the next sandboxed Bash command instead, saying the sandbox is off for the session; noted on the existing row</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>/code-review [level] [pr#]</code> — on most models, reports only bugs and CLAUDE.md violations now; run <code>/simplify</code> for reuse, simplification, and efficiency cleanups; noted on the existing row</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>/code-review [level] [pr#]</code> — on most models, each finding is now marked Important, Pre-existing, or Nit, with a suggested fix at the end; a clean review now reads "Code review found no issues."; noted on the existing row</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>claude self-hosted-runner --use-anthropic-gh false</code> — the built-in <code>gh api</code> is now off by default where settings guard Claude's GitHub tools by name; pass <code>--use-anthropic-gh true</code> to turn it back on there; noted on the existing row</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>PostToolUse</code> — managed hooks no longer fire for a call refused before it ran, no log entry, rewrite, block, or stop there; <code>PostToolBatch</code> still gets most such calls, just not marked as refused; noted on the existing row</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>/status</code> — now warns, alongside <code>claude doctor</code>, when an OpenTelemetry exporter has no endpoint set, since its data would likely be lost; noted on the existing row</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>crossSessionInbound</code> — also warns when a message might be held and dropped by a cloud session; noted on the existing row</span></li>
+                            </ul>
+                        </div>
 
                         <div class="change-section">
                             <h3 id="rel-2-1-327">CC v2.1.327 <span class="version-date">2026-11-17</span></h3>
@@ -1895,7 +1920,7 @@
         </div>
 
         <footer class="global-footer">
-            Template v1.2 · Content synced 2026-11-17<br>
+            Template v1.2 · Content synced 2026-11-19<br>
             <span class="disclaimer">Unofficial community reference — not affiliated with or endorsed by Anthropic.
             Condensed from the official docs; always confirm against
             <a href="https://code.claude.com/docs" target="_blank" rel="noopener noreferrer">code.claude.com/docs</a>.</span><br>
