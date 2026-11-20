@@ -32,7 +32,7 @@
     {
      "tag": "CHG",
      "item": "tui.keymap.<context>.<action>",
-     "html": "<code>tui.keymap.&lt;context&gt;.&lt;action&gt;</code> (<code>card-settings</code>) — adds configurable undo/redo actions to the <code>composer</code> context, including restoring attachments and large pastes"
+     "html": "<code>tui.keymap.&lt;context&gt;.&lt;action&gt;</code> (<code>card-settings</code>) — release notes add configurable composer undo/redo shortcuts, including restoring attachments and large pastes; exact action names pending confirmation"
     },
     {
      "tag": "FIX",
