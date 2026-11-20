@@ -1,7 +1,71 @@
 {
- "generated": "2026-11-18",
- "latest": "v0.170.0",
+ "generated": "2026-11-20",
+ "latest": "v0.171.0",
  "releases": [
+  {
+   "version": "v0.171.0",
+   "label": "Codex CLI v0.171.0",
+   "date": "2026-11-20",
+   "id": "rel-0-171-0",
+   "entries": [
+    {
+     "tag": "ADD",
+     "item": "/rc",
+     "html": "<code>/rc</code> (<code>card-slash-tools</code>) — manages local remote control and shows device pairing codes from the TUI, alongside the <code>/remote</code> alias"
+    },
+    {
+     "tag": "ADD",
+     "item": "tui_extensions_statusline",
+     "html": "<code>tui_extensions_statusline</code> (<code>card-settings</code>) — feature gate for custom MCP status-line selection and authoring via <code>/statusline</code>; <code>unverified</code>",
+     "row": "i-tui-extensions-statusline"
+    },
+    {
+     "tag": "CHG",
+     "item": "--remote <ADDR>",
+     "html": "<code>--remote &lt;ADDR&gt;</code> (<code>card-cli</code>) — adds support on <code>codex exec</code> to start or resume noninteractive sessions on an existing app server"
+    },
+    {
+     "tag": "CHG",
+     "item": "features.tui_workspace",
+     "html": "<code>features.tui_workspace</code> (<code>card-settings</code>) — enabled by default, adding document previews, image previews and subagent transcripts"
+    },
+    {
+     "tag": "CHG",
+     "item": "tui.keymap.<context>.<action>",
+     "html": "<code>tui.keymap.&lt;context&gt;.&lt;action&gt;</code> (<code>card-settings</code>) — release notes add configurable composer undo/redo shortcuts, including restoring attachments and large pastes; exact action names pending confirmation"
+    },
+    {
+     "tag": "FIX",
+     "item": "Tab",
+     "html": "<code>Tab</code> (<code>card-keys</code>) — drafts, queued follow-ups and interrupted input now keep their original thread across session switches and resumes"
+    },
+    {
+     "tag": "FIX",
+     "item": "default_permissions",
+     "html": "<code>default_permissions</code> (<code>card-settings</code>) — permission profiles now stay intact when the working directory changes"
+    },
+    {
+     "tag": "FIX",
+     "item": "approval_policy",
+     "html": "<code>approval_policy</code> (<code>card-settings</code>) — late completion events no longer cancel the approval for a newer turn"
+    },
+    {
+     "tag": "FIX",
+     "item": "Enter",
+     "html": "<code>Enter</code> (<code>card-keys</code>) — preserves earlier edits in aggregate diffs when steering an active turn"
+    },
+    {
+     "tag": "FIX",
+     "item": "/tui",
+     "html": "<code>/tui</code> (<code>card-keys</code>) — fixes stray scrollback characters, composer caret jumps, and redraws using stale terminal dimensions"
+    },
+    {
+     "tag": "FIX",
+     "item": "/mcp",
+     "html": "<code>/mcp</code> (<code>card-slash-tools</code>) — fixes enterprise MCP sign-in for identity providers that issue ID tokens without refresh tokens"
+    }
+   ]
+  },
   {
    "version": "v0.170.0",
    "label": "Codex CLI v0.169.1–v0.170.0",

@@ -163,8 +163,25 @@
                 <h3>Content / Codex CLI Releases</h3>
                 <!-- November 2026 -->
                 <details class="month-group" open>
-                    <summary>November 2026 <span class="version-date">v0.170.0</span> <span class="month-count">6 releases</span></summary>
+                    <summary>November 2026 <span class="version-date">v0.171.0</span> <span class="month-count">7 releases</span></summary>
                     <div class="month-content">
+
+                        <div class="change-section">
+                            <h3 id="rel-0-171-0">Codex CLI v0.171.0 <span class="version-date">2026-11-20</span></h3>
+                            <ul class="change-list">
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>/rc</code> (<code>card-slash-tools</code>) — manages local remote control and shows device pairing codes from the TUI, alongside the <code>/remote</code> alias</span></li>
+                                <li data-row="i-tui-extensions-statusline"><span class="tag tag-add">ADD</span><span class="entry"><code>tui_extensions_statusline</code> (<code>card-settings</code>) — feature gate for custom MCP status-line selection and authoring via <code>/statusline</code>; <code>unverified</code></span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>--remote &lt;ADDR&gt;</code> (<code>card-cli</code>) — adds support on <code>codex exec</code> to start or resume noninteractive sessions on an existing app server</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>features.tui_workspace</code> (<code>card-settings</code>) — enabled by default, adding document previews, image previews and subagent transcripts</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>tui.keymap.&lt;context&gt;.&lt;action&gt;</code> (<code>card-settings</code>) — release notes add configurable composer undo/redo shortcuts, including restoring attachments and large pastes; exact action names pending confirmation</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>Tab</code> (<code>card-keys</code>) — drafts, queued follow-ups and interrupted input now keep their original thread across session switches and resumes</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>default_permissions</code> (<code>card-settings</code>) — permission profiles now stay intact when the working directory changes</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>approval_policy</code> (<code>card-settings</code>) — late completion events no longer cancel the approval for a newer turn</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>Enter</code> (<code>card-keys</code>) — preserves earlier edits in aggregate diffs when steering an active turn</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>/tui</code> (<code>card-keys</code>) — fixes stray scrollback characters, composer caret jumps, and redraws using stale terminal dimensions</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>/mcp</code> (<code>card-slash-tools</code>) — fixes enterprise MCP sign-in for identity providers that issue ID tokens without refresh tokens</span></li>
+                            </ul>
+                        </div>
 
                         <div class="change-section">
                             <h3 id="rel-0-170-0">Codex CLI v0.169.1–v0.170.0 <span class="version-date">2026-11-18</span></h3>
@@ -395,7 +412,7 @@
         </div>
 
         <footer class="global-footer">
-            Template v1.0 · Content synced 2026-11-18<br>
+            Template v1.0 · Content synced 2026-11-20<br>
             <span class="disclaimer">Unofficial community reference — not affiliated with or endorsed by OpenAI.
             Condensed from the official docs; always confirm against
             <a href="https://developers.openai.com/codex" target="_blank" rel="noopener noreferrer">developers.openai.com/codex</a>.</span><br>
