@@ -1,7 +1,50 @@
 {
  "generated": "2026-11-19",
- "latest": "v2.1.328",
+ "latest": "v2.1.329",
  "releases": [
+  {
+   "version": "v2.1.329",
+   "label": "CC v2.1.329",
+   "date": "2026-11-19",
+   "id": "rel-2-1-329",
+   "entries": [
+    {
+     "tag": "ADD",
+     "item": "CLAUDE_CODE_MAX_OUTPUT_TOKENS",
+     "html": "<code>CLAUDE_CODE_MAX_OUTPUT_TOKENS</code> env var — given its first placemat row: caps output tokens per request; real and already documented in env-vars.md, but missed by earlier passes — named by this release's changelog as the gateway workaround after it removed 2.1.326's automatic retry at a <code>max_tokens</code> error's own limit"
+    },
+    {
+     "tag": "CHG",
+     "item": "/tasks",
+     "html": "<code>/tasks</code> — also lists this session's scheduled tasks, <code>/loop</code> wakeups, the goal, and this conversation's forks; <code>x</code> stops one after confirming; noted on the existing row"
+    },
+    {
+     "tag": "CHG",
+     "item": "/tasks",
+     "html": "<code>/tasks</code> — the header and the footer's background-work count now cover shells, Monitors, MCP calls, agents, workflows, and scheduled tasks as one number; noted on the existing row"
+    },
+    {
+     "tag": "CHG",
+     "item": "/mcp",
+     "html": "<code>/mcp</code> — a server's page shows a \"Server message\" row with the JSON-RPC error a remote HTTP server sends back when it refuses the connection; noted on the existing row"
+    },
+    {
+     "tag": "CHG",
+     "item": "/status",
+     "html": "<code>/status</code> — a \"Marketplace auto-update\" row names managed marketplaces that get no automatic updates, and why; noted on the existing row"
+    },
+    {
+     "tag": "CHG",
+     "item": "onFailure: \"block\"",
+     "html": "<code>onFailure: \"block\"</code> (hook field) — in Code Mode, a <code>PreToolUse</code> hook that errors no longer refuses the script's tool call by itself; set this field on the hook to keep it blocking there; noted on the existing row"
+    },
+    {
+     "tag": "CHG",
+     "item": "SubagentStart",
+     "html": "<code>SubagentStart</code> / <code>Stop</code> / <code>SubagentStop</code> — a Monitor's script is now listed as <code>monitor</code>, not <code>shell</code>, in <code>background_tasks</code>; noted on the existing row"
+    }
+   ]
+  },
   {
    "version": "v2.1.328",
    "label": "CC v2.1.328",
