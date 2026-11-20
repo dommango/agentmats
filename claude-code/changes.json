@@ -41,7 +41,7 @@
     {
      "tag": "CHG",
      "item": "SubagentStart",
-     "html": "<code>SubagentStart</code> / <code>Stop</code> / <code>SubagentStop</code> — a Monitor's script is now listed as <code>monitor</code>, not <code>shell</code>, in <code>background_tasks</code>; noted on the existing row"
+     "html": "<code>SubagentStart</code> / <code>Stop</code> / <code>SubagentStop</code> — Stop and SubagentStop now list a Monitor's script as <code>monitor</code>, not <code>shell</code>, in <code>background_tasks</code>; noted on the existing row"
     }
    ]
   },
