@@ -51,7 +51,7 @@
             <span class="header-tagline">Unofficial · auto-updated reference</span>
         </div>
         <div class="global-controls">
-            <span class="release-tag">As of release: v0.23.2 (2026.11.16)</span>
+            <span class="release-tag">As of release: v0.23.3 (2026.11.19)</span>
             <a href="changelog.html" class="header-link">Changelog →</a>
             <a href="feed.xml" class="header-link" title="Subscribe to placemat changes (RSS)">RSS</a>
             <button type="button" class="header-link print-btn" id="printBtn" title="Print or save as PDF (Ctrl P)">⎙ Print</button>
@@ -88,7 +88,7 @@
 
         <div class="print-head" aria-hidden="true">
             <span class="print-head-title">Hermes Agent <b>PLACEMAT</b></span>
-            <span>As of release v0.23.2 (2026.11.16)</span>
+            <span>As of release v0.23.3 (2026.11.19)</span>
             <span>■ = new &nbsp; □ = unverified</span>
             <span>dommango.github.io/agentmats/hermes</span>
         </div>
@@ -341,7 +341,7 @@
                 <table>
                     <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
                     <tr class="search-item" id="i-hermes-config"><td><a class="row-link" href="#i-hermes-config" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes config</code></td><td class="desc"><span class="summary">Show, edit, migrate and query configuration</span> <button type="button" class="notes-btn" aria-expanded="false">+2</button><ul class="notes" hidden><li>Subcommands: <code>edit</code>, <code>get</code>, <code>set</code>, <code>unset</code>, <code>check</code>, <code>migrate</code>.</li><li><code>set</code> routes automatically — API keys land in <code>.env</code>, everything else in <code>config.yaml</code>.</li></ul></td></tr>
-                    <tr class="search-item" id="i-hermes-setup"><td><a class="row-link" href="#i-hermes-setup" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes setup</code></td><td class="desc">Interactive setup wizard for all or part of the configuration</td></tr>
+                    <tr class="search-item" id="i-hermes-setup"><td><a class="row-link" href="#i-hermes-setup" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes setup</code></td><td class="desc"><span class="summary">Interactive setup wizard for all or part of the configuration</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>The v0.23.3 release notes describe a simplified one-question first-run flow that includes the free tier.</li></ul></td></tr>
                     <tr class="search-item" id="i-hermes-auth"><td><a class="row-link" href="#i-hermes-auth" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes auth</code></td><td class="desc"><span class="summary">Add, list, remove, reset and check credentials</span> <button type="button" class="notes-btn" aria-expanded="false">+2</button><ul class="notes" hidden><li>Handles OAuth flows for Codex, Nous, Anthropic and OpenRouter (browser PKCE login). The old top-level <code>hermes login</code> is removed; <code>logout</code> is a subcommand of <code>auth</code>, not a separate command.</li><li><code class="unverified">upgrade</code> converts a free trial identity into a full Nous account, alongside <code>/login</code>; named in the v0.22.0 release notes, pending confirmation against the CLI reference.</li></ul></td></tr>
                     <tr class="search-item" id="i-hermes-migrate"><td><a class="row-link" href="#i-hermes-migrate" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes migrate</code></td><td class="desc">Rewrite <code>config.yaml</code> to replace retired models or deprecated settings</td></tr>
                     <tr class="search-item" id="i-hermes-status"><td><a class="row-link" href="#i-hermes-status" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>hermes status</code></td><td class="desc"><span class="summary">Show agent and auth status</span> <button type="button" class="notes-btn" aria-expanded="false">+1</button><ul class="notes" hidden><li>Prints a one-screen summary by default; <code>--full</code> (alias <code>--all</code>) shows every section and <code>--deep</code> runs slower checks, implying <code>--full</code>.</li></ul></td></tr>
@@ -463,6 +463,7 @@
                     <thead><tr><th scope="col" class="sr-only">Item</th><th scope="col" class="sr-only">Description</th></tr></thead>
                     <tr class="search-item" id="i-compression"><td><a class="row-link" href="#i-compression" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>compression</code></td><td class="desc">Context compression thresholds and behaviour</td></tr>
                     <tr class="search-item" id="i-compression-prepare-ahead"><td><a class="row-link" href="#i-compression-prepare-ahead" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>compression.prepare_ahead</code></td><td class="desc">Opt-in: write the next compaction summary in the background before the trigger fires</td></tr>
+                    <tr class="search-item" id="i-compression-proactive-prune-tokens"><td><a class="row-link" href="#i-compression-proactive-prune-tokens" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>compression.proactive_prune_tokens</code></td><td class="desc"><span class="summary">Token threshold for a no-LLM deterministic prune of old tool-result payloads</span> <button type="button" class="notes-btn" aria-expanded="false">+2</button><ul class="notes" hidden><li>Paired with <code>proactive_prune_min_result_chars</code> (default 8000) and <code>proactive_prune_min_reclaim_tokens</code> (default 4096), which gate which results qualify and how much a prune must reclaim before it commits.</li><li>configuration.md documents the default as <code>0</code> (off), but the v0.23.3 release notes say this prune is now on by default.</li></ul></td></tr>
                     <tr class="search-item" id="i-context-2"><td><a class="row-link" href="#i-context-2" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>context</code></td><td class="desc">Context engine, pressure warnings and file truncation limits</td></tr>
                     <tr class="search-item" id="i-database"><td><a class="row-link" href="#i-database" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>database</code></td><td class="desc">Database settings for sessions and state</td></tr>
                     <tr class="search-item" id="i-sessions-auto-prune"><td><a class="row-link" href="#i-sessions-auto-prune" tabindex="-1" title="Copy link to this entry (or press l on the row)" aria-label="Copy link to this entry">#</a><code>sessions.auto_prune</code></td><td class="desc">Delete old ended sessions automatically; set by <code>/autoprune</code>, off by default</td></tr>
@@ -612,7 +613,7 @@
         <div class="no-results search-exclude" id="noResults">No matches — clear search to see everything.</div>
 
         <footer class="global-footer">
-            Template v1.0 · Content synced 2026-11-16<br>
+            Template v1.0 · Content synced 2026-11-19<br>
             <span class="disclaimer">Unofficial community reference — not affiliated with or endorsed by Nous Research.
             Condensed from the official docs; always confirm against
             <a href="https://hermes-agent.nousresearch.com/docs/" target="_blank" rel="noopener noreferrer">hermes-agent.nousresearch.com/docs</a>.</span><br>

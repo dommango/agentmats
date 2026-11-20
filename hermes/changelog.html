@@ -163,8 +163,19 @@
                 <h3>Content / Hermes Agent Releases</h3>
                 <!-- November 2026 -->
                 <details class="month-group" open>
-                    <summary>November 2026 <span class="version-date">v0.22.6 – v0.23.2</span> <span class="month-count">5 releases</span></summary>
+                    <summary>November 2026 <span class="version-date">v0.22.6 – v0.23.3</span> <span class="month-count">6 releases</span></summary>
                     <div class="month-content">
+
+                        <div class="change-section">
+                            <h3 id="rel-0-23-3">Hermes Agent v0.23.3 <span class="version-date">2026-11-19</span></h3>
+                            <ul class="change-list">
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>compression.proactive_prune_tokens</code> settings key — a deterministic, no-LLM prune of old tool-result payloads above its size and reclaim thresholds; the release notes say it is now on by default</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>hermes setup</code> — the release notes describe a simplified one-question first-run flow that includes the free tier</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry">Compaction now archives the tool results it drops instead of discarding them, behind a new prompt-cache lifecycle controller that consolidates the related cache-management logic</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry">GPT-6.2 Astra and Sol, plus their Pro variants, are available as models on OpenRouter and the Nous Portal</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry">v0.23.3 is a rollup patch release covering 1,657 commits and 370 merged PRs since v0.23.2; curated notes for the rest of this window ship with v0.24.0</span></li>
+                            </ul>
+                        </div>
 
                         <div class="change-section">
                             <h3 id="rel-0-23-2">Hermes Agent v0.23.2 <span class="version-date">2026-11-16</span></h3>

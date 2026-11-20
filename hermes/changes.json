@@ -1,7 +1,40 @@
 {
- "generated": "2026-11-16",
- "latest": "v0.23.2",
+ "generated": "2026-11-19",
+ "latest": "v0.23.3",
  "releases": [
+  {
+   "version": "v0.23.3",
+   "label": "Hermes Agent v0.23.3",
+   "date": "2026-11-19",
+   "id": "rel-0-23-3",
+   "entries": [
+    {
+     "tag": "ADD",
+     "item": "compression.proactive_prune_tokens",
+     "html": "<code>compression.proactive_prune_tokens</code> settings key — a deterministic, no-LLM prune of old tool-result payloads above its size and reclaim thresholds; the release notes say it is now on by default"
+    },
+    {
+     "tag": "CHG",
+     "item": "hermes setup",
+     "html": "<code>hermes setup</code> — the release notes describe a simplified one-question first-run flow that includes the free tier"
+    },
+    {
+     "tag": "CHG",
+     "item": null,
+     "html": "Compaction now archives the tool results it drops instead of discarding them, behind a new prompt-cache lifecycle controller that consolidates the related cache-management logic"
+    },
+    {
+     "tag": "CHG",
+     "item": null,
+     "html": "GPT-6.2 Astra and Sol, plus their Pro variants, are available as models on OpenRouter and the Nous Portal"
+    },
+    {
+     "tag": "CHG",
+     "item": null,
+     "html": "v0.23.3 is a rollup patch release covering 1,657 commits and 370 merged PRs since v0.23.2; curated notes for the rest of this window ship with v0.24.0"
+    }
+   ]
+  },
   {
    "version": "v0.23.2",
    "label": "Hermes Agent v0.23.2",
