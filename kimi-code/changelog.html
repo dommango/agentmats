@@ -163,8 +163,28 @@
                 <h3>Content / Kimi Code Releases</h3>
                 <!-- November 2026 -->
                 <details class="month-group" open>
-                    <summary>November 2026 <span class="version-date">v2.5.0 – v2.6.3</span> <span class="month-count">8 releases</span></summary>
+                    <summary>November 2026 <span class="version-date">v2.5.0 – v2.7.1</span> <span class="month-count">10 releases</span></summary>
                     <div class="month-content">
+
+                        <div class="change-section">
+                            <h3 id="rel-2-7-1">Kimi Code v2.7.1 <span class="version-date">2026-11-20</span></h3>
+                            <ul class="change-list">
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>/fork</code> &mdash; fixed turn-specific fork failures after restoring a session with in-turn steering</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>[background]</code> &mdash; queued prompts now stay pending until the background-notification turn they arrived during finishes</span></li>
+                            </ul>
+                        </div>
+
+                        <div class="change-section">
+                            <h3 id="rel-2-7-0">Kimi Code v2.7.0 <span class="version-date">2026-11-19</span></h3>
+                            <ul class="change-list">
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>follow_up_behavior</code> &mdash; new <code>tui.toml</code> setting (also under <code>/settings</code>); set to <code>"steer"</code> so <code>Enter</code> steers into the running turn instead of queueing</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>/tasks</code> &mdash; also lists running foreground agents and their activity, not only background tasks</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>/sessions</code> &mdash; can now resume a session that is currently open in another client, not only one left by an exited process</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>[providers."&lt;id&gt;"]</code> &mdash; <code>type = "bedrock"</code> connects to Amazon Bedrock, inferring the wire protocol per model and supporting AWS credential-chain or API-key authentication</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>KIMI_CODE_EXPERIMENTAL_PROMPT_PREDICTION</code> &mdash; experimental next-prompt suggestions in the TUI after a completed turn; accept with <code>Tab</code> or <code>Right Arrow</code></span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>[subagent]</code> &mdash; fixed subagents timing out immediately in <code>kimi -p</code> and when <code>timeout_ms = 0</code> is set</span></li>
+                            </ul>
+                        </div>
 
                         <div class="change-section">
                             <h3 id="rel-2-6-3">Kimi Code v2.6.3 <span class="version-date">2026-11-17</span></h3>
@@ -442,7 +462,7 @@
         </div>
 
         <footer class="global-footer">
-            Template v1.0 · Content synced 2026-11-14<br>
+            Template v1.0 · Content synced 2026-11-20<br>
             <span class="disclaimer">Unofficial community reference — not affiliated with or endorsed by Moonshot AI.
             Condensed from the official docs; always confirm against
             <a href="https://moonshotai.github.io/kimi-code/" target="_blank" rel="noopener noreferrer">moonshotai.github.io/kimi-code</a>.</span><br>

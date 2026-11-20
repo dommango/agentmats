@@ -1,7 +1,63 @@
 {
- "generated": "2026-11-17",
- "latest": "v2.6.3",
+ "generated": "2026-11-20",
+ "latest": "v2.7.1",
  "releases": [
+  {
+   "version": "v2.7.1",
+   "label": "Kimi Code v2.7.1",
+   "date": "2026-11-20",
+   "id": "rel-2-7-1",
+   "entries": [
+    {
+     "tag": "FIX",
+     "item": "/fork",
+     "html": "<code>/fork</code> &mdash; fixed turn-specific fork failures after restoring a session with in-turn steering"
+    },
+    {
+     "tag": "FIX",
+     "item": "[background]",
+     "html": "<code>[background]</code> &mdash; queued prompts now stay pending until the background-notification turn they arrived during finishes"
+    }
+   ]
+  },
+  {
+   "version": "v2.7.0",
+   "label": "Kimi Code v2.7.0",
+   "date": "2026-11-19",
+   "id": "rel-2-7-0",
+   "entries": [
+    {
+     "tag": "ADD",
+     "item": "follow_up_behavior",
+     "html": "<code>follow_up_behavior</code> &mdash; new <code>tui.toml</code> setting (also under <code>/settings</code>); set to <code>\"steer\"</code> so <code>Enter</code> steers into the running turn instead of queueing"
+    },
+    {
+     "tag": "CHG",
+     "item": "/tasks",
+     "html": "<code>/tasks</code> &mdash; also lists running foreground agents and their activity, not only background tasks"
+    },
+    {
+     "tag": "CHG",
+     "item": "/sessions",
+     "html": "<code>/sessions</code> &mdash; can now resume a session that is currently open in another client, not only one left by an exited process"
+    },
+    {
+     "tag": "ADD",
+     "item": "[providers.\"<id>\"]",
+     "html": "<code>[providers.\"&lt;id&gt;\"]</code> &mdash; <code>type = \"bedrock\"</code> connects to Amazon Bedrock, inferring the wire protocol per model and supporting AWS credential-chain or API-key authentication"
+    },
+    {
+     "tag": "ADD",
+     "item": "KIMI_CODE_EXPERIMENTAL_PROMPT_PREDICTION",
+     "html": "<code>KIMI_CODE_EXPERIMENTAL_PROMPT_PREDICTION</code> &mdash; experimental next-prompt suggestions in the TUI after a completed turn; accept with <code>Tab</code> or <code>Right Arrow</code>"
+    },
+    {
+     "tag": "FIX",
+     "item": "[subagent]",
+     "html": "<code>[subagent]</code> &mdash; fixed subagents timing out immediately in <code>kimi -p</code> and when <code>timeout_ms = 0</code> is set"
+    }
+   ]
+  },
   {
    "version": "v2.6.3",
    "label": "Kimi Code v2.6.3",

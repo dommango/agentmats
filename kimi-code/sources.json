@@ -40,7 +40,7 @@
   ],
   "inventory": {
     "source": "https://moonshotai.github.io/kimi-code/en/reference/slash-commands.md, https://moonshotai.github.io/kimi-code/en/reference/kimi-command.md, https://moonshotai.github.io/kimi-code/en/configuration/config-files.md, https://moonshotai.github.io/kimi-code/en/configuration/env-vars.md, https://moonshotai.github.io/kimi-code/en/customization/hooks.md, https://moonshotai.github.io/kimi-code/en/customization/skills.md, https://moonshotai.github.io/kimi-code/en/guides/remote-environment.md, https://moonshotai.github.io/kimi-code/en/guides/interaction.md",
-    "fetched": "2026-11-14",
+    "fetched": "2026-11-20",
     "note": "Extracted from the vendor's own reference/configuration/customization docs (raw .md). release-notes/changelog.md was used only to confirm the current release, never as a source of surface facts.",
     "slash": [
       "/login", "/logout", "/provider", "/model", "/secondary-model", "/subagent-model",
@@ -103,7 +103,7 @@
       "permission.rules.decision", "permission.rules.scope", "permission.rules.pattern",
       "permission.rules.reason", "permission.dangerous_command_guard",
       "hooks.event", "hooks.matcher", "hooks.command", "hooks.timeout",
-      "theme", "render_latex", "disable_paste_burst", "cache_expiry_hint",
+      "theme", "render_latex", "disable_paste_burst", "cache_expiry_hint", "follow_up_behavior",
       "transcript.tool_call_density", "transcript.thinking",
       "disable_feedback_survey",
       "editor.command", "notifications.enabled", "notifications.notification_condition",
