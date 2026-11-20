@@ -162,9 +162,24 @@
                 <h3>Content / Antigravity CLI Releases</h3>
                 <!-- November 2026 -->
                 <details class="month-group" open>
-                    <summary>November 2026 <span class="version-date">v1.5.0 – v1.5.11</span> <span class="month-count">12 releases</span></summary>
+                    <summary>November 2026 <span class="version-date">v1.5.0 – v1.5.12</span> <span class="month-count">13 releases</span></summary>
                     <div class="month-content">
 
+                        <div class="change-section">
+                            <h3 id="rel-1-5-12">Antigravity CLI v1.5.12 <span class="version-date">2026-11-19</span></h3>
+                            <ul class="change-list">
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>/fork</code> (<code>card-slash-core</code>) — noted faster forking of conversations with large artifact folders, which now point to the original's files instead of copying them</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>/remote-control [on/off]</code> (<code>card-slash-tools</code>) — noted split view and the retry option for failed scrollback loads in the Remote Control browser view</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>/remote-control [on/off]</code> (<code>card-slash-tools</code>) — fixed a crash on pasted <code>@</code> mentions from a Markdown export and <code>Enter</code> sending while the send button was disabled, both in the Remote Control browser view</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>--mode &lt;mode&gt;</code> (<code>card-cli</code>) — noted the sandbox-escape review deciding faster on Gemini 4 Hydrogen, now using medium instead of high thinking</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>agy</code> (<code>card-cli</code>) — fixed agent turns stopping with an error after a brief connection problem; such requests now retry automatically</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>altScreenMode</code> (<code>card-settings</code>) — noted the scroll position indicator and the mouse-copy line-break fix in full screen (altscreen) rendering mode</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>/statusline</code> (<code>card-slash-core</code>) — fixed the status line showing a red <code>AI: Out of credits</code> label when connected with a <code>GEMINI_API_KEY</code></span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>useG1Credits</code> (<code>card-settings</code>) — same <code>GEMINI_API_KEY</code> status line fix, cited on this row</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>GEMINI_API_KEY</code> (<code>card-env</code>) — noted Gemini 4 Neon added to <code>/model</code> and <code>--model</code> when connected with this key</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>GEMINI_API_KEY</code> (<code>card-env</code>) — fixed Remote Control, <code>--remote-agent</code>, and voice dictation being offered when connected with this key; they now exit or explain the restriction instead of failing</span></li>
+                            </ul>
+                        </div>
                         <div class="change-section">
                             <h3 id="rel-1-5-11">Antigravity CLI v1.5.11 <span class="version-date">2026-11-18</span></h3>
                             <ul class="change-list">

@@ -1,7 +1,65 @@
 {
- "generated": "2026-11-18",
- "latest": "v1.5.11",
+ "generated": "2026-11-19",
+ "latest": "v1.5.12",
  "releases": [
+  {
+   "version": "v1.5.12",
+   "label": "Antigravity CLI v1.5.12",
+   "date": "2026-11-19",
+   "id": "rel-1-5-12",
+   "entries": [
+    {
+     "tag": "CHG",
+     "item": "/fork",
+     "html": "<code>/fork</code> (<code>card-slash-core</code>) — noted faster forking of conversations with large artifact folders, which now point to the original's files instead of copying them"
+    },
+    {
+     "tag": "CHG",
+     "item": "/remote-control [on/off]",
+     "html": "<code>/remote-control [on/off]</code> (<code>card-slash-tools</code>) — noted split view and the retry option for failed scrollback loads in the Remote Control browser view"
+    },
+    {
+     "tag": "FIX",
+     "item": "/remote-control [on/off]",
+     "html": "<code>/remote-control [on/off]</code> (<code>card-slash-tools</code>) — fixed a crash on pasted <code>@</code> mentions from a Markdown export and <code>Enter</code> sending while the send button was disabled, both in the Remote Control browser view"
+    },
+    {
+     "tag": "CHG",
+     "item": "--mode <mode>",
+     "html": "<code>--mode &lt;mode&gt;</code> (<code>card-cli</code>) — noted the sandbox-escape review deciding faster on Gemini 4 Hydrogen, now using medium instead of high thinking"
+    },
+    {
+     "tag": "FIX",
+     "item": "agy",
+     "html": "<code>agy</code> (<code>card-cli</code>) — fixed agent turns stopping with an error after a brief connection problem; such requests now retry automatically"
+    },
+    {
+     "tag": "CHG",
+     "item": "altScreenMode",
+     "html": "<code>altScreenMode</code> (<code>card-settings</code>) — noted the scroll position indicator and the mouse-copy line-break fix in full screen (altscreen) rendering mode"
+    },
+    {
+     "tag": "FIX",
+     "item": "/statusline",
+     "html": "<code>/statusline</code> (<code>card-slash-core</code>) — fixed the status line showing a red <code>AI: Out of credits</code> label when connected with a <code>GEMINI_API_KEY</code>"
+    },
+    {
+     "tag": "FIX",
+     "item": "useG1Credits",
+     "html": "<code>useG1Credits</code> (<code>card-settings</code>) — same <code>GEMINI_API_KEY</code> status line fix, cited on this row"
+    },
+    {
+     "tag": "CHG",
+     "item": "GEMINI_API_KEY",
+     "html": "<code>GEMINI_API_KEY</code> (<code>card-env</code>) — noted Gemini 4 Neon added to <code>/model</code> and <code>--model</code> when connected with this key"
+    },
+    {
+     "tag": "FIX",
+     "item": "GEMINI_API_KEY",
+     "html": "<code>GEMINI_API_KEY</code> (<code>card-env</code>) — fixed Remote Control, <code>--remote-agent</code>, and voice dictation being offered when connected with this key; they now exit or explain the restriction instead of failing"
+    }
+   ]
+  },
   {
    "version": "v1.5.11",
    "label": "Antigravity CLI v1.5.11",
