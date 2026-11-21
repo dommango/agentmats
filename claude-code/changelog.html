@@ -163,8 +163,27 @@
                 <h3>Content / CC Release Updates</h3>
                 <!-- November 2026 -->
                 <details class="month-group" open>
-                    <summary>November 2026 <span class="version-date">v2.1.317 – v2.1.329</span> <span class="month-count">11 releases</span></summary>
+                    <summary>November 2026 <span class="version-date">v2.1.317 – v2.1.330</span> <span class="month-count">12 releases</span></summary>
                     <div class="month-content">
+
+                        <div class="change-section">
+                            <h3 id="rel-2-1-330">CC v2.1.330 <span class="version-date">2026-11-20</span></h3>
+                            <ul class="change-list">
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>CLAUDE_CODE_FULL_SIGN_IN_LINK=1</code> env var — print the full sign-in link instead of the shortened one, if the short link errors or a script reads values from it</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>claude self-hosted-runner --start-dir &lt;path&gt;</code> / <code>SELF_HOSTED_RUNNER_START_DIR</code> — have Claude start its work in a folder of a repository, while settings and hooks still load as they would without it</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>cc-plugin-easel</code> built-in mod — gives Claude a charting tool and draws a chart automatically under a supported MCP result, such as a Prometheus range query; needs a claude.ai subscription, macOS or Linux outside WSL, and v2.1.321+ (v2.1.326+ on Team/Enterprise); turn off only the automatic chart with Auto charts in <code>/config</code></span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>CLAUDE_CODE_MAX_OUTPUT_TOKENS</code> — the gateway workaround it was added for is less needed now: the automatic retry at a <code>max_tokens</code> error's own limit, removed in v2.1.329, was reverted; noted on the existing row</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>deniedMcpServers</code> — a name entry now hides only the claude.ai connector of that exact name, not others sharing its URL; deny the connector's exact URL to block them all; noted on the existing row</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>claude self-hosted-runner orchestrator</code> — <code>--hook-concurrency &lt;n&gt;</code> (default 4) caps parallel <code>spawn-runner</code> hooks and claimed spawn requests per poll; noted on the existing row</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>CLAUDE_CODE_SIMPLE_SYSTEM_PROMPT</code> — an unrecognized model name containing "sonnet" or "haiku" now gets the shorter prompt like any other unrecognized name, instead of a special-cased full one; noted on the existing row</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>claude --teleport &lt;session-id&gt;</code> — in some setups now prints the git commands to switch branch instead of running them; with <code>-p</code> it exits 1 until you switch; noted on the existing row</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>claude plugin install &lt;plugin&gt;</code> — <code>--json</code> results now include <code>commandPrinted</code> and <code>commandFailed</code>; noted on the existing row</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>/loop [interval]</code> — now runs up to 30 days instead of 7 while its session keeps running, and says when it ends; loops made before this release still end at 7 days; noted on the existing row</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>/schedule</code> — a recurring task now runs up to 30 days instead of 7 while its session keeps running, and says when it ends; tasks made before this release still end at 7 days; noted on the existing row</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>bashEditDiffEnabled</code> — self-hosted runners now skip computing this diff when nothing needs it, so some transcripts lack it; set this to <code>true</code> in managed settings to get every diff; noted on the existing row</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>claude auth login/logout</code> — now signs in to an organization managed in Anthropic's Enterprise Admin Console, applying its settings and cloud provider or gateway after login; noted on the existing row</span></li>
+                            </ul>
+                        </div>
 
                         <div class="change-section">
                             <h3 id="rel-2-1-329">CC v2.1.329 <span class="version-date">2026-11-19</span></h3>
@@ -1933,7 +1952,7 @@
         </div>
 
         <footer class="global-footer">
-            Template v1.2 · Content synced 2026-11-19<br>
+            Template v1.2 · Content synced 2026-11-20<br>
             <span class="disclaimer">Unofficial community reference — not affiliated with or endorsed by Anthropic.
             Condensed from the official docs; always confirm against
             <a href="https://code.claude.com/docs" target="_blank" rel="noopener noreferrer">code.claude.com/docs</a>.</span><br>
