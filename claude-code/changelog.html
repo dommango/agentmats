@@ -163,8 +163,20 @@
                 <h3>Content / CC Release Updates</h3>
                 <!-- November 2026 -->
                 <details class="month-group" open>
-                    <summary>November 2026 <span class="version-date">v2.1.317 – v2.1.330</span> <span class="month-count">12 releases</span></summary>
+                    <summary>November 2026 <span class="version-date">v2.1.317 – v2.1.331</span> <span class="month-count">13 releases</span></summary>
                     <div class="month-content">
+
+                        <div class="change-section">
+                            <h3 id="rel-2-1-331">CC v2.1.331 <span class="version-date">2026-11-23</span></h3>
+                            <ul class="change-list">
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>CLAUDE_GATEWAY_IDP_CONNECT_BY_HOSTNAME=1</code> env var — for Claude apps gateways with <code>oidc.use_proxy: true</code>, hands the proxy the identity provider's <code>https</code> hostname instead of resolving it locally, even when <code>NO_PROXY</code> is set</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>CLAUDE_CODE_DISABLE_RESPONSE_COMPRESSION</code> env var — ask for uncompressed model responses behind a proxy that cuts off compressed ones; not yet advised for self-hosted runners or Remote Control</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>optionalDependencies</code> (plugin manifest) — plugins that install alongside a plugin listing them and can be disabled or uninstalled on their own</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>/doctor</code> — a new API connectivity section reports whether the API can be reached, with the HTTP status or error, or why it wasn't tested; noted on the existing row</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>PermissionDenied</code> — <code>retry: true</code> is now ignored for a denial with no classifier verdict; otherwise the call retries only if you explicitly asked for it; noted on the existing row</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>extraKnownMarketplaces</code> — starting November 30, 2026, entries auto-update by default; set <code>autoUpdate: false</code> on an entry to opt it out; noted on the existing row</span></li>
+                            </ul>
+                        </div>
 
                         <div class="change-section">
                             <h3 id="rel-2-1-330">CC v2.1.330 <span class="version-date">2026-11-20</span></h3>
@@ -1952,7 +1964,7 @@
         </div>
 
         <footer class="global-footer">
-            Template v1.2 · Content synced 2026-11-20<br>
+            Template v1.2 · Content synced 2026-11-23<br>
             <span class="disclaimer">Unofficial community reference — not affiliated with or endorsed by Anthropic.
             Condensed from the official docs; always confirm against
             <a href="https://code.claude.com/docs" target="_blank" rel="noopener noreferrer">code.claude.com/docs</a>.</span><br>
