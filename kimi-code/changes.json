@@ -1,7 +1,20 @@
 {
- "generated": "2026-11-20",
- "latest": "v2.7.1",
+ "generated": "2026-11-24",
+ "latest": "v2.7.3",
  "releases": [
+  {
+   "version": "v2.7.3",
+   "label": "Kimi Code v2.7.3",
+   "date": "2026-11-24",
+   "id": "rel-2-7-3",
+   "entries": [
+    {
+     "tag": "FIX",
+     "item": "/sessions",
+     "html": "<code>/sessions</code> &mdash; fixed sessions that could not open after their model became unavailable"
+    }
+   ]
+  },
   {
    "version": "v2.7.1",
    "label": "Kimi Code v2.7.1",
