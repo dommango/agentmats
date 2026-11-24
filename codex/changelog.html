@@ -176,7 +176,7 @@
                                 <li><span class="tag tag-change">CHG</span><span class="entry"><code>--remote &lt;ADDR&gt;</code> (<code>card-cli</code>) — keeps working directories, workspace roots and writable paths intact across remote sessions, even across different client/server operating systems</span></li>
                                 <li><span class="tag tag-change">CHG</span><span class="entry"><code>approvals_reviewer</code> (<code>card-settings</code>) — release notes: <code>apps.&lt;id&gt;.approvals_reviewer</code> sets the reviewer for one connected app's tools</span></li>
                                 <li><span class="tag tag-change">CHG</span><span class="entry"><code>model_provider</code> (<code>card-settings</code>) — app-server clients can now select the built-in <code>amazon-bedrock</code> provider during setup or sign-in</span></li>
-                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>mcp_servers.&lt;id&gt;.startup_timeout_sec</code> (<code>card-settings</code>) — release notes: optional stdio servers with a cached tool list now start lazily, on their first tool call, by default</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>mcp_servers.&lt;id&gt;.startup_readiness</code> (<code>card-settings</code>) — <code>catalog</code> mode lets an optional stdio server with a cached tool list start lazily, on its first tool call</span></li>
                             </ul>
                         </div>
 

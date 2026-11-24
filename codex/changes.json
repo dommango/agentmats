@@ -45,9 +45,9 @@
      "html": "<code>model_provider</code> (<code>card-settings</code>) — app-server clients can now select the built-in <code>amazon-bedrock</code> provider during setup or sign-in"
     },
     {
-     "tag": "CHG",
-     "item": "mcp_servers.<id>.startup_timeout_sec",
-     "html": "<code>mcp_servers.&lt;id&gt;.startup_timeout_sec</code> (<code>card-settings</code>) — release notes: optional stdio servers with a cached tool list now start lazily, on their first tool call, by default"
+     "tag": "ADD",
+     "item": "mcp_servers.<id>.startup_readiness",
+     "html": "<code>mcp_servers.&lt;id&gt;.startup_readiness</code> (<code>card-settings</code>) — <code>catalog</code> mode lets an optional stdio server with a cached tool list start lazily, on its first tool call"
     }
    ]
   },
