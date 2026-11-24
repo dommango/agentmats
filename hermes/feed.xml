@@ -4,7 +4,14 @@
   <link href="https://dommango.github.io/agentmats/hermes/"/>
   <link rel="self" href="https://dommango.github.io/agentmats/hermes/feed.xml"/>
   <id>https://dommango.github.io/agentmats/hermes/</id>
-  <updated>2026-11-19T09:00:00Z</updated>
+  <updated>2026-11-23T09:00:00Z</updated>
+  <entry>
+    <title>Hermes Agent v0.23.4 — 8 placemat changes</title>
+    <id>https://dommango.github.io/agentmats/hermes/changelog.html#rel-0-23-4</id>
+    <link href="https://dommango.github.io/agentmats/hermes/changelog.html#rel-0-23-4"/>
+    <updated>2026-11-23T09:00:00Z</updated>
+    <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;skills.index_desc_limit&lt;/code&gt; settings key — per-skill description length shown in the prompt's skill index; defaults to 60 (range 60–1024), trading prompt tokens for longer trigger phrases&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;hermes plugins&lt;/code&gt; — &lt;code&gt;config &amp;lt;name&amp;gt;&lt;/code&gt; opens an interactive editor for that plugin's own settings from the terminal&lt;/li&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;hermes gateway&lt;/code&gt; — &lt;code&gt;migrate --backends [--json|--apply|--restore|--status]&lt;/code&gt; reports, and can move, any other still-separately-running background service onto the gateway&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; Gemini 4 Hydrogen, Neon and Carbon are available as models on the Nous Portal, OpenRouter and Vertex&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; A new plugin API lets a plugin see which client sent the current turn (CLI, Desktop, TUI, ACP, or a messaging platform); the vendor docs stress it is a self-reported label, never a basis for an authorization decision&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; A slow profile switch now shows a retryable indicator instead of appearing to hang&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; Managed-scope pinned configuration is now also honored by security and URL-safety reads, not just the values they previously covered&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; v0.23.4 is a rollup patch release covering 1,122 non-merge commits and 229 merged PRs since v0.23.3; curated notes for the rest of this window ship with v0.24.0&lt;/li&gt;&lt;/ul&gt;</content>
+  </entry>
   <entry>
     <title>Hermes Agent v0.23.3 — 5 placemat changes</title>
     <id>https://dommango.github.io/agentmats/hermes/changelog.html#rel-0-23-3</id>

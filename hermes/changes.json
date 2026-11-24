@@ -1,7 +1,55 @@
 {
- "generated": "2026-11-19",
- "latest": "v0.23.3",
+ "generated": "2026-11-23",
+ "latest": "v0.23.4",
  "releases": [
+  {
+   "version": "v0.23.4",
+   "label": "Hermes Agent v0.23.4",
+   "date": "2026-11-23",
+   "id": "rel-0-23-4",
+   "entries": [
+    {
+     "tag": "ADD",
+     "item": "skills.index_desc_limit",
+     "html": "<code>skills.index_desc_limit</code> settings key — per-skill description length shown in the prompt's skill index; defaults to 60 (range 60–1024), trading prompt tokens for longer trigger phrases"
+    },
+    {
+     "tag": "ADD",
+     "item": "hermes plugins",
+     "html": "<code>hermes plugins</code> — <code>config &lt;name&gt;</code> opens an interactive editor for that plugin's own settings from the terminal"
+    },
+    {
+     "tag": "ADD",
+     "item": "hermes gateway",
+     "html": "<code>hermes gateway</code> — <code>migrate --backends [--json|--apply|--restore|--status]</code> reports, and can move, any other still-separately-running background service onto the gateway"
+    },
+    {
+     "tag": "CHG",
+     "item": null,
+     "html": "Gemini 4 Hydrogen, Neon and Carbon are available as models on the Nous Portal, OpenRouter and Vertex"
+    },
+    {
+     "tag": "CHG",
+     "item": null,
+     "html": "A new plugin API lets a plugin see which client sent the current turn (CLI, Desktop, TUI, ACP, or a messaging platform); the vendor docs stress it is a self-reported label, never a basis for an authorization decision"
+    },
+    {
+     "tag": "CHG",
+     "item": null,
+     "html": "A slow profile switch now shows a retryable indicator instead of appearing to hang"
+    },
+    {
+     "tag": "CHG",
+     "item": null,
+     "html": "Managed-scope pinned configuration is now also honored by security and URL-safety reads, not just the values they previously covered"
+    },
+    {
+     "tag": "CHG",
+     "item": null,
+     "html": "v0.23.4 is a rollup patch release covering 1,122 non-merge commits and 229 merged PRs since v0.23.3; curated notes for the rest of this window ship with v0.24.0"
+    }
+   ]
+  },
   {
    "version": "v0.23.3",
    "label": "Hermes Agent v0.23.3",
