@@ -163,8 +163,22 @@
                 <h3>Content / Codex CLI Releases</h3>
                 <!-- November 2026 -->
                 <details class="month-group" open>
-                    <summary>November 2026 <span class="version-date">v0.171.0</span> <span class="month-count">7 releases</span></summary>
+                    <summary>November 2026 <span class="version-date">v0.172.0</span> <span class="month-count">8 releases</span></summary>
                     <div class="month-content">
+
+                        <div class="change-section">
+                            <h3 id="rel-0-172-0">Codex CLI v0.172.0 <span class="version-date">2026-11-24</span></h3>
+                            <ul class="change-list">
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>PageUp</code> (<code>card-keys</code>) — reads and submits approval answer choices taller than the terminal's answer area, alongside <code>PageDown</code></span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>Tab</code> (<code>card-keys</code>) — completes arguments for supported slash commands, e.g. <code>/mcp lo</code> completes to <code>/mcp login</code></span></li>
+                                <li data-row="i-codex-agents"><span class="tag tag-change">CHG</span><span class="entry"><code>codex agents</code> (<code>card-cli</code>) — adds <code>Shift+Up</code> / <code>Shift+Down</code> to jump between task groups in the command center</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>codex exec</code> (<code>card-cli</code>) — <code>resume</code> restores the saved sandbox permissions, working directory and workspace roots</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>--remote &lt;ADDR&gt;</code> (<code>card-cli</code>) — keeps working directories, workspace roots and writable paths intact across remote sessions, even across different client/server operating systems</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>approvals_reviewer</code> (<code>card-settings</code>) — release notes: <code>apps.&lt;id&gt;.approvals_reviewer</code> sets the reviewer for one connected app's tools</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>model_provider</code> (<code>card-settings</code>) — app-server clients can now select the built-in <code>amazon-bedrock</code> provider during setup or sign-in</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>mcp_servers.&lt;id&gt;.startup_timeout_sec</code> (<code>card-settings</code>) — release notes: optional stdio servers with a cached tool list now start lazily, on their first tool call, by default</span></li>
+                            </ul>
+                        </div>
 
                         <div class="change-section">
                             <h3 id="rel-0-171-0">Codex CLI v0.171.0 <span class="version-date">2026-11-20</span></h3>
@@ -412,7 +426,7 @@
         </div>
 
         <footer class="global-footer">
-            Template v1.0 · Content synced 2026-11-20<br>
+            Template v1.0 · Content synced 2026-11-24<br>
             <span class="disclaimer">Unofficial community reference — not affiliated with or endorsed by OpenAI.
             Condensed from the official docs; always confirm against
             <a href="https://developers.openai.com/codex" target="_blank" rel="noopener noreferrer">developers.openai.com/codex</a>.</span><br>
