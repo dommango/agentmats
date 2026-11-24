@@ -1,7 +1,105 @@
 {
  "generated": "2026-11-19",
- "latest": "v1.5.12",
+ "latest": "v1.5.13",
  "releases": [
+  {
+   "version": "v1.5.13",
+   "label": "Antigravity CLI v1.5.13",
+   "date": "2026-11-19",
+   "id": "rel-1-5-13",
+   "entries": [
+    {
+     "tag": "CHG",
+     "item": "AGY_ADC_AUTH",
+     "html": "<code>AGY_ADC_AUTH</code> (<code>card-env</code>) — noted Gemini 4 Neon added to <code>/model</code> and <code>--model</code> when signed in this way, and through an enterprise model gateway"
+    },
+    {
+     "tag": "FIX",
+     "item": "customModelsConfig",
+     "html": "<code>customModelsConfig</code> (<code>card-settings</code>) — fixed entries' <code>modelFeatures</code> flags set to <code>false</code>, such as <code>supportsThinking</code>, being ignored by the CLI"
+    },
+    {
+     "tag": "FIX",
+     "item": "/swarm <task>",
+     "html": "<code>/swarm &lt;task&gt;</code> (<code>card-slash-tools</code>) — fixed agents starting a swarm on their own without <code>/swarm</code> being typed, which could use far more quota than a single agent"
+    },
+    {
+     "tag": "FIX",
+     "item": "Ctrl+C",
+     "html": "<code>Ctrl+C</code> (<code>card-keys</code>) — fixed this and other <code>Ctrl</code>/<code>Alt</code> shortcuts acting as a different key on non-QWERTY keyboard layouts such as Dvorak or AZERTY"
+    },
+    {
+     "tag": "FIX",
+     "item": "Ctrl+D",
+     "html": "<code>Ctrl+D</code> (<code>card-keys</code>) — same non-QWERTY keyboard layout fix, cited on this row"
+    },
+    {
+     "tag": "FIX",
+     "item": "editorMode",
+     "html": "<code>editorMode</code> (<code>card-settings</code>) — fixed <code>Enter</code> adding a new line instead of running the command in <code>!</code> shell mode while Vim mode is on"
+    },
+    {
+     "tag": "FIX",
+     "item": "agy update",
+     "html": "<code>agy update</code> (<code>card-cli</code>) — fixed this failing on Android (Termux) with a <code>directory ... is not fully accessible</code> error"
+    },
+    {
+     "tag": "FIX",
+     "item": "queuedMessages",
+     "html": "<code>queuedMessages</code> (<code>card-settings</code>) — fixed the <code>/config</code> hint for <code>Send Immediately</code> wrongly saying it interrupts the agent"
+    },
+    {
+     "tag": "FIX",
+     "item": "--output-format <fmt>",
+     "html": "<code>--output-format &lt;fmt&gt;</code> (<code>card-cli</code>) — fixed <code>json</code>/<code>stream-json</code> status reading <code>ERROR</code> for runs that succeeded after the CLI retried a model request"
+    },
+    {
+     "tag": "FIX",
+     "item": "agy acp [flags]",
+     "html": "<code>agy acp [flags]</code> (<code>card-cli</code>) — fixed shell commands here running in the editor's launch directory instead of the session's project folder"
+    },
+    {
+     "tag": "FIX",
+     "item": "agy acp [flags]",
+     "html": "<code>agy acp [flags]</code> (<code>card-cli</code>) — fixed this ignoring an editor's unsaved file contents attached to a prompt, such as in Zed"
+    },
+    {
+     "tag": "FIX",
+     "item": "agy acp [flags]",
+     "html": "<code>agy acp [flags]</code> (<code>card-cli</code>) — fixed model pickers in connected editors showing internal placeholder IDs and duplicate same-name rows for an enterprise model gateway"
+    },
+    {
+     "tag": "FIX",
+     "item": "agy acp [flags]",
+     "html": "<code>agy acp [flags]</code> (<code>card-cli</code>) — fixed this spamming an <code>API error (attempt N)</code> message in the editor's chat on every retry, even a successful one"
+    },
+    {
+     "tag": "FIX",
+     "item": "/antigravity-guide [question]",
+     "html": "<code>/antigravity-guide [question]</code> (<code>card-slash-tools</code>) — fixed this reading a redirect notice instead of the page when it looked up the docs or changelog"
+    },
+    {
+     "tag": "FIX",
+     "item": "/remote-control [on/off]",
+     "html": "<code>/remote-control [on/off]</code> (<code>card-slash-tools</code>) — fixed the Remote Control browser view jumping when you answer a permission prompt"
+    },
+    {
+     "tag": "FIX",
+     "item": "/remote-control [on/off]",
+     "html": "<code>/remote-control [on/off]</code> (<code>card-slash-tools</code>) — fixed permission prompts there resetting after a brief connection drop, losing your picked option and typed text"
+    },
+    {
+     "tag": "CHG",
+     "item": "/artifact",
+     "html": "<code>/artifact</code> (<code>card-slash-tools</code>) — noted column-aware mouse selection for Markdown tables in this viewer and in full screen (altscreen) rendering mode"
+    },
+    {
+     "tag": "CHG",
+     "item": "/compact [message]",
+     "html": "<code>/compact [message]</code> (<code>card-slash-core</code>) — promoted to verified: <code>cli/reference</code>'s core slash command table now lists it under Conversation"
+    }
+   ]
+  },
   {
    "version": "v1.5.12",
    "label": "Antigravity CLI v1.5.12",

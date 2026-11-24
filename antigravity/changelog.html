@@ -162,9 +162,32 @@
                 <h3>Content / Antigravity CLI Releases</h3>
                 <!-- November 2026 -->
                 <details class="month-group" open>
-                    <summary>November 2026 <span class="version-date">v1.5.0 – v1.5.12</span> <span class="month-count">13 releases</span></summary>
+                    <summary>November 2026 <span class="version-date">v1.5.0 – v1.5.13</span> <span class="month-count">14 releases</span></summary>
                     <div class="month-content">
 
+                        <div class="change-section">
+                            <h3 id="rel-1-5-13">Antigravity CLI v1.5.13 <span class="version-date">2026-11-19</span></h3>
+                            <ul class="change-list">
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>AGY_ADC_AUTH</code> (<code>card-env</code>) — noted Gemini 4 Neon added to <code>/model</code> and <code>--model</code> when signed in this way, and through an enterprise model gateway</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>customModelsConfig</code> (<code>card-settings</code>) — fixed entries' <code>modelFeatures</code> flags set to <code>false</code>, such as <code>supportsThinking</code>, being ignored by the CLI</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>/swarm &lt;task&gt;</code> (<code>card-slash-tools</code>) — fixed agents starting a swarm on their own without <code>/swarm</code> being typed, which could use far more quota than a single agent</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>Ctrl+C</code> (<code>card-keys</code>) — fixed this and other <code>Ctrl</code>/<code>Alt</code> shortcuts acting as a different key on non-QWERTY keyboard layouts such as Dvorak or AZERTY</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>Ctrl+D</code> (<code>card-keys</code>) — same non-QWERTY keyboard layout fix, cited on this row</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>editorMode</code> (<code>card-settings</code>) — fixed <code>Enter</code> adding a new line instead of running the command in <code>!</code> shell mode while Vim mode is on</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>agy update</code> (<code>card-cli</code>) — fixed this failing on Android (Termux) with a <code>directory ... is not fully accessible</code> error</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>queuedMessages</code> (<code>card-settings</code>) — fixed the <code>/config</code> hint for <code>Send Immediately</code> wrongly saying it interrupts the agent</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>--output-format &lt;fmt&gt;</code> (<code>card-cli</code>) — fixed <code>json</code>/<code>stream-json</code> status reading <code>ERROR</code> for runs that succeeded after the CLI retried a model request</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>agy acp [flags]</code> (<code>card-cli</code>) — fixed shell commands here running in the editor's launch directory instead of the session's project folder</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>agy acp [flags]</code> (<code>card-cli</code>) — fixed this ignoring an editor's unsaved file contents attached to a prompt, such as in Zed</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>agy acp [flags]</code> (<code>card-cli</code>) — fixed model pickers in connected editors showing internal placeholder IDs and duplicate same-name rows for an enterprise model gateway</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>agy acp [flags]</code> (<code>card-cli</code>) — fixed this spamming an <code>API error (attempt N)</code> message in the editor's chat on every retry, even a successful one</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>/antigravity-guide [question]</code> (<code>card-slash-tools</code>) — fixed this reading a redirect notice instead of the page when it looked up the docs or changelog</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>/remote-control [on/off]</code> (<code>card-slash-tools</code>) — fixed the Remote Control browser view jumping when you answer a permission prompt</span></li>
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>/remote-control [on/off]</code> (<code>card-slash-tools</code>) — fixed permission prompts there resetting after a brief connection drop, losing your picked option and typed text</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>/artifact</code> (<code>card-slash-tools</code>) — noted column-aware mouse selection for Markdown tables in this viewer and in full screen (altscreen) rendering mode</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>/compact [message]</code> (<code>card-slash-core</code>) — promoted to verified: <code>cli/reference</code>'s core slash command table now lists it under Conversation</span></li>
+                            </ul>
+                        </div>
                         <div class="change-section">
                             <h3 id="rel-1-5-12">Antigravity CLI v1.5.12 <span class="version-date">2026-11-19</span></h3>
                             <ul class="change-list">
