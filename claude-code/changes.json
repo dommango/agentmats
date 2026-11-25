@@ -1,7 +1,50 @@
 {
- "generated": "2026-11-23",
- "latest": "v2.1.331",
+ "generated": "2026-11-25",
+ "latest": "v2.1.332",
  "releases": [
+  {
+   "version": "v2.1.332",
+   "label": "CC v2.1.332",
+   "date": "2026-11-25",
+   "id": "rel-2-1-332",
+   "entries": [
+    {
+     "tag": "ADD",
+     "item": "PreSkillShellCommand",
+     "html": "<code>PreSkillShellCommand</code> hook event — fires before a skill's injected shell command runs; can block it, in which case the skill loads without that output"
+    },
+    {
+     "tag": "ADD",
+     "item": "server:skill",
+     "html": "<code>server:skill</code> naming (beta) — a skill loaded from an MCP server now shows under this name in the <code>/</code> menu; other skills keep their own names"
+    },
+    {
+     "tag": "CHG",
+     "item": "--model",
+     "html": "<code>--model</code> — <code>--model default</code> and a Default pick now fall back to an older model instead of erroring when the chosen one isn't available; auto mode only falls back to a model it accepts; noted on the existing row"
+    },
+    {
+     "tag": "CHG",
+     "item": "disableAutoMode",
+     "html": "<code>disableAutoMode</code> — terminal and VS Code sessions on Sonnet 5 or 5.5 via Bedrock Mantle, Agent Platform, or Foundry now also start in auto mode by default when no mode is set; noted on the existing row"
+    },
+    {
+     "tag": "CHG",
+     "item": "crossSessionInbound",
+     "html": "<code>crossSessionInbound</code> — the hold prompt now offers \"Always deliver\" to stop holding messages from that sender; noted on the existing row"
+    },
+    {
+     "tag": "CHG",
+     "item": "feedbackDrafts",
+     "html": "<code>feedbackDrafts</code> — the terminal's draft dialog now opens on Not now, above separate options to send the report alone or with the transcript; noted on the existing row"
+    },
+    {
+     "tag": "CHG",
+     "item": "OTEL_LOG_ASSISTANT_RESPONSES",
+     "html": "<code>OTEL_LOG_ASSISTANT_RESPONSES</code> — also now covers text Claude sends through SendUserMessage or Cowork's message tool; noted on the existing row"
+    }
+   ]
+  },
   {
    "version": "v2.1.331",
    "label": "CC v2.1.331",
