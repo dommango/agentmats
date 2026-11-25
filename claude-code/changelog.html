@@ -163,8 +163,21 @@
                 <h3>Content / CC Release Updates</h3>
                 <!-- November 2026 -->
                 <details class="month-group" open>
-                    <summary>November 2026 <span class="version-date">v2.1.317 – v2.1.331</span> <span class="month-count">13 releases</span></summary>
+                    <summary>November 2026 <span class="version-date">v2.1.317 – v2.1.332</span> <span class="month-count">14 releases</span></summary>
                     <div class="month-content">
+
+                        <div class="change-section">
+                            <h3 id="rel-2-1-332">CC v2.1.332 <span class="version-date">2026-11-25</span></h3>
+                            <ul class="change-list">
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>PreSkillShellCommand</code> hook event — fires before a skill's injected shell command runs; can block it, in which case the skill loads without that output</span></li>
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>server:skill</code> naming (beta) — a skill loaded from an MCP server now shows under this name in the <code>/</code> menu; other skills keep their own names</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>--model</code> — <code>--model default</code> and a Default pick now fall back to an older model instead of erroring when the chosen one isn't available; auto mode only falls back to a model it accepts; noted on the existing row</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>disableAutoMode</code> — terminal and VS Code sessions on Sonnet 5 or 5.5 via Bedrock Mantle, Agent Platform, or Foundry now also start in auto mode by default when no mode is set; noted on the existing row</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>crossSessionInbound</code> — the hold prompt now offers "Always deliver" to stop holding messages from that sender; noted on the existing row</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>feedbackDrafts</code> — the terminal's draft dialog now opens on Not now, above separate options to send the report alone or with the transcript; noted on the existing row</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>OTEL_LOG_ASSISTANT_RESPONSES</code> — also now covers text Claude sends through SendUserMessage or Cowork's message tool; noted on the existing row</span></li>
+                            </ul>
+                        </div>
 
                         <div class="change-section">
                             <h3 id="rel-2-1-331">CC v2.1.331 <span class="version-date">2026-11-23</span></h3>
@@ -1964,7 +1977,7 @@
         </div>
 
         <footer class="global-footer">
-            Template v1.2 · Content synced 2026-11-23<br>
+            Template v1.2 · Content synced 2026-11-25<br>
             <span class="disclaimer">Unofficial community reference — not affiliated with or endorsed by Anthropic.
             Condensed from the official docs; always confirm against
             <a href="https://code.claude.com/docs" target="_blank" rel="noopener noreferrer">code.claude.com/docs</a>.</span><br>
