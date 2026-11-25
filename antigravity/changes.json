@@ -1,7 +1,166 @@
 {
- "generated": "2026-11-19",
- "latest": "v1.5.13",
+ "generated": "2026-11-24",
+ "latest": "v1.5.16",
  "releases": [
+  {
+   "version": "v1.5.16",
+   "label": "Antigravity CLI v1.5.16",
+   "date": "2026-11-24",
+   "id": "rel-1-5-16",
+   "entries": [
+    {
+     "tag": "CHG",
+     "item": "--conversation <id>",
+     "html": "<code>--conversation &lt;id&gt;</code> (<code>card-cli</code>) — added <code>-r</code> and <code>--resume</code> as flag aliases, so <code>agy -r &lt;id&gt;</code> resumes a conversation by ID"
+    },
+    {
+     "tag": "ADD",
+     "item": "~/.agents/skills/",
+     "html": "<code>~/.agents/skills/</code> (<code>card-skills</code>) — added discovery of user-global skills here, surfaced in <code>/skills</code> and <code>/</code> autocomplete"
+    },
+    {
+     "tag": "CHG",
+     "item": "agentMode",
+     "html": "<code>agentMode</code> (<code>card-settings</code>) — noted Auto mode now also creating or editing files outside the workspace without asking inside a version-controlled repo, or for append-only changes"
+    },
+    {
+     "tag": "CHG",
+     "item": "altScreenMode",
+     "html": "<code>altScreenMode</code> (<code>card-settings</code>) — noted the prompt bar staying anchored at the bottom on new, short, or <code>Ctrl+L</code>-cleared conversations"
+    },
+    {
+     "tag": "CHG",
+     "item": "pluginControls.pluginsDisabled",
+     "html": "<code>pluginControls.pluginsDisabled</code> (<code>card-settings</code>) — changed to keep built-in plugins enabled while still blocking installed, workspace, and marketplace plugins"
+    },
+    {
+     "tag": "CHG",
+     "item": "/remote-control [on/off]",
+     "html": "<code>/remote-control [on/off]</code> (<code>card-slash-tools</code>) — noted the audio/video file preview and download limit in the Remote Control browser view raised from 20 MB to 200 MB"
+    },
+    {
+     "tag": "CHG",
+     "item": "/usage",
+     "html": "<code>/usage</code> / <code>/quota</code> (<code>card-slash-tools</code>) — noted model quota now refreshing periodically during turns lasting a minute or longer"
+    },
+    {
+     "tag": "CHG",
+     "item": "/statusline",
+     "html": "<code>/statusline</code> (<code>card-slash-core</code>) — noted a live step checklist during multi-step turns and separate elapsed timers for thinking and the running tool"
+    }
+   ]
+  },
+  {
+   "version": "v1.5.15",
+   "label": "Antigravity CLI v1.5.15",
+   "date": "2026-11-23",
+   "id": "rel-1-5-15",
+   "entries": [
+    {
+     "tag": "ADD",
+     "item": "AGY_CLI_AUTO_COMPACT_OVERRIDE",
+     "html": "<code>AGY_CLI_AUTO_COMPACT_OVERRIDE</code> (<code>card-env</code>) — added, now supporting every eligible model via a token count, <code>K</code>/<code>M</code> shorthand, or a percentage of the context window"
+    },
+    {
+     "tag": "CHG",
+     "item": "/context",
+     "html": "<code>/context</code> (<code>card-slash-tools</code>) — noted an auto-compaction threshold row added under the capacity header"
+    },
+    {
+     "tag": "CHG",
+     "item": "orchestrator",
+     "html": "<code>orchestrator</code> (<code>card-settings</code>) — noted the default thinking Effort for the Planner and Executor roles changed to <code>high</code> when available"
+    },
+    {
+     "tag": "CHG",
+     "item": "/model",
+     "html": "<code>/model</code> (<code>card-slash-core</code>) — same Orchestrator default Effort change, cited on this row"
+    },
+    {
+     "tag": "CHG",
+     "item": "/resume",
+     "html": "<code>/resume</code> / <code>/switch</code> / <code>/conversation</code> (<code>card-slash-core</code>) — noted local conversation storage now keeping every saved conversation instead of pruning beyond the 500 most recent"
+    },
+    {
+     "tag": "CHG",
+     "item": "/remote-control [on/off]",
+     "html": "<code>/remote-control [on/off]</code> (<code>card-slash-tools</code>) — noted the project picker redone as a flat, recency-sorted list with a This Computer/Remote picker ahead of it"
+    },
+    {
+     "tag": "FIX",
+     "item": "agy acp [flags]",
+     "html": "<code>agy acp [flags]</code> (<code>card-cli</code>) — fixed several session-handling issues: early <code>session/load</code> replies, dropped permission prompts on attach, skipped leading slash commands/skills with attachments, and tool calls stuck open on <code>session/cancel</code>"
+    }
+   ]
+  },
+  {
+   "version": "v1.5.14",
+   "label": "Antigravity CLI v1.5.14",
+   "date": "2026-11-21",
+   "id": "rel-1-5-14",
+   "entries": [
+    {
+     "tag": "ADD",
+     "item": "/thinking [on|off]",
+     "html": "<code>/thinking [on|off]</code> (<code>card-slash-core</code>) — added to stream the model's full thinking live in the transcript while it thinks"
+    },
+    {
+     "tag": "ADD",
+     "item": "showThinking",
+     "html": "<code>showThinking</code> (<code>card-settings</code>) — added alongside <code>/thinking</code>, off by default"
+    },
+    {
+     "tag": "ADD",
+     "item": "orchestrator",
+     "html": "<code>orchestrator</code> (<code>card-settings</code>) — added to save the Orchestrator's Planner and Executor model and effort choices"
+    },
+    {
+     "tag": "CHG",
+     "item": "/model",
+     "html": "<code>/model</code> (<code>card-slash-core</code>) — noted consumer-plan local sessions can now pick both the Orchestrator's Planner and Executor models and their thinking Effort"
+    },
+    {
+     "tag": "CHG",
+     "item": "--remote-agent",
+     "html": "<code>--remote-agent</code> (<code>card-cli</code>) — noted <code>plan</code> mode added to these sessions, plus an Agent Mode setting on the Remote Agent tab of <code>/config</code>"
+    },
+    {
+     "tag": "CHG",
+     "item": "/swarm board",
+     "html": "<code>/swarm board</code> (<code>card-slash-tools</code>) — noted a live Overview section added on terminals at least 28 rows tall"
+    },
+    {
+     "tag": "CHG",
+     "item": "agentMode",
+     "html": "<code>agentMode</code> (<code>card-settings</code>) — noted Auto mode now reading files outside the workspace without asking for approval"
+    },
+    {
+     "tag": "CHG",
+     "item": "/remote-control [on/off]",
+     "html": "<code>/remote-control [on/off]</code> (<code>card-slash-tools</code>) — noted outside-workspace permission prompts now suggesting the enclosing repository or project folder"
+    },
+    {
+     "tag": "FIX",
+     "item": "/permissions",
+     "html": "<code>/permissions</code> (<code>card-slash-core</code>) — fixed a Windows security issue where UNC, device, and NT object paths in permission rules and <code>@</code> mentions could leak Windows credentials to a remote host"
+    },
+    {
+     "tag": "FIX",
+     "item": "agy",
+     "html": "<code>agy</code> (<code>card-cli</code>) — fixed resending a broken partial tool-call attempt on retry, which could fail later turns with thinking-signature validation errors"
+    },
+    {
+     "tag": "FIX",
+     "item": "/run-workflow",
+     "html": "<code>/run-workflow</code> (<code>card-slash-tools</code>) — fixed <code>workflow syntax error: 'return' outside function</code> for a script ending in a top-level <code>return</code>"
+    },
+    {
+     "tag": "FIX",
+     "item": "hooks.json",
+     "html": "<code>hooks.json</code> (<code>card-hooks</code>) — fixed command hooks on Linux/macOS leaving child processes running after a timeout or cancellation"
+    }
+   ]
+  },
   {
    "version": "v1.5.13",
    "label": "Antigravity CLI v1.5.13",
