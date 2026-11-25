@@ -39,7 +39,7 @@
   ],
   "inventory": {
     "source": "https://antigravity.google/docs/cli/reference (slash commands); https://antigravity.google/docs/settings?tab=cli (settings keys); https://antigravity.google/docs/hooks (hook events)",
-    "fetched": "2026-11-24",
+    "fetched": "2026-11-25",
     "slash": [
       "/add-dir", "/agents", "/agy-customizations", "/antigravity-guide",
       "/boost", "/artifact", "/browser", "/btw",
@@ -50,8 +50,8 @@
       "/mcp", "/model", "/open", "/permissions", "/plan", "/plugin",
       "/plugins", "/remote-control", "/rename", "/resume", "/run-workflow",
       "/swarm", "/switch", "/conversation", "/rewind", "/undo", "/schedule",
-      "/skills", "/statusline", "/tasks", "/teamwork", "/title", "/usage",
-      "/quota", "/voice", "/record"
+      "/skills", "/statusline", "/tasks", "/teamwork", "/title",
+      "/usage", "/quota", "/voice", "/record"
     ],
     "settings": [
       "colorScheme", "altScreenMode", "toolPermission", "artifactReviewPolicy",
@@ -60,9 +60,9 @@
       "useG1Credits", "verbosity", "runningLightSpeed",
       "agentMode", "queuedMessages", "hideActiveItems", "copyOnSelect",
       "pickerGrouping", "clearScrollbackOnResize", "disableSlashCommands",
-      "historySize", "model", "modelProvider", "trustedWorkspaces",
-      "useTerminalCursor", "permissions", "statusLine", "title",
-      "sandboxProxy", "customModelsConfig", "gcp"
+      "historySize", "model", "modelProvider",
+      "trustedWorkspaces", "useTerminalCursor", "permissions", "statusLine",
+      "title", "sandboxProxy", "customModelsConfig", "gcp"
     ],
     "hooks": ["SessionStart", "PreToolUse", "PostToolUse", "PreInvocation", "PostInvocation", "Stop"]
   }
