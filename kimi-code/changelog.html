@@ -163,8 +163,17 @@
                 <h3>Content / Kimi Code Releases</h3>
                 <!-- November 2026 -->
                 <details class="month-group" open>
-                    <summary>November 2026 <span class="version-date">v2.5.0 – v2.7.3</span> <span class="month-count">11 releases</span></summary>
+                    <summary>November 2026 <span class="version-date">v2.5.0 – v2.8.0</span> <span class="month-count">12 releases</span></summary>
                     <div class="month-content">
+
+                        <div class="change-section">
+                            <h3 id="rel-2-8-0">Kimi Code v2.8.0 <span class="version-date">2026-11-25</span></h3>
+                            <ul class="change-list">
+                                <li><span class="tag tag-fix">FIX</span><span class="entry"><code>/sessions</code> &mdash; resuming a session whose saved model was removed from <code>config.toml</code> now warns and lets you pick another with <code>/model</code>, blocking prompts until one is chosen</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>[notifications].enabled</code> &mdash; consecutive queued turns skip the intermediate completion alert between them; a finishing background task still notifies</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry"><code>KIMI_CODE_EXPERIMENTAL_PROMPT_PREDICTION</code> &mdash; improved prompt-prediction interactions; can now also be toggled from <code>/experiments</code> instead of only the env var</span></li>
+                            </ul>
+                        </div>
 
                         <div class="change-section">
                             <h3 id="rel-2-7-3">Kimi Code v2.7.3 <span class="version-date">2026-11-24</span></h3>

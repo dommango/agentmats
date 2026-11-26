@@ -1,7 +1,30 @@
 {
- "generated": "2026-11-24",
- "latest": "v2.7.3",
+ "generated": "2026-11-25",
+ "latest": "v2.8.0",
  "releases": [
+  {
+   "version": "v2.8.0",
+   "label": "Kimi Code v2.8.0",
+   "date": "2026-11-25",
+   "id": "rel-2-8-0",
+   "entries": [
+    {
+     "tag": "FIX",
+     "item": "/sessions",
+     "html": "<code>/sessions</code> &mdash; resuming a session whose saved model was removed from <code>config.toml</code> now warns and lets you pick another with <code>/model</code>, blocking prompts until one is chosen"
+    },
+    {
+     "tag": "CHG",
+     "item": "[notifications].enabled",
+     "html": "<code>[notifications].enabled</code> &mdash; consecutive queued turns skip the intermediate completion alert between them; a finishing background task still notifies"
+    },
+    {
+     "tag": "CHG",
+     "item": "KIMI_CODE_EXPERIMENTAL_PROMPT_PREDICTION",
+     "html": "<code>KIMI_CODE_EXPERIMENTAL_PROMPT_PREDICTION</code> &mdash; improved prompt-prediction interactions; can now also be toggled from <code>/experiments</code> instead of only the env var"
+    }
+   ]
+  },
   {
    "version": "v2.7.3",
    "label": "Kimi Code v2.7.3",
