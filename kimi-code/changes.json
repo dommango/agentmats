@@ -1,7 +1,25 @@
 {
- "generated": "2026-11-25",
- "latest": "v2.8.0",
+ "generated": "2026-11-26",
+ "latest": "v2.8.1",
  "releases": [
+  {
+   "version": "v2.8.1",
+   "label": "Kimi Code v2.8.1",
+   "date": "2026-11-26",
+   "id": "rel-2-8-1",
+   "entries": [
+    {
+     "tag": "FIX",
+     "item": null,
+     "html": "Canceling a Gemini or Vertex AI request now closes the connection immediately instead of lingering, and keeps the token usage counted so far"
+    },
+    {
+     "tag": "FIX",
+     "item": "/sessions",
+     "html": "<code>/sessions</code> &mdash; fixed <code>unloaded_tool</code> errors that could occur when tools change or a session resumes"
+    }
+   ]
+  },
   {
    "version": "v2.8.0",
    "label": "Kimi Code v2.8.0",
