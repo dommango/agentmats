@@ -4,7 +4,14 @@
   <link href="https://dommango.github.io/agentmats/hermes/"/>
   <link rel="self" href="https://dommango.github.io/agentmats/hermes/feed.xml"/>
   <id>https://dommango.github.io/agentmats/hermes/</id>
-  <updated>2026-11-23T09:00:00Z</updated>
+  <updated>2026-11-27T09:00:00Z</updated>
+  <entry>
+    <title>Hermes Agent v0.23.5 — 4 placemat changes</title>
+    <id>https://dommango.github.io/agentmats/hermes/changelog.html#rel-0-23-5</id>
+    <link href="https://dommango.github.io/agentmats/hermes/changelog.html#rel-0-23-5"/>
+    <updated>2026-11-27T09:00:00Z</updated>
+    <content type="html">&lt;ul&gt;&lt;li&gt;&lt;b&gt;ADD&lt;/b&gt; &lt;code&gt;compression.idle_compact_after_seconds&lt;/code&gt; settings key — gateway housekeeping compacts a cached chat once it has sat idle this long (0 disables); a per-channel override can also turn it off for one channel&lt;/li&gt;&lt;li&gt;&lt;b&gt;FIX&lt;/b&gt; A plugin's settings and enabled state no longer detach from it when the owning profile is renamed, moved, or removed&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; The built-in file-reading and file-search tools get improved matching and output behavior&lt;/li&gt;&lt;li&gt;&lt;b&gt;CHG&lt;/b&gt; v0.23.5 is a rollup patch release covering 1,262 non-merge commits and 338 merged PRs since v0.23.4; curated notes for the rest of this window ship with v0.24.0&lt;/li&gt;&lt;/ul&gt;</content>
+  </entry>
   <entry>
     <title>Hermes Agent v0.23.4 — 8 placemat changes</title>
     <id>https://dommango.github.io/agentmats/hermes/changelog.html#rel-0-23-4</id>

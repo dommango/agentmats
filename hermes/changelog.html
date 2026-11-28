@@ -163,8 +163,18 @@
                 <h3>Content / Hermes Agent Releases</h3>
                 <!-- November 2026 -->
                 <details class="month-group" open>
-                    <summary>November 2026 <span class="version-date">v0.22.6 – v0.23.4</span> <span class="month-count">7 releases</span></summary>
+                    <summary>November 2026 <span class="version-date">v0.22.6 – v0.23.5</span> <span class="month-count">8 releases</span></summary>
                     <div class="month-content">
+
+                        <div class="change-section">
+                            <h3 id="rel-0-23-5">Hermes Agent v0.23.5 <span class="version-date">2026-11-27</span></h3>
+                            <ul class="change-list">
+                                <li><span class="tag tag-add">ADD</span><span class="entry"><code>compression.idle_compact_after_seconds</code> settings key — gateway housekeeping compacts a cached chat once it has sat idle this long (0 disables); a per-channel override can also turn it off for one channel</span></li>
+                                <li data-row="i-hermes-plugins"><span class="tag tag-fix">FIX</span><span class="entry">A plugin's settings and enabled state no longer detach from it when the owning profile is renamed, moved, or removed</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry">The built-in file-reading and file-search tools get improved matching and output behavior</span></li>
+                                <li><span class="tag tag-change">CHG</span><span class="entry">v0.23.5 is a rollup patch release covering 1,262 non-merge commits and 338 merged PRs since v0.23.4; curated notes for the rest of this window ship with v0.24.0</span></li>
+                            </ul>
+                        </div>
 
                         <div class="change-section">
                             <h3 id="rel-0-23-4">Hermes Agent v0.23.4 <span class="version-date">2026-11-23</span></h3>

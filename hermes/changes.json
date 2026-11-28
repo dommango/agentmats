@@ -1,7 +1,36 @@
 {
- "generated": "2026-11-23",
- "latest": "v0.23.4",
+ "generated": "2026-11-27",
+ "latest": "v0.23.5",
  "releases": [
+  {
+   "version": "v0.23.5",
+   "label": "Hermes Agent v0.23.5",
+   "date": "2026-11-27",
+   "id": "rel-0-23-5",
+   "entries": [
+    {
+     "tag": "ADD",
+     "item": "compression.idle_compact_after_seconds",
+     "html": "<code>compression.idle_compact_after_seconds</code> settings key — gateway housekeeping compacts a cached chat once it has sat idle this long (0 disables); a per-channel override can also turn it off for one channel"
+    },
+    {
+     "tag": "FIX",
+     "item": null,
+     "html": "A plugin's settings and enabled state no longer detach from it when the owning profile is renamed, moved, or removed",
+     "row": "i-hermes-plugins"
+    },
+    {
+     "tag": "CHG",
+     "item": null,
+     "html": "The built-in file-reading and file-search tools get improved matching and output behavior"
+    },
+    {
+     "tag": "CHG",
+     "item": null,
+     "html": "v0.23.5 is a rollup patch release covering 1,262 non-merge commits and 338 merged PRs since v0.23.4; curated notes for the rest of this window ship with v0.24.0"
+    }
+   ]
+  },
   {
    "version": "v0.23.4",
    "label": "Hermes Agent v0.23.4",
